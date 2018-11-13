@@ -1,10 +1,12 @@
 package uci.ics.mondego.tldr.extractor;
 
+import java.util.List;
+
 public class Scanner {
 	
-	String PROJ_DIR;
-	List<Fil>
+	private String PROJ_DIR;
 	
+	List<String> all_files;
 	
 	
 	public Scanner(){
