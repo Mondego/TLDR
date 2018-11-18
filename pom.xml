@@ -21,5 +21,18 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+	    <groupId>org.eclipse.core</groupId>
+	    <artifactId>org.eclipse.core.resources</artifactId>
+	    <version>3.7.100</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.eclipse.jdt</groupId>
+	    <artifactId>core</artifactId>
+	    <version>3.3.0-v_771</version>
+	</dependency>
+    
   </dependencies>
 </project>
