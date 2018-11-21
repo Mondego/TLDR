@@ -31,8 +31,14 @@ public class App
     	   else if(!allJava.get(i).getCurrentCheckSum().equals(rd.getValue(allJava.get(i).getName()))){
     		   System.out.println(allJava.get(i).getName()+" has changed");
     		   rd.insert(allJava.get(i).getName(), allJava.get(i).getCurrentCheckSum());
+    		   ASTBuilder ast = new ASTBuilder(allJava.get(i).getName());
+    		   ast.AST();
     	   }
        }
+       
+       
+       
+       
        
        
     }
