@@ -12,10 +12,17 @@ public class File implements Entity{
 	private String prevCheckSum;
 	private String filePath;
 	
+	
+	
+	
 	public File(String name){
 		filePath = name;
 		currentCheckSum = calculateCheckSum();
 		prevCheckSum = currentCheckSum;
+	}
+	
+	public String getName(){
+		return filePath;
 	}
 	
 	public String getCurrentCheckSum(){

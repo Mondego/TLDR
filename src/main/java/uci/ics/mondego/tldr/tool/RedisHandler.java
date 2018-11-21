@@ -16,9 +16,15 @@ public class RedisHandler implements Database{
 	     System.out.println("Stored string in redis:: "+ jedis.get(fileName));
 	}
 	
-	public String get(String fileName){
+	public String getValue(String fileName){
 	    return jedis.get(fileName);
 	}
+	
+	public boolean exists(String fileName){
+		return jedis.exists(fileName);
+	}
+	
+	
 	
 	
 }
