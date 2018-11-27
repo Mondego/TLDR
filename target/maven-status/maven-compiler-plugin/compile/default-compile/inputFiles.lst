@@ -1,0 +1,17 @@
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/App.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/extractor/TreeBuilder.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/exception/package-info.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/Selection.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/extractor/package-info.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/Project.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/extractor/Dependency.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/Relation.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/extractor/RepoScanner.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/package-info.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/SourceFile.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/Entities.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/RedisHandler.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/package-info.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/Package.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/Statistics.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/Databases.java
