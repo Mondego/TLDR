@@ -5,22 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Scanner {
+public class RepoScanner {
 	
 	private String PROJ_DIR;
 	
 	
-	List<uci.ics.mondego.tldr.model.File> all_java_files;
-	List<uci.ics.mondego.tldr.model.File> all_jar_files;
-	List<uci.ics.mondego.tldr.model.File> all_class_files;
+	List<uci.ics.mondego.tldr.model.SourceFile> all_java_files;
+	List<uci.ics.mondego.tldr.model.SourceFile> all_jar_files;
+	List<uci.ics.mondego.tldr.model.SourceFile> all_class_files;
 	
 	
 	
-	public Scanner(String project_directory){
+	public RepoScanner(String project_directory){
 		PROJ_DIR = project_directory;
-		all_java_files = new ArrayList<uci.ics.mondego.tldr.model.File>();
-		all_jar_files = new ArrayList<uci.ics.mondego.tldr.model.File>();
-		all_class_files = new ArrayList<uci.ics.mondego.tldr.model.File>();
+		all_java_files = new ArrayList<uci.ics.mondego.tldr.model.SourceFile>();
+		all_jar_files = new ArrayList<uci.ics.mondego.tldr.model.SourceFile>();
+		all_class_files = new ArrayList<uci.ics.mondego.tldr.model.SourceFile>();
 		
 		this.listf(PROJ_DIR);
 	}
@@ -34,15 +34,15 @@ public class Scanner {
 		PROJ_DIR = pROJ_DIR;
 	}
 
-	public List<uci.ics.mondego.tldr.model.File> get_all_java_files() {
+	public List<uci.ics.mondego.tldr.model.SourceFile> get_all_java_files() {
 		return all_java_files;
 	}
 
-	public List<uci.ics.mondego.tldr.model.File> get_all_jar_files() {
+	public List<uci.ics.mondego.tldr.model.SourceFile> get_all_jar_files() {
 		return all_jar_files;
 	}
 
-	public List<uci.ics.mondego.tldr.model.File> get_all_class_files() {
+	public List<uci.ics.mondego.tldr.model.SourceFile> get_all_class_files() {
 		return all_class_files;
 	}
 	
@@ -57,7 +57,7 @@ public class Scanner {
 	        for (File file : fList) {    
 	        	
 	            if (file.isFile()) {
-	            	uci.ics.mondego.tldr.model.File f = new uci.ics.mondego.tldr.model.File(file.getAbsolutePath());
+	            	uci.ics.mondego.tldr.model.SourceFile f = new uci.ics.mondego.tldr.model.SourceFile(file.getAbsolutePath());
 	                if(file.getAbsolutePath().contains(".java")){
 	                	all_java_files.add(f);
 	                }

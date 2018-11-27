@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class File implements Entity{
+public class SourceFile implements Entities{
  
 	private String currentCheckSum;
 	private String prevCheckSum;
@@ -15,7 +15,7 @@ public class File implements Entity{
 	
 	
 	
-	public File(String name){
+	public SourceFile(String name){
 		filePath = name;
 		currentCheckSum = calculateCheckSum();
 		prevCheckSum = currentCheckSum;

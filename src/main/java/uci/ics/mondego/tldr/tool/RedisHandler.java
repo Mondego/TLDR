@@ -2,7 +2,7 @@ package uci.ics.mondego.tldr.tool;
 
 import redis.clients.jedis.Jedis;
 
-public class RedisHandler implements Database{
+public class RedisHandler implements Databases{
 
     private Jedis jedis; 
 

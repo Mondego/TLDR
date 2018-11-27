@@ -9,6 +9,7 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.PackageDeclaration;
+import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitor;
 //import org.eclipse.jdt.core.dom.AST;
@@ -21,14 +22,14 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 
 
-public class ASTBuilder {
+public class TreeBuilder {
 
 	String file="";
 	
-	public ASTBuilder(){
+	public TreeBuilder(){
 	}
 	
-    public ASTBuilder(String file){
+    public TreeBuilder(String file){
 		this.file = file;
 	}
     
@@ -67,16 +68,24 @@ class ImportedPackagePrinter extends VoidVisitorAdapter<Void> {
 	 @Override
 	 public void visit(ImportDeclaration md, Void arg) {
 		 super.visit(md, arg);
-		 System.out.println("Method Name Printed: " + md.getName());
+		 System.out.println("Imported Package Name Printed: " + md.getName());
 	 }
 }
 
 
 class PackageDeclarationPrinter extends VoidVisitorAdapter<Void> {
-
 	 @Override
 	 public void visit(PackageDeclaration md, Void arg) {
 		 super.visit(md, arg);
-		 System.out.println("Method Name Printed: " + md.getName());
+		 System.out.println("Package Name Printed: " + md.getName());
+	 }
+}
+
+class FeildDeclarationPrinter extends VoidVisitorAdapter<Void> {
+
+	 @Override
+	 public void visit(FieldDeclaration md, Void arg) {
+		 super.visit(md, arg);
+		 //System.out.println("Method Name Printed: " + md.md.getName());
 	 }
 }

@@ -3,7 +3,7 @@ package uci.ics.mondego.tldr.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Package implements Entity{
+public class Package implements Entities{
 
 	String name;
 	List<Package> imports;
@@ -14,6 +14,7 @@ public class Package implements Entity{
 	
 	public Package(String name){
 		this.name = name;
+		imports = new ArrayList<Package>();
 	}
 	
 	public String calculateCheckSum() {
@@ -23,6 +24,10 @@ public class Package implements Entity{
 
 	public String getName() {
 		return name;
+	}
+	
+	public void addImport(Package imp){
+		imports.add(imp);
 	}
 
 	public List<Package> getImports() {
