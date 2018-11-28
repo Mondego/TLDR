@@ -3,7 +3,7 @@ package uci.ics.mondego.tldr;
 import java.util.List;
 
 import uci.ics.mondego.tldr.extractor.RepoScanner;
-import uci.ics.mondego.tldr.extractor.TreeBuilder;
+import uci.ics.mondego.tldr.extractor.JavaFileParser;
 import uci.ics.mondego.tldr.model.SourceFile;
 import uci.ics.mondego.tldr.tool.RedisHandler;
 
@@ -26,7 +26,7 @@ public class App
        for(int i=0;i<allClass.size();i++){
     	   
     	  if(i== 0){ 
-    		  TreeBuilder ast = new TreeBuilder(allClass.get(i).getName());
+    		  JavaFileParser ast = new JavaFileParser(allClass.get(i).getName());
     		  ast.AST();
     	  }
     	   
