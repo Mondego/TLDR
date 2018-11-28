@@ -13,8 +13,6 @@ public class SourceFile implements Entities{
 	private String filePath;
 	
 	
-	
-	
 	public SourceFile(String name){
 		filePath = name;
 		currentCheckSum = calculateCheckSum();

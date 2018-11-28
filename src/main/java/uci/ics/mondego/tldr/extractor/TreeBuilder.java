@@ -12,12 +12,7 @@ import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitor;
-//import org.eclipse.jdt.core.dom.AST;
-//import org.eclipse.jdt.core.dom.ASTParser;
-//import org.eclipse.jdt.core.dom.ASTVisitor;
-//import org.eclipse.jdt.core.dom.CompilationUnit;
-//import org.eclipse.jdt.core.dom.SimpleName;
-//import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
+
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 
@@ -43,6 +38,11 @@ public class TreeBuilder {
 			
 			methodNameVisitor.visit(cu, null);
 			importVisitor.visit(cu, null);
+			
+			
+			// this one is to parse a particular statement
+			
+			//Statement expression = JavaParser.parseStatement("int a = 0;");
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
