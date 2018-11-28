@@ -17,14 +17,14 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 
 
-public class TreeBuilder {
+public class JavaFileParser {
 
 	String file="";
 	
-	public TreeBuilder(){
+	public JavaFileParser(){
 	}
 	
-    public TreeBuilder(String file){
+    public JavaFileParser(String file){
 		this.file = file;
 	}
     
