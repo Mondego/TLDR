@@ -4,14 +4,19 @@ import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.Attribute;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.FieldVisitor;
+import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
 public class ClassVisitorImpl implements ClassVisitor{
 
+	MethodVisitor mv = new MethodVisitorImpl();
+	String className;
 	
-	public ClassVisitorImpl(){
+	public ClassVisitorImpl(String className){
 		super();
+
+		this.className = className;
 	}
 	
 	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
@@ -23,8 +28,11 @@ public class ClassVisitorImpl implements ClassVisitor{
 		
 	}
 
-	public AnnotationVisitor visitAnnotation(String org0, boolean arg1) {
+    public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
 		// TODO Auto-generated method stub
+    	System.out.println(desc);
+    	
+    	
 		return null;
 	}
 
@@ -56,9 +64,16 @@ public class ClassVisitorImpl implements ClassVisitor{
 			String desc, String signature, String[] exceptions) {
 		// TODO Auto-generated method stub
 		
-		System.out.println(" " + name +"-------"+ desc);
+//		System.out.println(" " + name +"-------"+ desc);
+		MethodVisitor mv = new MethodVisitorImpl();
+//		
+//		Label l0 = new Label();
+//		Label l1 = new Label();
+//		mv.visitLocalVariable(name, desc, signature,l0,l1,0);
 		
-		return null;
+		
+	    return mv;
+		
 	}
 
 	public void visitOuterClass(String arg0, String arg1, String arg2) {
