@@ -1,11 +1,11 @@
 package uci.ics.mondego.tldr;
 
-import java.util.List;
 
-import uci.ics.mondego.tldr.extractor.RepoScanner;
-import uci.ics.mondego.tldr.extractor.JavaFileParser;
-import uci.ics.mondego.tldr.model.SourceFile;
 import uci.ics.mondego.tldr.tool.RedisHandler;
+
+import uci.ics.mondego.tldr.extractor.ByteCodeParser;
+import uci.ics.mondego.tldr.extractor.RepoScanner;
+
 
 /**
  * Hello world!
@@ -17,11 +17,15 @@ public class App
     {
        RepoScanner sc = new RepoScanner("/Users/demigorgan/Sourcerer");
        
-       RedisHandler rd = new RedisHandler();
+       //RedisHandler rd = new RedisHandler();
+       
+       
+       ByteCodeParser b = new ByteCodeParser();
+
        
        //List<uci.ics.mondego.tldr.model.SourceFile> allJava = sc.get_all_java_files();
        
-       List<SourceFile> allClass =  sc.get_all_class_files();
+       /*List<SourceFile> allClass =  sc.get_all_class_files();
        
        for(int i=0;i<allClass.size();i++){
     	   
@@ -56,7 +60,9 @@ public class App
 //    		   TreeBuilder ast = new TreeBuilder(allClass.get(i).getName());
 //    		   ast.AST();
 //    	   }
-//       }
+//       }*/
+       
+       
   
        
     }
