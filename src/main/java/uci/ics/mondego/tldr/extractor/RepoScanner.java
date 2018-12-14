@@ -62,9 +62,9 @@ public class RepoScanner {
 	                	all_java_files.add(f);
 	                }
 	                else if(file.getAbsolutePath().contains(".jar")){
-	                	
 	                	all_jar_files.add(f);
 	                }
+
 	                if(file.getAbsolutePath().contains(".class")){
 	                	
 	                	all_class_files.add(f);

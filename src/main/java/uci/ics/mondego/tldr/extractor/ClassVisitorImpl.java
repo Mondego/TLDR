@@ -21,9 +21,9 @@ public class ClassVisitorImpl implements ClassVisitor{
 	
 	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
 		// TODO Auto-generated method stub
-		System.out.println("signature " + signature);
-		System.out.println("class name : "+ name);
-		System.out.println("super class name : "+ superName);
+		//System.out.println("signature " + signature);
+		//System.out.println("class name : "+ name);
+		//System.out.println("super class name : "+ superName);
 		
 		
 	}
@@ -50,7 +50,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 			String desc, String signature, Object arg4) {
 		// TODO Auto-generated method stub
 		
-		System.out.println(" " + name +"-------"+ desc);
+		System.out.println("FIELD: " + name +"-------"+ desc);
 
 		return null;
 	}
@@ -64,7 +64,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 			String desc, String signature, String[] exceptions) {
 		// TODO Auto-generated method stub
 		
-//		System.out.println(" " + name +"-------"+ desc);
+		System.out.println("METHOD: " + name +"-------"+ desc);
 		MethodVisitor mv = new MethodVisitorImpl();
 //		
 //		Label l0 = new Label();

@@ -6,6 +6,8 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
+import javassist.bytecode.Opcode;
+
 public class MethodVisitorImpl implements MethodVisitor{
 	
 	public MethodVisitorImpl(){
@@ -42,22 +44,30 @@ public class MethodVisitorImpl implements MethodVisitor{
 
 	public void visitFieldInsn(int opcode, String owner, String name, String desc) {
 		// TODO Auto-generated method stub
+		
+		
+		
+		System.out.println("inside visitFieldInsn");
+		System.out.println("==========================");
+		
 		if (name.indexOf('$') == -1) {
 	        switch (opcode) {
 	          case Opcodes.GETFIELD:
 	          case Opcodes.GETSTATIC:
 	            //relationWriter.writeRelation(Relation.READS, fqnStack.getFqn(), convertNameToFqn(owner) + "." + name, location);
-	            System.out.println("READ" + owner + "    "+name);
+	            System.out.println("READ   " + owner + "    "+name+"  "+desc);
 	            break;
 	          case Opcodes.PUTFIELD:
 	          case Opcodes.PUTSTATIC:
 	            //relationWriter.writeRelation(Relation.WRITES, fqnStack.getFqn(), convertNameToFqn(owner) + "." + name, location);
-	        	  System.out.println("READ" + owner + "    "+name);
+	        	  System.out.println("WRITE  " + owner + "    "+name+"   "+desc);
 	            break;
+	            
 	          default:
 	            //logger.severe("Unknown field instruction: " + opcode);
 	        }
 	      }
+		System.out.println("==========================");
 		
 	}
 
@@ -105,7 +115,9 @@ public class MethodVisitorImpl implements MethodVisitor{
 			Label start, Label end, int index) {
 		// TODO Auto-generated method stub
 		System.out.println("inside visitlocal");
+		System.out.println("==========================");
 		System.out.println(name+"    "+desc+"    "+signature);
+		System.out.println("==========================");
 	}
 
 	public void visitLookupSwitchInsn(Label arg0, int[] arg1, Label[] arg2) {
@@ -117,9 +129,13 @@ public class MethodVisitorImpl implements MethodVisitor{
 		// TODO Auto-generated method stub
 		
 	}
-
-	public void visitMethodInsn(int arg0, String arg1, String arg2, String arg3) {
+	
+	public void visitMethodInsn(int opcode, String owner, String name, String desc) {
 		// TODO Auto-generated method stub
+		System.out.println("inside visitMethodInsn");
+		System.out.println("==========================");
+		System.out.println(owner+"   "+name+"   "+desc);
+		System.out.println("==========================");
 		
 	}
 

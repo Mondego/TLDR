@@ -4,6 +4,8 @@ import redis.clients.jedis.Jedis;
 
 import uci.ics.mondego.tldr.exception.*;
 import uci.ics.mondego.tldr.model.Package;
+import uci.ics.mondego.tldr.model.Selection;
+
 import org.apache.commons.pool2.PoolUtils;
 
 
@@ -19,6 +21,7 @@ public class RedisHandler{
 	}
 	
 	public void insert(String fileName, String checkSum){
+		Selection sel = new Selection();
 		 jedis.set(fileName, checkSum); 
 	     System.out.println("Stored string in redis:: "+ jedis.get(fileName));
 	}

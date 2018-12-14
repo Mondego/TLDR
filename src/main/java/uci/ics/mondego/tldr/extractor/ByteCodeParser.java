@@ -15,18 +15,30 @@ public class ByteCodeParser {
 	
 	public ByteCodeParser(){
 		try {
-			ClassReader cr = new ClassReader("uci.ics.mondego.tldr.tool.RedisHandler");
-			ClassVisitorImpl cv = new ClassVisitorImpl("uci.ics.mondego.tldr.tool.RedisHandler");
+			
+			/*visit 
+			visitSource
+			visitOuterClass
+		    visitAnnotation
+		    visitAttribute
+			visitInnerClass
+			visitField
+			visitMethod
+			visitEnd*/
+			
+			
+			ClassReader cr = new ClassReader("uci.ics.mondego.tldr.App");
+			ClassVisitorImpl cv = new ClassVisitorImpl("uci.ics.mondego.tldr.App");
 			cr.accept(cv, 0);
 			//cv.visitMethod(access, name, desc, signature, exceptions)	;
-			MethodVisitorImpl mv = new MethodVisitorImpl();
-			mv.visitCode();
-		    Label l0 = new Label();
-		    mv.visitLabel(l0);
+//			MethodVisitorImpl mv = new MethodVisitorImpl();
+//			mv.visitCode();
+//		    Label l0 = new Label();
+//		    mv.visitLabel(l0);
 		    
 		    
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
