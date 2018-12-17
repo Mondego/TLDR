@@ -6,6 +6,7 @@ import java.util.List;
 
 import uci.ics.mondego.tldr.model.ClassFile;
 import uci.ics.mondego.tldr.model.JarFile;
+import uci.ics.mondego.tldr.model.JavaFile;
 import uci.ics.mondego.tldr.model.SourceFile;
 import uci.ics.mondego.tldr.model.TestCases;
 import uci.ics.mondego.tldr.model.TestFile;
@@ -18,16 +19,24 @@ public class RepoScanner {
 	
 	List<SourceFile> java_files;
 	List<SourceFile> test_files;
-	List<JarFile> jar_files;
-	List<ClassFile> class_files;
+	List<SourceFile> jar_files;
+	List<SourceFile> class_files;
 	
+	
+	
+	public RepoScanner(){
+		this.java_files = new ArrayList<SourceFile>();
+		this.jar_files = new ArrayList<SourceFile>();
+		this.class_files = new ArrayList<SourceFile>();
+		this.test_files = new ArrayList<SourceFile>();
+	}
 	
 	public RepoScanner(String project_directory){
 		this.PROJ_DIR = project_directory;
 		
 		this.java_files = new ArrayList<SourceFile>();
-		this.jar_files = new ArrayList<JarFile>();
-		this.class_files = new ArrayList<ClassFile>();
+		this.jar_files = new ArrayList<SourceFile>();
+		this.class_files = new ArrayList<SourceFile>();
 		this.test_files = new ArrayList<SourceFile>();
 		
 		this.listf(PROJ_DIR);
@@ -46,18 +55,23 @@ public class RepoScanner {
 		return java_files;
 	}
 
-	public List<JarFile> get_all_jar_files() {
+	public List<SourceFile> get_all_jar_files() {
 		return jar_files;
 	}
 
-	public List<ClassFile> get_all_class_files() {
+	public List<SourceFile> get_all_class_files() {
 		return class_files;
+	}
+	
+	public List<SourceFile> get_all_test_files() {
+		return test_files;
 	}
 	
 	
 	/* gets all file from the project directory*/
 	public void listf(String directoryName) {
-	    File directory = new File(directoryName);
+	    
+		File directory = new File(directoryName);
 
 	    File[] fList = directory.listFiles();
 	    	
@@ -65,17 +79,25 @@ public class RepoScanner {
 	        for (File file : fList) {    
 	        	
 	            if (file.isFile()) {
-	            	uci.ics.mondego.tldr.model.SourceFile f = new uci.ics.mondego.tldr.model.SourceFile(file.getAbsolutePath());
-	                if(file.getAbsolutePath().contains(".java")){
+	            	String fileAbsolutePath = file.getAbsolutePath();
+	            	
+	                if(fileAbsolutePath.contains(".java")){
+	                	JavaFile f = new JavaFile(fileAbsolutePath);
 	                	java_files.add(f);
 	                }
-	                else if(file.getAbsolutePath().contains(".jar")){
+	                else if(fileAbsolutePath.contains(".jar")){
+	                	JarFile f = new JarFile(fileAbsolutePath);
 	                	jar_files.add(f);
 	                }
 
-	                if(file.getAbsolutePath().contains(".class")){
-	                	
+	                else if(file.getAbsolutePath().contains(".class")){
+	                	ClassFile f = new ClassFile(fileAbsolutePath);
 	                	class_files.add(f);
+	                }
+	                
+	                else if(file.getAbsolutePath().contains(".Test")){
+	                	TestFile f = new TestFile(fileAbsolutePath);
+	                	test_files.add(f);
 	                }
 	                	
 	            } 
