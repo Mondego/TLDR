@@ -39,10 +39,7 @@ public class SourceFile implements Entities{
 		}
 		 catch (IOException e){
 			 e.printStackTrace();
-		 }
-		 
-		 
-		 
+		 } 
 		 return chsm;
 	}
 	

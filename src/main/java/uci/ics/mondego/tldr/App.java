@@ -18,7 +18,8 @@ import uci.ics.mondego.tldr.model.SourceFile;
 public class App 
 {
     public static void main( String[] args )
-    {
+    { 
+    	
        RepoScanner sc = new RepoScanner("/Users/demigorgan/Sourcerer");
        
        RedisHandler rd = new RedisHandler();
@@ -65,9 +66,6 @@ public class App
     		   //ast.AST();
     	   }
        }
-       
-       
-  
-       
+    	
     }
 }
