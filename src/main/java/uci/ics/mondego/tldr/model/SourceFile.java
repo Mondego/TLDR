@@ -6,12 +6,17 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class SourceFile implements Entities{
+public abstract class SourceFile implements Entities{
  
 	private String currentCheckSum;
 	private String prevCheckSum;
 	private String filePath;
+	private String fileName;
 	
+	
+	public SourceFile(){
+		
+	}
 	
 	public SourceFile(String name){
 		filePath = name;

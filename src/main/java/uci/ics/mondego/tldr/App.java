@@ -17,12 +17,16 @@ import uci.ics.mondego.tldr.model.SourceFile;
  */
 public class App 
 {
+	private static String PROJ_DIR;
     public static void main( String[] args )
     { 
-    	
-       RepoScanner sc = new RepoScanner("/Users/demigorgan/Sourcerer");
        
-       RedisHandler rd = new RedisHandler();
+       PROJ_DIR = "/Users/demigorgan/Sourcerer";
+    	//Scan the repository
+       RepoScanner sc = new RepoScanner(PROJ_DIR);
+       
+       
+      /* RedisHandler rd = new RedisHandler();
        
        
        ByteCodeParser b = new ByteCodeParser();
@@ -65,7 +69,7 @@ public class App
     		   //TreeBuilder ast = new TreeBuilder(allClass.get(i).getName());
     		   //ast.AST();
     	   }
-       }
+       }*/
     	
     }
 }

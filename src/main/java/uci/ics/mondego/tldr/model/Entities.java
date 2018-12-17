@@ -5,5 +5,7 @@ import java.security.MessageDigest;
 public interface Entities {
 	
 	public String calculateCheckSum();
+	public String getCurrentCheckSum();
+	
 
 }

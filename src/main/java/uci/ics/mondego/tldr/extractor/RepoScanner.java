@@ -4,23 +4,31 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import uci.ics.mondego.tldr.model.ClassFile;
+import uci.ics.mondego.tldr.model.JarFile;
+import uci.ics.mondego.tldr.model.SourceFile;
+import uci.ics.mondego.tldr.model.TestCases;
+import uci.ics.mondego.tldr.model.TestFile;
+
 
 public class RepoScanner {
 	
 	private String PROJ_DIR;
 	
 	
-	List<uci.ics.mondego.tldr.model.SourceFile> all_java_files;
-	List<uci.ics.mondego.tldr.model.SourceFile> all_jar_files;
-	List<uci.ics.mondego.tldr.model.SourceFile> all_class_files;
-	
+	List<SourceFile> java_files;
+	List<SourceFile> test_files;
+	List<JarFile> jar_files;
+	List<ClassFile> class_files;
 	
 	
 	public RepoScanner(String project_directory){
-		PROJ_DIR = project_directory;
-		all_java_files = new ArrayList<uci.ics.mondego.tldr.model.SourceFile>();
-		all_jar_files = new ArrayList<uci.ics.mondego.tldr.model.SourceFile>();
-		all_class_files = new ArrayList<uci.ics.mondego.tldr.model.SourceFile>();
+		this.PROJ_DIR = project_directory;
+		
+		this.java_files = new ArrayList<SourceFile>();
+		this.jar_files = new ArrayList<JarFile>();
+		this.class_files = new ArrayList<ClassFile>();
+		this.test_files = new ArrayList<SourceFile>();
 		
 		this.listf(PROJ_DIR);
 	}
@@ -34,16 +42,16 @@ public class RepoScanner {
 		PROJ_DIR = pROJ_DIR;
 	}
 
-	public List<uci.ics.mondego.tldr.model.SourceFile> get_all_java_files() {
-		return all_java_files;
+	public List<SourceFile> get_all_java_files() {
+		return java_files;
 	}
 
-	public List<uci.ics.mondego.tldr.model.SourceFile> get_all_jar_files() {
-		return all_jar_files;
+	public List<JarFile> get_all_jar_files() {
+		return jar_files;
 	}
 
-	public List<uci.ics.mondego.tldr.model.SourceFile> get_all_class_files() {
-		return all_class_files;
+	public List<ClassFile> get_all_class_files() {
+		return class_files;
 	}
 	
 	
@@ -59,15 +67,15 @@ public class RepoScanner {
 	            if (file.isFile()) {
 	            	uci.ics.mondego.tldr.model.SourceFile f = new uci.ics.mondego.tldr.model.SourceFile(file.getAbsolutePath());
 	                if(file.getAbsolutePath().contains(".java")){
-	                	all_java_files.add(f);
+	                	java_files.add(f);
 	                }
 	                else if(file.getAbsolutePath().contains(".jar")){
-	                	all_jar_files.add(f);
+	                	jar_files.add(f);
 	                }
 
 	                if(file.getAbsolutePath().contains(".class")){
 	                	
-	                	all_class_files.add(f);
+	                	class_files.add(f);
 	                }
 	                	
 	            } 
