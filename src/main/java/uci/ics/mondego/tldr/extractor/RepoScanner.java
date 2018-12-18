@@ -9,26 +9,28 @@ import uci.ics.mondego.tldr.model.JarFile;
 import uci.ics.mondego.tldr.model.JavaFile;
 import uci.ics.mondego.tldr.model.SourceFile;
 import uci.ics.mondego.tldr.model.TestCases;
-import uci.ics.mondego.tldr.model.TestFile;
+import uci.ics.mondego.tldr.model.TestClassFile;
+import uci.ics.mondego.tldr.model.TestJavaFile;
 
 
 public class RepoScanner {
-	
+
+
 	private String PROJ_DIR;
 	
 	
-	List<SourceFile> java_files;
-	List<SourceFile> test_files;
-	List<SourceFile> jar_files;
-	List<SourceFile> class_files;
-	
-	
+	private List<SourceFile> java_files;
+	private List<SourceFile> test_java_files;
+	private List<SourceFile> test_class_files;
+	private List<SourceFile> jar_files;
+	private List<SourceFile> class_files;
 	
 	public RepoScanner(){
 		this.java_files = new ArrayList<SourceFile>();
 		this.jar_files = new ArrayList<SourceFile>();
 		this.class_files = new ArrayList<SourceFile>();
-		this.test_files = new ArrayList<SourceFile>();
+		this.test_java_files = new ArrayList<SourceFile>();
+		this.test_class_files = new ArrayList<SourceFile>();
 	}
 	
 	public RepoScanner(String project_directory){
@@ -37,9 +39,10 @@ public class RepoScanner {
 		this.java_files = new ArrayList<SourceFile>();
 		this.jar_files = new ArrayList<SourceFile>();
 		this.class_files = new ArrayList<SourceFile>();
-		this.test_files = new ArrayList<SourceFile>();
+		this.test_java_files = new ArrayList<SourceFile>();
+		this.test_class_files = new ArrayList<SourceFile>();
 		
-		this.listf(PROJ_DIR);
+		this.scan(PROJ_DIR);
 	}
 	
 	
@@ -63,13 +66,17 @@ public class RepoScanner {
 		return class_files;
 	}
 	
-	public List<SourceFile> get_all_test_files() {
-		return test_files;
+	public List<SourceFile> get_all_test_java_files() {
+		return test_java_files;
+	}
+	
+	public List<SourceFile> get_all_test_class_files() {
+		return test_class_files;
 	}
 	
 	
 	/* gets all file from the project directory*/
-	public void listf(String directoryName) {
+	public void scan(String directoryName) {
 	    
 		File directory = new File(directoryName);
 
@@ -81,7 +88,7 @@ public class RepoScanner {
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();
 	            	
-	                if(fileAbsolutePath.contains(".java")){
+	                if(fileAbsolutePath.contains(".java") && !fileAbsolutePath.contains("Test")){
 	                	JavaFile f = new JavaFile(fileAbsolutePath);
 	                	java_files.add(f);
 	                }
@@ -90,22 +97,59 @@ public class RepoScanner {
 	                	jar_files.add(f);
 	                }
 
-	                else if(file.getAbsolutePath().contains(".class")){
+	                else if(file.getAbsolutePath().contains(".class") && !fileAbsolutePath.contains("Test")){
 	                	ClassFile f = new ClassFile(fileAbsolutePath);
 	                	class_files.add(f);
 	                }
 	                
-	                else if(file.getAbsolutePath().contains(".Test")){
-	                	TestFile f = new TestFile(fileAbsolutePath);
-	                	test_files.add(f);
+	                else if(fileAbsolutePath.contains(".java") && fileAbsolutePath.contains("Test")){
+	                	TestJavaFile f = new TestJavaFile(fileAbsolutePath);
+	                	test_java_files.add(f);
 	                }
+	                
+	                else if(fileAbsolutePath.contains(".class") && fileAbsolutePath.contains("Test")){
+	                	TestClassFile f = new TestClassFile(fileAbsolutePath);
+	                	test_java_files.add(f);
+	                }
+	                
 	                	
 	            } 
 	            else if (file.isDirectory()) {
-	                listf(file.getAbsolutePath());
+	                scan(file.getAbsolutePath());
 	            }
 	        }
 	    }
+	
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		StringBuilder printLog = new StringBuilder();
+		
+		printLog.append("\nJava Files\n*********************\n");
+		for(int i=0;i<java_files.size();i++)
+			printLog.append(java_files.get(i).getName()+";");
+		
+		printLog.append("\nTest Java Files\n*********************\n");
+		for(int i=0;i<test_java_files.size();i++)
+			printLog.append(test_java_files.get(i).getName()+";");
+		
+		printLog.append("\nTest Class Files\n*********************\n");
+		for(int i=0;i<test_class_files.size();i++)
+			printLog.append(test_class_files.get(i).getName()+";");
+		
+		
+		printLog.append("\nJar Files\n*********************\n");
+		for(int i=0;i<jar_files.size();i++)
+			printLog.append(jar_files.get(i).getName()+";");
+		
+		printLog.append("\nClass Files\n*********************\n");
+		for(int i=0;i<class_files.size();i++)
+			printLog.append(class_files.get(i).getName()+";");
+		
+		return printLog.toString();
 	}
+
+}
 
 

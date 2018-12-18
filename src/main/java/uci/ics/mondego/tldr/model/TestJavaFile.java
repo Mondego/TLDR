@@ -1,6 +1,7 @@
 package uci.ics.mondego.tldr.model;
 
-public class TestFile extends SourceFile{
+public class TestJavaFile extends SourceFile{
+	
 	
 	enum Annotation 
 	{ 
@@ -13,10 +14,10 @@ public class TestFile extends SourceFile{
 	
 	private String testClassName;
 	
-	public TestFile(String name) {
+	public TestJavaFile(String name) {
 		super(name);
 		this.testClassName = name;
 	}
 	
-
+	
 }

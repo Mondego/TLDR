@@ -21,9 +21,12 @@ public class App
     public static void main( String[] args )
     { 
        
-       PROJ_DIR = "/Users/demigorgan/Sourcerer";
+       PROJ_DIR = "/Users/demigorgan/brigadier";
+       
     	//Scan the repository
        RepoScanner sc = new RepoScanner(PROJ_DIR);
+       
+       System.out.println(sc.toString());
        
        
       /* RedisHandler rd = new RedisHandler();
