@@ -109,7 +109,7 @@ public class RepoScanner {
 	                
 	                else if(fileAbsolutePath.contains(".class") && fileAbsolutePath.contains("Test")){
 	                	TestClassFile f = new TestClassFile(fileAbsolutePath);
-	                	test_java_files.add(f);
+	                	test_class_files.add(f);
 	                }
 	                
 	                	
@@ -136,7 +136,7 @@ public class RepoScanner {
 		
 		printLog.append("\nTest Class Files\n*********************\n");
 		for(int i=0;i<test_class_files.size();i++)
-			printLog.append(test_class_files.get(i).getName()+";");
+			printLog.append(test_class_files.get(i).getName()+" : "+test_class_files.get(i).getCurrentCheckSum()+" ");
 		
 		
 		printLog.append("\nJar Files\n*********************\n");

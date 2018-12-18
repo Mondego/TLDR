@@ -10,6 +10,7 @@ public abstract class SourceFile implements Entities{
  
 	private String currentCheckSum;
 	private String prevCheckSum;
+	
 	private String filePath;
 	private String fileName;
 	
@@ -28,21 +29,28 @@ public abstract class SourceFile implements Entities{
 		return fileName;
 	}
 	
+	public String getPath(){
+		return filePath;
+	}
+	
 	public String getCurrentCheckSum(){
-		return currentCheckSum;
+		return calculateCheckSum();
+	}
+	
+	public String getPreviousCheckSum(){
+		return prevCheckSum;
 	}
 	
 	public String calculateCheckSum(){
 		String chsm = null;
 		 try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
+			
 			chsm = checksum(filePath, md);
-			boolean changed = false;
 			
-			changed = !chsm.equals(currentCheckSum);
+			prevCheckSum = !chsm.equals(currentCheckSum) ? currentCheckSum : prevCheckSum;
 			
-			prevCheckSum = changed ? currentCheckSum : prevCheckSum;
-			currentCheckSum = changed ? chsm : currentCheckSum;
+			currentCheckSum = !chsm.equals(currentCheckSum)  ? chsm : currentCheckSum;
 			
 			
 		} catch (NoSuchAlgorithmException e) {
@@ -86,7 +94,6 @@ public abstract class SourceFile implements Entities{
         
         return result.toString();
     }
-	
 	
 	private String getNameFromAbsolutePath(String path){
 		return path.lastIndexOf('/') == -1 ? path : path.substring(path.lastIndexOf('/') + 1);
