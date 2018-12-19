@@ -1,5 +1,8 @@
 package uci.ics.mondego.tldr.extractor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.Attribute;
 import org.objectweb.asm.ClassVisitor;
@@ -8,28 +11,38 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
+import uci.ics.mondego.tldr.model.Field;
+import uci.ics.mondego.tldr.tool.StringProcessor;
+
 public class ClassVisitorImpl implements ClassVisitor{
 
 	MethodVisitor mv = new MethodVisitorImpl();
 	String className;
+	List<Field> fields;
+	String classFqn;
+	
 	
 	public ClassVisitorImpl(String className){
 		super();
-
 		this.className = className;
+		this.fields = new ArrayList<Field>();
 	}
 	
 	public ClassVisitorImpl(){
 		super();
-
 		this.className = null;
+		this.fields = new ArrayList<Field>();
 	}
 	
 	
 	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
 		// TODO Auto-generated method stub
 		//System.out.println("signature " + signature);
-		//System.out.println("class name : "+ name);
+		
+		classFqn = StringProcessor.pathToFqnConverter(name);
+		
+		
+		System.out.println("class name : "+ classFqn);
 		//System.out.println("super class name : "+ superName);
 		
 		
@@ -57,6 +70,16 @@ public class ClassVisitorImpl implements ClassVisitor{
 		// TODO Auto-generated method stub
 		
 		System.out.println("FIELD: " + name +" ------- "+ desc + " ---- "+signature);
+		
+		Field field = new Field();
+		
+		field.setName(name);
+		field.setFqn(classFqn+'.'+name);
+		field.setType(StringProcessor.pathToFqnConverter(StringProcessor.typeProcessor(desc)));
+		
+		
+		fields.add(field);
+		
 		
 		FieldVisitor fv = new FieldVisitorImpl();
 		

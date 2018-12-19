@@ -14,8 +14,7 @@ import uci.ics.mondego.tldr.model.SourceFile;
 
 
 public class ByteCodeParser {
-	
-	
+		
 	public ByteCodeParser(SourceFile classFile) throws IOException, ArrayIndexOutOfBoundsException, NullPointerException{
 		ClassReader cr = new ClassReader(this.getFileAsByteArray(new File(classFile.getPath())));
 		
