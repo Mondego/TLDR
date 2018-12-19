@@ -40,9 +40,9 @@ public class App
 	       
 	       List<SourceFile> changedFiles = new ArrayList<SourceFile>();
 	       
-	       System.out.println(allClass.get(0).getPath());
+	       System.out.println(allClass.get(11).getPath());
 	       
-	       ByteCodeParser bp = new ByteCodeParser(allClass.get(11).getPath());
+	       ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
 	       
 	       //ByteCodeParser bp = new ByteCodeParser("/Users/demigorgan/brigadier/bin/test/com/mojang/brigadier/benchmarks/ParsingBenchmarks.class");
 	       
@@ -72,9 +72,20 @@ public class App
        }
        
        catch(IOException e){
+    	   System.out.println("extractor can't read the designated class");
+    	   e.printStackTrace();
+       }
+       
+       catch(ArrayIndexOutOfBoundsException e){
+    	   System.out.println("the file path is too long");
+    	   e.printStackTrace();
+       }
+       
+       catch(NullPointerException e){
     	   System.out.println("extractor can't find the designated class");
     	   e.printStackTrace();
        }
+       
        
        finally{
     	   rh.close();

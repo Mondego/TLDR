@@ -1,25 +1,14 @@
 package uci.ics.mondego.tldr.extractor;
 
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
-import java.util.jar.JarInputStream;
 
-import javax.naming.spi.DirectoryManager;
 
-import org.apache.commons.io.FileUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.Label;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.util.TraceClassVisitor;
 
 import uci.ics.mondego.tldr.model.SourceFile;
 
@@ -27,15 +16,15 @@ import uci.ics.mondego.tldr.model.SourceFile;
 public class ByteCodeParser {
 	
 	
-	public ByteCodeParser(SourceFile classFile) throws IOException, ArrayIndexOutOfBoundsException{
-		ClassReader cr = new ClassReader(this.getFileAsByteArray(new File(classFile.getName())));
+	public ByteCodeParser(SourceFile classFile) throws IOException, ArrayIndexOutOfBoundsException, NullPointerException{
+		ClassReader cr = new ClassReader(this.getFileAsByteArray(new File(classFile.getPath())));
 		
-		ClassVisitorImpl cv = new ClassVisitorImpl();
+		ClassVisitor cv = new ClassVisitorImpl();
 		
 		cr.accept(cv, 0);
 	}
 	
-	public ByteCodeParser(String name) throws IOException, ArrayIndexOutOfBoundsException{
+	public ByteCodeParser(String name) throws IOException, ArrayIndexOutOfBoundsException,NullPointerException{
 		
 		ClassReader cr = new ClassReader(this.getFileAsByteArray(new File(name)));
 		
@@ -44,10 +33,12 @@ public class ByteCodeParser {
 		cr.accept(cv, 0);
 	}
 	
-	public ByteCodeParser() throws IOException, ArrayIndexOutOfBoundsException{
+	public ByteCodeParser() throws IOException, ArrayIndexOutOfBoundsException, NullPointerException{
 
 		ClassReader cr = new ClassReader("uci.ics.mondego.tldr.App");
+		
 		ClassVisitorImpl cv = new ClassVisitorImpl();
+		
 		cr.accept(cv, 0);
 
 	}
@@ -56,7 +47,7 @@ public class ByteCodeParser {
 	    return null;
 	}
 	
-	private String convertBaseType(char type) {
+	private static String convertBaseType(char type) {
 	    switch (type) {
 	      case 'B':
 	        return "byte";

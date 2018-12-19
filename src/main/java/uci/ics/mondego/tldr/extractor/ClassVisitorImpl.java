@@ -37,7 +37,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 
     public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
 		// TODO Auto-generated method stub
-    	System.out.println(desc);
+    	//System.out.println(desc);
     	
     	
 		return null;
@@ -56,9 +56,11 @@ public class ClassVisitorImpl implements ClassVisitor{
 	public FieldVisitor visitField(int access, String name, String desc, String signature, Object arg4) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("FIELD: " + name +"-------"+ desc);
-
-		return null;
+		System.out.println("FIELD: " + name +" ------- "+ desc + " ---- "+signature);
+		
+		FieldVisitor fv = new FieldVisitorImpl();
+		
+		return fv;
 	}
 
 	public void visitInnerClass(String arg0, String arg1, String arg2, int arg3) {
@@ -70,16 +72,11 @@ public class ClassVisitorImpl implements ClassVisitor{
 			String desc, String signature, String[] exceptions) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("METHOD: " + name +"-------"+ desc);
-		MethodVisitor mv = new MethodVisitorImpl();
-//		
-//		Label l0 = new Label();
-//		Label l1 = new Label();
-//		mv.visitLocalVariable(name, desc, signature,l0,l1,0);
-		
-		
-	    return mv;
-		
+		//System.out.println("METHOD: " + name +"-------"+ desc);
+		//MethodVisitor mv = new MethodVisitorImpl();
+
+	    //return mv;
+		return null;
 	}
 
 	public void visitOuterClass(String arg0, String arg1, String arg2) {
@@ -89,9 +86,6 @@ public class ClassVisitorImpl implements ClassVisitor{
 
 	public void visitSource(String arg0, String arg1) {
 		// TODO Auto-generated method stub
-		System.out.println("inside visitSource : "+arg0);
-		
-	}
-
-	
+		//System.out.println("inside visitSource : "+arg0+"    "+ arg1);	
+	}	
 }
