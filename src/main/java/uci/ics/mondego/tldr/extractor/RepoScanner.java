@@ -4,25 +4,45 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import uci.ics.mondego.tldr.model.ClassFile;
+import uci.ics.mondego.tldr.model.JarFile;
+import uci.ics.mondego.tldr.model.JavaFile;
+import uci.ics.mondego.tldr.model.SourceFile;
+import uci.ics.mondego.tldr.model.TestCases;
+import uci.ics.mondego.tldr.model.TestClassFile;
+import uci.ics.mondego.tldr.model.TestJavaFile;
+
 
 public class RepoScanner {
-	
+
+
 	private String PROJ_DIR;
 	
 	
-	List<uci.ics.mondego.tldr.model.SourceFile> all_java_files;
-	List<uci.ics.mondego.tldr.model.SourceFile> all_jar_files;
-	List<uci.ics.mondego.tldr.model.SourceFile> all_class_files;
+	private List<SourceFile> java_files;
+	private List<SourceFile> test_java_files;
+	private List<SourceFile> test_class_files;
+	private List<SourceFile> jar_files;
+	private List<SourceFile> class_files;
 	
-	
+	public RepoScanner(){
+		this.java_files = new ArrayList<SourceFile>();
+		this.jar_files = new ArrayList<SourceFile>();
+		this.class_files = new ArrayList<SourceFile>();
+		this.test_java_files = new ArrayList<SourceFile>();
+		this.test_class_files = new ArrayList<SourceFile>();
+	}
 	
 	public RepoScanner(String project_directory){
-		PROJ_DIR = project_directory;
-		all_java_files = new ArrayList<uci.ics.mondego.tldr.model.SourceFile>();
-		all_jar_files = new ArrayList<uci.ics.mondego.tldr.model.SourceFile>();
-		all_class_files = new ArrayList<uci.ics.mondego.tldr.model.SourceFile>();
+		this.PROJ_DIR = project_directory;
 		
-		this.listf(PROJ_DIR);
+		this.java_files = new ArrayList<SourceFile>();
+		this.jar_files = new ArrayList<SourceFile>();
+		this.class_files = new ArrayList<SourceFile>();
+		this.test_java_files = new ArrayList<SourceFile>();
+		this.test_class_files = new ArrayList<SourceFile>();
+		
+		this.scan(PROJ_DIR);
 	}
 	
 	
@@ -34,22 +54,31 @@ public class RepoScanner {
 		PROJ_DIR = pROJ_DIR;
 	}
 
-	public List<uci.ics.mondego.tldr.model.SourceFile> get_all_java_files() {
-		return all_java_files;
+	public List<SourceFile> get_all_java_files() {
+		return java_files;
 	}
 
-	public List<uci.ics.mondego.tldr.model.SourceFile> get_all_jar_files() {
-		return all_jar_files;
+	public List<SourceFile> get_all_jar_files() {
+		return jar_files;
 	}
 
-	public List<uci.ics.mondego.tldr.model.SourceFile> get_all_class_files() {
-		return all_class_files;
+	public List<SourceFile> get_all_class_files() {
+		return class_files;
+	}
+	
+	public List<SourceFile> get_all_test_java_files() {
+		return test_java_files;
+	}
+	
+	public List<SourceFile> get_all_test_class_files() {
+		return test_class_files;
 	}
 	
 	
 	/* gets all file from the project directory*/
-	public void listf(String directoryName) {
-	    File directory = new File(directoryName);
+	public void scan(String directoryName) {
+	    
+		File directory = new File(directoryName);
 
 	    File[] fList = directory.listFiles();
 	    	
@@ -57,25 +86,70 @@ public class RepoScanner {
 	        for (File file : fList) {    
 	        	
 	            if (file.isFile()) {
-	            	uci.ics.mondego.tldr.model.SourceFile f = new uci.ics.mondego.tldr.model.SourceFile(file.getAbsolutePath());
-	                if(file.getAbsolutePath().contains(".java")){
-	                	all_java_files.add(f);
+	            	String fileAbsolutePath = file.getAbsolutePath();
+	            	
+	                if(fileAbsolutePath.contains(".java") && !fileAbsolutePath.contains("Test")){
+	                	JavaFile f = new JavaFile(fileAbsolutePath);
+	                	java_files.add(f);
 	                }
-	                else if(file.getAbsolutePath().contains(".jar")){
-	                	
-	                	all_jar_files.add(f);
+	                else if(fileAbsolutePath.contains(".jar")){
+	                	JarFile f = new JarFile(fileAbsolutePath);
+	                	jar_files.add(f);
 	                }
-	                if(file.getAbsolutePath().contains(".class")){
-	                	
-	                	all_class_files.add(f);
+
+	                else if(file.getAbsolutePath().contains(".class") && !fileAbsolutePath.contains("Test")){
+	                	ClassFile f = new ClassFile(fileAbsolutePath);
+	                	class_files.add(f);
 	                }
+	                
+	                else if(fileAbsolutePath.contains(".java") && fileAbsolutePath.contains("Test")){
+	                	TestJavaFile f = new TestJavaFile(fileAbsolutePath);
+	                	test_java_files.add(f);
+	                }
+	                
+	                else if(fileAbsolutePath.contains(".class") && fileAbsolutePath.contains("Test")){
+	                	TestClassFile f = new TestClassFile(fileAbsolutePath);
+	                	test_class_files.add(f);
+	                }
+	                
 	                	
 	            } 
 	            else if (file.isDirectory()) {
-	                listf(file.getAbsolutePath());
+	                scan(file.getAbsolutePath());
 	            }
 	        }
 	    }
+	
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		StringBuilder printLog = new StringBuilder();
+		
+		printLog.append("\nJava Files\n*********************\n");
+		for(int i=0;i<java_files.size();i++)
+			printLog.append(java_files.get(i).getName()+";");
+		
+		printLog.append("\nTest Java Files\n*********************\n");
+		for(int i=0;i<test_java_files.size();i++)
+			printLog.append(test_java_files.get(i).getName()+";");
+		
+		printLog.append("\nTest Class Files\n*********************\n");
+		for(int i=0;i<test_class_files.size();i++)
+			printLog.append(test_class_files.get(i).getName()+" : "+test_class_files.get(i).getCurrentCheckSum()+" ");
+		
+		
+		printLog.append("\nJar Files\n*********************\n");
+		for(int i=0;i<jar_files.size();i++)
+			printLog.append(jar_files.get(i).getName()+";");
+		
+		printLog.append("\nClass Files\n*********************\n");
+		for(int i=0;i<class_files.size();i++)
+			printLog.append(class_files.get(i).getName()+";");
+		
+		return printLog.toString();
 	}
+
+}
 
 
