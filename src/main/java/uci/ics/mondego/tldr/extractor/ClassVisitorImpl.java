@@ -19,6 +19,13 @@ public class ClassVisitorImpl implements ClassVisitor{
 		this.className = className;
 	}
 	
+	public ClassVisitorImpl(){
+		super();
+
+		this.className = null;
+	}
+	
+	
 	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
 		// TODO Auto-generated method stub
 		//System.out.println("signature " + signature);
@@ -46,8 +53,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 		
 	}
 
-	public FieldVisitor visitField(int access, String name,
-			String desc, String signature, Object arg4) {
+	public FieldVisitor visitField(int access, String name, String desc, String signature, Object arg4) {
 		// TODO Auto-generated method stub
 		
 		System.out.println("FIELD: " + name +"-------"+ desc);

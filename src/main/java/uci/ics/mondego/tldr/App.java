@@ -2,6 +2,8 @@ package uci.ics.mondego.tldr;
 
 
 import uci.ics.mondego.tldr.tool.RedisHandler;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +22,8 @@ public class App
 {
 	private static String PROJ_DIR;
     public static void main( String[] args )
-    { 
+    {
+    	RedisHandler rh = null;
        try{
 	       PROJ_DIR = "/Users/demigorgan/brigadier";
 	       
@@ -30,12 +33,19 @@ public class App
 	       
 	       
 	       // in memory database handler
-	       RedisHandler rh = new RedisHandler();
+	       rh = new RedisHandler();
 	       
 	       List<SourceFile> allClass = rs.get_all_class_files();
 	       List<SourceFile> allTestClass = rs.get_all_test_class_files();
 	       
 	       List<SourceFile> changedFiles = new ArrayList<SourceFile>();
+	       
+	       System.out.println(allClass.get(0).getPath());
+	       
+	       ByteCodeParser bp = new ByteCodeParser(allClass.get(11).getPath());
+	       
+	       //ByteCodeParser bp = new ByteCodeParser("/Users/demigorgan/brigadier/bin/test/com/mojang/brigadier/benchmarks/ParsingBenchmarks.class");
+	       
 	       
 	       for(int i=0;i<allClass.size();i++){
 	    	   
@@ -48,13 +58,8 @@ public class App
 	    		   String prevCheckSum = rh.getValue(allClass.get(i).getPath());
 	    		   
 	    		   if(!currentCheckSum.equals(prevCheckSum)){
-	        		   System.out.println("\n"+allClass.get(i).getPath()+" has changed");
-	        		   
-	        		   System.out.println(currentCheckSum+"   "+prevCheckSum);
-	        		   
 	        		   changedFiles.add(allClass.get(i));
 	        		   rh.insert(allClass.get(i).getPath(), currentCheckSum);
-	        		   
 	    		   }
 	    	   }
 	    	   
@@ -64,6 +69,15 @@ public class App
        catch( JedisConnectionException e){
     	   System.out.println("No Connection to Jedis Server");
     	   e.printStackTrace();   
+       }
+       
+       catch(IOException e){
+    	   System.out.println("extractor can't find the designated class");
+    	   e.printStackTrace();
+       }
+       
+       finally{
+    	   rh.close();
        }
        
        
@@ -97,20 +111,7 @@ public class App
        }
        
        
-      for(int i=0;i<allClass.size();i++){
-    	   
-    	   if(!rd.exists(allClass.get(i).getName())){
-    		   System.out.println("file inserted");
-    		   rd.insert(allClass.get(i).getName(), allClass.get(i).getCurrentCheckSum());
-   	   }
-    	   
-    	   else if(!allClass.get(i).getCurrentCheckSum().equals(rd.getValue(allClass.get(i).getName()))){
-    		   //System.out.println(allClass.get(i).getName()+" has changed");
-    		   rd.insert(allClass.get(i).getName(), allClass.get(i).getCurrentCheckSum());
-    		   //TreeBuilder ast = new TreeBuilder(allClass.get(i).getName());
-    		   //ast.AST();
-    	   }
-       }*/
+      */
     	
     }
 }

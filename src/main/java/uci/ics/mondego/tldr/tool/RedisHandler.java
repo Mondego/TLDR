@@ -47,6 +47,11 @@ public class RedisHandler{
 	}
 	
 	
+	public void close(){
+		jedis.close();
+	}
+	
+	
 	
 	
 }
