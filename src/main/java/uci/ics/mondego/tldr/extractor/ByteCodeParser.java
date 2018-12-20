@@ -18,9 +18,12 @@ public class ByteCodeParser {
 	public ByteCodeParser(SourceFile classFile) throws IOException, ArrayIndexOutOfBoundsException, NullPointerException{
 		ClassReader cr = new ClassReader(this.getFileAsByteArray(new File(classFile.getPath())));
 		
-		ClassVisitor cv = new ClassVisitorImpl();
+		ClassVisitorImpl cv = new ClassVisitorImpl();
 		
 		cr.accept(cv, 0);
+		
+		
+		
 	}
 	
 	public ByteCodeParser(String name) throws IOException, ArrayIndexOutOfBoundsException,NullPointerException{
@@ -30,6 +33,7 @@ public class ByteCodeParser {
 		ClassVisitorImpl cv = new ClassVisitorImpl();
 		
 		cr.accept(cv, 0);
+		
 	}
 	
 	public ByteCodeParser() throws IOException, ArrayIndexOutOfBoundsException, NullPointerException{

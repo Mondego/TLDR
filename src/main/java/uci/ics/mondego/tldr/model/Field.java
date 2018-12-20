@@ -1,5 +1,8 @@
 package uci.ics.mondego.tldr.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Field {
 
 	
@@ -8,7 +11,7 @@ public class Field {
 	private String type;
 	private String signature;
 	private String value;
-	private String parameter;
+	private List<String> holds;
 	
 	public Field(String name,String fqn, String type, String signature, String value, String parameter){
 		this.fqn = fqn;
@@ -16,7 +19,7 @@ public class Field {
 		this.name = name;
 		this.signature = signature;
 		this.value = value;
-		this.parameter = parameter;
+		this.holds = new ArrayList<String>();
 	}
 	
 	public Field(String name, String fqn, String type, String signature){
@@ -24,10 +27,16 @@ public class Field {
 		this.fqn = fqn;
 		this.type = type;
 		this.signature = signature;
+		this.holds = new ArrayList<String>();
 	}
 	
 	public Field(){
-		
+		this.holds = new ArrayList<String>();
+	}
+	
+	
+	public void addHold(String h){
+		holds.add(h);
 	}
 	
 	public String getName() {
@@ -62,11 +71,23 @@ public class Field {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	public String getParameter() {
-		return parameter;
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("\nname" + this.name+"\n");
+		sb.append("\nfwn" + this.fqn+"\n");
+		sb.append("\ntype" + this.type+"\n");
+		sb.append("\nholds" + this.holds+"\n");
+		
+		return sb.toString();
 	}
-	public void setParameter(String parameter) {
-		this.parameter = parameter;
-	}
+	
+	
+//	public String getParameter() {
+//		return parameter;
+//	}
+//	public void setParameter(String parameter) {
+//		this.parameter = parameter;
+//	}
 	
 }

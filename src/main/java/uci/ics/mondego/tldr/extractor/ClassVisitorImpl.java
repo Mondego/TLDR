@@ -10,6 +10,7 @@ import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.signature.SignatureReader;
 
 import uci.ics.mondego.tldr.model.Field;
 import uci.ics.mondego.tldr.tool.StringProcessor;
@@ -42,7 +43,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 		classFqn = StringProcessor.pathToFqnConverter(name);
 		
 		
-		System.out.println("class name : "+ classFqn);
+		
 		//System.out.println("super class name : "+ superName);
 		
 		
@@ -78,12 +79,33 @@ public class ClassVisitorImpl implements ClassVisitor{
 		field.setType(StringProcessor.pathToFqnConverter(StringProcessor.typeProcessor(desc)));
 		
 		
+		if(signature != null){
+			//signature = signature.replace('*', '\0');
+			String [] word = signature.split(";|<|>|\\*");
+			for(String w: word){
+				if(w.length() != 0){
+					//System.out.println(w+"  "+w.length());
+					field.addHold(w);
+				}
+				
+			}
+			//System.out.println();
+		}
+		
 		fields.add(field);
 		
+	     /*SignatureVisitorImpl visitor = new SignatureVisitorImpl();
+	      
+	      if (signature == null) {
+	        new SignatureReader(desc).acceptType(visitor);
+	      } 
+	      
+	      else {
+	    	  SignatureReader sr = new SignatureReader("com/mojang/brigadier/context/ParsedArgument;");
+	    	  sr.acceptType(visitor);
+	      }*/
 		
-		FieldVisitor fv = new FieldVisitorImpl();
-		
-		return fv;
+		return null;
 	}
 
 	public void visitInnerClass(String arg0, String arg1, String arg2, int arg3) {
@@ -110,5 +132,9 @@ public class ClassVisitorImpl implements ClassVisitor{
 	public void visitSource(String arg0, String arg1) {
 		// TODO Auto-generated method stub
 		//System.out.println("inside visitSource : "+arg0+"    "+ arg1);	
-	}	
+	}
+	
+	public List<Field> getField(){
+		return fields;
+	}
 }
