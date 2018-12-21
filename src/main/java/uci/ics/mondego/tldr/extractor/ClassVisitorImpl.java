@@ -67,6 +67,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 		field.setName(name);
 		field.setFqn(classFqn+'.'+name);
 		field.setType(StringProcessor.pathToFqnConverter(StringProcessor.typeProcessor(desc)));
+		field.setSignature(signature);
 		
 		if(signature != null){
 			//signature = signature.replace('*', '\0');
@@ -78,6 +79,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 				}		
 			}
 		}
+		
 		fields.add(field);
 		return null;
 	}

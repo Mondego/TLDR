@@ -7,20 +7,23 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
 import javassist.bytecode.Opcode;
+import uci.ics.mondego.tldr.model.LocalVariable;
+import uci.ics.mondego.tldr.model.Method;
 
 public class MethodVisitorImpl implements MethodVisitor{
 	
+	Method m;
+	
 	public MethodVisitorImpl(){
-		
+		m =new Method();
 	}
 	public MethodVisitorImpl(MethodVisitor mv, String name, String className){
-		System.out.println(name+"-------"+className);
-		
+		m =new Method();
 	}
 
 	public AnnotationVisitor visitAnnotation(String arg0, boolean arg1) {
 		// TODO Auto-generated method stub
-		System.out.println(arg0);
+		m.setAnnotation(arg0);
 		return null;
 	}
 
@@ -57,18 +60,15 @@ public class MethodVisitorImpl implements MethodVisitor{
 	        switch (opcode) {
 	          case Opcodes.GETFIELD:
 	          case Opcodes.GETSTATIC:
-	        	  System.out.println("READ   " + owner + "    "+name+"  "+desc);
+	        	 // System.out.println("READ   " + owner + "    "+name+"  "+desc);
 	            break;
 	          case Opcodes.PUTFIELD:
 	          case Opcodes.PUTSTATIC:
-	        	  System.out.println("WRITE  " + owner + "    "+name+"   "+desc);
+	        	  //System.out.println("WRITE  " + owner + "    "+name+"   "+desc);
 	            break;
 	          default:
-	            //logger.severe("Unknown field instruction: " + opcode);
 	        }
-	      }
-		//System.out.println("==========================");
-		
+	      }		
 	}
 
 	public void visitFrame(int arg0, int arg1, Object[] arg2, int arg3, Object[] arg4) {
@@ -113,11 +113,19 @@ public class MethodVisitorImpl implements MethodVisitor{
 
 	public void visitLocalVariable(String name, String desc, String signature,
 			Label start, Label end, int index) {
-		// TODO Auto-generated method stub
-		//System.out.println("inside visitlocal");
-		//System.out.println("==========================");
-		System.out.println(name+"    "+desc+"    "+signature);
-		//System.out.println("==========================");
+		LocalVariable lv = new LocalVariable();
+		lv.setName(name);
+		lv.setType(desc);
+		
+		if(signature != null){
+			String [] word = signature.split(";|<|>|\\*");
+			for(String w: word){
+				if(w.length() != 0){
+					lv.addHold(w);
+				}		
+			}
+		}		
+		m.addLocalVariable(lv);
 	}
 
 	public void visitLookupSwitchInsn(Label arg0, int[] arg1, Label[] arg2) {
@@ -134,20 +142,20 @@ public class MethodVisitorImpl implements MethodVisitor{
 		// TODO Auto-generated method stub
 		//System.out.println("inside visitMethodInsn");
 		//System.out.println("==========================");
-		System.out.println(owner+"   "+name+"   "+desc);
+		//System.out.println(owner+"   "+name+"   "+desc);
 		//System.out.println("==========================");
 		
 	}
 
 	public void visitMultiANewArrayInsn(String arg0, int arg1) {
 		// TODO Auto-generated method stub
-		System.out.println(arg0);
+		//System.out.println(arg0);
 		
 	}
 
 	public AnnotationVisitor visitParameterAnnotation(int arg0, String arg1, boolean arg2) {
 		// TODO Auto-generated method stub
-		System.out.println(arg1+"-----"+arg2);
+		//System.out.println(arg1+"-----"+arg2);
 		return null;
 	}
 
@@ -158,13 +166,13 @@ public class MethodVisitorImpl implements MethodVisitor{
 
 	public void visitTryCatchBlock(Label start, Label end, Label handler, String type) {
 		// TODO Auto-generated method stub
-		System.out.println(type);
+		//System.out.println(type);
 		
 	}
 
 	public void visitTypeInsn(int arg0, String arg1) {
 		// TODO Auto-generated method stub
-		System.out.println(arg1);
+		//System.out.println(arg1);
 		
 	}
 

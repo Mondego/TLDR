@@ -3,33 +3,22 @@ package uci.ics.mondego.tldr.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Field {
-	
+public class LocalVariable {
+
 	private String name;
-	private String fqn;
 	private String type;
 	private String signature;
-	private String value;
 	private List<String> holds;
 	
-	public Field(String name,String fqn, String type, String signature, String value, String parameter){
-		this.fqn = fqn;
+	public LocalVariable(String name, String type, String signature){
 		this.type = type;
 		this.name = name;
-		this.signature = signature;
-		this.value = value;
-		this.holds = new ArrayList<String>();
-	}
-	
-	public Field(String name, String fqn, String type, String signature){
-		this.name = name;
-		this.fqn = fqn;
-		this.type = type;
 		this.signature = signature;
 		this.holds = new ArrayList<String>();
 	}
 	
-	public Field(){
+	
+	public LocalVariable(){
 		this.holds = new ArrayList<String>();
 	}
 	
@@ -46,13 +35,6 @@ public class Field {
 		this.name = name;
 	}
 	
-	public String getFqn() {
-		return fqn;
-	}
-	
-	public void setFqn(String fqn) {
-		this.fqn = fqn;
-	}
 	
 	public String getType() {
 		return type;
@@ -70,18 +52,11 @@ public class Field {
 		this.signature = signature;
 	}
 	
-	public String getValue() {
-		return value;
-	}
 	
-	public void setValue(String value) {
-		this.value = value;
-	}
 	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("\nname" + this.name+"\n");
-		sb.append("\nfqn" + this.fqn+"\n");
 		sb.append("\ntype" + this.type+"\n");
 		sb.append("\nholds" + this.holds+"\n");
 		
@@ -93,5 +68,5 @@ public class Field {
 		// TODO Auto-generated method stub
 		return super.hashCode();
 	}	
-	
+
 }

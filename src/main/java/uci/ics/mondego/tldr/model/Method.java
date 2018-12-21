@@ -5,8 +5,6 @@ import java.util.List;
 
 public class Method {
 	
-	
-
 	private String name;
 	private String fqn;
 	private String returnType;
@@ -14,6 +12,8 @@ public class Method {
 	private List<String> holds;
 	private List<String> parameter;
 	private String body;
+	private String annotation;
+	private List<LocalVariable> localVariables;
 	
 	public Method(String name,String fqn, String type, String signature, String value, String parameter){
 		this.fqn = fqn;
@@ -22,6 +22,7 @@ public class Method {
 		this.signature = signature;
 		this.holds = new ArrayList<String>();
 		this.parameter = new ArrayList<String>();
+		this.localVariables = new ArrayList<LocalVariable>();
 	}
 	
 	public Method(String name, String fqn, String type, String signature){
@@ -31,6 +32,8 @@ public class Method {
 		this.signature = signature;
 		this.holds = new ArrayList<String>();
 		this.parameter = new ArrayList<String>();
+		this.localVariables = new ArrayList<LocalVariable>();
+
 	}
 	
 	public Method(){
@@ -45,6 +48,10 @@ public class Method {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public void addLocalVariable(LocalVariable lv){
+		localVariables.add(lv);
 	}
 
 	public void setName(String name) {
@@ -91,6 +98,22 @@ public class Method {
 
 	public void setReturnType(String returnType) {
 		this.returnType = returnType;
+	}
+	
+	public List<String> getParameter() {
+		return parameter;
+	}
+
+	public void setParameter(List<String> parameter) {
+		this.parameter = parameter;
+	}
+
+	public String getAnnotation() {
+		return annotation;
+	}
+
+	public void setAnnotation(String annotation) {
+		this.annotation = annotation;
 	}
 	
 	@Override
