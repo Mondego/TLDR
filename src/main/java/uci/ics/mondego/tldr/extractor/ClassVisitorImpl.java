@@ -37,16 +37,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 	
 	
 	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
-		// TODO Auto-generated method stub
-		//System.out.println("signature " + signature);
-		
-		classFqn = StringProcessor.pathToFqnConverter(name);
-		
-		
-		
-		//System.out.println("super class name : "+ superName);
-		
-		
+		classFqn = StringProcessor.pathToFqnConverter(name);	
 	}
 
     public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
@@ -69,15 +60,13 @@ public class ClassVisitorImpl implements ClassVisitor{
 
 	public FieldVisitor visitField(int access, String name, String desc, String signature, Object arg4) {
 		// TODO Auto-generated method stub
-		
-		System.out.println("FIELD: " + name +" ------- "+ desc + " ---- "+signature);
+		//System.out.println("FIELD: " + name +" ------- "+ desc + " ---- "+signature);
 		
 		Field field = new Field();
 		
 		field.setName(name);
 		field.setFqn(classFqn+'.'+name);
 		field.setType(StringProcessor.pathToFqnConverter(StringProcessor.typeProcessor(desc)));
-		
 		
 		if(signature != null){
 			//signature = signature.replace('*', '\0');
@@ -86,25 +75,10 @@ public class ClassVisitorImpl implements ClassVisitor{
 				if(w.length() != 0){
 					//System.out.println(w+"  "+w.length());
 					field.addHold(w);
-				}
-				
+				}		
 			}
-			//System.out.println();
 		}
-		
 		fields.add(field);
-		
-	     /*SignatureVisitorImpl visitor = new SignatureVisitorImpl();
-	      
-	      if (signature == null) {
-	        new SignatureReader(desc).acceptType(visitor);
-	      } 
-	      
-	      else {
-	    	  SignatureReader sr = new SignatureReader("com/mojang/brigadier/context/ParsedArgument;");
-	    	  sr.acceptType(visitor);
-	      }*/
-		
 		return null;
 	}
 
@@ -113,15 +87,15 @@ public class ClassVisitorImpl implements ClassVisitor{
 		
 	}
 
-	public MethodVisitor visitMethod(int access, String name,
-			String desc, String signature, String[] exceptions) {
+	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		// TODO Auto-generated method stub
 		
-		//System.out.println("METHOD: " + name +"-------"+ desc);
-		//MethodVisitor mv = new MethodVisitorImpl();
+		System.out.println("METHOD: " + name +"-------"+ desc+ "--------"+ signature);
+		MethodVisitor mv = new MethodVisitorImpl();
 
-	    //return mv;
-		return null;
+		System.out.println("===================");
+	    return mv;
+		//return null;
 	}
 
 	public void visitOuterClass(String arg0, String arg1, String arg2) {

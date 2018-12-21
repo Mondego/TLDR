@@ -107,7 +107,6 @@ public class ByteCodeParser {
 			is.close();
 	      }
 	      catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 	      }
 	    }
