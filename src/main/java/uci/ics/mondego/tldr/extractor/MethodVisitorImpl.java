@@ -9,18 +9,24 @@ import org.objectweb.asm.Opcodes;
 import javassist.bytecode.Opcode;
 import uci.ics.mondego.tldr.model.LocalVariable;
 import uci.ics.mondego.tldr.model.Method;
+import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class MethodVisitorImpl implements MethodVisitor{
 	
 	Method m;
 	
-	public MethodVisitorImpl(){
-		m =new Method();
+	public MethodVisitorImpl(Method m){
+		this.m = m;
 	}
+	
 	public MethodVisitorImpl(MethodVisitor mv, String name, String className){
 		m =new Method();
 	}
-
+	
+	public Method getMethod(){
+		return m;
+	}
+	
 	public AnnotationVisitor visitAnnotation(String arg0, boolean arg1) {
 		// TODO Auto-generated method stub
 		m.setAnnotation(arg0);
@@ -115,16 +121,18 @@ public class MethodVisitorImpl implements MethodVisitor{
 			Label start, Label end, int index) {
 		LocalVariable lv = new LocalVariable();
 		lv.setName(name);
-		lv.setType(desc);
+		
+		lv.setType(StringProcessor.pathToFqnConverter(StringProcessor.typeProcessor(desc)));
 		
 		if(signature != null){
 			String [] word = signature.split(";|<|>|\\*");
 			for(String w: word){
 				if(w.length() != 0){
-					lv.addHold(w);
+					lv.addHold(StringProcessor.pathToFqnConverter(StringProcessor.typeProcessor(desc)));
 				}		
 			}
-		}		
+		}	
+		
 		m.addLocalVariable(lv);
 	}
 
@@ -181,6 +189,4 @@ public class MethodVisitorImpl implements MethodVisitor{
 		
 	}
 	
-	
-
 }

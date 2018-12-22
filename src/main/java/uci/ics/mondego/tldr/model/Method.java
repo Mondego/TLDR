@@ -7,43 +7,44 @@ public class Method {
 	
 	private String name;
 	private String fqn;
-	private String returnType;
+	private LocalVariable returnType;
 	private String signature;
-	private List<String> holds;
-	private List<String> parameter;
+	private List<String> uses;
+	private List<LocalVariable> parameter;
 	private String body;
 	private String annotation;
 	private List<LocalVariable> localVariables;
 	
-	public Method(String name,String fqn, String type, String signature, String value, String parameter){
+	public Method(String name,String fqn, LocalVariable type, String signature, String value, String parameter){
 		this.fqn = fqn;
 		this.returnType = type;
 		this.name = name;
 		this.signature = signature;
-		this.holds = new ArrayList<String>();
-		this.parameter = new ArrayList<String>();
+		this.uses = new ArrayList<String>();
+		this.parameter = new ArrayList<LocalVariable>();
 		this.localVariables = new ArrayList<LocalVariable>();
 	}
 	
-	public Method(String name, String fqn, String type, String signature){
+	public Method(String name, String fqn, LocalVariable type, String signature){
 		this.name = name;
 		this.fqn = fqn;
 		this.returnType = type;
 		this.signature = signature;
-		this.holds = new ArrayList<String>();
-		this.parameter = new ArrayList<String>();
+		this.uses = new ArrayList<String>();
+		this.parameter = new ArrayList<LocalVariable>();
 		this.localVariables = new ArrayList<LocalVariable>();
 
 	}
 	
 	public Method(){
-		this.holds = new ArrayList<String>();
-		this.parameter = new ArrayList<String>();
+		this.uses = new ArrayList<String>();
+		this.parameter = new ArrayList<LocalVariable>();
+		this.localVariables = new ArrayList<LocalVariable>();
 	}
 	
 	
 	public void addHold(String h){
-		holds.add(h);
+		uses.add(h);
 	}
 	
 	public String getName() {
@@ -64,10 +65,10 @@ public class Method {
 	public void setFqn(String fqn) {
 		this.fqn = fqn;
 	}
-	public String getReturnType() {
+	public LocalVariable getReturnType() {
 		return returnType;
 	}
-	public void setType(String type) {
+	public void setType(LocalVariable type) {
 		this.returnType = type;
 	}
 	public String getSignature() {
@@ -83,7 +84,7 @@ public class Method {
 		sb.append("\nname" + this.name+"\n");
 		sb.append("\nfqn" + this.fqn+"\n");
 		sb.append("\nreturn type" + this.returnType+"\n");
-		sb.append("\nholds" + this.holds+"\n");
+		sb.append("\nholds" + this.uses+"\n");
 		
 		return sb.toString();
 	}
@@ -96,16 +97,20 @@ public class Method {
 		this.body = body;
 	}
 
-	public void setReturnType(String returnType) {
+	public void setReturnType(LocalVariable returnType) {
 		this.returnType = returnType;
 	}
 	
-	public List<String> getParameter() {
+	public List<LocalVariable> getParameter() {
 		return parameter;
 	}
 
-	public void setParameter(List<String> parameter) {
+	public void setParameter(List<LocalVariable> parameter) {
 		this.parameter = parameter;
+	}
+	
+	public void addParameter(LocalVariable lv){
+		parameter.add(lv);
 	}
 
 	public String getAnnotation() {

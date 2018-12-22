@@ -13,11 +13,13 @@ import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.signature.SignatureReader;
 
 import uci.ics.mondego.tldr.model.Field;
+import uci.ics.mondego.tldr.model.LocalVariable;
+import uci.ics.mondego.tldr.model.Method;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class ClassVisitorImpl implements ClassVisitor{
 
-	MethodVisitor mv = new MethodVisitorImpl();
+	//MethodVisitor mv = new MethodVisitorImpl();
 	String className;
 	List<Field> fields;
 	String classFqn;
@@ -74,8 +76,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 			String [] word = signature.split(";|<|>|\\*");
 			for(String w: word){
 				if(w.length() != 0){
-					//System.out.println(w+"  "+w.length());
-					field.addHold(w);
+					field.addHold(StringProcessor.pathToFqnConverter(w).substring(1));
 				}		
 			}
 		}
@@ -93,8 +94,47 @@ public class ClassVisitorImpl implements ClassVisitor{
 		// TODO Auto-generated method stub
 		
 		System.out.println("METHOD: " + name +"-------"+ desc+ "--------"+ signature);
-		MethodVisitor mv = new MethodVisitorImpl();
-
+		Method mthd = new Method();
+		mthd.setName(name);
+		mthd.setFqn(classFqn+'.'+name);
+		
+		
+		String parameters = desc.substring(desc.indexOf('(') + 1, desc.indexOf(')'));
+		
+		if(parameters != null){
+			String [] word = parameters.split(";|<|>|\\*");
+			for(String w: word){
+				if(w.length() != 0){
+					LocalVariable lv = new LocalVariable();
+					lv.setType(StringProcessor.pathToFqnConverter(w).substring(1));
+					//System.out.println(lv.getType());
+					lv.setSignature(w);
+					mthd.addParameter(lv);
+				}		
+			}
+		}
+		
+		String returnType = desc.substring(desc.indexOf(')') + 1);
+		
+		LocalVariable lv = new LocalVariable();
+		lv.setType(StringProcessor.pathToFqnConverter(StringProcessor.typeProcessor(returnType)));
+		lv.setSignature(signature);
+		mthd.setReturnType(lv);
+		
+		if(signature != null){
+			//signature = signature.replace('*', '\0');
+			String [] word = signature.split(";|<|>|\\*");
+			for(String w: word){
+				if(w.length() != 0){
+					mthd.addHold(StringProcessor.pathToFqnConverter(w).substring(1));
+				}		
+			}
+		}
+		
+		MethodVisitorImpl mv = new MethodVisitorImpl(mthd);
+		
+		mthd = mv.getMethod();
+		
 		System.out.println("===================");
 	    return mv;
 		//return null;
