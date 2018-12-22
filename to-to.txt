@@ -1,0 +1,5 @@
+* Construct pipeline architecture
+
+* introduce multi-threading between modules ---> speed
+
+* Write test suite
