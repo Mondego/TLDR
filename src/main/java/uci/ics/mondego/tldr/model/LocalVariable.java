@@ -52,14 +52,11 @@ public class LocalVariable {
 		this.signature = signature;
 	}
 	
-	
-	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("\nname" + this.name+"\n");
 		sb.append("\ntype" + this.type+"\n");
 		sb.append("\nholds" + this.holds+"\n");
-		
 		return sb.toString();
 	}
 	
