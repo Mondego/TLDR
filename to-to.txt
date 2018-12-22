@@ -1,5 +1,9 @@
 * Construct pipeline architecture
 
-* introduce multi-threading between modules ---> speed
+* introduce multithreading between modules ---> speed
 
 * Write test suite
+
+* inside MethodVisitor, several methods aren't being called ("COFUSED") -- > figure out why
+
+*implement serializer class for redis

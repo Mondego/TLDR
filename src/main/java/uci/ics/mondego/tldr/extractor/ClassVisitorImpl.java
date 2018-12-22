@@ -46,14 +46,12 @@ public class ClassVisitorImpl implements ClassVisitor{
 
     public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
 		// TODO Auto-generated method stub
-    	//System.out.println(desc);
-    	
-		return null;
+    	AnnotationVisitor av = new AnnotationVisitorImpl();
+		return av;
 	}
 
 	public void visitAttribute(Attribute arg0) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 	public void visitEnd() {
@@ -84,11 +82,12 @@ public class ClassVisitorImpl implements ClassVisitor{
 
 	public void visitInnerClass(String arg0, String arg1, String arg2, int arg3) {
 		// TODO Auto-generated method stub
+		
 	}
 
 	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		// TODO Auto-generated method stub
-		//System.out.println("METHOD: " + name +"-------"+ desc+ "--------"+ signature);
+		System.out.println("METHOD: " + name +"-------"+ desc+ "--------"+ signature);
 		Method mthd = new Method();
 		mthd.setName(name);
 		mthd.setFqn(classFqn+'.'+name);
@@ -126,14 +125,11 @@ public class ClassVisitorImpl implements ClassVisitor{
 	}
 	
 	public void visitOuterClass(String arg0, String arg1, String arg2) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void visitSource(String arg0, String arg1) {
-		// TODO Auto-generated method stub
 		// gives which java files the class belongs to..... it could be the case that single file has multiple classes
-		//System.out.println("inside visitSource : "+arg0+"    "+ arg1);	
 	}
 	
 	public List<Field> getField(){
