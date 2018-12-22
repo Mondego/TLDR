@@ -65,14 +65,10 @@ public abstract class SourceFile implements Entities{
 	
 	public boolean hasChanged(){
 		boolean changed = false;
-		
 		String newCheckSum = calculateCheckSum();
-		
 		changed = !newCheckSum.equals(currentCheckSum);
-		
 		prevCheckSum = changed ? currentCheckSum : prevCheckSum;
 		currentCheckSum = changed ? newCheckSum : currentCheckSum;
-		
 		return changed;
 	}
 	

@@ -18,6 +18,21 @@ public class StringProcessor {
 		return path.replace('/', '.');
 	}
 	
+	public static String[] signatureProcessor(String signature){
+		if(signature != null){
+			String [] word = signature.split(";|<|>|\\*");
+			for(int i=0;i<word.length;i++){
+				if(word[i].length() != 0){
+					word[i] = StringProcessor.pathToFqnConverter(word[i]).substring(1);
+				}		
+			}
+			
+			return word;
+		}
+		else
+			return null;
+	}
+	
 	private static String convertBaseType(char type) {
 	    switch (type) {
 	      case 'B':

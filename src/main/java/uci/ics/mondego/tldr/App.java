@@ -28,9 +28,7 @@ public class App
 	       PROJ_DIR = "/Users/demigorgan/brigadier";
 	       
 	    	//Scan the repository - gets java, test, class, and jar files. 
-	       
 	       RepoScanner rs = new RepoScanner(PROJ_DIR);
-	       
 	       
 	       // in memory database handler
 	       rh = new RedisHandler();
@@ -39,17 +37,11 @@ public class App
 	       List<SourceFile> allTestClass = rs.get_all_test_class_files();
 	       
 	       List<SourceFile> changedFiles = new ArrayList<SourceFile>();
-	       
-	       System.out.println(allClass.get(11).getPath());
-	       
 	       ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
-	       
-	       //ByteCodeParser bp = new ByteCodeParser("/Users/demigorgan/brigadier/bin/test/com/mojang/brigadier/benchmarks/ParsingBenchmarks.class");
-	       
-	       
 	       for(int i=0;i<allClass.size();i++){
 	    	   
 	    	   if(!rh.exists(allClass.get(i).getPath())){
+	    		   
 	    		   System.out.println("file inserted");
 	    		   rh.insert(allClass.get(i).getPath(), allClass.get(i).getCurrentCheckSum());
 	    	   }
@@ -64,6 +56,7 @@ public class App
 	    	   }
 	    	   
 	       }
+	       
        }
        
        catch( JedisConnectionException e){
@@ -90,39 +83,6 @@ public class App
        finally{
     	   rh.close();
        }
-       
-       
-      /* 
-       
-       
-       ByteCodeParser b = new ByteCodeParser();
-
-       
-       List<SourceFile> allJava = sc.get_all_java_files();
-       
-       List<SourceFile> allClass =  sc.get_all_class_files();
-       
-       for(int i=0;i<allClass.size();i++){
-    	   
-    	  if(i== 0){ 
-    		  //JavaFileParser ast = new JavaFileParser(allClass.get(i).getName());
-    		  //ast.AST();
-    	  }
-    	   
-    	   if(!rd.exists(allClass.get(i).getName())){
-    		   //System.out.println("file inserted");
-    		   rd.insert(allClass.get(i).getName(), allClass.get(i).getCurrentCheckSum());
-    	   }
-    	   
-    	   else if(!allClass.get(i).getCurrentCheckSum().equals(rd.getValue(allClass.get(i).getName()))){
-    		   //System.out.println(allClass.get(i).getName()+" has changed");
-    		   rd.insert(allClass.get(i).getName(), allClass.get(i).getCurrentCheckSum());
-    		   
-    	   }
-       }
-       
-       
-      */
     	
     }
 }

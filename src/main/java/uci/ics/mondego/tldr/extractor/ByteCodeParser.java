@@ -17,37 +17,20 @@ public class ByteCodeParser {
 		
 	public ByteCodeParser(SourceFile classFile) throws IOException, ArrayIndexOutOfBoundsException, NullPointerException{
 		ClassReader cr = new ClassReader(this.getFileAsByteArray(new File(classFile.getPath())));
-		
 		ClassVisitorImpl cv = new ClassVisitorImpl();
-		
 		cr.accept(cv, 0);
-		
-		
-		
 	}
 	
 	public ByteCodeParser(String name) throws IOException, ArrayIndexOutOfBoundsException,NullPointerException{
-		
 		ClassReader cr = new ClassReader(this.getFileAsByteArray(new File(name)));
-		
 		ClassVisitorImpl cv = new ClassVisitorImpl();
-		
 		cr.accept(cv, 0);
-		
 	}
 	
 	public ByteCodeParser() throws IOException, ArrayIndexOutOfBoundsException, NullPointerException{
-
 		ClassReader cr = new ClassReader("uci.ics.mondego.tldr.App");
-		
 		ClassVisitorImpl cv = new ClassVisitorImpl();
-		
 		cr.accept(cv, 0);
-
-	}
-	
-	private String convertNameToFqn(String name) {
-	    return null;
 	}
 	
 	private static String convertBaseType(char type) {
@@ -107,7 +90,6 @@ public class ByteCodeParser {
 			is.close();
 	      }
 	      catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 	      }
 	    }
