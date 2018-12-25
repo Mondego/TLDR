@@ -65,14 +65,21 @@
 	</dependency>
 	
 	<dependency>
-<<<<<<< HEAD
 	    <groupId>org.redisson</groupId>
 	    <artifactId>redisson</artifactId>
 	    <version>3.3.0</version>
-=======
-	    <groupId>asm</groupId>
+	   </dependency>
+	    
+	<dependency>	   
+        <groupId>asm</groupId>
 	    <artifactId>asm-tree</artifactId>
 	    <version>3.3.1</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.googlecode.slf4j-maven-plugin-log</groupId>
+	    <artifactId>slf4j-maven-plugin-log</artifactId>
+	    <version>1.0.0</version>
 	</dependency>
 	
 	<dependency>
@@ -92,7 +99,6 @@
 	    <artifactId>asm-util</artifactId>
 	    <version>3.3.1</version>
 	    <scope>test</scope>
->>>>>>> 4d4bb73efa38460d51c2ca12269fc676fad639df
 	</dependency>
 	    
   </dependencies>

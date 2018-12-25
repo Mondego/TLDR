@@ -9,6 +9,9 @@ import uci.ics.mondego.tldr.model.Selection;
 import java.net.ConnectException;
 
 import org.apache.commons.pool2.PoolUtils;
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
 
 
 public class RedisHandler{
@@ -19,6 +22,8 @@ public class RedisHandler{
 
 	public RedisHandler(){
 		try{
+			RedissonClient client = Redisson.create();
+			
 			jedis = new Jedis("localhost");
 			System.out.println("Server is running: "+jedis.ping()); 
 		}
@@ -27,16 +32,22 @@ public class RedisHandler{
 		}
 	}
 	
+	private Config setConfig(String ip, int port){
+		Config config = new Config();
+		config.useSingleServer().setAddress(ip+":"+port);
+		return config;
+	}
+	
 	public void insert(String fileName, String checkSum) throws JedisConnectionException{
 		
 		jedis.set(fileName, checkSum); 
 			//jedis.bgsave();
-		
-		
 	}
 	
 	public void update(String fileName, String checkSum){
+	
 	}
+	
 	
 	public String getValue(String fileName) throws JedisConnectionException{ 
 	    return jedis.get(fileName);
@@ -46,12 +57,8 @@ public class RedisHandler{
 		return jedis.exists(fileName);
 	}
 	
-	
 	public void close(){
 		jedis.close();
 	}
-	
-	
-	
 	
 }
