@@ -51,11 +51,11 @@ public class MethodVisitorImpl implements MethodVisitor{
 	        switch (opcode) {
 	          case Opcodes.GETFIELD:
 	          case Opcodes.GETSTATIC:
-	        	  //System.out.println("READ   " + owner + "    "+name+"  "+desc);
+	        	  System.out.println("READ   " + owner + "    "+name+"  "+desc);
 	            break;
 	          case Opcodes.PUTFIELD:
 	          case Opcodes.PUTSTATIC:
-	        	 // System.out.println("WRITE  " + owner + "    "+name+"   "+desc);
+	        	 System.out.println("WRITE  " + owner + "    "+name+"   "+desc);
 	            break;
 	          default:
 	        }
@@ -80,7 +80,7 @@ public class MethodVisitorImpl implements MethodVisitor{
 
 	public void visitMethodInsn(int opcode, String owner, String name, String desc) {
 		// all function calls
-		System.out.println(StringProcessor.pathToFqnConverter(owner) + "."+name);
+		//System.out.println(StringProcessor.pathToFqnConverter(owner) + "."+name);
 		method.addHold(StringProcessor.pathToFqnConverter(owner) + "."+name);		
 	}
 	

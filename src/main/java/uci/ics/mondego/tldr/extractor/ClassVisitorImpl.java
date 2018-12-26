@@ -2,6 +2,9 @@ package uci.ics.mondego.tldr.extractor;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.Attribute;
 import org.objectweb.asm.ClassVisitor;
@@ -10,6 +13,7 @@ import org.objectweb.asm.MethodVisitor;
 import uci.ics.mondego.tldr.model.Field;
 import uci.ics.mondego.tldr.model.LocalVariable;
 import uci.ics.mondego.tldr.model.Method;
+import uci.ics.mondego.tldr.tool.RedisHandler;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class ClassVisitorImpl implements ClassVisitor{
@@ -20,6 +24,8 @@ public class ClassVisitorImpl implements ClassVisitor{
 	private String classFqn;
 	private String superClass;
 	private String[] interfaces;
+    private final static Logger logger = LogManager.getLogger(ClassVisitorImpl.class);
+
 	
 	public ClassVisitorImpl(String className){
 		super();
@@ -77,6 +83,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 			}
 		}
 		fields.add(field);
+		//logger.info(field.getFqn()+" parsed");
 		return null;
 	}
 

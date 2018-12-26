@@ -1,4 +1,4 @@
-package uci.ics.mondego.tldr.extractor;
+package uci.ics.mondego.tldr;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -8,7 +8,6 @@ import uci.ics.mondego.tldr.model.ClassFile;
 import uci.ics.mondego.tldr.model.JarFile;
 import uci.ics.mondego.tldr.model.JavaFile;
 import uci.ics.mondego.tldr.model.SourceFile;
-import uci.ics.mondego.tldr.model.TestCases;
 import uci.ics.mondego.tldr.model.TestClassFile;
 import uci.ics.mondego.tldr.model.TestJavaFile;
 
@@ -110,9 +109,7 @@ public class RepoScanner {
 	                else if(fileAbsolutePath.contains(".class") && fileAbsolutePath.contains("Test")){
 	                	TestClassFile f = new TestClassFile(fileAbsolutePath);
 	                	test_class_files.add(f);
-	                }
-	                
-	                	
+	                }	
 	            } 
 	            else if (file.isDirectory()) {
 	                scan(file.getAbsolutePath());

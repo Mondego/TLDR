@@ -9,7 +9,10 @@ import uci.ics.mondego.tldr.model.Selection;
 import java.net.ConnectException;
 
 import org.apache.commons.pool2.PoolUtils;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.redisson.Redisson;
+import org.redisson.api.RKeys;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 
@@ -19,23 +22,50 @@ public class RedisHandler{
     private Jedis jedis; 
     private Package pk = null;
     private PoolUtils tou = null;
+    private RedissonClient client;
+    private static final Logger logger = LogManager.getLogger(RedisHandler.class);
 
 	public RedisHandler(){
 		try{
-			RedissonClient client = Redisson.create();
+			this.client = Redisson.create();
 			
 			jedis = new Jedis("localhost");
 			System.out.println("Server is running: "+jedis.ping()); 
 		}
 		catch(JedisConnectionException e){
-			System.out.println("Connection Refused");
+			logger.error("Connection Refused in LocalHost\n");
 		}
 	}
 	
+	public RedisHandler(String addr){
+		try{
+			this.client = Redisson.create();
+			
+			jedis = new Jedis(addr);
+			System.out.println("Server is running: "+jedis.ping()); 
+		}
+		catch(JedisConnectionException e){
+			logger.error("Connection Refused in "+addr+"\n");
+		}
+	}
+	
+	// config object can be created from json file too
 	private Config setConfig(String ip, int port){
 		Config config = new Config();
 		config.useSingleServer().setAddress(ip+":"+port);
 		return config;
+	}
+	
+	//get all keys
+	private Iterable<String> getKeys(){
+		RKeys keys = client.getKeys();
+		return keys.getKeys();
+	}
+	
+	//get all keys by pattern
+	private Iterable<String> getKeys(String pattern){
+		RKeys keys = client.getKeys();
+		return keys.getKeysByPattern(pattern);
 	}
 	
 	public void insert(String fileName, String checkSum) throws JedisConnectionException{

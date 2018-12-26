@@ -7,11 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.BasicConfigurator;
+
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.extractor.ByteCodeParser;
-import uci.ics.mondego.tldr.extractor.JavaFileParser;
-import uci.ics.mondego.tldr.extractor.RepoScanner;
 import uci.ics.mondego.tldr.model.SourceFile;
+
 
 
 /**
@@ -23,6 +24,8 @@ public class App
 	private static String PROJ_DIR;
     public static void main( String[] args )
     {
+    	BasicConfigurator.configure();
+
     	RedisHandler rh = null;
        try{
 	       PROJ_DIR = "/Users/demigorgan/brigadier";
@@ -38,8 +41,8 @@ public class App
 	       
 	       List<SourceFile> changedFiles = new ArrayList<SourceFile>();
 	       ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
+	       
 	       for(int i=0;i<allClass.size();i++){
-	    	   
 	    	   if(!rh.exists(allClass.get(i).getPath())){
 	    		   
 	    		   System.out.println("file inserted");
