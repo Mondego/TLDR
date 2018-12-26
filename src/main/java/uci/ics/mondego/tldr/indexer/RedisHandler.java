@@ -1,4 +1,4 @@
-package uci.ics.mondego.tldr.tool;
+package uci.ics.mondego.tldr.indexer;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.exceptions.JedisConnectionException;

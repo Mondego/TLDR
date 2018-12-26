@@ -13,7 +13,6 @@ import org.objectweb.asm.MethodVisitor;
 import uci.ics.mondego.tldr.model.Field;
 import uci.ics.mondego.tldr.model.LocalVariable;
 import uci.ics.mondego.tldr.model.Method;
-import uci.ics.mondego.tldr.tool.RedisHandler;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class ClassVisitorImpl implements ClassVisitor{

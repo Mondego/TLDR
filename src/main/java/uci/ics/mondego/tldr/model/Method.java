@@ -14,6 +14,7 @@ public class Method {
 	private String body;
 	private String annotation;
 	private List<LocalVariable> localVariables;
+	private List<Operator> operators;
 	
 	public Method(String name,String fqn, LocalVariable type, String signature, String value, String parameter){
 		this.fqn = fqn;
@@ -23,6 +24,7 @@ public class Method {
 		this.uses = new ArrayList<String>();
 		this.parameter = new ArrayList<LocalVariable>();
 		this.localVariables = new ArrayList<LocalVariable>();
+		this.operators = new ArrayList<Operator>();
 	}
 	
 	public Method(String name, String fqn, LocalVariable type, String signature){
@@ -33,13 +35,14 @@ public class Method {
 		this.uses = new ArrayList<String>();
 		this.parameter = new ArrayList<LocalVariable>();
 		this.localVariables = new ArrayList<LocalVariable>();
-
+		this.operators = new ArrayList<Operator>();
 	}
 	
 	public Method(){
 		this.uses = new ArrayList<String>();
 		this.parameter = new ArrayList<LocalVariable>();
 		this.localVariables = new ArrayList<LocalVariable>();
+		this.operators = new ArrayList<Operator>();
 	}
 	
 	
@@ -112,6 +115,14 @@ public class Method {
 	public void addParameter(LocalVariable lv){
 		parameter.add(lv);
 	}
+	
+	public void addOperator(Operator op){
+		operators.add(op);
+	}
+	
+	public List<Operator> getOperators(){
+		return operators;
+	}
 
 	public String getAnnotation() {
 		return annotation;
@@ -123,8 +134,22 @@ public class Method {
 	
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
+		StringBuilder method = new StringBuilder();
+		method.append(name);
+		method.append(fqn);
+		method.append(returnType.hashCode());
+		method.append(signature);
+		method.append(annotation);
+		for(int i=0;i<uses.size();i++)
+			method.append(uses.get(i));
+		for(int i=0;i<parameter.size();i++)
+			method.append(parameter.get(i).hashCode());
+		for(int i=0;i<localVariables.size();i++)
+			method.append(localVariables.get(i).hashCode());
+		for(int i=0;i<operators.size();i++)
+			method.append(operators.get(i).hashCode());
+		
+		return method.toString().hashCode();
 	}
 	
 }
