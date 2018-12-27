@@ -5,26 +5,23 @@ import java.util.List;
 
 public class Method {
 	
+	
 	private String name;
 	private String fqn;
 	private LocalVariable returnType;
 	private String signature;
-	private List<String> uses;
-	private List<LocalVariable> parameter;
+	private List<String> uses = new ArrayList<String>();
+	private List<LocalVariable> parameter = new ArrayList<LocalVariable>();
 	private String body;
 	private String annotation;
-	private List<LocalVariable> localVariables;
-	private List<Operator> operators;
+	private List<LocalVariable> localVariables = new ArrayList<LocalVariable>();
+	private List<Operator> operators = new ArrayList<Operator>();
 	
 	public Method(String name,String fqn, LocalVariable type, String signature, String value, String parameter){
 		this.fqn = fqn;
 		this.returnType = type;
 		this.name = name;
 		this.signature = signature;
-		this.uses = new ArrayList<String>();
-		this.parameter = new ArrayList<LocalVariable>();
-		this.localVariables = new ArrayList<LocalVariable>();
-		this.operators = new ArrayList<Operator>();
 	}
 	
 	public Method(String name, String fqn, LocalVariable type, String signature){
@@ -32,22 +29,16 @@ public class Method {
 		this.fqn = fqn;
 		this.returnType = type;
 		this.signature = signature;
-		this.uses = new ArrayList<String>();
-		this.parameter = new ArrayList<LocalVariable>();
-		this.localVariables = new ArrayList<LocalVariable>();
-		this.operators = new ArrayList<Operator>();
 	}
 	
 	public Method(){
-		this.uses = new ArrayList<String>();
-		this.parameter = new ArrayList<LocalVariable>();
-		this.localVariables = new ArrayList<LocalVariable>();
-		this.operators = new ArrayList<Operator>();
+		
 	}
 	
 	
-	public void addHold(String h){
-		uses.add(h);
+	public void addUses(String h){
+		if(h.length() > 0 || h != null)
+			uses.add(h);
 	}
 	
 	public String getName() {
@@ -84,10 +75,26 @@ public class Method {
 	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
-		sb.append("\nname" + this.name+"\n");
-		sb.append("\nfqn" + this.fqn+"\n");
-		sb.append("\nreturn type" + this.returnType+"\n");
-		sb.append("\nholds" + this.uses+"\n");
+		sb.append("Name : " + this.name+"\n");
+		sb.append("Fqn : " + this.fqn+"\n");
+		sb.append("Return type : " + this.returnType.getType()+"\n");
+		sb.append("Signature : "+this.signature+"\n");
+		sb.append("Operators: \n");
+		for(int i=0;i<operators.size();i++)
+			sb.append(operators.get(i).getOperator()+" "+operators.get(i).getOperand1()+" "
+					+operators.get(i).getOperand2()+"\n");
+		
+		sb.append("Parameters: \n");
+		for(int i=0;i<parameter.size();i++)
+			sb.append(parameter.get(i).getType()+" "+parameter.get(i).getName()+"\n");
+		
+		sb.append("Local Variable: \n");
+		for(int i=0;i<localVariables.size();i++)
+			sb.append(localVariables.get(i).getType()+" "+localVariables.get(i).getName()+"\n");
+		
+		sb.append("Uses: \n");
+		for(int i=0;i<uses.size();i++)
+			sb.append(uses.get(i)+"\n");
 		
 		return sb.toString();
 	}
@@ -132,6 +139,7 @@ public class Method {
 		this.annotation = annotation;
 	}
 	
+	
 	@Override
 	public int hashCode() {
 		StringBuilder method = new StringBuilder();
@@ -151,5 +159,12 @@ public class Method {
 		
 		return method.toString().hashCode();
 	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub		
+		return super.clone();
+	}
+
 	
 }

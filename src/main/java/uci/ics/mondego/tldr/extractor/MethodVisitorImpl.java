@@ -1,5 +1,8 @@
 package uci.ics.mondego.tldr.extractor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.Attribute;
 import org.objectweb.asm.Label;
@@ -15,12 +18,14 @@ import uci.ics.mondego.tldr.tool.StringProcessor;
 public class MethodVisitorImpl implements MethodVisitor{
 	
 	Method method;
+	List<String> uses = new ArrayList<String>();
 	
 	public MethodVisitorImpl(Method method){
 		this.method = method;
 	}
 	
 	public MethodVisitorImpl(MethodVisitor mv, String name, String className){
+		
 		method = new Method();
 	}
 	
@@ -46,16 +51,19 @@ public class MethodVisitorImpl implements MethodVisitor{
 		
 		if (name.indexOf('$') == -1) {
 			String fieldFqn = StringProcessor.pathToFqnConverter(owner) + "."+name;
-			method.addHold(fieldFqn);
+			
+			uses.add(fieldFqn);
+			method.addUses(fieldFqn);
+			
 			method.addOperator(new Operator(opcode, fieldFqn.hashCode()));
 	        switch (opcode) {
 	          case Opcodes.GETFIELD:
 	          case Opcodes.GETSTATIC:
-	        	  System.out.println("READ   " + owner + "    "+name+"  "+desc+"   "+opcode);
+	        	  //System.out.println("READ   " + owner + "    "+name+"  "+desc+"   "+opcode);
 	            break;
 	          case Opcodes.PUTFIELD:
 	          case Opcodes.PUTSTATIC:
-	        	 System.out.println("WRITE  " + owner + "    "+name+"   "+desc+"   "+opcode);
+	        	 //System.out.println("WRITE  " + owner + "    "+name+"   "+desc+"   "+opcode);
 	            break;
 	          default:
 	        }
@@ -64,8 +72,8 @@ public class MethodVisitorImpl implements MethodVisitor{
 
 	
 	public void visitLocalVariable(String name, String desc, String signature, Label start, Label end, int index) {
-		System.out.println("inside local variable\n===================");
-		System.out.println(name+"  "+desc+"   "+signature+"  "+index);
+		//System.out.println("inside local variable\n===================");
+		//System.out.println(name+"  "+desc+"   "+signature+"  "+index);
 		LocalVariable lv = new LocalVariable();
 		lv.setName(name);
 		lv.setType(StringProcessor.pathToFqnConverter(StringProcessor.typeProcessor(desc)));
@@ -78,39 +86,45 @@ public class MethodVisitorImpl implements MethodVisitor{
 			}
 		}	
 		method.addLocalVariable(lv);
+		//System.out.println(method.toString());
 	}
 
 	public void visitMethodInsn(int opcode, String owner, String name, String desc) {
 		// all function calls
 		//System.out.println(StringProcessor.pathToFqnConverter(owner) + "."+name);
-		method.addHold(StringProcessor.pathToFqnConverter(owner) + "."+name);		
+		uses.add(StringProcessor.pathToFqnConverter(owner) + "."+name);
+		method.addUses(StringProcessor.pathToFqnConverter(owner) + "."+name);		
 	}
 	
 	
     /********CONFUSED******/
 	public void visitMultiANewArrayInsn(String arg0, int arg1) {
 		// TODO Auto-generated method stub		
-		System.out.println(arg1);
+		//System.out.println(arg1);
 	}
 
     /********CONFUSED******/
 	public AnnotationVisitor visitParameterAnnotation(int arg0, String arg1, boolean arg2) {
 		// TODO Auto-generated method stub
-		System.out.println(arg1+"-----"+arg2);
+		//System.out.println(arg1+"-----"+arg2);
 		return null;
 	}
 
     /********CONFUSED******/
 	public void visitTryCatchBlock(Label start, Label end, Label handler, String type) {
 		// TODO Auto-generated method stub
-		//System.out.println(handler.toString());
 	}
 
     /********CONFUSED******/
 	public void visitTypeInsn(int arg0, String arg1) {
 		// TODO Auto-generated method stub
 		method.addOperator(new Operator(arg0, arg1.hashCode()));
-		method.addHold(arg1+".<init>");
+		uses.add(arg1+".<init>");
+		method.addUses(arg1+".<init>");
+	}
+	
+	public List<String> getUses(){
+		return uses;
 	}
 	
 	public void visitVarInsn(int arg0, int arg1) {
@@ -128,6 +142,9 @@ public class MethodVisitorImpl implements MethodVisitor{
 
 	public void visitEnd() {
 		// TODO Auto-generated method stub
+		//System.out.println(method.toString());
+		if(method.getName().contains("equals"))
+			System.out.println(method.hashCode());
 	}
 	
 	public void visitLookupSwitchInsn(Label arg0, int[] arg1, Label[] arg2) {
@@ -136,13 +153,13 @@ public class MethodVisitorImpl implements MethodVisitor{
 
 	public void visitMaxs(int arg0, int arg1) {
 		// TODO Auto-generated method stub
-		System.out.println(arg0+"   "+arg1);
+		//System.out.println(arg0+"   "+arg1);
 
 	}
 	
 	public void visitTableSwitchInsn(int arg0, int arg1, Label arg2, Label[] arg3) {
 		// TODO Auto-generated method stub
-		System.out.println(arg0+"   "+arg1);
+		//System.out.println(arg0+"   "+arg1);
 	}
 	
 	// add single operand operator

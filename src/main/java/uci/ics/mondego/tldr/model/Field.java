@@ -10,7 +10,7 @@ public class Field {
 	private String type;
 	private String signature;
 	private String value;
-	private List<String> holds;
+	private List<String> holds = new ArrayList<String>();
 	
 	public Field(String name,String fqn, String type, String signature, String value, String parameter){
 		this.fqn = fqn;
@@ -18,7 +18,6 @@ public class Field {
 		this.name = name;
 		this.signature = signature;
 		this.value = value;
-		this.holds = new ArrayList<String>();
 	}
 	
 	public Field(String name, String fqn, String type, String signature){
@@ -26,11 +25,9 @@ public class Field {
 		this.fqn = fqn;
 		this.type = type;
 		this.signature = signature;
-		this.holds = new ArrayList<String>();
 	}
 	
 	public Field(){
-		this.holds = new ArrayList<String>();
 	}
 	
 	public void addHold(String h){

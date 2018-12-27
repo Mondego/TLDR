@@ -121,13 +121,22 @@ public class ClassVisitorImpl implements ClassVisitor{
 		word = StringProcessor.signatureProcessor(signature);
 		if(word != null){
 			for(String w: word){
-				mthd.addHold(w);
+				mthd.addUses(w);
 			}
 		}
 		
+		mthd.setSignature(signature);
+		
 		MethodVisitorImpl mv = new MethodVisitorImpl(mthd);
+		
+		
 		mthd = mv.getMethod();
+		
+		// we should not add it here.... change it
 		methods.add(mthd);
+		//System.out.println(mthd.toString());
+		
+		
 		System.out.println("===================");
 	    return mv;
 	}
