@@ -119,7 +119,6 @@ public class MethodVisitorImpl implements MethodVisitor{
 	public void visitTypeInsn(int arg0, String arg1) {
 		// TODO Auto-generated method stub
 		method.addOperator(new Operator(arg0, arg1.hashCode()));
-		uses.add(arg1+".<init>");
 		method.addUses(arg1+".<init>");
 	}
 	

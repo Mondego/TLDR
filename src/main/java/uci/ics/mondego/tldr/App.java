@@ -10,7 +10,9 @@ import java.util.List;
 import org.apache.log4j.BasicConfigurator;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
+import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
 import uci.ics.mondego.tldr.extractor.ByteCodeParser;
+import uci.ics.mondego.tldr.extractor.ClassParserExample;
 import uci.ics.mondego.tldr.model.SourceFile;
 
 
@@ -41,7 +43,14 @@ public class App
 	       
 	       List<SourceFile> changedFiles = new ArrayList<SourceFile>();
 	       //ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
-
+	       
+	       //ClassParserExample cpe = new ClassParserExample();
+	       //cpe.parse("/Users/demigorgan/brigadier/build/class"
+	       //		+ "es/java/main/com/mojang/brigadier/context/CommandContext.class");
+	       
+	       ClassChangeAnalyzer cha = new ClassChangeAnalyzer("/Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class");
+	       
+	       
 	       for(int i=0;i<allClass.size();i++){
 	    	   if(!rh.exists(allClass.get(i).getPath())){
 	    		   
@@ -55,7 +64,7 @@ public class App
 	    		   
 	    		   if(!currentCheckSum.equals(prevCheckSum)){
 	    		       ByteCodeParser bp = new ByteCodeParser(allClass.get(i));
-
+	    		       
 	    		       System.out.println("file changed "+allClass.get(i).getPath());
 	        		   changedFiles.add(allClass.get(i));
 	        		   rh.insert(allClass.get(i).getPath(), currentCheckSum);
