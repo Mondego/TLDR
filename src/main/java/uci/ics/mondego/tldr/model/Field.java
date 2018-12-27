@@ -33,7 +33,6 @@ public class Field {
 		this.holds = new ArrayList<String>();
 	}
 	
-	
 	public void addHold(String h){
 		holds.add(h);
 	}
@@ -90,8 +89,10 @@ public class Field {
 	
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
+	    String field = name+fqn+type+signature+value;
+		for(int i=0;i<holds.size();i++)
+			field+=holds.get(i);
+	    return field.hashCode();
 	}	
 	
 }

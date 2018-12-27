@@ -62,8 +62,9 @@ public class LocalVariable {
 	
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
-	}	
-
+	    String var = name+type+signature;
+		for(int i=0;i<holds.size();i++)
+			var+=holds.get(i);
+	    return var.hashCode();
+	}		
 }

@@ -2,6 +2,9 @@ package uci.ics.mondego.tldr.extractor;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.Attribute;
 import org.objectweb.asm.ClassVisitor;
@@ -20,6 +23,8 @@ public class ClassVisitorImpl implements ClassVisitor{
 	private String classFqn;
 	private String superClass;
 	private String[] interfaces;
+    private final static Logger logger = LogManager.getLogger(ClassVisitorImpl.class);
+
 	
 	public ClassVisitorImpl(String className){
 		super();
@@ -77,6 +82,7 @@ public class ClassVisitorImpl implements ClassVisitor{
 			}
 		}
 		fields.add(field);
+		//logger.info(field.getFqn()+" parsed");
 		return null;
 	}
 
@@ -88,12 +94,14 @@ public class ClassVisitorImpl implements ClassVisitor{
 	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		// TODO Auto-generated method stub
 		System.out.println("METHOD: " + name +"-------"+ desc+ "--------"+ signature);
+		
 		Method mthd = new Method();
 		mthd.setName(name);
 		mthd.setFqn(classFqn+'.'+name);
 		
 		String parameters = desc.substring(desc.indexOf('(') + 1, desc.indexOf(')'));
 		String [] word = StringProcessor.signatureProcessor(parameters);
+		
 		if(word != null){		
 			for(String w: word){
 				LocalVariable lv = new LocalVariable();
