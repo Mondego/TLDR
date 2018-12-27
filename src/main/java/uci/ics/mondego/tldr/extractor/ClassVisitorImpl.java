@@ -94,12 +94,14 @@ public class ClassVisitorImpl implements ClassVisitor{
 	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		// TODO Auto-generated method stub
 		System.out.println("METHOD: " + name +"-------"+ desc+ "--------"+ signature);
+		
 		Method mthd = new Method();
 		mthd.setName(name);
 		mthd.setFqn(classFqn+'.'+name);
 		
 		String parameters = desc.substring(desc.indexOf('(') + 1, desc.indexOf(')'));
 		String [] word = StringProcessor.signatureProcessor(parameters);
+		
 		if(word != null){		
 			for(String w: word){
 				LocalVariable lv = new LocalVariable();

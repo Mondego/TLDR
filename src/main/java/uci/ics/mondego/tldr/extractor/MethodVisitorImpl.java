@@ -5,6 +5,7 @@ import org.objectweb.asm.Attribute;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
 
 import uci.ics.mondego.tldr.model.LocalVariable;
 import uci.ics.mondego.tldr.model.Method;
@@ -44,6 +45,9 @@ public class MethodVisitorImpl implements MethodVisitor{
 		// TODO Auto-generated method stub
 		
 		if (name.indexOf('$') == -1) {
+			String fieldFqn = StringProcessor.pathToFqnConverter(owner) + "."+name;
+			method.addHold(fieldFqn);
+			method.addOperator(new Operator(opcode, fieldFqn.hashCode()));
 	        switch (opcode) {
 	          case Opcodes.GETFIELD:
 	          case Opcodes.GETSTATIC:
@@ -78,7 +82,7 @@ public class MethodVisitorImpl implements MethodVisitor{
 
 	public void visitMethodInsn(int opcode, String owner, String name, String desc) {
 		// all function calls
-		System.out.println(StringProcessor.pathToFqnConverter(owner) + "."+name);
+		//System.out.println(StringProcessor.pathToFqnConverter(owner) + "."+name);
 		method.addHold(StringProcessor.pathToFqnConverter(owner) + "."+name);		
 	}
 	
@@ -105,14 +109,13 @@ public class MethodVisitorImpl implements MethodVisitor{
     /********CONFUSED******/
 	public void visitTypeInsn(int arg0, String arg1) {
 		// TODO Auto-generated method stub
-		System.out.println(arg0+"  "+arg1);
-		
+		method.addOperator(new Operator(arg0, arg1.hashCode()));
+		method.addHold(arg1+".<init>");
 	}
 	
-	/****** UNNECESSARY METHODS, BUT HAVE TO KEEP TO MAINTAIN IMPLEMENTATION OF SUPERCLASS ****/
 	public void visitVarInsn(int arg0, int arg1) {
 		// TODO Auto-generated method stub
-		System.out.println(arg1+"  "+arg1);
+		method.addOperator(new Operator(arg0, arg1));
 	}
 	
 	public void visitAttribute(Attribute arg0) {
@@ -148,8 +151,10 @@ public class MethodVisitorImpl implements MethodVisitor{
 		method.addOperator(new Operator(opcode, operand));
 	}
 
-	public void visitJumpInsn(int arg0, Label arg1) {
+	public void visitJumpInsn(int opcode, Label label) {
 		// TODO Auto-generated method stub
+		method.addOperator(new Operator(opcode, label.toString().hashCode()));
+		
 	}
 
 	public void visitLabel(Label arg0) {
@@ -170,7 +175,8 @@ public class MethodVisitorImpl implements MethodVisitor{
 
 	public void visitIincInsn(int arg0, int arg1) {
 		// TODO Auto-generated method stub
-		System.out.println(arg0+"   "+arg1);
+		method.addOperator(new Operator(Opcodes.IADD, arg0, arg1));
+		method.addOperator(new Operator(Opcodes.ISTORE, arg0));		
 	}
 
 	//visit a zero operand operator
