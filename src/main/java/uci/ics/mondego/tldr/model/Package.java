@@ -33,6 +33,11 @@ public class Package implements Entities{
 	public List<Package> getImports() {
 		return imports;
 	}
+
+	public String getCurrentCheckSum() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

@@ -4,12 +4,16 @@ package uci.ics.mondego.tldr;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.BasicConfigurator;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
+import uci.ics.mondego.tldr.changeanalyzer.ChangeAnalyzer;
+import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
+import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.extractor.ByteCodeParser;
 import uci.ics.mondego.tldr.model.SourceFile;
 
@@ -34,14 +38,19 @@ public class App
 	       RepoScanner rs = new RepoScanner(PROJ_DIR);
 	       
 	       // in memory database handler
-	       rh = new RedisHandler();
+	       rh =  RedisHandler.getInstane();
 	       
 	       List<SourceFile> allClass = rs.get_all_class_files();
 	       List<SourceFile> allTestClass = rs.get_all_test_class_files();
 	       
 	       List<SourceFile> changedFiles = new ArrayList<SourceFile>();
 	       //ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
-
+	       
+	       
+	       FileChangeAnalyzer fc = new FileChangeAnalyzer("/users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class");
+	       
+	       //ClassChangeAnalyzer cha = new ClassChangeAnalyzer("/users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class"); 
+	       
 	       for(int i=0;i<allClass.size();i++){
 	    	   if(!rh.exists(allClass.get(i).getPath())){
 	    		   
@@ -55,7 +64,7 @@ public class App
 	    		   
 	    		   if(!currentCheckSum.equals(prevCheckSum)){
 	    		       ByteCodeParser bp = new ByteCodeParser(allClass.get(i));
-
+	    		       
 	    		       System.out.println("file changed "+allClass.get(i).getPath());
 	        		   changedFiles.add(allClass.get(i));
 	        		   rh.insert(allClass.get(i).getPath(), currentCheckSum);
@@ -83,6 +92,10 @@ public class App
        
        catch(NullPointerException e){
     	   System.out.println("extractor can't find the designated class");
+    	   e.printStackTrace();
+       }
+       
+       catch(NoSuchAlgorithmException e){
     	   e.printStackTrace();
        }
        

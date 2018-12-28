@@ -34,4 +34,6 @@ public class Operator {
 	public Integer getOperand2() {
 		return operand2;
 	}
+	
+	
 }

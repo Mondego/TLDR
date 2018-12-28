@@ -19,13 +19,13 @@ import org.redisson.config.Config;
 
 public class RedisHandler{
 
-    private Jedis jedis; 
-    private Package pk = null;
-    private PoolUtils tou = null;
+	private static RedisHandler instance = null; 
+	
+    private static Jedis jedis; 
     private RedissonClient client;
-    private static final Logger logger = LogManager.getLogger(RedisHandler.class);
+    private final Logger logger = LogManager.getLogger(RedisHandler.class);
 
-	public RedisHandler(){
+	private RedisHandler(){
 		try{
 			this.client = Redisson.create();
 			
@@ -37,7 +37,7 @@ public class RedisHandler{
 		}
 	}
 	
-	public RedisHandler(String addr){
+	private RedisHandler(String addr){
 		try{
 			this.client = Redisson.create();
 			
@@ -48,6 +48,19 @@ public class RedisHandler{
 			logger.error("Connection Refused in "+addr+"\n");
 		}
 	}
+	
+	public static RedisHandler getInstane(String ... b) 
+    { 
+        if (instance == null) 
+        {
+        	if(b.length == 0)
+        		instance = new RedisHandler(); 
+        	else if(b.length == 1)
+        		instance = new RedisHandler(b[0]);
+        } 
+        return instance; 
+    } 
+	
 	
 	// config object can be created from json file too
 	private Config setConfig(String ip, int port){
@@ -75,7 +88,7 @@ public class RedisHandler{
 	}
 	
 	public void update(String fileName, String checkSum){
-	
+		jedis.set(fileName, checkSum);
 	}
 	
 	

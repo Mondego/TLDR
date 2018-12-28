@@ -74,6 +74,8 @@ public abstract class SourceFile implements Entities{
 	
 	private static String checksum(String filepath, MessageDigest md) throws IOException {
 		
+		
+		//System.out.println("here : "+filepath);
 		InputStream fis = new FileInputStream(filepath);
         byte[] buffer = new byte[1024];
         int nread;
