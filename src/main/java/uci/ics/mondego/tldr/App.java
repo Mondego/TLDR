@@ -47,12 +47,15 @@ public class App
 	       //ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
 	       
 	       
-	       FileChangeAnalyzer fc = new FileChangeAnalyzer("/users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class");
+	       //FileChangeAnalyzer fc = new FileChangeAnalyzer("/users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class");
 	       
 	       //ClassChangeAnalyzer cha = new ClassChangeAnalyzer("/users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class"); 
 	       
 	       for(int i=0;i<allClass.size();i++){
-	    	   if(!rh.exists(allClass.get(i).getPath())){
+		       FileChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
+		       System.out.println(fc.hasChanged());
+	    	   
+	    	   /*if(!rh.exists(allClass.get(i).getPath())){
 	    		   
 	    		   System.out.println("file inserted");
 	    		   rh.insert(allClass.get(i).getPath(), allClass.get(i).getCurrentCheckSum());
@@ -69,7 +72,7 @@ public class App
 	        		   changedFiles.add(allClass.get(i));
 	        		   rh.insert(allClass.get(i).getPath(), currentCheckSum);
 	    		   }
-	    	   }
+	    	   }*/
 	    	   
 	       }
 	       
