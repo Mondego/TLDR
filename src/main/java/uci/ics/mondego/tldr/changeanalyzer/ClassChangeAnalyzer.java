@@ -9,33 +9,23 @@ import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 
-public class ClassChangeAnalyzer {
-    private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
-	private final String className;
+public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
-	private Map<String, Long> hashCodes;
-	private boolean changed;
+	private Map<String, Long> hashCodes; // stores all the hashcodes of all fields and methods
 	private final ClassParser parser;
 	
 	public ClassChangeAnalyzer(String className) throws IOException{
-		this.className = className;
+		super(className);
 		this.changedAttributes = new ArrayList<String>();
 		this.hashCodes = new HashMap<String, Long>();
-		this.changed = false;
-		this.parser = new ClassParser(this.className);
+		this.parser = new ClassParser(this.getEntityName());
 		this.parse();
 	}
 	
 	public Long getHashCodeByAttribute(String attr){
 		return hashCodes.get(attr);
-	}
-	
-	public boolean hasChanged(){
-		return changed;
 	}
 	
 	public List<String> getChangedAttributes(){
@@ -55,7 +45,7 @@ public class ClassChangeAnalyzer {
 		return sb.toString().hashCode();
 	}
 	
-	private void parse() throws IOException{
+	protected void parse() throws IOException{
 		JavaClass parsedClass = parser.parse();
 		
 		Field [] allFields = parsedClass.getFields();
@@ -66,8 +56,9 @@ public class ClassChangeAnalyzer {
 			long prevHashCode = -1; /******** GET IT FROM DATABASE *******/
 			if(currentHashCode != prevHashCode){
 				logger.info(fieldFqn+" changed");
-				this.changed = this.changed ? this.changed : true;
-				changedAttributes.add(fieldFqn);	
+				this.setChanged(true);
+				changedAttributes.add(fieldFqn);
+				this.sync(fieldFqn, currentHashCode+"");
 			}
 		}
 		
@@ -80,10 +71,10 @@ public class ClassChangeAnalyzer {
 			long prevHashCode = -1; /***** GET IT FROM DATABASE *******/
 			if(currentHashCode != prevHashCode){
 				logger.info(methodFqn+" changed");
-				this.changed = this.changed ? this.changed : true;
+				this.setChanged(true);
 				changedAttributes.add(methodFqn);
+				this.sync(methodFqn, currentHashCode+"");
 			}
 		}
 	}
-
 }
