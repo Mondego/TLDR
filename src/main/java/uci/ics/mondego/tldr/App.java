@@ -8,7 +8,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.bcel.classfile.ClassFormatException;
 import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.changeanalyzer.ChangeAnalyzer;
@@ -26,11 +29,13 @@ import uci.ics.mondego.tldr.model.SourceFile;
 public class App 
 {
 	private static String PROJ_DIR;
+	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+
     public static void main( String[] args )
     {
     	BasicConfigurator.configure();
 
-    	RedisHandler rh = null;
+       RedisHandler rh = null;
        try{
 	       PROJ_DIR = "/Users/demigorgan/brigadier";
 	       
@@ -44,43 +49,24 @@ public class App
 	       List<SourceFile> allTestClass = rs.get_all_test_class_files();
 	       
 	       List<SourceFile> changedFiles = new ArrayList<SourceFile>();
+	       List<String> changedEntities = new ArrayList<String>();
+	       
 	       //ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
-	       
-	       
-	       //FileChangeAnalyzer fc = new FileChangeAnalyzer("/users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class");
-	       
-	       //ClassChangeAnalyzer cha = new ClassChangeAnalyzer("/users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class"); 
-	       
+	       	       	       
 	       for(int i=0;i<allClass.size();i++){
 		       ChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
 		       if(fc.hasChanged())
 		    	   changedFiles.add(allClass.get(i));
-		       
-		       
-	    	   /*if(!rh.exists(allClass.get(i).getPath())){
-	    		   
-	    		   System.out.println("file inserted");
-	    		   rh.insert(allClass.get(i).getPath(), allClass.get(i).getCurrentCheckSum());
-	    	   }
-	    	   else{
-	    		   //System.out.println("file exists");
-	    		   String currentCheckSum = allClass.get(i).getCurrentCheckSum();
-	    		   String prevCheckSum = rh.getValue(allClass.get(i).getPath());
-	    		   
-	    		   if(!currentCheckSum.equals(prevCheckSum)){
-	    		       ByteCodeParser bp = new ByteCodeParser(allClass.get(i));
-	    		       
-	    		       System.out.println("file changed "+allClass.get(i).getPath());
-	        		   changedFiles.add(allClass.get(i));
-	        		   rh.insert(allClass.get(i).getPath(), currentCheckSum);
-	    		   }
-	    	   }*/
-	    	   
 	       }
 	       
 	       for(int i=0;i<changedFiles.size();i++){
-	    	   ChangeAnalyzer cc = new ClassChangeAnalyzer(changedFiles.get(i).getPath());
+	    	   // for each changed class we check which field/method change
+	    	   ClassChangeAnalyzer cc = new ClassChangeAnalyzer(changedFiles.get(i).getPath()); 
+	    	   List<String> chEnt = cc.getChangedAttributes();
+	    	   changedEntities.addAll(chEnt);
 	       }
+	       
+	       
 	       
        }
        
@@ -106,6 +92,10 @@ public class App
        
        catch(NoSuchAlgorithmException e){
     	   e.printStackTrace();
+       }
+       
+       catch( ClassFormatException e){
+    	   logger.error("Class Format malfunction : "+ e.getMessage());
        }
        
        

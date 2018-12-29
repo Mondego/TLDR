@@ -66,16 +66,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			String lineInfo = code.substring(code.indexOf("Attribute(s)"), code.indexOf("LocalVariable") == -1? code.length() : code.indexOf("LocalVariable")) ;
 			code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
 						
-			code = code.substring(0, code.indexOf("StackMapTable") == -1? code.length() : code.indexOf("StackMapTable")); 
-			
-			// (Unknown
-			
-			
-			/*if(m.getName().equals("getLastChild") || m.getName().equals("getLastChild") || m.getName().equals("getArgument") || m.getName().equals("hashCode")){
-				System.out.println("NAME: "+m.getName()+"===========");
-				System.out.println(code);
-
-			}*/
+			code = code.substring(0, code.indexOf("StackMapTable") == -1? code.length() : code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
 			
 			String methodFqn = parsedClass.getPackageName()+"."+m.getName();
 			String currentHashCode = code.hashCode()+"";
