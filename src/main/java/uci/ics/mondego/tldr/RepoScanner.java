@@ -133,7 +133,7 @@ public class RepoScanner {
 		
 		printLog.append("\nTest Class Files\n*********************\n");
 		for(int i=0;i<test_class_files.size();i++)
-			printLog.append(test_class_files.get(i).getName()+" : "+test_class_files.get(i).getCurrentCheckSum()+" ");
+			printLog.append(test_class_files.get(i).getName()+"\n");
 		
 		
 		printLog.append("\nJar Files\n*********************\n");

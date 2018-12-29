@@ -52,9 +52,11 @@ public class App
 	       //ClassChangeAnalyzer cha = new ClassChangeAnalyzer("/users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class"); 
 	       
 	       for(int i=0;i<allClass.size();i++){
-		       FileChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
-		       System.out.println(fc.hasChanged());
-	    	   
+		       ChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
+		       if(fc.hasChanged())
+		    	   changedFiles.add(allClass.get(i));
+		       
+		       
 	    	   /*if(!rh.exists(allClass.get(i).getPath())){
 	    		   
 	    		   System.out.println("file inserted");
@@ -74,6 +76,10 @@ public class App
 	    		   }
 	    	   }*/
 	    	   
+	       }
+	       
+	       for(int i=0;i<changedFiles.size();i++){
+	    	   ChangeAnalyzer cc = new ClassChangeAnalyzer(changedFiles.get(i).getPath());
 	       }
 	       
        }

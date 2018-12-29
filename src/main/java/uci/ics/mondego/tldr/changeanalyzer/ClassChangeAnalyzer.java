@@ -9,40 +9,28 @@ import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
-	private Map<String, Long> hashCodes; // stores all the hashcodes of all fields and methods
+	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
 	private final ClassParser parser;
 	
 	public ClassChangeAnalyzer(String className) throws IOException{
 		super(className);
 		this.changedAttributes = new ArrayList<String>();
-		this.hashCodes = new HashMap<String, Long>();
+		this.hashCodes = new HashMap<String, String>();
 		this.parser = new ClassParser(this.getEntityName());
 		this.parse();
 	}
 	
-	public Long getHashCodeByAttribute(String attr){
+	public String getChecksumByAttribute(String attr){
 		return hashCodes.get(attr);
 	}
 	
 	public List<String> getChangedAttributes(){
 		return changedAttributes;
-	}
-	
-	private long fieldHashCode(Field f){
-		StringBuilder sb = new StringBuilder();
-		sb.append(f.getName());
-		sb.append(f.getModifiers());
-		sb.append(f.getSignature());
-		sb.append(f.getType());
-		sb.append(f.getAccessFlags());
-		sb.append(f.getConstantValue());
-		sb.append(f.getConstantPool().toString());
-		sb.append(f.getAttributes().toString());
-		return sb.toString().hashCode();
 	}
 	
 	protected void parse() throws IOException{
@@ -51,29 +39,63 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		Field [] allFields = parsedClass.getFields();
 		for(Field f: allFields){
 			String fieldFqn = parsedClass.getPackageName()+"."+f.getName();
-			long currentHashCode = fieldHashCode(f);
+			String currentHashCode = f.toString().hashCode() +"";
 			hashCodes.put(fieldFqn, currentHashCode);
-			long prevHashCode = -1; /******** GET IT FROM DATABASE *******/
-			if(currentHashCode != prevHashCode){
-				logger.info(fieldFqn+" changed");
+			if(!rh.exists(fieldFqn)){
+				logger.info(fieldFqn+" didn't exist in db...added");
 				this.setChanged(true);
 				changedAttributes.add(fieldFqn);
 				this.sync(fieldFqn, currentHashCode+"");
+			}
+			else{
+				String prevHashCode = rh.getValue(fieldFqn);
+				currentHashCode = f.toString().hashCode() +"";
+				if(!currentHashCode.equals(prevHashCode)){
+					logger.info(fieldFqn+" changed");
+					this.setChanged(true);
+					changedAttributes.add(fieldFqn);
+					this.sync(fieldFqn, currentHashCode+"");
+				}
 			}
 		}
 		
 		Method [] allMethods= parsedClass.getMethods();
 		
 		for(Method m: allMethods){
+			String code = m.getCode().toString();
+			String lineInfo = code.substring(code.indexOf("Attribute(s)"), code.indexOf("LocalVariable") == -1? code.length() : code.indexOf("LocalVariable")) ;
+			code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
+						
+			code = code.substring(0, code.indexOf("StackMapTable") == -1? code.length() : code.indexOf("StackMapTable")); 
+			
+			// (Unknown
+			
+			
+			/*if(m.getName().equals("getLastChild") || m.getName().equals("getLastChild") || m.getName().equals("getArgument") || m.getName().equals("hashCode")){
+				System.out.println("NAME: "+m.getName()+"===========");
+				System.out.println(code);
+
+			}*/
+			
 			String methodFqn = parsedClass.getPackageName()+"."+m.getName();
-			long currentHashCode = m.getCode().toString().hashCode();
+			String currentHashCode = code.hashCode()+"";
 			hashCodes.put(methodFqn, currentHashCode);
-			long prevHashCode = -1; /***** GET IT FROM DATABASE *******/
-			if(currentHashCode != prevHashCode){
-				logger.info(methodFqn+" changed");
+			if(!rh.exists(methodFqn)){
+				logger.info(methodFqn+" didn't exist in db...added");
 				this.setChanged(true);
 				changedAttributes.add(methodFqn);
 				this.sync(methodFqn, currentHashCode+"");
+			}
+			else{
+				String prevHashCode = rh.getValue(methodFqn);
+				
+				if(!currentHashCode.equals(prevHashCode)){
+					logger.info(methodFqn+" changed");
+					this.setChanged(true);
+					changedAttributes.add(methodFqn);
+					this.sync(methodFqn, currentHashCode+"");
+				}
+				
 			}
 		}
 	}
