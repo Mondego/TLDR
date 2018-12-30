@@ -63,12 +63,21 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		for(Method m: allMethods){
 			String code = m.getCode().toString();
-			String lineInfo = code.substring(code.indexOf("Attribute(s)"), code.indexOf("LocalVariable") == -1? code.length() : code.indexOf("LocalVariable")) ;
+			//System.out.println("Method "+m.getName()+"=========\n"+code);
+			String lineInfo = code.substring(code.indexOf("Attribute(s)"), code.indexOf("LocalVariable(") == -1? code.length() : code.indexOf("LocalVariable(")) ;
 			code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
 						
 			code = code.substring(0, code.indexOf("StackMapTable") == -1? code.length() : code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
 			
+			code = code.substring(0, code.indexOf("StackMap") == -1? code.length() : code.indexOf("StackMap"));  // for some reason StackMapTable also change unwanted. WHY??
+			
 			String methodFqn = parsedClass.getPackageName()+"."+m.getName();
+			
+			methodFqn += ("(");
+			for(int i=0;i<m.getArgumentTypes().length;i++)
+				methodFqn += ("$"+m.getArgumentTypes()[i]);
+			methodFqn += (")");
+			
 			String currentHashCode = code.hashCode()+"";
 			hashCodes.put(methodFqn, currentHashCode);
 			if(!rh.exists(methodFqn)){
@@ -81,10 +90,13 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				String prevHashCode = rh.getValue(methodFqn);
 				
 				if(!currentHashCode.equals(prevHashCode)){
+					System.out.println("METHOD : "+ methodFqn+": "+prevHashCode+"  "+currentHashCode+ " ============= \n");
 					logger.info(methodFqn+" changed");
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
+					//this.rh.insert(methodFqn, currentHashCode+"");
 					this.sync(methodFqn, currentHashCode+"");
+					
 				}
 				
 			}

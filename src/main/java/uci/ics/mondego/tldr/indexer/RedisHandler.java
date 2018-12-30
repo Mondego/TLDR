@@ -7,6 +7,8 @@ import uci.ics.mondego.tldr.model.Package;
 import uci.ics.mondego.tldr.model.Selection;
 
 import java.net.ConnectException;
+import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.pool2.PoolUtils;
 import org.apache.log4j.LogManager;
@@ -27,9 +29,10 @@ public class RedisHandler{
 
 	private RedisHandler(){
 		try{
-			this.client = Redisson.create();
+			//this.client = Redisson.create();
 			
 			jedis = new Jedis("localhost");
+			
 			System.out.println("Server is running: "+jedis.ping()); 
 		}
 		catch(JedisConnectionException e){
@@ -37,9 +40,13 @@ public class RedisHandler{
 		}
 	}
 	
+	public Set<String> getAllKeys(String pattern){
+		return jedis.keys(pattern);
+	}
+	
 	private RedisHandler(String addr){
 		try{
-			this.client = Redisson.create();
+			//this.client = Redisson.create();
 			
 			jedis = new Jedis(addr);
 			System.out.println("Server is running: "+jedis.ping()); 
@@ -87,8 +94,10 @@ public class RedisHandler{
 			//jedis.bgsave();
 	}
 	
-	public void update(String fileName, String checkSum){
+	public void update(String fileName, String checkSum) throws JedisConnectionException{
+		String prev = jedis.get(fileName);
 		jedis.set(fileName, checkSum);
+		//System.out.println(fileName+" updated to : "+jedis.get(fileName)+"  "+prev);
 	}
 	
 	
@@ -101,7 +110,8 @@ public class RedisHandler{
 	}
 	
 	public void close(){
-		jedis.close();
+		if(jedis != null && jedis.isConnected())
+	        jedis.close();
 	}
 	
 }

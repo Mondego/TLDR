@@ -33,7 +33,9 @@ public class App
 
     public static void main( String[] args )
     {
-    	BasicConfigurator.configure();
+       BasicConfigurator.configure();
+       JedisTest j = new JedisTest();
+       //j.test();
 
        RedisHandler rh = null;
        try{
@@ -66,8 +68,6 @@ public class App
 	    	   changedEntities.addAll(chEnt);
 	       }
 	       
-	       
-	       
        }
        
        catch( JedisConnectionException e){
@@ -97,8 +97,6 @@ public class App
        catch( ClassFormatException e){
     	   logger.error("Class Format malfunction : "+ e.getMessage());
        }
-       
-       
        finally{
     	   rh.close();
        }
