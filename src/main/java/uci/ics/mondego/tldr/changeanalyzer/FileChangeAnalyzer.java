@@ -3,13 +3,10 @@ package uci.ics.mondego.tldr.changeanalyzer;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import org.apache.commons.io.FilenameUtils;
-
-import uci.ics.mondego.tldr.indexer.RedisHandler;
+import uci.ics.mondego.tldr.tool.Databases;
 
 public class FileChangeAnalyzer extends ChangeAnalyzer{
 	
@@ -23,20 +20,20 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 	
 	protected void parse() throws IOException {
 		
-		if(!rh.exists(getEntityName())){
+		if(!this.exists(Databases.TABLE_ID_FILE,getEntityName())){
+			String currentCheckSum = calculateChecksum();
+			this.sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
 			logger.info("New file "+this.getEntityName()+" added");
 			this.setChanged(true);
-			String currentCheckSum = calculateChecksum();
-			this.sync(this.getEntityName(), currentCheckSum);
 		}
 		
 		else{
-			String prevCheckSum = rh.getValue(this.getEntityName()); // get it from database;
+			String prevCheckSum = this.getValue(Databases.TABLE_ID_FILE, this.getEntityName()); // get it from database;
 			String currentCheckSum = calculateChecksum();
 			if(!prevCheckSum.equals(currentCheckSum)){
 				logger.info("file "+this.getEntityName()+" has changed");
 				this.setChanged(true);
-				this.sync(this.getEntityName(), currentCheckSum);
+				this.sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
 			}
 		}
 	}

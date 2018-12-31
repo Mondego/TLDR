@@ -11,6 +11,8 @@ import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
 
+import uci.ics.mondego.tldr.tool.Databases;
+
 
 public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
@@ -41,20 +43,20 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			String fieldFqn = parsedClass.getPackageName()+"."+f.getName();
 			String currentHashCode = f.toString().hashCode() +"";
 			hashCodes.put(fieldFqn, currentHashCode);
-			if(!rh.exists(fieldFqn)){
+			if(!rh.exists(Databases.TABLE_ID_ENTITY,fieldFqn)){
 				logger.info(fieldFqn+" didn't exist in db...added");
 				this.setChanged(true);
 				changedAttributes.add(fieldFqn);
-				this.sync(fieldFqn, currentHashCode+"");
+				this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
 			}
 			else{
-				String prevHashCode = rh.getValue(fieldFqn);
+				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
 				currentHashCode = f.toString().hashCode() +"";
 				if(!currentHashCode.equals(prevHashCode)){
 					logger.info(fieldFqn+" changed");
 					this.setChanged(true);
 					changedAttributes.add(fieldFqn);
-					this.sync(fieldFqn, currentHashCode+"");
+					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
 				}
 			}
 		}
@@ -62,9 +64,15 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		Method [] allMethods= parsedClass.getMethods();
 		
 		for(Method m: allMethods){
-			String code = m.getCode().toString();
+			
+			String code = m.getGenericSignature() +"\n"+ m.getAccessFlags()+"\n"+ m.getName()+ 
+			"\n"+m.getSignature()+"\n"+ m.getCode();
+			
 			//System.out.println("Method "+m.getName()+"=========\n"+code);
-			String lineInfo = code.substring(code.indexOf("Attribute(s)"), code.indexOf("LocalVariable(") == -1? code.length() : code.indexOf("LocalVariable(")) ;
+			
+			String lineInfo = code.substring(code.indexOf("Attribute(s)") == -1? 0 : code.indexOf("Attribute(s)"), 
+					code.indexOf("LocalVariable(") == -1?
+					code.length() : code.indexOf("LocalVariable(")) ;
 			code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
 						
 			code = code.substring(0, code.indexOf("StackMapTable") == -1? code.length() : code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
@@ -80,22 +88,22 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			
 			String currentHashCode = code.hashCode()+"";
 			hashCodes.put(methodFqn, currentHashCode);
-			if(!rh.exists(methodFqn)){
+			if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
 				logger.info(methodFqn+" didn't exist in db...added");
 				this.setChanged(true);
 				changedAttributes.add(methodFqn);
-				this.sync(methodFqn, currentHashCode+"");
+				this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
 			}
 			else{
-				String prevHashCode = rh.getValue(methodFqn);
+				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
 				
 				if(!currentHashCode.equals(prevHashCode)){
-					System.out.println("METHOD : "+ methodFqn+": "+prevHashCode+"  "+currentHashCode+ " ============= \n");
+					//System.out.println("METHOD : "+ methodFqn+": "+prevHashCode+"  "+currentHashCode+ " ============= \n");
 					logger.info(methodFqn+" changed");
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
 					//this.rh.insert(methodFqn, currentHashCode+"");
-					this.sync(methodFqn, currentHashCode+"");
+					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
 					
 				}
 				

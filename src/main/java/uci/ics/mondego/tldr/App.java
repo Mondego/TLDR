@@ -34,8 +34,6 @@ public class App
     public static void main( String[] args )
     {
        BasicConfigurator.configure();
-       JedisTest j = new JedisTest();
-       //j.test();
 
        RedisHandler rh = null;
        try{

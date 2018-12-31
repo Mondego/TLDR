@@ -1,53 +1,35 @@
 package uci.ics.mondego.tldr.indexer;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import uci.ics.mondego.tldr.exception.*;
-import uci.ics.mondego.tldr.model.Package;
-import uci.ics.mondego.tldr.model.Selection;
-
-import java.net.ConnectException;
-import java.util.List;
 import java.util.Set;
-
-import org.apache.commons.pool2.PoolUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.redisson.Redisson;
 import org.redisson.api.RKeys;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 
-
 public class RedisHandler{
 
 	private static RedisHandler instance = null; 
-	
     private static Jedis jedis; 
     private RedissonClient client;
     private final Logger logger = LogManager.getLogger(RedisHandler.class);
 
 	private RedisHandler(){
 		try{
-			//this.client = Redisson.create();
-			
 			jedis = new Jedis("localhost");
-			
-			System.out.println("Server is running: "+jedis.ping()); 
+			logger.info("Server running : "+jedis.ping());
 		}
 		catch(JedisConnectionException e){
 			logger.error("Connection Refused in LocalHost\n");
 		}
 	}
 	
-	public Set<String> getAllKeys(String pattern){
-		return jedis.keys(pattern);
-	}
-	
 	private RedisHandler(String addr){
 		try{
 			//this.client = Redisson.create();
-			
 			jedis = new Jedis(addr);
 			System.out.println("Server is running: "+jedis.ping()); 
 		}
@@ -56,6 +38,10 @@ public class RedisHandler{
 		}
 	}
 	
+	public Set<String> getAllKeys(String pattern){
+		return jedis.keys(pattern);
+	}
+
 	public static RedisHandler getInstane(String ... b) 
     { 
         if (instance == null) 
@@ -88,27 +74,42 @@ public class RedisHandler{
 		return keys.getKeysByPattern(pattern);
 	}
 	
-	public void insert(String fileName, String checkSum) throws JedisConnectionException{
+	public void insert(String tableId, String key, String value) throws JedisConnectionException{		
 		
-		jedis.set(fileName, checkSum); 
-			//jedis.bgsave();
+		Transaction t = jedis.multi();
+		t.hset(tableId,key, value);
+		t.exec();
+		//jedis.set(fileName, checkSum); 
 	}
 	
-	public void update(String fileName, String checkSum) throws JedisConnectionException{
-		String prev = jedis.get(fileName);
-		jedis.set(fileName, checkSum);
-		//System.out.println(fileName+" updated to : "+jedis.get(fileName)+"  "+prev);
+	public void update(String tableId, String key, String value) throws JedisConnectionException{
+		Transaction t = jedis.multi();
+		t.hset(tableId, key, value);
+		t.exec();
+		//jedis.set(fileName, checkSum);
 	}
 	
-	
-	public String getValue(String fileName) throws JedisConnectionException{ 
-	    return jedis.get(fileName);
+	public String getValueByKey(String tableId, String key) throws JedisConnectionException{ 
+		return jedis.hget(tableId, key);
 	}
 	
-	public boolean exists(String fileName) throws JedisConnectionException{
-		return jedis.exists(fileName);
+	public boolean exists(String tableId, String key) throws JedisConnectionException{
+		return jedis.hexists(tableId, key);
 	}
 	
+	public void insertInSet(String tableId, String key, String value){
+		String k = tableId+key;
+		jedis.sadd(k, value);
+	}
+	
+	public Set<String> getSet(String tableId, String key){
+		return jedis.smembers(tableId+key);
+	}
+	
+	public boolean existsInSet(String tableId, String key, String value){
+		return jedis.sismember(tableId+key, value);
+	}
+		
 	public void close(){
 		if(jedis != null && jedis.isConnected())
 	        jedis.close();
