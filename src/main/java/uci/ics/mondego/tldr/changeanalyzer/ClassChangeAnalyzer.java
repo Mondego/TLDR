@@ -98,15 +98,11 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
 				
 				if(!currentHashCode.equals(prevHashCode)){
-					//System.out.println("METHOD : "+ methodFqn+": "+prevHashCode+"  "+currentHashCode+ " ============= \n");
 					logger.info(methodFqn+" changed");
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
-					//this.rh.insert(methodFqn, currentHashCode+"");
-					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
-					
+					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");	
 				}
-				
 			}
 		}
 	}

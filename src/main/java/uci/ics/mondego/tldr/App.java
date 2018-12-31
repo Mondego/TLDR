@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.bcel.classfile.ClassFormatException;
+import org.apache.commons.collections4.ListUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -19,6 +20,7 @@ import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.extractor.ByteCodeParser;
 import uci.ics.mondego.tldr.model.SourceFile;
+import uci.ics.mondego.tldr.resolution.DFSTraversal;
 
 
 
@@ -39,7 +41,7 @@ public class App
        try{
 	       PROJ_DIR = "/Users/demigorgan/brigadier";
 	       
-	    	//Scan the repository - gets java, test, class, and jar files. 
+	    //STEP 1 : Scan the repository - gets java, test, class, and jar files. 
 	       RepoScanner rs = new RepoScanner(PROJ_DIR);
 	       
 	       // in memory database handler
@@ -52,19 +54,33 @@ public class App
 	       List<String> changedEntities = new ArrayList<String>();
 	       
 	       //ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
-	       	       	       
+	       
+	       // STEP 2: FIND CHANGED FILES
 	       for(int i=0;i<allClass.size();i++){
 		       ChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
 		       if(fc.hasChanged())
 		    	   changedFiles.add(allClass.get(i));
 	       }
 	       
+	       
+	       // STEP 3: FIND CHANGED ENTITIES
 	       for(int i=0;i<changedFiles.size();i++){
 	    	   // for each changed class we check which field/method change
 	    	   ClassChangeAnalyzer cc = new ClassChangeAnalyzer(changedFiles.get(i).getPath()); 
 	    	   List<String> chEnt = cc.getChangedAttributes();
 	    	   changedEntities.addAll(chEnt);
 	       }
+	       
+	       
+	       // STEP 4: FIND ALL DEPENDENT ENTITIES FOR EACH CHANGED ENTITY
+	       List<String> allEntitiesToTest = new ArrayList<String>();
+	       DFSTraversal dfs = new DFSTraversal();
+	       for(int i=0;i<changedEntities.size();i++){
+	    	   List<String> dep = dfs.get_all_dependent(changedEntities.get(i));
+	    	   allEntitiesToTest = ListUtils.union(dep, allEntitiesToTest);
+	       }
+	       
+	       // STEP 5: FIND ALL TESTS FOR THE allEntityToTest List
 	       
        }
        
