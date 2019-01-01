@@ -87,6 +87,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				methodFqn += ("$"+m.getArgumentTypes()[i]);
 			methodFqn += (")");
 			
+			System.out.println(methodFqn);
+			
 			String currentHashCode = code.hashCode()+"";
 			hashCodes.put(methodFqn, currentHashCode);
 			if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
@@ -100,7 +102,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				
 				if(!currentHashCode.equals(prevHashCode)){
 					logger.info(methodFqn+" changed");
-					MethodParser mp = new MethodParser(m);
+					//MethodParser mp = new MethodParser(m);
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");	
