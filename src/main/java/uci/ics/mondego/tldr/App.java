@@ -23,7 +23,6 @@ import uci.ics.mondego.tldr.model.SourceFile;
 import uci.ics.mondego.tldr.resolution.DFSTraversal;
 
 
-
 /**
  * Hello world!
  *
@@ -41,7 +40,7 @@ public class App
        try{
 	       PROJ_DIR = "/Users/demigorgan/brigadier";
 	       
-	    //STEP 1 : Scan the repository - gets java, test, class, and jar files. 
+	       //STEP 1 : Scan the repository - gets java, test, class, and jar files. 
 	       RepoScanner rs = new RepoScanner(PROJ_DIR);
 	       
 	       // in memory database handler
@@ -76,8 +75,8 @@ public class App
 	       List<String> allEntitiesToTest = new ArrayList<String>();
 	       DFSTraversal dfs = new DFSTraversal();
 	       for(int i=0;i<changedEntities.size();i++){
-	    	   List<String> dep = dfs.get_all_dependent(changedEntities.get(i));
-	    	   allEntitiesToTest = ListUtils.union(dep, allEntitiesToTest);
+	    	   //List<String> dep = dfs.get_all_dependent(changedEntities.get(i));
+	    	   //allEntitiesToTest = ListUtils.union(dep, allEntitiesToTest);
 	       }
 	       
 	       // STEP 5: FIND ALL TESTS FOR THE allEntityToTest List

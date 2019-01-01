@@ -11,6 +11,7 @@ import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
 
+import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.tool.Databases;
 
 
@@ -68,7 +69,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			String code = m.getGenericSignature() +"\n"+ m.getAccessFlags()+"\n"+ m.getName()+ 
 			"\n"+m.getSignature()+"\n"+ m.getCode();
 			
-			//System.out.println("Method "+m.getName()+"=========\n"+code);
+			//System.out.println("Method "+m.getName()+"=========\n"+m.getCode());
 			
 			String lineInfo = code.substring(code.indexOf("Attribute(s)") == -1? 0 : code.indexOf("Attribute(s)"), 
 					code.indexOf("LocalVariable(") == -1?
@@ -99,6 +100,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				
 				if(!currentHashCode.equals(prevHashCode)){
 					logger.info(methodFqn+" changed");
+					MethodParser mp = new MethodParser(m);
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");	
