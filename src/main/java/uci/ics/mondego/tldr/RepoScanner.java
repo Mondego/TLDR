@@ -87,26 +87,26 @@ public class RepoScanner {
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();
 	            	
-	                if(fileAbsolutePath.contains(".java") && !fileAbsolutePath.contains("Test")){
+	                if(fileAbsolutePath.endsWith(".java") && !fileAbsolutePath.contains("Test")){
 	                	JavaFile f = new JavaFile(fileAbsolutePath);
 	                	java_files.add(f);
 	                }
-	                else if(fileAbsolutePath.contains(".jar")){
+	                else if(fileAbsolutePath.endsWith(".jar")){
 	                	JarFile f = new JarFile(fileAbsolutePath);
 	                	jar_files.add(f);
 	                }
 
-	                else if(file.getAbsolutePath().contains(".class") && !fileAbsolutePath.contains("Test")){
+	                else if(file.getAbsolutePath().endsWith(".class") && !fileAbsolutePath.contains("Test")){
 	                	ClassFile f = new ClassFile(fileAbsolutePath);
 	                	class_files.add(f);
 	                }
 	                
-	                else if(fileAbsolutePath.contains(".java") && fileAbsolutePath.contains("Test")){
+	                else if(fileAbsolutePath.endsWith(".java") && fileAbsolutePath.contains("Test")){
 	                	TestJavaFile f = new TestJavaFile(fileAbsolutePath);
 	                	test_java_files.add(f);
 	                }
 	                
-	                else if(fileAbsolutePath.contains(".class") && fileAbsolutePath.contains("Test")){
+	                else if(fileAbsolutePath.endsWith(".class") && fileAbsolutePath.contains("Test")){
 	                	TestClassFile f = new TestClassFile(fileAbsolutePath);
 	                	test_class_files.add(f);
 	                }	

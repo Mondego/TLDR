@@ -41,7 +41,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		Field [] allFields = parsedClass.getFields();
 		for(Field f: allFields){
-			String fieldFqn = parsedClass.getPackageName()+"."+f.getName();
+			String fieldFqn = parsedClass.getPackageName()+"."+parsedClass.getClassName()+"."+f.getName();
 			String currentHashCode = f.toString().hashCode() +"";
 			hashCodes.put(fieldFqn, currentHashCode);
 			if(!rh.exists(Databases.TABLE_ID_ENTITY,fieldFqn)){
@@ -54,7 +54,9 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
 				currentHashCode = f.toString().hashCode() +"";
 				if(!currentHashCode.equals(prevHashCode)){
-					logger.info(fieldFqn+" changed");
+					
+				 //if(f.getName().equals("parse"))
+					 logger.info(fieldFqn+" changed");
 					this.setChanged(true);
 					changedAttributes.add(fieldFqn);
 					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
@@ -80,15 +82,13 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			
 			code = code.substring(0, code.indexOf("StackMap") == -1? code.length() : code.indexOf("StackMap"));  // for some reason StackMapTable also change unwanted. WHY??
 			
-			String methodFqn = parsedClass.getPackageName()+"."+m.getName();
+			String methodFqn = parsedClass.getPackageName()+"."+parsedClass.getClassName()+"."+m.getName();
 			
 			methodFqn += ("(");
 			for(int i=0;i<m.getArgumentTypes().length;i++)
 				methodFqn += ("$"+m.getArgumentTypes()[i]);
 			methodFqn += (")");
-			
-			System.out.println(methodFqn);
-			
+						
 			String currentHashCode = code.hashCode()+"";
 			hashCodes.put(methodFqn, currentHashCode);
 			if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
@@ -101,7 +101,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
 				
 				if(!currentHashCode.equals(prevHashCode)){
-					logger.info(methodFqn+" changed");
+					
+					logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" class name: "+this.getEntityName());
 					//MethodParser mp = new MethodParser(m);
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);

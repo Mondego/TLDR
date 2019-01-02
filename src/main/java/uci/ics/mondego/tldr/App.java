@@ -56,15 +56,14 @@ public class App
 	       
 	       // STEP 2: FIND CHANGED FILES
 	       for(int i=0;i<allClass.size();i++){
-		       ChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
+	    	   FileChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
 		       if(fc.hasChanged())
 		    	   changedFiles.add(allClass.get(i));
 	       }
-	       
-	       
-	       // STEP 3: FIND CHANGED ENTITIES
+	        
+	        //STEP 3: FIND CHANGED ENTITIES
 	       for(int i=0;i<changedFiles.size();i++){
-	    	   // for each changed class we check which field/method change
+	    	   // for each changed class we check which field/method change   
 	    	   ClassChangeAnalyzer cc = new ClassChangeAnalyzer(changedFiles.get(i).getPath()); 
 	    	   List<String> chEnt = cc.getChangedAttributes();
 	    	   changedEntities.addAll(chEnt);

@@ -23,8 +23,8 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 		if(!this.exists(Databases.TABLE_ID_FILE,getEntityName())){
 			String currentCheckSum = calculateChecksum();
 			this.sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
-			logger.info("New file "+this.getEntityName()+" added");
 			this.setChanged(true);
+			logger.info("New file "+this.getEntityName()+" added");
 		}
 		
 		else{
