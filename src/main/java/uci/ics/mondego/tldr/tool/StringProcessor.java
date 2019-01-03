@@ -33,7 +33,7 @@ public class StringProcessor {
 			return null;
 	}
 	
-	private static String convertBaseType(char type) {
+	public static String convertBaseType(char type) {
 	    switch (type) {
 	      case 'B':
 	        return "byte";
@@ -57,6 +57,17 @@ public class StringProcessor {
 	        return "" + type;
 	    }
 	 }
+	
+	public static boolean isPrimitive(String type){
+		if(type.length() == 0)
+			return false;
+		
+		String allPrimitives = "BCDFIJSZV";
+		
+		if(allPrimitives.contains(type.charAt(0)+""))
+				return true;
+		return false;
+	}
 	
 	
 }

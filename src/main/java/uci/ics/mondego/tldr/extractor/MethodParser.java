@@ -7,6 +7,8 @@ import org.apache.bcel.classfile.LocalVariable;
 import org.apache.bcel.classfile.LocalVariableTable;
 import org.apache.bcel.classfile.Method;
 
+import uci.ics.mondego.tldr.tool.StringProcessor;
+
 
 public class MethodParser {
 	
@@ -20,40 +22,72 @@ public class MethodParser {
 	}
 	
 	private void parse(){
-//		LocalVariableTable localVariablePool = method.getLocalVariableTable();
-//		LocalVariable[] allLocalVariales = localVariablePool.getLocalVariableTable();
-//		System.out.println("all local variables");
-//		for(LocalVariable var: allLocalVariales){
-//			dependency.add(var.getSignature());
-//		}
 		
 		String[] code = method.getCode().toString().split("\n");
-		
 		
 		System.out.println("all dependency");
 		
 		for(String line: code){
+			//method call
+			String processed = null;
+			String[] parts = line.split("\\s+");
 			if(line.contains("invokevirtual") ||	
 			   line.contains("invokeinterface") || 
 			   line.contains("invokestatic") ||
 			   line.contains("invokespecial") ||
-			   line.contains("getfield") ||
 			   line.contains("anewarray")  ||
-			   line.contains("new")  ||
-			   line.contains("invokedynamic")  ||
-			   line.contains("getstatic")  ||
-			   line.contains("putstatic")  ||
-			   line.contains("putfield")  ||
-			   line.contains("checkcast")){
-				
-				String[] parts = line.split("\\s+");
-				if(!dependency.contains(parts[2])){
-					dependency.add(parts[2]);
-					System.out.println(parts[2]+"  "+parts[3]);
-				}				
+			   line.contains("invokedynamic")){
+				//System.out.println(line);
+				processed = parts[2]+parseMethodParameters(parts[3]);					
 			}
+			
+			// field
+			else if(line.contains("getfield") ||
+				    line.contains("new")  ||
+				    line.contains("getstatic")  ||
+					line.contains("putstatic")  ||
+					line.contains("putfield")  ||
+					line.contains("checkcast")){
+				processed = parts[2];
+			}
+			
+			if(!dependency.contains(processed)){
+				dependency.add(processed);
+			}
+		}	
+	}
+	
+	private String parseMethodParameters(String signature){
+		signature = signature.substring(signature.indexOf("(")+1, signature.indexOf(")"));
+		
+		if(signature.length() == 0)
+			return "()";
+		StringBuilder sb = new StringBuilder();
+		sb.append("(");
+		
+		String [] params =  signature.split(";");
+		for(int i=0;i<params.length;i++){
+			if(!StringProcessor.isPrimitive(params[i]))
+				params[i] = ("$"+params[i].substring(1));
+			else{
+				StringBuilder sb1 = new StringBuilder();
+				for(int j=0;j<params[i].length();j++){
+					sb1.append("$"+StringProcessor.convertBaseType(params[i].charAt(j)));
+				}
+				params[i] = sb1.toString();
+			}
+			params[i] = StringProcessor.pathToFqnConverter(params[i]);
+			sb.append(params[i]);
 		}
 		
+		sb.append(")");
+		
+		return sb.toString();
+	}
+	
+	
+	public List<String> getDependency(){
+		return dependency;
 	}
 
 }

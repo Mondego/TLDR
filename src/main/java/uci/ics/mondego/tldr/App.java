@@ -21,6 +21,7 @@ import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.extractor.ByteCodeParser;
 import uci.ics.mondego.tldr.model.SourceFile;
 import uci.ics.mondego.tldr.resolution.DFSTraversal;
+import uci.ics.mondego.tldr.tool.StringProcessor;
 
 
 /**
@@ -31,9 +32,11 @@ public class App
 {
 	private static String PROJ_DIR;
 	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+	
+	
 
     public static void main( String[] args )
-    {
+    {    	
        BasicConfigurator.configure();
 
        RedisHandler rh = null;

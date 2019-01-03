@@ -20,12 +20,36 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
 	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
 	private final ClassParser parser;
+	private List<Method> allMethods;
+	private List<Field> allFields;
+	private List<Method> allChangedMethods;
+	private List<Field> allChangedFields;
+	
+	public List<Method> getAllMethods(){
+		return allMethods;
+	}
+	
+	public List<Field> getAllFields(){
+		return allFields;
+	}
+	
+	public List<Method> getAllChangedMethods(){
+		return allChangedMethods;
+	}
+	
+	public List<Field> getAllChangedFields(){
+		return allChangedFields;
+	}
 	
 	public ClassChangeAnalyzer(String className) throws IOException{
 		super(className);
 		this.changedAttributes = new ArrayList<String>();
 		this.hashCodes = new HashMap<String, String>();
 		this.parser = new ClassParser(this.getEntityName());
+		this.allChangedFields = new ArrayList<Field>();
+		this.allChangedMethods = new ArrayList<Method>();
+		this.allMethods = new ArrayList<Method>();
+		this.allFields = new ArrayList<Field>();
 		this.parse();
 	}
 	
@@ -42,6 +66,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		Field [] allFields = parsedClass.getFields();
 		for(Field f: allFields){
+			this.allFields.add(f);
+			
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
 			
 			String currentHashCode = f.toString().hashCode() +"";
@@ -50,6 +76,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				logger.info(fieldFqn+" didn't exist in db...added");
 				this.setChanged(true);
 				changedAttributes.add(fieldFqn);
+				this.allChangedFields.add(f);
 				this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
 			}
 			else{
@@ -59,6 +86,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					logger.info(fieldFqn+" changed");
 					this.setChanged(true);
 					changedAttributes.add(fieldFqn);
+					this.allChangedFields.add(f);
 					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
 				}
 			}
@@ -67,6 +95,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		Method [] allMethods= parsedClass.getMethods();
 		
 		for(Method m: allMethods){
+			this.allMethods.add(m);
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
 			m.getModifiers() == AccessCodes.FINAL ||
 			m.getModifiers() == AccessCodes.INTERFACE || 
@@ -97,7 +126,10 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				for(int i=0;i<m.getArgumentTypes().length;i++)
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
-							
+					
+				if(methodFqn.contains("com.mojang.brigadier.tree.CommandNode.equal"))
+					System.out.println("HERE ********** "+ methodFqn);
+				
 				String currentHashCode = code.hashCode()+"";
 				hashCodes.put(methodFqn, currentHashCode);
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
@@ -105,6 +137,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
+					this.allChangedMethods.add(m);
 					//if(m.getName().equals("getThis"))
 				    //	System.out.println("FIRST TIME "+ methodFqn+"================\n"+code);
 				}
@@ -116,7 +149,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						//MethodParser mp = new MethodParser(m);
 						this.setChanged(true);
 						changedAttributes.add(methodFqn);
-						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");	
+						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
+						this.allChangedMethods.add(m);
 					    //if(m.getName().equals("getThis"))
 					    //	System.out.println("DURING CHANGE"+ methodFqn+"================\n"+code);
 					}
