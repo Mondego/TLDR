@@ -83,9 +83,11 @@ public class RedisHandler{
 	}
 	
 	public void update(String tableId, String key, String value) throws JedisConnectionException{
+		//String prev = jedis.hget(tableId, key);
 		Transaction t = jedis.multi();
 		t.hset(tableId, key, value);
 		t.exec();
+		//System.out.println(key+ " changed to : "+jedis.hget(tableId, key)+" from : "+prev);
 		//jedis.set(fileName, checkSum);
 	}
 	
