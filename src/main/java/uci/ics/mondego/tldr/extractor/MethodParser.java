@@ -2,9 +2,6 @@ package uci.ics.mondego.tldr.extractor;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.bcel.classfile.LocalVariable;
-import org.apache.bcel.classfile.LocalVariableTable;
 import org.apache.bcel.classfile.Method;
 
 import uci.ics.mondego.tldr.tool.StringProcessor;
@@ -13,19 +10,19 @@ import uci.ics.mondego.tldr.tool.StringProcessor;
 public class MethodParser {
 	
 	Method method;
-	List<String> dependency;
+	List<String> allInternalDependency;
+	List<String> allExternalDependency;
 	
 	public MethodParser(Method m){
 		this.method = m;
-		dependency = new ArrayList<String>();
+		allInternalDependency = new ArrayList<String>();
+		allExternalDependency = new ArrayList<String>();
 		parse();
 	}
 	
 	private void parse(){
 		
 		String[] code = method.getCode().toString().split("\n");
-		
-		System.out.println("all dependency");
 		
 		for(String line: code){
 			//method call
@@ -43,18 +40,23 @@ public class MethodParser {
 			
 			// field
 			else if(line.contains("getfield") ||
-				    line.contains("new")  ||
 				    line.contains("getstatic")  ||
 					line.contains("putstatic")  ||
-					line.contains("putfield")  ||
-					line.contains("checkcast")){
+					line.contains("putfield") ){
 				processed = parts[2];
 			}
 			
-			if(!dependency.contains(processed)){
-				dependency.add(processed);
+			if(processed != null && (processed.contains("java.") && !allExternalDependency.contains(processed))){
+				allExternalDependency.add(processed);
 			}
-		}	
+			
+			else if(processed != null && !allInternalDependency.contains(processed)){
+				allInternalDependency.add(processed);
+			}
+		}
+		
+		//for(int j=0;j<allInternalDependency.size();j++)
+		//	System.out.println(allInternalDependency.get(j));
 	}
 	
 	private String parseMethodParameters(String signature){
@@ -85,9 +87,12 @@ public class MethodParser {
 		return sb.toString();
 	}
 	
+	public List<String> getAllInternalDependencies(){
+		return allInternalDependency;
+	}
 	
-	public List<String> getDependency(){
-		return dependency;
+	public List<String> getAllExternalDependencies(){
+		return allExternalDependency;
 	}
 
 }

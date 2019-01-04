@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
@@ -24,6 +26,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<Field> allFields;
 	private List<Method> allChangedMethods;
 	private List<Field> allChangedFields;
+	private final JavaClass parsedClass;
 	
 	public List<Method> getAllMethods(){
 		return allMethods;
@@ -50,6 +53,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.allChangedMethods = new ArrayList<Method>();
 		this.allMethods = new ArrayList<Method>();
 		this.allFields = new ArrayList<Field>();
+		this.parsedClass = parser.parse();
 		this.parse();
 	}
 	
@@ -62,7 +66,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	}
 	
 	protected void parse() throws IOException{
-		JavaClass parsedClass = parser.parse();
 		
 		Field [] allFields = parsedClass.getFields();
 		for(Field f: allFields){
@@ -71,7 +74,9 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
 			
 			String currentHashCode = f.toString().hashCode() +"";
+			
 			hashCodes.put(fieldFqn, currentHashCode);
+			
 			if(!rh.exists(Databases.TABLE_ID_ENTITY,fieldFqn)){
 				logger.info(fieldFqn+" didn't exist in db...added");
 				this.setChanged(true);
@@ -111,14 +116,17 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				String code = m.getGenericSignature() +"\n"+ m.getModifiers()+"\n"+ m.getName()+ 
 				"\n"+m.getSignature()+"\n"+ m.getCode();
 							
-				String lineInfo = code.substring(code.indexOf("Attribute(s)") == -1? 0 : code.indexOf("Attribute(s)"), 
+				String lineInfo = code.substring(code.indexOf("Attribute(s)") == -1
+						? 0 : code.indexOf("Attribute(s)"), 
 						code.indexOf("LocalVariable(") == -1?
 						code.length() : code.indexOf("LocalVariable(")) ;
 				code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
 							
-				code = code.substring(0, code.indexOf("StackMapTable") == -1? code.length() : code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
+				code = code.substring(0, code.indexOf("StackMapTable") == -1? 
+						code.length() : code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
 				
-				code = code.substring(0, code.indexOf("StackMap") == -1? code.length() : code.indexOf("StackMap"));  // for some reason StackMapTable also change unwanted. WHY??
+				code = code.substring(0, code.indexOf("StackMap") == -1? 
+						code.length() : code.indexOf("StackMap"));  // for some reason StackMapTable also change unwanted. WHY??
 				
 				String methodFqn = parsedClass.getClassName()+"."+m.getName();
 	
@@ -127,8 +135,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
 					
-				if(methodFqn.contains("com.mojang.brigadier.tree.CommandNode.equal"))
-					System.out.println("HERE ********** "+ methodFqn);
 				
 				String currentHashCode = code.hashCode()+"";
 				hashCodes.put(methodFqn, currentHashCode);
@@ -138,24 +144,54 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
 					this.allChangedMethods.add(m);
-					//if(m.getName().equals("getThis"))
-				    //	System.out.println("FIRST TIME "+ methodFqn+"================\n"+code);
 				}
 				else{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
 					
 					if(!currentHashCode.equals(prevHashCode)){
-						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" class name: "+this.getEntityName());
-						//MethodParser mp = new MethodParser(m);
+						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
+								+ "class name: "+this.getEntityName());
 						this.setChanged(true);
 						changedAttributes.add(methodFqn);
 						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
 						this.allChangedMethods.add(m);
-					    //if(m.getName().equals("getThis"))
-					    //	System.out.println("DURING CHANGE"+ methodFqn+"================\n"+code);
+						MethodParser methodParser = new MethodParser(m);
 					}
 				}
 			}
+		}
+		
+		this.syncDependency();
+	}
+	
+	private void addDependentsInDb(String entity, String dependents){
+		
+		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_DEPENDENCY, entity);
+		if(prevDependents.size() == 0 || prevDependents == null || 
+				!prevDependents.contains(dependents)){
+			this.rh.insertInSet(Databases.TABLE_ID_DEPENDENCY, entity, dependents);
+			logger.info(dependents+ " has been updated as "+entity+" 's dependent");
+		}
+	}
+	
+	private void syncDependency(){
+		try{
+			for(int i=0;i<allChangedMethods.size();i++){
+				MethodParser mp = new MethodParser(allChangedMethods.get(i));
+				List<String> dependencies = mp.getAllInternalDependencies();
+				for(int j=0;j<dependencies.size();j++){
+					String methodFqn =parsedClass.getClassName()+"."+allChangedMethods.get(i).getName();
+					methodFqn += ("(");
+					for(int k=0;k<allChangedMethods.get(i).getArgumentTypes().length;k++)
+						methodFqn += ("$"+allChangedMethods.get(i).getArgumentTypes()[k]);
+					methodFqn += (")");
+		
+					addDependentsInDb(dependencies.get(j), methodFqn);
+				}
+			}
+		}
+		catch(NullPointerException e){
+			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
 		}
 	}
 }

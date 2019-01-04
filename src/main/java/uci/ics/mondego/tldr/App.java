@@ -7,21 +7,17 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.bcel.classfile.ClassFormatException;
-import org.apache.commons.collections4.ListUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import uci.ics.mondego.tldr.changeanalyzer.ChangeAnalyzer;
 import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
-import uci.ics.mondego.tldr.extractor.ByteCodeParser;
 import uci.ics.mondego.tldr.model.SourceFile;
 import uci.ics.mondego.tldr.resolution.DFSTraversal;
-import uci.ics.mondego.tldr.tool.StringProcessor;
 
 
 /**
@@ -37,7 +33,8 @@ public class App
 
     public static void main( String[] args )
     {    	
-       BasicConfigurator.configure();
+      // BasicConfigurator.configure();
+       PropertyConfigurator.configure("log4j.properties");
 
        RedisHandler rh = null;
        try{
@@ -71,8 +68,7 @@ public class App
 	    	   List<String> chEnt = cc.getChangedAttributes();
 	    	   changedEntities.addAll(chEnt);
 	       }
-	       
-	       
+	       	       
 	       // STEP 4: FIND ALL DEPENDENT ENTITIES FOR EACH CHANGED ENTITY
 	       List<String> allEntitiesToTest = new ArrayList<String>();
 	       DFSTraversal dfs = new DFSTraversal();
