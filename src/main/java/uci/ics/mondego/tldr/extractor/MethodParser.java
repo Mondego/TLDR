@@ -46,6 +46,12 @@ public class MethodParser {
 				processed = parts[2];
 			}
 			
+			else if(line.contains("checkcast")){
+				// because a checkcast instruction looks like --- 51:   checkcast		<com.mojang.brigadier.tree.CommandNode> (64)
+				processed = parts[2].substring(1, parts[2].length() - 1);
+				processed = processed+".<init>(*)";
+			}
+			
 			if(processed != null && (processed.contains("java.") && !allExternalDependency.contains(processed))){
 				allExternalDependency.add(processed);
 			}

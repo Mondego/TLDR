@@ -17,8 +17,8 @@ import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
 
+public class TestChangeAnalyzer extends ChangeAnalyzer{
 
-public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
 	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
 	private final ClassParser parser;
@@ -44,7 +44,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		return allChangedFields;
 	}
 	
-	public ClassChangeAnalyzer(String className) throws IOException{
+	public TestChangeAnalyzer(String className) throws IOException{
 		super(className);
 		this.changedAttributes = new ArrayList<String>();
 		this.hashCodes = new HashMap<String, String>();
@@ -101,8 +101,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		for(Method m: allMethods){
 			
-			//if(m.getName().contains("getSmartUsage"))
-			//	System.out.println(m.getCode().toString());
+			if(m.getName().contains("getSmartUsage"))
+				System.out.println(m.getCode().toString());
 			
 			this.allMethods.add(m);
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
@@ -170,10 +170,10 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	
 	private void addDependentsInDb(String entity, String dependents){
 		
-		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_DEPENDENCY, entity);
+		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_TEST_DEPENDENCY, entity);
 		if(prevDependents.size() == 0 || prevDependents == null || 
 				!prevDependents.contains(dependents)){
-			this.rh.insertInSet(Databases.TABLE_ID_DEPENDENCY, entity, dependents);
+			this.rh.insertInSet(Databases.TABLE_ID_TEST_DEPENDENCY, entity, dependents);
 			logger.info(dependents+ " has been updated as "+entity+" 's dependent");
 		}
 	}

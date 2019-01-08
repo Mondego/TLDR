@@ -76,27 +76,30 @@ public class RedisHandler{
 	
 	public void insert(String tableId, String key, String value) throws JedisConnectionException{		
 		
-		Transaction t = jedis.multi();
-		t.hset(tableId,key, value);
-		t.exec();
-		//jedis.set(fileName, checkSum); 
+		//Transaction t = jedis.multi();
+		//t.set(tableId+key, value);
+		//t.exec();
+		jedis.set(tableId+key, value); 
 	}
 	
 	public void update(String tableId, String key, String value) throws JedisConnectionException{
-		//String prev = jedis.hget(tableId, key);
-		Transaction t = jedis.multi();
-		t.hset(tableId, key, value);
-		t.exec();
-		//System.out.println(key+ " changed to : "+jedis.hget(tableId, key)+" from : "+prev);
+		String prev = jedis.get(tableId+key);
+		//Transaction t = jedis.multi();
+		//t.set(tableId+key, value);
+		//t.exec();
+		jedis.set(tableId+key, value);
+		System.out.println(tableId+"  "+key+ " changed to : "+jedis.get(tableId+key)+" from : "+prev);
 		//jedis.set(fileName, checkSum);
 	}
 	
 	public String getValueByKey(String tableId, String key) throws JedisConnectionException{ 
-		return jedis.hget(tableId, key);
+		//return jedis.hget(tableId, key);
+		return jedis.get(tableId+key);
 	}
 	
 	public boolean exists(String tableId, String key) throws JedisConnectionException{
-		return jedis.hexists(tableId, key);
+		return jedis.exists(tableId+key);
+		//return jedis.hexists(tableId, key);
 	}
 	
 	public void insertInSet(String tableId, String key, String value){
