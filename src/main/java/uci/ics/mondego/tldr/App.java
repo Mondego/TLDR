@@ -45,6 +45,7 @@ public class App
        RedisHandler rh = null;
        try{
 	       PROJ_DIR = "/Users/demigorgan/brigadier";
+	       //PROJ_DIR = "/Users/demigorgan/log4j";
 	       
 	       //STEP 1 : Scan the repository - gets java, test, class, and jar files. 
 	       RepoScanner rs = new RepoScanner(PROJ_DIR);
@@ -64,6 +65,7 @@ public class App
 	       
 	       // STEP 2.1: FIND CHANGED CLASS FILES
 	       for(int i=0;i<allClass.size();i++){
+	    	   
 	    	   FileChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
 		       if(fc.hasChanged())
 		    	   changedFiles.add(allClass.get(i));

@@ -73,7 +73,9 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
 			
-			String currentHashCode = f.toString().hashCode() +"";
+			//String currentHashCode = f.toString().hashCode() +"";
+			
+			String currentHashCode = CreateMD5(f.toString());
 			
 			hashCodes.put(fieldFqn, currentHashCode);
 			
@@ -86,13 +88,14 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			}
 			else{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
-				currentHashCode = f.toString().hashCode() +"";
+				//currentHashCode = f.toString().hashCode() +"";
+				currentHashCode = CreateMD5(f.toString());
 				if(!currentHashCode.equals(prevHashCode)){
 					logger.info(fieldFqn+" changed");
 					this.setChanged(true);
 					changedAttributes.add(fieldFqn);
 					this.allChangedFields.add(f);
-					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
+					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
 				}
 			}
 		}
@@ -139,14 +142,16 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
 					
+				// change
+				//String currentHashCode = code.hashCode()+"";
+				String currentHashCode = CreateMD5(code);
 				
-				String currentHashCode = code.hashCode()+"";
 				hashCodes.put(methodFqn, currentHashCode);
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
 					logger.info(methodFqn+" didn't exist in db...added");
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
-					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
+					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					this.allChangedMethods.add(m);
 				}
 				else{
@@ -158,7 +163,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						this.setChanged(true);
 						//System.out.println(methodFqn+" CNAGED====================="+"CUR : "+currentHashCode+"  PREV: "+prevHashCode+"\n");
 						changedAttributes.add(methodFqn);
-						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
+						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						this.allChangedMethods.add(m);
 					}
 				}
@@ -177,6 +182,22 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			logger.info(dependents+ " has been updated as "+entity+" 's dependent");
 		}
 	}
+
+    // Use input string to calculate MD5 hash
+	private String CreateMD5(String input)
+    {
+		try {
+	        java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+	        byte[] array = md.digest(input.getBytes());
+	        StringBuffer sb = new StringBuffer();
+	        for (int i = 0; i < array.length; ++i) {
+	          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+	       }
+	        return sb.toString();
+	    } catch (java.security.NoSuchAlgorithmException e) {
+	    }
+	    return null;
+    }
 	
 	private void syncDependency(){
 		try{

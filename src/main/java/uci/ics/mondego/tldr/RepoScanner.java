@@ -76,7 +76,7 @@ public class RepoScanner {
 	
 	/* gets all file from the project directory*/
 	public void scan(String directoryName) {
-	    
+		
 		File directory = new File(directoryName);
 
 	    File[] fList = directory.listFiles();
@@ -97,6 +97,7 @@ public class RepoScanner {
 	                }
 
 	                else if(file.getAbsolutePath().endsWith(".class") && !fileAbsolutePath.contains("Test")){
+	                	//System.out.println(file.getAbsolutePath());
 	                	ClassFile f = new ClassFile(fileAbsolutePath);
 	                	class_files.add(f);
 	                }
