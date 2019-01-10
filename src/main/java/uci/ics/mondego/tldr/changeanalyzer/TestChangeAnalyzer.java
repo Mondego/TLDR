@@ -17,8 +17,8 @@ import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
 
+public class TestChangeAnalyzer extends ChangeAnalyzer{
 
-public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
 	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
 	private final ClassParser parser;
@@ -44,7 +44,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		return allChangedFields;
 	}
 	
-	public ClassChangeAnalyzer(String className) throws IOException{
+	public TestChangeAnalyzer(String className) throws IOException{
 		super(className);
 		this.changedAttributes = new ArrayList<String>();
 		this.hashCodes = new HashMap<String, String>();
@@ -73,9 +73,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
 			
-			//String currentHashCode = f.toString().hashCode() +"";
-			
-			String currentHashCode = CreateMD5(f.toString());
+			String currentHashCode = f.toString().hashCode() +"";
 			
 			hashCodes.put(fieldFqn, currentHashCode);
 			
@@ -88,14 +86,13 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			}
 			else{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
-				//currentHashCode = f.toString().hashCode() +"";
-				currentHashCode = CreateMD5(f.toString());
+				currentHashCode = f.toString().hashCode() +"";
 				if(!currentHashCode.equals(prevHashCode)){
 					logger.info(fieldFqn+" changed");
 					this.setChanged(true);
 					changedAttributes.add(fieldFqn);
 					this.allChangedFields.add(f);
-					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
+					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
 				}
 			}
 		}
@@ -104,8 +101,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		for(Method m: allMethods){
 			
-			//if(m.getName().contains("getSmartUsage"))
-			//	System.out.println(m.getCode().toString());
+			if(m.getName().contains("getSmartUsage"))
+				System.out.println(m.getCode().toString());
 			
 			this.allMethods.add(m);
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
@@ -142,16 +139,14 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
 					
-				// change
-				//String currentHashCode = code.hashCode()+"";
-				String currentHashCode = CreateMD5(code);
 				
+				String currentHashCode = code.hashCode()+"";
 				hashCodes.put(methodFqn, currentHashCode);
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
 					logger.info(methodFqn+" didn't exist in db...added");
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
-					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
 					this.allChangedMethods.add(m);
 				}
 				else{
@@ -163,7 +158,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						this.setChanged(true);
 						//System.out.println(methodFqn+" CNAGED====================="+"CUR : "+currentHashCode+"  PREV: "+prevHashCode+"\n");
 						changedAttributes.add(methodFqn);
-						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
 						this.allChangedMethods.add(m);
 					}
 				}
@@ -175,29 +170,13 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	
 	private void addDependentsInDb(String entity, String dependents){
 		
-		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_DEPENDENCY, entity);
+		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_TEST_DEPENDENCY, entity);
 		if(prevDependents.size() == 0 || prevDependents == null || 
 				!prevDependents.contains(dependents)){
-			this.rh.insertInSet(Databases.TABLE_ID_DEPENDENCY, entity, dependents);
+			this.rh.insertInSet(Databases.TABLE_ID_TEST_DEPENDENCY, entity, dependents);
 			logger.info(dependents+ " has been updated as "+entity+" 's dependent");
 		}
 	}
-
-    // Use input string to calculate MD5 hash
-	private String CreateMD5(String input)
-    {
-		try {
-	        java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
-	        byte[] array = md.digest(input.getBytes());
-	        StringBuffer sb = new StringBuffer();
-	        for (int i = 0; i < array.length; ++i) {
-	          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
-	       }
-	        return sb.toString();
-	    } catch (java.security.NoSuchAlgorithmException e) {
-	    }
-	    return null;
-    }
 	
 	private void syncDependency(){
 		try{

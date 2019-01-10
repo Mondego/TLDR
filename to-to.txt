@@ -6,4 +6,7 @@
 
 * inside MethodVisitor, several methods aren't being called ("COFUSED") -- > figure out why
 
-*implement serializer class for redis
+*implement serializer class for redis -- not need
+
+
+* apprehend edge case for interface class

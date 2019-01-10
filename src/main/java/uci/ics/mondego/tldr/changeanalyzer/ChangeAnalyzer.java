@@ -7,6 +7,11 @@ import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 
 public abstract class ChangeAnalyzer {
+	
+	/*** TABLE ID : FILE - CHECKSUM ---- 1
+	 * 				ENTITY - HASHCODE ---- 2
+	 * 				ENTITY - LIST OF DEPENDENTS ---- 3
+	 */
 
 	protected static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	private final String entityName;
@@ -37,9 +42,17 @@ public abstract class ChangeAnalyzer {
 		return isSynced;
 	}
 	
-	protected void sync(String name, String newCheckSum){
-		rh.update(name, newCheckSum);
+	protected void sync(String tableId, String name, String newCheckSum){
+		rh.update(tableId, name, newCheckSum);
 		this.isSynced = true;
+	}
+	
+	protected String getValue(String tableId, String key){
+		return rh.getValueByKey(tableId, key);
+	}
+	
+	protected boolean exists(String tableId, String key){
+		return rh.exists(tableId, key);
 	}
 	
 	protected abstract void parse() throws IOException;
