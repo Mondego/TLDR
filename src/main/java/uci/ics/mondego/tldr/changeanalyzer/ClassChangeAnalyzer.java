@@ -67,6 +67,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	
 	protected void parse() throws IOException{
 		
+		
 		Field [] allFields = parsedClass.getFields();
 		for(Field f: allFields){
 			this.allFields.add(f);
@@ -103,7 +104,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		Method [] allMethods= parsedClass.getMethods();
 		
 		for(Method m: allMethods){
-			
+			System.out.println("Method: "+m.getName()+"\n======================\n");
 			//if(m.getName().contains("getSmartUsage"))
 			//	System.out.println(m.getCode().toString());
 			
@@ -147,6 +148,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				String currentHashCode = CreateMD5(code);
 				
 				hashCodes.put(methodFqn, currentHashCode);
+				
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
 					logger.info(methodFqn+" didn't exist in db...added");
 					this.setChanged(true);
@@ -158,6 +160,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
 					
 					if(!currentHashCode.equals(prevHashCode)){
+						
+						//System.out.println(m.getCode().toString(true));
 						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 								+ "class name: "+this.getEntityName());
 						this.setChanged(true);
