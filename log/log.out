@@ -1,4 +1,95 @@
 Server running : PONG
-file /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class has changed
-com.mojang.brigadier.context.CommandContext.copyFor($java.lang.Object) changed prev : 2c177877b4d84ebdb5596c6119c7f006  new: efd0c21f9252bc0c16600bcd0c0a2319 class name: /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class
-com.mojang.brigadier.context.CommandContext.equals($java.lang.Object) changed prev : bf67b18be8b9dd3b171faf82347bfc84  new: 238a0f0c10c66c6e58da8757a0faf983 class name: /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class
+Exception while looking for class com.mojang.brigadier.Message: java.io.IOException: Couldn't find: com/mojang/brigadier/Message.class
+Interface of com.mojang.brigadier.LiteralMessage is java.lang.Object
+Interface of com.mojang.brigadier.CommandDispatcher is java.lang.Object
+Exception while looking for class com.mojang.brigadier.tree.CommandNode: java.io.IOException: Couldn't find: com/mojang/brigadier/tree/CommandNode.class
+Exception while looking for class com.mojang.brigadier.tree.CommandNode: java.io.IOException: Couldn't find: com/mojang/brigadier/tree/CommandNode.class
+Interface of com.mojang.brigadier.tree.CommandNode is java.lang.Comparable
+Interface of com.mojang.brigadier.tree.CommandNode is java.lang.Object
+Exception while looking for class com.mojang.brigadier.tree.CommandNode: java.io.IOException: Couldn't find: com/mojang/brigadier/tree/CommandNode.class
+Exception while looking for class com.mojang.brigadier.tree.CommandNode: java.io.IOException: Couldn't find: com/mojang/brigadier/tree/CommandNode.class
+Exception while looking for class com.mojang.brigadier.tree.CommandNode: java.io.IOException: Couldn't find: com/mojang/brigadier/tree/CommandNode.class
+Exception while looking for class com.mojang.brigadier.tree.CommandNode: java.io.IOException: Couldn't find: com/mojang/brigadier/tree/CommandNode.class
+Interface of com.mojang.brigadier.CommandDispatcher$1 is java.util.function.Predicate
+Interface of com.mojang.brigadier.CommandDispatcher$1 is java.lang.Object
+Interface of com.mojang.brigadier.ResultConsumer is com.mojang.brigadier.ResultConsumer
+Interface of com.mojang.brigadier.ResultConsumer is java.lang.Object
+Interface of com.mojang.brigadier.RedirectModifier is com.mojang.brigadier.RedirectModifier
+Interface of com.mojang.brigadier.RedirectModifier is java.lang.Object
+Interface of com.mojang.brigadier.context.CommandContext is java.lang.Object
+Interface of com.mojang.brigadier.context.ParsedArgument is java.lang.Object
+Interface of com.mojang.brigadier.context.ParsedCommandNode is java.lang.Object
+Interface of com.mojang.brigadier.context.StringRange is java.lang.Object
+Interface of com.mojang.brigadier.context.CommandContextBuilder is java.lang.Object
+Interface of com.mojang.brigadier.context.SuggestionContext is java.lang.Object
+Interface of com.mojang.brigadier.suggestion.Suggestions is java.lang.Object
+Interface of com.mojang.brigadier.suggestion.SuggestionsBuilder is java.lang.Object
+Interface of com.mojang.brigadier.suggestion.Suggestion is java.lang.Comparable
+Interface of com.mojang.brigadier.suggestion.Suggestion is java.lang.Object
+Exception while looking for class com.mojang.brigadier.suggestion.Suggestion: java.io.IOException: Couldn't find: com/mojang/brigadier/suggestion/Suggestion.class
+Exception while looking for class com.mojang.brigadier.suggestion.Suggestion: java.io.IOException: Couldn't find: com/mojang/brigadier/suggestion/Suggestion.class
+Interface of com.mojang.brigadier.suggestion.SuggestionProvider is com.mojang.brigadier.suggestion.SuggestionProvider
+Interface of com.mojang.brigadier.suggestion.SuggestionProvider is java.lang.Object
+Interface of com.mojang.brigadier.ImmutableStringReader is com.mojang.brigadier.ImmutableStringReader
+Interface of com.mojang.brigadier.ImmutableStringReader is java.lang.Object
+Exception while looking for class com.mojang.brigadier.ImmutableStringReader: java.io.IOException: Couldn't find: com/mojang/brigadier/ImmutableStringReader.class
+Interface of com.mojang.brigadier.StringReader is java.lang.Object
+Interface of com.mojang.brigadier.AmbiguityConsumer is com.mojang.brigadier.AmbiguityConsumer
+Interface of com.mojang.brigadier.AmbiguityConsumer is java.lang.Object
+Interface of com.mojang.brigadier.Message is com.mojang.brigadier.Message
+Interface of com.mojang.brigadier.Message is java.lang.Object
+Interface of com.mojang.brigadier.Command is com.mojang.brigadier.Command
+Interface of com.mojang.brigadier.Command is java.lang.Object
+Exception while looking for class com.mojang.brigadier.exceptions.BuiltInExceptionProvider: java.io.IOException: Couldn't find: com/mojang/brigadier/exceptions/BuiltInExceptionProvider.class
+Interface of com.mojang.brigadier.exceptions.BuiltInExceptions is java.lang.Object
+Interface of com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType$Function is com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType$Function
+Interface of com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType$Function is java.lang.Object
+Interface of com.mojang.brigadier.exceptions.Dynamic4CommandExceptionType$Function is com.mojang.brigadier.exceptions.Dynamic4CommandExceptionType$Function
+Interface of com.mojang.brigadier.exceptions.Dynamic4CommandExceptionType$Function is java.lang.Object
+Interface of com.mojang.brigadier.exceptions.DynamicNCommandExceptionType$Function is com.mojang.brigadier.exceptions.DynamicNCommandExceptionType$Function
+Interface of com.mojang.brigadier.exceptions.DynamicNCommandExceptionType$Function is java.lang.Object
+Interface of com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType$Function is com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType$Function
+Interface of com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType$Function is java.lang.Object
+Exception while looking for class com.mojang.brigadier.exceptions.CommandExceptionType: java.io.IOException: Couldn't find: com/mojang/brigadier/exceptions/CommandExceptionType.class
+Interface of com.mojang.brigadier.exceptions.Dynamic4CommandExceptionType is java.lang.Object
+Interface of com.mojang.brigadier.exceptions.BuiltInExceptionProvider is com.mojang.brigadier.exceptions.BuiltInExceptionProvider
+Interface of com.mojang.brigadier.exceptions.BuiltInExceptionProvider is java.lang.Object
+Exception while looking for class com.mojang.brigadier.exceptions.CommandExceptionType: java.io.IOException: Couldn't find: com/mojang/brigadier/exceptions/CommandExceptionType.class
+Interface of com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType is java.lang.Object
+Exception while looking for class com.mojang.brigadier.exceptions.CommandExceptionType: java.io.IOException: Couldn't find: com/mojang/brigadier/exceptions/CommandExceptionType.class
+Interface of com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType is java.lang.Object
+Interface of com.mojang.brigadier.exceptions.CommandExceptionType is com.mojang.brigadier.exceptions.CommandExceptionType
+Interface of com.mojang.brigadier.exceptions.CommandExceptionType is java.lang.Object
+Exception while looking for class com.mojang.brigadier.exceptions.CommandExceptionType: java.io.IOException: Couldn't find: com/mojang/brigadier/exceptions/CommandExceptionType.class
+Interface of com.mojang.brigadier.exceptions.DynamicNCommandExceptionType is java.lang.Object
+Exception while looking for class com.mojang.brigadier.exceptions.CommandExceptionType: java.io.IOException: Couldn't find: com/mojang/brigadier/exceptions/CommandExceptionType.class
+Interface of com.mojang.brigadier.exceptions.SimpleCommandExceptionType is java.lang.Object
+Interface of com.mojang.brigadier.exceptions.CommandSyntaxException is java.io.Serializable
+Interface of com.mojang.brigadier.exceptions.CommandSyntaxException is java.lang.Exception
+Exception while looking for class com.mojang.brigadier.exceptions.CommandExceptionType: java.io.IOException: Couldn't find: com/mojang/brigadier/exceptions/CommandExceptionType.class
+Interface of com.mojang.brigadier.exceptions.DynamicCommandExceptionType is java.lang.Object
+Interface of com.mojang.brigadier.SingleRedirectModifier is com.mojang.brigadier.SingleRedirectModifier
+Interface of com.mojang.brigadier.SingleRedirectModifier is java.lang.Object
+Interface of com.mojang.brigadier.ParseResults is java.lang.Object
+Interface of com.mojang.brigadier.builder.ArgumentBuilder is java.lang.Object
+Exception while looking for class com.mojang.brigadier.builder.ArgumentBuilder: java.io.IOException: Couldn't find: com/mojang/brigadier/builder/ArgumentBuilder.class
+Exception while looking for class com.mojang.brigadier.builder.ArgumentBuilder: java.io.IOException: Couldn't find: com/mojang/brigadier/builder/ArgumentBuilder.class
+Exception while looking for class com.mojang.brigadier.builder.ArgumentBuilder: java.io.IOException: Couldn't find: com/mojang/brigadier/builder/ArgumentBuilder.class
+Exception while looking for class com.mojang.brigadier.builder.ArgumentBuilder: java.io.IOException: Couldn't find: com/mojang/brigadier/builder/ArgumentBuilder.class
+Exception while looking for class com.mojang.brigadier.arguments.ArgumentType: java.io.IOException: Couldn't find: com/mojang/brigadier/arguments/ArgumentType.class
+Interface of com.mojang.brigadier.arguments.StringArgumentType is java.lang.Object
+Exception while looking for class com.mojang.brigadier.arguments.ArgumentType: java.io.IOException: Couldn't find: com/mojang/brigadier/arguments/ArgumentType.class
+Interface of com.mojang.brigadier.arguments.DoubleArgumentType is java.lang.Object
+Exception while looking for class com.mojang.brigadier.arguments.ArgumentType: java.io.IOException: Couldn't find: com/mojang/brigadier/arguments/ArgumentType.class
+Interface of com.mojang.brigadier.arguments.IntegerArgumentType is java.lang.Object
+Interface of com.mojang.brigadier.arguments.StringArgumentType$StringType is java.io.Serializable
+Interface of com.mojang.brigadier.arguments.StringArgumentType$StringType is java.lang.Comparable
+Interface of com.mojang.brigadier.arguments.StringArgumentType$StringType is java.lang.Enum
+Exception while looking for class com.mojang.brigadier.arguments.ArgumentType: java.io.IOException: Couldn't find: com/mojang/brigadier/arguments/ArgumentType.class
+Interface of com.mojang.brigadier.arguments.FloatArgumentType is java.lang.Object
+Interface of com.mojang.brigadier.arguments.ArgumentType is com.mojang.brigadier.arguments.ArgumentType
+Interface of com.mojang.brigadier.arguments.ArgumentType is java.lang.Object
+Exception while looking for class com.mojang.brigadier.arguments.ArgumentType: java.io.IOException: Couldn't find: com/mojang/brigadier/arguments/ArgumentType.class
+Interface of com.mojang.brigadier.arguments.LongArgumentType is java.lang.Object
+Exception while looking for class com.mojang.brigadier.arguments.ArgumentType: java.io.IOException: Couldn't find: com/mojang/brigadier/arguments/ArgumentType.class
+Interface of com.mojang.brigadier.arguments.BoolArgumentType is java.lang.Object

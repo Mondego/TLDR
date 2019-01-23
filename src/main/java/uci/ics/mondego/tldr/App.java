@@ -89,6 +89,14 @@ public class App
 	    	   changedEntities.addAll(chEnt);
 	       }
 	       
+	       
+	       //******** for testing purpose....remove later******/
+	       
+	       for(int i=0;i<allClass.size();i++){
+	    	   ClassChangeAnalyzer cc = new ClassChangeAnalyzer(allClass.get(i).getPath()); 	    	   
+	       }
+	       
+	       
 	       // STEP 3.2: PARSE AND MAP TEST METHODS TO ENTITIES;
 	       for(int i=0;i<changedTests.size();i++){
 	    	   // for each changed class we check which field/method change  

@@ -21,6 +21,7 @@ public class RedisHandler{
 		try{
 			jedis = new Jedis("localhost");
 			logger.info("Server running : "+jedis.ping());
+			//System.out.println(jedis.get("dbfilename"));
 		}
 		catch(JedisConnectionException e){
 			logger.error("Connection Refused in LocalHost\n");
@@ -88,7 +89,7 @@ public class RedisHandler{
 		//t.set(tableId+key, value);
 		//t.exec();
 		jedis.set(tableId+key, value);
-		System.out.println(tableId+"  "+key+ " changed to : "+jedis.get(tableId+key)+" from : "+prev);
+		//System.out.println(tableId+"  "+key+ " changed to : "+jedis.get(tableId+key)+" from : "+prev);
 		//jedis.set(fileName, checkSum);
 	}
 	

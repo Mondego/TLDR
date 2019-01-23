@@ -27,6 +27,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<Method> allChangedMethods;
 	private List<Field> allChangedFields;
 	private final JavaClass parsedClass;
+	private List<String> allInterfaces;
+	private String superClass;
 	
 	public List<Method> getAllMethods(){
 		return allMethods;
@@ -54,7 +56,39 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.allMethods = new ArrayList<Method>();
 		this.allFields = new ArrayList<Field>();
 		this.parsedClass = parser.parse();
-		this.parse();
+		this.allInterfaces = new ArrayList<String>();
+		this.superClass = "";
+		
+		//this.parse();
+		
+		this.parseInterface();
+		this.parseSuperClass();
+	}
+	
+	private void parseInterface(){
+		
+		try {
+			JavaClass[] interfaces = this.parsedClass.getAllInterfaces();
+			
+			for(JavaClass cls: interfaces){
+				System.out.println("Interface of "+parsedClass.getClassName()+" is "+cls.getClassName());
+				allInterfaces.add(cls.getClassName());
+				logger.info("Interface of "+parsedClass.getClassName()+" is "+cls.getClassName());
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
+		}
+	}
+	
+	private void parseSuperClass(){
+		try {
+			this.superClass = parsedClass.getSuperClass().getClassName();
+			logger.info("Interface of "+parsedClass.getClassName()+" is "+this.superClass);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
+		}
 	}
 	
 	public String getChecksumByAttribute(String attr){
@@ -162,6 +196,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					if(!currentHashCode.equals(prevHashCode)){
 						
 						//System.out.println(m.getCode().toString(true));
+						
 						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 								+ "class name: "+this.getEntityName());
 						this.setChanged(true);
