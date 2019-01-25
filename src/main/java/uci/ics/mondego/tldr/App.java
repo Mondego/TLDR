@@ -7,10 +7,14 @@ import uci.ics.mondego.tldr.map.EntityToTestMap;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.bcel.classfile.ClassFormatException;
+import org.apache.bcel.classfile.Method;
 import org.apache.commons.collections4.ListUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
@@ -19,6 +23,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
+import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.changeanalyzer.TestChangeAnalyzer;
 import uci.ics.mondego.tldr.model.SourceFile;
@@ -61,6 +66,8 @@ public class App
 	       
 	       List<String> changedEntities = new ArrayList<String>();
 	       
+	       Map<String, Method> fqnToCodeMap = new HashMap<String, Method>();
+	       
 	       //ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
 	       
 	       // STEP 2.1: FIND CHANGED CLASS FILES
@@ -87,14 +94,14 @@ public class App
 	    	   ClassChangeAnalyzer cc = new ClassChangeAnalyzer(changedFiles.get(i).getPath()); 
 	    	   List<String> chEnt = cc.getChangedAttributes();
 	    	   changedEntities.addAll(chEnt);
+	    	   fqnToCodeMap.putAll(cc.getextractedFunctions());
 	       }
 	       
 	       
-	       //******** for testing purpose....remove later******/
+	       // STEP 3.2: RESOLUTION OF DEPENDENCY
 	       
-	       for(int i=0;i<allClass.size();i++){
-	    	   ClassChangeAnalyzer cc = new ClassChangeAnalyzer(allClass.get(i).getPath()); 	    	   
-	       }
+	       DependencyExtractor depExt = new DependencyExtractor(fqnToCodeMap);
+	       depExt.resolute();
 	       
 	       
 	       // STEP 3.2: PARSE AND MAP TEST METHODS TO ENTITIES;

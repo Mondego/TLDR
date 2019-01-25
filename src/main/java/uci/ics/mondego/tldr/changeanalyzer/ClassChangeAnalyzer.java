@@ -21,6 +21,7 @@ import uci.ics.mondego.tldr.tool.Databases;
 public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
 	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
+	private Map<String, Method> extractedFunctions;
 	private final ClassParser parser;
 	private List<Method> allMethods;
 	private List<Field> allFields;
@@ -57,12 +58,17 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.allFields = new ArrayList<Field>();
 		this.parsedClass = parser.parse();
 		this.allInterfaces = new ArrayList<String>();
+		this.extractedFunctions = new HashMap<String, Method>();
 		this.superClass = "";
 		
 		this.parse();
 		
-		//this.parseInterface();
-		//this.parseSuperClass();
+		this.parseInterface();
+		this.parseSuperClass();
+	}
+	
+	public Map<String, Method> getextractedFunctions(){
+		return extractedFunctions;
 	}
 	
 	private void parseInterface(){
@@ -199,6 +205,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					this.allChangedMethods.add(m);
+					extractedFunctions.put(methodFqn, m);
 				}
 				else{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
@@ -214,6 +221,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						changedAttributes.add(methodFqn);
 						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						this.allChangedMethods.add(m);
+						extractedFunctions.put(methodFqn, m);
 					}
 				}
 			}

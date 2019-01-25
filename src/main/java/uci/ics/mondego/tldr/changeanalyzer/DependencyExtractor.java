@@ -35,7 +35,7 @@ public class DependencyExtractor {
 	}
 		
 	
-	 private void parse() throws IOException{
+	 public void resolute() throws IOException{
 
 		Set<Entry<String, Method>> allEntries = changedMethods.entrySet();
 		
