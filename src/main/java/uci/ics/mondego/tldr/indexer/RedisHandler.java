@@ -108,6 +108,13 @@ public class RedisHandler{
 		jedis.sadd(k, value);
 	}
 	
+	public Set<String> getAllKeys(String tableId, String pattern){
+		String key = tableId+pattern;
+		Set<String> keys = jedis.keys(key);
+		return keys;
+	}
+	
+	
 	public Set<String> getSet(String tableId, String key){
 		return jedis.smembers(tableId+key);
 	}

@@ -8,15 +8,26 @@ import uci.ics.mondego.tldr.tool.StringProcessor;
 
 
 public class MethodParser {
+
+	private final Method method;
+	private List<String> allInternalDependency;
+	private List<String> allExternalDependency;
 	
-	Method method;
-	List<String> allInternalDependency;
-	List<String> allExternalDependency;
+	private List<String> allStaticDependency;
+	private List<String> allFinalDependency;
+	private List<String> allVirtualDependency;
+	private List<String> allInterfaceDependency;
 	
 	public MethodParser(Method m){
 		this.method = m;
-		allInternalDependency = new ArrayList<String>();
-		allExternalDependency = new ArrayList<String>();
+		this.allInternalDependency = new ArrayList<String>();
+		this.allExternalDependency = new ArrayList<String>();
+		
+		this.allStaticDependency = new ArrayList<String>();
+		this.allFinalDependency = new ArrayList<String>();
+		this.allVirtualDependency = new ArrayList<String>();
+		this.allInterfaceDependency = new ArrayList<String>();
+		
 		parse();
 	}
 	
@@ -28,6 +39,7 @@ public class MethodParser {
 			//method call
 			String processed = null;
 			String[] parts = line.split("\\s+");
+			
 			if(line.contains("invokevirtual") ||	
 			   line.contains("invokeinterface") || 
 			   line.contains("invokestatic") ||
@@ -52,6 +64,23 @@ public class MethodParser {
 				processed = processed+".<init>(*)";
 			}
 			
+			
+			if(processed != null && line.contains("invokestatic") && !allStaticDependency.contains(processed)){
+				allStaticDependency.add(processed);
+			}
+			
+			else if(processed != null && line.contains("invokespecial") && !allFinalDependency.contains(processed)){
+				allFinalDependency.add(processed);
+			}
+			
+			else if(processed != null && line.contains("invokevirtual") && !allVirtualDependency.contains(processed)){
+				allVirtualDependency.add(processed);
+			}
+			
+			else if(processed != null && line.contains("invokeabstract") && !allInterfaceDependency.contains(processed)){
+				allInterfaceDependency.add(processed);
+			}	
+				
 			if(processed != null && (processed.contains("java.") && !allExternalDependency.contains(processed))){
 				allExternalDependency.add(processed);
 			}
@@ -61,8 +90,6 @@ public class MethodParser {
 			}
 		}
 		
-		//for(int j=0;j<allInternalDependency.size();j++)
-		//	System.out.println(allInternalDependency.get(j));
 	}
 	
 	private String parseMethodParameters(String signature){
@@ -99,6 +126,30 @@ public class MethodParser {
 	
 	public List<String> getAllExternalDependencies(){
 		return allExternalDependency;
+	}
+	
+	public List<String> getAllInternalDependency() {
+		return allInternalDependency;
+	}
+
+	public List<String> getAllExternalDependency() {
+		return allExternalDependency;
+	}
+
+	public List<String> getAllStaticDependency() {
+		return allStaticDependency;
+	}
+
+	public List<String> getAllFinalDependency() {
+		return allFinalDependency;
+	}
+
+	public List<String> getAllVirtualDependency() {
+		return allVirtualDependency;
+	}
+	
+	public List<String> getAllInterfaceDependency() {
+		return allInterfaceDependency;
 	}
 
 }

@@ -59,10 +59,10 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.allInterfaces = new ArrayList<String>();
 		this.superClass = "";
 		
-		//this.parse();
+		this.parse();
 		
-		this.parseInterface();
-		this.parseSuperClass();
+		//this.parseInterface();
+		//this.parseSuperClass();
 	}
 	
 	private void parseInterface(){
@@ -70,11 +70,17 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		try {
 			JavaClass[] interfaces = this.parsedClass.getAllInterfaces();
 			
+			String str="";
 			for(JavaClass cls: interfaces){
-				System.out.println("Interface of "+parsedClass.getClassName()+" is "+cls.getClassName());
+				if(!cls.getClassName().contains("java."))str+=(cls.getClassName()+" , ");
 				allInterfaces.add(cls.getClassName());
 				logger.info("Interface of "+parsedClass.getClassName()+" is "+cls.getClassName());
 			}
+			
+			if(str.length() > 0)
+				System.out.println("Int of "+parsedClass.getClassName()+" : "+str);
+
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			logger.error(e.getMessage());
@@ -84,7 +90,11 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private void parseSuperClass(){
 		try {
 			this.superClass = parsedClass.getSuperClass().getClassName();
-			logger.info("Interface of "+parsedClass.getClassName()+" is "+this.superClass);
+			
+			if(!this.superClass.contains("java."))
+				System.out.println("Superclass of "+parsedClass.getClassName()+" : "+this.superClass);
+
+			logger.info("Superclass of "+parsedClass.getClassName()+" : "+this.superClass);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			logger.error(e.getMessage());
