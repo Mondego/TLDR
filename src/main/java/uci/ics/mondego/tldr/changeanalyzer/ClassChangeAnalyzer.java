@@ -21,7 +21,7 @@ import uci.ics.mondego.tldr.tool.Databases;
 public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
 	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
-	private Map<String, Method> extractedFunctions;
+	private Map<String, Method> extractedChangedMethods;
 	private final ClassParser parser;
 	private List<Method> allMethods;
 	private List<Field> allFields;
@@ -58,17 +58,17 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.allFields = new ArrayList<Field>();
 		this.parsedClass = parser.parse();
 		this.allInterfaces = new ArrayList<String>();
-		this.extractedFunctions = new HashMap<String, Method>();
+		this.extractedChangedMethods = new HashMap<String, Method>();
 		this.superClass = "";
 		
 		this.parse();
 		
-		this.parseInterface();
-		this.parseSuperClass();
+		//this.parseInterface();
+		//this.parseSuperClass();
 	}
 	
 	public Map<String, Method> getextractedFunctions(){
-		return extractedFunctions;
+		return extractedChangedMethods;
 	}
 	
 	private void parseInterface(){
@@ -154,9 +154,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		Method [] allMethods= parsedClass.getMethods();
 		
 		for(Method m: allMethods){
-			System.out.println("Method: "+m.getName()+"\n======================\n");
-			//if(m.getName().contains("getSmartUsage"))
-			//	System.out.println(m.getCode().toString());
 			
 			this.allMethods.add(m);
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
@@ -192,9 +189,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				for(int i=0;i<m.getArgumentTypes().length;i++)
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
-					
-				// change
-				//String currentHashCode = code.hashCode()+"";
+			
 				String currentHashCode = CreateMD5(code);
 				
 				hashCodes.put(methodFqn, currentHashCode);
@@ -205,7 +200,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					this.allChangedMethods.add(m);
-					extractedFunctions.put(methodFqn, m);
+					extractedChangedMethods.put(methodFqn, m);
 				}
 				else{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
@@ -217,17 +212,16 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 								+ "class name: "+this.getEntityName());
 						this.setChanged(true);
-						//System.out.println(methodFqn+" CNAGED====================="+"CUR : "+currentHashCode+"  PREV: "+prevHashCode+"\n");
 						changedAttributes.add(methodFqn);
 						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						this.allChangedMethods.add(m);
-						extractedFunctions.put(methodFqn, m);
+						extractedChangedMethods.put(methodFqn, m);
 					}
 				}
 			}
 		}
 		
-		this.syncDependency();
+		//this.syncDependency();
 	}
 	
 	private void addDependentsInDb(String entity, String dependents){

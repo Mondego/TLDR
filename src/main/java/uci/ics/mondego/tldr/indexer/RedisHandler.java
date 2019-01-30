@@ -3,6 +3,8 @@ package uci.ics.mondego.tldr.indexer;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 import redis.clients.jedis.exceptions.JedisConnectionException;
+import uci.ics.mondego.tldr.tool.Databases;
+
 import java.util.Set;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -116,6 +118,10 @@ public class RedisHandler{
 	
 	
 	public Set<String> getSet(String tableId, String key){
+		//System.out.println(tableId);
+		//if(jedis.smembers(tableId+key).size() > 0)
+		//	System.out.println("for   "+key+"   "+jedis.smembers(tableId+key));
+
 		return jedis.smembers(tableId+key);
 	}
 	

@@ -1,25 +1,16 @@
 package uci.ics.mondego.tldr.changeanalyzer;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import org.apache.bcel.classfile.ClassParser;
-import org.apache.bcel.classfile.Field;
-import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
 import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
-import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
 
 public class DependencyExtractor {
@@ -47,7 +38,7 @@ public class DependencyExtractor {
 			List<String> allInterfaceDependency = parser.getAllInterfaceDependency();
 			List<String> allStaticDependency = parser.getAllStaticDependency();
 			List<String> allFinalDependency = parser.getAllFinalDependency();
-			
+						
 			for(int i = 0 ;i<allVirtualDependency.size();i++){
 				this.syncAllPossibleDependency(allVirtualDependency.get(i), dependent);
 			}
@@ -67,6 +58,7 @@ public class DependencyExtractor {
 	}
 	
 	private void addDependentsInDb(String dependency, String dependents){
+		//System.out.println("here : "+dependency+"   "+dependents);
 		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_DEPENDENCY, dependency);
 		if(!prevDependents.contains(dependents)){
 			this.rh.insertInSet(Databases.TABLE_ID_DEPENDENCY, dependency, dependents);
@@ -95,7 +87,7 @@ public class DependencyExtractor {
 				return;
 			
 			for(String k: keys){
-				addDependentsInDb(k, dependents);
+				addDependentsInDb(k.substring(1), dependents); // because we have to remove table id
 			}
 		}
 		

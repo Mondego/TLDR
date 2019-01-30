@@ -100,6 +100,8 @@ public class App
 	       
 	       // STEP 3.2: RESOLUTION OF DEPENDENCY
 	       
+	       System.out.println(fqnToCodeMap.size());
+	       
 	       DependencyExtractor depExt = new DependencyExtractor(fqnToCodeMap);
 	       depExt.resolute();
 	       
@@ -118,7 +120,6 @@ public class App
 	       List<String> allEntitiesToTest = new ArrayList<String>();
 	       DFSTraversal dfs = new DFSTraversal();
 	       
-	       System.out.println("\n\n	ALL ENTITY CHANGED : \n");
 	       for(int i=0;i<changedEntities.size();i++){
 	    	   List<String> dep = dfs.get_all_dependent(changedEntities.get(i));
 	    	   allEntitiesToTest = ListUtils.union(dep, allEntitiesToTest);
@@ -130,6 +131,8 @@ public class App
 	       EntityToTestMap map = new EntityToTestMap();
 
 	       // STEP 5: FIND ALL TESTS FOR THE allEntityToTest List
+	       System.out.println("\n\n	ALL ENTITY TO TEST : \n");
+
 	       for(int i=0;i<allEntitiesToTest.size();i++){
 	    	   System.out.println(allEntitiesToTest.get(i));
 	    	   Set<String> tests = map.getTests(allEntitiesToTest.get(i));
@@ -140,7 +143,7 @@ public class App
 	       System.out.println("\n\n	ALL TEST TO RUN : \n");
 
 	       for(int i=0;i<allTestToRun.size();i++){
-	    	   System.out.println(allTestToRun.get(i));
+	    	   //System.out.println(allTestToRun.get(i));
 	       }
 	       
        }
