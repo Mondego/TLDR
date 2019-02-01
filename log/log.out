@@ -1,4 +1,71 @@
 Server running : PONG
-file /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class has changed
-com.mojang.brigadier.context.CommandContext.getChild() changed prev : be434fbd918d1f66dbc183513590e122  new: 244b127d3c6adb26762aac77463d2e66 class name: /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class
-com.mojang.brigadier.context.CommandContext.getLastChild() changed prev : 3e867c0f6f2fb8bac907f337d845737c  new: 4ba2440566308bed8c28635994664a15 class name: /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/context/CommandContext.class
+Interface of com.mojang.brigadier.LiteralMessage is com.mojang.brigadier.Message
+Superclass of com.mojang.brigadier.LiteralMessage : 
+Superclass of com.mojang.brigadier.CommandDispatcher : 
+Superclass of com.mojang.brigadier.tree.ArgumentCommandNode : com.mojang.brigadier.tree.CommandNode
+Interface of com.mojang.brigadier.tree.CommandNode is java.lang.Comparable
+Superclass of com.mojang.brigadier.tree.CommandNode : 
+Superclass of com.mojang.brigadier.tree.RootCommandNode : com.mojang.brigadier.tree.CommandNode
+Superclass of com.mojang.brigadier.tree.LiteralCommandNode : com.mojang.brigadier.tree.CommandNode
+Interface of com.mojang.brigadier.CommandDispatcher$1 is java.util.function.Predicate
+Superclass of com.mojang.brigadier.CommandDispatcher$1 : 
+Superclass of com.mojang.brigadier.ResultConsumer : 
+Superclass of com.mojang.brigadier.RedirectModifier : 
+Superclass of com.mojang.brigadier.context.CommandContext : 
+Superclass of com.mojang.brigadier.context.ParsedArgument : 
+Superclass of com.mojang.brigadier.context.ParsedCommandNode : 
+Superclass of com.mojang.brigadier.context.StringRange : 
+Superclass of com.mojang.brigadier.context.CommandContextBuilder : 
+Superclass of com.mojang.brigadier.context.SuggestionContext : 
+Superclass of com.mojang.brigadier.suggestion.Suggestions : 
+Superclass of com.mojang.brigadier.suggestion.SuggestionsBuilder : 
+Interface of com.mojang.brigadier.suggestion.Suggestion is java.lang.Comparable
+Superclass of com.mojang.brigadier.suggestion.Suggestion : 
+Superclass of com.mojang.brigadier.suggestion.IntegerSuggestion : com.mojang.brigadier.suggestion.Suggestion
+Superclass of com.mojang.brigadier.suggestion.SuggestionProvider : 
+Superclass of com.mojang.brigadier.ImmutableStringReader : 
+Interface of com.mojang.brigadier.StringReader is com.mojang.brigadier.ImmutableStringReader
+Superclass of com.mojang.brigadier.StringReader : 
+Superclass of com.mojang.brigadier.AmbiguityConsumer : 
+Superclass of com.mojang.brigadier.Message : 
+Superclass of com.mojang.brigadier.Command : 
+Interface of com.mojang.brigadier.exceptions.BuiltInExceptions is com.mojang.brigadier.exceptions.BuiltInExceptionProvider
+Superclass of com.mojang.brigadier.exceptions.BuiltInExceptions : 
+Superclass of com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType$Function : 
+Superclass of com.mojang.brigadier.exceptions.Dynamic4CommandExceptionType$Function : 
+Superclass of com.mojang.brigadier.exceptions.DynamicNCommandExceptionType$Function : 
+Superclass of com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType$Function : 
+Interface of com.mojang.brigadier.exceptions.Dynamic4CommandExceptionType is com.mojang.brigadier.exceptions.CommandExceptionType
+Superclass of com.mojang.brigadier.exceptions.Dynamic4CommandExceptionType : 
+Superclass of com.mojang.brigadier.exceptions.BuiltInExceptionProvider : 
+Interface of com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType is com.mojang.brigadier.exceptions.CommandExceptionType
+Superclass of com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType : 
+Interface of com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType is com.mojang.brigadier.exceptions.CommandExceptionType
+Superclass of com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType : 
+Superclass of com.mojang.brigadier.exceptions.CommandExceptionType : 
+Interface of com.mojang.brigadier.exceptions.DynamicNCommandExceptionType is com.mojang.brigadier.exceptions.CommandExceptionType
+Superclass of com.mojang.brigadier.exceptions.DynamicNCommandExceptionType : 
+Interface of com.mojang.brigadier.exceptions.SimpleCommandExceptionType is com.mojang.brigadier.exceptions.CommandExceptionType
+Superclass of com.mojang.brigadier.exceptions.SimpleCommandExceptionType : 
+Superclass of com.mojang.brigadier.exceptions.CommandSyntaxException : 
+Interface of com.mojang.brigadier.exceptions.DynamicCommandExceptionType is com.mojang.brigadier.exceptions.CommandExceptionType
+Superclass of com.mojang.brigadier.exceptions.DynamicCommandExceptionType : 
+Superclass of com.mojang.brigadier.SingleRedirectModifier : 
+Superclass of com.mojang.brigadier.ParseResults : 
+Superclass of com.mojang.brigadier.builder.ArgumentBuilder : 
+Superclass of com.mojang.brigadier.builder.LiteralArgumentBuilder : com.mojang.brigadier.builder.ArgumentBuilder
+Superclass of com.mojang.brigadier.builder.RequiredArgumentBuilder : com.mojang.brigadier.builder.ArgumentBuilder
+Interface of com.mojang.brigadier.arguments.StringArgumentType is com.mojang.brigadier.arguments.ArgumentType
+Superclass of com.mojang.brigadier.arguments.StringArgumentType : 
+Interface of com.mojang.brigadier.arguments.DoubleArgumentType is com.mojang.brigadier.arguments.ArgumentType
+Superclass of com.mojang.brigadier.arguments.DoubleArgumentType : 
+Interface of com.mojang.brigadier.arguments.IntegerArgumentType is com.mojang.brigadier.arguments.ArgumentType
+Superclass of com.mojang.brigadier.arguments.IntegerArgumentType : 
+Superclass of com.mojang.brigadier.arguments.StringArgumentType$StringType : 
+Interface of com.mojang.brigadier.arguments.FloatArgumentType is com.mojang.brigadier.arguments.ArgumentType
+Superclass of com.mojang.brigadier.arguments.FloatArgumentType : 
+Superclass of com.mojang.brigadier.arguments.ArgumentType : 
+Interface of com.mojang.brigadier.arguments.LongArgumentType is com.mojang.brigadier.arguments.ArgumentType
+Superclass of com.mojang.brigadier.arguments.LongArgumentType : 
+Interface of com.mojang.brigadier.arguments.BoolArgumentType is com.mojang.brigadier.arguments.ArgumentType
+Superclass of com.mojang.brigadier.arguments.BoolArgumentType : 

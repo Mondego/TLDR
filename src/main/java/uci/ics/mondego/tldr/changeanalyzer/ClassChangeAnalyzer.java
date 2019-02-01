@@ -62,32 +62,44 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.superClass = "";
 		
 		this.parse();
-		
-		//this.parseInterface();
-		//this.parseSuperClass();
+				
+		this.syncClassHierarchy();
 	}
 	
 	public Map<String, Method> getextractedFunctions(){
 		return extractedChangedMethods;
 	}
 	
-	private void parseInterface(){
+	private void syncClassHierarchy(){
 		
+		this.parseInterface();
+		this.parseSuperClass();
+		
+		Set<String> all_superclass_interface = this.rh.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+				parsedClass.getClassName());
+		for(int i=0;i<allInterfaces.size();i++){
+			if(!all_superclass_interface.contains(allInterfaces.get(i))){
+				this.rh.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+						allInterfaces.get(i));
+				this.rh.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
+			}				
+		}
+		
+		if(!all_superclass_interface.contains(this.superClass)){
+			this.rh.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+					this.superClass);
+			this.rh.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
+		}				
+	}
+	
+	private void parseInterface(){
 		try {
-			JavaClass[] interfaces = this.parsedClass.getAllInterfaces();
-			
-			String str="";
-			for(JavaClass cls: interfaces){
-				if(!cls.getClassName().contains("java."))str+=(cls.getClassName()+" , ");
-				allInterfaces.add(cls.getClassName());
-				logger.info("Interface of "+parsedClass.getClassName()+" is "+cls.getClassName());
+			String[] interfaces = this.parsedClass.getInterfaceNames();
+			for(String cls: interfaces){
+				allInterfaces.add(cls);
+				logger.info("Interface of "+parsedClass.getClassName()+" is "+cls);
 			}
-			
-			if(str.length() > 0)
-				System.out.println("Int of "+parsedClass.getClassName()+" : "+str);
-
-			
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			logger.error(e.getMessage());
 		}
@@ -95,13 +107,9 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	
 	private void parseSuperClass(){
 		try {
-			this.superClass = parsedClass.getSuperClass().getClassName();
-			
-			if(!this.superClass.contains("java."))
-				System.out.println("Superclass of "+parsedClass.getClassName()+" : "+this.superClass);
-
+			this.superClass = !parsedClass.getSuperclassName().contains("java.") ? parsedClass.getSuperclassName(): "";			
 			logger.info("Superclass of "+parsedClass.getClassName()+" : "+this.superClass);
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			logger.error(e.getMessage());
 		}
@@ -117,15 +125,12 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	
 	protected void parse() throws IOException{
 		
-		
 		Field [] allFields = parsedClass.getFields();
 		for(Field f: allFields){
 			this.allFields.add(f);
 			
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
-			
-			//String currentHashCode = f.toString().hashCode() +"";
-			
+						
 			String currentHashCode = CreateMD5(f.toString());
 			
 			hashCodes.put(fieldFqn, currentHashCode);
