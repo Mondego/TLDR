@@ -77,6 +77,14 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		Set<String> all_superclass_interface = this.rh.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
 				parsedClass.getClassName());
+		
+//		System.out.println(this.getEntityName());
+//		for(int i=0;i<allInterfaces.size();i++){
+//			System.out.print(allInterfaces.get(i)+"  ");
+//		}
+//		System.out.println();
+//		
+		
 		for(int i=0;i<allInterfaces.size();i++){
 			if(!all_superclass_interface.contains(allInterfaces.get(i))){
 				this.rh.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
@@ -85,7 +93,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			}				
 		}
 		
-		if(!all_superclass_interface.contains(this.superClass)){
+		if(!all_superclass_interface.contains(this.superClass) && this.superClass.length() > 0){
 			this.rh.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 					this.superClass);
 			this.rh.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
@@ -160,6 +168,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		for(Method m: allMethods){
 			
+			
+			
 			this.allMethods.add(m);
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
 			m.getModifiers() == AccessCodes.FINAL ||
@@ -195,6 +205,9 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
 			
+				//if(m.getName().contains("listSuggestions"))
+				//	System.out.println(methodFqn+" ==== "+m.getCode().toString());
+				
 				String currentHashCode = CreateMD5(code);
 				
 				hashCodes.put(methodFqn, currentHashCode);
@@ -209,10 +222,9 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				}
 				else{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
-					
+										
 					if(!currentHashCode.equals(prevHashCode)){
-						
-						//System.out.println(m.getCode().toString(true));
+						//System.out.println(methodFqn+"\n================\n"+code);
 						
 						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 								+ "class name: "+this.getEntityName());

@@ -24,6 +24,7 @@ import org.apache.log4j.PropertyConfigurator;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
 import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor1;
+import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor2;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.changeanalyzer.TestChangeAnalyzer;
 import uci.ics.mondego.tldr.model.SourceFile;
@@ -68,7 +69,11 @@ public class App
 	       
 	       Map<String, Method> fqnToCodeMap = new HashMap<String, Method>();
 	       
-	       //ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
+	       
+	       System.out.println(rh.getSet(Databases.TABLE_ID_DEPENDENCY, 
+	    		   "com.mojang.brigadier.arguments.ArgumentType.listSuggestions($com.mojang.brigadier.context.CommandContext$com.mojang.brigadier.suggestion.SuggestionsBuilder)"
+	    		  ).toString());
+	       
 	       
 	       // STEP 2.1: FIND CHANGED CLASS FILES
 	       for(int i=0;i<allClass.size();i++){
@@ -96,19 +101,19 @@ public class App
 	    	   fqnToCodeMap.putAll(cc.getextractedFunctions());
 	       }
 	       
-	       //*** for testing---- remove ****//
+	       /*** for testing---- remove 
 	       for(int i=0;i<allClass.size();i++){
-	    	   //System.out.println(allClass.get(i).getPath());
+	    	  
 	    	   ClassChangeAnalyzer cc;
 	    	   cc = new ClassChangeAnalyzer(allClass.get(i).getPath()); 
-	       }
+	       }*/
 	       
 	       
 	       // STEP 3.2: RESOLUTION OF DEPENDENCY
 	       
 	       System.out.println(fqnToCodeMap.size());
 	       
-	       DependencyExtractor1 depExt = new DependencyExtractor1(fqnToCodeMap);
+	       DependencyExtractor2 depExt = new DependencyExtractor2(fqnToCodeMap);
 	       depExt.resolute();
 	       
 	       

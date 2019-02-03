@@ -37,7 +37,9 @@ public class DependencyExtractor2 {
 			List<String> allInterfaceDependency = parser.getAllInterfaceDependency();
 			List<String> allStaticDependency = parser.getAllStaticDependency();
 			List<String> allFinalDependency = parser.getAllFinalDependency();
-						
+			
+			System.out.println(m.getName()+"     "+parser+ m.getCode());
+			
 			for(int i = 0 ;i<allVirtualDependency.size();i++){
 				this.syncAllPossibleDependency(allVirtualDependency.get(i), dependent);
 			}
@@ -57,7 +59,12 @@ public class DependencyExtractor2 {
 	}
 	
 	private void addDependentsInDb(String dependency, String dependents){
-		//System.out.println("here : "+dependency+"   "+dependents);
+
+		if(dependency.contains("java."))
+			return;
+		
+		System.out.println("inside add db: "+dependency+"  "+dependents);
+
 		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_DEPENDENCY, dependency);
 		if(!prevDependents.contains(dependents)){
 			this.rh.insertInSet(Databases.TABLE_ID_DEPENDENCY, dependency, dependents);
@@ -68,22 +75,26 @@ public class DependencyExtractor2 {
 	private List<String> traverseClassHierarchy(String claz, String pattern){
 		List<String> toTest = new ArrayList<String>();
 		Set<String> entity = this.rh.getAllKeys(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
+		
 		for(String e: entity){
 			toTest.add(e.substring(1));
 		}
-		
+				
 		Set<String> allSubclass = this.rh.getSet(Databases.TABLE_ID_SUBCLASS, claz);
 		
 		for(String sub: allSubclass){
 			List<String> t = traverseClassHierarchy(sub, pattern);
 			toTest.addAll(t);
 		}
+		
 		return toTest;
 	}
 	
 	private void syncAllPossibleDependency(String dependency, String dependents){
-		
 		try{
+			System.out.println("inside sync all "+dependency+"    "+dependents);
+
+			
 			int index = dependency.indexOf("(");
 			StringBuilder sb = new StringBuilder();
 			sb.append(dependency.substring(index));
@@ -95,16 +106,14 @@ public class DependencyExtractor2 {
 			
 			String pattern = sb.toString();
 			String claz = dependency.substring(0, dependency.indexOf(pattern) - 1);
-			
-			System.out.println(claz+"   "+pattern);
-			
+						
 			List<String> keys = traverseClassHierarchy(claz, pattern);
 			
 			if(CollectionUtils.isEmpty(keys))
 				return;
-			
+						
 			for(String k: keys){
-				addDependentsInDb(k.substring(1), dependents); // because we have to remove table id
+				addDependentsInDb(k, dependents); // because we have to remove table id
 			}
 		}
 		
@@ -115,6 +124,7 @@ public class DependencyExtractor2 {
 	
 	
 	private void syncSingleDependency(String dependency, String dependents){
+
 		try{
 			addDependentsInDb(dependency, dependents);
 		}

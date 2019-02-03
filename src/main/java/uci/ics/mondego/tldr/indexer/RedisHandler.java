@@ -5,6 +5,8 @@ import redis.clients.jedis.Transaction;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.tool.Databases;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -123,6 +125,16 @@ public class RedisHandler{
 		//	System.out.println("for   "+key+"   "+jedis.smembers(tableId+key));
 
 		return jedis.smembers(tableId+key);
+	}
+	
+	public Map<String, String> getTable(String tableId){
+		Map<String, String> table = new HashMap<String, String>();
+		Set<String> keys = jedis.keys(tableId+"*");
+		for(String k: keys){
+			String val = this.getValueByKey(null, k);
+			table.put(k, val);
+		}
+		return table;
 	}
 	
 	public boolean existsInSet(String tableId, String key, String value){

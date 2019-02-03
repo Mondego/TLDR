@@ -77,7 +77,7 @@ public class MethodParser {
 				allVirtualDependency.add(processed);
 			}
 			
-			else if(processed != null && line.contains("invokeabstract") && !allInterfaceDependency.contains(processed)){
+			else if(processed != null && line.contains("invokeinterface") && !allInterfaceDependency.contains(processed)){
 				allInterfaceDependency.add(processed);
 			}	
 				
@@ -150,6 +150,29 @@ public class MethodParser {
 	
 	public List<String> getAllInterfaceDependency() {
 		return allInterfaceDependency;
+	}
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("\nALL VIRTUAL DEPENDENCY :  \n");
+		for(int i=0;i<allVirtualDependency.size();i++){
+			sb.append(allVirtualDependency.get(i)+" , ");
+		}
+		sb.append("\nALL Interface DEPENDENCY :  \n");
+		for(int i=0;i<allInterfaceDependency.size();i++){
+			sb.append(allInterfaceDependency.get(i)+" , ");
+		}
+		
+		sb.append("\nALL Final DEPENDENCY :  \n");
+		for(int i=0;i<allFinalDependency.size();i++){
+			sb.append(allFinalDependency.get(i)+" , ");
+		}
+		
+		sb.append("\nALL Static DEPENDENCY :  \n");
+		for(int i=0;i<allStaticDependency.size();i++){
+			sb.append(allStaticDependency.get(i)+" , ");
+		}
+		return sb.toString();
 	}
 
 }
