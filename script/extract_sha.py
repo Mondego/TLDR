@@ -4,11 +4,10 @@ import sys
 import os
 import git 
 
-all_commits = 'repo_log.txt'
 
-def get_sha():
+def get_sha(argv):
 	sha = []
-	with open(all_commits) as f:
+	with open(argv) as f:
 		for line in f:
 			if "commit " in line:
 				sha.append(line.split()[1])
@@ -21,7 +20,7 @@ def write_sha(sha):
 	f.close()  
 
 def main(argv):
-	write_sha(get_sha())
+	write_sha(get_sha(argv))
 	#repo = git.Repo('https://github.com/apache/commons-configuration.git')
 	#repo.remotes.origin.pull()
 

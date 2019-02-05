@@ -134,7 +134,7 @@ public class App
 	       EntityToTestMap map = new EntityToTestMap();
 
 	       // STEP 5: FIND ALL TESTS FOR THE allEntityToTest List
-	       System.out.println("\n\n	ALL ENTITY TO TEST : \n");
+	       //System.out.println("\n\n	ALL ENTITY TO TEST : \n");
 
 	       for(int i=0;i<allEntitiesToTest.size();i++){
 	    	   //System.out.println(allEntitiesToTest.get(i));
@@ -142,9 +142,10 @@ public class App
 	    	   for(String str: tests)
 	    		   allTestToRun.add(str);
 	       }
-	       System.out.println(allEntitiesToTest.size());
-	       System.out.println("\n\n	ALL TEST TO RUN : \n");
-
+	       
+	       System.out.println( args[0]+"   "+allEntitiesToTest.size());
+	       
+	       //System.out.println("\n\n	ALL TEST TO RUN : \n");
 	       for(int i=0;i<allTestToRun.size();i++){
 	    	   //System.out.println(allTestToRun.get(i));
 	       }
