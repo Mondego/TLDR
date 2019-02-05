@@ -20,6 +20,7 @@ while read -r line; do
     echo "$i - $line"
     cd $repo_dir
     git checkout $line --quiet
+    mvn -q compile 
     cd $proj_dir
     mvn -q compile exec:java -Dexec.args=$line
     #mvn -q clean compile exec:java -Dexec.args=$line
