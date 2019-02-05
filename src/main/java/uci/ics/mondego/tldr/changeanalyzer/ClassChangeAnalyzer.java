@@ -82,8 +82,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 //		for(int i=0;i<allInterfaces.size();i++){
 //			System.out.print(allInterfaces.get(i)+"  ");
 //		}
-//		System.out.println();
-//		
+//		System.out.println(this.superClass);
+		
 		
 		for(int i=0;i<allInterfaces.size();i++){
 			if(!all_superclass_interface.contains(allInterfaces.get(i))){

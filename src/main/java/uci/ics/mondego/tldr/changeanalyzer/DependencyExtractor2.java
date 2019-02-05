@@ -37,9 +37,7 @@ public class DependencyExtractor2 {
 			List<String> allInterfaceDependency = parser.getAllInterfaceDependency();
 			List<String> allStaticDependency = parser.getAllStaticDependency();
 			List<String> allFinalDependency = parser.getAllFinalDependency();
-			
-			System.out.println(m.getName()+"     "+parser+ m.getCode());
-			
+						
 			for(int i = 0 ;i<allVirtualDependency.size();i++){
 				this.syncAllPossibleDependency(allVirtualDependency.get(i), dependent);
 			}
@@ -59,11 +57,10 @@ public class DependencyExtractor2 {
 	}
 	
 	private void addDependentsInDb(String dependency, String dependents){
+		//System.out.println("inside add db: "+dependency+"  "+dependents);
 
 		if(dependency.contains("java."))
 			return;
-		
-		System.out.println("inside add db: "+dependency+"  "+dependents);
 
 		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_DEPENDENCY, dependency);
 		if(!prevDependents.contains(dependents)){
@@ -74,27 +71,29 @@ public class DependencyExtractor2 {
 	
 	private List<String> traverseClassHierarchy(String claz, String pattern){
 		List<String> toTest = new ArrayList<String>();
+		//System.out.println("insize traverse : "+claz+"   "+pattern);
+
 		Set<String> entity = this.rh.getAllKeys(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
 		
 		for(String e: entity){
+			//System.out.println("inside the loop : "+e);
 			toTest.add(e.substring(1));
-		}
-				
+		}		
 		Set<String> allSubclass = this.rh.getSet(Databases.TABLE_ID_SUBCLASS, claz);
 		
 		for(String sub: allSubclass){
 			List<String> t = traverseClassHierarchy(sub, pattern);
-			toTest.addAll(t);
+			
+			if(!t.isEmpty() || t!= null)
+				toTest.addAll(t);
 		}
-		
+		//System.out.println("insize traverse then : "+toTest.toString());
+
 		return toTest;
 	}
 	
 	private void syncAllPossibleDependency(String dependency, String dependents){
 		try{
-			System.out.println("inside sync all "+dependency+"    "+dependents);
-
-			
 			int index = dependency.indexOf("(");
 			StringBuilder sb = new StringBuilder();
 			sb.append(dependency.substring(index));
@@ -111,7 +110,9 @@ public class DependencyExtractor2 {
 			
 			if(CollectionUtils.isEmpty(keys))
 				return;
-						
+			//System.out.println("inside sync all: "+claz+"  "+pattern);
+			//System.out.println("inside ss db: "+keys+"\n========================\n");
+
 			for(String k: keys){
 				addDependentsInDb(k, dependents); // because we have to remove table id
 			}

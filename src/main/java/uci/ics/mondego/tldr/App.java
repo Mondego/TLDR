@@ -50,7 +50,7 @@ public class App
 
        RedisHandler rh = null;
        try{
-	       PROJ_DIR = "/Users/demigorgan/brigadier";
+	       PROJ_DIR = "/Users/demigorgan/commons-configuration";
 	       //PROJ_DIR = "/Users/demigorgan/log4j";
 	       
 	       //STEP 1 : Scan the repository - gets java, test, class, and jar files. 
@@ -67,14 +67,8 @@ public class App
 	       
 	       List<String> changedEntities = new ArrayList<String>();
 	       
-	       Map<String, Method> fqnToCodeMap = new HashMap<String, Method>();
-	       
-	       
-	       System.out.println(rh.getSet(Databases.TABLE_ID_DEPENDENCY, 
-	    		   "com.mojang.brigadier.arguments.ArgumentType.listSuggestions($com.mojang.brigadier.context.CommandContext$com.mojang.brigadier.suggestion.SuggestionsBuilder)"
-	    		  ).toString());
-	       
-	       
+	       Map<String, Method> fqnToCodeMap = new HashMap<String, Method>();	       
+	      
 	       // STEP 2.1: FIND CHANGED CLASS FILES
 	       for(int i=0;i<allClass.size();i++){
 	    	   FileChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
@@ -110,9 +104,7 @@ public class App
 	       
 	       
 	       // STEP 3.2: RESOLUTION OF DEPENDENCY
-	       
-	       System.out.println(fqnToCodeMap.size());
-	       
+	       	       
 	       DependencyExtractor2 depExt = new DependencyExtractor2(fqnToCodeMap);
 	       depExt.resolute();
 	       
@@ -145,12 +137,12 @@ public class App
 	       System.out.println("\n\n	ALL ENTITY TO TEST : \n");
 
 	       for(int i=0;i<allEntitiesToTest.size();i++){
-	    	   System.out.println(allEntitiesToTest.get(i));
+	    	   //System.out.println(allEntitiesToTest.get(i));
 	    	   Set<String> tests = map.getTests(allEntitiesToTest.get(i));
 	    	   for(String str: tests)
 	    		   allTestToRun.add(str);
 	       }
-	       
+	       System.out.println(allEntitiesToTest.size());
 	       System.out.println("\n\n	ALL TEST TO RUN : \n");
 
 	       for(int i=0;i<allTestToRun.size();i++){
