@@ -17,7 +17,7 @@ allsha="sha.txt"
 
 while read -r line; do
 	let "i++"
-    echo "$i - $line"
+    #echo "$i - $line"
     cd $repo_dir
     git checkout $line --quiet
     mvn -q compile 
