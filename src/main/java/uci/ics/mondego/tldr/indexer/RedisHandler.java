@@ -3,6 +3,10 @@ package uci.ics.mondego.tldr.indexer;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 import redis.clients.jedis.exceptions.JedisConnectionException;
+import uci.ics.mondego.tldr.tool.Databases;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -21,6 +25,7 @@ public class RedisHandler{
 		try{
 			jedis = new Jedis("localhost");
 			logger.info("Server running : "+jedis.ping());
+			//System.out.println(jedis.get("dbfilename"));
 		}
 		catch(JedisConnectionException e){
 			logger.error("Connection Refused in LocalHost\n");
@@ -88,7 +93,7 @@ public class RedisHandler{
 		//t.set(tableId+key, value);
 		//t.exec();
 		jedis.set(tableId+key, value);
-		System.out.println(tableId+"  "+key+ " changed to : "+jedis.get(tableId+key)+" from : "+prev);
+		//System.out.println(tableId+"  "+key+ " changed to : "+jedis.get(tableId+key)+" from : "+prev);
 		//jedis.set(fileName, checkSum);
 	}
 	
@@ -107,8 +112,29 @@ public class RedisHandler{
 		jedis.sadd(k, value);
 	}
 	
+	public Set<String> getAllKeys(String tableId, String pattern){
+		String key = tableId+pattern;
+		Set<String> keys = jedis.keys(key);
+		return keys;
+	}
+	
+	
 	public Set<String> getSet(String tableId, String key){
+		//System.out.println(tableId);
+		//if(jedis.smembers(tableId+key).size() > 0)
+		//	System.out.println("for   "+key+"   "+jedis.smembers(tableId+key));
+
 		return jedis.smembers(tableId+key);
+	}
+	
+	public Map<String, String> getTable(String tableId){
+		Map<String, String> table = new HashMap<String, String>();
+		Set<String> keys = jedis.keys(tableId+"*");
+		for(String k: keys){
+			String val = this.getValueByKey(null, k);
+			table.put(k, val);
+		}
+		return table;
 	}
 	
 	public boolean existsInSet(String tableId, String key, String value){

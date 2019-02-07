@@ -21,12 +21,15 @@ import uci.ics.mondego.tldr.tool.Databases;
 public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
 	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
+	private Map<String, Method> extractedChangedMethods;
 	private final ClassParser parser;
 	private List<Method> allMethods;
 	private List<Field> allFields;
 	private List<Method> allChangedMethods;
 	private List<Field> allChangedFields;
 	private final JavaClass parsedClass;
+	private List<String> allInterfaces;
+	private String superClass;
 	
 	public List<Method> getAllMethods(){
 		return allMethods;
@@ -54,7 +57,70 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.allMethods = new ArrayList<Method>();
 		this.allFields = new ArrayList<Field>();
 		this.parsedClass = parser.parse();
+		this.allInterfaces = new ArrayList<String>();
+		this.extractedChangedMethods = new HashMap<String, Method>();
+		this.superClass = "";
+		
 		this.parse();
+				
+		this.syncClassHierarchy();
+	}
+	
+	public Map<String, Method> getextractedFunctions(){
+		return extractedChangedMethods;
+	}
+	
+	private void syncClassHierarchy(){
+		
+		this.parseInterface();
+		this.parseSuperClass();
+		
+		Set<String> all_superclass_interface = this.rh.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+				parsedClass.getClassName());
+		
+//		System.out.println(this.getEntityName());
+//		for(int i=0;i<allInterfaces.size();i++){
+//			System.out.print(allInterfaces.get(i)+"  ");
+//		}
+//		System.out.println(this.superClass);
+		
+		
+		for(int i=0;i<allInterfaces.size();i++){
+			if(!all_superclass_interface.contains(allInterfaces.get(i))){
+				this.rh.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+						allInterfaces.get(i));
+				this.rh.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
+			}				
+		}
+		
+		if(!all_superclass_interface.contains(this.superClass) && this.superClass.length() > 0){
+			this.rh.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+					this.superClass);
+			this.rh.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
+		}				
+	}
+	
+	private void parseInterface(){
+		try {
+			String[] interfaces = this.parsedClass.getInterfaceNames();
+			for(String cls: interfaces){
+				allInterfaces.add(cls);
+				logger.info("Interface of "+parsedClass.getClassName()+" is "+cls);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
+		}
+	}
+	
+	private void parseSuperClass(){
+		try {
+			this.superClass = !parsedClass.getSuperclassName().contains("java.") ? parsedClass.getSuperclassName(): "";			
+			logger.info("Superclass of "+parsedClass.getClassName()+" : "+this.superClass);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
+		}
 	}
 	
 	public String getChecksumByAttribute(String attr){
@@ -72,9 +138,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			this.allFields.add(f);
 			
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
-			
-			//String currentHashCode = f.toString().hashCode() +"";
-			
+						
 			String currentHashCode = CreateMD5(f.toString());
 			
 			hashCodes.put(fieldFqn, currentHashCode);
@@ -104,8 +168,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		for(Method m: allMethods){
 			
-			//if(m.getName().contains("getSmartUsage"))
-			//	System.out.println(m.getCode().toString());
+			
 			
 			this.allMethods.add(m);
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
@@ -141,36 +204,41 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				for(int i=0;i<m.getArgumentTypes().length;i++)
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
-					
-				// change
-				//String currentHashCode = code.hashCode()+"";
+			
+				//if(m.getName().contains("listSuggestions"))
+				//	System.out.println(methodFqn+" ==== "+m.getCode().toString());
+				
 				String currentHashCode = CreateMD5(code);
 				
 				hashCodes.put(methodFqn, currentHashCode);
+				
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
 					logger.info(methodFqn+" didn't exist in db...added");
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					this.allChangedMethods.add(m);
+					extractedChangedMethods.put(methodFqn, m);
 				}
 				else{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
-					
+										
 					if(!currentHashCode.equals(prevHashCode)){
+						//System.out.println(methodFqn+"\n================\n"+code);
+						
 						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 								+ "class name: "+this.getEntityName());
 						this.setChanged(true);
-						//System.out.println(methodFqn+" CNAGED====================="+"CUR : "+currentHashCode+"  PREV: "+prevHashCode+"\n");
 						changedAttributes.add(methodFqn);
 						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						this.allChangedMethods.add(m);
+						extractedChangedMethods.put(methodFqn, m);
 					}
 				}
 			}
 		}
 		
-		this.syncDependency();
+		//this.syncDependency();
 	}
 	
 	private void addDependentsInDb(String entity, String dependents){

@@ -1,0 +1,1052 @@
+Java Compiler Compiler Version 5.0 (Parser Generator)
+(type "javacc" with no arguments for help)
+Reading from file /Users/demigorgan/commons-configuration/src/main/javacc/PropertyListParser.jj . . .
+File "TokenMgrError.java" does not exist.  Will create one.
+File "ParseException.java" does not exist.  Will create one.
+File "Token.java" does not exist.  Will create one.
+File "SimpleCharStream.java" does not exist.  Will create one.
+Parser generated successfully.
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+  symbol:   variable PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project commons-configuration: Compilation failure: Compilation failure:
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+[ERROR] symbol:   variable PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+bdab25f58fbbdb19c17e2eeb0d796fe2bf1e68d9   0
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+  symbol:   variable PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project commons-configuration: Compilation failure: Compilation failure:
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+[ERROR] symbol:   variable PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+34204555c0c33dafb02bb98cfdbb5cf9e2ca7572   0
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+  symbol:   variable PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project commons-configuration: Compilation failure: Compilation failure:
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+[ERROR] symbol:   variable PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+c86d19ed1f6c979ce953f8650085143c9854958c   0
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+  symbol:   variable PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project commons-configuration: Compilation failure: Compilation failure:
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+[ERROR] symbol:   variable PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+1f56a754c785f12d5992a8646a2fcea1863330d5   0
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+  symbol:   variable PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project commons-configuration: Compilation failure: Compilation failure:
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+[ERROR] symbol:   variable PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+761d859888d28aff2b88aff24b1d421c0591cda2   0
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+  symbol:   variable PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project commons-configuration: Compilation failure: Compilation failure:
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+[ERROR] symbol:   variable PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+a1ccb74de390d944bb83e14c6f7662db7a246c6a   0
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+  symbol:   variable PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project commons-configuration: Compilation failure: Compilation failure:
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+[ERROR] symbol:   variable PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+f92c68d98b90071f5091e254a074d035aa0c56d3   0
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+  symbol:   variable PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project commons-configuration: Compilation failure: Compilation failure:
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+[ERROR] symbol:   variable PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+facc73f8abec77294a660c54d2a495e7169cc790   0
+[ERROR] COMPILATION ERROR : 
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+  symbol:   variable PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+  symbol:   class HierarchicalConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+  symbol:   class ImmutableNode
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+  symbol:   class PropertyListConfiguration
+  location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project commons-configuration: Compilation failure: Compilation failure:
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[8,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[9,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[89,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[97,16] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[135,16] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[6,41] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: package org.apache.commons.configuration2
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParserTokenManager.java:[7,46] package org.apache.commons.configuration2.tree does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[86,16] cannot find symbol
+[ERROR] symbol:   variable PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[90,5] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[98,54] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[99,5] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[113,45] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,17] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[117,43] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,22] cannot find symbol
+[ERROR] symbol:   class HierarchicalConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[118,48] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[119,17] cannot find symbol
+[ERROR] symbol:   class ImmutableNode
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,30] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[120,71] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[131,31] cannot find symbol
+[ERROR] symbol:   class PropertyListConfiguration
+[ERROR] location: class org.apache.commons.configuration2.plist.PropertyListParser
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,18] package ImmutableNode does not exist
+[ERROR] /Users/demigorgan/commons-configuration/target/generated-sources/javacc/org/apache/commons/configuration2/plist/PropertyListParser.java:[138,51] package ImmutableNode does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+c96270c1ab7e5f2e7da77efa89fa34b400294b4a   0

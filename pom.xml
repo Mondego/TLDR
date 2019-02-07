@@ -5,12 +5,14 @@
   <groupId>uci.ics.mondego</groupId>
   <artifactId>tldr</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
   <packaging>jar</packaging>
 
   <name>tldr</name>
   <url>http://maven.apache.org</url>
 
   <properties>
+  	<exec.mainClass>uci.ics.mondego.tldr.App</exec.mainClass>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -118,9 +120,16 @@
 	    <groupId>org.apache.commons</groupId>
 	    <artifactId>commons-collections4</artifactId>
 	    <version>4.0</version>
-	</dependency>
-	
-	
-	    
+	</dependency>    
   </dependencies>
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.1</version>
+        </plugin>
+    </plugins>
+</build>
+
 </project>

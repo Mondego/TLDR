@@ -7,10 +7,14 @@ import uci.ics.mondego.tldr.map.EntityToTestMap;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.bcel.classfile.ClassFormatException;
+import org.apache.bcel.classfile.Method;
 import org.apache.commons.collections4.ListUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
@@ -19,6 +23,8 @@ import org.apache.log4j.PropertyConfigurator;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
+import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor1;
+import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor2;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.changeanalyzer.TestChangeAnalyzer;
 import uci.ics.mondego.tldr.model.SourceFile;
@@ -44,7 +50,7 @@ public class App
 
        RedisHandler rh = null;
        try{
-	       PROJ_DIR = "/Users/demigorgan/brigadier";
+	       PROJ_DIR = "/Users/demigorgan/commons-configuration";
 	       //PROJ_DIR = "/Users/demigorgan/log4j";
 	       
 	       //STEP 1 : Scan the repository - gets java, test, class, and jar files. 
@@ -61,11 +67,10 @@ public class App
 	       
 	       List<String> changedEntities = new ArrayList<String>();
 	       
-	       //ByteCodeParser bp = new ByteCodeParser(allClass.get(11));
-	       
+	       Map<String, Method> fqnToCodeMap = new HashMap<String, Method>();	       
+	      
 	       // STEP 2.1: FIND CHANGED CLASS FILES
 	       for(int i=0;i<allClass.size();i++){
-	    	   
 	    	   FileChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
 		       if(fc.hasChanged())
 		    	   changedFiles.add(allClass.get(i));
@@ -87,7 +92,22 @@ public class App
 	    	   ClassChangeAnalyzer cc = new ClassChangeAnalyzer(changedFiles.get(i).getPath()); 
 	    	   List<String> chEnt = cc.getChangedAttributes();
 	    	   changedEntities.addAll(chEnt);
+	    	   fqnToCodeMap.putAll(cc.getextractedFunctions());
 	       }
+	       
+	       /*** for testing---- remove 
+	       for(int i=0;i<allClass.size();i++){
+	    	  
+	    	   ClassChangeAnalyzer cc;
+	    	   cc = new ClassChangeAnalyzer(allClass.get(i).getPath()); 
+	       }*/
+	       
+	       
+	       // STEP 3.2: RESOLUTION OF DEPENDENCY
+	       	       
+	       DependencyExtractor2 depExt = new DependencyExtractor2(fqnToCodeMap);
+	       depExt.resolute();
+	       
 	       
 	       // STEP 3.2: PARSE AND MAP TEST METHODS TO ENTITIES;
 	       for(int i=0;i<changedTests.size();i++){
@@ -103,7 +123,6 @@ public class App
 	       List<String> allEntitiesToTest = new ArrayList<String>();
 	       DFSTraversal dfs = new DFSTraversal();
 	       
-	       System.out.println("\n\n	ALL ENTITY CHANGED : \n");
 	       for(int i=0;i<changedEntities.size();i++){
 	    	   List<String> dep = dfs.get_all_dependent(changedEntities.get(i));
 	    	   allEntitiesToTest = ListUtils.union(dep, allEntitiesToTest);
@@ -115,17 +134,20 @@ public class App
 	       EntityToTestMap map = new EntityToTestMap();
 
 	       // STEP 5: FIND ALL TESTS FOR THE allEntityToTest List
+	       //System.out.println("\n\n	ALL ENTITY TO TEST : \n");
+
 	       for(int i=0;i<allEntitiesToTest.size();i++){
-	    	   System.out.println(allEntitiesToTest.get(i));
+	    	   //System.out.println(allEntitiesToTest.get(i));
 	    	   Set<String> tests = map.getTests(allEntitiesToTest.get(i));
 	    	   for(String str: tests)
 	    		   allTestToRun.add(str);
 	       }
 	       
-	       System.out.println("\n\n	ALL TEST TO RUN : \n");
-
+	       System.out.println( args[0]+"   "+allEntitiesToTest.size());
+	       
+	       //System.out.println("\n\n	ALL TEST TO RUN : \n");
 	       for(int i=0;i<allTestToRun.size();i++){
-	    	   System.out.println(allTestToRun.get(i));
+	    	   //System.out.println(allTestToRun.get(i));
 	       }
 	       
        }
