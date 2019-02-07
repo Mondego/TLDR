@@ -143,7 +143,7 @@ public class App
 	    		   allTestToRun.add(str);
 	       }
 	       
-	       System.out.println( args[0]+"   "+allEntitiesToTest.size());
+	       System.out.println( args[0]+"   "+allEntitiesToTest.size()+"  ");
 	       
 	       //System.out.println("\n\n	ALL TEST TO RUN : \n");
 	       for(int i=0;i<allTestToRun.size();i++){
