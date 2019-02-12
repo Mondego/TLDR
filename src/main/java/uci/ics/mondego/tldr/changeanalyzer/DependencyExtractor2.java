@@ -17,21 +17,20 @@ import uci.ics.mondego.tldr.tool.Databases;
 
 public class DependencyExtractor2 {
 
-	private final Map<String, Method> changedMethods;
+	private final Entry<String, Method> changedMethod;
 	private final RedisHandler rh;
 	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	
-	public DependencyExtractor2(Map<String, Method> allChangedMethods) {
-		this.changedMethods = allChangedMethods;
-		this.rh = RedisHandler.getInstane();	
+	public DependencyExtractor2(Entry<String, Method> changedMethod) throws IOException {
+		this.changedMethod = changedMethod;
+		this.rh = RedisHandler.getInstane();
+		this.resolute();
 	}
 	
 	 public void resolute() throws IOException{
 
-		Set<Entry<String, Method>> allEntries = changedMethods.entrySet();
-		for(Entry<String, Method> entry: allEntries){
-			String dependent = entry.getKey();
-			Method m = entry.getValue();
+			String dependent = changedMethod.getKey();
+			Method m = changedMethod.getValue();
 			MethodParser parser = new MethodParser(m);
 			List<String> allVirtualDependency = parser.getAllVirtualDependency();
 			List<String> allInterfaceDependency = parser.getAllInterfaceDependency();
@@ -53,7 +52,6 @@ public class DependencyExtractor2 {
 			for(int i = 0;i<allFinalDependency.size();i++){
 				this.syncSingleDependency(allFinalDependency.get(i), dependent);
 			}
-		}
 	}
 	
 	private void addDependentsInDb(String dependency, String dependents){
@@ -71,12 +69,10 @@ public class DependencyExtractor2 {
 	
 	private List<String> traverseClassHierarchy(String claz, String pattern){
 		List<String> toTest = new ArrayList<String>();
-		//System.out.println("insize traverse : "+claz+"   "+pattern);
 
 		Set<String> entity = this.rh.getAllKeys(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
 		
 		for(String e: entity){
-			//System.out.println("inside the loop : "+e);
 			toTest.add(e.substring(1));
 		}		
 		Set<String> allSubclass = this.rh.getSet(Databases.TABLE_ID_SUBCLASS, claz);
@@ -87,7 +83,6 @@ public class DependencyExtractor2 {
 			if(!t.isEmpty() || t!= null)
 				toTest.addAll(t);
 		}
-		//System.out.println("insize traverse then : "+toTest.toString());
 
 		return toTest;
 	}

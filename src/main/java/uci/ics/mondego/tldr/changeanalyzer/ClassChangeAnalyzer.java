@@ -218,7 +218,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					this.allChangedMethods.add(m);
-					extractedChangedMethods.put(methodFqn, m);
+					//extractedChangedMethods.put(methodFqn, m);
 				}
 				else{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);

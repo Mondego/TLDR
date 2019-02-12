@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uci.ics.mondego.tldr.model.ClassFile;
-import uci.ics.mondego.tldr.model.JarFile;
-import uci.ics.mondego.tldr.model.JavaFile;
 import uci.ics.mondego.tldr.model.SourceFile;
 import uci.ics.mondego.tldr.model.TestClassFile;
 import uci.ics.mondego.tldr.model.TestJavaFile;
@@ -75,28 +73,25 @@ public class RepoScanner {
 	
 	
 	/* gets all file from the project directory*/
-	public void scan(String directoryName) {
-		
+	public void scan(String directoryName) {		
 		File directory = new File(directoryName);
-
-	    File[] fList = directory.listFiles();
-	    	
+	    File[] fList = directory.listFiles();	    	
 	    if(fList != null)
 	        for (File file : fList) {    
 	        	
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();
 	            	
-	                if(fileAbsolutePath.endsWith(".java") && !fileAbsolutePath.contains("Test")){
+	                /*if(fileAbsolutePath.endsWith(".java") && !fileAbsolutePath.contains("Test")){
 	                	JavaFile f = new JavaFile(fileAbsolutePath);
 	                	java_files.add(f);
 	                }
 	                else if(fileAbsolutePath.endsWith(".jar")){
 	                	JarFile f = new JarFile(fileAbsolutePath);
 	                	jar_files.add(f);
-	                }
+	                }*/
 
-	                else if(file.getAbsolutePath().endsWith(".class") && !fileAbsolutePath.contains("Test")){
+	                if(file.getAbsolutePath().endsWith(".class") && !fileAbsolutePath.contains("Test")){
 	                	//System.out.println(file.getAbsolutePath());
 	                	ClassFile f = new ClassFile(fileAbsolutePath);
 	                	class_files.add(f);
