@@ -51,7 +51,7 @@ private ThreadPoolExecutor executor;
           //final Runnable o = workerType;
           
            final Runnable o = this.workerType.getDeclaredConstructor(e.getClass()).newInstance(e);
-           System.out.println(o == null);
+          
 	        try {           
 	            semaphore.acquire();
 	            

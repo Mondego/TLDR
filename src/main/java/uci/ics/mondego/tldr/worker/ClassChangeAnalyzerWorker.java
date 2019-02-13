@@ -16,6 +16,12 @@ import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
 public class ClassChangeAnalyzerWorker extends Worker{
 
 	private final String className;
+	
+	
+	public ClassChangeAnalyzerWorker( String className){
+		this.className = className;
+	}
+	
 	public ClassChangeAnalyzerWorker(String name, String className){
 		super(name);
 		this.className = className;

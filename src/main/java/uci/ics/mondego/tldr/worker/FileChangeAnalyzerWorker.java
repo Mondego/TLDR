@@ -40,7 +40,7 @@ public class FileChangeAnalyzerWorker extends Worker{
 	public void changeAnalyzer(){
 		FileChangeAnalyzer fc;
 		try {
-			System.out.println("here");
+			
 			fc = new FileChangeAnalyzer(fileToAnalyze);
 			if(fc.hasChanged()){ 	   
 		        App.changedEntities.send(fileToAnalyze);
