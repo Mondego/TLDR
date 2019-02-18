@@ -2,6 +2,7 @@ package uci.ics.mondego.tldr.worker;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -45,11 +46,8 @@ public class ClassChangeAnalyzerWorker extends Worker{
 	    ClassChangeAnalyzer cc;
 		try {
 			cc = new ClassChangeAnalyzer(className);
-			Map<String, Method> m = cc.getextractedFunctions();
-	 		Set<Entry<String,Method>> allEntries = m.entrySet();
-	 		for(Entry<String, Method> e: allEntries){
-	 			App.dependencyExtractor.send(e);
-	 		}	
+			HashMap<String, Method> m = cc.getextractedFunctions();	 		
+	 		App.dependencyExtractor.send(m);	
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

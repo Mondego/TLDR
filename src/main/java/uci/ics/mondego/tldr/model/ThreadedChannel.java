@@ -27,7 +27,7 @@ private ThreadPoolExecutor executor;
     	this.workerType = clazz;
    	
     	this.executor = new ThreadPoolExecutor(thread_count, // core size
-    			2 * thread_count , // max size
+    		    thread_count , // max size
     		    10*60, // idle timeout
     		    TimeUnit.SECONDS,
     		    new LinkedBlockingQueue<Runnable>());
@@ -49,7 +49,7 @@ private ThreadPoolExecutor executor;
     	
           long startTime = System.nanoTime();
           //final Runnable o = workerType;
-          
+                    
            final Runnable o = this.workerType.getDeclaredConstructor(e.getClass()).newInstance(e);
           
 	        try {           
@@ -79,6 +79,7 @@ private ThreadPoolExecutor executor;
     
     public void shutdown() {
         this.executor.shutdown();
+        System.out.println(workerType.getName()+" terminating");
         try {
             this.executor.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
         } catch (InterruptedException e) {

@@ -2,8 +2,8 @@ package uci.ics.mondego.tldr;
 
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-import java.util.Map.Entry;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.bcel.classfile.ClassFormatException;
 import org.apache.bcel.classfile.Method;
@@ -12,9 +12,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
-import uci.ics.mondego.tldr.model.SourceFile;
+import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
-import uci.ics.mondego.tldr.resolution.DFSTraversal;
 import uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker;
 import uci.ics.mondego.tldr.worker.DFSTraversalWorker;
 import uci.ics.mondego.tldr.worker.DependencyExtractorWorker;
@@ -35,7 +34,7 @@ public class App
     public static ThreadedChannel<String> changedFiles;
     public static ThreadedChannel<String> changedEntities;
     public static ThreadedChannel<String> allEntitiesToTest;
-    public static ThreadedChannel<Entry<String, Method>> dependencyExtractor;
+    public static ThreadedChannel<HashMap<String, Method>> dependencyExtractor;
     public static ThreadedChannel<String> traverseDependencyGraph;
     public static ThreadedChannel<String> entityToTestMap;
    
@@ -45,11 +44,11 @@ public class App
 
     public App(){
     	
-    	this.changedFiles = new ThreadedChannel<String>(10, FileChangeAnalyzerWorker.class);
-    	this.changedEntities = new ThreadedChannel<String>(10, ClassChangeAnalyzerWorker.class);
-    	this.dependencyExtractor = new ThreadedChannel<Entry<String, Method>>(10, DependencyExtractorWorker.class);
-    	this.traverseDependencyGraph = new ThreadedChannel<String>(10,DFSTraversalWorker.class);
-    	this.entityToTestMap = new ThreadedChannel<String>(10,EntityToTestMapWorker.class);    	
+    	this.changedFiles = new ThreadedChannel<String>(4, FileChangeAnalyzerWorker.class);
+    	this.changedEntities = new ThreadedChannel<String>(4, ClassChangeAnalyzerWorker.class);
+    	this.dependencyExtractor = new ThreadedChannel<HashMap<String, Method>>(4, DependencyExtractorWorker.class);
+    	this.traverseDependencyGraph = new ThreadedChannel<String>(4,DFSTraversalWorker.class);
+    	this.entityToTestMap = new ThreadedChannel<String>(4,EntityToTestMapWorker.class);    	
     	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();
     	this.testToRun = new ConcurrentHashMap<String, Boolean>();
@@ -60,11 +59,9 @@ public class App
        PropertyConfigurator.configure("log4j.properties");
 
        try{
-	       PROJ_DIR = "/Users/demigorgan/commons-configuration";
+	       PROJ_DIR = "/Users/demigorgan/brigadier";
 	       
-	       //STEP 1 : Scan the repository - gets java, test, class, and jar files. 
-	       //List<SourceFile> allClass = rs.get_all_class_files();
-	       //List<SourceFile> allTestClass = rs.get_all_test_class_files();
+
 	       App newInstance = new App();
 	       
 	       RepoScannerWorker repoScanner = new RepoScannerWorker(PROJ_DIR);
@@ -76,6 +73,10 @@ public class App
 	    	App.dependencyExtractor.shutdown();
 	    	App.traverseDependencyGraph.shutdown();
 	    	App.entityToTestMap.shutdown();
+	    	
+	    	System.out.println(entityToTest.size());
+	    	
+	    	RedisHandler.getInstane(null).destroyPool();
 	      
        }
        
@@ -115,6 +116,9 @@ public class App
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+       finally{
+    	   RedisHandler.getInstane(null).destroyPool();
+       }
        
     }
 }

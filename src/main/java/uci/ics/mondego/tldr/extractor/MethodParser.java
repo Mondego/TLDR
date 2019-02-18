@@ -18,6 +18,7 @@ public class MethodParser {
 	private List<String> allVirtualDependency;
 	private List<String> allInterfaceDependency;
 	
+	@SuppressWarnings("")
 	public MethodParser(Method m){
 		this.method = m;
 		this.allInternalDependency = new ArrayList<String>();

@@ -13,6 +13,7 @@ import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
 
+import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
@@ -21,7 +22,7 @@ import uci.ics.mondego.tldr.tool.Databases;
 public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private List<String> changedAttributes;
 	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
-	private Map<String, Method> extractedChangedMethods;
+	private HashMap<String, Method> extractedChangedMethods;
 	private final ClassParser parser;
 	private List<Method> allMethods;
 	private List<Field> allFields;
@@ -66,7 +67,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.syncClassHierarchy();
 	}
 	
-	public Map<String, Method> getextractedFunctions(){
+	public HashMap<String, Method> getextractedFunctions(){
 		return extractedChangedMethods;
 	}
 	
@@ -149,6 +150,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				changedAttributes.add(fieldFqn);
 				this.allChangedFields.add(f);
 				this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
+				App.entityToTest.put(fieldFqn, true);
 			}
 			else{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
@@ -160,6 +162,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					changedAttributes.add(fieldFqn);
 					this.allChangedFields.add(f);
 					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
+					App.entityToTest.put(fieldFqn, true);
 				}
 			}
 		}
@@ -219,6 +222,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					this.allChangedMethods.add(m);
 					//extractedChangedMethods.put(methodFqn, m);
+					App.entityToTest.put(methodFqn, true);
 				}
 				else{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
@@ -233,6 +237,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						this.allChangedMethods.add(m);
 						extractedChangedMethods.put(methodFqn, m);
+						App.entityToTest.put(methodFqn, true);
 					}
 				}
 			}

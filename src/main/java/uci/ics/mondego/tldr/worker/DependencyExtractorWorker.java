@@ -3,8 +3,11 @@ package uci.ics.mondego.tldr.worker;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Set;
 import java.util.Map.Entry;
 import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
@@ -16,12 +19,11 @@ import uci.ics.mondego.tldr.indexer.RedisHandler;
 
 
 public class DependencyExtractorWorker extends Worker{
-	private final Entry<String, Method> changedMethod;
+	private final Map<String, Method> changedMethod;
 	private final RedisHandler rh;
 	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	
-
-	public DependencyExtractorWorker(Entry<String, Method> changedMethod){
+	public DependencyExtractorWorker(HashMap<String, Method> changedMethod){
 		this.changedMethod = changedMethod;
 		this.rh = RedisHandler.getInstane();
 	}
@@ -60,8 +62,11 @@ public class DependencyExtractorWorker extends Worker{
 	public void resolute() throws InstantiationException, IllegalAccessException, 
 		IllegalArgumentException, InvocationTargetException, NoSuchMethodException, 
 		SecurityException, IOException{		
-		DependencyExtractor2 dep = new DependencyExtractor2(changedMethod);
-		App.traverseDependencyGraph.send(changedMethod.getKey());
+		Set<Map.Entry<String, Method>> allEntries = changedMethod.entrySet();
+		for(Map.Entry<String, Method> entry: allEntries){
+			DependencyExtractor2 dep = new DependencyExtractor2(entry);
+			App.traverseDependencyGraph.send(entry.getKey());
+		}
 	}
 	
 }

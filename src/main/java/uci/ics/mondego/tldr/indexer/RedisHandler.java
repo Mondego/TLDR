@@ -4,6 +4,8 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.exceptions.JedisConnectionException;
+import redis.clients.jedis.exceptions.JedisDataException;
+
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,40 +15,45 @@ import org.apache.log4j.Logger;
 import org.redisson.api.RKeys;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import javax.annotation.*;
+
+
 
 public class RedisHandler{
 
 	private static RedisHandler instance = null; 
-    private Jedis jedis; 
+   
     private RedissonClient client;
-    final JedisPoolConfig poolConfig = buildPoolConfig();
-    JedisPool jedisPool = new JedisPool(poolConfig, "localhost");
-    
+    static final JedisPoolConfig poolConfig = buildPoolConfig();
+    private static final JedisPool jedisPool = new JedisPool(poolConfig, "localhost", 6379,10*1000);  
+    private static final JedisPool jedisPool2 = new JedisPool(poolConfig, "localhost", 6379,10*1000);  
+
     private final Logger logger = LogManager.getLogger(RedisHandler.class);
 
-    private JedisPoolConfig buildPoolConfig() {
+    private static JedisPoolConfig buildPoolConfig() {
         final JedisPoolConfig poolConfig = new JedisPoolConfig();
-        poolConfig.setMaxTotal(128);
-        poolConfig.setMaxIdle(128);
-        poolConfig.setMinIdle(16);
+        poolConfig.setMaxTotal(1000);
+        poolConfig.setMaxIdle(200);
+        poolConfig.setMinIdle(100);
         poolConfig.setTestOnBorrow(true);
         poolConfig.setTestOnReturn(true);
         poolConfig.setTestWhileIdle(true);
-        poolConfig.setMinEvictableIdleTimeMillis(Duration.ofSeconds(120).toMillis());
-        poolConfig.setTimeBetweenEvictionRunsMillis(Duration.ofSeconds(60).toMillis());
-        poolConfig.setNumTestsPerEvictionRun(3);
+        poolConfig.setMinEvictableIdleTimeMillis(Duration.ofSeconds(1000).toMillis());
+        poolConfig.setTimeBetweenEvictionRunsMillis(Duration.ofSeconds(600).toMillis());
+        poolConfig.setNumTestsPerEvictionRun(100);
         poolConfig.setBlockWhenExhausted(true);
+        //poolConfig.setMaxWaitMillis(Duration.ofSeconds(360).toMillis());
         return poolConfig;
     }
     
 	private RedisHandler(){
 	
 	}
-	
+
+	@Nullable
 	private RedisHandler(String addr){
 		try{
-			jedis = new Jedis(addr);
-			System.out.println("Server is running: "+jedis.ping()); 
+			//System.out.println("Server is running: "+jedis.ping()); 
 		}
 		catch(JedisConnectionException e){
 			logger.error("Connection Refused in "+addr+"\n");
@@ -54,23 +61,25 @@ public class RedisHandler{
 	}
 	
 	public Jedis getDB() {
-		jedis = jedisPool.getResource();
+		Jedis jedis = jedisPool.getResource();
 	    return jedis;
 	}
 	
 	public Set<String> getAllKeys(String pattern){
 		Jedis jedis = this.getDB();
 	    Set<String> ret = jedis.keys(pattern);
-	    jedis.close();			
+	    if(jedis.isConnected())jedis.close();			
 		return ret;
 	}
 
-	synchronized public static RedisHandler getInstane(String ... b) 
+	public static RedisHandler getInstane(String ... b) 
     { 
         if (instance == null) 
         {
-        	if(b.length == 0)
-        		instance = new RedisHandler(); 
+        	if(b.length == 0){
+        		instance = new RedisHandler();       		
+        	}
+        		
         	else if(b.length == 1)
         		instance = new RedisHandler(b[0]);
         } 
@@ -98,9 +107,22 @@ public class RedisHandler{
 	}
 	
 	public void insert(String tableId, String key, String value) throws JedisConnectionException{		
-		Jedis jedis = this.getDB();
-	    jedis.set(tableId+key, value);
-	    jedis.close();		
+		try{
+			Jedis jedis = this.getDB();
+		    jedis.set(tableId+key, value);
+		    if(jedis != null)
+		    	jedis.close();		    
+		    if(jedis.isConnected())
+	           jedis.disconnect();
+		}
+		catch(JedisDataException e){
+			System.out.println(tableId+"   "+key+"    "+value+"   ");
+			System.out.println(e.getMessage());
+		}
+		catch(ClassCastException e){
+			System.out.println(tableId+"   "+key+"    "+value+"   ");
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void update(String tableId, String key, String value) throws JedisConnectionException{
@@ -110,14 +132,20 @@ public class RedisHandler{
 	public String getValueByKey(String tableId, String key) throws JedisConnectionException{ 
 		Jedis jedis = this.getDB();
 	    String ret = jedis.get(tableId+key);
-	    jedis.close();
+	    if(jedis != null)
+	    	jedis.close();
+	    if(jedis.isConnected())
+	           jedis.disconnect();
 	    return ret;
 	}
 	
 	public boolean exists(String tableId, String key) throws JedisConnectionException{		
 		Jedis jedis = this.getDB();
 	    boolean ret = jedis.exists(tableId+key);
-	    jedis.close();
+	    if(jedis != null)
+	    	jedis.close();
+	    if(jedis.isConnected())
+	           jedis.disconnect();
 	    return ret;
 	}
 	
@@ -125,22 +153,42 @@ public class RedisHandler{
 		Jedis jedis = this.getDB();
 		String k = tableId+key;
 		jedis.sadd(k, value);
-	    jedis.close();
+		if(jedis != null)
+			jedis.close();
+		if(jedis.isConnected())
+	           jedis.disconnect();
 	}
 	
 	public Set<String> getAllKeys(String tableId, String pattern){
 		Jedis jedis = this.getDB();
 		String key = tableId+pattern;
 		Set<String> keys = jedis.keys(key);
-		jedis.close();
+		if(jedis != null)
+			jedis.close();
+		if(jedis.isConnected())
+	           jedis.disconnect();
 		return keys;
 	}
 	
 	
 	public Set<String> getSet(String tableId, String key){
-		Jedis jedis = this.getDB();
-		Set<String> ret = jedis.smembers(tableId+key);
-		jedis.close();
+		Set<String> ret = null;
+		try{
+			Jedis jedis = this.getDB();
+			ret = jedis.smembers(tableId+key);
+			if(jedis != null)
+				jedis.close();
+			if(jedis.isConnected())
+		        jedis.disconnect();
+		}
+		catch(JedisDataException e){
+			System.out.println(tableId+"   "+key);
+			System.out.println(e.getMessage());
+		}
+		catch(ClassCastException e){
+			System.out.println(tableId+"   "+key);
+			System.out.println(e.getMessage());
+		}
 		return ret;
 	}
 	
@@ -152,24 +200,31 @@ public class RedisHandler{
 			String val = this.getValueByKey(null, k);
 			table.put(k, val);
 		}
-		jedis.close();
+		if(jedis != null)
+			jedis.close();
+		if(jedis.isConnected())
+	           jedis.disconnect();
 		return table;
 	}
 	
 	public boolean existsInSet(String tableId, String key, String value){
 		Jedis jedis = this.getDB();
 		boolean ret = jedis.sismember(tableId+key, value);
-		jedis.close();		
+		if(jedis != null)
+			jedis.close();	
+		if(jedis.isConnected())
+	           jedis.disconnect();
 		return ret;
 	}
 	
 	public void destroyPool() {
+		this.jedisPool.close();
 	    this.jedisPool.destroy();
 	}
 	
-	public void close(){
-		if(jedis != null && jedis.isConnected())
-	        jedis.close();
-	}
+//	public void close(){
+//		if(jedis != null && jedis.isConnected())
+//	        jedis.close();
+//	}
 	
 }
