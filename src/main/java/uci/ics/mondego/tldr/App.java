@@ -57,7 +57,7 @@ public class App
     public static void main( String[] args )
     {    	
        PropertyConfigurator.configure("log4j.properties");
-       
+       long startTime = System.nanoTime();
        try{
 	       App executorInstance = new App();
     	   
@@ -80,7 +80,9 @@ public class App
 	    	App.traverseDependencyGraph.shutdown();
 	    	App.entityToTestMap.shutdown();
 	    	
-	    	System.out.println(entityToTest.size());	    	
+	    	System.out.println(entityToTest.size());
+	    	long endTime = System.nanoTime();
+	    	System.out.println(endTime - startTime);
 	      
        }
        
@@ -104,22 +106,27 @@ public class App
        } catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (InstantiationException e) {
+		} 
+       catch (InstantiationException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (IllegalAccessException e) {
+    	   e.printStackTrace();
+       } 
+       catch (IllegalAccessException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (IllegalArgumentException e) {
+    	   e.printStackTrace();
+	   } 
+       catch (IllegalArgumentException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (InvocationTargetException e) {
+    	   e.printStackTrace();
+       } 
+       catch (InvocationTargetException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (NoSuchMethodException e) {
+    	   e.printStackTrace();
+       } 
+       catch (NoSuchMethodException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} 
+    	   e.printStackTrace();
+       } 
        finally{
     	   RedisHandler.destroyPool();
        }

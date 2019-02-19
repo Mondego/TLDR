@@ -56,7 +56,6 @@ public class RedisHandler{
 		}
 	}
 
-	@Nullable
 	public RedisHandler(String addr){
 		try{
 			 jedis = jedisPool.getResource();

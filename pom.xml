@@ -48,24 +48,6 @@
 	    <version>3.4</version>
 	</dependency>
 	
-	
-	<dependency>
-	    <groupId>org.apache.lucene</groupId>
-	    <artifactId>lucene-core</artifactId>
-	    <version>7.6.0</version>
-	</dependency>
-    
-    <dependency>
-	  <groupId>com.google.guava</groupId>
-	  <artifactId>guava</artifactId>
-	  <version>27.0-jre</version>
-	</dependency>
-
-	<dependency>
-	    <groupId>com.github.javaparser</groupId>
-	    <artifactId>javaparser-symbol-solver-core</artifactId>
-	    <version>3.7.0</version>
-	</dependency>
 
 	<dependency>
 	    <groupId>redis.clients</groupId>
@@ -73,11 +55,6 @@
 	    <version>2.9.0</version>
 	</dependency>
 	
-	<dependency>
-	    <groupId>asm</groupId>
-	    <artifactId>asm</artifactId>
-	    <version>3.3.1</version>
-	</dependency>
 	
 	<dependency>
 	    <groupId>org.redisson</groupId>
@@ -97,24 +74,7 @@
 	    <version>1.0.0</version>
 	</dependency>
 	
-	<dependency>
-	    <groupId>org.ow2.asm</groupId>
-	    <artifactId>asm-analysis</artifactId>
-	    <version>7.0</version>
-    </dependency>
-    
-	<dependency>
-	    <groupId>asm</groupId>
-	    <artifactId>asm-commons</artifactId>
-	    <version>3.3.1</version>
-	</dependency>
-    
-	<dependency>
-	    <groupId>asm</groupId>
-	    <artifactId>asm-util</artifactId>
-	    <version>3.3.1</version>
-	    <scope>test</scope>
-	</dependency>
+	
 	
 	<dependency>
 	    <groupId>org.apache.bcel</groupId>
@@ -127,6 +87,13 @@
 	    <artifactId>commons-collections4</artifactId>
 	    <version>4.0</version>
 	</dependency>    
+	
+	<dependency>
+	    <groupId>com.rfksystems</groupId>
+	    <artifactId>blake2b</artifactId>
+	    <version>1.0.0</version>
+	</dependency>
+	
   </dependencies>
   <build>
     <plugins>

@@ -1,6 +1,7 @@
 package uci.ics.mondego.tldr.changeanalyzer;
 
 import java.io.IOException;
+import java.security.Security;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +13,9 @@ import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
+
+import com.rfksystems.blake2b.Blake2b;
+import com.rfksystems.blake2b.security.Blake2bProvider;
 
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.extractor.MethodParser;
@@ -263,15 +267,18 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private String CreateMD5(String input)
     {
 		try {
-	        java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+			Security.addProvider(new Blake2bProvider());
+	        java.security.MessageDigest md = java.security.MessageDigest.getInstance(Blake2b.BLAKE2_B_160);
 	        byte[] array = md.digest(input.getBytes());
 	        StringBuffer sb = new StringBuffer();
 	        for (int i = 0; i < array.length; ++i) {
 	          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
 	       }
 	        return sb.toString();
-	    } catch (java.security.NoSuchAlgorithmException e) {
-	    }
+	    } 
+		catch (java.security.NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
 	    return null;
     }
 	
