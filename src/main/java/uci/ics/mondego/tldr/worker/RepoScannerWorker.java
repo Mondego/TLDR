@@ -64,13 +64,10 @@ public class RepoScannerWorker extends Worker{
 	    if(fList != null)
 	        for (File file : fList) {    	        	
 	            if (file.isFile()) {
-	            	String fileAbsolutePath = file.getAbsolutePath();	               
-
-	                if(file.getAbsolutePath().endsWith(".class")){
+	            	String fileAbsolutePath = file.getAbsolutePath();	
+	                if(fileAbsolutePath.endsWith(".class")){
 	                	ClassFile f = new ClassFile(fileAbsolutePath);
-	                	//System.out.println("here "+ file.getAbsolutePath()+"  "+ (App.changedFiles == null)); 	 
-	                	App.changedFiles.send(file.getAbsolutePath());
-	                	
+	                	App.changedFiles.send(fileAbsolutePath);	                	
 	                	class_files.add(f);
 	                }	                	         
 	            } 

@@ -13,9 +13,12 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 	private MessageDigest md;
 	
 	public FileChangeAnalyzer(String fileName) throws IOException, NoSuchAlgorithmException{
+		
 		super(fileName);
+		
 		md = MessageDigest.getInstance("MD5");
 		this.parse();
+		this.closeRedis();
 	}
 	
 	protected void parse() throws IOException {

@@ -28,6 +28,8 @@ public class EntityToTestMapWorker extends Worker{
  			   System.out.println(str);
  		   }
  	   }
+ 	   
+ 	   map.closeRedis();
 	}
 	
 

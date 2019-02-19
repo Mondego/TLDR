@@ -20,12 +20,10 @@ import uci.ics.mondego.tldr.indexer.RedisHandler;
 
 public class DependencyExtractorWorker extends Worker{
 	private final Map<String, Method> changedMethod;
-	private final RedisHandler rh;
 	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	
 	public DependencyExtractorWorker(HashMap<String, Method> changedMethod){
 		this.changedMethod = changedMethod;
-		this.rh = RedisHandler.getInstane();
 	}
 	
 	public void run() {

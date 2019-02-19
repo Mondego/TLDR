@@ -44,11 +44,11 @@ public class App
 
     public App(){
     	
-    	this.changedFiles = new ThreadedChannel<String>(4, FileChangeAnalyzerWorker.class);
-    	this.changedEntities = new ThreadedChannel<String>(4, ClassChangeAnalyzerWorker.class);
-    	this.dependencyExtractor = new ThreadedChannel<HashMap<String, Method>>(4, DependencyExtractorWorker.class);
-    	this.traverseDependencyGraph = new ThreadedChannel<String>(4,DFSTraversalWorker.class);
-    	this.entityToTestMap = new ThreadedChannel<String>(4,EntityToTestMapWorker.class);    	
+    	this.changedFiles = new ThreadedChannel<String>(8, FileChangeAnalyzerWorker.class);
+    	this.changedEntities = new ThreadedChannel<String>(8, ClassChangeAnalyzerWorker.class);
+    	this.dependencyExtractor = new ThreadedChannel<HashMap<String, Method>>(8, DependencyExtractorWorker.class);
+    	this.traverseDependencyGraph = new ThreadedChannel<String>(8,DFSTraversalWorker.class);
+    	this.entityToTestMap = new ThreadedChannel<String>(8,EntityToTestMapWorker.class);    	
     	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();
     	this.testToRun = new ConcurrentHashMap<String, Boolean>();
@@ -57,16 +57,22 @@ public class App
     public static void main( String[] args )
     {    	
        PropertyConfigurator.configure("log4j.properties");
-
+       
        try{
-	       PROJ_DIR = "/Users/demigorgan/brigadier";
+	       App executorInstance = new App();
+    	   
+    	   //PROJ_DIR = "/Users/demigorgan/brigadier";
+	       PROJ_DIR = "/Users/demigorgan/Desktop/Ekstazi_dataset/camel-master";
+	       	       
+    	   RepoScannerWorker runnable =new RepoScannerWorker(PROJ_DIR);
+    	   runnable.scan(PROJ_DIR);
+//           System.out.println("Creating Thread...");
+//           Thread thread = new Thread(runnable);
+//           System.out.println("Starting Thread...");
+//           thread.start();
+//    	   thread.join();
 	       
-
-	       App newInstance = new App();
-	       
-	       RepoScannerWorker repoScanner = new RepoScannerWorker(PROJ_DIR);
-	       repoScanner.scan(PROJ_DIR);
-	       
+	       //repoScanner.scan(PROJ_DIR);	       
 	       
 	        App.changedFiles.shutdown();
 	    	App.changedEntities.shutdown();
@@ -74,9 +80,7 @@ public class App
 	    	App.traverseDependencyGraph.shutdown();
 	    	App.entityToTestMap.shutdown();
 	    	
-	    	System.out.println(entityToTest.size());
-	    	
-	    	RedisHandler.getInstane(null).destroyPool();
+	    	System.out.println(entityToTest.size());	    	
 	      
        }
        
@@ -97,7 +101,10 @@ public class App
        
        catch( ClassFormatException e){
     	   logger.error("Class Format malfunction : "+ e.getMessage());
-       } catch (InstantiationException e) {
+       } catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} catch (IllegalAccessException e) {
@@ -112,13 +119,9 @@ public class App
 	} catch (NoSuchMethodException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-	} catch (SecurityException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	} 
        finally{
-    	   RedisHandler.getInstane(null).destroyPool();
+    	   RedisHandler.destroyPool();
        }
-       
     }
 }

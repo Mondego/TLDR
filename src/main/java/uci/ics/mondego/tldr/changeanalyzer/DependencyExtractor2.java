@@ -23,8 +23,9 @@ public class DependencyExtractor2 {
 	
 	public DependencyExtractor2(Entry<String, Method> changedMethod) throws IOException {
 		this.changedMethod = changedMethod;
-		this.rh = RedisHandler.getInstane();
+		this.rh = new RedisHandler();
 		this.resolute();
+		rh.close();
 	}
 	
 	 public void resolute() throws IOException{

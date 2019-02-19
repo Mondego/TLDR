@@ -23,7 +23,7 @@ public abstract class ChangeAnalyzer {
 		this.entityName = className;
 		this.changed = false;
 		this.isSynced = false;
-		this.rh = RedisHandler.getInstane();
+		this.rh = new RedisHandler();
 	}
 	
 	public boolean hasChanged(){
@@ -40,6 +40,10 @@ public abstract class ChangeAnalyzer {
 	
 	public boolean hasSynced(){
 		return isSynced;
+	}
+	
+	public void closeRedis(){
+		rh.close();
 	}
 	
 	protected void sync(String tableId, String name, String newCheckSum){

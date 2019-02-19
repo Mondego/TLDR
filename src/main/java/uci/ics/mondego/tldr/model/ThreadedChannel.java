@@ -14,7 +14,7 @@ import uci.ics.mondego.tldr.worker.Worker;
 
 public class ThreadedChannel<E> {
 
-private ThreadPoolExecutor executor;
+    private ThreadPoolExecutor executor;
     
     private Class<Runnable> workerType;
     private Semaphore semaphore;
@@ -25,12 +25,12 @@ private ThreadPoolExecutor executor;
     public ThreadedChannel(int nThreads, Class clazz) {        
     	this.thread_count = nThreads;		   	    	
     	this.workerType = clazz;
-   	
+    	
     	this.executor = new ThreadPoolExecutor(thread_count, // core size
-    		    thread_count , // max size
+    		    thread_count * 2 , // max size
     		    10*60, // idle timeout
     		    TimeUnit.SECONDS,
-    		    new LinkedBlockingQueue<Runnable>());
+    		    new LinkedBlockingQueue<Runnable>(100));
     	
         this.semaphore = new Semaphore(thread_count+2);                
     }
@@ -49,9 +49,9 @@ private ThreadPoolExecutor executor;
     	
           long startTime = System.nanoTime();
           //final Runnable o = workerType;
-                    
-           final Runnable o = this.workerType.getDeclaredConstructor(e.getClass()).newInstance(e);
           
+           final Runnable o = this.workerType.getDeclaredConstructor(e.getClass()).newInstance(e);
+           
 	        try {           
 	            semaphore.acquire();
 	            

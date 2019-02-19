@@ -10,11 +10,15 @@ public class EntityToTestMap {
 	private RedisHandler rh;
 	
 	public EntityToTestMap(){
-		this.rh = RedisHandler.getInstane();
+		this.rh = new RedisHandler();
 	}
 	
 	public Set<String> getTests(String entity){
 		return rh.getSet(Databases.TABLE_ID_TEST_DEPENDENCY, entity);
+	}
+	
+	public void closeRedis(){
+		rh.close();
 	}
 
 }

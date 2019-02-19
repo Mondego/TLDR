@@ -65,11 +65,14 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.parse();
 				
 		this.syncClassHierarchy();
+		
+		this.closeRedis();
 	}
 	
 	public HashMap<String, Method> getextractedFunctions(){
 		return extractedChangedMethods;
 	}
+	
 	
 	private void syncClassHierarchy(){
 		

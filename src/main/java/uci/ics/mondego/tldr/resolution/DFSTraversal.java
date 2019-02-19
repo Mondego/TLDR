@@ -19,14 +19,14 @@ public class DFSTraversal {
 	public DFSTraversal(){
 		this.visitInfo = new HashMap<String, Boolean>();
 		this.trace = new ArrayList<String>();
-		this.rh = RedisHandler.getInstane();
+		this.rh = new RedisHandler();
 	}
 	
 	public DFSTraversal(String source){
 		this.source = source;
 		visitInfo = new HashMap<String, Boolean>();
 		trace = new ArrayList<String>();
-		this.rh = RedisHandler.getInstane();
+		this.rh = new RedisHandler();
 	}
 	
 	private void DFS(String node){
@@ -42,6 +42,10 @@ public class DFSTraversal {
 			if(!visitInfo.containsKey(child) || !visitInfo.get(child))
 				DFS(child);
 		}
+	}
+	
+	public void closeRedis(){
+		rh.close();
 	}
 	
 	public List<String> get_all_dependent(String node){
