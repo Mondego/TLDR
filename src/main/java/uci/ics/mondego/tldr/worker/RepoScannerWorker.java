@@ -12,28 +12,16 @@ import uci.ics.mondego.tldr.model.SourceFile;
 public class RepoScannerWorker extends Worker{
 
 	private final String repoDir;
-		
-	private List<SourceFile> java_files;
-	private List<SourceFile> test_java_files;
-	private List<SourceFile> test_class_files;
-	private List<SourceFile> jar_files;
-	private List<SourceFile> class_files;
-	
-	
+
 	public RepoScannerWorker(String repo){
-		this.repoDir = repo;
-		this.java_files = new ArrayList<SourceFile>();
-		this.jar_files = new ArrayList<SourceFile>();
-		this.class_files = new ArrayList<SourceFile>();
-		this.test_java_files = new ArrayList<SourceFile>();
-		this.test_class_files = new ArrayList<SourceFile>();
+		this.repoDir = repo;		
 	}
 	
 	public void run() {
 		// TODO Auto-generated method stub
 		try {
 			 
-			this.scan(repoDir);
+			this.scanClassFiles(repoDir);
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,7 +44,28 @@ public class RepoScannerWorker extends Worker{
 		
 	}
 	
-	public void scan(String directoryName) throws InstantiationException, IllegalAccessException,
+	public void scanTestFiles(String directoryName) throws InstantiationException, IllegalAccessException,
+    	IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {	
+	
+		File directory = new File(directoryName);
+	    File[] fList = directory.listFiles();	    	
+	    if(fList != null)
+	        for (File file : fList) {    	        	
+	            if (file.isFile()) {
+	            	String fileAbsolutePath = file.getAbsolutePath();	
+	                if(fileAbsolutePath.endsWith(".class")){
+	                	ClassFile f = new ClassFile(fileAbsolutePath);
+	                	App.changedTestFiles.send(fileAbsolutePath);        		                
+	                }	                	         
+	            } 
+	            else if (file.isDirectory()) {
+	                scanTestFiles(file.getAbsolutePath());
+	            }
+	        }
+    }
+
+	
+	public void scanClassFiles(String directoryName) throws InstantiationException, IllegalAccessException,
 	    IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {	
 		
 		File directory = new File(directoryName);
@@ -68,33 +77,11 @@ public class RepoScannerWorker extends Worker{
 	                if(fileAbsolutePath.endsWith(".class")){
 	                	ClassFile f = new ClassFile(fileAbsolutePath);
 	                	App.changedFiles.send(fileAbsolutePath);	                	
-	                	class_files.add(f);
 	                }	                	         
 	            } 
-	            else if (file.isDirectory()) {
-	                scan(file.getAbsolutePath());
+	            else if (file.isDirectory() && !file.getAbsolutePath().equals(App.TEST_DIR)) {
+	                scanClassFiles(file.getAbsolutePath());
 	            }
 	        }
-	    }
-
-	
-	public List<SourceFile> get_all_java_files() {
-		return java_files;
-	}
-
-	public List<SourceFile> get_all_jar_files() {
-		return jar_files;
-	}
-
-	public List<SourceFile> get_all_class_files() {
-		return class_files;
-	}
-	
-	public List<SourceFile> get_all_test_java_files() {
-		return test_java_files;
-	}
-	
-	public List<SourceFile> get_all_test_class_files() {
-		return test_class_files;
-	}
+	    }	
 }

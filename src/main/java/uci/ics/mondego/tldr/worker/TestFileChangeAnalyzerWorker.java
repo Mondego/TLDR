@@ -8,86 +8,68 @@ import java.util.NoSuchElementException;
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 
-public class FileChangeAnalyzerWorker extends Worker{
+public class TestFileChangeAnalyzerWorker extends Worker{
 
 	private final String fileToAnalyze;
 	
-	public FileChangeAnalyzerWorker(String filePath){
+	public TestFileChangeAnalyzerWorker(String filePath){
 		this.fileToAnalyze = filePath;
 	}
 	
-	public FileChangeAnalyzerWorker(String workerName, String filePath){
+	public TestFileChangeAnalyzerWorker(String workerName, String filePath){
 		super(workerName);
 		this.fileToAnalyze = filePath;
 	}
 	
 	public void run() {
-		try {			
+		// TODO Auto-generated method stub
+		try {
+			
             this.changeAnalyzer();
-        } 		
-		catch (NoSuchElementException e) {
+            
+        } catch (NoSuchElementException e) {
             e.printStackTrace();
-        } 
-		
-		catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
-        } 
-		
-		catch (SecurityException e) {
+        } catch (SecurityException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }		
 	}
 	
 	public void changeAnalyzer(){
-		FileChangeAnalyzer fc;
-		try {
-			
+		FileChangeAnalyzer fc;		
+		try {			
 			fc = new FileChangeAnalyzer(fileToAnalyze);
 			if(fc.hasChanged()){ 	   
-		        App.changedEntities.send(fileToAnalyze);
+		        App.testParseAndIndex.send(fileToAnalyze);
 			}
-			
 		} 
-		
 		catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (IOException e) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (InstantiationException e) {
+		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (IllegalAccessException e) {
+		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (InvocationTargetException e) {
+		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (NoSuchMethodException e) {
+		} catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (SecurityException e) {
+		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
 }

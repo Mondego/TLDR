@@ -1,26 +1,23 @@
 package uci.ics.mondego.tldr.changeanalyzer;
 
 import java.io.IOException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
-
-import uci.ics.mondego.tldr.extractor.MethodParser;
+import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class TestChangeAnalyzer extends ChangeAnalyzer{
 
 	private List<String> changedAttributes;
-	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
 	private final ClassParser parser;
 	private List<Method> allMethods;
 	private List<Field> allFields;
@@ -47,7 +44,6 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	public TestChangeAnalyzer(String className) throws IOException{
 		super(className);
 		this.changedAttributes = new ArrayList<String>();
-		this.hashCodes = new HashMap<String, String>();
 		this.parser = new ClassParser(this.getEntityName());
 		this.allChangedFields = new ArrayList<Field>();
 		this.allChangedMethods = new ArrayList<Method>();
@@ -55,11 +51,10 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		this.allFields = new ArrayList<Field>();
 		this.parsedClass = parser.parse();
 		this.parse();
+		
+		this.closeRedis();
 	}
 	
-	public String getChecksumByAttribute(String attr){
-		return hashCodes.get(attr);
-	}
 	
 	public List<String> getChangedAttributes(){
 		return changedAttributes;
@@ -67,13 +62,14 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	
 	protected void parse() throws IOException{
 		
-		Field [] allFields = parsedClass.getFields();
+		/*Field [] allFields = parsedClass.getFields();
+		
 		for(Field f: allFields){
 			this.allFields.add(f);
 			
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
 			
-			String currentHashCode = f.toString().hashCode() +"";
+			String currentHashCode =  StringProcessor.CreateBLAKE(f.toString());
 			
 			hashCodes.put(fieldFqn, currentHashCode);
 			
@@ -86,7 +82,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 			}
 			else{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
-				currentHashCode = f.toString().hashCode() +"";
+				currentHashCode = StringProcessor.CreateBLAKE(f.toString());
 				if(!currentHashCode.equals(prevHashCode)){
 					logger.info(fieldFqn+" changed");
 					this.setChanged(true);
@@ -95,16 +91,12 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
 				}
 			}
-		}
+		}*/
 		
 		Method [] allMethods= parsedClass.getMethods();
 		
 		for(Method m: allMethods){
 			
-			if(m.getName().contains("getSmartUsage"))
-				System.out.println(m.getCode().toString());
-			
-			this.allMethods.add(m);
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
 			m.getModifiers() == AccessCodes.FINAL ||
 			m.getModifiers() == AccessCodes.INTERFACE || 
@@ -117,6 +109,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 			m.getModifiers() == AccessCodes.SYNCHRONIZED || 
 			m.getModifiers() == AccessCodes.TRANSIENT || 
 			m.getModifiers() == AccessCodes.VOLATILE){
+				
 				String code =  m.getModifiers()+"\n"+ m.getName()+ 
 				"\n"+m.getSignature()+"\n"+ m.getCode();
 							
@@ -124,6 +117,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 						? 0 : code.indexOf("Attribute(s)"), 
 						code.indexOf("LocalVariable(") == -1?
 						code.length() : code.indexOf("LocalVariable(")) ;
+				
 				code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
 							
 				code = code.substring(0, code.indexOf("StackMapTable") == -1? 
@@ -140,62 +134,27 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				methodFqn += (")");
 					
 				
-				String currentHashCode = code.hashCode()+"";
-				hashCodes.put(methodFqn, currentHashCode);
+				String currentHashCode = StringProcessor.CreateBLAKE(code);
+				
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
 					logger.info(methodFqn+" didn't exist in db...added");
-					this.setChanged(true);
-					changedAttributes.add(methodFqn);
+					App.testToRun.put(methodFqn, true);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
-					this.allChangedMethods.add(m);
+					Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);					
+					DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 				}
+				
 				else{
-					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
-					
+					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);					
 					if(!currentHashCode.equals(prevHashCode)){
-						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
-								+ "class name: "+this.getEntityName());
-						this.setChanged(true);
-						//System.out.println(methodFqn+" CNAGED====================="+"CUR : "+currentHashCode+"  PREV: "+prevHashCode+"\n");
-						changedAttributes.add(methodFqn);
+						App.testToRun.put(methodFqn, true);						
 						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
-						this.allChangedMethods.add(m);
+						Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);					
+						DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 					}
 				}
 			}
-		}
-		
-		this.syncDependency();
+		}		
 	}
 	
-	private void addDependentsInDb(String entity, String dependents){
-		
-		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_TEST_DEPENDENCY, entity);
-		if(prevDependents.size() == 0 || prevDependents == null || 
-				!prevDependents.contains(dependents)){
-			this.rh.insertInSet(Databases.TABLE_ID_TEST_DEPENDENCY, entity, dependents);
-			logger.info(dependents+ " has been updated as "+entity+" 's dependent");
-		}
-	}
-	
-	private void syncDependency(){
-		try{
-			for(int i=0;i<allChangedMethods.size();i++){
-				MethodParser mp = new MethodParser(allChangedMethods.get(i));
-				List<String> dependencies = mp.getAllInternalDependencies();
-				for(int j=0;j<dependencies.size();j++){
-					String methodFqn =parsedClass.getClassName()+"."+allChangedMethods.get(i).getName();
-					methodFqn += ("(");
-					for(int k=0;k<allChangedMethods.get(i).getArgumentTypes().length;k++)
-						methodFqn += ("$"+allChangedMethods.get(i).getArgumentTypes()[k]);
-					methodFqn += (")");
-		
-					addDependentsInDb(dependencies.get(j), methodFqn);
-				}
-			}
-		}
-		catch(NullPointerException e){
-			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
-		}
-	}
 }

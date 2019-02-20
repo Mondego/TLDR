@@ -49,7 +49,7 @@ public class DFSTraversalWorker extends Worker{
 	    for(int i=0;i<dep.size();i++){
 	    	if(!App.entityToTest.containsKey(dep.get(i))){
 	    		App.entityToTest.put(dep.get(i), true);
-	    		App.entityToTestMap.send(dep.get(i));
+	    		//App.entityToTestMap.send(dep.get(i));
 	    	}
 	    }      
 	}

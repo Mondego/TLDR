@@ -82,15 +82,6 @@ public class RepoScanner {
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();
 	            	
-	                /*if(fileAbsolutePath.endsWith(".java") && !fileAbsolutePath.contains("Test")){
-	                	JavaFile f = new JavaFile(fileAbsolutePath);
-	                	java_files.add(f);
-	                }
-	                else if(fileAbsolutePath.endsWith(".jar")){
-	                	JarFile f = new JarFile(fileAbsolutePath);
-	                	jar_files.add(f);
-	                }*/
-
 	                if(file.getAbsolutePath().endsWith(".class") && !fileAbsolutePath.contains("Test")){
 	                	//System.out.println(file.getAbsolutePath());
 	                	ClassFile f = new ClassFile(fileAbsolutePath);

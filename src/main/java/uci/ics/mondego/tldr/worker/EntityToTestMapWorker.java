@@ -1,5 +1,6 @@
 package uci.ics.mondego.tldr.worker;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
 import uci.ics.mondego.tldr.App;
@@ -15,22 +16,42 @@ public class EntityToTestMapWorker extends Worker{
 
 	public void run() {
 		// TODO Auto-generated method stub
-		this.map();
+		try {
+			this.map();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
-	private void map(){
+	private void map() throws InstantiationException, 
+	    IllegalAccessException, IllegalArgumentException, InvocationTargetException, 
+	    NoSuchMethodException, SecurityException{
 	   EntityToTestMap map = new EntityToTestMap();
 	   Set<String> tests = map.getTests(entity);
- 	   for(String str: tests){
- 		   if(!App.testToRun.contains(str)){
- 			   App.testToRun.put(str, true);
- 			   System.out.println(str);
- 		   }
- 	   }
  	   
- 	   map.closeRedis();
+	   for(String str: tests){
+ 		   if(!App.testToRun.containsKey(str)){
+ 			   App.testToRun.put(str, true);
+ 		   }
+ 	   }  
+ 	   
+	   map.closeRedis();
 	}
-	
-
 }

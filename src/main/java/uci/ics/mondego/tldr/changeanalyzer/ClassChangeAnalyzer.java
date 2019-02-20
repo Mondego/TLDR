@@ -1,26 +1,21 @@
 package uci.ics.mondego.tldr.changeanalyzer;
 
 import java.io.IOException;
-import java.security.Security;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
-
-import com.rfksystems.blake2b.Blake2b;
-import com.rfksystems.blake2b.security.Blake2bProvider;
-
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.StringProcessor;
 
 
 public class ClassChangeAnalyzer extends ChangeAnalyzer{
@@ -35,6 +30,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private final JavaClass parsedClass;
 	private List<String> allInterfaces;
 	private String superClass;
+	
 	
 	public List<Method> getAllMethods(){
 		return allMethods;
@@ -85,14 +81,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		Set<String> all_superclass_interface = this.rh.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
 				parsedClass.getClassName());
-		
-//		System.out.println(this.getEntityName());
-//		for(int i=0;i<allInterfaces.size();i++){
-//			System.out.print(allInterfaces.get(i)+"  ");
-//		}
-//		System.out.println(this.superClass);
-		
-		
+				
 		for(int i=0;i<allInterfaces.size();i++){
 			if(!all_superclass_interface.contains(allInterfaces.get(i))){
 				this.rh.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
@@ -147,7 +136,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
 						
-			String currentHashCode = CreateMD5(f.toString());
+			String currentHashCode = StringProcessor.CreateBLAKE(f.toString());
 			
 			hashCodes.put(fieldFqn, currentHashCode);
 			
@@ -162,7 +151,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			else{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
 				//currentHashCode = f.toString().hashCode() +"";
-				currentHashCode = CreateMD5(f.toString());
+				currentHashCode = StringProcessor.CreateBLAKE(f.toString());
 				if(!currentHashCode.equals(prevHashCode)){
 					logger.info(fieldFqn+" changed");
 					this.setChanged(true);
@@ -177,8 +166,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		Method [] allMethods= parsedClass.getMethods();
 		
 		for(Method m: allMethods){
-			
-			
 			
 			this.allMethods.add(m);
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
@@ -218,7 +205,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				//if(m.getName().contains("listSuggestions"))
 				//	System.out.println(methodFqn+" ==== "+m.getCode().toString());
 				
-				String currentHashCode = CreateMD5(code);
+				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
 				hashCodes.put(methodFqn, currentHashCode);
 				
@@ -263,24 +250,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		}
 	}
 
-    // Use input string to calculate MD5 hash
-	private String CreateMD5(String input)
-    {
-		try {
-			Security.addProvider(new Blake2bProvider());
-	        java.security.MessageDigest md = java.security.MessageDigest.getInstance(Blake2b.BLAKE2_B_160);
-	        byte[] array = md.digest(input.getBytes());
-	        StringBuffer sb = new StringBuffer();
-	        for (int i = 0; i < array.length; ++i) {
-	          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
-	       }
-	        return sb.toString();
-	    } 
-		catch (java.security.NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		}
-	    return null;
-    }
+	
 	
 	private void syncDependency(){
 		try{

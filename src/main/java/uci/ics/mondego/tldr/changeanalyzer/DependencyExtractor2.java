@@ -11,18 +11,30 @@ import org.apache.bcel.classfile.Method;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
+import uci.ics.mondego.tldr.exception.UnknownDBIdException;
 import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.Databases;
 
 public class DependencyExtractor2 {
 
-	private final Entry<String, Method> changedMethod;
-	private final RedisHandler rh;
-	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+	protected final Entry<String, Method> changedMethod;
+	protected final RedisHandler rh;
+	public static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+	private final String dbId;
 	
 	public DependencyExtractor2(Entry<String, Method> changedMethod) throws IOException {
 		this.changedMethod = changedMethod;
+		this.dbId = Databases.TABLE_ID_DEPENDENCY;
+		this.rh = new RedisHandler();
+		this.resolute();
+		rh.close();
+	}
+	
+	public DependencyExtractor2(Entry<String, Method> changedMethod, boolean flag) throws IOException{
+		this.changedMethod = changedMethod;
+		this.dbId = Databases.TABLE_ID_TEST_DEPENDENCY;
 		this.rh = new RedisHandler();
 		this.resolute();
 		rh.close();
@@ -55,20 +67,30 @@ public class DependencyExtractor2 {
 			}
 	}
 	
-	private void addDependentsInDb(String dependency, String dependents){
-		//System.out.println("inside add db: "+dependency+"  "+dependents);
-
+	protected void addDependentsInDb(String dependency, String dependents) throws UnknownDBIdException{
+		
+		if(this.dbId.length() == 0 || this.dbId == null){
+			throw new UnknownDBIdException(dbId);
+		}
+		
 		if(dependency.contains("java."))
 			return;
-
-		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_DEPENDENCY, dependency);
+		if(dependency.contains("junit."))
+			return;
+		if(dependency.contains("mockito."))
+			return;
+		if(dependency.contains("hamcrest."))
+			return;
+		
+		Set<String> prevDependents = this.rh.getSet(this.dbId, dependency);
 		if(!prevDependents.contains(dependents)){
-			this.rh.insertInSet(Databases.TABLE_ID_DEPENDENCY, dependency, dependents);
+			this.rh.insertInSet(this.dbId, dependency, dependents);
 			logger.info(dependents+ " has been updated as "+dependency+" 's dependent");
 		}
 	}
 	
-	private List<String> traverseClassHierarchy(String claz, String pattern){
+	protected List<String> traverseClassHierarchy(String claz, String pattern){
+		
 		List<String> toTest = new ArrayList<String>();
 
 		Set<String> entity = this.rh.getAllKeys(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
@@ -88,7 +110,7 @@ public class DependencyExtractor2 {
 		return toTest;
 	}
 	
-	private void syncAllPossibleDependency(String dependency, String dependents){
+	protected void syncAllPossibleDependency(String dependency, String dependents){
 		try{
 			int index = dependency.indexOf("(");
 			StringBuilder sb = new StringBuilder();
@@ -106,9 +128,6 @@ public class DependencyExtractor2 {
 			
 			if(CollectionUtils.isEmpty(keys))
 				return;
-			//System.out.println("inside sync all: "+claz+"  "+pattern);
-			//System.out.println("inside ss db: "+keys+"\n========================\n");
-
 			for(String k: keys){
 				addDependentsInDb(k, dependents); // because we have to remove table id
 			}
@@ -116,17 +135,23 @@ public class DependencyExtractor2 {
 		
 		catch(NullPointerException e){
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
+		} catch (UnknownDBIdException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
 	
-	private void syncSingleDependency(String dependency, String dependents){
+	protected void syncSingleDependency(String dependency, String dependents){
 
 		try{
 			addDependentsInDb(dependency, dependents);
 		}
 		catch(NullPointerException e){
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
+		} catch (UnknownDBIdException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
