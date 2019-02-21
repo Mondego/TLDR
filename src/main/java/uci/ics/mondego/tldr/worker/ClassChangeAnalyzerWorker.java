@@ -28,7 +28,6 @@ public class ClassChangeAnalyzerWorker extends Worker{
 		this.className = className;
 	}
 	public void run() {
-		// TODO Auto-generated method stub
 		try {
             this.changeAnalyzer();
         } catch (NoSuchElementException e) {

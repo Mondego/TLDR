@@ -12,7 +12,6 @@ import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
 import uci.ics.mondego.tldr.App;
-import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
 import uci.ics.mondego.tldr.tool.StringProcessor;
@@ -150,7 +149,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			}
 			else{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
-				//currentHashCode = f.toString().hashCode() +"";
 				currentHashCode = StringProcessor.CreateBLAKE(f.toString());
 				if(!currentHashCode.equals(prevHashCode)){
 					logger.info(fieldFqn+" changed");
@@ -202,9 +200,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
 			
-				//if(m.getName().contains("listSuggestions"))
-				//	System.out.println(methodFqn+" ==== "+m.getCode().toString());
-				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
 				hashCodes.put(methodFqn, currentHashCode);
@@ -215,7 +210,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					this.allChangedMethods.add(m);
-					//extractedChangedMethods.put(methodFqn, m);
 					App.entityToTest.put(methodFqn, true);
 				}
 				else{
@@ -237,39 +231,5 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			}
 		}
 		
-		//this.syncDependency();
-	}
-	
-	private void addDependentsInDb(String entity, String dependents){
-		
-		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_DEPENDENCY, entity);
-		if(prevDependents.size() == 0 || prevDependents == null || 
-				!prevDependents.contains(dependents)){
-			this.rh.insertInSet(Databases.TABLE_ID_DEPENDENCY, entity, dependents);
-			logger.info(dependents+ " has been updated as "+entity+" 's dependent");
-		}
-	}
-
-	
-	
-	private void syncDependency(){
-		try{
-			for(int i=0;i<allChangedMethods.size();i++){
-				MethodParser mp = new MethodParser(allChangedMethods.get(i));
-				List<String> dependencies = mp.getAllInternalDependencies();
-				for(int j=0;j<dependencies.size();j++){
-					String methodFqn =parsedClass.getClassName()+"."+allChangedMethods.get(i).getName();
-					methodFqn += ("(");
-					for(int k=0;k<allChangedMethods.get(i).getArgumentTypes().length;k++)
-						methodFqn += ("$"+allChangedMethods.get(i).getArgumentTypes()[k]);
-					methodFqn += (")");
-		
-					addDependentsInDb(dependencies.get(j), methodFqn);
-				}
-			}
-		}
-		catch(NullPointerException e){
-			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
-		}
-	}
+	}	
 }

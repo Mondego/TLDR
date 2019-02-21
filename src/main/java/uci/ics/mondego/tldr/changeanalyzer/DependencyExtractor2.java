@@ -23,10 +23,12 @@ public class DependencyExtractor2 {
 	protected final RedisHandler rh;
 	public static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	private final String dbId;
+	private List<String> fieldValueChanged;
 	
 	public DependencyExtractor2(Entry<String, Method> changedMethod) throws IOException {
 		this.changedMethod = changedMethod;
 		this.dbId = Databases.TABLE_ID_DEPENDENCY;
+		this.fieldValueChanged = new ArrayList<String>();
 		this.rh = new RedisHandler();
 		this.resolute();
 		rh.close();
@@ -35,9 +37,14 @@ public class DependencyExtractor2 {
 	public DependencyExtractor2(Entry<String, Method> changedMethod, boolean flag) throws IOException{
 		this.changedMethod = changedMethod;
 		this.dbId = Databases.TABLE_ID_TEST_DEPENDENCY;
+		this.fieldValueChanged = new ArrayList<String>();
 		this.rh = new RedisHandler();
 		this.resolute();
 		rh.close();
+	}
+	
+	public List<String> getFieldValueChanged(){
+		return fieldValueChanged;
 	}
 	
 	 public void resolute() throws IOException{
@@ -49,6 +56,16 @@ public class DependencyExtractor2 {
 			List<String> allInterfaceDependency = parser.getAllInterfaceDependency();
 			List<String> allStaticDependency = parser.getAllStaticDependency();
 			List<String> allFinalDependency = parser.getAllFinalDependency();
+			List<String> allStaticFieldUpdated = parser.getAllStaticFieldUpdated();
+			List<String> allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
+			
+			this.fieldValueChanged.addAll(allStaticFieldUpdated);
+			for(int i=0;i<allOwnFieldUpdated.size();i++){
+				String pkg = allOwnFieldUpdated.get(i).substring(0,allOwnFieldUpdated.get(i).lastIndexOf('.'));
+				if(pkg.equals(dependent.substring(0,dependent.lastIndexOf('.')))){
+					this.fieldValueChanged.add(allOwnFieldUpdated.get(i));
+				}
+			}
 						
 			for(int i = 0 ;i<allVirtualDependency.size();i++){
 				this.syncAllPossibleDependency(allVirtualDependency.get(i), dependent);
@@ -111,6 +128,11 @@ public class DependencyExtractor2 {
 	}
 	
 	protected void syncAllPossibleDependency(String dependency, String dependents){
+		if(dependency.contains("java/lang") || dependency.contains("java/util") || 
+				dependency.contains("java/io")|| dependency.contains("java/net") || 
+				dependency.contains("java/awt"))
+			return;
+		
 		try{
 			int index = dependency.indexOf("(");
 			StringBuilder sb = new StringBuilder();
@@ -122,7 +144,8 @@ public class DependencyExtractor2 {
 			}
 			
 			String pattern = sb.toString();
-			String claz = dependency.substring(0, dependency.indexOf(pattern) - 1);
+			String claz = dependency.substring(0, dependency.indexOf(pattern) >=0? 
+					dependency.indexOf(pattern) - 1: dependency.length());
 						
 			List<String> keys = traverseClassHierarchy(claz, pattern);
 			
@@ -135,8 +158,12 @@ public class DependencyExtractor2 {
 		
 		catch(NullPointerException e){
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
-		} catch (UnknownDBIdException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch(StringIndexOutOfBoundsException e){
+			System.out.println(dependency+"   "+dependents);
+			e.printStackTrace();
+		}
+		catch (UnknownDBIdException e) {
 			e.printStackTrace();
 		}
 	}

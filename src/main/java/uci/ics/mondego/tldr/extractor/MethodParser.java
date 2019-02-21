@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.bcel.classfile.Method;
 
+import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.exception.EmptyByteCodeException;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 
@@ -17,6 +19,9 @@ public class MethodParser {
 	private List<String> allFinalDependency;
 	private List<String> allVirtualDependency;
 	private List<String> allInterfaceDependency;
+	private List<String> allStaticFieldUpdated;
+	private List<String> allOwnFieldUpdated;
+	
 	
 	@SuppressWarnings("")
 	public MethodParser(Method m){
@@ -28,11 +33,22 @@ public class MethodParser {
 		this.allFinalDependency = new ArrayList<String>();
 		this.allVirtualDependency = new ArrayList<String>();
 		this.allInterfaceDependency = new ArrayList<String>();
+		this.allStaticFieldUpdated = new ArrayList<String>();
+		this.allOwnFieldUpdated = new ArrayList<String>();
 		
-		parse();
+		try {
+			parse();
+		} catch (EmptyByteCodeException e) {
+			// TODO Auto-generated catch block
+			
+		}
 	}
 	
-	private void parse(){
+	private void parse() throws EmptyByteCodeException{
+		
+		if(method.getCode() == null || method.getCode().toString() == null || method.getCode().toString().length() == 0){
+			throw new EmptyByteCodeException(method.getName());
+		}
 		
 		String[] code = method.getCode().toString().split("\n");
 		
@@ -45,18 +61,26 @@ public class MethodParser {
 			   line.contains("invokeinterface") || 
 			   line.contains("invokestatic") ||
 			   line.contains("invokespecial") ||
-			   line.contains("anewarray")  ||
+			   //line.contains("anewarray")  ||
 			   line.contains("invokedynamic")){
 				//System.out.println(line);
-				processed = parts[2]+parseMethodParameters(parts[3]);					
+				processed = parts[2]+parseMethodParameters(parts[3]);	
+				if(parts[3].equals("3") || parts[3].equals("2"))
+					System.out.println("Pain in the ASS: "+parts[1]+"  "+parts[2]+"   "+parts[3]);
 			}
 			
 			// field
 			else if(line.contains("getfield") ||
-				    line.contains("getstatic")  ||
-					line.contains("putstatic")  ||
-					line.contains("putfield") ){
+				    line.contains("getstatic")){
 				processed = parts[2];
+			}
+			
+			else if(line.contains("putstatic")){
+				allStaticFieldUpdated.add(parts[2]);
+			}
+			
+			else if(line.contains("putfield")){
+				allOwnFieldUpdated.add(parts[2]);
 			}
 			
 			else if(line.contains("checkcast")){
@@ -93,31 +117,38 @@ public class MethodParser {
 	}
 	
 	private String parseMethodParameters(String signature){
-		signature = signature.substring(signature.indexOf("(")+1, signature.indexOf(")"));
-		
-		if(signature.length() == 0)
-			return "()";
-		StringBuilder sb = new StringBuilder();
-		sb.append("(");
-		
-		String [] params =  signature.split(";");
-		for(int i=0;i<params.length;i++){
-			if(!StringProcessor.isPrimitive(params[i]))
-				params[i] = ("$"+params[i].substring(1));
-			else{
-				StringBuilder sb1 = new StringBuilder();
-				for(int j=0;j<params[i].length();j++){
-					sb1.append("$"+StringProcessor.convertBaseType(params[i].charAt(j)));
+		try{
+			signature = signature.substring(signature.indexOf("(")+1, signature.indexOf(")"));
+			
+			if(signature.length() == 0)
+				return "()";
+			StringBuilder sb = new StringBuilder();
+			sb.append("(");
+			
+			String [] params =  signature.split(";");
+			for(int i=0;i<params.length;i++){
+				if(!StringProcessor.isPrimitive(params[i]))
+					params[i] = ("$"+params[i].substring(1));
+				else{
+					StringBuilder sb1 = new StringBuilder();
+					for(int j=0;j<params[i].length();j++){
+						sb1.append("$"+StringProcessor.convertBaseType(params[i].charAt(j)));
+					}
+					params[i] = sb1.toString();
 				}
-				params[i] = sb1.toString();
+				params[i] = StringProcessor.pathToFqnConverter(params[i]);
+				sb.append(params[i]);
 			}
-			params[i] = StringProcessor.pathToFqnConverter(params[i]);
-			sb.append(params[i]);
+			
+			sb.append(")");
+			
+			return sb.toString();
 		}
-		
-		sb.append(")");
-		
-		return sb.toString();
+		catch(StringIndexOutOfBoundsException e){
+			e.printStackTrace();
+			System.out.println(signature+"=========="+e.getMessage());			
+		}
+		return null;
 	}
 	
 	public List<String> getAllInternalDependencies(){
@@ -150,6 +181,14 @@ public class MethodParser {
 	
 	public List<String> getAllInterfaceDependency() {
 		return allInterfaceDependency;
+	}
+	
+	public List<String> getAllStaticFieldUpdated() {
+		return allStaticFieldUpdated;
+	}
+
+	public List<String> getAllOwnFieldUpdated() {
+		return allOwnFieldUpdated;
 	}
 	
 	public String toString(){

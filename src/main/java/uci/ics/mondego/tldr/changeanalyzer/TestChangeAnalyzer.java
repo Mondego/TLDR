@@ -149,7 +149,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					if(!currentHashCode.equals(prevHashCode)){
 						App.testToRun.put(methodFqn, true);						
 						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
-						Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);					
+						Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);	
 						DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 					}
 				}

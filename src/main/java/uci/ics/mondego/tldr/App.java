@@ -40,8 +40,10 @@ public class App
     public static ThreadedChannel<String> allEntitiesToTest;
     public static ThreadedChannel<HashMap<String, Method>> dependencyExtractor;
     public static ThreadedChannel<String> traverseDependencyGraph;
+    
     public static ThreadedChannel<String> changedTestFiles;
     public static ThreadedChannel<String> testParseAndIndex;
+    
     public static ThreadedChannel<String> entityToTestMap;
    
     public static ConcurrentHashMap<String, Boolean> entityToTest;
@@ -69,8 +71,8 @@ public class App
        try{
 	       App executorInstance = new App();
     	   
-    	   CLASS_DIR = "/Users/demigorgan/brigadier";
-    	   TEST_DIR = "/Users/demigorgan/brigadier/build/classes/java/test";
+    	   CLASS_DIR = "/Users/demigorgan/Desktop/Ekstazi_dataset/commons-math-master";
+    	   TEST_DIR = "/Users/demigorgan/Desktop/Ekstazi_dataset/commons-math-master/target/test-classes";
 	       //PROJ_DIR = "/Users/demigorgan/Desktop/Ekstazi_dataset/camel-master";
 	       	       
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
@@ -90,14 +92,15 @@ public class App
 	    	   App.entityToTestMap.send(e.getKey());
 	       }
 	       
-	       changedTestFiles.shutdown();
-	       testParseAndIndex.shutdown();
+	       App.changedTestFiles.shutdown();
+	       App.testParseAndIndex.shutdown();
 	       App.entityToTestMap.shutdown();
 	    	
 	       System.out.println(entityToTest.size()+"   "+testToRun.size());
-	       long endTime = System.nanoTime();
-	       System.out.println(endTime - startTime);
-	      
+	       //System.out.println(entityToTest.toString());
+	       //System.out.println("========================\n====================");
+	       //System.out.println(testToRun.toString());
+	       long endTime = System.nanoTime();	      
        }
        
        catch( JedisConnectionException e){
