@@ -1,9 +1,13 @@
 package uci.ics.mondego.tldr;
 
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.bcel.classfile.ClassFormatException;
@@ -71,8 +75,8 @@ public class App
        try{
 	       App executorInstance = new App();
     	   
-    	   CLASS_DIR = "/Users/demigorgan/Desktop/Ekstazi_dataset/commons-math-master";
-    	   TEST_DIR = "/Users/demigorgan/Desktop/Ekstazi_dataset/commons-math-master/target/test-classes";
+    	   CLASS_DIR = "/Users/demigorgan/Desktop/commons-math";
+    	   TEST_DIR = "/Users/demigorgan/Desktop/commons-math/target/test-classes";
 	       //PROJ_DIR = "/Users/demigorgan/Desktop/Ekstazi_dataset/camel-master";
 	       	       
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
@@ -95,18 +99,18 @@ public class App
 	       App.changedTestFiles.shutdown();
 	       App.testParseAndIndex.shutdown();
 	       App.entityToTestMap.shutdown();
-	    	
-	       System.out.println(entityToTest.size()+"   "+testToRun.size());
-	       //System.out.println(entityToTest.toString());
-	       //System.out.println("========================\n====================");
-	       //System.out.println(testToRun.toString());
-	       long endTime = System.nanoTime();	      
+	    		       	     
+	      // System.out.println(getCommand());
+	       System.out.println(App.testToRun.size());
+	       long endTime = System.nanoTime();	 
+	       
+	       logExperiment(args[0], getCommand());
+	       
        }
        
        catch( JedisConnectionException e){
-    	   System.out.println("No Connection to Jedis Server");
-    	   e.printStackTrace();   
-       }
+    	   System.err.println("NO CONNECTION DETECTED");
+        }
        
        catch(ArrayIndexOutOfBoundsException e){
     	   System.out.println("the file path is too long");
@@ -155,5 +159,41 @@ public class App
        finally{
     	   RedisHandler.destroyPool();
        }
+    }
+    
+    private static void logExperiment(String commit, String content){
+    	
+    	PrintWriter writer;
+		try {
+			writer = new PrintWriter(commit+".txt", "UTF-8");
+			writer.println(content);
+	    	writer.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}    	
+    }
+    
+    private static String getCommand(){
+    	  StringBuilder sb = new StringBuilder();
+	       //sb.append("mvn test -Dtest=");
+	       Set<Map.Entry<String, Boolean>> all = testToRun.entrySet();
+	       int i=0;
+	       for(Entry<String, Boolean> es: all){
+	    	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
+	    		   continue;
+	    	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
+	    	   sb.append(pkg.substring(0,pkg.lastIndexOf('.')));
+	    	   String func = pkg.substring(pkg.lastIndexOf('.')+1);
+	    	   sb.append("#");
+	    	   sb.append(func);
+	    	   if(i != (testToRun.size() - 1))
+	    		   sb.append(",");
+	    	   i++;
+	       }
+	       return sb.toString();
     }
 }

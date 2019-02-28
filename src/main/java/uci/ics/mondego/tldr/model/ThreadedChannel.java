@@ -79,7 +79,7 @@ public class ThreadedChannel<E> {
     
     public void shutdown() {
         this.executor.shutdown();
-        System.out.println(workerType.getName()+" terminating");
+        //System.out.println(workerType.getName()+" terminating");
         try {
             this.executor.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
         } catch (InterruptedException e) {

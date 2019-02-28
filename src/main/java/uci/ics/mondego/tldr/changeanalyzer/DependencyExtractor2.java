@@ -48,6 +48,9 @@ public class DependencyExtractor2 {
 	}
 	
 	 public void resolute() throws IOException{
+		 
+		 
+		    int kh= 97;
 
 			String dependent = changedMethod.getKey();
 			Method m = changedMethod.getValue();
@@ -128,6 +131,8 @@ public class DependencyExtractor2 {
 	}
 	
 	protected void syncAllPossibleDependency(String dependency, String dependents){
+		
+		// JDK DEPENDENCY IGNORED
 		if(dependency.contains("java/lang") || dependency.contains("java/util") || 
 				dependency.contains("java/io")|| dependency.contains("java/net") || 
 				dependency.contains("java/awt"))
@@ -160,7 +165,6 @@ public class DependencyExtractor2 {
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
 		} 
 		catch(StringIndexOutOfBoundsException e){
-			System.out.println(dependency+"   "+dependents);
 			e.printStackTrace();
 		}
 		catch (UnknownDBIdException e) {

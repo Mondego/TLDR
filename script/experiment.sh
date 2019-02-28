@@ -1,15 +1,9 @@
 #!/bin/bash
 
-repo_dir="/Users/demigorgan/commons-configuration"
+repo_dir="/Users/demigorgan/Desktop/commons-math"
 proj_dir="/Users/demigorgan/Documents/workspace/tldr"
 
-cd $repo_dir
-
-git log > $proj_dir'/script/repo_log.txt'
-
 cd $proj_dir/'script'
-
-python extract_sha.py repo_log.txt
 
 i=0
 
@@ -17,12 +11,11 @@ allsha="sha.txt"
 
 while read -r line; do
 	let "i++"
-    #echo "$i - $line"
     cd $repo_dir
     git checkout $line --quiet
     mvn -q compile 
+    mvn -q test
     cd $proj_dir
     mvn -q compile exec:java -Dexec.args=$line
-    #mvn -q clean compile exec:java -Dexec.args=$line
 
 done < "$allsha"
