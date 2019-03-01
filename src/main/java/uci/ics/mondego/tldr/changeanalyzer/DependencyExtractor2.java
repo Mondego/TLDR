@@ -48,19 +48,19 @@ public class DependencyExtractor2 {
 	}
 	
 	 public void resolute() throws IOException{
-		 
-		 
-		    int kh= 97;
-
+		 		 	
 			String dependent = changedMethod.getKey();
 			Method m = changedMethod.getValue();
+						
 			MethodParser parser = new MethodParser(m);
 			List<String> allVirtualDependency = parser.getAllVirtualDependency();
 			List<String> allInterfaceDependency = parser.getAllInterfaceDependency();
 			List<String> allStaticDependency = parser.getAllStaticDependency();
 			List<String> allFinalDependency = parser.getAllFinalDependency();
+			List<String> allSpecialDependency = parser.getAllSpecialDependency();
 			List<String> allStaticFieldUpdated = parser.getAllStaticFieldUpdated();
 			List<String> allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
+						
 			
 			this.fieldValueChanged.addAll(allStaticFieldUpdated);
 			for(int i=0;i<allOwnFieldUpdated.size();i++){
@@ -85,6 +85,10 @@ public class DependencyExtractor2 {
 			for(int i = 0;i<allFinalDependency.size();i++){
 				this.syncSingleDependency(allFinalDependency.get(i), dependent);
 			}
+			
+			for(int i= 0; i<allSpecialDependency.size();i++){
+				this.syncSingleDependency(allSpecialDependency.get(i), dependent);
+			}
 	}
 	
 	protected void addDependentsInDb(String dependency, String dependents) throws UnknownDBIdException{
@@ -100,13 +104,10 @@ public class DependencyExtractor2 {
 		if(dependency.contains("mockito."))
 			return;
 		if(dependency.contains("hamcrest."))
-			return;
+			return;		
 		
-		Set<String> prevDependents = this.rh.getSet(this.dbId, dependency);
-		if(!prevDependents.contains(dependents)){
-			this.rh.insertInSet(this.dbId, dependency, dependents);
-			logger.info(dependents+ " has been updated as "+dependency+" 's dependent");
-		}
+		this.rh.insertInSet(this.dbId, dependency, dependents);
+		logger.info(dependents+ " has been updated as "+dependency+" 's dependent");
 	}
 	
 	protected List<String> traverseClassHierarchy(String claz, String pattern){

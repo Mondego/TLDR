@@ -99,13 +99,15 @@ public class App
 	       App.changedTestFiles.shutdown();
 	       App.testParseAndIndex.shutdown();
 	       App.entityToTestMap.shutdown();
-	    		       	     
-	      // System.out.println(getCommand());
-	       System.out.println(App.testToRun.size());
+	    		       
+	       String print = getCommand();
+	       //System.out.println(print);
+
+	       //System.out.println(App.testToRun.size());
+	       //System.out.println(App.entityToTest.toString());
 	       long endTime = System.nanoTime();	 
 	       
-	       logExperiment(args[0], getCommand());
-	       
+	       //logExperiment(args[0], getCommand());       
        }
        
        catch( JedisConnectionException e){
@@ -166,7 +168,7 @@ public class App
     	PrintWriter writer;
 		try {
 			writer = new PrintWriter(commit+".txt", "UTF-8");
-			writer.println(content);
+			writer.println(content.replaceAll(",", "\n"));
 	    	writer.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

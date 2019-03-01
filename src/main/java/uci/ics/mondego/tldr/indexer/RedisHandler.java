@@ -47,7 +47,6 @@ public class RedisHandler{
     }
     
 	public RedisHandler(){
-	
 		try{
 			 jedis = jedisPool.getResource();
 		}
@@ -63,10 +62,6 @@ public class RedisHandler{
 		catch(JedisConnectionException e){
 			logger.error("Connection Refused in "+addr+"\n");
 		}
-	}
-	
-	public Jedis getDB() {
-	    return jedis;
 	}
 	
 	public Set<String> getAllKeys(String pattern){
@@ -87,26 +82,6 @@ public class RedisHandler{
         } 
         return instance; 
     } 
-	
-	
-	// config object can be created from json file too
-	private Config setConfig(String ip, int port){
-		Config config = new Config();
-		config.useSingleServer().setAddress(ip+":"+port);
-		return config;
-	}
-	
-	//get all keys
-	private Iterable<String> getKeys(){
-		RKeys keys = client.getKeys();
-		return keys.getKeys();
-	}
-	
-	//get all keys by pattern
-	private Iterable<String> getKeys(String pattern){
-		RKeys keys = client.getKeys();
-		return keys.getKeysByPattern(pattern);
-	}
 	
 	public void insert(String tableId, String key, String value) throws JedisConnectionException{		
 		try{
@@ -139,13 +114,21 @@ public class RedisHandler{
 		catch(NullPointerException e){
 			e.printStackTrace();
 		}
+		
 	    return ret;
 	}
 	
 	public void insertInSet(String tableId, String key, String value){
 		
 		String k = tableId+key;
+		
+		if(key.contains(".checkedCumulativeProbability"))
+			System.out.println(key+" ==== \n"+getSet(tableId, key));
+		
 		jedis.sadd(k, value);
+		
+		if(key.contains(".checkedCumulativeProbability"))
+			System.out.println(key+" ==== \n"+getSet(tableId, key));
 	}
 	
 	public Set<String> getAllKeys(String tableId, String pattern){
@@ -184,12 +167,7 @@ public class RedisHandler{
 	}
 	
 	public boolean existsInSet(String tableId, String key, String value){
-		//Jedis jedis = this.getDB();
 		boolean ret = jedis.sismember(tableId+key, value);
-		/*if(jedis != null)
-			jedis.close();	
-		if(jedis.isConnected())
-	           jedis.disconnect();*/
 		return ret;
 	}
 	
@@ -201,6 +179,5 @@ public class RedisHandler{
 	public void close(){
 		if(jedis != null && jedis.isConnected())
 	        jedis.close();
-	}
-	
+	}	
 }

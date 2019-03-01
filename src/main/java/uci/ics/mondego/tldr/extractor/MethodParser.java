@@ -21,6 +21,7 @@ public class MethodParser {
 	private List<String> allInterfaceDependency;
 	private List<String> allStaticFieldUpdated;
 	private List<String> allOwnFieldUpdated;
+	private List<String> allSpecialDependency;
 	
 	
 	@SuppressWarnings("")
@@ -33,6 +34,7 @@ public class MethodParser {
 		this.allFinalDependency = new ArrayList<String>();
 		this.allVirtualDependency = new ArrayList<String>();
 		this.allInterfaceDependency = new ArrayList<String>();
+		this.allSpecialDependency = new ArrayList<String>();
 		this.allStaticFieldUpdated = new ArrayList<String>();
 		this.allOwnFieldUpdated = new ArrayList<String>();
 		
@@ -104,7 +106,11 @@ public class MethodParser {
 			
 			else if(processed != null && line.contains("invokeinterface") && !allInterfaceDependency.contains(processed)){
 				allInterfaceDependency.add(processed);
-			}	
+			}
+			
+			else if(processed != null && line.contains("invokespecial") && !allSpecialDependency.contains(processed)){
+				allSpecialDependency.add(processed);
+			}
 				
 			if(processed != null && (processed.contains("java.") && !allExternalDependency.contains(processed))){
 				allExternalDependency.add(processed);
@@ -173,6 +179,10 @@ public class MethodParser {
 
 	public List<String> getAllFinalDependency() {
 		return allFinalDependency;
+	}
+	
+	public List<String> getAllSpecialDependency() {
+		return allSpecialDependency;
 	}
 
 	public List<String> getAllVirtualDependency() {

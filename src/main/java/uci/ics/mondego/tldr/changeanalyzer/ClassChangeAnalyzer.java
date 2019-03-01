@@ -31,22 +31,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private String superClass;
 	
 	
-	public List<Method> getAllMethods(){
-		return allMethods;
-	}
-	
-	public List<Field> getAllFields(){
-		return allFields;
-	}
-	
-	public List<Method> getAllChangedMethods(){
-		return allChangedMethods;
-	}
-	
-	public List<Field> getAllChangedFields(){
-		return allChangedFields;
-	}
-	
 	public ClassChangeAnalyzer(String className) throws IOException{
 		super(className);
 		this.changedAttributes = new ArrayList<String>();
@@ -68,13 +52,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.closeRedis();
 	}
 	
-	public HashMap<String, Method> getextractedFunctions(){
-		return extractedChangedMethods;
-	}
-	
-	
-	private void syncClassHierarchy(){
-		
+	private void syncClassHierarchy(){	
 		this.parseInterface();
 		this.parseSuperClass();
 		
@@ -117,14 +95,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			// TODO Auto-generated catch block
 			logger.error(e.getMessage());
 		}
-	}
-	
-	public String getChecksumByAttribute(String attr){
-		return hashCodes.get(attr);
-	}
-	
-	public List<String> getChangedAttributes(){
-		return changedAttributes;
 	}
 	
 	protected void parse() throws IOException{
@@ -185,6 +155,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						? 0 : code.indexOf("Attribute(s)"), 
 						code.indexOf("LocalVariable(") == -1?
 						code.length() : code.indexOf("LocalVariable(")) ;
+				
 				code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
 							
 				code = code.substring(0, code.indexOf("StackMapTable") == -1? 
@@ -205,18 +176,19 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				hashCodes.put(methodFqn, currentHashCode);
 				
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
+								
 					logger.info(methodFqn+" didn't exist in db...added");
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					this.allChangedMethods.add(m);
 					App.entityToTest.put(methodFqn, true);
+					extractedChangedMethods.put(methodFqn, m);
 				}
 				else{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
 										
 					if(!currentHashCode.equals(prevHashCode)){
-						//System.out.println(methodFqn+"\n================\n"+code);
 						
 						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 								+ "class name: "+this.getEntityName());
@@ -229,7 +201,38 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					}
 				}
 			}
-		}
-		
-	}	
+		}	
+	}
+	
+	private void printMethod(Method m){
+		StringBuilder sb = new StringBuilder();		
+	}
+	
+	public List<Method> getAllMethods(){
+		return allMethods;
+	}
+	
+	public List<Field> getAllFields(){
+		return allFields;
+	}
+	
+	public List<Method> getAllChangedMethods(){
+		return allChangedMethods;
+	}
+	
+	public List<Field> getAllChangedFields(){
+		return allChangedFields;
+	}
+	
+	public String getChecksumByAttribute(String attr){
+		return hashCodes.get(attr);
+	}
+	
+	public List<String> getChangedAttributes(){
+		return changedAttributes;
+	}
+	
+	public HashMap<String, Method> getextractedFunctions(){
+		return extractedChangedMethods;
+	}
 }
