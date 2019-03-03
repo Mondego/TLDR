@@ -27,9 +27,11 @@ public class DependencyExtractor2 {
 	private final String dbId;
 	private List<String> fieldValueChanged;
 	private Map<String, Integer> previousDependencies;
+	private boolean flag;
 	
 	public DependencyExtractor2(Entry<String, Method> changedMethod) throws IOException {
 		this.changedMethod = changedMethod;
+		this.flag = false;
 		this.dbId = Databases.TABLE_ID_DEPENDENCY;
 		this.fieldValueChanged = new ArrayList<String>();
 		this.rh = new RedisHandler();
@@ -42,15 +44,18 @@ public class DependencyExtractor2 {
 		}
 		
 		this.resolute();
+		this.removeAllDepreciateDependency();
 		rh.close();
 	}
 	
 	public DependencyExtractor2(Entry<String, Method> changedMethod, boolean flag) throws IOException{
 		this.changedMethod = changedMethod;
+		this.flag = flag;
 		this.dbId = Databases.TABLE_ID_TEST_DEPENDENCY;
 		this.fieldValueChanged = new ArrayList<String>();
 		this.rh = new RedisHandler();
 		this.previousDependencies = new HashMap<String, Integer>();	
+
 		Set<String> prevDepInSet = rh.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
 				changedMethod.getKey());
 		
@@ -129,7 +134,7 @@ public class DependencyExtractor2 {
 		}
 		else{
 			this.rh.insertInSet(this.dbId, dependency, dependents);
-			logger.debug(dependents+ " has been updated as "+dependency+" 's dependent");
+			logger.debug(dependents+ " has been updated as "+dependency+" 's dependent in "+this.dbId);
 		}
 	}
 	
@@ -139,10 +144,16 @@ public class DependencyExtractor2 {
 		    Integer val = entry.getValue();
 		    if(val == 0){
 		    	String key = entry.getKey();
-		    	count += this.rh.removeFromSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
-		    			changedMethod.getKey(), key);
-		    	this.rh.removeFromSet(Databases.TABLE_ID_DEPENDENCY, key, changedMethod.getKey());
-		    	logger.debug(changedMethod.getKey()+ " has been removed as "+key+" s dependency");
+		    	
+		    	count += this.rh.removeFromSet( !flag ? Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY : 
+		    		Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
+		    		changedMethod.getKey(), key);
+		    	
+		    	this.rh.removeFromSet(!flag ? Databases.TABLE_ID_DEPENDENCY: Databases.TABLE_ID_TEST_DEPENDENCY, 
+		    			key, changedMethod.getKey());
+		    	
+		    	logger.debug(changedMethod.getKey()+ " has been removed as "+key+" s dependency  in "+
+		    			(!flag ? Databases.TABLE_ID_DEPENDENCY: Databases.TABLE_ID_TEST_DEPENDENCY));
 		    }  
 		}
 		return count;

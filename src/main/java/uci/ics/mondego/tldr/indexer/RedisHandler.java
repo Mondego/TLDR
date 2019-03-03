@@ -122,14 +122,19 @@ public class RedisHandler{
 	public long insertInSet(String tableId, String key, String value){
 		String tableIdKey = tableId+key;
 		long ret1 = jedis.sadd(tableIdKey, value);
-		long ret2 = 1;
+		long ret2 = 1;		
 		
-		//INSERT IN FORWARD INDEX
+		//INSERT IN FORWARD INDEX		
+		String forwardTableId = null;
 		if(tableId.equals(Databases.TABLE_ID_DEPENDENCY)){
-			String tableIdValue = Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY + value;
-			ret2 = jedis.sadd(tableIdValue, key);
+			forwardTableId = Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY;
+		}
+		else if(tableId.equals(Databases.TABLE_ID_TEST_DEPENDENCY)){
+			forwardTableId = Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY;
 		}
 		
+		String tableIdValue = forwardTableId + value;
+		ret2 = jedis.sadd(tableIdValue, key);
 		return ret1 & ret2;
 	}
 	
