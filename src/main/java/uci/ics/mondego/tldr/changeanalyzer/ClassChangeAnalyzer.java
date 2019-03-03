@@ -29,7 +29,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private final JavaClass parsedClass;
 	private List<String> allInterfaces;
 	private String superClass;
-	
+	private Map<String, Integer> allPreviousEntities;
 	
 	public ClassChangeAnalyzer(String className) throws IOException{
 		super(className);
@@ -44,10 +44,19 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.allInterfaces = new ArrayList<String>();
 		this.extractedChangedMethods = new HashMap<String, Method>();
 		this.superClass = "";
+				
+		Set<String> prevEnt = rh.getAllKeysByPattern
+				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
+		allPreviousEntities= new HashMap<String, Integer>();
+		for(String e: prevEnt){
+			allPreviousEntities.put(e, 0);
+		}
 		
 		this.parse();
 				
 		this.syncClassHierarchy();
+		
+		this.deleteDepreciatedEntities();
 		
 		this.closeRedis();
 	}
@@ -104,9 +113,11 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			this.allFields.add(f);
 			
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
-						
-			String currentHashCode = StringProcessor.CreateBLAKE(f.toString());
+			if(allPreviousEntities.containsKey(fieldFqn)){
+				allPreviousEntities.put(fieldFqn, allPreviousEntities.get(fieldFqn) + 1);
+			}
 			
+			String currentHashCode = StringProcessor.CreateBLAKE(f.toString());
 			hashCodes.put(fieldFqn, currentHashCode);
 			
 			if(!rh.exists(Databases.TABLE_ID_ENTITY,fieldFqn)){
@@ -170,11 +181,13 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				for(int i=0;i<m.getArgumentTypes().length;i++)
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
-			
+				
+				if(allPreviousEntities.containsKey(methodFqn)){
+					allPreviousEntities.put(methodFqn, allPreviousEntities.get(methodFqn) + 1);
+				}
+				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
-				
 				hashCodes.put(methodFqn, currentHashCode);
-				
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
 								
 					logger.info(methodFqn+" didn't exist in db...added");
@@ -190,6 +203,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 										
 					if(!currentHashCode.equals(prevHashCode)){
 						
+						System.out.println(m.getCode().toString());
+						
 						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 								+ "class name: "+this.getEntityName());
 						this.setChanged(true);
@@ -203,6 +218,28 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			}
 		}	
 	}
+	
+	
+	private long deleteDepreciatedEntities(){
+		long count = 0;
+		for ( Map.Entry<String, Integer> entry : allPreviousEntities.entrySet()) {
+		    Integer val = entry.getValue();
+		    if(val == 0){
+		    	count++;
+		    	String key = entry.getKey();
+		    	this.rh.removeKey(Databases.TABLE_ID_ENTITY, key);
+		    	Set<String> allDependencies = this.rh.getSet
+		    			(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, key);
+		    	this.rh.removeKey(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, key);
+		    	for(String dep: allDependencies){
+		    		this.rh.removeFromSet(Databases.TABLE_ID_DEPENDENCY, dep, key);
+		    	}
+		    	logger.debug(key+ " is remomved from DB");
+		    }  
+		}
+		return count;
+	}
+	
 	
 	private void printMethod(Method m){
 		StringBuilder sb = new StringBuilder();		

@@ -81,7 +81,7 @@ public class DependencyExtractor1 {
 			
 			sb.insert(0,'*');
 			String pattern = sb.toString();
-			Set<String> keys = rh.getAllKeys(Databases.TABLE_ID_ENTITY, pattern);
+			Set<String> keys = rh.getAllKeysByPattern(Databases.TABLE_ID_ENTITY, pattern);
 			
 			if(CollectionUtils.isEmpty(keys))
 				return;

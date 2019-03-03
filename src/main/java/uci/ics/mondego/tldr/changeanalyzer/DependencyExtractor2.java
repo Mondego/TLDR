@@ -163,7 +163,7 @@ public class DependencyExtractor2 {
 		
 		List<String> toTest = new ArrayList<String>();
 
-		Set<String> entity = this.rh.getAllKeys(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
+		Set<String> entity = this.rh.getAllKeysByPattern(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
 		
 		for(String e: entity){
 			toTest.add(e.substring(1));

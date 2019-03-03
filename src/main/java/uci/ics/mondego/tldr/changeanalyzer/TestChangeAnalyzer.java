@@ -137,9 +137,9 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
-					logger.info(methodFqn+" didn't exist in db...added");
+					logger.debug(methodFqn+" didn't exist in db...added");
 					App.testToRun.put(methodFqn, true);
-					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
+					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);					
 					DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 				}
@@ -148,7 +148,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);					
 					if(!currentHashCode.equals(prevHashCode)){
 						App.testToRun.put(methodFqn, true);						
-						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
+						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);	
 						DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 					}
@@ -156,5 +156,4 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 			}
 		}		
 	}
-	
 }

@@ -144,7 +144,13 @@ public class RedisHandler{
 		return ret;
 	}
 	
-	public Set<String> getAllKeys(String tableId, String pattern){
+	public long removeKey(String tableId, String key){
+		String tableIdKey = tableId + key;
+		long ret = jedis.del(tableIdKey);
+		return ret;
+	}
+	
+	public Set<String> getAllKeysByPattern(String tableId, String pattern){
 		
 		String key = tableId+pattern;
 		Set<String> keys = jedis.keys(key);
