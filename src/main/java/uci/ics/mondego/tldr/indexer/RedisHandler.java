@@ -5,6 +5,7 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.exceptions.JedisDataException;
+import uci.ics.mondego.tldr.tool.Databases;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -118,17 +119,24 @@ public class RedisHandler{
 	    return ret;
 	}
 	
-	public void insertInSet(String tableId, String key, String value){
+	public long insertInSet(String tableId, String key, String value){
+		String tableIdKey = tableId+key;
+		long ret1 = jedis.sadd(tableIdKey, value);
+		long ret2 = 1;
 		
-		String k = tableId+key;
+		//INSERT IN FORWARD INDEX
+		if(tableId.equals(Databases.TABLE_ID_DEPENDENCY)){
+			String tableIdValue = Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY + value;
+			ret2 = jedis.sadd(tableIdValue, key);
+		}
 		
-		if(key.contains(".checkedCumulativeProbability"))
-			System.out.println(key+" ==== \n"+getSet(tableId, key));
-		
-		jedis.sadd(k, value);
-		
-		if(key.contains(".checkedCumulativeProbability"))
-			System.out.println(key+" ==== \n"+getSet(tableId, key));
+		return ret1 & ret2;
+	}
+	
+	public long removeFromSet(String tableId, String key, String value){
+		String tableIdKey = tableId + key;
+		long ret = jedis.srem(tableIdKey, value);		
+		return ret;
 	}
 	
 	public Set<String> getAllKeys(String tableId, String pattern){

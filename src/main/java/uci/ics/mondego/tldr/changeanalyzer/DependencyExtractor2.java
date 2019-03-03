@@ -3,12 +3,14 @@ package uci.ics.mondego.tldr.changeanalyzer;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.functors.AllPredicate;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -24,12 +26,21 @@ public class DependencyExtractor2 {
 	public static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	private final String dbId;
 	private List<String> fieldValueChanged;
+	private Map<String, Integer> previousDependencies;
 	
 	public DependencyExtractor2(Entry<String, Method> changedMethod) throws IOException {
 		this.changedMethod = changedMethod;
 		this.dbId = Databases.TABLE_ID_DEPENDENCY;
 		this.fieldValueChanged = new ArrayList<String>();
 		this.rh = new RedisHandler();
+		this.previousDependencies = new HashMap<String, Integer>();	
+		Set<String> prevDepInSet = rh.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
+				changedMethod.getKey());
+		
+		for(String dependency: prevDepInSet){
+			previousDependencies.put(dependency, 0);
+		}
+		
 		this.resolute();
 		rh.close();
 	}
@@ -39,12 +50,17 @@ public class DependencyExtractor2 {
 		this.dbId = Databases.TABLE_ID_TEST_DEPENDENCY;
 		this.fieldValueChanged = new ArrayList<String>();
 		this.rh = new RedisHandler();
+		this.previousDependencies = new HashMap<String, Integer>();	
+		Set<String> prevDepInSet = rh.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
+				changedMethod.getKey());
+		
+		for(String dependency: prevDepInSet){
+			previousDependencies.put(dependency, 0);
+		}
+		
 		this.resolute();
+		this.removeAllDepreciateDependency();
 		rh.close();
-	}
-	
-	public List<String> getFieldValueChanged(){
-		return fieldValueChanged;
 	}
 	
 	 public void resolute() throws IOException{
@@ -106,8 +122,30 @@ public class DependencyExtractor2 {
 		if(dependency.contains("hamcrest."))
 			return;		
 		
-		this.rh.insertInSet(this.dbId, dependency, dependents);
-		logger.info(dependents+ " has been updated as "+dependency+" 's dependent");
+		if(previousDependencies.containsKey(dependency)){
+			// we increase the hashmap value which is used later to remove depreciated dependencies
+			previousDependencies.put(dependency, previousDependencies.get(dependency) + 1);
+			return;
+		}
+		else{
+			this.rh.insertInSet(this.dbId, dependency, dependents);
+			logger.debug(dependents+ " has been updated as "+dependency+" 's dependent");
+		}
+	}
+	
+	private long removeAllDepreciateDependency(){
+		long count = 0;
+		for ( Map.Entry<String, Integer> entry : previousDependencies.entrySet()) {
+		    Integer val = entry.getValue();
+		    if(val == 0){
+		    	String key = entry.getKey();
+		    	count += this.rh.removeFromSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
+		    			changedMethod.getKey(), key);
+		    	this.rh.removeFromSet(Databases.TABLE_ID_DEPENDENCY, key, changedMethod.getKey());
+		    	logger.debug(changedMethod.getKey()+ " has been removed as "+key+" s dependency");
+		    }  
+		}
+		return count;
 	}
 	
 	protected List<String> traverseClassHierarchy(String claz, String pattern){
@@ -185,5 +223,9 @@ public class DependencyExtractor2 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public List<String> getFieldValueChanged(){
+		return fieldValueChanged;
 	}
 }

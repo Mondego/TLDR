@@ -103,11 +103,12 @@ public class App
 	       String print = getCommand();
 	       //System.out.println(print);
 
-	       //System.out.println(App.testToRun.size());
-	       //System.out.println(App.entityToTest.toString());
+	       System.out.println(App.testToRun.size());
+	       System.out.println(App.entityToTest.size());
+	       
 	       long endTime = System.nanoTime();	 
 	       
-	       //logExperiment(args[0], getCommand());       
+	       logExperiment(args[0], getCommand());       
        }
        
        catch( JedisConnectionException e){
@@ -165,11 +166,21 @@ public class App
     
     private static void logExperiment(String commit, String content){
     	
-    	PrintWriter writer;
+    	PrintWriter writer1;
+    	PrintWriter writer2;
 		try {
-			writer = new PrintWriter(commit+".txt", "UTF-8");
-			writer.println(content.replaceAll(",", "\n"));
-	    	writer.close();
+			writer1 = new PrintWriter("TEST_"+commit+"_.txt", "UTF-8");
+			writer2 = new PrintWriter("ENTITY_"+commit+"_.txt", "UTF-8");
+			writer1.println(content.replaceAll(",", "\n"));
+	    	writer1.close();
+	    	Set<Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
+	    	for(Entry<String, Boolean> e: allEntries){
+	    		writer2.println(e.getKey());
+	    	}
+	    	
+	    	writer2.close();
+	    	
+	    	
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

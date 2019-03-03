@@ -14,7 +14,7 @@ while read -r line; do
     cd $repo_dir
     git checkout $line --quiet
     mvn -q compile 
-    mvn -q test
+    mvn -q test-compile
     cd $proj_dir
     mvn -q compile exec:java -Dexec.args=$line
 
