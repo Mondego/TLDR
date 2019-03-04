@@ -49,7 +49,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
 		allPreviousEntities= new HashMap<String, Integer>();
 		for(String e: prevEnt){
-			allPreviousEntities.put(e, 0);
+			allPreviousEntities.put(e.substring(1), 0);
 		}
 		
 		this.parse();
@@ -190,7 +190,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				hashCodes.put(methodFqn, currentHashCode);
 				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
 								
-					logger.info(methodFqn+" didn't exist in db...added");
+					logger.debug(methodFqn+" didn't exist in db...added");
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
@@ -203,9 +203,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 										
 					if(!currentHashCode.equals(prevHashCode)){
 						
-						System.out.println(m.getCode().toString());
-						
-						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
+						//System.out.println(m.getCode().toString());
+						logger.debug(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 								+ "class name: "+this.getEntityName());
 						this.setChanged(true);
 						changedAttributes.add(methodFqn);

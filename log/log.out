@@ -1,4 +1,4 @@
 File /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/arguments/BoolArgumentType.class has changed
-com.mojang.brigadier.arguments.BoolArgumentType.listSuggestions($com.mojang.brigadier.context.CommandContext$com.mojang.brigadier.suggestion.SuggestionsBuilder) changed prev : 1e674c49fe8b43b517d52bfd856d487c23cc09ea  new: 57c2a7865d50a112217012a5b67a38fc026fa702 class name: /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/arguments/BoolArgumentType.class
 Interface of com.mojang.brigadier.arguments.BoolArgumentType is com.mojang.brigadier.arguments.ArgumentType
 Superclass of com.mojang.brigadier.arguments.BoolArgumentType : 
+com.mojang.brigadier.arguments.BoolArgumentType.foo() is remomved from DB
