@@ -1,4 +1,5 @@
 File /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/arguments/BoolArgumentType.class has changed
+com.mojang.brigadier.arguments.BoolArgumentType.foo1($com.mojang.brigadier.context.CommandContext$com.mojang.brigadier.suggestion.SuggestionsBuilder) changed prev : dcd1de0d2b73ae7f1573e1f9f4436ad6b937c831  new: 734af157898914c68d6881d1063f9cd7a34a3977 class name: /Users/demigorgan/brigadier/build/classes/java/main/com/mojang/brigadier/arguments/BoolArgumentType.class
 Interface of com.mojang.brigadier.arguments.BoolArgumentType is com.mojang.brigadier.arguments.ArgumentType
 Superclass of com.mojang.brigadier.arguments.BoolArgumentType : 
-com.mojang.brigadier.arguments.BoolArgumentType.foo() is remomved from DB
+com.mojang.brigadier.arguments.BoolArgumentType.foo1($com.mojang.brigadier.context.CommandContext$com.mojang.brigadier.suggestion.SuggestionsBuilder) has been removed as com.mojang.brigadier.suggestion.SuggestionsBuilder.buildFuture() s dependency  in 3
