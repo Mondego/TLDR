@@ -96,7 +96,7 @@ public class MethodParser {
 				allStaticDependency.add(processed);
 			}
 			
-			else if(processed != null && line.contains("invokespecial") && !allFinalDependency.contains(processed)){
+			else if(processed != null && line.contains("invokefinal") && !allFinalDependency.contains(processed)){
 				allFinalDependency.add(processed);
 			}
 			
