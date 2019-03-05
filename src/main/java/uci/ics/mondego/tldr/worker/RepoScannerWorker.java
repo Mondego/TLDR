@@ -72,7 +72,7 @@ public class RepoScannerWorker extends Worker{
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
 	                	ClassFile f = new ClassFile(fileAbsolutePath);
-	                	App.changedFiles.send(fileAbsolutePath);	                	
+	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);	                	
 	                }	                	         
 	            } 
 	            else if (file.isDirectory() && !file.getAbsolutePath().equals(App.TEST_DIR)) {

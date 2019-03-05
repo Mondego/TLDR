@@ -109,15 +109,42 @@ public class DependencyExtractor2 {
 			this.allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
 			this.allFieldDependency = parser.getAllFieldDependency();			
 			
-			this.fieldValueChanged.addAll(allStaticFieldUpdated);
+			for(String field: allStaticFieldUpdated){
+				if(!(field.contains("java.lang") || field.contains("java.util") || 
+						field.contains("java.io")|| field.contains("java.net") || 
+						field.contains("java.awt"))){
+					this.fieldValueChanged.add(field);
+				}
+				else if(field.contains("java/lang") || field.contains("java/util") || 
+						field.contains("java/io")|| field.contains("java/net") || 
+						field.contains("java/awt")){
+					this.fieldValueChanged.add(field);
+				}
+			}
 			
-			for(String dep: allOwnFieldUpdated){
+			for(String field: allOwnFieldUpdated){
+				if(!(field.contains("java.lang") || field.contains("java.util") || 
+						field.contains("java.io")|| field.contains("java.net") || 
+						field.contains("java.awt"))){
+					this.fieldValueChanged.add(field);
+				}
+				else if(field.contains("java/lang") || field.contains("java/util") || 
+						field.contains("java/io")|| field.contains("java/net") || 
+						field.contains("java/awt")){
+					this.fieldValueChanged.add(field);
+				}
+			}
+			
+			/*for(String dep: allOwnFieldUpdated){
 				String pkg = dep.substring(0,dep.lastIndexOf('.'));
 				if(pkg.equals(dependent.substring(0,dependent.lastIndexOf('.')))){
 					this.fieldValueChanged.add(dep);
 				}
 			}
-						
+			this.fieldValueChanged.addAll(allStaticFieldUpdated);
+			this.fieldValueChanged.addAll(allOwnFieldUpdated);
+			*/
+
 			for(String dep: allVirtualDependency){
 				this.syncAllPossibleDependency(dep, dependent);
 			}

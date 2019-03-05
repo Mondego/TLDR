@@ -44,7 +44,7 @@ public class FileChangeAnalyzerWorker extends Worker{
 			
 			fc = new FileChangeAnalyzer(fileToAnalyze);
 			if(fc.hasChanged()){ 	   
-		        App.changedEntities.send(fileToAnalyze);
+		        App.EntityChangeAnalysisPool.send(fileToAnalyze);
 			}
 			
 		} 

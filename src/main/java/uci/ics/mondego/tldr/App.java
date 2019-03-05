@@ -28,26 +28,18 @@ import uci.ics.mondego.tldr.worker.RepoScannerWorker;
 import uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker;
 import uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker;
 
-
-/**
- * Hello world!
- *
- */
 public class App 
 {
 	private static String CLASS_DIR;
 	public static String TEST_DIR;
 	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	
-    public static ThreadedChannel<String> changedFiles;
-    public static ThreadedChannel<String> changedEntities;
-    public static ThreadedChannel<String> allEntitiesToTest;
+    public static ThreadedChannel<String> FileChangeAnalysisPool;
+    public static ThreadedChannel<String> EntityChangeAnalysisPool;
     public static ThreadedChannel<HashMap<String, Method>> dependencyExtractor;
     public static ThreadedChannel<String> traverseDependencyGraph;
-    
     public static ThreadedChannel<String> changedTestFiles;
     public static ThreadedChannel<String> testParseAndIndex;
-    
     public static ThreadedChannel<String> entityToTestMap;
    
     public static ConcurrentHashMap<String, Boolean> entityToTest;
@@ -55,8 +47,8 @@ public class App
 
     public App(){
     	
-    	this.changedFiles = new ThreadedChannel<String>(8, FileChangeAnalyzerWorker.class);
-    	this.changedEntities = new ThreadedChannel<String>(8, ClassChangeAnalyzerWorker.class);
+    	this.FileChangeAnalysisPool = new ThreadedChannel<String>(8, FileChangeAnalyzerWorker.class);
+    	this.EntityChangeAnalysisPool = new ThreadedChannel<String>(8, ClassChangeAnalyzerWorker.class);
     	this.dependencyExtractor = new ThreadedChannel<HashMap<String, Method>>(8, DependencyExtractorWorker.class);
     	this.traverseDependencyGraph = new ThreadedChannel<String>(8,DFSTraversalWorker.class);
     	
@@ -83,8 +75,8 @@ public class App
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
     	   runnable.scanClassFiles(CLASS_DIR);
 
-    	   App.changedFiles.shutdown();
-	       App.changedEntities.shutdown();
+    	   App.FileChangeAnalysisPool.shutdown();
+	       App.EntityChangeAnalysisPool.shutdown();
 	       App.dependencyExtractor.shutdown();
 	       App.traverseDependencyGraph.shutdown();
 	       
