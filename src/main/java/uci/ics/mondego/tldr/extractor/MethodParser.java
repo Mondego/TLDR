@@ -1,7 +1,10 @@
 package uci.ics.mondego.tldr.extractor;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import org.apache.bcel.classfile.Method;
 
 import uci.ics.mondego.tldr.App;
@@ -12,37 +15,35 @@ import uci.ics.mondego.tldr.tool.StringProcessor;
 public class MethodParser {
 
 	private final Method method;
-	private List<String> allInternalDependency;
-	private List<String> allExternalDependency;
-	
-	private List<String> allStaticDependency;
-	private List<String> allFinalDependency;
-	private List<String> allVirtualDependency;
-	private List<String> allInterfaceDependency;
-	private List<String> allStaticFieldUpdated;
-	private List<String> allOwnFieldUpdated;
-	private List<String> allSpecialDependency;
-	
+	private Set<String> allInternalDependency;
+	private Set<String> allExternalDependency;
+	private Set<String> allStaticDependency;
+	private Set<String> allFinalDependency;
+	private Set<String> allVirtualDependency;
+	private Set<String> allInterfaceDependency;
+	private Set<String> allStaticFieldUpdated;
+	private Set<String> allOwnFieldUpdated;
+	private Set<String> allSpecialDependency;
+	private Set<String> allFieldDependency;
 	
 	@SuppressWarnings("")
 	public MethodParser(Method m){
 		this.method = m;
-		this.allInternalDependency = new ArrayList<String>();
-		this.allExternalDependency = new ArrayList<String>();
-		
-		this.allStaticDependency = new ArrayList<String>();
-		this.allFinalDependency = new ArrayList<String>();
-		this.allVirtualDependency = new ArrayList<String>();
-		this.allInterfaceDependency = new ArrayList<String>();
-		this.allSpecialDependency = new ArrayList<String>();
-		this.allStaticFieldUpdated = new ArrayList<String>();
-		this.allOwnFieldUpdated = new ArrayList<String>();
+		this.allInternalDependency = new HashSet<String>();
+		this.allExternalDependency = new HashSet<String>();
+		this.allStaticDependency = new HashSet<String>();
+		this.allFinalDependency = new HashSet<String>();
+		this.allVirtualDependency = new HashSet<String>();
+		this.allInterfaceDependency = new HashSet<String>();
+		this.allSpecialDependency = new HashSet<String>();
+		this.allStaticFieldUpdated = new HashSet<String>();
+		this.allOwnFieldUpdated = new HashSet<String>();
+		this.allFieldDependency = new HashSet<String>();
 		
 		try {
 			parse();
 		} catch (EmptyByteCodeException e) {
-			// TODO Auto-generated catch block
-			
+			e.printStackTrace();
 		}
 	}
 	
@@ -59,30 +60,33 @@ public class MethodParser {
 			String processed = null;
 			String[] parts = line.split("\\s+");
 			
+			/**** line format it 
+			 * <LINE NUMBER>: <SPACE> <COMMAND> <SPACE> <FIELD/METHOD NAME> <SPACE> <PARAMETERS> <SPACE> <OTHER>
+			 */
 			if(line.contains("invokevirtual") ||	
 			   line.contains("invokeinterface") || 
 			   line.contains("invokestatic") ||
 			   line.contains("invokespecial") ||
-			   //line.contains("anewarray")  ||
+			   line.contains("invokefinal")  ||
 			   line.contains("invokedynamic")){
-				//System.out.println(line);
-				processed = parts[2]+parseMethodParameters(parts[3]);	
-				if(parts[3].equals("3") || parts[3].equals("2"))
-					System.out.println("Pain in the ASS: "+parts[1]+"  "+parts[2]+"   "+parts[3]);
+				
+				// sometime we see anomaly in bytecode -- '<LINE NUMBER>:' and <COMMAND> are together
+				if(parts[0].indexOf(":") < (parts[0].length() - 1))   
+					processed = parts[1] + parseMethodParameters(parts[2]);
+				// in regular case
+				else
+					processed = parts[2]+parseMethodParameters(parts[3]);	
 			}
 			
 			// field
 			else if(line.contains("getfield") ||
-				    line.contains("getstatic")){
-				processed = parts[2];
-			}
-			
-			else if(line.contains("putstatic")){
-				allStaticFieldUpdated.add(parts[2]);
-			}
-			
-			else if(line.contains("putfield")){
-				allOwnFieldUpdated.add(parts[2]);
+				    line.contains("getstatic") || 
+				    line.contains("putstatic") || 
+				    line.contains("putfield")){
+				if(parts[0].indexOf(":") < (parts[0].length() - 1))  
+					processed = parts[1];
+				else
+					processed = parts[2];
 			}
 			
 			else if(line.contains("checkcast")){
@@ -91,33 +95,36 @@ public class MethodParser {
 				processed = processed+".<init>(*)";
 			}
 			
-			
-			if(processed != null && line.contains("invokestatic") && !allStaticDependency.contains(processed)){
+			if(processed != null && line.contains("invokestatic")){
 				allStaticDependency.add(processed);
 			}
 			
-			else if(processed != null && line.contains("invokefinal") && !allFinalDependency.contains(processed)){
+			else if(processed != null && line.contains("invokefinal")){
 				allFinalDependency.add(processed);
 			}
 			
-			else if(processed != null && line.contains("invokevirtual") && !allVirtualDependency.contains(processed)){
+			else if(processed != null && line.contains("invokevirtual")){
 				allVirtualDependency.add(processed);
 			}
 			
-			else if(processed != null && line.contains("invokeinterface") && !allInterfaceDependency.contains(processed)){
+			else if(processed != null && line.contains("invokeinterface")){
 				allInterfaceDependency.add(processed);
 			}
 			
-			else if(processed != null && line.contains("invokespecial") && !allSpecialDependency.contains(processed)){
+			else if(processed != null && line.contains("invokespecial")){			
 				allSpecialDependency.add(processed);
 			}
-				
-			if(processed != null && (processed.contains("java.") && !allExternalDependency.contains(processed))){
-				allExternalDependency.add(processed);
+			
+			else if(processed != null && (line.contains("getfield")  || line.contains("getstatic"))){
+				allFieldDependency.add(processed);
 			}
 			
-			else if(processed != null && !allInternalDependency.contains(processed)){
-				allInternalDependency.add(processed);
+			else if(processed != null && line.contains("putfield")){
+				allOwnFieldUpdated.add(processed);
+			}
+			
+			else if(processed != null && line.contains("putstatic")){
+				allStaticFieldUpdated.add(processed);
 			}
 		}
 	}
@@ -152,74 +159,84 @@ public class MethodParser {
 		}
 		catch(StringIndexOutOfBoundsException e){
 			e.printStackTrace();
-			System.out.println(signature+"=========="+e.getMessage());			
 		}
+		
 		return null;
 	}
 	
-	public List<String> getAllInternalDependencies(){
+	public Set<String> getAllInternalDependencies(){
 		return allInternalDependency;
 	}
 	
-	public List<String> getAllExternalDependencies(){
+	public Set<String> getAllExternalDependencies(){
 		return allExternalDependency;
 	}
 	
-	public List<String> getAllInternalDependency() {
+	public Set<String> getAllInternalDependency() {
 		return allInternalDependency;
 	}
 
-	public List<String> getAllExternalDependency() {
+	public Set<String> getAllExternalDependency() {
 		return allExternalDependency;
 	}
 
-	public List<String> getAllStaticDependency() {
+	public Set<String> getAllStaticDependency() {
 		return allStaticDependency;
 	}
 
-	public List<String> getAllFinalDependency() {
+	public Set<String> getAllFinalDependency() {
 		return allFinalDependency;
 	}
 	
-	public List<String> getAllSpecialDependency() {
+	public Set<String> getAllSpecialDependency() {
 		return allSpecialDependency;
 	}
 
-	public List<String> getAllVirtualDependency() {
+	public Set<String> getAllVirtualDependency() {
 		return allVirtualDependency;
 	}
 	
-	public List<String> getAllInterfaceDependency() {
+	public Set<String> getAllInterfaceDependency() {
 		return allInterfaceDependency;
 	}
 	
-	public List<String> getAllStaticFieldUpdated() {
+	public Set<String> getAllStaticFieldUpdated() {
 		return allStaticFieldUpdated;
 	}
 
-	public List<String> getAllOwnFieldUpdated() {
+	public Set<String> getAllOwnFieldUpdated() {
 		return allOwnFieldUpdated;
+	}
+	
+	public Set<String> getAllFieldDependency() {
+		return allFieldDependency;
 	}
 	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("\nALL VIRTUAL DEPENDENCY :  \n");
-		for(int i=0;i<allVirtualDependency.size();i++){
-			sb.append(allVirtualDependency.get(i)+" , ");
+		for(String str: allVirtualDependency){
+			sb.append(str+" , ");
 		}
-		sb.append("\nALL Interface DEPENDENCY :  \n");
-		for(int i=0;i<allInterfaceDependency.size();i++){
-			sb.append(allInterfaceDependency.get(i)+" , ");
+		sb.append("\nALL INTERFACE DEPENDENCY :  \n");
+		for(String str: allInterfaceDependency){
+			sb.append(str+" , ");
 		}
-		
-		sb.append("\nALL Final DEPENDENCY :  \n");
-		for(int i=0;i<allFinalDependency.size();i++){
-			sb.append(allFinalDependency.get(i)+" , ");
+		sb.append("\nALL FINAL DEPENDENCY :  \n");
+		for(String str: allFinalDependency){
+			sb.append(str+" , ");
 		}
-		
-		sb.append("\nALL Static DEPENDENCY :  \n");
-		for(int i=0;i<allStaticDependency.size();i++){
-			sb.append(allStaticDependency.get(i)+" , ");
+		sb.append("\nALL STATIC DEPENDENCY :  \n");
+		for(String str: allStaticDependency){
+			sb.append(str+" , ");
+		}
+		sb.append("\nALL SPECIAL DEPENDENCY :  \n");
+		for(String str: allSpecialDependency){
+			sb.append(str+" , ");
+		}
+		sb.append("\nALL FIELD DEPENDENCY :  \n");
+		for(String str: allFieldDependency){
+			sb.append(str+" , ");
 		}
 		return sb.toString();
 	}

@@ -63,10 +63,10 @@ public class DependencyExtractorWorker extends Worker{
 		Set<Map.Entry<String, Method>> allEntries = changedMethod.entrySet();
 		for(Map.Entry<String, Method> entry: allEntries){
 			DependencyExtractor2 dep = new DependencyExtractor2(entry);
-			List<String> fieldsChanged = dep.getFieldValueChanged();
+			Set<String> fieldsChanged = dep.getFieldValueChanged();
 			App.traverseDependencyGraph.send(entry.getKey());
-			for(int i=0;i<fieldsChanged.size();i++){
-				App.traverseDependencyGraph.send(fieldsChanged.get(i));
+			for(String field: fieldsChanged){
+				App.traverseDependencyGraph.send(field);
 			}
 		}
 	}

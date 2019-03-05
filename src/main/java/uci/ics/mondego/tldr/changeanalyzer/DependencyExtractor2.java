@@ -4,6 +4,7 @@ package uci.ics.mondego.tldr.changeanalyzer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -25,16 +26,33 @@ public class DependencyExtractor2 {
 	protected final RedisHandler rh;
 	public static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	private final String dbId;
-	private List<String> fieldValueChanged;
+	private Set<String> fieldValueChanged;
 	private Map<String, Integer> previousDependencies;
 	private boolean flag;
+	private Set<String> allVirtualDependency;
+	private Set<String> allInterfaceDependency;
+	private Set<String> allStaticDependency;
+	private Set<String> allFinalDependency;
+	private Set<String> allSpecialDependency;
+	private Set<String> allStaticFieldUpdated;
+	private Set<String> allOwnFieldUpdated;
+	private Set<String> allFieldDependency;
 	
 	public DependencyExtractor2(Entry<String, Method> changedMethod) throws IOException {
 		this.changedMethod = changedMethod;
 		this.flag = false;
 		this.dbId = Databases.TABLE_ID_DEPENDENCY;
-		this.fieldValueChanged = new ArrayList<String>();
+		this.fieldValueChanged = new HashSet<String>();
 		this.rh = new RedisHandler();
+		this.allVirtualDependency = new HashSet<String>();
+		this.allInterfaceDependency = new HashSet<String>();
+		this.allStaticDependency = new HashSet<String>();
+		this.allFinalDependency = new HashSet<String>();
+		this.allSpecialDependency = new HashSet<String>();
+		this.allStaticFieldUpdated = new HashSet<String>();
+		this.allOwnFieldUpdated = new HashSet<String>();
+		this.allFieldDependency = new HashSet<String>();
+		
 		this.previousDependencies = new HashMap<String, Integer>();	
 		Set<String> prevDepInSet = rh.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
 				changedMethod.getKey());
@@ -52,10 +70,18 @@ public class DependencyExtractor2 {
 		this.changedMethod = changedMethod;
 		this.flag = flag;
 		this.dbId = Databases.TABLE_ID_TEST_DEPENDENCY;
-		this.fieldValueChanged = new ArrayList<String>();
+		this.fieldValueChanged = new HashSet<String>();
 		this.rh = new RedisHandler();
 		this.previousDependencies = new HashMap<String, Integer>();	
-
+		this.allVirtualDependency = new HashSet<String>();
+		this.allInterfaceDependency = new HashSet<String>();
+		this.allStaticDependency = new HashSet<String>();
+		this.allFinalDependency = new HashSet<String>();
+		this.allSpecialDependency = new HashSet<String>();
+		this.allStaticFieldUpdated = new HashSet<String>();
+		this.allOwnFieldUpdated = new HashSet<String>();
+		this.allFieldDependency = new HashSet<String>();
+		
 		Set<String> prevDepInSet = rh.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
 				changedMethod.getKey());
 		
@@ -74,41 +100,46 @@ public class DependencyExtractor2 {
 			Method m = changedMethod.getValue();
 						
 			MethodParser parser = new MethodParser(m);
-			List<String> allVirtualDependency = parser.getAllVirtualDependency();
-			List<String> allInterfaceDependency = parser.getAllInterfaceDependency();
-			List<String> allStaticDependency = parser.getAllStaticDependency();
-			List<String> allFinalDependency = parser.getAllFinalDependency();
-			List<String> allSpecialDependency = parser.getAllSpecialDependency();
-			List<String> allStaticFieldUpdated = parser.getAllStaticFieldUpdated();
-			List<String> allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
-						
+			this.allVirtualDependency = parser.getAllVirtualDependency();
+			this.allInterfaceDependency = parser.getAllInterfaceDependency();
+			this.allStaticDependency = parser.getAllStaticDependency();
+			this.allFinalDependency = parser.getAllFinalDependency();
+			this.allSpecialDependency = parser.getAllSpecialDependency();
+			this.allStaticFieldUpdated = parser.getAllStaticFieldUpdated();
+			this.allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
+			this.allFieldDependency = parser.getAllFieldDependency();			
 			
 			this.fieldValueChanged.addAll(allStaticFieldUpdated);
-			for(int i=0;i<allOwnFieldUpdated.size();i++){
-				String pkg = allOwnFieldUpdated.get(i).substring(0,allOwnFieldUpdated.get(i).lastIndexOf('.'));
+			
+			for(String dep: allOwnFieldUpdated){
+				String pkg = dep.substring(0,dep.lastIndexOf('.'));
 				if(pkg.equals(dependent.substring(0,dependent.lastIndexOf('.')))){
-					this.fieldValueChanged.add(allOwnFieldUpdated.get(i));
+					this.fieldValueChanged.add(dep);
 				}
 			}
 						
-			for(int i = 0 ;i<allVirtualDependency.size();i++){
-				this.syncAllPossibleDependency(allVirtualDependency.get(i), dependent);
+			for(String dep: allVirtualDependency){
+				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
-			for(int i = 0;i<allInterfaceDependency.size();i++){
-				this.syncAllPossibleDependency(allInterfaceDependency.get(i), dependent);
+			for(String dep: allInterfaceDependency){
+				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
-			for(int i = 0;i<allStaticDependency.size();i++){
-				this.syncSingleDependency(allStaticDependency.get(i), dependent);
+			for(String dep: allStaticDependency){
+				this.syncSingleDependency(dep, dependent);
 			}
 			
-			for(int i = 0;i<allFinalDependency.size();i++){
-				this.syncSingleDependency(allFinalDependency.get(i), dependent);
+			for(String dep: allFinalDependency){
+				this.syncSingleDependency(dep, dependent);
 			}
 			
-			for(int i= 0; i<allSpecialDependency.size();i++){
-				this.syncSingleDependency(allSpecialDependency.get(i), dependent);
+			for(String dep: allSpecialDependency){
+				this.syncSingleDependency(dep, dependent);
+			}
+			
+			for(String dep: allFieldDependency){
+				this.syncSingleDependency(dep, dependent);
 			}
 	}
 	
@@ -183,6 +214,11 @@ public class DependencyExtractor2 {
 	protected void syncAllPossibleDependency(String dependency, String dependents){
 		
 		// JDK DEPENDENCY IGNORED
+		if(dependency.contains("java.lang") || dependency.contains("java.util") || 
+				dependency.contains("java.io")|| dependency.contains("java.net") || 
+				dependency.contains("java.awt"))
+			return;
+		
 		if(dependency.contains("java/lang") || dependency.contains("java/util") || 
 				dependency.contains("java/io")|| dependency.contains("java/net") || 
 				dependency.contains("java/awt"))
@@ -236,7 +272,7 @@ public class DependencyExtractor2 {
 		}
 	}
 	
-	public List<String> getFieldValueChanged(){
+	public Set<String> getFieldValueChanged(){
 		return fieldValueChanged;
 	}
 }

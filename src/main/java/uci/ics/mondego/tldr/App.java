@@ -75,10 +75,10 @@ public class App
        try{
 	       App executorInstance = new App();
     	   
-    	   //CLASS_DIR = "/Users/demigorgan/Desktop/commons-math";
-    	   //TEST_DIR = "/Users/demigorgan/Desktop/commons-math/target/test-classes";
-	       CLASS_DIR = "/Users/demigorgan/brigadier";
-	       TEST_DIR = "/Users/demigorgan/brigadier/build/classes/java/test";
+    	   CLASS_DIR = "/Users/demigorgan/Desktop/commons-math";
+    	   TEST_DIR = "/Users/demigorgan/Desktop/commons-math/target/test-classes";
+	       //CLASS_DIR = "/Users/demigorgan/brigadier";
+	       //TEST_DIR = "/Users/demigorgan/brigadier/build/classes/java/test";
 	       	       
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
     	   runnable.scanClassFiles(CLASS_DIR);

@@ -120,7 +120,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			String currentHashCode = StringProcessor.CreateBLAKE(f.toString());
 			hashCodes.put(fieldFqn, currentHashCode);
 			
-			if(!rh.exists(Databases.TABLE_ID_ENTITY,fieldFqn)){
+			//if(!rh.exists(Databases.TABLE_ID_ENTITY,fieldFqn)){
+			if(!this.allPreviousEntities.containsKey(fieldFqn)){
 				logger.info(fieldFqn+" didn't exist in db...added");
 				this.setChanged(true);
 				changedAttributes.add(fieldFqn);
@@ -128,6 +129,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
 				App.entityToTest.put(fieldFqn, true);
 			}
+			
 			else{
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
 				currentHashCode = StringProcessor.CreateBLAKE(f.toString());
@@ -188,8 +190,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				hashCodes.put(methodFqn, currentHashCode);
-				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
-								
+				//if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
+				if(!this.allPreviousEntities.containsKey(methodFqn)){				
 					logger.debug(methodFqn+" didn't exist in db...added");
 					this.setChanged(true);
 					changedAttributes.add(methodFqn);
