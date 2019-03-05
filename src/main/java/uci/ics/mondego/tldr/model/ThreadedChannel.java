@@ -6,11 +6,8 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import uci.ics.mondego.tldr.worker.Worker;
 
 public class ThreadedChannel<E> {
 

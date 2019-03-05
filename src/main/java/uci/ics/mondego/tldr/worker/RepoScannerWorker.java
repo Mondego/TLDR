@@ -2,12 +2,8 @@ package uci.ics.mondego.tldr.worker;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
-
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.model.ClassFile;
-import uci.ics.mondego.tldr.model.SourceFile;
 
 public class RepoScannerWorker extends Worker{
 

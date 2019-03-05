@@ -62,41 +62,9 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	
 	protected void parse() throws IOException{
 		
-		/*Field [] allFields = parsedClass.getFields();
-		
-		for(Field f: allFields){
-			this.allFields.add(f);
-			
-			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
-			
-			String currentHashCode =  StringProcessor.CreateBLAKE(f.toString());
-			
-			hashCodes.put(fieldFqn, currentHashCode);
-			
-			if(!rh.exists(Databases.TABLE_ID_ENTITY,fieldFqn)){
-				logger.info(fieldFqn+" didn't exist in db...added");
-				this.setChanged(true);
-				changedAttributes.add(fieldFqn);
-				this.allChangedFields.add(f);
-				this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
-			}
-			else{
-				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
-				currentHashCode = StringProcessor.CreateBLAKE(f.toString());
-				if(!currentHashCode.equals(prevHashCode)){
-					logger.info(fieldFqn+" changed");
-					this.setChanged(true);
-					changedAttributes.add(fieldFqn);
-					this.allChangedFields.add(f);
-					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
-				}
-			}
-		}*/
-		
 		Method [] allMethods= parsedClass.getMethods();
-		
 		for(Method m: allMethods){
-			
+						
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
 			m.getModifiers() == AccessCodes.FINAL ||
 			m.getModifiers() == AccessCodes.INTERFACE || 
@@ -132,7 +100,6 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				for(int i=0;i<m.getArgumentTypes().length;i++)
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
-					
 				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				

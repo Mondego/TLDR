@@ -2,7 +2,6 @@ package uci.ics.mondego.tldr.worker;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
-
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.map.EntityToTestMap;
 

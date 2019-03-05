@@ -1,16 +1,10 @@
 package uci.ics.mondego.tldr.extractor;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
 import org.apache.bcel.classfile.Method;
-
-import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.exception.EmptyByteCodeException;
 import uci.ics.mondego.tldr.tool.StringProcessor;
-
 
 public class MethodParser {
 

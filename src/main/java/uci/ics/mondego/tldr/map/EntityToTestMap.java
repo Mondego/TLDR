@@ -1,7 +1,6 @@
 package uci.ics.mondego.tldr.map;
 
 import java.util.Set;
-
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.Databases;
 

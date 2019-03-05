@@ -132,7 +132,6 @@ public class RepoScanner {
 		
 		return printLog.toString();
 	}
-
 }
 
 
