@@ -3,6 +3,8 @@ package uci.ics.mondego.tldr.extractor;
 import java.util.HashSet;
 import java.util.Set;
 import org.apache.bcel.classfile.Method;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.exception.EmptyByteCodeException;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
@@ -19,6 +21,7 @@ public class MethodParser {
 	private Set<String> allOwnFieldUpdated;
 	private Set<String> allSpecialDependency;
 	private Set<String> allFieldDependency;
+	public static final Logger logger = LogManager.getLogger(MethodParser.class);
 	
 	@SuppressWarnings("")
 	public MethodParser(Method m){
@@ -37,13 +40,16 @@ public class MethodParser {
 		try {
 			parse();
 		} catch (EmptyByteCodeException e) {
-			e.printStackTrace();
+			logger.error(method.getName()+" is Abstract/Interface/Annotation... Skipping parsing");
 		}
 	}
 	
 	private void parse() throws EmptyByteCodeException{
 		
-		if(method.getCode() == null || method.getCode().toString() == null || method.getCode().toString().length() == 0){
+		if(method.getCode() == null || method.getCode().toString() == null ||
+		   method.getCode().toString().length() == 0 || method.isAbstract() 
+		   || method.isInterface() || method.isAnnotation()){
+			
 			throw new EmptyByteCodeException(method.getName());
 		}
 		

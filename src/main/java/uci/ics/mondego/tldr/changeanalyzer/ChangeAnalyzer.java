@@ -13,7 +13,7 @@ public abstract class ChangeAnalyzer {
 	 * 				ENTITY - LIST OF DEPENDENTS ---- 3
 	 */
 
-	protected static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+	protected static final Logger logger = LogManager.getLogger(ChangeAnalyzer.class);
 	private final String entityName;
 	private boolean changed;
 	private boolean isSynced;
