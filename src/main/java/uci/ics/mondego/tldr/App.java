@@ -67,7 +67,8 @@ public class App
     	   
     	   CLASS_DIR = "/Users/demigorgan/Desktop/commons-math";
     	   TEST_DIR = "/Users/demigorgan/Desktop/commons-math/target/test-classes";
-	       //CLASS_DIR = "/Users/demigorgan/brigadier";
+	      
+    	   //CLASS_DIR = "/Users/demigorgan/brigadier";
 	       //TEST_DIR = "/Users/demigorgan/brigadier/build/classes/java/test";
 	       	       
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
@@ -92,17 +93,16 @@ public class App
 	       App.EntityToTestMapPool.shutdown();
 	    	
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
-	       //String print = getCommand();
-	       //System.out.println(print);
+	       String print = getCommand();
+	       System.out.println(print);
 
-	       System.out.println(App.testToRun.size());
-	       System.out.println(App.entityToTest.size());
-	       
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
 	       double elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
-	       System.out.println("TOTAL TIME: "+ elapsedTimeInSecond);     
-	       //logExperiment(args[0], getCommand());       
+	       //System.out.println("TOTAL TIME: "+ elapsedTimeInSecond);     
+	       //logExperiment(args[0], getCommand());     
+	       //System.out.println(App.testToRun.size());
+	       //System.out.println(App.entityToTest.size());
        }
        
        catch( JedisConnectionException e){

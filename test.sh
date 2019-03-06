@@ -1,9 +1,10 @@
 #!/bin/sh
 
-CLASS_DIR=/Users/demigorgan/Desktop/Ekstazi_dataset/commons-jxpath-trunk/
+repo_dir=/Users/demigorgan/Desktop/commons-math
 
-output=$(mvn -q exec:java -Dexec.mainClass=uci.ics.mondego.tldr.App)
-cd $CLASS_DIR
+output=$(mvn -q compile exec:java -Dexec.args=$line)
+
+cd $repo_dir
 
 if [[ ! -z "${output// }" ]]; then
 	mvn test -Dtest=$output

@@ -30,12 +30,10 @@
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/changeanalyzer/FileChangeAnalyzer.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/changeanalyzer/ChangeAnalyzer.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/worker/FileChangeAnalyzerWorker.java
-/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/testindexed/package-info.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/package-info.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/Entities.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/worker/Worker.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/changeanalyzer/ClassChangeAnalyzer.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/changeanalyzer/DependencyExtractor2.java
-/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/testindexed/TestAnalyzer.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/StringProcessor.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/TestClassFile.java
