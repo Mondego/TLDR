@@ -39,7 +39,8 @@ public class MethodParser {
 		
 		try {
 			parse();
-		} catch (EmptyByteCodeException e) {
+		} 
+		catch (EmptyByteCodeException e) {
 			logger.error(method.getName()+" is Abstract/Interface/Annotation... Skipping parsing");
 		}
 	}
@@ -83,15 +84,20 @@ public class MethodParser {
 				    line.contains("getstatic") || 
 				    line.contains("putstatic") || 
 				    line.contains("putfield")){
+				
 				if(parts[0].indexOf(":") < (parts[0].length() - 1))  
 					processed = parts[1];
 				else
 					processed = parts[2];
 			}
-			
+			///// CHECK CAREFULLY
 			else if(line.contains("checkcast")){
 				// because a checkcast instruction looks like --- 51:   checkcast		<com.mojang.brigadier.tree.CommandNode> (64)
-				processed = parts[2].substring(1, parts[2].length() - 1);
+				if(parts[0].indexOf(":") < (parts[0].length() - 1))
+					processed = parts[1].substring(1, parts[1].length() - 1);
+				else
+					processed = parts[2].substring(1, parts[2].length() - 1);
+				
 				processed = processed+".<init>(*)";
 			}
 			

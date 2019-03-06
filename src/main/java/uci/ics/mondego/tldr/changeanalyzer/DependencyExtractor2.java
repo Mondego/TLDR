@@ -1,6 +1,5 @@
 package uci.ics.mondego.tldr.changeanalyzer;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,10 +10,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.functors.AllPredicate;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
 import uci.ics.mondego.tldr.exception.UnknownDBIdException;
 import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
@@ -23,27 +20,27 @@ import uci.ics.mondego.tldr.tool.Databases;
 public class DependencyExtractor2 {
 
 	protected final Entry<String, Method> changedMethod;
-	protected final RedisHandler rh;
-	public static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+	protected final RedisHandler database;
+	public static final Logger logger = LogManager.getLogger(DependencyExtractor2.class);
 	private final String dbId;
 	private Set<String> fieldValueChanged;
 	private Map<String, Integer> previousDependencies;
-	private boolean flag;
+	private final boolean flag;
 	private Set<String> allVirtualDependency;
 	private Set<String> allInterfaceDependency;
 	private Set<String> allStaticDependency;
 	private Set<String> allFinalDependency;
 	private Set<String> allSpecialDependency;
+	private Set<String> allFieldDependency;
 	private Set<String> allStaticFieldUpdated;
 	private Set<String> allOwnFieldUpdated;
-	private Set<String> allFieldDependency;
 	
 	public DependencyExtractor2(Entry<String, Method> changedMethod) throws IOException {
 		this.changedMethod = changedMethod;
 		this.flag = false;
 		this.dbId = Databases.TABLE_ID_DEPENDENCY;
+		this.database = new RedisHandler();
 		this.fieldValueChanged = new HashSet<String>();
-		this.rh = new RedisHandler();
 		this.allVirtualDependency = new HashSet<String>();
 		this.allInterfaceDependency = new HashSet<String>();
 		this.allStaticDependency = new HashSet<String>();
@@ -54,7 +51,7 @@ public class DependencyExtractor2 {
 		this.allFieldDependency = new HashSet<String>();
 		
 		this.previousDependencies = new HashMap<String, Integer>();	
-		Set<String> prevDepInSet = rh.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
+		Set<String> prevDepInSet = database.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
 				changedMethod.getKey());
 		
 		for(String dependency: prevDepInSet){
@@ -63,7 +60,7 @@ public class DependencyExtractor2 {
 		
 		this.resolute();
 		this.removeAllDepreciateDependency();
-		rh.close();
+		database.close();
 	}
 	
 	public DependencyExtractor2(Entry<String, Method> changedMethod, boolean flag) throws IOException{
@@ -71,7 +68,7 @@ public class DependencyExtractor2 {
 		this.flag = flag;
 		this.dbId = Databases.TABLE_ID_TEST_DEPENDENCY;
 		this.fieldValueChanged = new HashSet<String>();
-		this.rh = new RedisHandler();
+		this.database = new RedisHandler();
 		this.previousDependencies = new HashMap<String, Integer>();	
 		this.allVirtualDependency = new HashSet<String>();
 		this.allInterfaceDependency = new HashSet<String>();
@@ -82,7 +79,7 @@ public class DependencyExtractor2 {
 		this.allOwnFieldUpdated = new HashSet<String>();
 		this.allFieldDependency = new HashSet<String>();
 		
-		Set<String> prevDepInSet = rh.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
+		Set<String> prevDepInSet = database.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
 				changedMethod.getKey());
 		
 		for(String dependency: prevDepInSet){
@@ -91,7 +88,7 @@ public class DependencyExtractor2 {
 		
 		this.resolute();
 		this.removeAllDepreciateDependency();
-		rh.close();
+		database.close();
 	}
 	
 	 public void resolute() throws IOException{
@@ -115,9 +112,9 @@ public class DependencyExtractor2 {
 						field.contains("java.awt"))){
 					this.fieldValueChanged.add(field);
 				}
-				else if(field.contains("java/lang") || field.contains("java/util") || 
+				else if(!(field.contains("java/lang") || field.contains("java/util") || 
 						field.contains("java/io")|| field.contains("java/net") || 
-						field.contains("java/awt")){
+						field.contains("java/awt"))){
 					this.fieldValueChanged.add(field);
 				}
 			}
@@ -128,9 +125,9 @@ public class DependencyExtractor2 {
 						field.contains("java.awt"))){
 					this.fieldValueChanged.add(field);
 				}
-				else if(field.contains("java/lang") || field.contains("java/util") || 
+				else if(!(field.contains("java/lang") || field.contains("java/util") || 
 						field.contains("java/io")|| field.contains("java/net") || 
-						field.contains("java/awt")){
+						field.contains("java/awt"))){
 					this.fieldValueChanged.add(field);
 				}
 			}
@@ -191,7 +188,7 @@ public class DependencyExtractor2 {
 			return;
 		}
 		else{
-			this.rh.insertInSet(this.dbId, dependency, dependents);
+			this.database.insertInSet(this.dbId, dependency, dependents);
 			logger.debug(dependents+ " has been updated as "+dependency+" 's dependent in "+this.dbId);
 		}
 	}
@@ -203,11 +200,11 @@ public class DependencyExtractor2 {
 		    if(val == 0){
 		    	String key = entry.getKey();
 		    	
-		    	count += this.rh.removeFromSet( !flag ? Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY : 
+		    	count += this.database.removeFromSet( !flag ? Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY : 
 		    		Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
 		    		changedMethod.getKey(), key);
 		    	
-		    	this.rh.removeFromSet(!flag ? Databases.TABLE_ID_DEPENDENCY: Databases.TABLE_ID_TEST_DEPENDENCY, 
+		    	this.database.removeFromSet(!flag ? Databases.TABLE_ID_DEPENDENCY: Databases.TABLE_ID_TEST_DEPENDENCY, 
 		    			key, changedMethod.getKey());
 		    	
 		    	logger.debug(changedMethod.getKey()+ " has been removed as "+key+" s dependency  in "+
@@ -221,12 +218,12 @@ public class DependencyExtractor2 {
 		
 		List<String> toTest = new ArrayList<String>();
 
-		Set<String> entity = this.rh.getAllKeysByPattern(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
+		Set<String> entity = this.database.getAllKeysByPattern(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
 		
 		for(String e: entity){
 			toTest.add(e.substring(1));
 		}		
-		Set<String> allSubclass = this.rh.getSet(Databases.TABLE_ID_SUBCLASS, claz);
+		Set<String> allSubclass = this.database.getSet(Databases.TABLE_ID_SUBCLASS, claz);
 		
 		for(String sub: allSubclass){
 			List<String> t = traverseClassHierarchy(sub, pattern);
@@ -234,7 +231,6 @@ public class DependencyExtractor2 {
 			if(!t.isEmpty() || t!= null)
 				toTest.addAll(t);
 		}
-
 		return toTest;
 	}
 	
@@ -293,8 +289,8 @@ public class DependencyExtractor2 {
 		}
 		catch(NullPointerException e){
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
-		} catch (UnknownDBIdException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (UnknownDBIdException e) {
 			e.printStackTrace();
 		}
 	}

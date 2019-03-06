@@ -30,7 +30,7 @@ import uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker;
 public class App 
 {
 	private static String CLASS_DIR;
-	public static String TEST_DIR;
+	private static String TEST_DIR;
 	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	
     public static ThreadedChannel<String> FileChangeAnalysisPool;
@@ -56,6 +56,7 @@ public class App
     	    	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.testToRun = new ConcurrentHashMap<String, Boolean>();
+    	
     }
 
     public static void main( String[] args )
@@ -64,13 +65,13 @@ public class App
        long startTime = System.nanoTime();
        try{
 	       App executorInstance = new App();
-    	   
-    	   CLASS_DIR = "/Users/demigorgan/Desktop/commons-math";
-    	   TEST_DIR = "/Users/demigorgan/Desktop/commons-math/target/test-classes";
 	      
-    	   //CLASS_DIR = "/Users/demigorgan/brigadier";
-	       //TEST_DIR = "/Users/demigorgan/brigadier/build/classes/java/test";
-	       	       
+    	   CLASS_DIR = "/Users/demigorgan/brigadier";
+	       TEST_DIR = "/Users/demigorgan/brigadier/build/classes/java/test";
+	       //CLASS_DIR = "/Users/demigorgan/Desktop/commons-math";
+	 	   //TEST_DIR = "/Users/demigorgan/Desktop/commons-math/target/test-classes";	
+	       
+	       
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
     	   runnable.scanClassFiles(CLASS_DIR);
 
@@ -94,15 +95,15 @@ public class App
 	    	
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
 	       String print = getCommand();
-	       System.out.println(print);
+	       //System.out.println(print);
 
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
 	       double elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
 	       //System.out.println("TOTAL TIME: "+ elapsedTimeInSecond);     
 	       //logExperiment(args[0], getCommand());     
-	       //System.out.println(App.testToRun.size());
-	       //System.out.println(App.entityToTest.size());
+	       System.out.println(App.testToRun.size());
+	       System.out.println(App.entityToTest.size());
        }
        
        catch( JedisConnectionException e){
@@ -144,7 +145,6 @@ public class App
        } 
        
        catch (InvocationTargetException e) {
-		// TODO Auto-generated catch block
     	   e.printStackTrace();
        } 
        
@@ -202,5 +202,13 @@ public class App
 	    	   i++;
 	       }
 	       return sb.toString();
+    }
+    
+    public static String getCLASS_DIR(){
+    	return CLASS_DIR;
+    }
+    
+    public static String getTEST_DIR(){
+    	return TEST_DIR;
     }
 }

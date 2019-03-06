@@ -2,11 +2,10 @@ package uci.ics.mondego.tldr.changeanalyzer;
 
 import java.io.IOException;
 import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import org.apache.bcel.classfile.ClassParser;
-import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
@@ -17,47 +16,27 @@ import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class TestChangeAnalyzer extends ChangeAnalyzer{
 
-	private List<String> changedAttributes;
 	private final ClassParser parser;
-	private List<Method> allMethods;
-	private List<Field> allFields;
-	private List<Method> allChangedMethods;
-	private List<Field> allChangedFields;
 	private final JavaClass parsedClass;
-	
-	public List<Method> getAllMethods(){
-		return allMethods;
-	}
-	
-	public List<Field> getAllFields(){
-		return allFields;
-	}
-	
-	public List<Method> getAllChangedMethods(){
-		return allChangedMethods;
-	}
-	
-	public List<Field> getAllChangedFields(){
-		return allChangedFields;
-	}
+	private Map<String, Integer> allPreviousTestCases;
 	
 	public TestChangeAnalyzer(String className) throws IOException{
 		super(className);
-		this.changedAttributes = new ArrayList<String>();
 		this.parser = new ClassParser(this.getEntityName());
-		this.allChangedFields = new ArrayList<Field>();
-		this.allChangedMethods = new ArrayList<Method>();
-		this.allMethods = new ArrayList<Method>();
-		this.allFields = new ArrayList<Field>();
 		this.parsedClass = parser.parse();
+		this.allPreviousTestCases = new HashMap<String, Integer>();
+		
+		Set<String> prevTst = database.getAllKeysByPattern
+				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
+		
+		for(String e: prevTst){
+			allPreviousTestCases.put(e.substring(1), 0); // substring(1) case we have to remove table id
+		}
+		
 		this.parse();
+		this.deleteDepreciatedTestCases();
 		
 		this.closeRedis();
-	}
-	
-	
-	public List<String> getChangedAttributes(){
-		return changedAttributes;
 	}
 	
 	protected void parse() throws IOException{
@@ -103,7 +82,8 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
-				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
+				if(!this.allPreviousTestCases.containsKey(methodFqn)){
+					//	!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
 					logger.debug(methodFqn+" didn't exist in db...added");
 					App.testToRun.put(methodFqn, true);
 					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
@@ -112,6 +92,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				}
 				
 				else{
+					allPreviousTestCases.put(methodFqn, allPreviousTestCases.get(methodFqn) + 1);
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);					
 					if(!currentHashCode.equals(prevHashCode)){
 						App.testToRun.put(methodFqn, true);						
@@ -122,5 +103,25 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				}
 			}
 		}		
+	}
+	
+	private long deleteDepreciatedTestCases(){
+		long count = 0;
+		for ( Map.Entry<String, Integer> entry : allPreviousTestCases.entrySet()) {
+		    Integer val = entry.getValue();
+		    if(val == 0){
+		    	count++;
+		    	String key = entry.getKey();
+		    	this.database.removeKey(Databases.TABLE_ID_ENTITY, key);
+		    	Set<String> allDependencies = this.database.getSet
+		    			(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	this.database.removeKey(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	for(String dep: allDependencies){
+		    		this.database.removeFromSet(Databases.TABLE_ID_TEST_DEPENDENCY, dep, key);
+		    	}
+		    	logger.debug(key+ " test case is remomved from DB");
+		    }  
+		}
+		return count;
 	}
 }

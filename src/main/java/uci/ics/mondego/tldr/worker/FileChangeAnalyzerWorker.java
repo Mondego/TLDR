@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
+import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 
 public class FileChangeAnalyzerWorker extends Worker{
 
@@ -41,12 +42,10 @@ public class FileChangeAnalyzerWorker extends Worker{
 	public void changeAnalyzer(){
 		FileChangeAnalyzer fc;
 		try {
-			
 			fc = new FileChangeAnalyzer(fileToAnalyze);
 			if(fc.hasChanged()){ 	   
 		        App.EntityChangeAnalysisPool.send(fileToAnalyze);
 			}
-			
 		} 
 		
 		catch (NoSuchAlgorithmException e) {
@@ -87,7 +86,9 @@ public class FileChangeAnalyzerWorker extends Worker{
 		catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (DatabaseSyncException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
-	
 }

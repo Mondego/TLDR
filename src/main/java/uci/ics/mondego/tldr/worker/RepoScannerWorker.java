@@ -15,25 +15,36 @@ public class RepoScannerWorker extends Worker{
 	
 	public void run() {
 		// TODO Auto-generated method stub
-		try {
-			 
+		try {		 
 			this.scanClassFiles(repoDir);
-		} catch (InstantiationException e) {
+		} 
+		
+		catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+		} 
+		
+		catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
+		} 
+		
+		catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (InvocationTargetException e) {
+		} 
+		
+		catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
+		} 
+		
+		catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SecurityException e) {
+		} 
+		
+		catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -50,7 +61,6 @@ public class RepoScannerWorker extends Worker{
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
-	                	ClassFile f = new ClassFile(fileAbsolutePath);
 	                	App.TestFileChangeAnalysisPool.send(fileAbsolutePath);        		                
 	                }	                	         
 	            } 
@@ -71,11 +81,10 @@ public class RepoScannerWorker extends Worker{
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
-	                	ClassFile f = new ClassFile(fileAbsolutePath);
 	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);	                	
 	                }	                	         
 	            } 
-	            else if (file.isDirectory() && !file.getAbsolutePath().equals(App.TEST_DIR)) {
+	            else if (file.isDirectory() && !file.getAbsolutePath().equals(App.getTEST_DIR())) {
 	                scanClassFiles(file.getAbsolutePath());
 	            }
 	        }

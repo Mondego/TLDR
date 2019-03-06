@@ -15,38 +15,54 @@ import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor2;
 
 
 public class DependencyExtractorWorker extends Worker{
-	private final Map<String, Method> changedMethod;
-	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+	private final Map<String, Method> changedMethods;
+	private static final Logger logger = LogManager.getLogger(DependencyExtractorWorker.class);
 	
 	public DependencyExtractorWorker(HashMap<String, Method> changedMethod){
-		this.changedMethod = changedMethod;
+		this.changedMethods = changedMethod;
 	}
 	
 	public void run() {
 		// TODO Auto-generated method stub
 		try {
             this.resolute();
-        } catch (NoSuchElementException e) {
+        } 
+		
+		catch (NoSuchElementException e) {
             e.printStackTrace();
-        } catch (IllegalArgumentException e) {
+        } 
+		
+		catch (IllegalArgumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } catch (SecurityException e) {
+        } 
+		
+		catch (SecurityException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } catch (InstantiationException e) {
+        } 
+		
+		catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+		} 
+		
+		catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (InvocationTargetException e) {
+		} 
+		
+		catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
+		} 
+		
+		catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		} 
+		
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -57,7 +73,7 @@ public class DependencyExtractorWorker extends Worker{
 		IllegalArgumentException, InvocationTargetException, NoSuchMethodException, 
 		SecurityException, IOException{		
 		
-		Set<Map.Entry<String, Method>> allEntries = changedMethod.entrySet();
+		Set<Map.Entry<String, Method>> allEntries = changedMethods.entrySet();
 		for(Map.Entry<String, Method> entry: allEntries){
 			DependencyExtractor2 dep = new DependencyExtractor2(entry);
 			Set<String> fieldsChanged = dep.getFieldValueChanged();

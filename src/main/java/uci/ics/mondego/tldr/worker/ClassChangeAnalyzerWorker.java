@@ -7,11 +7,11 @@ import java.util.NoSuchElementException;
 import org.apache.bcel.classfile.Method;
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
+import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 
 public class ClassChangeAnalyzerWorker extends Worker{
 
 	private final String className;
-	
 	
 	public ClassChangeAnalyzerWorker( String className){
 		this.className = className;
@@ -21,6 +21,7 @@ public class ClassChangeAnalyzerWorker extends Worker{
 		super(name);
 		this.className = className;
 	}
+	
 	public void run() {
 		try {
             this.changeAnalyzer();
@@ -41,27 +42,30 @@ public class ClassChangeAnalyzerWorker extends Worker{
 			cc = new ClassChangeAnalyzer(className);
 			HashMap<String, Method> m = cc.getextractedFunctions();	 
 	 		App.DependencyExtractionPool.send(m);	
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+		} 
+		catch (IOException e1) {
 			e1.printStackTrace();
-		} catch (InstantiationException e1) {
-			// TODO Auto-generated catch block
+		} 
+		catch (InstantiationException e1) {
 			e1.printStackTrace();
-		} catch (IllegalAccessException e1) {
-			// TODO Auto-generated catch block
+		} 
+		catch (IllegalAccessException e1) {
 			e1.printStackTrace();
-		} catch (IllegalArgumentException e1) {
-			// TODO Auto-generated catch block
+		} 
+		catch (IllegalArgumentException e1) {
 			e1.printStackTrace();
-		} catch (InvocationTargetException e1) {
-			// TODO Auto-generated catch block
+		} 
+		catch (InvocationTargetException e1) {
 			e1.printStackTrace();
-		} catch (NoSuchMethodException e1) {
-			// TODO Auto-generated catch block
+		} 
+		catch (NoSuchMethodException e1) {
 			e1.printStackTrace();
-		} catch (SecurityException e1) {
-			// TODO Auto-generated catch block
+		} 
+		catch (SecurityException e1) {
 			e1.printStackTrace();
+		} 
+		catch (DatabaseSyncException e) {
+			e.printStackTrace();
 		} 	 	      
 	}	
 }

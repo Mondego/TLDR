@@ -47,10 +47,8 @@ public class DFSTraversalWorker extends Worker{
 	    List<String> dep = dfs.get_all_dependent(entity);
 	    dfs.closeRedis();
 	    for(int i=0;i<dep.size();i++){
-	    	if(!App.entityToTest.containsKey(dep.get(i))){
-	    		App.entityToTest.put(dep.get(i), true);
+	    	App.entityToTest.put(dep.get(i), true);
 	    		//App.entityToTestMap.send(dep.get(i));
-	    	}
 	    }      
 	}
 

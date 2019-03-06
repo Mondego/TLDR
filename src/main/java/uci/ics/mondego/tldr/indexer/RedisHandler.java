@@ -3,12 +3,18 @@ package uci.ics.mondego.tldr.indexer;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.ScanParams;
+import redis.clients.jedis.ScanResult;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.exceptions.JedisDataException;
 import uci.ics.mondego.tldr.tool.Databases;
+
+import java.awt.List;
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -146,19 +152,34 @@ public class RedisHandler{
 		return ret;
 	}
 	
-	public Set<String> getAllKeysByPattern(String tableId, String pattern){
-		
+	/*public Set<String> getAllKeysByPattern(String tableId, String pattern){
 		String key = tableId+pattern;
 		Set<String> keys = jedis.keys(key);
 		return keys;
-	}
+	}*/
 	
+	
+	public Set<String> getAllKeysByPattern(String tableId, String pattern) {
+	    Set<String> keys = new HashSet<String>();
+	    String key = tableId+pattern;
+	    ScanParams params = new ScanParams();
+	    params.match(key).count(1000);
+	    String cursor =ScanParams.SCAN_POINTER_START;
+	    ScanResult<String> result;
+		
+	    do {
+	        result = jedis.scan(cursor, params);
+	        keys.addAll(result.getResult());
+	        cursor = result.getStringCursor();
+	    } 
+		while (!result.getStringCursor().equals(ScanParams.SCAN_POINTER_START));
+	    return keys;
+	}
 	
 	public Set<String> getSet(String tableId, String key){
 		Set<String> ret = null;
 		try{
 			ret = jedis.smembers(tableId+key);
-			
 		}
 		catch(JedisDataException e){
 			System.out.println(tableId+"   "+key);

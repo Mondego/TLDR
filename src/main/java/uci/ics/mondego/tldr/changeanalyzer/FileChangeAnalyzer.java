@@ -8,13 +8,16 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Security;
 import com.rfksystems.blake2b.Blake2b;
 import com.rfksystems.blake2b.security.*;
+
+import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.tool.Databases;
 
 public class FileChangeAnalyzer extends ChangeAnalyzer{
 	
 	private final MessageDigest md;
 	
-	public FileChangeAnalyzer(String fileName) throws IOException, NoSuchAlgorithmException{
+	public FileChangeAnalyzer(String fileName) throws IOException,
+		NoSuchAlgorithmException, DatabaseSyncException{
 		super(fileName);
 		Security.addProvider(new Blake2bProvider());
 		md = MessageDigest.getInstance(Blake2b.BLAKE2_B_160);
@@ -22,11 +25,15 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 		this.closeRedis();
 	}
 	
-	protected void parse() throws IOException {
+	protected void parse() throws IOException, DatabaseSyncException {
 		
 		if(!this.exists(Databases.TABLE_ID_FILE,getEntityName())){
 			String currentCheckSum = calculateChecksum();
-			this.sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
+			boolean ret = this.sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
+			if(!ret){
+				throw new DatabaseSyncException(this.getEntityName());
+			}
+			
 			this.setChanged(true);
 			logger.debug("New file "+this.getEntityName()+" added");
 		}
@@ -35,8 +42,12 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 			String prevCheckSum = this.getValue(Databases.TABLE_ID_FILE, this.getEntityName()); // get it from database;
 			String currentCheckSum = calculateChecksum();
 			if(!prevCheckSum.equals(currentCheckSum)){
+				boolean ret = this.sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
+				if(!ret){
+					throw new DatabaseSyncException(this.getEntityName());
+				}
+				
 				this.setChanged(true);
-				this.sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
 				logger.debug("File "+this.getEntityName()+" has changed");
 			}
 		}

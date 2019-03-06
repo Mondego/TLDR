@@ -12,44 +12,34 @@ import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
 import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 
 public class ClassChangeAnalyzer extends ChangeAnalyzer{
-	private List<String> changedAttributes;
-	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
 	private HashMap<String, Method> extractedChangedMethods;
 	private final ClassParser parser;
-	private List<Method> allMethods;
-	private List<Field> allFields;
-	private List<Method> allChangedMethods;
-	private List<Field> allChangedFields;
 	private final JavaClass parsedClass;
 	private List<String> allInterfaces;
 	private String superClass;
 	private Map<String, Integer> allPreviousEntities;
 	
-	public ClassChangeAnalyzer(String className) throws IOException{
+	public ClassChangeAnalyzer(String className) throws IOException, DatabaseSyncException{
 		super(className);
-		this.changedAttributes = new ArrayList<String>();
-		this.hashCodes = new HashMap<String, String>();
 		this.parser = new ClassParser(this.getEntityName());
-		this.allChangedFields = new ArrayList<Field>();
-		this.allChangedMethods = new ArrayList<Method>();
-		this.allMethods = new ArrayList<Method>();
-		this.allFields = new ArrayList<Field>();
 		this.parsedClass = parser.parse();
 		this.allInterfaces = new ArrayList<String>();
 		this.extractedChangedMethods = new HashMap<String, Method>();
 		this.superClass = "";
 				
-		Set<String> prevEnt = rh.getAllKeysByPattern
+		Set<String> prevEnt = database.getAllKeysByPattern
 				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
-		allPreviousEntities= new HashMap<String, Integer>();
+		
+		this.allPreviousEntities= new HashMap<String, Integer>();
 		for(String e: prevEnt){
-			allPreviousEntities.put(e.substring(1), 0);
+			allPreviousEntities.put(e.substring(1), 0); // substring(1) case we have to remove table id
 		}
 		
 		this.parse();
@@ -65,21 +55,21 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		this.parseInterface();
 		this.parseSuperClass();
 		
-		Set<String> all_superclass_interface = this.rh.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+		Set<String> all_superclass_interface = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
 				parsedClass.getClassName());
 				
 		for(int i=0;i<allInterfaces.size();i++){
 			if(!all_superclass_interface.contains(allInterfaces.get(i))){
-				this.rh.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+				this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 						allInterfaces.get(i));
-				this.rh.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
+				this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
 			}				
 		}
 		
 		if(!all_superclass_interface.contains(this.superClass) && this.superClass.length() > 0){
-			this.rh.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+			this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 					this.superClass);
-			this.rh.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
+			this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
 		}				
 	}
 	
@@ -87,58 +77,53 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		try {
 			String[] interfaces = this.parsedClass.getInterfaceNames();
 			for(String cls: interfaces){
-				allInterfaces.add(cls);
-				logger.info("Interface of "+parsedClass.getClassName()+" is "+cls);
+				this.allInterfaces.add(cls);
 			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 	}
 	
 	private void parseSuperClass(){
 		try {
-			this.superClass = !parsedClass.getSuperclassName().contains("java.") ? parsedClass.getSuperclassName(): "";			
-			logger.info("Superclass of "+parsedClass.getClassName()+" : "+this.superClass);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			this.superClass = !parsedClass.getSuperclassName().contains("java.") 
+					? parsedClass.getSuperclassName(): "";			
+		} 
+		catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 	}
 	
-	protected void parse() throws IOException{
+	protected void parse() throws IOException, DatabaseSyncException{
 		
 		Field [] allFields = parsedClass.getFields();
+		
 		for(Field f: allFields){
-			this.allFields.add(f);
-			
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
-			if(allPreviousEntities.containsKey(fieldFqn)){
-				allPreviousEntities.put(fieldFqn, allPreviousEntities.get(fieldFqn) + 1);
-			}
-			
 			String currentHashCode = StringProcessor.CreateBLAKE(f.toString());
-			hashCodes.put(fieldFqn, currentHashCode);
 			
 			//if(!rh.exists(Databases.TABLE_ID_ENTITY,fieldFqn)){
 			if(!this.allPreviousEntities.containsKey(fieldFqn)){
-				logger.info(fieldFqn+" didn't exist in db...added");
 				this.setChanged(true);
-				changedAttributes.add(fieldFqn);
-				this.allChangedFields.add(f);
-				this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
+				boolean ret = this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
+				if(!ret){
+					throw new DatabaseSyncException(fieldFqn);
+				}
+				logger.debug(fieldFqn+" didn't exist in db...added");
 				App.entityToTest.put(fieldFqn, true);
 			}
 			
 			else{
+				allPreviousEntities.put(fieldFqn, allPreviousEntities.get(fieldFqn) + 1);
 				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
-				currentHashCode = StringProcessor.CreateBLAKE(f.toString());
 				if(!currentHashCode.equals(prevHashCode)){
-					logger.info(fieldFqn+" changed");
 					this.setChanged(true);
-					changedAttributes.add(fieldFqn);
-					this.allChangedFields.add(f);
-					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
+					boolean ret = this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
+					if(!ret){
+						throw new DatabaseSyncException(fieldFqn);
+					}
+					logger.debug(fieldFqn+" changed");
 					App.entityToTest.put(fieldFqn, true);
 				}
 			}
@@ -148,21 +133,21 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		for(Method m: allMethods){
 			
-			this.allMethods.add(m);
-			if(m.getModifiers() == AccessCodes.ABSTRACT || 
-			m.getModifiers() == AccessCodes.FINAL ||
-			m.getModifiers() == AccessCodes.INTERFACE || 
-			m.getModifiers() == AccessCodes.NATIVE || 
-			m.getModifiers() == AccessCodes.PRIVATE || 
-			m.getModifiers() == AccessCodes.PROTECTED || 
-			m.getModifiers() == AccessCodes.PUBLIC || 
-			m.getModifiers() == AccessCodes.STATIC || 
-			m.getModifiers() == AccessCodes.STRICT || 
-			m.getModifiers() == AccessCodes.SYNCHRONIZED || 
-			m.getModifiers() == AccessCodes.TRANSIENT || 
-			m.getModifiers() == AccessCodes.VOLATILE){
+			if( m.getModifiers() == AccessCodes.ABSTRACT || 
+				m.getModifiers() == AccessCodes.FINAL ||
+				m.getModifiers() == AccessCodes.INTERFACE || 
+				m.getModifiers() == AccessCodes.NATIVE || 
+				m.getModifiers() == AccessCodes.PRIVATE || 
+				m.getModifiers() == AccessCodes.PROTECTED || 
+				m.getModifiers() == AccessCodes.PUBLIC || 
+				m.getModifiers() == AccessCodes.STATIC || 
+				m.getModifiers() == AccessCodes.STRICT || 
+				m.getModifiers() == AccessCodes.SYNCHRONIZED || 
+				m.getModifiers() == AccessCodes.TRANSIENT || 
+				m.getModifiers() == AccessCodes.VOLATILE){
+				
 				String code =  m.getModifiers()+"\n"+ m.getName()+ 
-				"\n"+m.getSignature()+"\n"+ m.getCode();
+						"\n"+m.getSignature()+"\n"+ m.getCode();
 							
 				String lineInfo = code.substring(code.indexOf("Attribute(s)") == -1
 						? 0 : code.indexOf("Attribute(s)"), 
@@ -184,36 +169,35 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
 				
-				if(allPreviousEntities.containsKey(methodFqn)){
-					allPreviousEntities.put(methodFqn, allPreviousEntities.get(methodFqn) + 1);
-				}
-				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
-				hashCodes.put(methodFqn, currentHashCode);
 				//if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
+				
 				if(!this.allPreviousEntities.containsKey(methodFqn)){				
-					logger.debug(methodFqn+" didn't exist in db...added");
 					this.setChanged(true);
-					changedAttributes.add(methodFqn);
-					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
-					this.allChangedMethods.add(m);
+					boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+					if(!ret){
+						throw new DatabaseSyncException(methodFqn);
+					}
+					
 					App.entityToTest.put(methodFqn, true);
 					extractedChangedMethods.put(methodFqn, m);
+					logger.debug(methodFqn+" didn't exist in db...added");
 				}
+				
 				else{
+					allPreviousEntities.put(methodFqn, allPreviousEntities.get(methodFqn) + 1);
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
-										
-					if(!currentHashCode.equals(prevHashCode)){
-						
-						//System.out.println(m.getCode().toString());
-						logger.debug(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
-								+ "class name: "+this.getEntityName());
+					
+					if(!currentHashCode.equals(prevHashCode)){	
 						this.setChanged(true);
-						changedAttributes.add(methodFqn);
-						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
-						this.allChangedMethods.add(m);
+						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						if(!ret){
+							throw new DatabaseSyncException(methodFqn);
+						}
 						extractedChangedMethods.put(methodFqn, m);
 						App.entityToTest.put(methodFqn, true);
+						logger.debug(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
+								+ "class name: "+this.getEntityName());
 					}
 				}
 			}
@@ -228,12 +212,12 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		    if(val == 0){
 		    	count++;
 		    	String key = entry.getKey();
-		    	this.rh.removeKey(Databases.TABLE_ID_ENTITY, key);
-		    	Set<String> allDependencies = this.rh.getSet
+		    	this.database.removeKey(Databases.TABLE_ID_ENTITY, key);
+		    	Set<String> allDependencies = this.database.getSet
 		    			(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, key);
-		    	this.rh.removeKey(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, key);
+		    	this.database.removeKey(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, key);
 		    	for(String dep: allDependencies){
-		    		this.rh.removeFromSet(Databases.TABLE_ID_DEPENDENCY, dep, key);
+		    		this.database.removeFromSet(Databases.TABLE_ID_DEPENDENCY, dep, key);
 		    	}
 		    	logger.debug(key+ " is remomved from DB");
 		    }  
@@ -241,33 +225,15 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		return count;
 	}
 	
-	
+	//for debug purpose
 	private void printMethod(Method m){
-		StringBuilder sb = new StringBuilder();		
-	}
-	
-	public List<Method> getAllMethods(){
-		return allMethods;
-	}
-	
-	public List<Field> getAllFields(){
-		return allFields;
-	}
-	
-	public List<Method> getAllChangedMethods(){
-		return allChangedMethods;
-	}
-	
-	public List<Field> getAllChangedFields(){
-		return allChangedFields;
-	}
-	
-	public String getChecksumByAttribute(String attr){
-		return hashCodes.get(attr);
-	}
-	
-	public List<String> getChangedAttributes(){
-		return changedAttributes;
+		StringBuilder sb = new StringBuilder();	
+		sb.append("NAME : "+m.getName());
+		sb.append("CODE : \n"+ m.getCode().toString());
+		sb.append("============================");
+		sb.append("============================");
+		System.out.println(sb.toString());
+		
 	}
 	
 	public HashMap<String, Method> getextractedFunctions(){

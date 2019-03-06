@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
+import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 
 public class TestFileChangeAnalyzerWorker extends Worker{
 
@@ -22,18 +23,16 @@ public class TestFileChangeAnalyzerWorker extends Worker{
 	}
 	
 	public void run() {
-		// TODO Auto-generated method stub
 		try {
-			
             this.changeAnalyzer();
-            
-        } catch (NoSuchElementException e) {
+        } 
+		catch (NoSuchElementException e) {
             e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            // TODO Auto-generated catch block
+        } 
+		catch (IllegalArgumentException e) {
             e.printStackTrace();
-        } catch (SecurityException e) {
-            // TODO Auto-generated catch block
+        } 
+		catch (SecurityException e) {
             e.printStackTrace();
         }		
 	}
@@ -47,28 +46,30 @@ public class TestFileChangeAnalyzerWorker extends Worker{
 			}
 		} 
 		catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (InstantiationException e) {
 			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (IllegalAccessException e) {
 			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (IllegalArgumentException e) {
 			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (InvocationTargetException e) {
 			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (NoSuchMethodException e) {
 			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (SecurityException e) {
+			e.printStackTrace();
+		} 
+		catch (DatabaseSyncException e) {
 			e.printStackTrace();
 		}
 	}

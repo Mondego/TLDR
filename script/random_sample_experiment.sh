@@ -17,7 +17,7 @@ while read -r line; do
 	output=$(mvn -q compile exec:java -Dexec.args=$line)
 	cd $repo_dir
 	if [[ ! -z "${output// }" ]]; then
-		mvn test -Dtest=$output -DfailIfNoTests=false
+		mvn test -Dtest=$output -Dmaven.test.failure.ignore=true
 	fi
 	duration=$SECONDS
 	cd $proj_dir
