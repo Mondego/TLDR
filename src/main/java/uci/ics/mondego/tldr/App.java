@@ -1,6 +1,5 @@
 package uci.ics.mondego.tldr;
 
-
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -36,11 +35,11 @@ public class App
 	
     public static ThreadedChannel<String> FileChangeAnalysisPool;
     public static ThreadedChannel<String> EntityChangeAnalysisPool;
-    public static ThreadedChannel<HashMap<String, Method>> dependencyExtractor;
-    public static ThreadedChannel<String> traverseDependencyGraph;
-    public static ThreadedChannel<String> changedTestFiles;
-    public static ThreadedChannel<String> testParseAndIndex;
-    public static ThreadedChannel<String> entityToTestMap;
+    public static ThreadedChannel<HashMap<String, Method>> DependencyExtractionPool;
+    public static ThreadedChannel<String> DependencyGraphTraversalPool;
+    public static ThreadedChannel<String> TestFileChangeAnalysisPool;
+    public static ThreadedChannel<String> TestParseAndIndexPool;
+    public static ThreadedChannel<String> EntityToTestMapPool;
    
     public static ConcurrentHashMap<String, Boolean> entityToTest;
     public static ConcurrentHashMap<String, Boolean> testToRun;
@@ -49,12 +48,11 @@ public class App
     	
     	this.FileChangeAnalysisPool = new ThreadedChannel<String>(8, FileChangeAnalyzerWorker.class);
     	this.EntityChangeAnalysisPool = new ThreadedChannel<String>(8, ClassChangeAnalyzerWorker.class);
-    	this.dependencyExtractor = new ThreadedChannel<HashMap<String, Method>>(8, DependencyExtractorWorker.class);
-    	this.traverseDependencyGraph = new ThreadedChannel<String>(8,DFSTraversalWorker.class);
-    	
-    	this.changedTestFiles = new ThreadedChannel<String>(8, TestFileChangeAnalyzerWorker.class);
-    	this.testParseAndIndex = new ThreadedChannel<String>(8, TestChangeAnalyzerAndIndexerWorker.class);
-    	this.entityToTestMap = new ThreadedChannel<String>(8, EntityToTestMapWorker.class);
+    	this.DependencyExtractionPool = new ThreadedChannel<HashMap<String, Method>>(8, DependencyExtractorWorker.class);
+    	this.DependencyGraphTraversalPool = new ThreadedChannel<String>(8,DFSTraversalWorker.class);
+    	this.TestFileChangeAnalysisPool = new ThreadedChannel<String>(8, TestFileChangeAnalyzerWorker.class);
+    	this.TestParseAndIndexPool = new ThreadedChannel<String>(8, TestChangeAnalyzerAndIndexerWorker.class);
+    	this.EntityToTestMapPool = new ThreadedChannel<String>(8, EntityToTestMapWorker.class);
     	    	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.testToRun = new ConcurrentHashMap<String, Boolean>();
@@ -77,8 +75,8 @@ public class App
 
     	   App.FileChangeAnalysisPool.shutdown();
 	       App.EntityChangeAnalysisPool.shutdown();
-	       App.dependencyExtractor.shutdown();
-	       App.traverseDependencyGraph.shutdown();
+	       App.DependencyExtractionPool.shutdown();
+	       App.DependencyGraphTraversalPool.shutdown();
 	       
 	       
 	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
@@ -86,21 +84,24 @@ public class App
 	           	   
 	       Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
 	       for(Map.Entry<String, Boolean> e: allEntries){
-	    	   App.entityToTestMap.send(e.getKey());
+	    	   App.EntityToTestMapPool.send(e.getKey());
 	       }
 	       
-	       App.changedTestFiles.shutdown();
-	       App.testParseAndIndex.shutdown();
-	       App.entityToTestMap.shutdown();
-	    		       
-	       String print = getCommand();
+	       App.TestFileChangeAnalysisPool.shutdown();
+	       App.TestParseAndIndexPool.shutdown();
+	       App.EntityToTestMapPool.shutdown();
+	    	
+	       /**** this is needed for running the tests i.e. for the wrapper*****/
+	       //String print = getCommand();
 	       //System.out.println(print);
 
 	       System.out.println(App.testToRun.size());
 	       System.out.println(App.entityToTest.size());
 	       
 	       long endTime = System.nanoTime();	 
-	       
+	       long elapsedTime = endTime - startTime;
+	       double elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
+	       System.out.println("TOTAL TIME: "+ elapsedTimeInSecond);     
 	       //logExperiment(args[0], getCommand());       
        }
        

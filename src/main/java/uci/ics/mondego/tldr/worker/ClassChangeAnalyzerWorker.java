@@ -40,7 +40,7 @@ public class ClassChangeAnalyzerWorker extends Worker{
 		try {
 			cc = new ClassChangeAnalyzer(className);
 			HashMap<String, Method> m = cc.getextractedFunctions();	 
-	 		App.dependencyExtractor.send(m);	
+	 		App.DependencyExtractionPool.send(m);	
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

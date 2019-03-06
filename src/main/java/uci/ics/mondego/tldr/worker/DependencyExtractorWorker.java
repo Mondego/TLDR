@@ -61,9 +61,9 @@ public class DependencyExtractorWorker extends Worker{
 		for(Map.Entry<String, Method> entry: allEntries){
 			DependencyExtractor2 dep = new DependencyExtractor2(entry);
 			Set<String> fieldsChanged = dep.getFieldValueChanged();
-			App.traverseDependencyGraph.send(entry.getKey());
+			App.DependencyGraphTraversalPool.send(entry.getKey());
 			for(String field: fieldsChanged){
-				App.traverseDependencyGraph.send(field);
+				App.DependencyGraphTraversalPool.send(field);
 			}
 		}
 	}

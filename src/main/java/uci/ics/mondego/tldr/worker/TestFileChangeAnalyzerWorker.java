@@ -43,7 +43,7 @@ public class TestFileChangeAnalyzerWorker extends Worker{
 		try {			
 			fc = new FileChangeAnalyzer(fileToAnalyze);
 			if(fc.hasChanged()){ 	   
-		        App.testParseAndIndex.send(fileToAnalyze);
+		        App.TestParseAndIndexPool.send(fileToAnalyze);
 			}
 		} 
 		catch (NoSuchAlgorithmException e) {
