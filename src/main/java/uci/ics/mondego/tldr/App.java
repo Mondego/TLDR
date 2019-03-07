@@ -18,6 +18,7 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
+import uci.ics.mondego.tldr.tool.ConfigLoader;
 import uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker;
 import uci.ics.mondego.tldr.worker.DFSTraversalWorker;
 import uci.ics.mondego.tldr.worker.DependencyExtractorWorker;
@@ -45,14 +46,14 @@ public class App
     public static ConcurrentHashMap<String, Boolean> testToRun;
 
     public App(){
-    	
-    	this.FileChangeAnalysisPool = new ThreadedChannel<String>(8, FileChangeAnalyzerWorker.class);
-    	this.EntityChangeAnalysisPool = new ThreadedChannel<String>(8, ClassChangeAnalyzerWorker.class);
-    	this.DependencyExtractionPool = new ThreadedChannel<HashMap<String, Method>>(8, DependencyExtractorWorker.class);
-    	this.DependencyGraphTraversalPool = new ThreadedChannel<String>(8,DFSTraversalWorker.class);
-    	this.TestFileChangeAnalysisPool = new ThreadedChannel<String>(8, TestFileChangeAnalyzerWorker.class);
-    	this.TestParseAndIndexPool = new ThreadedChannel<String>(8, TestChangeAnalyzerAndIndexerWorker.class);
-    	this.EntityToTestMapPool = new ThreadedChannel<String>(8, EntityToTestMapWorker.class);
+    	ConfigLoader config = new ConfigLoader();
+    	this.FileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), FileChangeAnalyzerWorker.class);
+    	this.EntityChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), ClassChangeAnalyzerWorker.class);
+    	this.DependencyExtractionPool = new ThreadedChannel<HashMap<String, Method>>(config.getThread(), DependencyExtractorWorker.class);
+    	this.DependencyGraphTraversalPool = new ThreadedChannel<String>(config.getThread(),DFSTraversalWorker.class);
+    	this.TestFileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), TestFileChangeAnalyzerWorker.class);
+    	this.TestParseAndIndexPool = new ThreadedChannel<String>(config.getThread(), TestChangeAnalyzerAndIndexerWorker.class);
+    	this.EntityToTestMapPool = new ThreadedChannel<String>(config.getThread(), EntityToTestMapWorker.class);
     	    	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.testToRun = new ConcurrentHashMap<String, Boolean>();
@@ -62,16 +63,13 @@ public class App
     public static void main( String[] args )
     {    	
        PropertyConfigurator.configure("log4j.properties");
+       ConfigLoader config = new ConfigLoader();
        long startTime = System.nanoTime();
        try{
 	       App executorInstance = new App();
-	      
-    	   CLASS_DIR = "/Users/demigorgan/brigadier";
-	       TEST_DIR = "/Users/demigorgan/brigadier/build/classes/java/test";
-	       //CLASS_DIR = "/Users/demigorgan/Desktop/commons-math";
-	 	   //TEST_DIR = "/Users/demigorgan/Desktop/commons-math/target/test-classes";	
-	       
-	       
+	       CLASS_DIR = config.getCLASS_DIR();
+	       TEST_DIR = config.getTEST_DIR();
+	       	       
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
     	   runnable.scanClassFiles(CLASS_DIR);
 
@@ -79,8 +77,7 @@ public class App
 	       App.EntityChangeAnalysisPool.shutdown();
 	       App.DependencyExtractionPool.shutdown();
 	       App.DependencyGraphTraversalPool.shutdown();
-	       
-	       
+	       	       
 	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
     	   testMap.scanTestFiles(TEST_DIR);
 	           	   
