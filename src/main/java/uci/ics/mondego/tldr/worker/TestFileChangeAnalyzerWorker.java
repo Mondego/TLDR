@@ -46,8 +46,8 @@ public class TestFileChangeAnalyzerWorker extends Worker{
 		try {			
 			fc = new FileChangeAnalyzer(fileToAnalyze);
 			if(fc.hasChanged()){ 
-				logger.debug("Testfile "+fc.getEntityName().substring(fc.getEntityName().lastIndexOf("/")+1)
-						+" changed, sent for pasring and indexing");
+				//logger.debug("Testfile "+fc.getEntityName().substring(fc.getEntityName().lastIndexOf("/")+1)
+				//		+" changed, sent for pasring and indexing");
 		        App.TestParseAndIndexPool.send(fileToAnalyze);
 			}
 		} 

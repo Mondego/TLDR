@@ -77,10 +77,10 @@ public class DependencyExtractorWorker extends Worker{
 		for(Map.Entry<String, Method> entry: allEntries){
 			DependencyExtractor2 dep = new DependencyExtractor2(entry);
 			Set<String> fieldsChanged = dep.getFieldValueChanged();
-			logger.debug(entry.getKey()+" changed/new, dependency synced, and sent to DFSTraversal");
+			//logger.debug(entry.getKey()+" changed/new, dependency synced, and sent to DFSTraversal");
 			App.DependencyGraphTraversalPool.send(entry.getKey());
 			for(String field: fieldsChanged){
-				logger.debug(field+" value changed, sent to DFS");
+				//logger.debug(field+" value changed, sent to DFS");
 				App.DependencyGraphTraversalPool.send(field);
 			}
 		}

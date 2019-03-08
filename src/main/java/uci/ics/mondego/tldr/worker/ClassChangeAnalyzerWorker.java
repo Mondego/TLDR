@@ -48,8 +48,8 @@ public class ClassChangeAnalyzerWorker extends Worker{
 			cc = new ClassChangeAnalyzer(className);
 			HashMap<String, Method> m = cc.getextractedFunctions();	 
 	 		if(m.size() > 0){
-	 			logger.debug(className.substring(className.lastIndexOf("/"))
-	 					+" -- Some method changed and sent to DependencyExtractionPool");
+	 			//logger.debug(className.substring(className.lastIndexOf("/"))
+	 			//		+" -- Some method changed and sent to DependencyExtractionPool");
 	 			App.DependencyExtractionPool.send(m);	
 	 		}
 		} 

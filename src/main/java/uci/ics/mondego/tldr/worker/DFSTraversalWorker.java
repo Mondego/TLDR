@@ -51,7 +51,7 @@ public class DFSTraversalWorker extends Worker{
 		DFSTraversal dfs = new DFSTraversal();	             
 	    List<String> dep = dfs.get_all_dependent(entity);
 	    dfs.closeRedis();
-	    logger.debug(entity+" -- DFS TRaversal done, entity to test is written to App");
+	   // logger.debug(entity+" -- DFS TRaversal done, entity to test is written to App");
 	    for(int i=0;i<dep.size();i++){
 	    	App.entityToTest.put(dep.get(i), true);
 	    		//App.entityToTestMap.send(dep.get(i));

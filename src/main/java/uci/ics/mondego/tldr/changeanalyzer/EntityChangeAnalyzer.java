@@ -18,7 +18,7 @@ import uci.ics.mondego.tldr.tool.Databases;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 
-public class ClassChangeAnalyzer extends ChangeAnalyzer{
+public class EntityChangeAnalyzer extends ChangeAnalyzer{
 	private HashMap<String, Method> extractedChangedMethods;
 	private final ClassParser parser;
 	private final JavaClass parsedClass;
@@ -26,7 +26,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private String superClass;
 	private Map<String, Integer> allPreviousEntities;
 	
-	public ClassChangeAnalyzer(String className) throws IOException, DatabaseSyncException{
+	public EntityChangeAnalyzer(String className) throws IOException, DatabaseSyncException{
 		super(className);
 		this.parser = new ClassParser(this.getEntityName());
 		this.parsedClass = parser.parse();
@@ -110,7 +110,9 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				if(!ret){
 					throw new DatabaseSyncException(fieldFqn);
 				}
+				
 				//logger.info(fieldFqn+" didn't exist in db...added");
+				
 				App.entityToTest.put(fieldFqn, true);
 			}
 			

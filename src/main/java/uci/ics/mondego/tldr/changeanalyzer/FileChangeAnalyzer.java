@@ -35,7 +35,7 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 			}
 			
 			this.setChanged(true);
-			logger.info("New file "+this.getEntityName()+" added");
+			//logger.info("New file "+this.getEntityName()+" added");
 		}
 		
 		else{
@@ -48,7 +48,7 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 				}
 				
 				this.setChanged(true);
-				logger.info("File "+this.getEntityName()+" has changed");
+				//logger.info("File "+this.getEntityName()+" has changed");
 			}
 		}
 	}

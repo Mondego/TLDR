@@ -152,14 +152,14 @@ public class RedisHandler{
 		return ret;
 	}
 	
-	/*public Set<String> getAllKeysByPattern(String tableId, String pattern){
+	public Set<String> getAllKeysByPattern(String tableId, String pattern){
 		String key = tableId+pattern;
 		Set<String> keys = jedis.keys(key);
 		return keys;
-	}*/
+	}
 	
 	
-	public Set<String> getAllKeysByPattern(String tableId, String pattern) {
+	/*public Set<String> getAllKeysByPattern(String tableId, String pattern) {
 	    Set<String> keys = new HashSet<String>();
 	    String key = tableId+pattern;
 	    ScanParams params = new ScanParams();
@@ -174,7 +174,7 @@ public class RedisHandler{
 	    } 
 		while (!result.getStringCursor().equals(ScanParams.SCAN_POINTER_START));
 	    return keys;
-	}
+	}*/
 	
 	public Set<String> getSet(String tableId, String key){
 		Set<String> ret = null;

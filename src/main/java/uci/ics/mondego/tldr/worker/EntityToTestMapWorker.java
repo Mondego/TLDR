@@ -57,7 +57,7 @@ public class EntityToTestMapWorker extends Worker{
 	   Set<String> tests = map.getTests(entity);
  	   
 	   for(String str: tests){
- 		   logger.debug(str+" maps to "+entity+" and written to testToRun");	
+ 		   //logger.debug(str+" maps to "+entity+" and written to testToRun");	
 		   App.testToRun.put(str, true);
  	   }  
  	   

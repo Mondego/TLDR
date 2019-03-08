@@ -19,8 +19,8 @@ public class TestChangeAnalyzerAndIndexerWorker extends Worker{
 	
 	public void run(){
 		try {
-			logger.debug(testClassName.substring(testClassName.lastIndexOf("/")+1)
-					+"indexed, end of the pool parseindextest");
+			//logger.debug(testClassName.substring(testClassName.lastIndexOf("/")+1)
+			//		+"indexed, end of the pool parseindextest");
 			TestChangeAnalyzer ts = new TestChangeAnalyzer(testClassName);
 		} 
 		catch (IOException e) {

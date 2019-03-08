@@ -1,0 +1,10 @@
+ERROR | 00:12:50 | [pool-6-thread-6] extractor.MethodParser - createRealTransformer is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 00:12:50 | [pool-6-thread-6] extractor.MethodParser - getInvalidDataSize is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 00:12:51 | [pool-6-thread-6] extractor.MethodParser - getNumberOfInvalidDataSizes is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 00:12:51 | [pool-6-thread-6] extractor.MethodParser - getNumberOfValidDataSizes is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 00:12:51 | [pool-6-thread-6] extractor.MethodParser - getRelativeTolerance is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 00:12:51 | [pool-6-thread-6] extractor.MethodParser - getValidDataSize is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 00:12:51 | [pool-6-thread-6] extractor.MethodParser - getValidFunction is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 00:12:51 | [pool-6-thread-6] extractor.MethodParser - getValidLowerBound is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 00:12:51 | [pool-6-thread-6] extractor.MethodParser - getValidUpperBound is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 00:12:51 | [pool-6-thread-6] extractor.MethodParser - transform is Abstract/Interface/Annotation... Skipping parsing

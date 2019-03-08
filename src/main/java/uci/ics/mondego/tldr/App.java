@@ -96,7 +96,7 @@ public class App
     	   
     	   Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
 	       for(Map.Entry<String, Boolean> e: allEntries){
-	    	   logger.debug(e.getKey()+"is being sent to the mapPool from App");
+	    	   //logger.debug(e.getKey()+"is being sent to the mapPool from App");
 	    	   App.EntityToTestMapPool.send(e.getKey());
 	       }
 
@@ -110,6 +110,12 @@ public class App
 	       long elapsedTime = endTime - startTime;
 	       double elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
 	          
+	       System.out.println(entityToTest.size());
+	       System.out.println(testToRun.size());
+	       System.out.println(elapsedTimeInSecond);
+	       
+	       //253.933992205
+	       
 	       //logExperiment(args[0], getCommand());     
        }
        
