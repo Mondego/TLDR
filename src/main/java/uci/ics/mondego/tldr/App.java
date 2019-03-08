@@ -89,16 +89,17 @@ public class App
 	       logger.debug("REPO SCANNING FOR TEST SUIT STARTS");
 	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
     	   testMap.scanTestFiles(TEST_DIR);
+    	   App.TestFileChangeAnalysisPool.shutdown();
+	       App.TestParseAndIndexPool.shutdown();
 	       
     	   logger.debug("REPO SCANNING, TEST PARSING, TEST INDEXING IS COMPLETE, NOW MAPPING STARTING");
+    	   
     	   Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
 	       for(Map.Entry<String, Boolean> e: allEntries){
 	    	   logger.debug(e.getKey()+"is being sent to the mapPool from App");
 	    	   App.EntityToTestMapPool.send(e.getKey());
 	       }
 
-	       App.TestFileChangeAnalysisPool.shutdown();
-	       App.TestParseAndIndexPool.shutdown();
 	       App.EntityToTestMapPool.shutdown();
 	       	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/

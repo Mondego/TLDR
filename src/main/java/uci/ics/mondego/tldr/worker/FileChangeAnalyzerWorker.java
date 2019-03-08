@@ -48,7 +48,7 @@ public class FileChangeAnalyzerWorker extends Worker{
 		try {
 			fc = new FileChangeAnalyzer(fileToAnalyze);
 			if(fc.hasChanged()){ 	   
-		        logger.debug(fc.getEntityName().substring(fc.getEntityName().lastIndexOf("/"+1)) 
+		        logger.debug(fc.getEntityName() 
 		        		+" has changed or new and sent to EntityChangeAnalyzer");
 				App.EntityChangeAnalysisPool.send(fileToAnalyze);
 			}
