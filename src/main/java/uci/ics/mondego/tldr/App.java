@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -13,9 +15,7 @@ import org.apache.bcel.classfile.ClassFormatException;
 import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
 import uci.ics.mondego.tldr.tool.ConfigLoader;
@@ -33,7 +33,6 @@ public class App
 	private static String CLASS_DIR;
 	private static String TEST_DIR;
 	private static final Logger logger = LogManager.getLogger(App.class);
-	
     public static ThreadedChannel<String> FileChangeAnalysisPool;
     public static ThreadedChannel<String> EntityChangeAnalysisPool;
     public static ThreadedChannel<HashMap<String, Method>> DependencyExtractionPool;
@@ -46,7 +45,12 @@ public class App
     public static ConcurrentHashMap<String, Boolean> testToRun;
 
     public App(){
+    	Date date = new Date();      
+        String LogDate= new SimpleDateFormat("yyyyMMdd").format(date);
+        System.setProperty("logFilename", LogDate);
+        
     	logger.debug("Beginning of the Pipeline");
+    	
     	ConfigLoader config = new ConfigLoader();
     	this.FileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), FileChangeAnalyzerWorker.class);
     	this.EntityChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), ClassChangeAnalyzerWorker.class);
@@ -77,18 +81,22 @@ public class App
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
     	   runnable.scanClassFiles(CLASS_DIR);
    	       
-	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
-    	   testMap.scanTestFiles(TEST_DIR);
-	       
-    	   Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
-	       for(Map.Entry<String, Boolean> e: allEntries){
-	    	   App.EntityToTestMapPool.send(e.getKey());
-	       }
-
-	       App.FileChangeAnalysisPool.shutdown();
+    	   App.FileChangeAnalysisPool.shutdown();
 	       App.EntityChangeAnalysisPool.shutdown();
 	       App.DependencyExtractionPool.shutdown();
 	       App.DependencyGraphTraversalPool.shutdown();
+    	   
+	       logger.debug("REPO SCANNING FOR TEST SUIT STARTS");
+	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
+    	   testMap.scanTestFiles(TEST_DIR);
+	       
+    	   logger.debug("REPO SCANNING, TEST PARSING, TEST INDEXING IS COMPLETE, NOW MAPPING STARTING");
+    	   Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
+	       for(Map.Entry<String, Boolean> e: allEntries){
+	    	   logger.debug(e.getKey()+"is being sent to the mapPool from App");
+	    	   App.EntityToTestMapPool.send(e.getKey());
+	       }
+
 	       App.TestFileChangeAnalysisPool.shutdown();
 	       App.TestParseAndIndexPool.shutdown();
 	       App.EntityToTestMapPool.shutdown();

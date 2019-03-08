@@ -5,6 +5,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 import org.apache.bcel.classfile.Method;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
@@ -12,6 +15,7 @@ import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 public class ClassChangeAnalyzerWorker extends Worker{
 
 	private final String className;
+	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzerWorker.class);
 	
 	public ClassChangeAnalyzerWorker( String className){
 		this.className = className;
@@ -25,9 +29,11 @@ public class ClassChangeAnalyzerWorker extends Worker{
 	public void run() {
 		try {
             this.changeAnalyzer();
-        } catch (NoSuchElementException e) {
+        } 
+		catch (NoSuchElementException e) {
             e.printStackTrace();
-        } catch (IllegalArgumentException e) {
+        } 
+		catch (IllegalArgumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (SecurityException e) {
@@ -41,7 +47,11 @@ public class ClassChangeAnalyzerWorker extends Worker{
 		try {
 			cc = new ClassChangeAnalyzer(className);
 			HashMap<String, Method> m = cc.getextractedFunctions();	 
-	 		App.DependencyExtractionPool.send(m);	
+	 		if(m.size() > 0){
+	 			logger.debug(className.substring(className.lastIndexOf("/"))
+	 					+" -- Some method changed and sent to DependencyExtractionPool");
+	 			App.DependencyExtractionPool.send(m);	
+	 		}
 		} 
 		catch (IOException e1) {
 			e1.printStackTrace();

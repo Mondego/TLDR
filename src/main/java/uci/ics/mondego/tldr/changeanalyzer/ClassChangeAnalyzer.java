@@ -110,7 +110,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				if(!ret){
 					throw new DatabaseSyncException(fieldFqn);
 				}
-				logger.debug(fieldFqn+" didn't exist in db...added");
+				logger.info(fieldFqn+" didn't exist in db...added");
 				App.entityToTest.put(fieldFqn, true);
 			}
 			
@@ -123,7 +123,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					if(!ret){
 						throw new DatabaseSyncException(fieldFqn);
 					}
-					logger.debug(fieldFqn+" changed");
+					logger.info(fieldFqn+" changed");
 					App.entityToTest.put(fieldFqn, true);
 				}
 			}
@@ -181,7 +181,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					
 					App.entityToTest.put(methodFqn, true);
 					extractedChangedMethods.put(methodFqn, m);
-					logger.debug(methodFqn+" didn't exist in db...added");
+					logger.info(methodFqn+" didn't exist in db...added");
 				}
 				
 				else{
@@ -196,7 +196,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						}
 						extractedChangedMethods.put(methodFqn, m);
 						App.entityToTest.put(methodFqn, true);
-						logger.debug(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
+						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 								+ "class name: "+this.getEntityName());
 					}
 				}
@@ -219,7 +219,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		    	for(String dep: allDependencies){
 		    		this.database.removeFromSet(Databases.TABLE_ID_DEPENDENCY, dep, key);
 		    	}
-		    	logger.debug(key+ " is remomved from DB");
+		    	logger.info(key+ " is remomved from DB");
 		    }  
 		}
 		return count;

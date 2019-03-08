@@ -84,12 +84,13 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
 				if(!this.allPreviousTestCases.containsKey(methodFqn)){
+					logger.debug(methodFqn+" is new test, added to testToRun");
 					App.testToRun.put(methodFqn, true);
 					boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					if(!ret){
 						throw new DatabaseSyncException(methodFqn);
 					}
-					logger.debug(methodFqn+" didn't exist in db...added");					
+					logger.info(methodFqn+" didn't exist in db...added");					
 					Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);					
 					//System.out.println(map.getKey()+"   "+map.getValue());
 					DependencyExtractor2 dep = new DependencyExtractor2(map, true);
@@ -99,6 +100,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					allPreviousTestCases.put(methodFqn, allPreviousTestCases.get(methodFqn) + 1);
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);					
 					if(!currentHashCode.equals(prevHashCode)){
+						logger.debug(methodFqn+" is changed test, added to testToRun");
 						App.testToRun.put(methodFqn, true);						
 						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						if(!ret){
@@ -126,7 +128,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		    	for(String dep: allDependencies){
 		    		this.database.removeFromSet(Databases.TABLE_ID_TEST_DEPENDENCY, dep, key);
 		    	}
-		    	logger.debug(key+ " test case is remomved from DB");
+		    	logger.info(key+ " test case is remomved from DB");
 		    }  
 		}
 		return count;

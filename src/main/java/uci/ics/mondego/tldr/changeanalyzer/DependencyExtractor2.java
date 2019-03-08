@@ -189,7 +189,7 @@ public class DependencyExtractor2 {
 		}
 		else{
 			this.database.insertInSet(this.dbId, dependency, dependents);
-			logger.debug(dependents+ " has been updated as "+dependency+" 's dependent in "+this.dbId);
+			logger.info(dependents+ " has been updated as "+dependency+" 's dependent in "+this.dbId);
 		}
 	}
 	
@@ -207,7 +207,7 @@ public class DependencyExtractor2 {
 		    	this.database.removeFromSet(!flag ? Databases.TABLE_ID_DEPENDENCY: Databases.TABLE_ID_TEST_DEPENDENCY, 
 		    			key, changedMethod.getKey());
 		    	
-		    	logger.debug(changedMethod.getKey()+ " has been removed as "+key+" s dependency  in "+
+		    	logger.info(changedMethod.getKey()+ " has been removed as "+key+" s dependency  in "+
 		    			(!flag ? Databases.TABLE_ID_DEPENDENCY: Databases.TABLE_ID_TEST_DEPENDENCY));
 		    }  
 		}

@@ -5,6 +5,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.security.NoSuchAlgorithmException;
 import java.util.NoSuchElementException;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
@@ -12,6 +15,7 @@ import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 public class TestFileChangeAnalyzerWorker extends Worker{
 
 	private final String fileToAnalyze;
+	private static final Logger logger = LogManager.getLogger(TestFileChangeAnalyzerWorker.class);
 	
 	public TestFileChangeAnalyzerWorker(String filePath){
 		this.fileToAnalyze = filePath;
@@ -41,7 +45,9 @@ public class TestFileChangeAnalyzerWorker extends Worker{
 		FileChangeAnalyzer fc;		
 		try {			
 			fc = new FileChangeAnalyzer(fileToAnalyze);
-			if(fc.hasChanged()){ 	   
+			if(fc.hasChanged()){ 
+				logger.debug("Testfile "+fc.getEntityName().substring(fc.getEntityName().lastIndexOf("/")+1)
+						+" changed, sent for pasring and indexing");
 		        App.TestParseAndIndexPool.send(fileToAnalyze);
 			}
 		} 

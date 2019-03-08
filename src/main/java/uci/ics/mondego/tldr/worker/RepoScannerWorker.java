@@ -2,12 +2,14 @@ package uci.ics.mondego.tldr.worker;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.App;
-import uci.ics.mondego.tldr.model.ClassFile;
 
 public class RepoScannerWorker extends Worker{
 
 	private final String repoDir;
+	private static final Logger logger = LogManager.getLogger(RepoScannerWorker.class);
 
 	public RepoScannerWorker(String repo){
 		this.repoDir = repo;		
@@ -61,6 +63,7 @@ public class RepoScannerWorker extends Worker{
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
+	                	logger.debug(file.getName()+" found and sending to TestFileChangeAnalyzer");
 	                	App.TestFileChangeAnalysisPool.send(fileAbsolutePath);        		                
 	                }	                	         
 	            } 
@@ -81,6 +84,7 @@ public class RepoScannerWorker extends Worker{
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
+	                	logger.debug(file.getName()+" found and sending to FileChangeAnalyzer");
 	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);	                	
 	                }	                	         
 	            } 

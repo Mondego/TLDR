@@ -23,6 +23,7 @@ public class ThreadedChannel<E> {
     	this.thread_count = nThreads;		   	    	
     	this.workerType = clazz;
     	
+    	logger.debug(workerType.getName()+" Starting");
     	this.executor = new ThreadPoolExecutor(thread_count, // core size
     		    thread_count * 2 , // max size
     		    10*60, // idle timeout
@@ -75,13 +76,14 @@ public class ThreadedChannel<E> {
     
     
     public void shutdown() {
-        this.executor.shutdown();
-        //System.out.println(workerType.getName()+" terminating");
+    	logger.debug(workerType.getName()+" Ending");
         try {
+        	this.executor.shutdown();
             this.executor.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
-        } catch (InterruptedException e) {
+        } 
+        catch (InterruptedException e) {
             e.printStackTrace();
-            logger.error("inside catch, shutdown");
+            logger.error("Problem in terminating "+workerType.getName());
         }
     }
 }

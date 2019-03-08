@@ -2,12 +2,17 @@ package uci.ics.mondego.tldr.worker;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.map.EntityToTestMap;
 
 public class EntityToTestMapWorker extends Worker{
 	
 	private final String entity;
+	private static final Logger logger = LogManager.getLogger(EntityToTestMapWorker.class);
 	
 	public EntityToTestMapWorker(String entity){
 		this.entity = entity;
@@ -17,22 +22,28 @@ public class EntityToTestMapWorker extends Worker{
 		// TODO Auto-generated method stub
 		try {
 			this.map();
-		} catch (InstantiationException e) {
+		} 
+		catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+		} 
+		catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
+		} 
+		catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (InvocationTargetException e) {
+		} 
+		catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
+		} 
+		catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SecurityException e) {
+		} 
+		catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -46,9 +57,8 @@ public class EntityToTestMapWorker extends Worker{
 	   Set<String> tests = map.getTests(entity);
  	   
 	   for(String str: tests){
- 		   if(!App.testToRun.containsKey(str)){
- 			   App.testToRun.put(str, true);
- 		   }
+ 		   logger.debug(str+" maps to "+entity+" and written to testToRun");	
+		   App.testToRun.put(str, true);
  	   }  
  	   
 	   map.closeRedis();
