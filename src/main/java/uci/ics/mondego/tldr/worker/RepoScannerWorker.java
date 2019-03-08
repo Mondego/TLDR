@@ -64,9 +64,11 @@ public class RepoScannerWorker extends Worker{
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
 	                	//logger.debug(file.getName()+" found and sending to TestFileChangeAnalyzer");
-	                	App.TestFileChangeAnalysisPool.send(fileAbsolutePath);        		                
+	                	App.TestFileChangeAnalysisPool.send(fileAbsolutePath); 
+	                	System.out.println("TEST : "+fileAbsolutePath);
 	                }	                	         
 	            } 
+	            
 	            else if (file.isDirectory()) {
 	                scanTestFiles(file.getAbsolutePath());
 	            }
@@ -85,10 +87,13 @@ public class RepoScannerWorker extends Worker{
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
 	                	//logger.debug(file.getName()+" found and sending to FileChangeAnalyzer");
-	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);	                	
+	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);
+	                	System.out.println("CLASS : "+fileAbsolutePath);
 	                }	                	         
 	            } 
-	            else if (file.isDirectory() && !file.getAbsolutePath().equals(App.getTEST_DIR())) {
+	            else if (file.isDirectory() && 
+	            		!App.allTestDirectory.containsKey(file.getAbsolutePath().toString())){
+	            		//!file.getAbsolutePath().equals(App.getTEST_DIR())) {
 	                scanClassFiles(file.getAbsolutePath());
 	            }
 	        }

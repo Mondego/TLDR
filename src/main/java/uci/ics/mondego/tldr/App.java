@@ -19,6 +19,7 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
 import uci.ics.mondego.tldr.tool.ConfigLoader;
+import uci.ics.mondego.tldr.tool.FindAllTestDirectory;
 import uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker;
 import uci.ics.mondego.tldr.worker.DFSTraversalWorker;
 import uci.ics.mondego.tldr.worker.DependencyExtractorWorker;
@@ -40,9 +41,10 @@ public class App
     public static ThreadedChannel<String> TestFileChangeAnalysisPool;
     public static ThreadedChannel<String> TestParseAndIndexPool;
     public static ThreadedChannel<String> EntityToTestMapPool;
-   
+
     public static ConcurrentHashMap<String, Boolean> entityToTest;
     public static ConcurrentHashMap<String, Boolean> testToRun;
+    public static ConcurrentHashMap<String, Boolean> allTestDirectory;
 
     public App(){
     	Date date = new Date();      
@@ -62,6 +64,7 @@ public class App
     	    	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.testToRun = new ConcurrentHashMap<String, Boolean>();
+    	this.allTestDirectory = new ConcurrentHashMap<String, Boolean>();
     	
     }
 
@@ -76,7 +79,15 @@ public class App
        try{
 	       App executorInstance = new App();
 	       CLASS_DIR = config.getCLASS_DIR();
-	       TEST_DIR = config.getTEST_DIR();
+	       TEST_DIR = config.getTEST_DIR(); 
+	       //allTestDirectory.put(TEST_DIR, true); /*** comment out later *****/
+	       FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
+	       Set<String> allTestDir = find.getAllTestDir();
+	       for(String s: allTestDir){
+	    	   allTestDirectory.put(s, true);
+	       }
+	       
+	       
 	       	       
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
     	   runnable.scanClassFiles(CLASS_DIR);
@@ -88,7 +99,14 @@ public class App
     	   
 	       logger.debug("REPO SCANNING FOR TEST SUIT STARTS");
 	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
-    	   testMap.scanTestFiles(TEST_DIR);
+	       //testMap.scanTestFiles(TEST_DIR);
+	       
+	       
+	       for(Entry<String, Boolean> e: allTestDirectory.entrySet()){
+	    	   testMap.scanTestFiles(e.getKey());
+	       }
+	       
+	      
     	   App.TestFileChangeAnalysisPool.shutdown();
 	       App.TestParseAndIndexPool.shutdown();
 	       
