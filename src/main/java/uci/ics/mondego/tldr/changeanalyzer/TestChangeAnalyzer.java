@@ -10,6 +10,7 @@ import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
 import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
 import uci.ics.mondego.tldr.tool.StringProcessor;
@@ -20,7 +21,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	private final JavaClass parsedClass;
 	private Map<String, Integer> allPreviousTestCases;
 	
-	public TestChangeAnalyzer(String className) throws IOException{
+	public TestChangeAnalyzer(String className) throws IOException, DatabaseSyncException{
 		super(className);
 		this.parser = new ClassParser(this.getEntityName());
 		this.parsedClass = parser.parse();
@@ -39,7 +40,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		this.closeRedis();
 	}
 	
-	protected void parse() throws IOException{
+	protected void parse() throws IOException, DatabaseSyncException{
 		
 		Method [] allMethods= parsedClass.getMethods();
 		for(Method m: allMethods){
@@ -83,11 +84,14 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
 				if(!this.allPreviousTestCases.containsKey(methodFqn)){
-					//	!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
-					logger.debug(methodFqn+" didn't exist in db...added");
 					App.testToRun.put(methodFqn, true);
-					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+					boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+					if(!ret){
+						throw new DatabaseSyncException(methodFqn);
+					}
+					logger.debug(methodFqn+" didn't exist in db...added");					
 					Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);					
+					//System.out.println(map.getKey()+"   "+map.getValue());
 					DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 				}
 				
@@ -96,7 +100,10 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);					
 					if(!currentHashCode.equals(prevHashCode)){
 						App.testToRun.put(methodFqn, true);						
-						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						if(!ret){
+							throw new DatabaseSyncException(methodFqn);
+						}
 						Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);	
 						DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 					}

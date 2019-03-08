@@ -32,7 +32,7 @@ public class App
 {
 	private static String CLASS_DIR;
 	private static String TEST_DIR;
-	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+	private static final Logger logger = LogManager.getLogger(App.class);
 	
     public static ThreadedChannel<String> FileChangeAnalysisPool;
     public static ThreadedChannel<String> EntityChangeAnalysisPool;
@@ -46,6 +46,7 @@ public class App
     public static ConcurrentHashMap<String, Boolean> testToRun;
 
     public App(){
+    	logger.debug("Beginning of the Pipeline");
     	ConfigLoader config = new ConfigLoader();
     	this.FileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), FileChangeAnalyzerWorker.class);
     	this.EntityChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), ClassChangeAnalyzerWorker.class);
@@ -62,9 +63,12 @@ public class App
 
     public static void main( String[] args )
     {    	
-       PropertyConfigurator.configure("log4j.properties");
+       //PropertyConfigurator.configure("log4j.properties");
+       
        ConfigLoader config = new ConfigLoader();
+       
        long startTime = System.nanoTime();
+       
        try{
 	       App executorInstance = new App();
 	       CLASS_DIR = config.getCLASS_DIR();
@@ -72,24 +76,23 @@ public class App
 	       	       
     	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
     	   runnable.scanClassFiles(CLASS_DIR);
-
-    	   App.FileChangeAnalysisPool.shutdown();
-	       App.EntityChangeAnalysisPool.shutdown();
-	       App.DependencyExtractionPool.shutdown();
-	       App.DependencyGraphTraversalPool.shutdown();
-	       	       
+   	       
 	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
     	   testMap.scanTestFiles(TEST_DIR);
-	           	   
-	       Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
+	       
+    	   Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
 	       for(Map.Entry<String, Boolean> e: allEntries){
 	    	   App.EntityToTestMapPool.send(e.getKey());
 	       }
-	       
+
+	       App.FileChangeAnalysisPool.shutdown();
+	       App.EntityChangeAnalysisPool.shutdown();
+	       App.DependencyExtractionPool.shutdown();
+	       App.DependencyGraphTraversalPool.shutdown();
 	       App.TestFileChangeAnalysisPool.shutdown();
 	       App.TestParseAndIndexPool.shutdown();
 	       App.EntityToTestMapPool.shutdown();
-	    	
+	       	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
 	       String print = getCommand();
 	       //System.out.println(print);
@@ -97,10 +100,8 @@ public class App
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
 	       double elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
-	       //System.out.println("TOTAL TIME: "+ elapsedTimeInSecond);     
+	          
 	       //logExperiment(args[0], getCommand());     
-	       System.out.println(App.testToRun.size());
-	       System.out.println(App.entityToTest.size());
        }
        
        catch( JedisConnectionException e){
@@ -152,6 +153,7 @@ public class App
        
        finally{
     	   RedisHandler.destroyPool();
+    	   logger.debug("Ending the Pipeline");
        }
     }
     
@@ -170,9 +172,9 @@ public class App
 	    	}
 	    	
 	    	writer2.close();
-	    	
-	    	
-		} catch (FileNotFoundException e) {
+		} 
+		
+		catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
