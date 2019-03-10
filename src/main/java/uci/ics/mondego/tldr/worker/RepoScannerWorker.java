@@ -65,7 +65,6 @@ public class RepoScannerWorker extends Worker{
 	                if(fileAbsolutePath.endsWith(".class")){
 	                	//logger.debug(file.getName()+" found and sending to TestFileChangeAnalyzer");
 	                	App.TestFileChangeAnalysisPool.send(fileAbsolutePath); 
-	                	System.out.println("TEST : "+fileAbsolutePath);
 	                }	                	         
 	            } 
 	            
@@ -88,7 +87,6 @@ public class RepoScannerWorker extends Worker{
 	                if(fileAbsolutePath.endsWith(".class")){
 	                	//logger.debug(file.getName()+" found and sending to FileChangeAnalyzer");
 	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);
-	                	System.out.println("CLASS : "+fileAbsolutePath);
 	                }	                	         
 	            } 
 	            else if (file.isDirectory() && 

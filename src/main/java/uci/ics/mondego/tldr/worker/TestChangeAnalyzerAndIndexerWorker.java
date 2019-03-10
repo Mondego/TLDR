@@ -1,5 +1,6 @@
 package uci.ics.mondego.tldr.worker;
 
+import java.io.EOFException;
 import java.io.IOException;
 
 import org.apache.log4j.LogManager;
@@ -23,13 +24,17 @@ public class TestChangeAnalyzerAndIndexerWorker extends Worker{
 			//		+"indexed, end of the pool parseindextest");
 			TestChangeAnalyzer ts = new TestChangeAnalyzer(testClassName);
 		} 
-		catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (DatabaseSyncException e) {
-			// TODO Auto-generated catch block
+		
+		catch (EOFException e){
 			e.printStackTrace();
 		}
+		catch (IOException e) {
+			e.printStackTrace();
+		} 
+		catch (DatabaseSyncException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

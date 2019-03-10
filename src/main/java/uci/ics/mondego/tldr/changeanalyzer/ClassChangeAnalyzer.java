@@ -111,6 +111,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					throw new DatabaseSyncException(fieldFqn);
 				}
 				//logger.info(fieldFqn+" didn't exist in db...added");
+				App.allNewAndChangedentities.put(fieldFqn, true);
 				App.entityToTest.put(fieldFqn, true);
 			}
 			
@@ -124,6 +125,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						throw new DatabaseSyncException(fieldFqn);
 					}
 					//logger.info(fieldFqn+" changed");
+					App.allNewAndChangedentities.put(fieldFqn, true);
 					App.entityToTest.put(fieldFqn, true);
 				}
 			}
@@ -180,6 +182,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					}
 					
 					App.entityToTest.put(methodFqn, true);
+					App.allNewAndChangedentities.put(methodFqn, true);
 					extractedChangedMethods.put(methodFqn, m);
 					//logger.info(methodFqn+" didn't exist in db...added");
 				}
@@ -196,6 +199,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						}
 						extractedChangedMethods.put(methodFqn, m);
 						App.entityToTest.put(methodFqn, true);
+						App.allNewAndChangedentities.put(methodFqn, true);
+						
 						//logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
 						//		+ "class name: "+this.getEntityName());
 					}

@@ -1,8 +1,18 @@
-DEBUG | 02:43:52 | [main] tldr.App- Beginning of the Pipeline
-DEBUG | 02:43:52 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.FileChangeAnalyzerWorker Starting
-DEBUG | 02:43:52 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker Starting
-DEBUG | 02:43:52 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.DependencyExtractorWorker Starting
-DEBUG | 02:43:52 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.DFSTraversalWorker Starting
-DEBUG | 02:43:52 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker Starting
-DEBUG | 02:43:52 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker Starting
-DEBUG | 02:43:52 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.EntityToTestMapWorker Starting
+DEBUG | 01:28:55 | [uci.ics.mondego.tldr.App.main()] tldr.App- Beginning of the Pipeline
+DEBUG | 01:28:55 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.FileChangeAnalyzerWorker Starting
+DEBUG | 01:28:55 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker Starting
+DEBUG | 01:28:55 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.DependencyExtractorWorker Starting
+DEBUG | 01:28:55 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.DFSTraversalWorker Starting
+DEBUG | 01:28:55 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker Starting
+DEBUG | 01:28:55 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker Starting
+DEBUG | 01:28:55 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.EntityToTestMapWorker Starting
+DEBUG | 01:28:57 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.FileChangeAnalyzerWorker Ending
+DEBUG | 01:28:57 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker Ending
+DEBUG | 01:28:57 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.DependencyExtractorWorker Ending
+DEBUG | 01:28:57 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.DFSTraversalWorker Ending
+DEBUG | 01:28:57 | [uci.ics.mondego.tldr.App.main()] tldr.App- REPO SCANNING FOR TEST SUIT STARTS
+DEBUG | 01:28:58 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker Ending
+DEBUG | 01:28:58 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker Ending
+DEBUG | 01:28:59 | [uci.ics.mondego.tldr.App.main()] tldr.App- REPO SCANNING, TEST PARSING, TEST INDEXING IS COMPLETE, NOW MAPPING STARTING
+DEBUG | 01:28:59 | [uci.ics.mondego.tldr.App.main()] model.ThreadedChannel- uci.ics.mondego.tldr.worker.EntityToTestMapWorker Ending
+DEBUG | 01:28:59 | [uci.ics.mondego.tldr.App.main()] tldr.App- Ending the Pipeline

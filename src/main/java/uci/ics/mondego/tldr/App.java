@@ -33,6 +33,8 @@ public class App
 {
 	private static String CLASS_DIR;
 	private static String TEST_DIR;
+	private static double elapsedTimeInSecond;
+	
 	private static final Logger logger = LogManager.getLogger(App.class);
     public static ThreadedChannel<String> FileChangeAnalysisPool;
     public static ThreadedChannel<String> EntityChangeAnalysisPool;
@@ -45,6 +47,8 @@ public class App
     public static ConcurrentHashMap<String, Boolean> entityToTest;
     public static ConcurrentHashMap<String, Boolean> testToRun;
     public static ConcurrentHashMap<String, Boolean> allTestDirectory;
+    public static ConcurrentHashMap<String, Boolean> allNewAndChangedentities;
+    public static ConcurrentHashMap<String, Boolean> allNewAndChangedTests;
 
     public App(){
     	Date date = new Date();      
@@ -65,6 +69,8 @@ public class App
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.testToRun = new ConcurrentHashMap<String, Boolean>();
     	this.allTestDirectory = new ConcurrentHashMap<String, Boolean>();
+    	this.allNewAndChangedentities = new ConcurrentHashMap<String, Boolean>();
+    	this.allNewAndChangedTests = new ConcurrentHashMap<String, Boolean>();
     	
     }
 
@@ -78,18 +84,20 @@ public class App
        
        try{
 	       App executorInstance = new App();
-	       CLASS_DIR = config.getCLASS_DIR();
-	       TEST_DIR = config.getTEST_DIR(); 
+	       
+	       //CLASS_DIR = config.getCLASS_DIR();
+	       CLASS_DIR = args[1];
+	      
+	       //TEST_DIR = config.getTEST_DIR(); 
 	       //allTestDirectory.put(TEST_DIR, true); /*** comment out later *****/
+	       
 	       FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
 	       Set<String> allTestDir = find.getAllTestDir();
 	       for(String s: allTestDir){
 	    	   allTestDirectory.put(s, true);
 	       }
-	       
-	       
-	       	       
-    	   RepoScannerWorker runnable =new RepoScannerWorker(CLASS_DIR);
+	              	       
+    	   RepoScannerWorker runnable = new RepoScannerWorker(CLASS_DIR);
     	   runnable.scanClassFiles(CLASS_DIR);
    	       
     	   App.FileChangeAnalysisPool.shutdown();
@@ -101,12 +109,10 @@ public class App
 	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
 	       //testMap.scanTestFiles(TEST_DIR);
 	       
-	       
 	       for(Entry<String, Boolean> e: allTestDirectory.entrySet()){
 	    	   testMap.scanTestFiles(e.getKey());
 	       }
 	       
-	      
     	   App.TestFileChangeAnalysisPool.shutdown();
 	       App.TestParseAndIndexPool.shutdown();
 	       
@@ -122,19 +128,14 @@ public class App
 	       	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
 	       String print = getCommand();
-	       //System.out.println(print);
-
+	       System.out.println(print);
+	       /*****************************/
+	       
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
-	       double elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
-	          
-	       System.out.println(entityToTest.size());
-	       System.out.println(testToRun.size());
-	       System.out.println(elapsedTimeInSecond);
-	       
-	       //253.933992205
-	       
-	       //logExperiment(args[0], getCommand());     
+	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
+	       	       
+	       logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
        }
        
        catch( JedisConnectionException e){
@@ -190,28 +191,57 @@ public class App
        }
     }
     
-    private static void logExperiment(String commit, String content){
-    	
+    private static void logExperiment(String pair, String project, String commit){ 	
+    	//System.out.println("GENERATING REPORT FOR "+project+" Commit: "+commit);	           	
     	PrintWriter writer1;
-    	PrintWriter writer2;
 		try {
-			writer1 = new PrintWriter("TEST_"+commit+"_.txt", "UTF-8");
-			writer2 = new PrintWriter("ENTITY_"+commit+"_.txt", "UTF-8");
-			writer1.println(content.replaceAll(",", "\n"));
-	    	writer1.close();
-	    	Set<Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
+			writer1 = new PrintWriter(project+"_"+pair+"_REPORT_"+commit+"_.txt", "UTF-8");
+			writer1.println("NUMBER OF NEW OR CHANGED ENTITIES : "+allNewAndChangedentities.size());	   
+			writer1.println("NUMBER OF NEW OR CHANGED TESTS : "+allNewAndChangedTests.size());	   
+			writer1.println("NUMBER OF ENTITY TO TEST : "+entityToTest.size());	   
+			writer1.println("NUMBER OF TEST TO RUN : "+testToRun.size());	   
+			writer1.println("TOTAL TIME REQUIRED : "+elapsedTimeInSecond+" second");	
+			writer1.println("======================================================");
+			writer1.println("======================================================");
+			
+	    	Set<Entry<String, Boolean>> allEntries = App.allNewAndChangedentities.entrySet();
+			writer1.println("NEW OR CHANGED ENTITIES : \n\n");	   
 	    	for(Entry<String, Boolean> e: allEntries){
-	    		writer2.println(e.getKey());
+	    		writer1.println(e.getKey());
 	    	}
 	    	
-	    	writer2.close();
+	    	writer1.println("======================================================");
+			writer1.println("======================================================");
+			
+			allEntries = App.allNewAndChangedTests.entrySet();
+			writer1.println("NEW OR CHANGED TESTS : \n\n");	   
+	    	for(Entry<String, Boolean> e: allEntries){
+	    		writer1.println(e.getKey());
+	    	}
+	    	
+	    	writer1.println("======================================================");
+			writer1.println("======================================================");
+			
+			allEntries = App.entityToTest.entrySet();
+			writer1.println("ALL ENTITY TO TEST : \n\n");	   
+	    	for(Entry<String, Boolean> e: allEntries){
+	    		writer1.println(e.getKey());
+	    	}
+	    	
+	    	writer1.println("======================================================");
+			writer1.println("======================================================");
+			
+			allEntries = App.testToRun.entrySet();
+			writer1.println("ALL TESTS TO RUN : \n\n");	   
+	    	for(Entry<String, Boolean> e: allEntries){
+	    		writer1.println(e.getKey());
+	    	}	    	
+	    	writer1.close();
 		} 
 		
 		catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}    	
     }

@@ -1,5 +1,6 @@
 package uci.ics.mondego.tldr.changeanalyzer;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -21,7 +22,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	private final JavaClass parsedClass;
 	private Map<String, Integer> allPreviousTestCases;
 	
-	public TestChangeAnalyzer(String className) throws IOException, DatabaseSyncException{
+	public TestChangeAnalyzer(String className) throws IOException, DatabaseSyncException, EOFException{
 		super(className);
 		this.parser = new ClassParser(this.getEntityName());
 		this.parsedClass = parser.parse();
@@ -86,6 +87,8 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				if(!this.allPreviousTestCases.containsKey(methodFqn)){
 					//logger.debug(methodFqn+" is new test, added to testToRun");
 					App.testToRun.put(methodFqn, true);
+					App.allNewAndChangedTests.put(methodFqn, true);
+					
 					boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					if(!ret){
 						throw new DatabaseSyncException(methodFqn);
@@ -101,6 +104,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					if(!currentHashCode.equals(prevHashCode)){
 						//logger.debug(methodFqn+" is changed test, added to testToRun");
 						App.testToRun.put(methodFqn, true);						
+						App.allNewAndChangedTests.put(methodFqn, true);
 						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						if(!ret){
 							throw new DatabaseSyncException(methodFqn);

@@ -11,9 +11,7 @@ public class FindAllTestDirectory {
 	public FindAllTestDirectory(String CLASS_DIR) {
 		// TODO Auto-generated method stub
 		try {
-			System.out.println(CLASS_DIR);
-
-			scanTestFiles(CLASS_DIR, "test-classes");
+			scanTestFiles(CLASS_DIR, "/test");
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,14 +43,18 @@ public class FindAllTestDirectory {
             if (file.isDirectory()) {
             	if(file.getAbsolutePath().toString().contains(pattern)){
             		String dir = file.getAbsolutePath()
-            				.substring(0,file.getAbsolutePath().toString().indexOf(pattern)+pattern.length());
+            				.substring(0,file.getAbsolutePath().toString().indexOf(pattern));
+            		
+            		String temp = file.getAbsolutePath()
+            				.toString().substring(file.getAbsolutePath().toString().indexOf(pattern) + 1);            		
+            		dir = dir+"/"+temp;
+            		
             		if(!all_test_urls.contains(dir)){
-            			System.out.println(dir);
             			all_test_urls.add(dir);
             		}
             	}
-            		
-                scanTestFiles(file.getAbsolutePath(), pattern);
+            	else
+            		scanTestFiles(file.getAbsolutePath(), pattern);
             }
         }
 	}
