@@ -4,6 +4,7 @@
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/exception/package-info.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/TestJavaFile.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/AccessCodes.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/MavenPomProcessor.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/exception/DatabaseSyncException.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/resolution/package-info.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/exception/UnknownDBIdException.java
@@ -38,5 +39,6 @@
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/changeanalyzer/ClassChangeAnalyzer.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/changeanalyzer/EntityChangeAnalyzer.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/changeanalyzer/DependencyExtractor2.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/exception/MavenExecutionException.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/StringProcessor.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/TestClassFile.java

@@ -6,12 +6,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.maven.model.Build;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.Plugin;
+import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
@@ -37,31 +39,43 @@ public class MavenPomProcessor {
 		    Model model = xpp3Reader.read(reader);
 		    Build build = model.getBuild();
 		    List<Plugin> oldPlugins = build.getPlugins();
-		    for(int i=0;i<oldPlugins.size();i++){
-		    	if(oldPlugins.get(i).getArtifactId().equals("maven-surefire-plugin")){
-		    		System.out.println("here");
-		    		Writer writer = new FileWriter(pom2Location);
-		    		MavenXpp3Writer xpp3Writer = new MavenXpp3Writer();
-		    		oldPlugins.get(i).setVersion("2.12.1");
-		    		build.setPlugins(oldPlugins);
-				    model.setBuild(build);
-				    xpp3Writer.write( writer, model );
-				    writer.close();
-				    changed = true;
-				    break;
-		    	}
+		    
+		    if(args[1].equals("surefire")){
+		    	for(int i=0;i<oldPlugins.size();i++){
+			    	if(oldPlugins.get(i).getArtifactId().equals("maven-surefire-plugin")){
+			    		Writer writer = new FileWriter(pom2Location);
+			    		MavenXpp3Writer xpp3Writer = new MavenXpp3Writer();
+			    		oldPlugins.get(i).setVersion("2.12.1");
+			    		build.setPlugins(oldPlugins);
+					    model.setBuild(build);
+					    xpp3Writer.write( writer, model );
+					    writer.close();
+					    changed = true;
+					    break;
+			    	}
+			    }
 		    }
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+		    else if(args[1].equals("ekstazi")){
+		    	oldPlugins.add(createPlugin("org.ekstazi", 
+		    			"ekstazi-maven-plugin", "5.2.0", "ekstazi", "select"));
+		    	build.setPlugins(oldPlugins);
+			    model.setBuild(build);
+			    Writer writer = new FileWriter(pom2Location);
+	    		MavenXpp3Writer xpp3Writer = new MavenXpp3Writer();
+			    xpp3Writer.write( writer, model );
+			    writer.close();
+			    changed = true;
+		    }    			
+		} 
+		catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
-		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (XmlPullParserException e) {
 			e.printStackTrace();
-		}
+		}	
 		finally {
 		    try {
 				reader.close();
@@ -75,10 +89,32 @@ public class MavenPomProcessor {
 						logger.error("PROBLEM IS DELETING OLD POM FILE : "+pomLocation);
 					}
 				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			} 
+		    catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private static Plugin createPlugin(String groupId, String artifactId, String version,
+			String executionId, String goal){
+		Plugin plugin = new Plugin();
+		plugin.setArtifactId(artifactId);
+		plugin.setGroupId(groupId);
+		
+		if(version != null)
+			plugin.setVersion(version);
+		
+		PluginExecution ex = new PluginExecution();
+		ex.setId(executionId);
+		List<String> g = new ArrayList<String>();
+		g.add("select");
+		ex.setGoals(g);
+		List<PluginExecution> executions = new ArrayList<PluginExecution>();
+		executions.add(ex);
+		plugin.setExecutions(executions);
+		
+		return plugin;
+		
 	}
 }

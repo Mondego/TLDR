@@ -1,7 +1,9 @@
 #!/bin/bash
 
+#parse and sample commit hash from commit log
 python Ramdom_commit_sample.py
 
+#experiment specific data... change at your discretion
 repo_base="/Users/demigorgan/TLDR_EXP"
 repo_sha_base="/Users/demigorgan/TLDR_EXP/Sampled_Commit"
 repo_dir=("$repo_base/commons-io" "$repo_base/commons-validator" "$repo_base/commons-jxpath" "$repo_base/commons-collections" "$repo_base/commons-net")
@@ -9,10 +11,11 @@ proj_dir="/Users/demigorgan/Documents/workspace/tldr"
 commit_dir=("$repo_sha_base/io.txt" "$repo_sha_base/validator.txt" "$repo_sha_base/jxpath.txt" "$repo_sha_base/collection.txt" "$repo_sha_base/net.txt")
 project_name=("io" "validator" "jxpath" "collections" "net")
 
-
+# TLDR log folder creation
 foldername=$(date +%Y-%m-%d-%H-%M)
 mkdir -p "$proj_dir"/"$foldername"
 
+#for each project
 for index in {0..4};
 do
 	allSha=${commit_dir[$index]}
@@ -23,37 +26,42 @@ do
 		let "i++"
 	    cd ${repo_dir[$index]}
 	    pwd
-	    rm -f .git/index.lock
+	    rm -f .git/index.lock # needed for errorless checkout to another commit
 	    git reset --hard $line --quiet
-	     
-	    if mvn -q compile ; then
+	    
+	    cd $proj_dir
+	    # process the pom to sure-fire 2.12.1
+	    mvn -q exec:java@second-cli -Dexec.args="${repo_dir[$index]}"
+	    cd ${repo_dir[$index]}
+
+	    if mvn -q clean compile ; then
 	    	echo 'BUILD SUCCESSFUL FOR COMMIT : '$line
-	    	if mvn -q test-compile ; then
+	    	if mvn -q clean test-compile ; then
 		    	cd $proj_dir
 		    	output=$(mvn -q compile exec:java -Dexec.args="$i ${repo_dir[$index]} $line")		    	
-		    	#mvn -q compile exec:java -Dexec.args="$i ${repo_dir[$index]} $line"
 		    	
 		    	if [[ ! -z "${output// }" ]]; then
 		    		cd ${repo_dir[$index]}
-
-		    		echo TESTING TIME :  >> $time_log
+		    		mvn -Dtest=$output test -fae
 		    		var="$( time ( mvn test -Dtest=$output -fae) 2>&1 1>/dev/null )"
-		    		if mvn test -Dtest=$output -fae; then
-		    			echo $var >> $time_log
-		    		else
-		    			echo BUILD FAILED >> $time_log
-		    		fi
-					
-					cd $proj_dir
-				fi		    	
+		    		
+		    		if [[ ! -z "$var" ]] ;  then
+						echo 'TESTING TIME : '$var >> $time_log
+					else
+						echo 'TEST CONTAINS ERROR' >> $time_log
+					fi
+				else
+					echo 'NO TEST WAS RUN' >> $time_log
+				fi	
+				cd $proj_dir	    	
 		    	mv *_.txt "$proj_dir"/"$foldername"
 
 		    else
-		    	echo 'TEST BUILD FAILED FOR COMMIT : '$line
+		    	echo 'TEST BUILD FAILED FOR COMMIT : '$line >> $time_log
 		    fi
 	    
 	    else 
-	    	echo "BUILD FAILED FOR COMMIT : "$line
+	    	echo "BUILD FAILED FOR COMMIT : "$line >> $time_log
 		fi
 	done < "$allSha"
 done
