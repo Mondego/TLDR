@@ -19,29 +19,30 @@ public class DFSTraversal {
 	public DFSTraversal(){
 		this.visitInfo = new HashMap<String, Boolean>();
 		this.trace = new ArrayList<String>();
-		this.rh = RedisHandler.getInstane();
+		this.rh = new RedisHandler();
 	}
 	
 	public DFSTraversal(String source){
 		this.source = source;
 		visitInfo = new HashMap<String, Boolean>();
 		trace = new ArrayList<String>();
-		this.rh = RedisHandler.getInstane();
+		this.rh = new RedisHandler();
 	}
 	
 	private void DFS(String node){
-		//System.out.println(node);
 		trace.add(node);
 		visitInfo.put(node, true);
 		
 		Set<String> all_dependents = rh.getSet(Databases.TABLE_ID_DEPENDENCY, node);
-		
-		//System.out.println(this.rh.getSet(Databases.TABLE_ID_DEPENDENCY, node));
-
+				
 		for(String child: all_dependents){
 			if(!visitInfo.containsKey(child) || !visitInfo.get(child))
 				DFS(child);
 		}
+	}
+	
+	public void closeRedis(){
+		rh.close();
 	}
 	
 	public List<String> get_all_dependent(String node){

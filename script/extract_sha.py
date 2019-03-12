@@ -21,8 +21,8 @@ def write_sha(sha):
 
 def main(argv):
 	write_sha(get_sha(argv))
-	#repo = git.Repo('https://github.com/apache/commons-configuration.git')
-	#repo.remotes.origin.pull()
+	repo = git.Repo('https://github.com/apache/commons-configuration.git')
+	repo.remotes.origin.pull()
 
 
 if __name__ == "__main__":

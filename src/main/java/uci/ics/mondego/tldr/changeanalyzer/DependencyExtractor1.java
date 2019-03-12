@@ -13,9 +13,17 @@ import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.Databases;
 
+/***
+ * 
+ * @author demigorgan
+ *
+ */
+// this class is another approach without building and traversing classfierarchy and by simply
+// querying method signature
+
 public class DependencyExtractor1 {
 
-	private final Map<String, Method> changedMethods;
+	/*private final Map<String, Method> changedMethods;
 	private final RedisHandler rh;
 	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
 	
@@ -81,7 +89,7 @@ public class DependencyExtractor1 {
 			
 			sb.insert(0,'*');
 			String pattern = sb.toString();
-			Set<String> keys = rh.getAllKeys(Databases.TABLE_ID_ENTITY, pattern);
+			Set<String> keys = rh.getAllKeysByPattern(Databases.TABLE_ID_ENTITY, pattern);
 			
 			if(CollectionUtils.isEmpty(keys))
 				return;
@@ -105,4 +113,5 @@ public class DependencyExtractor1 {
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
 		}
 	}
+	*/
 }

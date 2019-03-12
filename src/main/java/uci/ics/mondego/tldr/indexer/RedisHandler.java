@@ -1,42 +1,66 @@
 package uci.ics.mondego.tldr.indexer;
 
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.Transaction;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.ScanParams;
+import redis.clients.jedis.ScanResult;
 import redis.clients.jedis.exceptions.JedisConnectionException;
+import redis.clients.jedis.exceptions.JedisDataException;
 import uci.ics.mondego.tldr.tool.Databases;
 
+import java.awt.List;
+import java.time.Duration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.redisson.api.RKeys;
 import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
+
+
 
 public class RedisHandler{
 
 	private static RedisHandler instance = null; 
-    private static Jedis jedis; 
+   
     private RedissonClient client;
+    private static final JedisPoolConfig poolConfig = buildPoolConfig();
+    private final static JedisPool jedisPool = new JedisPool(poolConfig, "localhost", 6379,10*1000);  
+    private Jedis jedis;
+     
     private final Logger logger = LogManager.getLogger(RedisHandler.class);
 
-	private RedisHandler(){
+    private static JedisPoolConfig buildPoolConfig() {
+        final JedisPoolConfig poolConfig = new JedisPoolConfig();
+        poolConfig.setMaxTotal(2000);
+        poolConfig.setMaxIdle(500);
+        poolConfig.setMinIdle(100);
+        poolConfig.setTestOnBorrow(true);
+        poolConfig.setTestOnReturn(true);
+        poolConfig.setTestWhileIdle(true);
+        poolConfig.setMinEvictableIdleTimeMillis(Duration.ofSeconds(120).toMillis());
+        poolConfig.setTimeBetweenEvictionRunsMillis(Duration.ofSeconds(60).toMillis());
+        poolConfig.setNumTestsPerEvictionRun(100);
+        poolConfig.setBlockWhenExhausted(true);
+        //poolConfig.setMaxWaitMillis(Duration.ofSeconds(360).toMillis());
+        return poolConfig;
+    }
+    
+	public RedisHandler(){
 		try{
-			jedis = new Jedis("localhost");
-			logger.info("Server running : "+jedis.ping());
-			//System.out.println(jedis.get("dbfilename"));
+			 jedis = jedisPool.getResource();
 		}
 		catch(JedisConnectionException e){
-			logger.error("Connection Refused in LocalHost\n");
+			logger.error("Connection Refused in localHost"+"\n");
 		}
 	}
-	
-	private RedisHandler(String addr){
+
+	public RedisHandler(String addr){
 		try{
-			//this.client = Redisson.create();
-			jedis = new Jedis(addr);
-			System.out.println("Server is running: "+jedis.ping()); 
+			 jedis = jedisPool.getResource();
 		}
 		catch(JedisConnectionException e){
 			logger.error("Connection Refused in "+addr+"\n");
@@ -44,87 +68,128 @@ public class RedisHandler{
 	}
 	
 	public Set<String> getAllKeys(String pattern){
-		return jedis.keys(pattern);
+	    Set<String> ret = jedis.keys(pattern);
+		return ret;
 	}
 
 	public static RedisHandler getInstane(String ... b) 
     { 
         if (instance == null) 
         {
-        	if(b.length == 0)
-        		instance = new RedisHandler(); 
+        	if(b.length == 0){
+        		instance = new RedisHandler();       		
+        	}
+        		
         	else if(b.length == 1)
         		instance = new RedisHandler(b[0]);
         } 
         return instance; 
     } 
 	
-	
-	// config object can be created from json file too
-	private Config setConfig(String ip, int port){
-		Config config = new Config();
-		config.useSingleServer().setAddress(ip+":"+port);
-		return config;
-	}
-	
-	//get all keys
-	private Iterable<String> getKeys(){
-		RKeys keys = client.getKeys();
-		return keys.getKeys();
-	}
-	
-	//get all keys by pattern
-	private Iterable<String> getKeys(String pattern){
-		RKeys keys = client.getKeys();
-		return keys.getKeysByPattern(pattern);
-	}
-	
 	public void insert(String tableId, String key, String value) throws JedisConnectionException{		
-		
-		//Transaction t = jedis.multi();
-		//t.set(tableId+key, value);
-		//t.exec();
-		jedis.set(tableId+key, value); 
+		try{
+		    jedis.set(tableId+key, value);
+		}
+		catch(JedisDataException e){
+			System.out.println(tableId+"   "+key+"    "+value+"   ");
+			System.out.println(e.getMessage());
+		}
+		catch(ClassCastException e){
+			System.out.println(tableId+"   "+key+"    "+value+"   ");
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void update(String tableId, String key, String value) throws JedisConnectionException{
-		String prev = jedis.get(tableId+key);
-		//Transaction t = jedis.multi();
-		//t.set(tableId+key, value);
-		//t.exec();
-		jedis.set(tableId+key, value);
-		//System.out.println(tableId+"  "+key+ " changed to : "+jedis.get(tableId+key)+" from : "+prev);
-		//jedis.set(fileName, checkSum);
+		this.insert(tableId, key, value);
 	}
 	
 	public String getValueByKey(String tableId, String key) throws JedisConnectionException{ 
-		//return jedis.hget(tableId, key);
-		return jedis.get(tableId+key);
+	    String ret = jedis.get(tableId+key);
+	    return ret;
 	}
 	
-	public boolean exists(String tableId, String key) throws JedisConnectionException{
-		return jedis.exists(tableId+key);
-		//return jedis.hexists(tableId, key);
+	public boolean exists(String tableId, String key) throws JedisConnectionException{				
+		boolean ret = false;
+		try{
+	    	 ret = jedis.exists(tableId+key);
+		}
+		catch(NullPointerException e){
+			e.printStackTrace();
+		}
+		
+	    return ret;
 	}
 	
-	public void insertInSet(String tableId, String key, String value){
-		String k = tableId+key;
-		jedis.sadd(k, value);
+	public long insertInSet(String tableId, String key, String value){
+		String tableIdKey = tableId+key;
+		long ret1 = jedis.sadd(tableIdKey, value);
+		long ret2 = 1;		
+		
+		//INSERT IN FORWARD INDEX		
+		String forwardTableId = null;
+		if(tableId.equals(Databases.TABLE_ID_DEPENDENCY)){
+			forwardTableId = Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY;
+		}
+		else if(tableId.equals(Databases.TABLE_ID_TEST_DEPENDENCY)){
+			forwardTableId = Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY;
+		}
+		
+		String tableIdValue = forwardTableId + value;
+		ret2 = jedis.sadd(tableIdValue, key);
+		return ret1 & ret2;
 	}
 	
-	public Set<String> getAllKeys(String tableId, String pattern){
+	public long removeFromSet(String tableId, String key, String value){
+		String tableIdKey = tableId + key;
+		long ret = jedis.srem(tableIdKey, value);		
+		return ret;
+	}
+	
+	public long removeKey(String tableId, String key){
+		String tableIdKey = tableId + key;
+		long ret = jedis.del(tableIdKey);
+		return ret;
+	}
+	
+	public Set<String> getAllKeysByPattern(String tableId, String pattern){
 		String key = tableId+pattern;
 		Set<String> keys = jedis.keys(key);
 		return keys;
 	}
 	
 	
+	/*public Set<String> getAllKeysByPattern(String tableId, String pattern) {
+	    Set<String> keys = new HashSet<String>();
+	    String key = tableId+pattern;
+	    ScanParams params = new ScanParams();
+	    params.match(key).count(1000);
+	    String cursor =ScanParams.SCAN_POINTER_START;
+	    ScanResult<String> result;
+		
+	    do {
+	        result = jedis.scan(cursor, params);
+	        keys.addAll(result.getResult());
+	        cursor = result.getStringCursor();
+	    } 
+		while (!result.getStringCursor().equals(ScanParams.SCAN_POINTER_START));
+	    return keys;
+	}*/
+	
 	public Set<String> getSet(String tableId, String key){
-		//System.out.println(tableId);
-		//if(jedis.smembers(tableId+key).size() > 0)
-		//	System.out.println("for   "+key+"   "+jedis.smembers(tableId+key));
-
-		return jedis.smembers(tableId+key);
+		Set<String> ret = null;
+		try{
+			ret = jedis.smembers(tableId+key);
+		}
+		catch(JedisDataException e){
+			System.out.println(tableId+"   "+key);
+			System.out.println(e.getMessage());
+		}
+		catch(ClassCastException e){
+			System.out.println(tableId+"   "+key);
+			System.out.println(e.getMessage());
+		}
+		return ret;
 	}
 	
 	public Map<String, String> getTable(String tableId){
@@ -138,12 +203,17 @@ public class RedisHandler{
 	}
 	
 	public boolean existsInSet(String tableId, String key, String value){
-		return jedis.sismember(tableId+key, value);
+		boolean ret = jedis.sismember(tableId+key, value);
+		return ret;
 	}
-		
+	
+	public static void destroyPool() {
+		jedisPool.close();
+	    jedisPool.destroy();
+	}
+	
 	public void close(){
 		if(jedis != null && jedis.isConnected())
 	        jedis.close();
-	}
-	
+	}	
 }

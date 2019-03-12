@@ -1,166 +1,146 @@
 package uci.ics.mondego.tldr;
 
-
-import uci.ics.mondego.tldr.indexer.RedisHandler;
-import uci.ics.mondego.tldr.map.EntityToTestMap;
-
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
+import java.util.concurrent.ConcurrentHashMap;
 import org.apache.bcel.classfile.ClassFormatException;
 import org.apache.bcel.classfile.Method;
-import org.apache.commons.collections4.ListUtils;
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
-import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor1;
-import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor2;
-import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
-import uci.ics.mondego.tldr.changeanalyzer.TestChangeAnalyzer;
-import uci.ics.mondego.tldr.model.SourceFile;
-import uci.ics.mondego.tldr.resolution.DFSTraversal;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.indexer.RedisHandler;
+import uci.ics.mondego.tldr.model.ThreadedChannel;
+import uci.ics.mondego.tldr.tool.ConfigLoader;
+import uci.ics.mondego.tldr.tool.FindAllTestDirectory;
+import uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker;
+import uci.ics.mondego.tldr.worker.DFSTraversalWorker;
+import uci.ics.mondego.tldr.worker.DependencyExtractorWorker;
+import uci.ics.mondego.tldr.worker.EntityToTestMapWorker;
+import uci.ics.mondego.tldr.worker.FileChangeAnalyzerWorker;
+import uci.ics.mondego.tldr.worker.RepoScannerWorker;
+import uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker;
+import uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker;
 
-
-/**
- * Hello world!
- *
- */
 public class App 
 {
-	private static String PROJ_DIR;
-	private static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+	private static String CLASS_DIR;
+	private static String TEST_DIR;
+	private static double elapsedTimeInSecond;
 	
-	
+	private static final Logger logger = LogManager.getLogger(App.class);
+    public static ThreadedChannel<String> FileChangeAnalysisPool;
+    public static ThreadedChannel<String> EntityChangeAnalysisPool;
+    public static ThreadedChannel<HashMap<String, Method>> DependencyExtractionPool;
+    public static ThreadedChannel<String> DependencyGraphTraversalPool;
+    public static ThreadedChannel<String> TestFileChangeAnalysisPool;
+    public static ThreadedChannel<String> TestParseAndIndexPool;
+    public static ThreadedChannel<String> EntityToTestMapPool;
+
+    public static ConcurrentHashMap<String, Boolean> entityToTest;
+    public static ConcurrentHashMap<String, Boolean> testToRun;
+    public static ConcurrentHashMap<String, Boolean> allTestDirectory;
+    public static ConcurrentHashMap<String, Boolean> allNewAndChangedentities;
+    public static ConcurrentHashMap<String, Boolean> allNewAndChangedTests;
+
+    public App(){
+    	Date date = new Date();      
+        String LogDate= new SimpleDateFormat("yyyyMMdd").format(date);
+        System.setProperty("logFilename", LogDate);
+        
+    	logger.debug("Beginning of the Pipeline");
+    	
+    	ConfigLoader config = new ConfigLoader();
+    	this.FileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), FileChangeAnalyzerWorker.class);
+    	this.EntityChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), ClassChangeAnalyzerWorker.class);
+    	this.DependencyExtractionPool = new ThreadedChannel<HashMap<String, Method>>(config.getThread(), DependencyExtractorWorker.class);
+    	this.DependencyGraphTraversalPool = new ThreadedChannel<String>(config.getThread(),DFSTraversalWorker.class);
+    	this.TestFileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), TestFileChangeAnalyzerWorker.class);
+    	this.TestParseAndIndexPool = new ThreadedChannel<String>(config.getThread(), TestChangeAnalyzerAndIndexerWorker.class);
+    	this.EntityToTestMapPool = new ThreadedChannel<String>(config.getThread(), EntityToTestMapWorker.class);
+    	    	
+    	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
+    	this.testToRun = new ConcurrentHashMap<String, Boolean>();
+    	this.allTestDirectory = new ConcurrentHashMap<String, Boolean>();
+    	this.allNewAndChangedentities = new ConcurrentHashMap<String, Boolean>();
+    	this.allNewAndChangedTests = new ConcurrentHashMap<String, Boolean>();
+    	
+    }
 
     public static void main( String[] args )
     {    	
-      // BasicConfigurator.configure();
-       PropertyConfigurator.configure("log4j.properties");
-
-       RedisHandler rh = null;
+       //PropertyConfigurator.configure("log4j.properties");
+       
+       ConfigLoader config = new ConfigLoader();
+       
+       long startTime = System.nanoTime();
+       
        try{
-	       PROJ_DIR = "/Users/demigorgan/commons-configuration";
-	       //PROJ_DIR = "/Users/demigorgan/log4j";
+	       App executorInstance = new App();
 	       
-	       //STEP 1 : Scan the repository - gets java, test, class, and jar files. 
-	       RepoScanner rs = new RepoScanner(PROJ_DIR);
-	       
-	       // in memory database handler
-	       rh =  RedisHandler.getInstane();
-	       
-	       List<SourceFile> allClass = rs.get_all_class_files();
-	       List<SourceFile> allTestClass = rs.get_all_test_class_files();
-	       
-	       List<SourceFile> changedFiles = new ArrayList<SourceFile>();
-	       List<SourceFile> changedTests = new ArrayList<SourceFile>();
-	       
-	       List<String> changedEntities = new ArrayList<String>();
-	       
-	       Map<String, Method> fqnToCodeMap = new HashMap<String, Method>();	       
+	       //CLASS_DIR = config.getCLASS_DIR();
+	       CLASS_DIR = args[1];
 	      
-	       // STEP 2.1: FIND CHANGED CLASS FILES
-	       for(int i=0;i<allClass.size();i++){
-	    	   FileChangeAnalyzer fc = new FileChangeAnalyzer(allClass.get(i).getPath());
-		       if(fc.hasChanged())
-		    	   changedFiles.add(allClass.get(i));
+	       //TEST_DIR = config.getTEST_DIR(); 
+	       //allTestDirectory.put(TEST_DIR, true); /*** comment out later *****/
+	       
+	       FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
+	       Set<String> allTestDir = find.getAllTestDir();
+	       for(String s: allTestDir){
+	    	   allTestDirectory.put(s, true);
+	       }
+	              	       
+    	   RepoScannerWorker runnable = new RepoScannerWorker(CLASS_DIR);
+    	   runnable.scanClassFiles(CLASS_DIR);
+   	       
+    	   App.FileChangeAnalysisPool.shutdown();
+	       App.EntityChangeAnalysisPool.shutdown();
+	       App.DependencyExtractionPool.shutdown();
+	       App.DependencyGraphTraversalPool.shutdown();
+    	   
+	       logger.debug("REPO SCANNING FOR TEST SUIT STARTS");
+	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
+	       //testMap.scanTestFiles(TEST_DIR);
+	       
+	       for(Entry<String, Boolean> e: allTestDirectory.entrySet()){
+	    	   testMap.scanTestFiles(e.getKey());
 	       }
 	       
-	       // STEP 2.2: FIND ALL CHANGED TEST FILES
+    	   App.TestFileChangeAnalysisPool.shutdown();
+	       App.TestParseAndIndexPool.shutdown();
 	       
-	       for(int i=0;i<allTestClass.size();i++){
-	    	   //System.out.println("here : "+allTestClass.get(i).getName());
-	    	   FileChangeAnalyzer fc = new FileChangeAnalyzer(allTestClass.get(i).getPath());
-		       if(fc.hasChanged()){ 	   
-		    	   changedTests.add(allTestClass.get(i));
-		       } 	   
+    	   logger.debug("REPO SCANNING, TEST PARSING, TEST INDEXING IS COMPLETE, NOW MAPPING STARTING");
+    	   
+    	   Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
+	       for(Map.Entry<String, Boolean> e: allEntries){
+	    	   //logger.debug(e.getKey()+"is being sent to the mapPool from App");
+	    	   App.EntityToTestMapPool.send(e.getKey());
 	       }
-	        
-	        //STEP 3.1: FIND CHANGED ENTITIES
-	       for(int i=0;i<changedFiles.size();i++){
-	    	   // for each changed class we check which field/method change   
-	    	   ClassChangeAnalyzer cc = new ClassChangeAnalyzer(changedFiles.get(i).getPath()); 
-	    	   List<String> chEnt = cc.getChangedAttributes();
-	    	   changedEntities.addAll(chEnt);
-	    	   fqnToCodeMap.putAll(cc.getextractedFunctions());
-	       }
-	       
-	       /*** for testing---- remove 
-	       for(int i=0;i<allClass.size();i++){
-	    	  
-	    	   ClassChangeAnalyzer cc;
-	    	   cc = new ClassChangeAnalyzer(allClass.get(i).getPath()); 
-	       }*/
-	       
-	       
-	       // STEP 3.2: RESOLUTION OF DEPENDENCY
-	       	       
-	       DependencyExtractor2 depExt = new DependencyExtractor2(fqnToCodeMap);
-	       depExt.resolute();
-	       
-	       
-	       // STEP 3.2: PARSE AND MAP TEST METHODS TO ENTITIES;
-	       for(int i=0;i<changedTests.size();i++){
-	    	   // for each changed class we check which field/method change  
-	    	   
-	    	   TestChangeAnalyzer cc = new TestChangeAnalyzer(changedTests.get(i).getPath()); 
-	    	   List<String> chEnt = cc.getChangedAttributes();
-	    	   //changedEntities.addAll(chEnt);
-	       }
-	       
-	       	       
-	       // STEP 4: FIND ALL DEPENDENT ENTITIES FOR EACH CHANGED ENTITY
-	       List<String> allEntitiesToTest = new ArrayList<String>();
-	       DFSTraversal dfs = new DFSTraversal();
-	       
-	       for(int i=0;i<changedEntities.size();i++){
-	    	   List<String> dep = dfs.get_all_dependent(changedEntities.get(i));
-	    	   allEntitiesToTest = ListUtils.union(dep, allEntitiesToTest);
-	    	   //System.out.println(changedEntities.get(i));
-	       }
-	       
-	       
-	       List<String> allTestToRun = new ArrayList<String>();
-	       EntityToTestMap map = new EntityToTestMap();
 
-	       // STEP 5: FIND ALL TESTS FOR THE allEntityToTest List
-	       //System.out.println("\n\n	ALL ENTITY TO TEST : \n");
-
-	       for(int i=0;i<allEntitiesToTest.size();i++){
-	    	   //System.out.println(allEntitiesToTest.get(i));
-	    	   Set<String> tests = map.getTests(allEntitiesToTest.get(i));
-	    	   for(String str: tests)
-	    		   allTestToRun.add(str);
-	       }
+	       App.EntityToTestMapPool.shutdown();
+	       	       
+	       /**** this is needed for running the tests i.e. for the wrapper*****/
+	       String print = getCommand();
+	       System.out.println(print);
+	       /*****************************/
 	       
-	       System.out.println( args[0]+"   "+allEntitiesToTest.size());
-	       
-	       //System.out.println("\n\n	ALL TEST TO RUN : \n");
-	       for(int i=0;i<allTestToRun.size();i++){
-	    	   //System.out.println(allTestToRun.get(i));
-	       }
-	       
+	       long endTime = System.nanoTime();	 
+	       long elapsedTime = endTime - startTime;
+	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
+	       	       
+	       logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
        }
        
        catch( JedisConnectionException e){
-    	   System.out.println("No Connection to Jedis Server");
-    	   e.printStackTrace();   
-       }
-       
-       catch(IOException e){
-    	   System.out.println("extractor can't read the designated class");
-    	   e.printStackTrace();
-       }
+    	   System.err.println("NO CONNECTION DETECTED");
+        }
        
        catch(ArrayIndexOutOfBoundsException e){
     	   System.out.println("the file path is too long");
@@ -172,15 +152,125 @@ public class App
     	   e.printStackTrace();
        }
        
-       catch(NoSuchAlgorithmException e){
-    	   e.printStackTrace();
-       }
-       
        catch( ClassFormatException e){
     	   logger.error("Class Format malfunction : "+ e.getMessage());
-       }
+       } 
+       
+       catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       
+       catch (InstantiationException e) {
+		// TODO Auto-generated catch block
+    	   e.printStackTrace();
+       } 
+       
+       catch (IllegalAccessException e) {
+		// TODO Auto-generated catch block
+    	   e.printStackTrace();
+	   } 
+       
+       catch (IllegalArgumentException e) {
+		// TODO Auto-generated catch block
+    	   e.printStackTrace();
+       } 
+       
+       catch (InvocationTargetException e) {
+    	   e.printStackTrace();
+       } 
+       
+       catch (NoSuchMethodException e) {
+		   
+    	   e.printStackTrace();
+       } 
+       
        finally{
-    	   rh.close();
+    	   RedisHandler.destroyPool();
+    	   logger.debug("Ending the Pipeline");
        }
+    }
+    
+    private static void logExperiment(String pair, String project, String commit){ 	
+    	//System.out.println("GENERATING REPORT FOR "+project+" Commit: "+commit);	           	
+    	PrintWriter writer1;
+		try {
+			writer1 = new PrintWriter(project+"_"+pair+"_REPORT_"+commit+"_.txt", "UTF-8");
+			writer1.println("NUMBER OF NEW OR CHANGED ENTITIES : "+allNewAndChangedentities.size());	   
+			writer1.println("NUMBER OF NEW OR CHANGED TESTS : "+allNewAndChangedTests.size());	   
+			writer1.println("NUMBER OF ENTITY TO TEST : "+entityToTest.size());	   
+			writer1.println("NUMBER OF TEST TO RUN : "+testToRun.size());	   
+			writer1.println("TOTAL TIME REQUIRED : "+elapsedTimeInSecond+" second");	
+			writer1.println("======================================================");
+			writer1.println("======================================================");
+			
+	    	Set<Entry<String, Boolean>> allEntries = App.allNewAndChangedentities.entrySet();
+			writer1.println("NEW OR CHANGED ENTITIES : \n\n");	   
+	    	for(Entry<String, Boolean> e: allEntries){
+	    		writer1.println(e.getKey());
+	    	}
+	    	
+	    	writer1.println("======================================================");
+			writer1.println("======================================================");
+			
+			allEntries = App.allNewAndChangedTests.entrySet();
+			writer1.println("NEW OR CHANGED TESTS : \n\n");	   
+	    	for(Entry<String, Boolean> e: allEntries){
+	    		writer1.println(e.getKey());
+	    	}
+	    	
+	    	writer1.println("======================================================");
+			writer1.println("======================================================");
+			
+			allEntries = App.entityToTest.entrySet();
+			writer1.println("ALL ENTITY TO TEST : \n\n");	   
+	    	for(Entry<String, Boolean> e: allEntries){
+	    		writer1.println(e.getKey());
+	    	}
+	    	
+	    	writer1.println("======================================================");
+			writer1.println("======================================================");
+			
+			allEntries = App.testToRun.entrySet();
+			writer1.println("ALL TESTS TO RUN : \n\n");	   
+	    	for(Entry<String, Boolean> e: allEntries){
+	    		writer1.println(e.getKey());
+	    	}	    	
+	    	writer1.close();
+		} 
+		
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}    	
+    }
+    
+    private static String getCommand(){
+    	  StringBuilder sb = new StringBuilder();
+	       //sb.append("mvn test -Dtest=");
+	       Set<Map.Entry<String, Boolean>> all = testToRun.entrySet();
+	       int i=0;
+	       for(Entry<String, Boolean> es: all){
+	    	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
+	    		   continue;
+	    	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
+	    	   sb.append(pkg.substring(0,pkg.lastIndexOf('.')));
+	    	   String func = pkg.substring(pkg.lastIndexOf('.')+1);
+	    	   sb.append("#");
+	    	   sb.append(func);
+	    	   if(i != (testToRun.size() - 1))
+	    		   sb.append(",");
+	    	   i++;
+	       }
+	       return sb.toString();
+    }
+    
+    public static String getCLASS_DIR(){
+    	return CLASS_DIR;
+    }
+    
+    public static String getTEST_DIR(){
+    	return TEST_DIR;
     }
 }

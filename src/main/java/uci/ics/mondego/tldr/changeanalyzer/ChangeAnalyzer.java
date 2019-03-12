@@ -4,6 +4,7 @@ import java.io.IOException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 
 public abstract class ChangeAnalyzer {
@@ -13,17 +14,17 @@ public abstract class ChangeAnalyzer {
 	 * 				ENTITY - LIST OF DEPENDENTS ---- 3
 	 */
 
-	protected static final Logger logger = LogManager.getLogger(ClassChangeAnalyzer.class);
+	protected static final Logger logger = LogManager.getLogger(ChangeAnalyzer.class);
 	private final String entityName;
 	private boolean changed;
 	private boolean isSynced;
-	protected RedisHandler rh;
+	protected RedisHandler database;
 	
 	public ChangeAnalyzer(String className){
 		this.entityName = className;
 		this.changed = false;
 		this.isSynced = false;
-		this.rh = RedisHandler.getInstane();
+		this.database = new RedisHandler();
 	}
 	
 	public boolean hasChanged(){
@@ -42,18 +43,23 @@ public abstract class ChangeAnalyzer {
 		return isSynced;
 	}
 	
-	protected void sync(String tableId, String name, String newCheckSum){
-		rh.update(tableId, name, newCheckSum);
+	protected void closeRedis(){
+		database.close();
+	}
+	
+	protected boolean sync(String tableId, String name, String newCheckSum){
+		database.update(tableId, name, newCheckSum);
 		this.isSynced = true;
+		return isSynced;
 	}
 	
 	protected String getValue(String tableId, String key){
-		return rh.getValueByKey(tableId, key);
+		return database.getValueByKey(tableId, key);
 	}
 	
 	protected boolean exists(String tableId, String key){
-		return rh.exists(tableId, key);
+		return database.exists(tableId, key);
 	}
 	
-	protected abstract void parse() throws IOException;
+	protected abstract void parse() throws IOException, DatabaseSyncException;
 }

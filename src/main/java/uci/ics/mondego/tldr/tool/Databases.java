@@ -7,5 +7,6 @@ public interface Databases {
 	public static final String TABLE_ID_TEST_DEPENDENCY = "4";
 	public static final String TABLE_ID_SUBCLASS = "5";
 	public static final String TABLE_ID_INTERFACE_SUPERCLASS = "6";
-	
+	public static final String TABLE_ID_FORWARD_INDEX_DEPENDENCY = "7";
+	public static final String TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY = "7";
 }

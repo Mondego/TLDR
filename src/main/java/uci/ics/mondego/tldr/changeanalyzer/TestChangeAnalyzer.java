@@ -1,110 +1,51 @@
 package uci.ics.mondego.tldr.changeanalyzer;
 
+import java.io.EOFException;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.AbstractMap;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.apache.bcel.classfile.ClassParser;
-import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
-
-import uci.ics.mondego.tldr.extractor.MethodParser;
+import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class TestChangeAnalyzer extends ChangeAnalyzer{
 
-	private List<String> changedAttributes;
-	private Map<String, String> hashCodes; // stores all the hashcodes of all fields and methods
 	private final ClassParser parser;
-	private List<Method> allMethods;
-	private List<Field> allFields;
-	private List<Method> allChangedMethods;
-	private List<Field> allChangedFields;
 	private final JavaClass parsedClass;
+	private Map<String, Integer> allPreviousTestCases;
 	
-	public List<Method> getAllMethods(){
-		return allMethods;
-	}
-	
-	public List<Field> getAllFields(){
-		return allFields;
-	}
-	
-	public List<Method> getAllChangedMethods(){
-		return allChangedMethods;
-	}
-	
-	public List<Field> getAllChangedFields(){
-		return allChangedFields;
-	}
-	
-	public TestChangeAnalyzer(String className) throws IOException{
+	public TestChangeAnalyzer(String className) throws IOException, DatabaseSyncException, EOFException{
 		super(className);
-		this.changedAttributes = new ArrayList<String>();
-		this.hashCodes = new HashMap<String, String>();
 		this.parser = new ClassParser(this.getEntityName());
-		this.allChangedFields = new ArrayList<Field>();
-		this.allChangedMethods = new ArrayList<Method>();
-		this.allMethods = new ArrayList<Method>();
-		this.allFields = new ArrayList<Field>();
 		this.parsedClass = parser.parse();
-		this.parse();
-	}
-	
-	public String getChecksumByAttribute(String attr){
-		return hashCodes.get(attr);
-	}
-	
-	public List<String> getChangedAttributes(){
-		return changedAttributes;
-	}
-	
-	protected void parse() throws IOException{
+		this.allPreviousTestCases = new HashMap<String, Integer>();
 		
-		Field [] allFields = parsedClass.getFields();
-		for(Field f: allFields){
-			this.allFields.add(f);
-			
-			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
-			
-			String currentHashCode = f.toString().hashCode() +"";
-			
-			hashCodes.put(fieldFqn, currentHashCode);
-			
-			if(!rh.exists(Databases.TABLE_ID_ENTITY,fieldFqn)){
-				logger.info(fieldFqn+" didn't exist in db...added");
-				this.setChanged(true);
-				changedAttributes.add(fieldFqn);
-				this.allChangedFields.add(f);
-				this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
-			}
-			else{
-				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
-				currentHashCode = f.toString().hashCode() +"";
-				if(!currentHashCode.equals(prevHashCode)){
-					logger.info(fieldFqn+" changed");
-					this.setChanged(true);
-					changedAttributes.add(fieldFqn);
-					this.allChangedFields.add(f);
-					this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode+"");
-				}
-			}
+		Set<String> prevTst = database.getAllKeysByPattern
+				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
+		
+		for(String e: prevTst){
+			allPreviousTestCases.put(e.substring(1), 0); // substring(1) case we have to remove table id
 		}
 		
-		Method [] allMethods= parsedClass.getMethods();
+		this.parse();
+		this.deleteDepreciatedTestCases();
 		
+		this.closeRedis();
+	}
+	
+	protected void parse() throws IOException, DatabaseSyncException{
+		
+		Method [] allMethods= parsedClass.getMethods();
 		for(Method m: allMethods){
-			
-			if(m.getName().contains("getSmartUsage"))
-				System.out.println(m.getCode().toString());
-			
-			this.allMethods.add(m);
+						
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
 			m.getModifiers() == AccessCodes.FINAL ||
 			m.getModifiers() == AccessCodes.INTERFACE || 
@@ -117,6 +58,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 			m.getModifiers() == AccessCodes.SYNCHRONIZED || 
 			m.getModifiers() == AccessCodes.TRANSIENT || 
 			m.getModifiers() == AccessCodes.VOLATILE){
+				
 				String code =  m.getModifiers()+"\n"+ m.getName()+ 
 				"\n"+m.getSignature()+"\n"+ m.getCode();
 							
@@ -124,6 +66,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 						? 0 : code.indexOf("Attribute(s)"), 
 						code.indexOf("LocalVariable(") == -1?
 						code.length() : code.indexOf("LocalVariable(")) ;
+				
 				code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
 							
 				code = code.substring(0, code.indexOf("StackMapTable") == -1? 
@@ -138,64 +81,59 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				for(int i=0;i<m.getArgumentTypes().length;i++)
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
 				methodFqn += (")");
-					
 				
-				String currentHashCode = code.hashCode()+"";
-				hashCodes.put(methodFqn, currentHashCode);
-				if(!this.exists(Databases.TABLE_ID_ENTITY, methodFqn)){
-					logger.info(methodFqn+" didn't exist in db...added");
-					this.setChanged(true);
-					changedAttributes.add(methodFqn);
-					this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
-					this.allChangedMethods.add(m);
-				}
-				else{
-					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
+				String currentHashCode = StringProcessor.CreateBLAKE(code);
+				
+				if(!this.allPreviousTestCases.containsKey(methodFqn)){
+					//logger.debug(methodFqn+" is new test, added to testToRun");
+					App.testToRun.put(methodFqn, true);
+					App.allNewAndChangedTests.put(methodFqn, true);
 					
+					boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+					if(!ret){
+						throw new DatabaseSyncException(methodFqn);
+					}
+					//logger.info(methodFqn+" didn't exist in db...added");					
+					Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);					
+					DependencyExtractor2 dep = new DependencyExtractor2(map, true);
+				}
+				
+				else{
+					allPreviousTestCases.put(methodFqn, allPreviousTestCases.get(methodFqn) + 1);
+					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);					
 					if(!currentHashCode.equals(prevHashCode)){
-						logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
-								+ "class name: "+this.getEntityName());
-						this.setChanged(true);
-						//System.out.println(methodFqn+" CNAGED====================="+"CUR : "+currentHashCode+"  PREV: "+prevHashCode+"\n");
-						changedAttributes.add(methodFqn);
-						this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode+"");
-						this.allChangedMethods.add(m);
+						//logger.debug(methodFqn+" is changed test, added to testToRun");
+						App.testToRun.put(methodFqn, true);						
+						App.allNewAndChangedTests.put(methodFqn, true);
+						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						if(!ret){
+							throw new DatabaseSyncException(methodFqn);
+						}
+						Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);	
+						DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 					}
 				}
 			}
-		}
-		
-		this.syncDependency();
+		}		
 	}
 	
-	private void addDependentsInDb(String entity, String dependents){
-		
-		Set<String> prevDependents = this.rh.getSet(Databases.TABLE_ID_TEST_DEPENDENCY, entity);
-		if(prevDependents.size() == 0 || prevDependents == null || 
-				!prevDependents.contains(dependents)){
-			this.rh.insertInSet(Databases.TABLE_ID_TEST_DEPENDENCY, entity, dependents);
-			logger.info(dependents+ " has been updated as "+entity+" 's dependent");
+	private long deleteDepreciatedTestCases(){
+		long count = 0;
+		for ( Map.Entry<String, Integer> entry : allPreviousTestCases.entrySet()) {
+		    Integer val = entry.getValue();
+		    if(val == 0){
+		    	count++;
+		    	String key = entry.getKey();
+		    	this.database.removeKey(Databases.TABLE_ID_ENTITY, key);
+		    	Set<String> allDependencies = this.database.getSet
+		    			(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	this.database.removeKey(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	for(String dep: allDependencies){
+		    		this.database.removeFromSet(Databases.TABLE_ID_TEST_DEPENDENCY, dep, key);
+		    	}
+		    	//logger.info(key+ " test case is remomved from DB");
+		    }  
 		}
-	}
-	
-	private void syncDependency(){
-		try{
-			for(int i=0;i<allChangedMethods.size();i++){
-				MethodParser mp = new MethodParser(allChangedMethods.get(i));
-				List<String> dependencies = mp.getAllInternalDependencies();
-				for(int j=0;j<dependencies.size();j++){
-					String methodFqn =parsedClass.getClassName()+"."+allChangedMethods.get(i).getName();
-					methodFqn += ("(");
-					for(int k=0;k<allChangedMethods.get(i).getArgumentTypes().length;k++)
-						methodFqn += ("$"+allChangedMethods.get(i).getArgumentTypes()[k]);
-					methodFqn += (")");
-		
-					addDependentsInDb(dependencies.get(j), methodFqn);
-				}
-			}
-		}
-		catch(NullPointerException e){
-			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
-		}
+		return count;
 	}
 }
