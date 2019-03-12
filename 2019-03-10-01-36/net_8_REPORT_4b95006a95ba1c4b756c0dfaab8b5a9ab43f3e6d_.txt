@@ -1,0 +1,34 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 1
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 8
+NUMBER OF TEST TO RUN : 0
+TOTAL TIME REQUIRED : 0.601444361 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.net.telnet.TelnetInputStream.run()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.net.telnet.TelnetInputStream.__ioException
+org.apache.commons.net.telnet.TelnetInputStream.run()
+org.apache.commons.net.telnet.TelnetInputStream.read($byte[]$int$int)
+org.apache.commons.net.telnet.TelnetInputStream.__processChar($int)
+org.apache.commons.net.telnet.TelnetInputStream.__isClosed
+org.apache.commons.net.telnet.TelnetInputStream.read()
+org.apache.commons.net.telnet.TelnetInputStream.__hasReachedEOF
+org.apache.commons.net.telnet.TelnetInputStream.__threaded
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+

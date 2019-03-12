@@ -1,0 +1,29 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 2
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 2
+TOTAL TIME REQUIRED : 0.481247788 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.EmailValidatorTest.<clinit>()
+org.apache.commons.validator.routines.EmailValidatorTest.testValidator374()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.EmailValidatorTest.<clinit>()
+org.apache.commons.validator.routines.EmailValidatorTest.testValidator374()

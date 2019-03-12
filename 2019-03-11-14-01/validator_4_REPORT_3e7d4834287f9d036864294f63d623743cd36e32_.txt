@@ -1,0 +1,87 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 20
+NUMBER OF NEW OR CHANGED TESTS : 8
+NUMBER OF ENTITY TO TEST : 26
+NUMBER OF TEST TO RUN : 8
+TOTAL TIME REQUIRED : 0.547984426 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.calculateModulus($java.lang.String$boolean)
+org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigit.<clinit>()
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.calculate($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.<clinit>()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigit.<clinit>()
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.calculateModulus($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.calculateModulus($java.lang.String$boolean)
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.<clinit>()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.isValid($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigit.toInt($char$int$int)
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.toInt($char$int$int)
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.removeCheckDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.createInvalidCodes($java.lang.String[])
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.checkDigit($java.lang.String)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigit.<clinit>()
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.calculate($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.<clinit>()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.POSITION_WEIGHT
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.calculateModulus($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.<clinit>()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.isValid($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigit.toInt($char$int$int)
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.toInt($char$int$int)
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.calculateModulus($java.lang.String$boolean)
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigit.POSITION_WEIGHT
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigit.<clinit>()
+org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigit.POSITION_WEIGHT
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.POSITION_WEIGHT
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.calculateModulus($java.lang.String$boolean)
+org.apache.commons.validator.routines.checkdigit.ModulusCheckDigit.calculateModulus($java.lang.String$boolean)
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigit.INSTANCE
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.<clinit>()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.removeCheckDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.createInvalidCodes($java.lang.String[])
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.checkDigit($java.lang.String)

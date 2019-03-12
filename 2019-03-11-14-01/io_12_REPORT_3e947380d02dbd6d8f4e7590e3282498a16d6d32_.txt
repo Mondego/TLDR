@@ -1,0 +1,37 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 6
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 6
+TOTAL TIME REQUIRED : 0.695660215 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedInputStream()
+org.apache.commons.io.IOUtilsTestCase.<clinit>()
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedWriter()
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedReader()
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedOutputStream()
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedNull()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedInputStream()
+org.apache.commons.io.IOUtilsTestCase.<clinit>()
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedWriter()
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedReader()
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedOutputStream()
+org.apache.commons.io.IOUtilsTestCase.testAsBufferedNull()

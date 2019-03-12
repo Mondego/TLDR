@@ -1,0 +1,29 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 1
+NUMBER OF NEW OR CHANGED TESTS : 1
+NUMBER OF ENTITY TO TEST : 1
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.57691288 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.FileCleaningTracker$Reaper.run()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.FileCleaningTrackerTestCase.waitUntilTrackCount()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.FileCleaningTracker$Reaper.run()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.FileCleaningTrackerTestCase.waitUntilTrackCount()

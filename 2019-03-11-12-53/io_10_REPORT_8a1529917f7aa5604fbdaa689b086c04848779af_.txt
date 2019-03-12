@@ -1,0 +1,73 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 15
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 26
+NUMBER OF TEST TO RUN : 7
+TOTAL TIME REQUIRED : 0.678457524 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.input.XmlStreamReader.doHttpStream($java.io.InputStream$java.lang.String$boolean)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.net.URLConnection)
+org.apache.commons.io.input.XmlStreamReader.getContentTypeEncoding($java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$java.lang.String$boolean)
+org.apache.commons.io.input.XmlStreamReader.doLenientDetection($java.lang.String$java.io.InputStream$org.apache.commons.io.input.XmlStreamReaderException)
+org.apache.commons.io.input.XmlStreamReader.isAppXml($java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.doRawStream($java.io.InputStream$boolean)
+org.apache.commons.io.input.XmlStreamReader.isTextXml($java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.<clinit>()
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$java.lang.String$boolean$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.getEncoding()
+org.apache.commons.io.input.XmlStreamReader.getContentTypeMime($java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$boolean)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.net.URL)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.input.XmlStreamReader.read($char[]$int$int)
+org.apache.commons.io.input.XmlStreamReader.doHttpStream($java.io.InputStream$java.lang.String$boolean)
+org.apache.commons.io.input.XmlStreamReader.encoding
+org.apache.commons.io.input.XmlStreamReader.BOMS
+org.apache.commons.io.input.XmlStreamReader.CHARSET_PATTERN
+org.apache.commons.io.input.XmlStreamReader.doLenientDetection($java.lang.String$java.io.InputStream$org.apache.commons.io.input.XmlStreamReaderException)
+org.apache.commons.io.input.XmlStreamReader.staticDefaultEncoding
+org.apache.commons.io.input.XmlStreamReader.doRawStream($java.io.InputStream$boolean)
+org.apache.commons.io.input.XmlStreamReader.<clinit>()
+org.apache.commons.io.output.XmlStreamWriter.<clinit>()
+org.apache.commons.io.input.XmlStreamReader.getContentTypeMime($java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$boolean)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.net.URL)
+org.apache.commons.io.input.XmlStreamReader.close()
+org.apache.commons.io.input.XmlStreamReader.reader
+org.apache.commons.io.input.XmlStreamReader.defaultEncoding
+org.apache.commons.io.input.XmlStreamReader.<init>($java.net.URLConnection)
+org.apache.commons.io.input.XmlStreamReader.getContentTypeEncoding($java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$java.lang.String$boolean)
+org.apache.commons.io.input.XmlStreamReader.isAppXml($java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.XML_GUESS_BYTES
+org.apache.commons.io.input.XmlStreamReader.isTextXml($java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.ENCODING_PATTERN
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$java.lang.String$boolean$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.getEncoding()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.XmlStreamReaderTest._testHttpLenient($java.lang.String$java.lang.String$java.lang.String$java.lang.String$java.lang.String)
+org.apache.commons.io.input.XmlStreamReaderTest._testHttpValid($java.lang.String$java.lang.String$java.lang.String$java.lang.String)
+org.apache.commons.io.input.XmlStreamReaderTest._testRawNoBomValid($java.lang.String)
+org.apache.commons.io.input.XmlStreamReaderTest._testRawBomValid($java.lang.String)
+org.apache.commons.io.input.XmlStreamReaderTest._testAlternateDefaultEncoding($java.lang.String$java.lang.String$java.lang.String$java.lang.String$java.lang.String)
+org.apache.commons.io.input.XmlStreamReaderTest._testRawBomInvalid($java.lang.String$java.lang.String$java.lang.String)
+org.apache.commons.io.input.XmlStreamReaderTest.testEncodingAttributeXML()

@@ -1,0 +1,54 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 13
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 16
+NUMBER OF TEST TO RUN : 0
+TOTAL TIME REQUIRED : 0.688904366 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.UrlValidator.isValidScheme($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.<init>()
+org.apache.commons.validator.routines.UrlValidator.isValidFragment($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.DEFAULT_URL_VALIDATOR
+org.apache.commons.validator.routines.UrlValidator.isValidPath($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValidQuery($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.countToken($java.lang.String$java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.<init>($java.lang.String[]$int)
+org.apache.commons.validator.routines.UrlValidator.isValidAuthority($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.<init>($java.lang.String[])
+org.apache.commons.validator.routines.UrlValidator.<init>($int)
+org.apache.commons.validator.routines.UrlValidator.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.UrlValidator.isValidScheme($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.allowedSchemes
+org.apache.commons.validator.routines.UrlValidator.<init>()
+org.apache.commons.validator.routines.UrlValidator.isValidFragment($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.DEFAULT_URL_VALIDATOR
+org.apache.commons.validator.routines.UrlValidator.defaultSchemes
+org.apache.commons.validator.routines.UrlValidator.isValidPath($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValidQuery($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.countToken($java.lang.String$java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.<init>($java.lang.String[]$int)
+org.apache.commons.validator.routines.UrlValidator.isValidAuthority($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.<init>($java.lang.String[])
+org.apache.commons.validator.routines.UrlValidator.options
+org.apache.commons.validator.routines.UrlValidator.<init>($int)
+org.apache.commons.validator.routines.UrlValidator.<clinit>()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+

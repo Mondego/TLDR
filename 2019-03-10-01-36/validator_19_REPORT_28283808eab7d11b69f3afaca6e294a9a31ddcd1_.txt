@@ -1,0 +1,66 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 14
+NUMBER OF NEW OR CHANGED TESTS : 4
+NUMBER OF ENTITY TO TEST : 19
+NUMBER OF TEST TO RUN : 4
+TOTAL TIME REQUIRED : 0.578405087 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.DomainValidator.isValidCountryCodeTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.<init>()
+org.apache.commons.validator.routines.DomainValidator.isValidGenericTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidInfrastructureTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.TOP_LABEL_REGEX
+org.apache.commons.validator.routines.DomainValidator.GENERIC_TLD_LIST
+org.apache.commons.validator.routines.DomainValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.chompLeadingDot($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_LABEL_REGEX
+org.apache.commons.validator.routines.DomainValidator.COUNTRY_CODE_TLD_LIST
+org.apache.commons.validator.routines.DomainValidator.INFRASTRUCTURE_TLD_LIST
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_NAME_REGEX
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.DomainValidatorTest.testTopLevelDomains()
+org.apache.commons.validator.routines.DomainValidatorTest.testValidDomains()
+org.apache.commons.validator.routines.DomainValidatorTest.setUp()
+org.apache.commons.validator.routines.DomainValidatorTest.testInvalidDomains()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.DomainValidator.isValidCountryCodeTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.<init>()
+org.apache.commons.validator.routines.DomainValidator.isValidGenericTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.COUNTRY_CODE_TLDS
+org.apache.commons.validator.routines.DomainValidator.isValidInfrastructureTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_VALIDATOR
+org.apache.commons.validator.routines.DomainValidator.INFRASTRUCTURE_TLDS
+org.apache.commons.validator.routines.DomainValidator.domainRegex
+org.apache.commons.validator.routines.DomainValidator.TOP_LABEL_REGEX
+org.apache.commons.validator.routines.DomainValidator.GENERIC_TLD_LIST
+org.apache.commons.validator.routines.DomainValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.chompLeadingDot($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.GENERIC_TLDS
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_LABEL_REGEX
+org.apache.commons.validator.routines.DomainValidator.COUNTRY_CODE_TLD_LIST
+org.apache.commons.validator.routines.DomainValidator.INFRASTRUCTURE_TLD_LIST
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_NAME_REGEX
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.DomainValidatorTest.testTopLevelDomains()
+org.apache.commons.validator.routines.DomainValidatorTest.testValidDomains()
+org.apache.commons.validator.routines.DomainValidatorTest.setUp()
+org.apache.commons.validator.routines.DomainValidatorTest.testInvalidDomains()

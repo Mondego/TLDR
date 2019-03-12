@@ -1,0 +1,78 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 9
+NUMBER OF NEW OR CHANGED TESTS : 11
+NUMBER OF ENTITY TO TEST : 22
+NUMBER OF TEST TO RUN : 11
+TOTAL TIME REQUIRED : 0.633611508 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.EmailValidator.isValidDomain($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidLocalTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidCountryCodeTld($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.<clinit>()
+org.apache.commons.validator.routines.EmailValidator.isValidUser($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.isValidGenericTld($java.lang.String)
+org.apache.commons.validator.Var.serialVersionUID
+org.apache.commons.validator.routines.DomainValidator.isValidInfrastructureTld($java.lang.String)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.EmailTest._testEmailUserName()
+org.apache.commons.validator.EmailTest.<clinit>()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.testOther()
+org.apache.commons.validator.EmailTest.testEmailLocalhost()
+org.apache.commons.validator.EmailTest._testEmailFromPerl()
+org.apache.commons.validator.EmailTest.testEmailAtTLD()
+org.apache.commons.validator.EmailTest.valueTest($org.apache.commons.validator.ValueBean$boolean)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.removeCheckDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.createInvalidCodes($java.lang.String[])
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.checkDigit($java.lang.String)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.EmailValidator.isValidDomain($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.USER_PATTERN
+org.apache.commons.validator.routines.DomainValidator.isValidLocalTld($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.EMAIL_PATTERN
+org.apache.commons.validator.routines.DomainValidator.isValidCountryCodeTld($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.<clinit>()
+org.apache.commons.validator.routines.EmailValidator.isValidUser($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.EMAIL_VALIDATOR_WITH_LOCAL
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.isValidGenericTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.COUNTRY_CODE_TLDS
+org.apache.commons.validator.Var.serialVersionUID
+org.apache.commons.validator.routines.DomainValidator.isValidInfrastructureTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_VALIDATOR
+org.apache.commons.validator.routines.DomainValidator.INFRASTRUCTURE_TLDS
+org.apache.commons.validator.routines.DomainValidator.LOCAL_TLDS
+org.apache.commons.validator.routines.EmailValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.IP_DOMAIN_PATTERN
+org.apache.commons.validator.routines.EmailValidator.EMAIL_VALIDATOR
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_VALIDATOR_WITH_LOCAL
+org.apache.commons.validator.routines.DomainValidator.GENERIC_TLDS
+org.apache.commons.validator.routines.EmailValidator.MATCH_ASCII_PATTERN
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.EmailTest._testEmailUserName()
+org.apache.commons.validator.EmailTest.<clinit>()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.testOther()
+org.apache.commons.validator.EmailTest.testEmailLocalhost()
+org.apache.commons.validator.EmailTest._testEmailFromPerl()
+org.apache.commons.validator.EmailTest.testEmailAtTLD()
+org.apache.commons.validator.EmailTest.valueTest($org.apache.commons.validator.ValueBean$boolean)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.removeCheckDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.setUp()
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.createInvalidCodes($java.lang.String[])
+org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest.checkDigit($java.lang.String)

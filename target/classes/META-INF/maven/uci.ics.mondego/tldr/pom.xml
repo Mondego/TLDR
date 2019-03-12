@@ -74,7 +74,17 @@
 	    <version>1.0.0</version>
 	</dependency>
 	
+	<dependency>
+	    <groupId>org.apache.maven</groupId>
+	    <artifactId>maven-model</artifactId>
+	    <version>3.6.0</version>
+	</dependency>
 	
+	<dependency>
+	    <groupId>org.codehaus.plexus</groupId>
+	    <artifactId>plexus-utils</artifactId>
+	    <version>3.0.24</version>
+	</dependency>
 	
 	<dependency>
 	    <groupId>org.apache.bcel</groupId>
@@ -101,12 +111,22 @@
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
             <version>1.2.1</version>
+            
+            <executions>
+          <execution>
+            <id>default-cli</id>
             <configuration>
-                 <mainClass>uci.ics.mondego.tldr.App</mainClass>
+              <mainClass>uci.ics.mondego.tldr.App</mainClass>
             </configuration>
-        </plugin>
-        
-        
+          </execution>
+          <execution>
+            <id>second-cli</id>
+            <configuration>
+              <mainClass>uci.ics.mondego.tldr.tool.MavenPomProcessor</mainClass>
+            </configuration>
+          </execution>
+        </executions>
+        </plugin>      
     </plugins>
 </build>
 

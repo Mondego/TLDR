@@ -1,0 +1,52 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 8
+NUMBER OF NEW OR CHANGED TESTS : 1
+NUMBER OF ENTITY TO TEST : 17
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.625541749 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.input.XmlStreamReader.doLenientDetection($java.lang.String$java.io.InputStream$org.apache.commons.io.input.XmlStreamReaderException)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$boolean$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.net.URLConnection$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.<clinit>()
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$java.lang.String$boolean$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.getDefaultEncoding()
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$boolean)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.net.URL)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.input.XmlStreamReaderTest._testAlternateDefaultEncoding($java.lang.String$java.lang.String$java.lang.String$java.lang.String$java.lang.String)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.input.XmlStreamReader.doHttpStream($java.io.InputStream$java.lang.String$boolean)
+org.apache.commons.io.input.XmlStreamReader.BOMS
+org.apache.commons.io.input.XmlStreamReader.defaultEncoding
+org.apache.commons.io.input.XmlStreamReader.getDefaultEncoding()
+org.apache.commons.io.input.XmlStreamReader.getContentTypeEncoding($java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.CHARSET_PATTERN
+org.apache.commons.io.input.XmlStreamReader.doLenientDetection($java.lang.String$java.io.InputStream$org.apache.commons.io.input.XmlStreamReaderException)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$boolean$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.XML_GUESS_BYTES
+org.apache.commons.io.input.XmlStreamReader.<init>($java.net.URLConnection$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.doRawStream($java.io.InputStream$boolean)
+org.apache.commons.io.input.XmlStreamReader.<clinit>()
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$java.lang.String$boolean$java.lang.String)
+org.apache.commons.io.input.XmlStreamReader.ENCODING_PATTERN
+org.apache.commons.io.output.XmlStreamWriter.<clinit>()
+org.apache.commons.io.input.XmlStreamReader.<init>($java.io.InputStream$boolean)
+org.apache.commons.io.input.XmlStreamReader.<init>($java.net.URL)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.XmlStreamReaderTest._testAlternateDefaultEncoding($java.lang.String$java.lang.String$java.lang.String$java.lang.String$java.lang.String)
