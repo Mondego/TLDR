@@ -22,46 +22,50 @@ do
 	i=0
 	while read -r line; do
 		time_log="$repo_base/${project_name[$index]}".txt
+		echo ""
 		echo $line >> $time_log
 		let "i++"
 	    cd ${repo_dir[$index]}
 	    pwd
 	    rm -f .git/index.lock # needed for errorless checkout to another commit
 	    git reset --hard $line --quiet
-	    
-	    cd $proj_dir
-	    # process the pom to sure-fire 2.12.1
-	    mvn -q exec:java@second-cli -Dexec.args="${repo_dir[$index]}"
-	    cd ${repo_dir[$index]}
 
-	    if mvn -q clean compile ; then
-	    	echo 'BUILD SUCCESSFUL FOR COMMIT : '$line
-	    	if mvn -q clean test-compile ; then
-		    	cd $proj_dir
-		    	output=$(mvn -q compile exec:java -Dexec.args="$i ${repo_dir[$index]} $line")		    	
-		    	
-		    	if [[ ! -z "${output// }" ]]; then
-		    		cd ${repo_dir[$index]}
-		    		mvn -Dtest=$output test -fae
-		    		var="$( time ( mvn test -Dtest=$output -fae) 2>&1 1>/dev/null )"
-		    		
-		    		if [[ ! -z "$var" ]] ;  then
-						echo 'TESTING TIME : '$var >> $time_log
+	    count=`ls -1 pom.xml 2>/dev/null | wc -l`  #check if the repository includes pom.xml
+	    if [ $count != 0 ]; then
+		    cd $proj_dir
+		    # process the pom to sure-fire 2.12.1
+		    mvn -q exec:java@second-cli -Dexec.args="${repo_dir[$index]} surefire"
+		    cd ${repo_dir[$index]}
+
+		    if mvn -q clean compile ; then
+		    	echo 'BUILD SUCCESSFUL FOR COMMIT : '$line
+		    	if mvn -q clean test-compile ; then
+			    	cd $proj_dir
+			    	output=$(mvn -q compile exec:java -Dexec.args="$i ${repo_dir[$index]} $line")		    	
+			    	
+			    	if [[ ! -z "${output// }" ]]; then
+			    		cd ${repo_dir[$index]}
+			    		
+			    		var="$( time ( mvn -Dtest=$output clean test -fae) 2>&1 1>/dev/null )"
+			    		mvn -Dtest=$output test -fae
+			    		if [[ ! -z "${var// }" ]] ;  then
+							echo 'TESTING TIME : '$var >> $time_log
+						else
+							echo 'TEST CONTAINS ERROR' >> $time_log
+						fi
 					else
-						echo 'TEST CONTAINS ERROR' >> $time_log
-					fi
-				else
-					echo 'NO TEST WAS RUN' >> $time_log
-				fi	
-				cd $proj_dir	    	
-		    	mv *_.txt "$proj_dir"/"$foldername"
+						echo 'NO TEST WAS RUN' >> $time_log
+					fi	
+					cd $proj_dir	    	
+			    	mv *_.txt "$proj_dir"/"$foldername"
 
-		    else
-		    	echo 'TEST BUILD FAILED FOR COMMIT : '$line >> $time_log
-		    fi
-	    
-	    else 
-	    	echo "BUILD FAILED FOR COMMIT : "$line >> $time_log
+			    else
+			    	echo 'TEST BUILD FAILED FOR COMMIT : '$line >> $time_log
+			    fi
+		    
+		    else 
+		    	echo "BUILD FAILED FOR COMMIT : "$line >> $time_log
+			fi
 		fi
 	done < "$allSha"
 done

@@ -25,13 +25,16 @@ def sample(argv):
 	filename = 'Sampled_Commit/'+ argv[argv.rindex('/')+1:]
 	sha = get_sha(argv)
 
-	step = int(math.ceil(len(sha) / 11))
-	end = len(sha) - 1
+	step = int(math.ceil(len(sha) / 44))
+	#step = 1
+	end = int(len(sha) / 2)
 	with open(filename, 'w') as f:
-		for i in range(1, 11):
+		for i in range(1, 24):
 			rand = random.randint(end - step, end)
-			f.write(sha[rand % len(sha)]+"\n") 
-			end = end - step - 1
+			f.write(sha[rand % len(sha)]+"\n")
+			if rand > 0:
+				f.write(sha[abs(rand - 1) % len(sha)]+"\n") 
+			end = abs(end - step - 1)
 	
 if __name__ == "__main__":
    for log in all_git_log:
