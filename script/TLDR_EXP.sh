@@ -14,6 +14,8 @@ project_name=("io" "validator" "jxpath" "collections" "net")
 # TLDR log folder creation
 foldername=$(date +%Y-%m-%d-%H-%M)
 mkdir -p "$proj_dir"/"$foldername"
+Ekstazi_log="$repo_base/Ekstazi_log"/"$foldername"
+mkdir -p "$Ekstazi_log"
 
 #for each project
 for index in {0..4};
@@ -21,9 +23,16 @@ do
 	allSha=${commit_dir[$index]}
 	i=0
 	while read -r line; do
+		#for tldr log
 		time_log="$repo_base/${project_name[$index]}".txt
-		echo ""
+		#for ekstazi log
+		time_log_ekstazi="$repo_base/${project_name[$index]}"_ekstazi.txt
+		mkdir -p "$Ekstazi_log"/"$line"
+
+		echo "" >> $time_log
+		echo "" >> $time_log_ekstazi
 		echo $line >> $time_log
+		echo $line >> $time_log_ekstazi
 		let "i++"
 	    cd ${repo_dir[$index]}
 	    pwd
@@ -32,8 +41,9 @@ do
 
 	    count=`ls -1 pom.xml 2>/dev/null | wc -l`  #check if the repository includes pom.xml
 	    if [ $count != 0 ]; then
+		    
+		    # process the pom to sure-fire 2.7.1
 		    cd $proj_dir
-		    # process the pom to sure-fire 2.12.1
 		    mvn -q exec:java@second-cli -Dexec.args="${repo_dir[$index]} surefire"
 		    cd ${repo_dir[$index]}
 
@@ -41,13 +51,15 @@ do
 		    	echo 'BUILD SUCCESSFUL FOR COMMIT : '$line
 		    	if mvn -q clean test-compile ; then
 			    	cd $proj_dir
+
+			    	# getting only the output test cases.... time can be found in TLDR log
 			    	output=$(mvn -q compile exec:java -Dexec.args="$i ${repo_dir[$index]} $line")		    	
 			    	
 			    	if [[ ! -z "${output// }" ]]; then
 			    		cd ${repo_dir[$index]}
 			    		
-			    		var="$( time ( mvn -Dtest=$output clean test -fae) 2>&1 1>/dev/null )"
-			    		mvn -Dtest=$output test -fae
+			    		var="$( time ( mvn -Dtest=$output -DfailIfNoTests=false test -fae) 2>&1 1>/dev/null )"
+			    		mvn -Dtest=$output -DfailIfNoTests=false test -fae
 			    		if [[ ! -z "${var// }" ]] ;  then
 							echo 'TESTING TIME : '$var >> $time_log
 						else
@@ -59,6 +71,32 @@ do
 					cd $proj_dir	    	
 			    	mv *_.txt "$proj_dir"/"$foldername"
 
+			    	#ekstazi experiment
+			    	# include ekstazi plugin in pom
+			    	mvn -q exec:java@second-cli -Dexec.args="${repo_dir[$index]} ekstazi"
+			    	
+			    	#compile, run, and report ekstazi
+			    	cd ${repo_dir[$index]}
+			    	mvn -q clean compile
+			    	mvn -q clean test-compile
+			    	var_ekstazi="$( time ( mvn ekstazi:ekstazi surefire-report:report ) 2>&1 1>/dev/null )"
+
+			    	if [[ ! -z "${var_ekstazi// }" ]] ;  then
+			    			echo "EKSTAZI EXECUTED ......"
+							echo 'TESTING TIME : '$var_ekstazi >> $time_log_ekstazi
+							#move surefire report to a log folder
+							surefire_report=$( find target/site/* )
+
+							if [[ ! -z "${surefire_report// }" ]] ;  then
+								echo "SUREFIRE REPORT FOUND..... MOVING TO LOG DIRECTORY"
+								mv "$surefire_report" "$Ekstazi_log"/"$line"
+							fi
+
+					else
+							echo 'TEST CONTAINS ERROR' >> $time_log_ekstazi
+					fi
+
+
 			    else
 			    	echo 'TEST BUILD FAILED FOR COMMIT : '$line >> $time_log
 			    fi
@@ -69,3 +107,4 @@ do
 		fi
 	done < "$allSha"
 done
+

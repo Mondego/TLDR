@@ -1,0 +1,87 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 18
+NUMBER OF NEW OR CHANGED TESTS : 13
+NUMBER OF ENTITY TO TEST : 18
+NUMBER OF TEST TO RUN : 13
+TOTAL TIME REQUIRED : 0.741838789 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.input.CharSequenceInputStream.cbuf
+org.apache.commons.io.input.CharSequenceInputStream.bbuf
+org.apache.commons.io.input.CharSequenceInputStream.mark
+org.apache.commons.io.input.CharSequenceInputStream.<init>($java.lang.CharSequence$java.nio.charset.Charset$int)
+org.apache.commons.io.input.CharSequenceInputStream.read($byte[]$int$int)
+org.apache.commons.io.input.CharSequenceInputStream.skip($long)
+org.apache.commons.io.input.CharSequenceInputStream.available()
+org.apache.commons.io.input.CharSequenceInputStream.<init>($java.lang.CharSequence$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStream.<init>($java.lang.CharSequence$java.lang.String$int)
+org.apache.commons.io.input.CharSequenceInputStream.<init>($java.lang.CharSequence$java.nio.charset.Charset)
+org.apache.commons.io.input.CharSequenceInputStream.read($byte[])
+org.apache.commons.io.input.CharSequenceInputStream.close()
+org.apache.commons.io.input.CharSequenceInputStream.markSupported()
+org.apache.commons.io.input.CharSequenceInputStream.mark($int)
+org.apache.commons.io.input.CharSequenceInputStream.encoder
+org.apache.commons.io.input.CharSequenceInputStream.read()
+org.apache.commons.io.input.CharSequenceInputStream.reset()
+org.apache.commons.io.input.CharSequenceInputStream.fillBuffer()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.input.CharSequenceInputStreamTest.testSkip()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testWithSingleByteRead($java.lang.String$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStreamTest.testCharsetMismatchInfiniteLoop()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testMarkReset()
+org.apache.commons.io.input.CharSequenceInputStreamTest.<init>()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testLargeUTF8WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testWithBufferedRead($java.lang.String$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF8WithBufferedRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testLargeUTF8WithBufferedRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF8WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.<clinit>()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF16WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testReadZero()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.input.CharSequenceInputStream.cbuf
+org.apache.commons.io.input.CharSequenceInputStream.bbuf
+org.apache.commons.io.input.CharSequenceInputStream.mark
+org.apache.commons.io.input.CharSequenceInputStream.<init>($java.lang.CharSequence$java.nio.charset.Charset$int)
+org.apache.commons.io.input.CharSequenceInputStream.read($byte[]$int$int)
+org.apache.commons.io.input.CharSequenceInputStream.skip($long)
+org.apache.commons.io.input.CharSequenceInputStream.available()
+org.apache.commons.io.input.CharSequenceInputStream.<init>($java.lang.CharSequence$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStream.<init>($java.lang.CharSequence$java.lang.String$int)
+org.apache.commons.io.input.CharSequenceInputStream.<init>($java.lang.CharSequence$java.nio.charset.Charset)
+org.apache.commons.io.input.CharSequenceInputStream.read($byte[])
+org.apache.commons.io.input.CharSequenceInputStream.close()
+org.apache.commons.io.input.CharSequenceInputStream.markSupported()
+org.apache.commons.io.input.CharSequenceInputStream.mark($int)
+org.apache.commons.io.input.CharSequenceInputStream.encoder
+org.apache.commons.io.input.CharSequenceInputStream.read()
+org.apache.commons.io.input.CharSequenceInputStream.reset()
+org.apache.commons.io.input.CharSequenceInputStream.fillBuffer()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.CharSequenceInputStreamTest.testSkip()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testWithSingleByteRead($java.lang.String$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStreamTest.testCharsetMismatchInfiniteLoop()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testMarkReset()
+org.apache.commons.io.input.CharSequenceInputStreamTest.<init>()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testLargeUTF8WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testWithBufferedRead($java.lang.String$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF8WithBufferedRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testLargeUTF8WithBufferedRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF8WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.<clinit>()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF16WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testReadZero()

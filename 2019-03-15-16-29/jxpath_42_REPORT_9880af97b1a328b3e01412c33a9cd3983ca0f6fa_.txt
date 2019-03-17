@@ -1,0 +1,37 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 6
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 6
+TOTAL TIME REQUIRED : 0.785259005 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testExtendedKeyFunction()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testFormatNumberFunction()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testIDFunction()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testKeyFunction()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testCoreFunctions()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.setUp()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testExtendedKeyFunction()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testFormatNumberFunction()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testIDFunction()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testKeyFunction()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.testCoreFunctions()
+org.apache.commons.jxpath.ri.compiler.CoreFunctionTest.setUp()

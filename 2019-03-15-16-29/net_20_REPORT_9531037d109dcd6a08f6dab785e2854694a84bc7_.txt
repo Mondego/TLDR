@@ -1,0 +1,55 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 15
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 15
+TOTAL TIME REQUIRED : 0.89248351 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testFeb29IfLeapYear()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseJan01()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseTimestampWithSlop()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParser()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseTimestampAcrossTimeZones()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseShortPastDates2()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseShortPastDates1()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseShortFutureDates2()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseShortFutureDates1()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.checkShortParse($java.lang.String$java.util.Calendar$java.util.Calendar)
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.checkShortParse($java.lang.String$java.util.Calendar$java.util.Calendar$boolean)
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseJan01Lenient()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testFeb29NonLeapYear()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseDec31Lenient()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testFeb29LeapYear()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testFeb29IfLeapYear()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseJan01()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseTimestampWithSlop()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParser()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseTimestampAcrossTimeZones()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseShortPastDates2()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseShortPastDates1()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseShortFutureDates2()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseShortFutureDates1()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.checkShortParse($java.lang.String$java.util.Calendar$java.util.Calendar)
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.checkShortParse($java.lang.String$java.util.Calendar$java.util.Calendar$boolean)
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseJan01Lenient()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testFeb29NonLeapYear()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testParseDec31Lenient()
+org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest.testFeb29LeapYear()
