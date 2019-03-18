@@ -1,0 +1,32 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 2
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 4
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.590088557 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.TaggedIOException.<init>($java.io.IOException$java.io.Serializable)
+org.apache.commons.io.TaggedIOException.getCause()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.TaggedIOException.<init>($java.io.IOException$java.io.Serializable)
+org.apache.commons.io.TaggedIOException.getTag()
+org.apache.commons.io.TaggedIOException.tag
+org.apache.commons.io.TaggedIOException.getCause()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.TaggedIOExceptionTest.testTaggedIOException()

@@ -1,0 +1,31 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 3
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 3
+TOTAL TIME REQUIRED : 0.540951926 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.removeCheckDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.createInvalidCodes($java.lang.String[])
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.checkDigit($java.lang.String)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.removeCheckDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.createInvalidCodes($java.lang.String[])
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.checkDigit($java.lang.String)

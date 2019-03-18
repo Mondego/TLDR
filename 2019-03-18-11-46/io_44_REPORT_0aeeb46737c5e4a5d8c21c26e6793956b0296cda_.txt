@@ -1,0 +1,37 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 1
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 8
+NUMBER OF TEST TO RUN : 3
+TOTAL TIME REQUIRED : 0.619984309 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.FilenameUtils.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.FilenameUtils.<clinit>()
+org.apache.commons.io.FilenameUtils.SYSTEM_SEPARATOR
+org.apache.commons.io.FilenameUtils.isSystemWindows()
+org.apache.commons.io.FilenameUtils.OTHER_SEPARATOR
+org.apache.commons.io.IOCase.<clinit>()
+org.apache.commons.io.FilenameUtils.IPV4_PATTERN
+org.apache.commons.io.FilenameUtils.REG_NAME_PART_PATTERN
+org.apache.commons.io.FilenameUtils.EXTENSION_SEPARATOR_STR
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.FilenameUtilsTestCase.testIndexOfExtension()
+org.apache.commons.io.FilenameUtilsTestCase.testGetExtension()
+org.apache.commons.io.FileUtilsTestCase.createCircularSymLink($java.io.File)

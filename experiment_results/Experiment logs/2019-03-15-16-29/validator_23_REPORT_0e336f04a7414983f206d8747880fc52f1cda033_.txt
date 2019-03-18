@@ -1,0 +1,59 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 6
+NUMBER OF NEW OR CHANGED TESTS : 8
+NUMBER OF ENTITY TO TEST : 12
+NUMBER OF TEST TO RUN : 8
+TOTAL TIME REQUIRED : 0.907606594 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.DomainValidator.isValidLocalTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidCountryCodeTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.chompLeadingDot($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.isValidGenericTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidInfrastructureTld($java.lang.String)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.removeCheckDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testCalculateInvalid()
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.createInvalidCodes($java.lang.String[])
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testCalculateValid()
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testSerialization()
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.checkDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testMissingCode()
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testZeroSum()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.DomainValidator.isValidLocalTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidCountryCodeTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.isValidGenericTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.COUNTRY_CODE_TLDS
+org.apache.commons.validator.routines.DomainValidator.isValidInfrastructureTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_VALIDATOR
+org.apache.commons.validator.routines.DomainValidator.INFRASTRUCTURE_TLDS
+org.apache.commons.validator.routines.DomainValidator.LOCAL_TLDS
+org.apache.commons.validator.routines.DomainValidator.chompLeadingDot($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_VALIDATOR_WITH_LOCAL
+org.apache.commons.validator.routines.DomainValidator.GENERIC_TLDS
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.removeCheckDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testCalculateInvalid()
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.createInvalidCodes($java.lang.String[])
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testCalculateValid()
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testSerialization()
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.checkDigit($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testMissingCode()
+org.apache.commons.validator.routines.checkdigit.AbstractCheckDigitTest.testZeroSum()

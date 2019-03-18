@@ -1,0 +1,39 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 5
+NUMBER OF NEW OR CHANGED TESTS : 2
+NUMBER OF ENTITY TO TEST : 5
+NUMBER OF TEST TO RUN : 2
+TOTAL TIME REQUIRED : 0.575992181 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.reduce($java.lang.Object)
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.findMatch($java.util.Iterator$java.util.Iterator)
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.containsMatch($java.util.Iterator$java.lang.Object)
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.compute($java.lang.Object$java.lang.Object)
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.containsMatch($java.lang.Object$java.util.Iterator)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.jxpath.ri.compiler.JXPath149Test.testComplexOperationWithVariables()
+org.apache.commons.jxpath.ri.compiler.JXPath149Test.<init>()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.reduce($java.lang.Object)
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.findMatch($java.util.Iterator$java.util.Iterator)
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.containsMatch($java.util.Iterator$java.lang.Object)
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.compute($java.lang.Object$java.lang.Object)
+org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression.containsMatch($java.lang.Object$java.util.Iterator)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.jxpath.ri.compiler.JXPath149Test.testComplexOperationWithVariables()
+org.apache.commons.jxpath.ri.compiler.JXPath149Test.<init>()

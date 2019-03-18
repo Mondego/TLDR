@@ -1,0 +1,58 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 7
+NUMBER OF NEW OR CHANGED TESTS : 4
+NUMBER OF ENTITY TO TEST : 16
+NUMBER OF TEST TO RUN : 6
+TOTAL TIME REQUIRED : 1.578369452 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.collections4.bag.TreeBag.add($java.lang.Object)
+org.apache.commons.collections4.bag.TreeBag.readObject($java.io.ObjectInputStream)
+org.apache.commons.collections4.bag.TreeBag.comparator()
+org.apache.commons.collections4.bag.TreeBag.writeObject($java.io.ObjectOutputStream)
+org.apache.commons.collections4.bag.TreeBag.first()
+org.apache.commons.collections4.bag.TreeBag.last()
+org.apache.commons.collections4.bag.TreeBag.getMap()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.collections4.bag.TreeBagTest.testOrdering()
+org.apache.commons.collections4.bag.TreeBagTest$1.compare($java.lang.String$java.lang.String)
+org.apache.commons.collections4.bag.TreeBagTest.getCompatibilityVersion()
+org.apache.commons.collections4.bag.TreeBagTest.testCollections555()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.collections4.bag.PredicatedSortedBag.comparator()
+org.apache.commons.collections4.bag.TreeBag.readObject($java.io.ObjectInputStream)
+org.apache.commons.collections4.bag.TransformedSortedBag.comparator()
+org.apache.commons.collections4.bag.TreeBag.comparator()
+org.apache.commons.collections4.bag.TransformedSortedBag.first()
+org.apache.commons.collections4.bag.TreeBag.last()
+org.apache.commons.collections4.bag.AbstractSortedBagDecorator.last()
+org.apache.commons.collections4.bag.TransformedSortedBag.last()
+org.apache.commons.collections4.bag.TreeBag.add($java.lang.Object)
+org.apache.commons.collections4.bag.TreeBag.writeObject($java.io.ObjectOutputStream)
+org.apache.commons.collections4.bag.TreeBag.first()
+org.apache.commons.collections4.bag.PredicatedSortedBag.first()
+org.apache.commons.collections4.bag.AbstractSortedBagDecorator.comparator()
+org.apache.commons.collections4.bag.AbstractSortedBagDecorator.first()
+org.apache.commons.collections4.bag.PredicatedSortedBag.last()
+org.apache.commons.collections4.bag.TreeBag.getMap()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.collections4.bag.TreeBagTest.testOrdering()
+org.apache.commons.collections4.bag.TreeBagTest$1.compare($java.lang.String$java.lang.String)
+org.apache.commons.collections4.bag.TreeBagTest.getCompatibilityVersion()
+org.apache.commons.collections4.bag.AbstractSortedBagTest.verify()
+org.apache.commons.collections4.bag.TreeBagTest.testCollections555()
+org.apache.commons.collections4.bag.PredicatedSortedBagTest.testSortOrder()

@@ -1,0 +1,35 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 5
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 5
+TOTAL TIME REQUIRED : 0.738106596 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testTrailingSpaces()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testNoSpacesBeforeFileSize()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testFilenamesWithEmbeddedNumbers()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testNameWIthPunctuation()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testCorrectGroupNameParsing()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testTrailingSpaces()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testNoSpacesBeforeFileSize()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testFilenamesWithEmbeddedNumbers()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testNameWIthPunctuation()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testCorrectGroupNameParsing()

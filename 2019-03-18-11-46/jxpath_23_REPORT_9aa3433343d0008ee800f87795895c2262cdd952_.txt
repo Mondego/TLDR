@@ -1,0 +1,57 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 10
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 22
+NUMBER OF TEST TO RUN : 0
+TOTAL TIME REQUIRED : 0.636626769 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.jxpath.xml.DocumentContainer.serialVersionUID
+org.apache.commons.jxpath.ri.NamespaceResolver.clone()
+org.apache.commons.jxpath.servlet.KeywordVariables.serialVersionUID
+org.apache.commons.jxpath.ri.NamespaceResolver.isSealed()
+org.apache.commons.jxpath.ri.NamespaceResolver.seal()
+org.apache.commons.jxpath.ri.NamespaceResolver.<init>($org.apache.commons.jxpath.ri.NamespaceResolver)
+org.apache.commons.jxpath.JXPathContextFactory.<clinit>()
+org.apache.commons.jxpath.ri.NamespaceResolver.getNamespaceContextPointer()
+org.apache.commons.jxpath.ri.QName.serialVersionUID
+org.apache.commons.jxpath.BasicVariables.serialVersionUID
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.jxpath.xml.DocumentContainer.serialVersionUID
+org.apache.commons.jxpath.ri.NamespaceResolver.clone()
+org.apache.commons.jxpath.servlet.KeywordVariables.serialVersionUID
+org.apache.commons.jxpath.ri.NamespaceResolver.isSealed()
+org.apache.commons.jxpath.ri.NamespaceResolver.parent
+org.apache.commons.jxpath.ri.JXPathContextReferenceImpl.setNamespaceContextPointer($org.apache.commons.jxpath.Pointer)
+org.apache.commons.jxpath.ri.NamespaceResolver.<init>($org.apache.commons.jxpath.ri.NamespaceResolver)
+org.apache.commons.jxpath.JXPathContextFactory.factoryImplName
+org.apache.commons.jxpath.ri.NamespaceResolver.<init>()
+org.apache.commons.jxpath.ri.QName.serialVersionUID
+org.apache.commons.jxpath.ri.JXPathContextReferenceImpl.<init>($org.apache.commons.jxpath.JXPathContext$java.lang.Object$org.apache.commons.jxpath.Pointer)
+org.apache.commons.jxpath.ri.NamespaceResolver.reverseMap
+org.apache.commons.jxpath.JXPathContextFactory.debug
+org.apache.commons.jxpath.ri.NamespaceResolver.seal()
+org.apache.commons.jxpath.JXPathContextFactory.<clinit>()
+org.apache.commons.jxpath.ri.NamespaceResolver.sealed
+org.apache.commons.jxpath.ri.NamespaceResolver.getNamespaceContextPointer()
+org.apache.commons.jxpath.ri.NamespaceResolver.namespaceMap
+org.apache.commons.jxpath.ri.JXPathContextReferenceImpl.getNamespaceContextPointer()
+org.apache.commons.jxpath.BasicVariables.serialVersionUID
+org.apache.commons.jxpath.ri.JXPathContextReferenceImpl.registerNamespace($java.lang.String$java.lang.String)
+org.apache.commons.jxpath.ri.JXPathContextReferenceImpl.getNamespaceResolver()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+

@@ -1,0 +1,70 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 1
+NUMBER OF NEW OR CHANGED TESTS : 20
+NUMBER OF ENTITY TO TEST : 4
+NUMBER OF TEST TO RUN : 20
+TOTAL TIME REQUIRED : 0.654422882 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.FileSystemUtils.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.DirectoryWalkerTestCase.directoriesOnly($java.util.Collection)
+org.apache.commons.io.LineIteratorTestCase.testValidEncoding()
+org.apache.commons.io.DirectoryWalkerTestCase.filesOnly($java.util.Collection)
+org.apache.commons.io.FilenameUtilsWildcardTestCase.testLocaleIndependence()
+org.apache.commons.io.output.WriterOutputStreamTest.testWithSingleByteWrite($java.lang.String$java.lang.String)
+org.apache.commons.io.LineIteratorTestCase.testCloseEarly()
+org.apache.commons.io.testtools.FileBasedTestCase.createLineBasedFile($java.io.File$java.lang.String[])
+org.apache.commons.io.LineIteratorTestCase.testFiltering($java.util.List$java.io.Reader)
+org.apache.commons.io.EndianUtilsTest.testSymmetryOfLong()
+org.apache.commons.io.DemuxTestCase$WriterThread.run()
+org.apache.commons.io.filefilter.IOFileFilterAbstractTestCase.resetFalseFilters($org.apache.commons.io.filefilter.IOFileFilterAbstractTestCase$TesterFalseFileFilter[])
+org.apache.commons.io.output.ByteArrayOutputStreamTestCase.writeData($org.apache.commons.io.output.ByteArrayOutputStream$java.io.ByteArrayOutputStream$int[])
+org.apache.commons.io.input.ReaderInputStreamTest.testWithSingleByteRead($java.lang.String$java.lang.String)
+org.apache.commons.io.LineIteratorTestCase.testFilteringBufferedReader()
+org.apache.commons.io.filefilter.ConditionalFileFilterAbstractTestCase.testAdd()
+org.apache.commons.io.input.XmlStreamReaderTest.getXmlStream($java.lang.String$java.lang.String$java.lang.String$java.lang.String)
+org.apache.commons.io.LineIteratorTestCase.testFilteringFileReader()
+org.apache.commons.io.input.AutoCloseInputStreamTest.testRead()
+org.apache.commons.io.filefilter.IOFileFilterAbstractTestCase.resetTrueFilters($org.apache.commons.io.filefilter.IOFileFilterAbstractTestCase$TesterTrueFileFilter[])
+org.apache.commons.io.LineIteratorTestCase.doTestFileWithSpecifiedLines($int)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.FileSystemUtils.DF
+org.apache.commons.io.FileSystemUtils.<clinit>()
+org.apache.commons.io.FileSystemUtils.OS
+org.apache.commons.io.FileSystemUtils.INSTANCE
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.DirectoryWalkerTestCase.directoriesOnly($java.util.Collection)
+org.apache.commons.io.LineIteratorTestCase.testValidEncoding()
+org.apache.commons.io.DirectoryWalkerTestCase.filesOnly($java.util.Collection)
+org.apache.commons.io.FilenameUtilsWildcardTestCase.testLocaleIndependence()
+org.apache.commons.io.output.WriterOutputStreamTest.testWithSingleByteWrite($java.lang.String$java.lang.String)
+org.apache.commons.io.LineIteratorTestCase.testCloseEarly()
+org.apache.commons.io.testtools.FileBasedTestCase.createLineBasedFile($java.io.File$java.lang.String[])
+org.apache.commons.io.LineIteratorTestCase.testFiltering($java.util.List$java.io.Reader)
+org.apache.commons.io.EndianUtilsTest.testSymmetryOfLong()
+org.apache.commons.io.DemuxTestCase$WriterThread.run()
+org.apache.commons.io.filefilter.IOFileFilterAbstractTestCase.resetFalseFilters($org.apache.commons.io.filefilter.IOFileFilterAbstractTestCase$TesterFalseFileFilter[])
+org.apache.commons.io.output.ByteArrayOutputStreamTestCase.writeData($org.apache.commons.io.output.ByteArrayOutputStream$java.io.ByteArrayOutputStream$int[])
+org.apache.commons.io.input.ReaderInputStreamTest.testWithSingleByteRead($java.lang.String$java.lang.String)
+org.apache.commons.io.LineIteratorTestCase.testFilteringBufferedReader()
+org.apache.commons.io.filefilter.ConditionalFileFilterAbstractTestCase.testAdd()
+org.apache.commons.io.input.XmlStreamReaderTest.getXmlStream($java.lang.String$java.lang.String$java.lang.String$java.lang.String)
+org.apache.commons.io.LineIteratorTestCase.testFilteringFileReader()
+org.apache.commons.io.input.AutoCloseInputStreamTest.testRead()
+org.apache.commons.io.filefilter.IOFileFilterAbstractTestCase.resetTrueFilters($org.apache.commons.io.filefilter.IOFileFilterAbstractTestCase$TesterTrueFileFilter[])
+org.apache.commons.io.LineIteratorTestCase.doTestFileWithSpecifiedLines($int)

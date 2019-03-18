@@ -1,0 +1,35 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 1
+NUMBER OF NEW OR CHANGED TESTS : 4
+NUMBER OF ENTITY TO TEST : 1
+NUMBER OF TEST TO RUN : 4
+TOTAL TIME REQUIRED : 0.613323524 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.input.ReaderInputStream.read($byte[]$int$int)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.input.ReaderInputStreamTest.<clinit>()
+org.apache.commons.io.input.ReaderInputStreamTest.testReadZero()
+org.apache.commons.io.input.ReaderInputStreamTest.testCharsetMismatchInfiniteLoop()
+org.apache.commons.io.input.ReaderInputStreamTest.testReadZeroEmptyString()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.input.ReaderInputStream.read($byte[]$int$int)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.ReaderInputStreamTest.<clinit>()
+org.apache.commons.io.input.ReaderInputStreamTest.testReadZero()
+org.apache.commons.io.input.ReaderInputStreamTest.testCharsetMismatchInfiniteLoop()
+org.apache.commons.io.input.ReaderInputStreamTest.testReadZeroEmptyString()

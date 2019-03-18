@@ -1,0 +1,51 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 13
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 13
+TOTAL TIME REQUIRED : 0.562241086 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf32Le()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUcs2()
+org.apache.commons.io.input.BOMInputStreamTest.testSkipWithBOM()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf32Be()
+org.apache.commons.io.input.BOMInputStreamTest.testSmallBufferWithBOM()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf16Be()
+org.apache.commons.io.input.BOMInputStreamTest.testSkipWithoutBOM()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf16Le()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithoutBOMUtf32Be()
+org.apache.commons.io.input.BOMInputStreamTest.testSmallBufferWithoutBOM()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf8()
+org.apache.commons.io.input.BOMInputStreamTest.testSupportCode()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithoutBOMUtf32Le()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf32Le()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUcs2()
+org.apache.commons.io.input.BOMInputStreamTest.testSkipWithBOM()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf32Be()
+org.apache.commons.io.input.BOMInputStreamTest.testSmallBufferWithBOM()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf16Be()
+org.apache.commons.io.input.BOMInputStreamTest.testSkipWithoutBOM()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf16Le()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithoutBOMUtf32Be()
+org.apache.commons.io.input.BOMInputStreamTest.testSmallBufferWithoutBOM()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf8()
+org.apache.commons.io.input.BOMInputStreamTest.testSupportCode()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithoutBOMUtf32Le()

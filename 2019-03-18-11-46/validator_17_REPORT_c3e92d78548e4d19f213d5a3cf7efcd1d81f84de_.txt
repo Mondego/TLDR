@@ -1,0 +1,66 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 14
+NUMBER OF NEW OR CHANGED TESTS : 1
+NUMBER OF ENTITY TO TEST : 25
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.605189267 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.Field.dependencyList
+org.apache.commons.validator.UrlValidator.options
+org.apache.commons.validator.routines.ISBNValidator.isbn13Validator
+org.apache.commons.validator.UrlValidator.isValidPath($java.lang.String)
+org.apache.commons.validator.FormSet.constants
+org.apache.commons.validator.UrlValidator.isValidFragment($java.lang.String)
+org.apache.commons.validator.routines.ISBNValidator.isbn10Validator
+org.apache.commons.validator.UrlValidator.isValidScheme($java.lang.String)
+org.apache.commons.validator.FormSet.forms
+org.apache.commons.validator.EmailValidator.<clinit>()
+org.apache.commons.validator.UrlValidator.<init>($java.lang.String[]$int)
+org.apache.commons.validator.UrlValidator.isValidAuthority($java.lang.String)
+org.apache.commons.validator.CreditCardValidator.cardTypes
+org.apache.commons.validator.UrlValidator.allowedSchemes
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.RegexValidatorTest.checkArray($java.lang.String$java.lang.String[]$java.lang.String[])
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.Field.dependencyList
+org.apache.commons.validator.UrlValidator.options
+org.apache.commons.validator.routines.ISBNValidator.isbn13Validator
+org.apache.commons.validator.UrlValidator.isValidPath($java.lang.String)
+org.apache.commons.validator.EmailValidator.EMAIL_VALIDATOR
+org.apache.commons.validator.FormSet.constants
+org.apache.commons.validator.UrlValidator.isValidFragment($java.lang.String)
+org.apache.commons.validator.EmailValidator.DOMAIN_PATTERN
+org.apache.commons.validator.routines.ISBNValidator.isbn10Validator
+org.apache.commons.validator.UrlValidator.isValidScheme($java.lang.String)
+org.apache.commons.validator.FormSet.forms
+org.apache.commons.validator.EmailValidator.IP_DOMAIN_PATTERN
+org.apache.commons.validator.EmailValidator.USER_PATTERN
+org.apache.commons.validator.EmailValidator.isValidSymbolicDomain($java.lang.String)
+org.apache.commons.validator.EmailValidator.<clinit>()
+org.apache.commons.validator.UrlValidator.isValidAuthority($java.lang.String)
+org.apache.commons.validator.EmailValidator.isValidDomain($java.lang.String)
+org.apache.commons.validator.EmailValidator.isValidUser($java.lang.String)
+org.apache.commons.validator.UrlValidator.allowedSchemes
+org.apache.commons.validator.UrlValidator.defaultSchemes
+org.apache.commons.validator.EmailValidator.isValidIpAddress($java.lang.String)
+org.apache.commons.validator.EmailValidator.TLD_PATTERN
+org.apache.commons.validator.EmailValidator.ATOM_PATTERN
+org.apache.commons.validator.UrlValidator.<init>($java.lang.String[]$int)
+org.apache.commons.validator.CreditCardValidator.cardTypes
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.RegexValidatorTest.checkArray($java.lang.String$java.lang.String[]$java.lang.String[])

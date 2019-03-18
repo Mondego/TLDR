@@ -1,0 +1,77 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 2
+NUMBER OF NEW OR CHANGED TESTS : 13
+NUMBER OF ENTITY TO TEST : 24
+NUMBER OF TEST TO RUN : 13
+TOTAL TIME REQUIRED : 0.601924182 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.IBANValidator.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.IBANValidatorTest.testSetDefaultValidator1()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetDefaultValidator2()
+org.apache.commons.validator.routines.IBANValidatorTest.<clinit>()
+org.apache.commons.validator.routines.IBANValidatorTest.testNull()
+org.apache.commons.validator.routines.IBANValidatorTest.testHasValidator()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetValidatorLen7()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetValidatorLen_1()
+org.apache.commons.validator.routines.IBANValidatorTest.testGetValidator()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetValidatorLC()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetValidatorLen35()
+org.apache.commons.validator.routines.IBANValidatorTest.testInValid()
+org.apache.commons.validator.routines.IBANValidatorTest.<init>()
+org.apache.commons.validator.routines.IBANValidatorTest.testValid()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.DomainValidator.isValidLocalTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidCountryCodeTld($java.lang.String)
+org.apache.commons.validator.routines.IBANValidator.setValidator($org.apache.commons.validator.routines.IBANValidator$Validator)
+org.apache.commons.validator.routines.IBANValidator.setValidator($java.lang.String$int$java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.isValidGenericTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidInfrastructureTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.genericTLDsMinus
+org.apache.commons.validator.routines.DomainValidator.LOCAL_TLDS
+org.apache.commons.validator.routines.IBANValidator.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.EMPTY_STRING_ARRAY
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_VALIDATOR_WITH_LOCAL
+org.apache.commons.validator.routines.DomainValidator.countryCodeTLDsMinus
+org.apache.commons.validator.routines.IBANValidator.DEFAULT_FORMATS
+org.apache.commons.validator.routines.DomainValidator.inUse
+org.apache.commons.validator.routines.DomainValidator.GENERIC_TLDS
+org.apache.commons.validator.routines.DomainValidator.genericTLDsPlus
+org.apache.commons.validator.routines.DomainValidator.countryCodeTLDsPlus
+org.apache.commons.validator.routines.IBANValidator.<init>()
+org.apache.commons.validator.routines.IBANValidator.DEFAULT_IBAN_VALIDATOR
+org.apache.commons.validator.routines.DomainValidator.COUNTRY_CODE_TLDS
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_VALIDATOR
+org.apache.commons.validator.routines.DomainValidator.INFRASTRUCTURE_TLDS
+org.apache.commons.validator.routines.IBANValidator.getDefaultValidators()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.IBANValidatorTest.testSetDefaultValidator1()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetDefaultValidator2()
+org.apache.commons.validator.routines.IBANValidatorTest.<clinit>()
+org.apache.commons.validator.routines.IBANValidatorTest.testNull()
+org.apache.commons.validator.routines.IBANValidatorTest.testHasValidator()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetValidatorLen7()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetValidatorLen_1()
+org.apache.commons.validator.routines.IBANValidatorTest.testGetValidator()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetValidatorLC()
+org.apache.commons.validator.routines.IBANValidatorTest.testSetValidatorLen35()
+org.apache.commons.validator.routines.IBANValidatorTest.testInValid()
+org.apache.commons.validator.routines.IBANValidatorTest.<init>()
+org.apache.commons.validator.routines.IBANValidatorTest.testValid()

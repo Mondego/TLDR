@@ -1,0 +1,41 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 8
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 8
+TOTAL TIME REQUIRED : 0.564404101 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.input.TailerTest.testMultiByteBreak()
+org.apache.commons.io.input.TailerTest.testInterrupt()
+org.apache.commons.io.input.TailerTest.testTailerEof()
+org.apache.commons.io.input.TailerTest.testTailer()
+org.apache.commons.io.input.TailerTest.testIO335()
+org.apache.commons.io.input.TailerTest.createFile($java.io.File$long)
+org.apache.commons.io.input.TailerTest.testStopWithNoFileUsingExecutor()
+org.apache.commons.io.input.TailerTest.testStopWithNoFile()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.TailerTest.testMultiByteBreak()
+org.apache.commons.io.input.TailerTest.testInterrupt()
+org.apache.commons.io.input.TailerTest.testTailerEof()
+org.apache.commons.io.input.TailerTest.testTailer()
+org.apache.commons.io.input.TailerTest.testIO335()
+org.apache.commons.io.input.TailerTest.createFile($java.io.File$long)
+org.apache.commons.io.input.TailerTest.testStopWithNoFileUsingExecutor()
+org.apache.commons.io.input.TailerTest.testStopWithNoFile()

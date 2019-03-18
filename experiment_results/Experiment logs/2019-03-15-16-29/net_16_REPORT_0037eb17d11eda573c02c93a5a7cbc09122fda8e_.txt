@@ -1,0 +1,32 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 3
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 4
+NUMBER OF TEST TO RUN : 0
+TOTAL TIME REQUIRED : 0.562954944 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.net.io.CopyStreamException.getIOException()
+org.apache.commons.net.io.CopyStreamException.getTotalBytesTransferred()
+org.apache.commons.net.io.CopyStreamException.<init>($java.lang.String$long$java.io.IOException)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.net.io.CopyStreamException.totalBytesTransferred
+org.apache.commons.net.io.CopyStreamException.getIOException()
+org.apache.commons.net.io.CopyStreamException.getTotalBytesTransferred()
+org.apache.commons.net.io.CopyStreamException.<init>($java.lang.String$long$java.io.IOException)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+

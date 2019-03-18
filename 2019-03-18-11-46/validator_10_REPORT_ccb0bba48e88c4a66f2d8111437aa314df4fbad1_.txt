@@ -1,0 +1,31 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 1
+NUMBER OF NEW OR CHANGED TESTS : 2
+NUMBER OF ENTITY TO TEST : 1
+NUMBER OF TEST TO RUN : 2
+TOTAL TIME REQUIRED : 0.506469465 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.CodeValidator.validate($java.lang.String)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.CodeValidatorTest.testValidator294_2()
+org.apache.commons.validator.routines.CodeValidatorTest.testValidator294_1()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.CodeValidator.validate($java.lang.String)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.CodeValidatorTest.testValidator294_2()
+org.apache.commons.validator.routines.CodeValidatorTest.testValidator294_1()

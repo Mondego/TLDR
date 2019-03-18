@@ -1,0 +1,93 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 34
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 34
+TOTAL TIME REQUIRED : 0.631089634 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.output.StringBuilderWriterTest.testClose()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadFloat()
+org.apache.commons.io.output.CountingOutputStreamTest.assertByteArrayEquals($java.lang.String$byte[]$int$int)
+org.apache.commons.io.input.ClassLoaderObjectInputStreamTest.testExpected()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadLine()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendConstructNull()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadInt()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadByte()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteString()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadUTF()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteChar()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadShort()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadLong()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadDouble()
+org.apache.commons.io.input.ClassLoaderObjectInputStreamTest.testResolveProxyClass()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadBoolean()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendChar()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testSkipBytes()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendConstructStringBuilder()
+org.apache.commons.io.output.WriterOutputStreamTest.testFlush()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendCharSequence()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendCharSequencePortion()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteCharArrayPortion()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendConstructCapacity()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadUnsignedShort()
+org.apache.commons.io.output.CountingOutputStreamTest.testCounting()
+org.apache.commons.io.output.WriterOutputStreamTest.testWriteImmediately()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadChar()
+org.apache.commons.io.output.CountingOutputStreamTest.testLargeFiles_IO84()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteStringPortion()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadUnsignedByte()
+org.apache.commons.io.output.StringBuilderWriterTest.<clinit>()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadFully()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteCharArray()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.output.StringBuilderWriterTest.testClose()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadFloat()
+org.apache.commons.io.output.CountingOutputStreamTest.assertByteArrayEquals($java.lang.String$byte[]$int$int)
+org.apache.commons.io.input.ClassLoaderObjectInputStreamTest.testExpected()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadLine()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendConstructNull()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadInt()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadByte()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteString()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadUTF()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteChar()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadShort()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadLong()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadDouble()
+org.apache.commons.io.input.ClassLoaderObjectInputStreamTest.testResolveProxyClass()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadBoolean()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendChar()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testSkipBytes()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendConstructStringBuilder()
+org.apache.commons.io.output.WriterOutputStreamTest.testFlush()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendCharSequence()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendCharSequencePortion()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteCharArrayPortion()
+org.apache.commons.io.output.StringBuilderWriterTest.testAppendConstructCapacity()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadUnsignedShort()
+org.apache.commons.io.output.CountingOutputStreamTest.testCounting()
+org.apache.commons.io.output.WriterOutputStreamTest.testWriteImmediately()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadChar()
+org.apache.commons.io.output.CountingOutputStreamTest.testLargeFiles_IO84()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteStringPortion()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadUnsignedByte()
+org.apache.commons.io.output.StringBuilderWriterTest.<clinit>()
+org.apache.commons.io.input.SwappedDataInputStreamTest.testReadFully()
+org.apache.commons.io.output.StringBuilderWriterTest.testWriteCharArray()

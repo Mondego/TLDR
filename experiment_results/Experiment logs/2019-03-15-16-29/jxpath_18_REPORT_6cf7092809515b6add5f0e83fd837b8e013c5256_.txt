@@ -1,0 +1,65 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 20
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 20
+TOTAL TIME REQUIRED : 1.791310799 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisAttribute()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNamespaceMapping()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNodeTypeText()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNodeTypeComment()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisNamespace()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisPreceding()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisAncestor()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNodes()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testUnion()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testDocument()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testElementInVariable()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testTypeConversions()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testFunctionsLastAndPosition()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisSelf()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testLang()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNodeTypeProcessingInstruction()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testBooleanFunction()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisFollowing()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testContainer()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisAncestorOrSelf()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisAttribute()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNamespaceMapping()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNodeTypeText()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNodeTypeComment()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisNamespace()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisPreceding()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisAncestor()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNodes()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testUnion()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testDocument()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testElementInVariable()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testTypeConversions()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testFunctionsLastAndPosition()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisSelf()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testLang()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testNodeTypeProcessingInstruction()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testBooleanFunction()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisFollowing()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testContainer()
+org.apache.commons.jxpath.ri.model.XMLModelTestCase.testAxisAncestorOrSelf()

@@ -1,0 +1,40 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 2
+NUMBER OF NEW OR CHANGED TESTS : 5
+NUMBER OF ENTITY TO TEST : 3
+NUMBER OF TEST TO RUN : 5
+TOTAL TIME REQUIRED : 0.55411982 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.InetAddressValidator.<clinit>()
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet6Address($java.lang.String)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.InetAddressValidatorTest.testReservedInetAddresses()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testBrokenInetAddresses()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testIPv6()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testVALIDATOR_419()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testInetAddressesByClass()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.InetAddressValidator.<clinit>()
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet6Address($java.lang.String)
+org.apache.commons.validator.routines.InetAddressValidator.VALIDATOR
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.InetAddressValidatorTest.testReservedInetAddresses()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testBrokenInetAddresses()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testIPv6()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testVALIDATOR_419()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testInetAddressesByClass()

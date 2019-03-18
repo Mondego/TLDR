@@ -1,0 +1,61 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 9
+NUMBER OF NEW OR CHANGED TESTS : 6
+NUMBER OF ENTITY TO TEST : 15
+NUMBER OF TEST TO RUN : 6
+TOTAL TIME REQUIRED : 0.648664647 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.EmailValidator.isValidDomain($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.<clinit>()
+org.apache.commons.validator.routines.EmailValidator.isValidUser($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.allowTld
+org.apache.commons.validator.routines.EmailValidator.EMAIL_VALIDATOR_WITH_LOCAL_WITH_TLD
+org.apache.commons.validator.routines.EmailValidator.<init>($boolean)
+org.apache.commons.validator.routines.EmailValidator.EMAIL_VALIDATOR_WITH_TLD
+org.apache.commons.validator.routines.EmailValidator.<init>($boolean$boolean)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.EmailTest._testEmailUserName()
+org.apache.commons.validator.EmailTest.<clinit>()
+org.apache.commons.validator.EmailTest.testEmailLocalhost()
+org.apache.commons.validator.EmailTest._testEmailFromPerl()
+org.apache.commons.validator.EmailTest.testEmailAtTLD()
+org.apache.commons.validator.EmailTest.valueTest($org.apache.commons.validator.ValueBean$boolean)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.EmailValidator.isValidDomain($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.USER_PATTERN
+org.apache.commons.validator.routines.EmailValidator.EMAIL_PATTERN
+org.apache.commons.validator.routines.EmailValidator.<clinit>()
+org.apache.commons.validator.routines.EmailValidator.isValidUser($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.EMAIL_VALIDATOR_WITH_LOCAL
+org.apache.commons.validator.routines.EmailValidator.EMAIL_VALIDATOR_WITH_TLD
+org.apache.commons.validator.routines.EmailValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.EMAIL_VALIDATOR
+org.apache.commons.validator.routines.EmailValidator.IP_DOMAIN_PATTERN
+org.apache.commons.validator.routines.EmailValidator.allowTld
+org.apache.commons.validator.routines.EmailValidator.EMAIL_VALIDATOR_WITH_LOCAL_WITH_TLD
+org.apache.commons.validator.routines.EmailValidator.allowLocal
+org.apache.commons.validator.routines.EmailValidator.<init>($boolean)
+org.apache.commons.validator.routines.EmailValidator.<init>($boolean$boolean)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.EmailTest._testEmailUserName()
+org.apache.commons.validator.EmailTest.<clinit>()
+org.apache.commons.validator.EmailTest.testEmailLocalhost()
+org.apache.commons.validator.EmailTest._testEmailFromPerl()
+org.apache.commons.validator.EmailTest.testEmailAtTLD()
+org.apache.commons.validator.EmailTest.valueTest($org.apache.commons.validator.ValueBean$boolean)

@@ -1,0 +1,43 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 9
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 9
+TOTAL TIME REQUIRED : 0.714223695 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.getFoo()
+org.apache.commons.jxpath.ri.JXPath118Test.<init>()
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.getBaz()
+org.apache.commons.jxpath.ri.JXPath118Test.testJXPATH118IssueWithAsPath()
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.setBaz($int)
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.getBar()
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.setFoo($int)
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.<init>()
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.setBar($int)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.getFoo()
+org.apache.commons.jxpath.ri.JXPath118Test.<init>()
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.getBaz()
+org.apache.commons.jxpath.ri.JXPath118Test.testJXPATH118IssueWithAsPath()
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.setBaz($int)
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.getBar()
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.setFoo($int)
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.<init>()
+org.apache.commons.jxpath.ri.JXPath118Test$SomeChildClass.setBar($int)

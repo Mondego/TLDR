@@ -1,0 +1,52 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 4
+NUMBER OF NEW OR CHANGED TESTS : 7
+NUMBER OF ENTITY TO TEST : 8
+NUMBER OF TEST TO RUN : 8
+TOTAL TIME REQUIRED : 1.219479886 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.collections4.CollectionUtils.checkIndexBounds($int)
+org.apache.commons.collections4.CollectionUtils.<clinit>()
+org.apache.commons.collections4.map.DefaultedMap.get($java.lang.Object)
+org.apache.commons.collections4.trie.AbstractPatriciaTrie$PrefixRangeMap.clear()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.collections4.MapUtilsTest.testSize0()
+org.apache.commons.collections4.trie.PatriciaTrieTest.testPrefixMapClearNothing()
+org.apache.commons.collections4.MapUtilsTest.testSize()
+org.apache.commons.collections4.trie.PatriciaTrieTest.getCompatibilityVersion()
+org.apache.commons.collections4.trie.PatriciaTrieTest.testPrefixMapClearUsingRemove()
+org.apache.commons.collections4.trie.PatriciaTrieTest.testPrefixMapClear()
+org.apache.commons.collections4.MapUtilsTest.testSizeNull()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.collections4.CollectionUtils.checkIndexBounds($int)
+org.apache.commons.collections4.CollectionUtils.EMPTY_COLLECTION
+org.apache.commons.collections4.multimap.AbstractMultiValuedMap$WrappedCollection.toString()
+org.apache.commons.collections4.CollectionUtils.<clinit>()
+org.apache.commons.collections4.map.DefaultedMap.get($java.lang.Object)
+org.apache.commons.collections4.multimap.AbstractMultiValuedMap$WrappedCollection.toArray($java.lang.Object[])
+org.apache.commons.collections4.multimap.AbstractMultiValuedMap$WrappedCollection.toArray()
+org.apache.commons.collections4.trie.AbstractPatriciaTrie$PrefixRangeMap.clear()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.collections4.MapUtilsTest.testSize0()
+org.apache.commons.collections4.trie.PatriciaTrieTest.testPrefixMapClearNothing()
+org.apache.commons.collections4.CollectionUtilsTest.emptyCollection()
+org.apache.commons.collections4.MapUtilsTest.testSize()
+org.apache.commons.collections4.trie.PatriciaTrieTest.getCompatibilityVersion()
+org.apache.commons.collections4.trie.PatriciaTrieTest.testPrefixMapClearUsingRemove()
+org.apache.commons.collections4.trie.PatriciaTrieTest.testPrefixMapClear()
+org.apache.commons.collections4.MapUtilsTest.testSizeNull()

@@ -1,0 +1,103 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 16
+NUMBER OF NEW OR CHANGED TESTS : 5
+NUMBER OF ENTITY TO TEST : 35
+NUMBER OF TEST TO RUN : 22
+TOTAL TIME REQUIRED : 1.650901167 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createOS2FTPEntryParser()
+org.apache.commons.net.nntp.NNTPClient.retrieveArticleInfo($int)
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createOS400FTPEntryParser()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createVMSVersioningFTPEntryParser()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createUnixFTPEntryParser()
+org.apache.commons.net.ntp.TimeStamp.<init>($java.lang.String)
+org.apache.commons.net.ftp.FTPClientConfig.SYST_UNIX_TRIM_LEADING
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createNTFTPEntryParser()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createFileEntryParser($org.apache.commons.net.ftp.FTPClientConfig)
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createMVSEntryParser()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createNTFTPEntryParser($org.apache.commons.net.ftp.FTPClientConfig)
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createNetwareFTPEntryParser()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createFileEntryParser($java.lang.String$org.apache.commons.net.ftp.FTPClientConfig)
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.<clinit>()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createOS400FTPEntryParser($org.apache.commons.net.ftp.FTPClientConfig)
+org.apache.commons.net.ftp.parser.UnixFTPEntryParser.<init>($org.apache.commons.net.ftp.FTPClientConfig)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testParseFieldsOnFile()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testLeadingSpacesDefault()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testTrimLeadingSpacesNET566()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testParseFieldsOnDirectory()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testLeadingSpacesNET566()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createOS2FTPEntryParser()
+org.apache.commons.net.nntp.NNTPClient.retrieveArticleInfo($int)
+org.apache.commons.net.ntp.TimeStamp.getDate()
+org.apache.commons.net.ntp.TimeStamp.equals($java.lang.Object)
+org.apache.commons.net.ntp.TimeStamp.getFraction()
+org.apache.commons.net.ntp.TimeStamp.<init>($java.lang.String)
+org.apache.commons.net.ntp.TimeStamp.compareTo($org.apache.commons.net.ntp.TimeStamp)
+org.apache.commons.net.ntp.TimeStamp.toUTCString()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createFileEntryParser($org.apache.commons.net.ftp.FTPClientConfig)
+org.apache.commons.net.ftp.parser.MVSFTPEntryParser.preParse($java.util.List)
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.JAVA_QUALIFIED_NAME_PATTERN
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createMVSEntryParser()
+org.apache.commons.net.ntp.TimeStamp.ntpTime
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createNetwareFTPEntryParser()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.<clinit>()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createOS400FTPEntryParser($org.apache.commons.net.ftp.FTPClientConfig)
+org.apache.commons.net.ntp.TimeStamp.toDateString()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParser.<init>($org.apache.commons.net.ftp.FTPClientConfig)
+org.apache.commons.net.ftp.parser.UnixFTPEntryParser.<init>()
+org.apache.commons.net.ntp.TimeInfo.<init>($org.apache.commons.net.ntp.NtpV3Packet$long$java.util.List$boolean)
+org.apache.commons.net.ntp.NtpV3Impl.toString()
+org.apache.commons.net.ntp.TimeStamp.ntpValue()
+org.apache.commons.net.ntp.TimeStamp.getTime()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createOS400FTPEntryParser()
+org.apache.commons.net.ntp.TimeStamp.getSeconds()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createVMSVersioningFTPEntryParser()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createUnixFTPEntryParser()
+org.apache.commons.net.ftp.FTPClientConfig.SYST_UNIX_TRIM_LEADING
+org.apache.commons.net.ntp.TimeInfo.computeDetails()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createNTFTPEntryParser()
+org.apache.commons.net.ntp.TimeStamp.hashCode()
+org.apache.commons.net.ntp.NtpV3Impl.setTimestamp($int$org.apache.commons.net.ntp.TimeStamp)
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createNTFTPEntryParser($org.apache.commons.net.ftp.FTPClientConfig)
+org.apache.commons.net.ntp.TimeStamp.toString()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory.createFileEntryParser($java.lang.String$org.apache.commons.net.ftp.FTPClientConfig)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.net.ftp.parser.NTFTPEntryParserTest.getParser()
+org.apache.commons.net.ntp.TimeStampTest.testCompare()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserAdditionalTest.getParser()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testParseFieldsOnDirectory()
+org.apache.commons.net.ntp.TestNtpClient.testGetTime()
+org.apache.commons.net.ftp.parser.FTPConfigEntryParserTest.testParseFieldsOnAIX()
+org.apache.commons.net.ftp.FTPClientTest.testUnparseableFiles()
+org.apache.commons.net.ntp.TestTimeInfo.testComputeDetails()
+org.apache.commons.net.ntp.TimeStampTest.testDateConversion()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactoryTest.testDefaultParserFactoryConfig()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testNumericDateFormat()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testParseFieldsOnFile()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testLeadingSpacesDefault()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testTrimLeadingSpacesNET566()
+org.apache.commons.net.ntp.TimeStampTest.testUTCString()
+org.apache.commons.net.ntp.TestTimeInfo.testZeroTime()
+org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactoryTest.checkParserClass($org.apache.commons.net.ftp.parser.FTPFileEntryParserFactory$java.lang.String$java.lang.Class)
+org.apache.commons.net.ftp.parser.FTPConfigEntryParserTest.testParseEntryWithSymlink()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest.getParser()
+org.apache.commons.net.ftp.parser.MLSDComparison.testFile()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.getParser()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testLeadingSpacesNET566()
