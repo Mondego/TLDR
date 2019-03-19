@@ -1,5 +1,8 @@
 package uci.ics.mondego.tldr.tool;
 
+/*
+ * access code for different method modifier
+ */
 public class AccessCodes {
 	
 	public static final int ABSTRACT = 1024;
