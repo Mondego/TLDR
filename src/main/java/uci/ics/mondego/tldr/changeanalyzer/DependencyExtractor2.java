@@ -79,7 +79,7 @@ public class DependencyExtractor2 {
 		this.allOwnFieldUpdated = new HashSet<String>();
 		this.allFieldDependency = new HashSet<String>();
 		
-		Set<String> prevDepInSet = database.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
+		Set<String> prevDepInSet = database.getSet(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
 				changedMethod.getKey());
 		
 		for(String dependency: prevDepInSet){

@@ -239,9 +239,9 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					}
 				}
 			}
-			else{
+			/*else{
 				System.out.println(m.getModifiers()+ "     "+parsedClass.getClassName()+"."+m.getName());
-			}
+			}*/
 
 		}	
 		
