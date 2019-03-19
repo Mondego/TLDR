@@ -1,0 +1,67 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 21
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 21
+TOTAL TIME REQUIRED : 0.78120291 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.isDeclaredVariable($java.lang.String)
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.getVariable($java.lang.String)
+org.apache.commons.jxpath.issues.JXPath118Test.<init>()
+org.apache.commons.jxpath.issues.JXPath177Test.<init>()
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.undeclareVariable($java.lang.String)
+org.apache.commons.jxpath.issues.JXPath177Test.testJx177()
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.getBar()
+org.apache.commons.jxpath.issues.JXPath149Test.<init>()
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.<init>($java.lang.Object)
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.setBaz($int)
+org.apache.commons.jxpath.issues.JXPath149Test.testComplexOperationWithVariables()
+org.apache.commons.jxpath.issues.JXPath118Test.testJXPATH118IssueWithAsPath()
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.setFoo($int)
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.getFoo()
+org.apache.commons.jxpath.issues.JXPath177Test.testJx177_Union2()
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.setBar($int)
+org.apache.commons.jxpath.issues.JXPath177Test.testJx177_Union1()
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.<init>()
+org.apache.commons.jxpath.issues.JXPath177Test.doTest($java.lang.String$java.lang.String)
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.getBaz()
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.declareVariable($java.lang.String$java.lang.Object)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.isDeclaredVariable($java.lang.String)
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.getVariable($java.lang.String)
+org.apache.commons.jxpath.issues.JXPath118Test.<init>()
+org.apache.commons.jxpath.issues.JXPath177Test.<init>()
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.undeclareVariable($java.lang.String)
+org.apache.commons.jxpath.issues.JXPath177Test.testJx177()
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.getBar()
+org.apache.commons.jxpath.issues.JXPath149Test.<init>()
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.<init>($java.lang.Object)
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.setBaz($int)
+org.apache.commons.jxpath.issues.JXPath149Test.testComplexOperationWithVariables()
+org.apache.commons.jxpath.issues.JXPath118Test.testJXPATH118IssueWithAsPath()
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.setFoo($int)
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.getFoo()
+org.apache.commons.jxpath.issues.JXPath177Test.testJx177_Union2()
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.setBar($int)
+org.apache.commons.jxpath.issues.JXPath177Test.testJx177_Union1()
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.<init>()
+org.apache.commons.jxpath.issues.JXPath177Test.doTest($java.lang.String$java.lang.String)
+org.apache.commons.jxpath.issues.JXPath118Test$SomeChildClass.getBaz()
+org.apache.commons.jxpath.issues.JXPath177Test$JXPathVariablesResolver.declareVariable($java.lang.String$java.lang.Object)

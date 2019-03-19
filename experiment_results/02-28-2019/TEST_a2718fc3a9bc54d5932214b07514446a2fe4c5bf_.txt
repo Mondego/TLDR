@@ -1,4 +1,0 @@
-org.apache.commons.math4.ode.nonstiff.AbstractEmbeddedRungeKuttaFieldIntegratorTest#doTestNonFieldIntegratorConsistency
-org.apache.commons.math4.ode.nonstiff.AbstractRungeKuttaFieldStepInterpolatorTest#createButcherArrayProvider
-org.apache.commons.math4.ode.nonstiff.AbstractRungeKuttaFieldStepInterpolatorTest#setUpInterpolator
-org.apache.commons.math4.ode.nonstiff.AbstractRungeKuttaFieldIntegratorTest#doTestNonFieldIntegratorConsistency

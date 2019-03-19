@@ -1,0 +1,31 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 3
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 3
+TOTAL TIME REQUIRED : 0.599133651 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.net.io.DotTerminatedMessageReaderTest.testSingleDotWithTrailingText()
+org.apache.commons.net.io.DotTerminatedMessageReaderTest.testLeadingDot()
+org.apache.commons.net.io.DotTerminatedMessageReaderTest.<clinit>()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.net.io.DotTerminatedMessageReaderTest.testSingleDotWithTrailingText()
+org.apache.commons.net.io.DotTerminatedMessageReaderTest.testLeadingDot()
+org.apache.commons.net.io.DotTerminatedMessageReaderTest.<clinit>()

@@ -1,0 +1,69 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 22
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 22
+TOTAL TIME REQUIRED : 0.904943262 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.EndianUtilsTest.testCtor()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedLong()
+org.apache.commons.io.EndianUtilsTest.testSwapDouble()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedShort()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedInteger()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedShort()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedUnsignedInteger()
+org.apache.commons.io.EndianUtilsTest.testSwapInteger()
+org.apache.commons.io.EndianUtilsTest.testEOFException()
+org.apache.commons.io.EndianUtilsTest.testSwapFloat()
+org.apache.commons.io.EndianUtilsTest.testSymmetryOfLong()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedDouble()
+org.apache.commons.io.EndianUtilsTest.testSwapLong()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedFloat()
+org.apache.commons.io.EndianUtilsTest.testSymmetry()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedLong()
+org.apache.commons.io.EndianUtilsTest.testSwapShort()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedInteger()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedFloat()
+org.apache.commons.io.EndianUtilsTest.testUnsignedOverrun()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedUnsignedShort()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedDouble()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.EndianUtilsTest.testCtor()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedLong()
+org.apache.commons.io.EndianUtilsTest.testSwapDouble()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedShort()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedInteger()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedShort()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedUnsignedInteger()
+org.apache.commons.io.EndianUtilsTest.testSwapInteger()
+org.apache.commons.io.EndianUtilsTest.testEOFException()
+org.apache.commons.io.EndianUtilsTest.testSwapFloat()
+org.apache.commons.io.EndianUtilsTest.testSymmetryOfLong()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedDouble()
+org.apache.commons.io.EndianUtilsTest.testSwapLong()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedFloat()
+org.apache.commons.io.EndianUtilsTest.testSymmetry()
+org.apache.commons.io.EndianUtilsTest.testWriteSwappedLong()
+org.apache.commons.io.EndianUtilsTest.testSwapShort()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedInteger()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedFloat()
+org.apache.commons.io.EndianUtilsTest.testUnsignedOverrun()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedUnsignedShort()
+org.apache.commons.io.EndianUtilsTest.testReadSwappedDouble()

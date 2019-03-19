@@ -1,0 +1,35 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 5
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 5
+NUMBER OF TEST TO RUN : 0
+TOTAL TIME REQUIRED : 0.69998295 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.net.ftp.FTPSServerSocketFactory.createServerSocket($int)
+org.apache.commons.net.ftp.FTPSServerSocketFactory.createServerSocket($int$int)
+org.apache.commons.net.ftp.FTPSServerSocketFactory.init($java.net.ServerSocket)
+org.apache.commons.net.ftp.FTPSServerSocketFactory.createServerSocket()
+org.apache.commons.net.ftp.FTPSServerSocketFactory.createServerSocket($int$int$java.net.InetAddress)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.net.ftp.FTPSServerSocketFactory.createServerSocket($int)
+org.apache.commons.net.ftp.FTPSServerSocketFactory.createServerSocket($int$int)
+org.apache.commons.net.ftp.FTPSServerSocketFactory.init($java.net.ServerSocket)
+org.apache.commons.net.ftp.FTPSServerSocketFactory.createServerSocket()
+org.apache.commons.net.ftp.FTPSServerSocketFactory.createServerSocket($int$int$java.net.InetAddress)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+

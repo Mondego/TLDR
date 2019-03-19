@@ -1,0 +1,100 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 11
+NUMBER OF NEW OR CHANGED TESTS : 17
+NUMBER OF ENTITY TO TEST : 28
+NUMBER OF TEST TO RUN : 19
+TOTAL TIME REQUIRED : 0.886858538 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.calculateModulus($java.lang.String$boolean)
+org.apache.commons.validator.routines.InetAddressValidator.<clinit>()
+org.apache.commons.validator.util.ValidatorUtils.LOG
+org.apache.commons.validator.util.ValidatorUtils.<clinit>()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.<clinit>()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet4Address($java.lang.String)
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet6Address($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.toInt($char$int$int)
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.DomainValidatorTest.test_LOCAL_TLDS_sorted()
+org.apache.commons.validator.routines.DomainValidatorTest.testTopLevelDomains()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest.<clinit>()
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest.testVALIDATOR_346()
+org.apache.commons.validator.routines.DomainValidatorTest.test_INFRASTRUCTURE_TLDS_sorted()
+org.apache.commons.validator.routines.DomainValidatorTest.isSorted($java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.class$($java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.testInvalidDomains()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest.testVALIDATOR_345()
+org.apache.commons.validator.routines.DomainValidatorTest.testAllowLocal()
+org.apache.commons.validator.routines.DomainValidatorTest.test_GENERIC_TLDS_sorted()
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest.<clinit>()
+org.apache.commons.validator.routines.DomainValidatorTest.testValidDomains()
+org.apache.commons.validator.routines.DomainValidatorTest.testIDN()
+org.apache.commons.validator.routines.DomainValidatorTest.test_COUNTRY_CODE_TLDS_sorted()
+org.apache.commons.validator.routines.DomainValidatorTest.setUp()
+org.apache.commons.validator.routines.DomainValidatorTest.<init>()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.DomainValidator.isValidLocalTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidCountryCodeTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.<clinit>()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.POSITION_WEIGHT
+org.apache.commons.validator.routines.DomainValidator.isValidGenericTld($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.isValidInfrastructureTld($java.lang.String)
+org.apache.commons.validator.routines.InetAddressValidator.<clinit>()
+org.apache.commons.validator.util.ValidatorUtils.LOG
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.<clinit>()
+org.apache.commons.validator.routines.DomainValidator.LOCAL_TLDS
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_VALIDATOR_WITH_LOCAL
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet4Address($java.lang.String)
+org.apache.commons.validator.routines.DomainValidator.GENERIC_TLDS
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.ISIN_CHECK_DIGIT
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.toInt($char$int$int)
+org.apache.commons.validator.util.ValidatorUtils.class$org$apache$commons$validator$util$ValidatorUtils
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.calculateModulus($java.lang.String$boolean)
+org.apache.commons.validator.util.ValidatorUtils.<clinit>()
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet6Address($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.POSITION_WEIGHT
+org.apache.commons.validator.routines.DomainValidator.COUNTRY_CODE_TLDS
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.InetAddressValidator.VALIDATOR
+org.apache.commons.validator.routines.DomainValidator.DOMAIN_VALIDATOR
+org.apache.commons.validator.routines.DomainValidator.INFRASTRUCTURE_TLDS
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.SEDOL_CHECK_DIGIT
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigit.weightedValue($int$int$int)
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigit.<clinit>()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.DomainValidatorTest.test_LOCAL_TLDS_sorted()
+org.apache.commons.validator.routines.DomainValidatorTest.testTopLevelDomains()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest.<clinit>()
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest.testVALIDATOR_346()
+org.apache.commons.validator.routines.DomainValidatorTest.test_INFRASTRUCTURE_TLDS_sorted()
+org.apache.commons.validator.routines.DomainValidatorTest.isSorted($java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.class$($java.lang.String)
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest.setUp()
+org.apache.commons.validator.routines.DomainValidatorTest.testInvalidDomains()
+org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest.testVALIDATOR_345()
+org.apache.commons.validator.routines.DomainValidatorTest.testAllowLocal()
+org.apache.commons.validator.routines.DomainValidatorTest.test_GENERIC_TLDS_sorted()
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest.<clinit>()
+org.apache.commons.validator.routines.DomainValidatorTest.testValidDomains()
+org.apache.commons.validator.routines.DomainValidatorTest.testIDN()
+org.apache.commons.validator.routines.DomainValidatorTest.test_COUNTRY_CODE_TLDS_sorted()
+org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest.setUp()
+org.apache.commons.validator.routines.DomainValidatorTest.setUp()
+org.apache.commons.validator.routines.DomainValidatorTest.<init>()

@@ -1,0 +1,57 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 1
+NUMBER OF NEW OR CHANGED TESTS : 8
+NUMBER OF ENTITY TO TEST : 7
+NUMBER OF TEST TO RUN : 16
+TOTAL TIME REQUIRED : 0.769852244 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.Charsets.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.CharsetsTestCase.testToCharset()
+org.apache.commons.io.CharsetsTestCase.testUtf8()
+org.apache.commons.io.CharsetsTestCase.testIso8859_1()
+org.apache.commons.io.CharsetsTestCase.testUsAscii()
+org.apache.commons.io.CharsetsTestCase.testUtf16Be()
+org.apache.commons.io.CharsetsTestCase.testUtf16Le()
+org.apache.commons.io.CharsetsTestCase.testRequiredCharsets()
+org.apache.commons.io.CharsetsTestCase.testUtf16()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.Charsets.UTF_16
+org.apache.commons.io.Charsets.UTF_16BE
+org.apache.commons.io.Charsets.<clinit>()
+org.apache.commons.io.Charsets.UTF_8
+org.apache.commons.io.Charsets.UTF_16LE
+org.apache.commons.io.Charsets.US_ASCII
+org.apache.commons.io.Charsets.ISO_8859_1
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.BOMInputStreamTest.testReadWithBOMUtf8()
+org.apache.commons.io.CharsetsTestCase.testToCharset()
+org.apache.commons.io.CharsetsTestCase.testIso8859_1()
+org.apache.commons.io.CharsetsTestCase.testUsAscii()
+org.apache.commons.io.input.BOMInputStreamTest.testReadWithBOMUtf16Le()
+org.apache.commons.io.CharsetsTestCase.testRequiredCharsets()
+org.apache.commons.io.CharsetsTestCase.testUtf16()
+org.apache.commons.io.CharsetsTestCase.testUtf8()
+org.apache.commons.io.CharsetsTestCase.testUtf16Be()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf16Be()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf16Le()
+org.apache.commons.io.CharsetsTestCase.testUtf16Le()
+org.apache.commons.io.input.BOMInputStreamTest.testReadWithBOMUtf16Be()
+org.apache.commons.io.FileUtilsTestCase.testWriteByteArrayToFile_WithOffsetAndLength_WithAppendOptionTrue_ShouldDeletePreviousFileLines()
+org.apache.commons.io.FileUtilsTestCase.testWriteByteArrayToFile_WithOffsetAndLength_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines()
+org.apache.commons.io.input.BOMInputStreamTest.testReadXmlWithBOMUtf8()

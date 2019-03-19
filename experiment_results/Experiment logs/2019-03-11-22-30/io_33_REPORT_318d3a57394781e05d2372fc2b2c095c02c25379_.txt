@@ -1,0 +1,39 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 6
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 6
+NUMBER OF TEST TO RUN : 2
+TOTAL TIME REQUIRED : 0.537616219 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.output.DemuxOutputStream.outputStreamThreadLocal
+org.apache.commons.io.output.DemuxOutputStream.flush()
+org.apache.commons.io.output.DemuxOutputStream.<init>()
+org.apache.commons.io.output.DemuxOutputStream.close()
+org.apache.commons.io.output.DemuxOutputStream.write($int)
+org.apache.commons.io.output.DemuxOutputStream.bindStream($java.io.OutputStream)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.output.DemuxOutputStream.outputStreamThreadLocal
+org.apache.commons.io.output.DemuxOutputStream.flush()
+org.apache.commons.io.output.DemuxOutputStream.<init>()
+org.apache.commons.io.output.DemuxOutputStream.close()
+org.apache.commons.io.output.DemuxOutputStream.write($int)
+org.apache.commons.io.output.DemuxOutputStream.bindStream($java.io.OutputStream)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.DemuxTestCase.testOutputStream()
+org.apache.commons.io.DemuxTestCase$WriterThread.run()

@@ -1,0 +1,55 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 11
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 17
+NUMBER OF TEST TO RUN : 2
+TOTAL TIME REQUIRED : 0.703479354 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.nio.charset.CharsetEncoder$int)
+org.apache.commons.io.input.ReaderInputStream.read($byte[])
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.lang.String$int)
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.lang.String)
+org.apache.commons.io.input.ReaderInputStream.fillBuffer()
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.nio.charset.Charset)
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader)
+org.apache.commons.io.input.ReaderInputStream.read()
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.nio.charset.Charset$int)
+org.apache.commons.io.input.ReaderInputStream.read($byte[]$int$int)
+org.apache.commons.io.input.ReaderInputStream.close()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.nio.charset.CharsetEncoder$int)
+org.apache.commons.io.input.ReaderInputStream.encoder
+org.apache.commons.io.input.ReaderInputStream.read($byte[])
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.lang.String$int)
+org.apache.commons.io.input.ReaderInputStream.endOfInput
+org.apache.commons.io.input.ReaderInputStream.fillBuffer()
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.nio.charset.Charset)
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader)
+org.apache.commons.io.input.ReaderInputStream.read()
+org.apache.commons.io.input.ReaderInputStream.read($byte[]$int$int)
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.lang.String)
+org.apache.commons.io.input.ReaderInputStream.lastCoderResult
+org.apache.commons.io.input.ReaderInputStream.encoderOut
+org.apache.commons.io.input.ReaderInputStream.<init>($java.io.Reader$java.nio.charset.Charset$int)
+org.apache.commons.io.input.ReaderInputStream.encoderIn
+org.apache.commons.io.input.ReaderInputStream.close()
+org.apache.commons.io.input.ReaderInputStream.reader
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.ReaderInputStreamTest.testWithSingleByteRead($java.lang.String$java.lang.String)
+org.apache.commons.io.input.ReaderInputStreamTest.testCharsetMismatchInfiniteLoop()

@@ -1,0 +1,87 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 24
+NUMBER OF NEW OR CHANGED TESTS : 7
+NUMBER OF ENTITY TO TEST : 24
+NUMBER OF TEST TO RUN : 7
+TOTAL TIME REQUIRED : 0.649225911 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.input.ObservableInputStream.getObservers()
+org.apache.commons.io.input.ObservableInputStream.noteClosed()
+org.apache.commons.io.input.ObservableInputStream.noteDataBytes($byte[]$int$int)
+org.apache.commons.io.input.ObservableInputStream.observers
+org.apache.commons.io.input.ObservableInputStream.add($org.apache.commons.io.input.ObservableInputStream$Observer)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream$MessageDigestMaintainingObserver.<init>($java.security.MessageDigest)
+org.apache.commons.io.input.ObservableInputStream.read($byte[])
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.<init>($java.io.InputStream$java.lang.String)
+org.apache.commons.io.input.ObservableInputStream.noteDataByte($int)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream$MessageDigestMaintainingObserver.md
+org.apache.commons.io.input.ObservableInputStream.<init>($java.io.InputStream)
+org.apache.commons.io.input.ObservableInputStream.noteError($java.io.IOException)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.<init>($java.io.InputStream$java.security.MessageDigest)
+org.apache.commons.io.input.ObservableInputStream.read()
+org.apache.commons.io.input.ObservableInputStream.noteFinished()
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.messageDigest
+org.apache.commons.io.input.ObservableInputStream.removeAllObservers()
+org.apache.commons.io.input.ObservableInputStream.remove($org.apache.commons.io.input.ObservableInputStream$Observer)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.<init>($java.io.InputStream)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.getMessageDigest()
+org.apache.commons.io.input.ObservableInputStream.read($byte[]$int$int)
+org.apache.commons.io.input.ObservableInputStream.close()
+org.apache.commons.io.input.ObservableInputStream.consume()
+org.apache.commons.io.input.ObservableInputStream$Observer.<init>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.input.MessageDigestCalculatingInputStreamTest.<init>()
+org.apache.commons.io.input.ObservableInputStreamTest$LastBytesKeepingObserver.<init>()
+org.apache.commons.io.input.ObservableInputStreamTest.testDataBytesCalled()
+org.apache.commons.io.input.ObservableInputStreamTest.<init>()
+org.apache.commons.io.input.ObservableInputStreamTest.testDataByteCalled()
+org.apache.commons.io.input.ObservableInputStreamTest$LastByteKeepingObserver.<init>()
+org.apache.commons.io.input.MessageDigestCalculatingInputStreamTest.test()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.input.ObservableInputStream.getObservers()
+org.apache.commons.io.input.ObservableInputStream.noteClosed()
+org.apache.commons.io.input.ObservableInputStream.noteDataBytes($byte[]$int$int)
+org.apache.commons.io.input.ObservableInputStream.observers
+org.apache.commons.io.input.ObservableInputStream.add($org.apache.commons.io.input.ObservableInputStream$Observer)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream$MessageDigestMaintainingObserver.<init>($java.security.MessageDigest)
+org.apache.commons.io.input.ObservableInputStream.read($byte[])
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.<init>($java.io.InputStream$java.lang.String)
+org.apache.commons.io.input.ObservableInputStream.noteDataByte($int)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream$MessageDigestMaintainingObserver.md
+org.apache.commons.io.input.ObservableInputStream.<init>($java.io.InputStream)
+org.apache.commons.io.input.ObservableInputStream.noteError($java.io.IOException)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.<init>($java.io.InputStream$java.security.MessageDigest)
+org.apache.commons.io.input.ObservableInputStream.read()
+org.apache.commons.io.input.ObservableInputStream.noteFinished()
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.messageDigest
+org.apache.commons.io.input.ObservableInputStream.removeAllObservers()
+org.apache.commons.io.input.ObservableInputStream.remove($org.apache.commons.io.input.ObservableInputStream$Observer)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.<init>($java.io.InputStream)
+org.apache.commons.io.input.MessageDigestCalculatingInputStream.getMessageDigest()
+org.apache.commons.io.input.ObservableInputStream.read($byte[]$int$int)
+org.apache.commons.io.input.ObservableInputStream.close()
+org.apache.commons.io.input.ObservableInputStream.consume()
+org.apache.commons.io.input.ObservableInputStream$Observer.<init>()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.MessageDigestCalculatingInputStreamTest.<init>()
+org.apache.commons.io.input.ObservableInputStreamTest$LastBytesKeepingObserver.<init>()
+org.apache.commons.io.input.ObservableInputStreamTest.testDataBytesCalled()
+org.apache.commons.io.input.ObservableInputStreamTest.<init>()
+org.apache.commons.io.input.ObservableInputStreamTest.testDataByteCalled()
+org.apache.commons.io.input.ObservableInputStreamTest$LastByteKeepingObserver.<init>()
+org.apache.commons.io.input.MessageDigestCalculatingInputStreamTest.test()

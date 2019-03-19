@@ -108,13 +108,12 @@ public class MavenPomProcessor {
 		PluginExecution ex = new PluginExecution();
 		ex.setId(executionId);
 		List<String> g = new ArrayList<String>();
-		g.add("select");
+		g.add(goal);
 		ex.setGoals(g);
 		List<PluginExecution> executions = new ArrayList<PluginExecution>();
 		executions.add(ex);
 		plugin.setExecutions(executions);
 		
 		return plugin;
-		
 	}
 }

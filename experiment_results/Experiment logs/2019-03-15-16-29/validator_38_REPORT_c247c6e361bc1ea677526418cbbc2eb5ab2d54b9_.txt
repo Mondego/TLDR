@@ -1,0 +1,77 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 8
+NUMBER OF NEW OR CHANGED TESTS : 14
+NUMBER OF ENTITY TO TEST : 16
+NUMBER OF TEST TO RUN : 14
+TOTAL TIME REQUIRED : 0.584860866 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.UrlValidator.isValidScheme($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValidPath($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValidQuery($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.countToken($java.lang.String$java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValidFragment($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValidAuthority($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator309()
+org.apache.commons.validator.routines.UrlValidatorTest.testPartsIndextoString()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator339()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator353()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator375()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator391FAILS()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator361()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator382()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator342()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator363()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator380()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator290()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator391OK()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator339IDN()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.UrlValidator.isValidScheme($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValidFragment($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.DEFAULT_SCHEMES
+org.apache.commons.validator.routines.UrlValidator.SCHEME_PATTERN
+org.apache.commons.validator.routines.UrlValidator.QUERY_PATTERN
+org.apache.commons.validator.routines.UrlValidator.<init>($java.lang.String[]$org.apache.commons.validator.routines.RegexValidator$long)
+org.apache.commons.validator.routines.UrlValidator.DEFAULT_URL_VALIDATOR
+org.apache.commons.validator.routines.UrlValidator.URL_PATTERN
+org.apache.commons.validator.routines.UrlValidator.isValidPath($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValidQuery($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.countToken($java.lang.String$java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.AUTHORITY_PATTERN
+org.apache.commons.validator.routines.UrlValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.PATH_PATTERN
+org.apache.commons.validator.routines.UrlValidator.isValidAuthority($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.<clinit>()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator309()
+org.apache.commons.validator.routines.UrlValidatorTest.testPartsIndextoString()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator339()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator353()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator375()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator391FAILS()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator361()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator382()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator342()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator363()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator380()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator290()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator391OK()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator339IDN()

@@ -1,0 +1,80 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 18
+NUMBER OF NEW OR CHANGED TESTS : 6
+NUMBER OF ENTITY TO TEST : 25
+NUMBER OF TEST TO RUN : 6
+TOTAL TIME REQUIRED : 2.513340643 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.net.ftp.FTPClient.getBufferSize()
+org.apache.commons.net.ftp.FTPClient.getCopyStreamListener()
+org.apache.commons.net.ftp.FTPClient.setControlKeepAliveTimeout($long)
+org.apache.commons.net.ftp.FTPClient.initiateListParsing($org.apache.commons.net.ftp.FTPFileEntryParser$java.lang.String)
+org.apache.commons.net.ftp.FTPClient.initiateListParsing($java.lang.String$java.lang.String)
+org.apache.commons.net.ftp.FTPClient.initiateMListParsing($java.lang.String)
+org.apache.commons.net.ftp.FTPClient.getModificationTime($java.lang.String)
+org.apache.commons.net.ftp.FTPClient.setCopyStreamListener($org.apache.commons.net.io.CopyStreamListener)
+org.apache.commons.net.ftp.FTPClient.getStatus($java.lang.String)
+org.apache.commons.net.ftp.FTPClient.getListArguments($java.lang.String)
+org.apache.commons.net.ftp.FTPClient.setModificationTime($java.lang.String$java.lang.String)
+org.apache.commons.net.ftp.FTPClient.getControlKeepAliveTimeout()
+org.apache.commons.net.ftp.FTPClient.getBufferedInputStream($java.io.InputStream)
+org.apache.commons.net.ftp.FTPClient.<clinit>()
+org.apache.commons.net.ftp.FTPClient.getStatus()
+org.apache.commons.net.ftp.FTPClient.__mergeListeners($org.apache.commons.net.io.CopyStreamListener)
+org.apache.commons.net.ftp.FTPClient.setBufferSize($int)
+org.apache.commons.net.ftp.FTPClient.getBufferedOutputStream($java.io.OutputStream)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.net.ftp.FTPClientTest$LocalClient.setSystemType($java.lang.String)
+org.apache.commons.net.ftp.FTPClientTest.testParserCachingWithKey()
+org.apache.commons.net.ftp.FTPClientTest$LocalClient.<init>()
+org.apache.commons.net.ftp.FTPClientTest$LocalClient.getSystemType()
+org.apache.commons.net.ftp.FTPClientTest.<clinit>()
+org.apache.commons.net.ftp.FTPClientTest.testParserCachingNullKey()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.net.ftp.FTPClient.getBufferSize()
+org.apache.commons.net.ftp.FTPClient.setControlKeepAliveTimeout($long)
+org.apache.commons.net.ftp.FTPClient.__bufferSize
+org.apache.commons.net.ftp.FTPClient.initiateListParsing($org.apache.commons.net.ftp.FTPFileEntryParser$java.lang.String)
+org.apache.commons.net.ftp.FTPClient.initiateMListParsing($java.lang.String)
+org.apache.commons.net.ftp.FTPClient.__controlKeepAliveTimeout
+org.apache.commons.net.ftp.FTPClient._retrieveFile($java.lang.String$java.lang.String$java.io.OutputStream)
+org.apache.commons.net.ftp.FTPClient.__copyStreamListener
+org.apache.commons.net.ftp.FTPClient.getBufferedInputStream($java.io.InputStream)
+org.apache.commons.net.ftp.FTPClient.<clinit>()
+org.apache.commons.net.ftp.FTPClient.__mergeListeners($org.apache.commons.net.io.CopyStreamListener)
+org.apache.commons.net.ftp.FTPClient.getBufferedOutputStream($java.io.OutputStream)
+org.apache.commons.net.ftp.FTPClient.getCopyStreamListener()
+org.apache.commons.net.ftp.FTPClient.__PARMS_PAT
+org.apache.commons.net.ftp.FTPClient.initiateListParsing($java.lang.String$java.lang.String)
+org.apache.commons.net.ftp.FTPClient._parsePassiveModeReply($java.lang.String)
+org.apache.commons.net.ftp.FTPClient.getModificationTime($java.lang.String)
+org.apache.commons.net.ftp.FTPClient.setCopyStreamListener($org.apache.commons.net.io.CopyStreamListener)
+org.apache.commons.net.ftp.FTPClient.getStatus($java.lang.String)
+org.apache.commons.net.ftp.FTPClient.getListArguments($java.lang.String)
+org.apache.commons.net.ftp.FTPClient.setModificationTime($java.lang.String$java.lang.String)
+org.apache.commons.net.ftp.FTPClient.getControlKeepAliveTimeout()
+org.apache.commons.net.ftp.FTPClient.getStatus()
+org.apache.commons.net.ftp.FTPClient.setBufferSize($int)
+org.apache.commons.net.ftp.FTPClient._storeFile($java.lang.String$java.lang.String$java.io.InputStream)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.net.ftp.FTPClientTest$LocalClient.setSystemType($java.lang.String)
+org.apache.commons.net.ftp.FTPClientTest.testParserCachingWithKey()
+org.apache.commons.net.ftp.FTPClientTest$LocalClient.<init>()
+org.apache.commons.net.ftp.FTPClientTest$LocalClient.getSystemType()
+org.apache.commons.net.ftp.FTPClientTest.<clinit>()
+org.apache.commons.net.ftp.FTPClientTest.testParserCachingNullKey()

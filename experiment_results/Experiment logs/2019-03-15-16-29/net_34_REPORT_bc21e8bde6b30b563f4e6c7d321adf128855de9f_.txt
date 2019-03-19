@@ -1,0 +1,81 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 28
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 28
+TOTAL TIME REQUIRED : 1.072837314 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.net.ftp.parser.EnterpriseUnixFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NTFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.MLSxEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.MVSFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NTFTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.EnterpriseUnixFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.VMSFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS2FTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.MLSxEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NetwareFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.VMSFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.OS2FTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.MVSFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS2FTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NetwareFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NTFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.MLSxEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserAdditionalTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NetwareFTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserAdditionalTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest.testDefaultPrecision()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.net.ftp.parser.EnterpriseUnixFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NTFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.MLSxEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.MVSFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NTFTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.EnterpriseUnixFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.VMSFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS2FTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.MLSxEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NetwareFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.VMSFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.OS2FTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.MVSFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS2FTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NetwareFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NTFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.MLSxEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParserTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserAdditionalTest.testRecentPrecision()
+org.apache.commons.net.ftp.parser.NetwareFTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParserTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest.<clinit>()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserAdditionalTest.testDefaultPrecision()
+org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest.testDefaultPrecision()

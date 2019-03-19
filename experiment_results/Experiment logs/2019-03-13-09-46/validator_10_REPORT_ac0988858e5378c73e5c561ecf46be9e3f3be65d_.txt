@@ -1,0 +1,29 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 2
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 2
+TOTAL TIME REQUIRED : 0.50601938 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.CustomValidatorResourcesTest.testCustomResources()
+org.apache.commons.validator.ParameterTest.testAllValid()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.CustomValidatorResourcesTest.testCustomResources()
+org.apache.commons.validator.ParameterTest.testAllValid()

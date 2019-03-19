@@ -1,0 +1,87 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 2
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 50
+NUMBER OF TEST TO RUN : 10
+TOTAL TIME REQUIRED : 0.719805187 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.jxpath.ri.model.dom.DOMNodePointer.asPath()
+org.apache.commons.jxpath.ri.model.dom.DOMNodePointer.getRelativePositionOfPI()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.jxpath.ri.model.beans.PropertyPointer.getAbstractFactory($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.model.dom.NamespacePointer.asPath()
+org.apache.commons.jxpath.ri.model.jdom.JDOMAttributePointer.asPath()
+org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer.setValue($java.lang.Object)
+org.apache.commons.jxpath.ri.model.NodePointer.toString()
+org.apache.commons.jxpath.ri.model.beans.NullElementPointer.createPath($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.model.beans.NullPointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int$java.lang.Object)
+org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int$java.lang.Object)
+org.apache.commons.jxpath.ri.model.container.ContainerPointer.asPath()
+org.apache.commons.jxpath.ri.axes.RootContext.toString()
+org.apache.commons.jxpath.ri.EvalContext.toString()
+org.apache.commons.jxpath.ri.model.dynamic.DynamicPropertyPointer.createPath($org.apache.commons.jxpath.JXPathContext$java.lang.Object)
+org.apache.commons.jxpath.ri.model.dom.DOMNodePointer.getAbstractFactory($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer.createAttribute($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName)
+org.apache.commons.jxpath.ri.model.dynamic.DynamicPropertyPointer.getAbstractFactory($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer.asPath()
+org.apache.commons.jxpath.ri.model.beans.CollectionPointer.createPath($org.apache.commons.jxpath.JXPathContext$java.lang.Object)
+org.apache.commons.jxpath.ri.model.beans.LangAttributePointer.asPath()
+org.apache.commons.jxpath.ri.model.beans.BeanPropertyPointer.createPath($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer.asPath()
+org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int$java.lang.Object)
+org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer.createPath($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.JXPathContextReferenceImpl.createPath($java.lang.String$org.apache.commons.jxpath.ri.compiler.Expression)
+org.apache.commons.jxpath.ri.model.beans.PropertyPointer.createPath($org.apache.commons.jxpath.JXPathContext$java.lang.Object)
+org.apache.commons.jxpath.ri.model.dom.DOMAttributePointer.asPath()
+org.apache.commons.jxpath.ri.model.dom.DOMNodePointer.getRelativePositionOfPI()
+org.apache.commons.jxpath.ri.model.jdom.JDOMNamespacePointer.asPath()
+org.apache.commons.jxpath.ri.model.NodePointer.asPath()
+org.apache.commons.jxpath.ri.model.beans.PropertyPointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int)
+org.apache.commons.jxpath.ri.model.dom.DOMNodePointer.asPath()
+org.apache.commons.jxpath.ri.model.beans.CollectionPointer.asPath()
+org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer.createBadFactoryException($org.apache.commons.jxpath.AbstractFactory)
+org.apache.commons.jxpath.ri.JXPathContextReferenceImpl.removeAll($java.lang.String$org.apache.commons.jxpath.ri.compiler.Expression)
+org.apache.commons.jxpath.ri.model.beans.NullPointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int)
+org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int)
+org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer.createPath($org.apache.commons.jxpath.JXPathContext$java.lang.Object)
+org.apache.commons.jxpath.ri.model.dynamic.DynamicPropertyPointer.asPath()
+org.apache.commons.jxpath.ri.model.dom.DOMNodePointer.createAttribute($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName)
+org.apache.commons.jxpath.ri.model.dynamic.DynamicPropertyPointer.createPath($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.model.beans.NullElementPointer.asPath()
+org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int)
+org.apache.commons.jxpath.ri.model.dom.DOMNodePointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int)
+org.apache.commons.jxpath.ri.model.NodePointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int)
+org.apache.commons.jxpath.ri.model.beans.CollectionPointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int)
+org.apache.commons.jxpath.ri.model.dom.DOMNodePointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int$java.lang.Object)
+org.apache.commons.jxpath.ri.model.beans.NullPointer.createPath($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.model.NodePointer.createChild($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName$int$java.lang.Object)
+org.apache.commons.jxpath.ri.model.beans.PropertyPointer.createPath($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer.getAbstractFactory($org.apache.commons.jxpath.JXPathContext)
+org.apache.commons.jxpath.ri.model.NodePointer.createAttribute($org.apache.commons.jxpath.JXPathContext$org.apache.commons.jxpath.ri.QName)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.jxpath.JXPathTestCase.assertXPathCreatePath($org.apache.commons.jxpath.JXPathContext$java.lang.String$java.lang.Object$java.lang.String)
+org.apache.commons.jxpath.ri.compiler.TestFunctions.pathWithSuffix($org.apache.commons.jxpath.ExpressionContext$java.lang.String)
+org.apache.commons.jxpath.ri.model.MixedModelTest.testIteratePointersArray()
+org.apache.commons.jxpath.JXPathTestCase.assertXPathCreatePathAndSetValue($org.apache.commons.jxpath.JXPathContext$java.lang.String$java.lang.Object$java.lang.String)
+org.apache.commons.jxpath.ri.model.BeanModelTestCase.testIteratePropertyArrayWithHasNext()
+org.apache.commons.jxpath.ri.compiler.TestFunctions.instancePath($org.apache.commons.jxpath.ExpressionContext)
+org.apache.commons.jxpath.ri.axes.SimplePathInterpreterTest.assertNullPointer($java.lang.String$java.lang.String$java.lang.String)
+org.apache.commons.jxpath.ri.model.BeanModelTestCase.testIteratePointerSetValue()
+org.apache.commons.jxpath.ri.compiler.TestFunctions.className($org.apache.commons.jxpath.ExpressionContext$org.apache.commons.jxpath.ExpressionContext)
+org.apache.commons.jxpath.ri.model.MixedModelTest.testIteratePointersArrayElementWithVariable()

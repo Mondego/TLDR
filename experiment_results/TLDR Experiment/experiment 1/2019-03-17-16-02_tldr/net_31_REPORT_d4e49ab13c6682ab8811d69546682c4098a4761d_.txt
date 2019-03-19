@@ -1,0 +1,98 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 18
+NUMBER OF NEW OR CHANGED TESTS : 16
+NUMBER OF ENTITY TO TEST : 23
+NUMBER OF TEST TO RUN : 16
+TOTAL TIME REQUIRED : 0.953015826 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+examples.mail.IMAPExportMbox$MboxListener.eol
+examples.mail.IMAPExportMbox$MboxListener.chunkReceived($org.apache.commons.net.imap.IMAP)
+org.apache.commons.net.util.SubnetUtils$SubnetInfo.isInRange($int)
+org.apache.commons.net.util.SubnetUtils$SubnetInfo.isInRange($java.lang.String)
+org.apache.commons.net.telnet.TelnetOptionHandler.startSubnegotiationLocal()
+examples.mail.IMAPExportMbox$MboxListener.printHash
+examples.mail.IMAPExportMbox$MboxListener.close()
+examples.telnet.TelnetClientExample.run()
+org.apache.commons.net.ftp.FTPClient.getModificationTime($java.lang.String)
+org.apache.commons.net.telnet.TelnetOutputStream.write($int)
+examples.telnet.TelnetClientExample.receivedNegotiation($int$int)
+examples.mail.IMAPExportMbox.LF
+org.apache.commons.net.telnet.TelnetOptionHandler.answerSubnegotiation($int[]$int)
+examples.mail.IMAPExportMbox.EOL_DEFAULT
+org.apache.commons.net.telnet.TelnetOptionHandler.startSubnegotiationRemote()
+examples.mail.IMAPExportMbox.READ_TIMEOUT
+examples.mail.IMAPExportMbox.CONNECT_TIMEOUT
+examples.mail.IMAPExportMbox.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.net.util.UtilTest.testReader1()
+org.apache.commons.net.util.UtilTest.testReader0()
+org.apache.commons.net.util.UtilTest.testcloseQuietly()
+org.apache.commons.net.ftp.ListingFunctionalTest.testPrintWorkingDirectory()
+org.apache.commons.net.util.UtilTest.testStream_1()
+org.apache.commons.net.util.UtilTest$CSL.bytesTransferred($org.apache.commons.net.io.CopyStreamEvent)
+org.apache.commons.net.util.UtilTest.testNET550_Reader()
+org.apache.commons.net.util.UtilTest.<init>()
+org.apache.commons.net.util.UtilTest$CSLtotal.bytesTransferred($long$int$long)
+org.apache.commons.net.util.UtilTest$CSL.bytesTransferred($long$int$long)
+org.apache.commons.net.ftp.TestConnectTimeout.testConnectTimeout()
+org.apache.commons.net.util.UtilTest.testStream1()
+org.apache.commons.net.util.UtilTest.testStream0()
+org.apache.commons.net.util.UtilTest.testNET550_Stream()
+org.apache.commons.net.util.UtilTest$CSLtotal.bytesTransferred($org.apache.commons.net.io.CopyStreamEvent)
+org.apache.commons.net.util.UtilTest.testReader_1()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+examples.mail.IMAPExportMbox$MboxListener.eol
+examples.mail.IMAPExportMbox$MboxListener.chunkReceived($org.apache.commons.net.imap.IMAP)
+org.apache.commons.net.util.SubnetUtils$SubnetInfo.isInRange($int)
+org.apache.commons.net.util.SubnetUtils$SubnetInfo.isInRange($java.lang.String)
+examples.mail.IMAPExportMbox.PATID
+org.apache.commons.net.telnet.TelnetOptionHandler.startSubnegotiationLocal()
+examples.mail.IMAPExportMbox$MboxListener.printHash
+examples.mail.IMAPExportMbox$MboxListener.close()
+examples.telnet.TelnetClientExample.run()
+org.apache.commons.net.telnet.TelnetOutputStream.write($byte[]$int$int)
+org.apache.commons.net.ftp.FTPClient.getModificationTime($java.lang.String)
+org.apache.commons.net.telnet.TelnetOutputStream.write($int)
+examples.telnet.TelnetClientExample.receivedNegotiation($int$int)
+examples.mail.IMAPExportMbox.LF
+org.apache.commons.net.telnet.TelnetOptionHandler.answerSubnegotiation($int[]$int)
+examples.mail.IMAPExportMbox.EOL_DEFAULT
+org.apache.commons.net.telnet.TelnetOptionHandler.startSubnegotiationRemote()
+examples.mail.IMAPExportMbox.PATFROM
+examples.mail.IMAPExportMbox.READ_TIMEOUT
+org.apache.commons.net.telnet.TelnetOutputStream.__lastWasCR
+examples.mail.IMAPExportMbox.CONNECT_TIMEOUT
+examples.mail.IMAPExportMbox$MboxListener.total
+examples.mail.IMAPExportMbox.<clinit>()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.net.util.UtilTest.testReader1()
+org.apache.commons.net.util.UtilTest.testReader0()
+org.apache.commons.net.util.UtilTest.testcloseQuietly()
+org.apache.commons.net.ftp.ListingFunctionalTest.testPrintWorkingDirectory()
+org.apache.commons.net.util.UtilTest.testStream_1()
+org.apache.commons.net.util.UtilTest$CSL.bytesTransferred($org.apache.commons.net.io.CopyStreamEvent)
+org.apache.commons.net.util.UtilTest.testNET550_Reader()
+org.apache.commons.net.util.UtilTest.<init>()
+org.apache.commons.net.util.UtilTest$CSLtotal.bytesTransferred($long$int$long)
+org.apache.commons.net.util.UtilTest$CSL.bytesTransferred($long$int$long)
+org.apache.commons.net.ftp.TestConnectTimeout.testConnectTimeout()
+org.apache.commons.net.util.UtilTest.testStream1()
+org.apache.commons.net.util.UtilTest.testStream0()
+org.apache.commons.net.util.UtilTest.testNET550_Stream()
+org.apache.commons.net.util.UtilTest$CSLtotal.bytesTransferred($org.apache.commons.net.io.CopyStreamEvent)
+org.apache.commons.net.util.UtilTest.testReader_1()

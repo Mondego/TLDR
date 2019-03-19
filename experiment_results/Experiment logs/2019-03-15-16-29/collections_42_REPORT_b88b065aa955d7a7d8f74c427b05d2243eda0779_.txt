@@ -1,0 +1,38 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 2
+NUMBER OF NEW OR CHANGED TESTS : 4
+NUMBER OF ENTITY TO TEST : 3
+NUMBER OF TEST TO RUN : 4
+TOTAL TIME REQUIRED : 0.833525627 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.collections4.ListUtils$Partition.isEmpty()
+org.apache.commons.collections4.ListUtils$Partition.size()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.collections4.ListUtilsTest.testSelect()
+org.apache.commons.collections4.ListUtilsTest.testSelectRejected()
+org.apache.commons.collections4.ListUtilsTest.<clinit>()
+org.apache.commons.collections4.ListUtilsTest.testPartition()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.collections4.ListUtils$Partition.isEmpty()
+org.apache.commons.collections4.ListUtils$Partition.get($int)
+org.apache.commons.collections4.ListUtils$Partition.size()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.collections4.ListUtilsTest.testSelect()
+org.apache.commons.collections4.ListUtilsTest.testSelectRejected()
+org.apache.commons.collections4.ListUtilsTest.<clinit>()
+org.apache.commons.collections4.ListUtilsTest.testPartition()

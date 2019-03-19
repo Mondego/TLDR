@@ -47,17 +47,50 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		for(Method m: allMethods){
 						
 			if(m.getModifiers() == AccessCodes.ABSTRACT || 
-			m.getModifiers() == AccessCodes.FINAL ||
-			m.getModifiers() == AccessCodes.INTERFACE || 
-			m.getModifiers() == AccessCodes.NATIVE || 
-			m.getModifiers() == AccessCodes.PRIVATE || 
-			m.getModifiers() == AccessCodes.PROTECTED || 
-			m.getModifiers() == AccessCodes.PUBLIC || 
-			m.getModifiers() == AccessCodes.STATIC || 
-			m.getModifiers() == AccessCodes.STRICT || 
-			m.getModifiers() == AccessCodes.SYNCHRONIZED || 
-			m.getModifiers() == AccessCodes.TRANSIENT || 
-			m.getModifiers() == AccessCodes.VOLATILE){
+				m.getModifiers() == AccessCodes.FINAL ||
+				m.getModifiers() == AccessCodes.INTERFACE || 
+				m.getModifiers() == AccessCodes.NATIVE || 
+				m.getModifiers() == AccessCodes.PRIVATE || 
+				m.getModifiers() == AccessCodes.PROTECTED || 
+				m.getModifiers() == AccessCodes.PUBLIC || 
+				m.getModifiers() == AccessCodes.STATIC || 
+				m.getModifiers() == AccessCodes.STATIC_INIT ||
+				m.getModifiers() == AccessCodes.STRICT || 
+				m.getModifiers() == AccessCodes.SYNCHRONIZED || 
+				m.getModifiers() == AccessCodes.TRANSIENT || 
+				m.getModifiers() == AccessCodes.VOLATILE ||
+				m.getModifiers() == AccessCodes.DEFAULT_INIT ||
+				m.getModifiers() == AccessCodes.PUBLIC2 ||
+				m.getModifiers() == AccessCodes.INHERIT ||		
+				m.getModifiers() == AccessCodes.PUBLIC3 ||			
+				m.getModifiers() == AccessCodes.PUBLIC4 ||			
+				m.getModifiers() == AccessCodes.PUBLIC5 ||				
+				m.getModifiers() == AccessCodes.ABSTRACT2 ||				
+				m.getModifiers() == AccessCodes.STATIC2 ||	
+				m.getModifiers() == AccessCodes.STATIC3 ||	
+				m.getModifiers() == AccessCodes.INNER ||	
+				m.getModifiers() == AccessCodes.DEFAULT_INIT2 ||
+				m.getModifiers() == AccessCodes.FINAL2 ||
+				m.getModifiers() == AccessCodes.STATIC4 ||
+				m.getModifiers() == AccessCodes.ABSTRACT3||
+				m.getModifiers() == AccessCodes.FINAL3 ||
+				m.getModifiers() == AccessCodes.STATIC5 ||
+				m.getModifiers() == AccessCodes.STATIC6 ||
+				m.getModifiers() == AccessCodes.STATIC7 ||
+				m.getModifiers() == AccessCodes.STATIC8 ||
+				m.getModifiers() == AccessCodes.FINAL4 ||
+				m.getModifiers() == AccessCodes.PUBLIC6 ||
+				m.getModifiers() == AccessCodes.PUBLIC7 ||
+				m.getModifiers() == AccessCodes.PUBLIC8 ||
+				m.getModifiers() == AccessCodes.INNER2 ||	
+				m.getModifiers() == AccessCodes.FINAL5 ||
+				m.getModifiers() == AccessCodes.PUBLIC9 ||
+				m.getModifiers() == AccessCodes.INNER3 ||	
+				m.getModifiers() == AccessCodes.INNER4 ||					
+				m.getModifiers() == AccessCodes.ABSTRACT4 ||
+				m.getModifiers() == AccessCodes.PUBLIC10 ||					
+				m.getModifiers() == AccessCodes.PUBLIC11 ||
+				m.getModifiers() == AccessCodes.PUBLIC12){
 				
 				String code =  m.getModifiers()+"\n"+ m.getName()+ 
 				"\n"+m.getSignature()+"\n"+ m.getCode();

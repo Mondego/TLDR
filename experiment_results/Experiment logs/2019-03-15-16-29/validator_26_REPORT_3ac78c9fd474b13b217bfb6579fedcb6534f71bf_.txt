@@ -1,0 +1,35 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 5
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 5
+TOTAL TIME REQUIRED : 0.605634178 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.DomainValidatorTest.test_LOCAL_TLDS_sortedAndLowerCase()
+org.apache.commons.validator.routines.DomainValidatorTest.test_GENERIC_TLDS_sortedAndLowerCase()
+org.apache.commons.validator.routines.DomainValidatorTest.test_COUNTRY_CODE_TLDS_sortedAndLowerCase()
+org.apache.commons.validator.routines.DomainValidatorTest.isSortedLowerCase($java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.test_INFRASTRUCTURE_TLDS_sortedAndLowerCase()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.DomainValidatorTest.test_LOCAL_TLDS_sortedAndLowerCase()
+org.apache.commons.validator.routines.DomainValidatorTest.test_GENERIC_TLDS_sortedAndLowerCase()
+org.apache.commons.validator.routines.DomainValidatorTest.test_COUNTRY_CODE_TLDS_sortedAndLowerCase()
+org.apache.commons.validator.routines.DomainValidatorTest.isSortedLowerCase($java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.test_INFRASTRUCTURE_TLDS_sortedAndLowerCase()
