@@ -1,8 +1,0 @@
-DEBUG | 18:41:08 | [main] tldr.App- Beginning of the Pipeline
-DEBUG | 18:41:08 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.FileChangeAnalyzerWorker Starting
-DEBUG | 18:41:08 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker Starting
-DEBUG | 18:41:08 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.DependencyExtractorWorker Starting
-DEBUG | 18:41:08 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.DFSTraversalWorker Starting
-DEBUG | 18:41:08 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker Starting
-DEBUG | 18:41:08 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker Starting
-DEBUG | 18:41:08 | [main] model.ThreadedChannel- uci.ics.mondego.tldr.worker.EntityToTestMapWorker Starting
