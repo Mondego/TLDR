@@ -96,7 +96,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	}
 	
 	protected void parse() throws IOException, DatabaseSyncException{
-		
+				
 		Field [] allFields = parsedClass.getFields();
 		
 		for(Field f: allFields){
@@ -132,6 +132,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		}
 		
 		Method [] allMethods= parsedClass.getMethods();
+		
+		
 		
 		for(Method m: allMethods){
 			

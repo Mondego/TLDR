@@ -1,8 +1,0 @@
-org.apache.commons.math4.ode.events.FieldEventState$1.value($org.apache.commons.math4.RealFieldElement)
-org.apache.commons.math4.ode.events.FieldEventState.stop()
-org.apache.commons.math4.ode.events.FieldEventState.reset($org.apache.commons.math4.ode.FieldODEStateAndDerivative)
-org.apache.commons.math4.ode.AbstractFieldIntegrator.acceptStep($org.apache.commons.math4.ode.sampling.AbstractFieldStepInterpolator$org.apache.commons.math4.RealFieldElement)
-org.apache.commons.math4.ode.events.FieldEventState.stepAccepted($org.apache.commons.math4.ode.FieldODEStateAndDerivative)
-org.apache.commons.math4.ode.AbstractFieldIntegrator$1.compare($org.apache.commons.math4.ode.events.FieldEventState$org.apache.commons.math4.ode.events.FieldEventState)
-org.apache.commons.math4.ode.events.FieldEventState.evaluateStep($org.apache.commons.math4.ode.sampling.FieldStepInterpolator)
-org.apache.commons.math4.ode.events.FieldEventState.getEventTime()

@@ -246,6 +246,8 @@ public class App
 		}    	
     }
     
+    
+    /*** this method prepares the command suitable for sure-fire plugin********/
     private static String getCommand(){
     	  StringBuilder sb = new StringBuilder();
 	       //sb.append("mvn test -Dtest=");
