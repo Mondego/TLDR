@@ -48,11 +48,17 @@ public class MavenPomProcessor {
 			    		MavenXpp3Writer xpp3Writer = new MavenXpp3Writer();
 			    		oldPlugins.get(i).setVersion("2.19.1");
 			    		build.setPlugins(oldPlugins);
-					    					    
+					    /***** for single test run surefire 2.19.1 and junit 4.11/4.8.1 needed
+					     * VERIFIED BY MANUAL LABOR SO ACCURATE
+					     */
 					    for(int j=0;i<oldDependencies.size();i++){
-					    	if(oldDependencies.get(i).getArtifactId().equals("junit")){
-					    		oldDependencies.get(i).setVersion("4.8");
-					    		model.setDependencies(oldDependencies);
+					    	if(oldDependencies.get(i).getArtifactId().equals("junit")){				    	
+					    		if(oldDependencies.get(i).getVersion() == null ||
+					    			oldDependencies.get(i).getVersion().length() == 0
+					    			|| oldDependencies.get(i).getVersion().charAt(0) == '3'){
+						    		oldDependencies.get(i).setVersion("4.11");
+						    		model.setDependencies(oldDependencies);
+					    		}
 					    	}
 					    }
 					    model.setBuild(build);

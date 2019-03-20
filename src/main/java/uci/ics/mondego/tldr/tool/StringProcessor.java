@@ -63,13 +63,9 @@ public class StringProcessor {
 	    }
 	 }
 	
-	public static boolean isPrimitive(String type){
-		if(type.length() == 0)
-			return false;
-		
+	public static boolean isPrimitive(char type){
 		String allPrimitives = "BCDFIJSZV";
-		
-		if(allPrimitives.contains(type.charAt(0)+""))
+		if(allPrimitives.contains(type+""))
 				return true;
 		return false;
 	}

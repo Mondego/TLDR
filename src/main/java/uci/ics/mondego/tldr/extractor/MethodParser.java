@@ -135,7 +135,9 @@ public class MethodParser {
 		}
 	}
 	
-	private String parseMethodParameters(String signature){
+	
+	
+	/*private String parseMethodParameters(String signature){
 		try{
 			signature = signature.substring(signature.indexOf("(")+1, signature.indexOf(")"));
 			
@@ -161,6 +163,48 @@ public class MethodParser {
 			
 			sb.append(")");
 			
+			return sb.toString();
+		}
+		catch(StringIndexOutOfBoundsException e){
+			e.printStackTrace();
+		}
+		
+		return null;
+	}*/
+	
+	private String parseMethodParameters(String signature){		
+		try{
+			signature = signature.substring(signature.indexOf("(")+1, signature.indexOf(")"));
+			
+			if(signature.length() == 0)
+				return "()";
+			StringBuilder sb = new StringBuilder();
+			sb.append("(");
+			
+			String [] params =  signature.split(";");
+			
+			String array_append="";
+			for(int i=0;i<params.length;i++){
+				
+				for(int j=0;j<params[i].length();j++){
+					if(StringProcessor.isPrimitive(params[i].charAt(j))){
+						sb.append("$"+StringProcessor.convertBaseType(params[i].charAt(j)) + array_append);
+						array_append = "";
+					}
+					
+					else if(params[i].charAt(j) == 'L'){
+						sb.append("$"+StringProcessor.pathToFqnConverter(params[i].substring(j+1))+array_append);
+						array_append = "";
+						break;
+					}
+					else if(params[i].charAt(j) == '['){
+						array_append += "[]";
+						continue;
+					}
+				}	
+			}
+			
+			sb.append(")");			
 			return sb.toString();
 		}
 		catch(StringIndexOutOfBoundsException e){

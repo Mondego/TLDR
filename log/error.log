@@ -1,0 +1,8 @@
+ERROR | 21:40:06 | [pool-3-thread-6] extractor.MethodParser - accept is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 21:40:06 | [pool-3-thread-6] extractor.MethodParser - accept is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 21:40:06 | [pool-3-thread-3] extractor.MethodParser - removeFileFilter is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 21:40:06 | [pool-3-thread-3] extractor.MethodParser - setFileFilters is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 21:40:06 | [pool-3-thread-3] extractor.MethodParser - getFileFilters is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 21:40:06 | [pool-3-thread-3] extractor.MethodParser - addFileFilter is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 21:40:06 | [pool-3-thread-6] extractor.MethodParser - getStream is Abstract/Interface/Annotation... Skipping parsing
+ERROR | 21:40:06 | [pool-3-thread-6] extractor.MethodParser - thresholdReached is Abstract/Interface/Annotation... Skipping parsing

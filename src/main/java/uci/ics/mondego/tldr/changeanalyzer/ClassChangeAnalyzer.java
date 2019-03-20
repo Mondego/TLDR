@@ -213,7 +213,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					if(!ret){
 						throw new DatabaseSyncException(methodFqn);
 					}
-					
+										
 					App.entityToTest.put(methodFqn, true);
 					App.allNewAndChangedentities.put(methodFqn, true);
 					extractedChangedMethods.put(methodFqn, m);

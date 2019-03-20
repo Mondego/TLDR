@@ -57,7 +57,7 @@ public class DependencyExtractor2 {
 		for(String dependency: prevDepInSet){
 			previousDependencies.put(dependency, 0);
 		}
-		
+
 		this.resolute();
 		this.removeAllDepreciateDependency();
 		database.close();
@@ -85,18 +85,19 @@ public class DependencyExtractor2 {
 		for(String dependency: prevDepInSet){
 			previousDependencies.put(dependency, 0);
 		}
-		
+				
 		this.resolute();
 		this.removeAllDepreciateDependency();
 		database.close();
 	}
 	
 	 public void resolute() throws IOException{
-		 		 	
+		 
 			String dependent = changedMethod.getKey();
 			Method m = changedMethod.getValue();
-						
 			MethodParser parser = new MethodParser(m);
+					
+			
 			this.allVirtualDependency = parser.getAllVirtualDependency();
 			this.allInterfaceDependency = parser.getAllInterfaceDependency();
 			this.allStaticDependency = parser.getAllStaticDependency();
@@ -105,6 +106,11 @@ public class DependencyExtractor2 {
 			this.allStaticFieldUpdated = parser.getAllStaticFieldUpdated();
 			this.allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
 			this.allFieldDependency = parser.getAllFieldDependency();			
+			
+			
+			/*System.out.println("NAME : "+dependent+"\n==========================");
+			System.out.println(parser);
+			*/
 			
 			for(String field: allStaticFieldUpdated){
 				if(!(field.contains("java.lang") || field.contains("java.util") || 

@@ -133,15 +133,18 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				else{
 					allPreviousTestCases.put(methodFqn, allPreviousTestCases.get(methodFqn) + 1);
-					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);					
+					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);	
+					
 					if(!currentHashCode.equals(prevHashCode)){
 						//logger.debug(methodFqn+" is changed test, added to testToRun");
 						App.testToRun.put(methodFqn, true);						
 						App.allNewAndChangedTests.put(methodFqn, true);
 						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						
 						if(!ret){
 							throw new DatabaseSyncException(methodFqn);
 						}
+						
 						Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);	
 						DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 					}
