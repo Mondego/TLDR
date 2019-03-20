@@ -3,7 +3,9 @@ package uci.ics.mondego.tldr.changeanalyzer;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.apache.bcel.classfile.ClassParser;
@@ -21,13 +23,16 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	private final ClassParser parser;
 	private final JavaClass parsedClass;
 	private Map<String, Integer> allPreviousTestCases;
+	private List<String> allInterfaces;
+	private String superClass;
 	
 	public TestChangeAnalyzer(String className) throws IOException, DatabaseSyncException, EOFException{
 		super(className);
 		this.parser = new ClassParser(this.getEntityName());
 		this.parsedClass = parser.parse();
 		this.allPreviousTestCases = new HashMap<String, Integer>();
-		
+		this.allInterfaces = new ArrayList<String>();
+		this.superClass = "";
 		Set<String> prevTst = database.getAllKeysByPattern
 				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
 		
@@ -36,10 +41,55 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		}
 		
 		this.parse();
+		this.syncClassHierarchy();
 		this.deleteDepreciatedTestCases();
-		
 		this.closeRedis();
 	}
+	
+	private void syncClassHierarchy(){	
+		this.parseInterface();
+		this.parseSuperClass();
+		
+		Set<String> all_superclass_interface = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+				parsedClass.getClassName());
+				
+		for(int i=0;i<allInterfaces.size();i++){
+			if(!all_superclass_interface.contains(allInterfaces.get(i))){
+				this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+						allInterfaces.get(i));
+				this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
+			}				
+		}
+		
+		if(!all_superclass_interface.contains(this.superClass) && this.superClass.length() > 0){
+			this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+					this.superClass);
+			this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
+		}				
+	}
+	
+	private void parseInterface(){
+		try {
+			String[] interfaces = this.parsedClass.getInterfaceNames();
+			for(String cls: interfaces){
+				this.allInterfaces.add(cls);
+			}
+		} 
+		catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
+	
+	private void parseSuperClass(){
+		try {
+			this.superClass = !parsedClass.getSuperclassName().contains("java.") 
+					? parsedClass.getSuperclassName(): "";			
+		} 
+		catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
+	
 	
 	protected void parse() throws IOException, DatabaseSyncException{
 		

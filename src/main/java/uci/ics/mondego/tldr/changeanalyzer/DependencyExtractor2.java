@@ -107,9 +107,10 @@ public class DependencyExtractor2 {
 			this.allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
 			this.allFieldDependency = parser.getAllFieldDependency();			
 			
-			/*System.out.println("NAME : "+dependent+"\n==========================");
-			System.out.println(parser);
-			*/
+			/*if(dependent.contains("testThreadFactory")){
+				System.out.println(m.getCode());
+				System.out.println(parser);
+			}*/
 			
 			for(String field: allStaticFieldUpdated){
 				if(!(field.startsWith("java.lang") || field.startsWith("java.util") || 
@@ -148,10 +149,12 @@ public class DependencyExtractor2 {
 			*/
 
 			for(String dep: allVirtualDependency){
+				this.syncSingleDependency(dep, dependent);
 				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
 			for(String dep: allInterfaceDependency){
+				this.syncSingleDependency(dep, dependent);
 				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
@@ -173,7 +176,6 @@ public class DependencyExtractor2 {
 	}
 	
 	protected void addDependentsInDb(String dependency, String dependents) throws UnknownDBIdException{
-		
 		if(this.dbId.length() == 0 || this.dbId == null){
 			throw new UnknownDBIdException(dbId);
 		}
@@ -265,7 +267,7 @@ public class DependencyExtractor2 {
 			String pattern = sb.toString();
 			String claz = dependency.substring(0, dependency.indexOf(pattern) >=0? 
 					dependency.indexOf(pattern) - 1: dependency.length());
-						
+			
 			List<String> keys = traverseClassHierarchy(claz, pattern);
 			
 			if(CollectionUtils.isEmpty(keys))
