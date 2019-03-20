@@ -1,0 +1,67 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 4
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 11
+NUMBER OF TEST TO RUN : 27
+TOTAL TIME REQUIRED : 0.511821168 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.FileSystemUtils.freeSpaceUnix($java.lang.String$boolean$boolean)
+org.apache.commons.io.FileSystemUtils.parseBytes($java.lang.String$java.lang.String)
+org.apache.commons.io.FileSystemUtils.DF
+org.apache.commons.io.FileSystemUtils.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.FileSystemUtils.freeSpaceUnix($java.lang.String$boolean$boolean)
+org.apache.commons.io.FileSystemUtils.parseBytes($java.lang.String$java.lang.String)
+org.apache.commons.io.FileSystemUtils.DF
+org.apache.commons.io.FileSystemUtils.freeSpaceKb($java.lang.String)
+org.apache.commons.io.FileSystemUtils.freeSpaceOS($java.lang.String$int$boolean)
+org.apache.commons.io.FileSystemUtils.<clinit>()
+org.apache.commons.io.FileSystemUtils.parseDir($java.lang.String$java.lang.String)
+org.apache.commons.io.FileSystemUtils.OS
+org.apache.commons.io.FileSystemUtils.INSTANCE
+org.apache.commons.io.FileSystemUtils.freeSpace($java.lang.String)
+org.apache.commons.io.FileSystemUtils.freeSpaceWindows($java.lang.String)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseFreeBSD()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_StripDrive()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_EmptyPath()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_EmptyPath()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseLinux()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_Windows()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_Other()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_InvalidTextResponse()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_LongResponseKb()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_ParseCommaFormatBytes()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_LongResponse()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_InvalidResponse1()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_InvalidResponse2()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_InvalidResponse3()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_InvalidResponse4()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_Unix()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_NormalResponse()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_EmptyResponse()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseKbFreeBSD()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_EmptyMultiLineResponse()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseKbSolaris()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_InitError()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseKbLinux()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_NullPath()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_EmptyResponse()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_NoSuchDirectoryResponse()
+org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpace_String()

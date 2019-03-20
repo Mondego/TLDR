@@ -1,0 +1,49 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 2
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 21
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.507969612 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.comparator.AbstractFileComparator.toString()
+org.apache.commons.io.filefilter.AbstractFileFilter.toString()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.comparator.ReverseComparator.toString()
+org.apache.commons.io.comparator.PathFileComparator.toString()
+org.apache.commons.io.comparator.ExtensionFileComparator.toString()
+org.apache.commons.io.comparator.CompositeFileComparator.toString()
+org.apache.commons.io.filefilter.NotFileFilter.toString()
+org.apache.commons.io.filefilter.AgeFileFilter.toString()
+org.apache.commons.io.comparator.DefaultFileComparator.toString()
+org.apache.commons.io.comparator.NameFileComparator.toString()
+org.apache.commons.io.filefilter.DelegateFileFilter.toString()
+org.apache.commons.io.comparator.DirectoryFileComparator.toString()
+org.apache.commons.io.filefilter.NameFileFilter.toString()
+org.apache.commons.io.filefilter.PrefixFileFilter.toString()
+org.apache.commons.io.filefilter.SuffixFileFilter.toString()
+org.apache.commons.io.comparator.AbstractFileComparator.toString()
+org.apache.commons.io.filefilter.WildcardFileFilter.toString()
+org.apache.commons.io.comparator.SizeFileComparator.toString()
+org.apache.commons.io.filefilter.OrFileFilter.toString()
+org.apache.commons.io.comparator.LastModifiedFileComparator.toString()
+org.apache.commons.io.filefilter.AndFileFilter.toString()
+org.apache.commons.io.filefilter.AbstractFileFilter.toString()
+org.apache.commons.io.filefilter.SizeFileFilter.toString()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.comparator.ComparatorAbstractTestCase.testToString()

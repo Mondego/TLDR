@@ -107,33 +107,32 @@ public class DependencyExtractor2 {
 			this.allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
 			this.allFieldDependency = parser.getAllFieldDependency();			
 			
-			
 			/*System.out.println("NAME : "+dependent+"\n==========================");
 			System.out.println(parser);
 			*/
 			
 			for(String field: allStaticFieldUpdated){
-				if(!(field.contains("java.lang") || field.contains("java.util") || 
-						field.contains("java.io")|| field.contains("java.net") || 
-						field.contains("java.awt"))){
+				if(!(field.startsWith("java.lang") || field.startsWith("java.util") || 
+						field.startsWith("java.io")|| field.startsWith("java.net") || 
+						field.startsWith("java.awt"))){
 					this.fieldValueChanged.add(field);
 				}
-				else if(!(field.contains("java/lang") || field.contains("java/util") || 
-						field.contains("java/io")|| field.contains("java/net") || 
-						field.contains("java/awt"))){
+				else if(!(field.startsWith("java/lang") || field.startsWith("java/util") || 
+						field.startsWith("java/io")|| field.startsWith("java/net") || 
+						field.startsWith("java/awt"))){
 					this.fieldValueChanged.add(field);
 				}
 			}
 			
 			for(String field: allOwnFieldUpdated){
-				if(!(field.contains("java.lang") || field.contains("java.util") || 
-						field.contains("java.io")|| field.contains("java.net") || 
-						field.contains("java.awt"))){
+				if(!(field.startsWith("java.lang") || field.startsWith("java.util") || 
+						field.startsWith("java.io")|| field.startsWith("java.net") || 
+						field.startsWith("java.awt"))){
 					this.fieldValueChanged.add(field);
 				}
-				else if(!(field.contains("java/lang") || field.contains("java/util") || 
-						field.contains("java/io")|| field.contains("java/net") || 
-						field.contains("java/awt"))){
+				else if(!(field.startsWith("java/lang") || field.startsWith("java/util") || 
+						field.startsWith("java/io")|| field.startsWith("java/net") || 
+						field.startsWith("java/awt"))){
 					this.fieldValueChanged.add(field);
 				}
 			}
@@ -179,13 +178,13 @@ public class DependencyExtractor2 {
 			throw new UnknownDBIdException(dbId);
 		}
 		
-		if(dependency.contains("java."))
+		if(dependency.startsWith("java."))
 			return;
-		if(dependency.contains("junit."))
+		if(dependency.startsWith("org.junit."))
 			return;
-		if(dependency.contains("mockito."))
+		if(dependency.startsWith("org.mockito."))
 			return;
-		if(dependency.contains("hamcrest."))
+		if(dependency.startsWith("org.hamcrest."))
 			return;		
 		
 		if(previousDependencies.containsKey(dependency)){
@@ -243,14 +242,14 @@ public class DependencyExtractor2 {
 	protected void syncAllPossibleDependency(String dependency, String dependents){
 		
 		// JDK DEPENDENCY IGNORED
-		if(dependency.contains("java.lang") || dependency.contains("java.util") || 
-				dependency.contains("java.io")|| dependency.contains("java.net") || 
-				dependency.contains("java.awt"))
+		if(dependency.startsWith("java.lang") || dependency.startsWith("java.util") || 
+				dependency.startsWith("java.io")|| dependency.startsWith("java.net") || 
+				dependency.startsWith("java.awt"))
 			return;
 		
-		if(dependency.contains("java/lang") || dependency.contains("java/util") || 
-				dependency.contains("java/io")|| dependency.contains("java/net") || 
-				dependency.contains("java/awt"))
+		if(dependency.startsWith("java/lang") || dependency.startsWith("java/util") || 
+				dependency.startsWith("java/io")|| dependency.startsWith("java/net") || 
+				dependency.startsWith("java/awt"))
 			return;
 		
 		try{
