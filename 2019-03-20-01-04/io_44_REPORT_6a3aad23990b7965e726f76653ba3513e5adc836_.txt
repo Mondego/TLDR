@@ -1,0 +1,51 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 13
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 13
+TOTAL TIME REQUIRED : 0.699878111 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.output.ChunkedWriterTest.write_four_chunks()
+org.apache.commons.io.input.BOMInputStreamTest.testNoBoms()
+org.apache.commons.io.input.XmlStreamReaderTest._testRawNoBomInvalid($java.lang.String)
+org.apache.commons.io.output.ChunkedWriterTest.write_two_chunks_default_constructor()
+org.apache.commons.io.output.ChunkedOutputStreamTest.getByteArrayOutputStream($java.util.concurrent.atomic.AtomicInteger)
+org.apache.commons.io.output.DeferredFileOutputStreamTest.testTempFileError()
+org.apache.commons.io.output.ChunkedWriterTest.getOutputStreamWriter($java.util.concurrent.atomic.AtomicInteger)
+org.apache.commons.io.input.XmlStreamReaderTest._testHttpInvalid($java.lang.String$java.lang.String$java.lang.String$java.lang.String)
+org.apache.commons.io.output.ChunkedOutputStreamTest.defaultConstructor()
+org.apache.commons.io.output.ClosedOutputStreamTest.testRead()
+org.apache.commons.io.output.ChunkedOutputStreamTest.write_four_chunks()
+org.apache.commons.io.output.ChunkedWriterTest.negative_chunksize_not_permitted()
+org.apache.commons.io.output.ChunkedOutputStreamTest.negative_chunksize_not_permitted()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.output.ChunkedWriterTest.write_four_chunks()
+org.apache.commons.io.input.BOMInputStreamTest.testNoBoms()
+org.apache.commons.io.input.XmlStreamReaderTest._testRawNoBomInvalid($java.lang.String)
+org.apache.commons.io.output.ChunkedWriterTest.write_two_chunks_default_constructor()
+org.apache.commons.io.output.ChunkedOutputStreamTest.getByteArrayOutputStream($java.util.concurrent.atomic.AtomicInteger)
+org.apache.commons.io.output.DeferredFileOutputStreamTest.testTempFileError()
+org.apache.commons.io.output.ChunkedWriterTest.getOutputStreamWriter($java.util.concurrent.atomic.AtomicInteger)
+org.apache.commons.io.input.XmlStreamReaderTest._testHttpInvalid($java.lang.String$java.lang.String$java.lang.String$java.lang.String)
+org.apache.commons.io.output.ChunkedOutputStreamTest.defaultConstructor()
+org.apache.commons.io.output.ClosedOutputStreamTest.testRead()
+org.apache.commons.io.output.ChunkedOutputStreamTest.write_four_chunks()
+org.apache.commons.io.output.ChunkedWriterTest.negative_chunksize_not_permitted()
+org.apache.commons.io.output.ChunkedOutputStreamTest.negative_chunksize_not_permitted()

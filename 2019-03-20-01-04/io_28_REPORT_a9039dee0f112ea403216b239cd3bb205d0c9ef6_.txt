@@ -1,0 +1,53 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 14
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 14
+TOTAL TIME REQUIRED : 0.679255262 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterArrayNullParameters()
+org.apache.commons.io.filefilter.FileFilterTestCase.testNullFilters()
+org.apache.commons.io.filefilter.FileFilterTestCase.testDelegation()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterList_fromArray()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterArray()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterSet()
+org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterValidation()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterList()
+org.apache.commons.io.filefilter.FileFilterTestCase.<clinit>()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterArray_fromList()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterListNullParameters()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterSet_fromArray()
+org.apache.commons.io.filefilter.FileFilterTestCase.testEnsureTestCoverage()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterSetNullParameters()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterArrayNullParameters()
+org.apache.commons.io.filefilter.FileFilterTestCase.testNullFilters()
+org.apache.commons.io.filefilter.FileFilterTestCase.testDelegation()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterList_fromArray()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterArray()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterSet()
+org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterValidation()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterList()
+org.apache.commons.io.filefilter.FileFilterTestCase.<clinit>()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterArray_fromList()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterListNullParameters()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterSet_fromArray()
+org.apache.commons.io.filefilter.FileFilterTestCase.testEnsureTestCoverage()
+org.apache.commons.io.filefilter.FileFilterTestCase.testFilterSetNullParameters()

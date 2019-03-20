@@ -1,0 +1,107 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 41
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 41
+TOTAL TIME REQUIRED : 0.659136199 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitC()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitB()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitD()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.handleDirectoryEnd($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.<init>($java.lang.String)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.tearDown()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilter()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile4()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testMissingStartDirectory()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.setUp()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile2()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.handleFile($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile3()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile1()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.<init>($java.io.FileFilter$int)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testHandleStartDirectoryFalse()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.handleDirectoryEnd($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFalseFileFinder.<init>($java.io.FileFilter$int)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.handleCancelled($java.io.File$java.util.Collection$org.apache.commons.io.DirectoryWalker$CancelException)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.suite()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.find($java.io.File)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.<init>($java.lang.String$boolean)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.handleIsCancelled($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.<init>($java.lang.String$boolean)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.<init>($org.apache.commons.io.filefilter.IOFileFilter$org.apache.commons.io.filefilter.IOFileFilter$int)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.filesOnly($java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.find($java.io.File)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.checkContainsFiles($java.lang.String$java.io.File[]$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFalseFileFinder.handleDirectory($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.handleCancelled($java.io.File$java.util.Collection$org.apache.commons.io.DirectoryWalker$CancelException)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.createNameFilter($java.io.File[])
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testCancel()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.find($java.io.File)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.handleDirectoryEnd($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.handleFile($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.directoriesOnly($java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.handleFile($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.<clinit>()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitA()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testLimitToCurrent()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testMultiThreadCancel()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitC()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitB()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitD()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.handleDirectoryEnd($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.<init>($java.lang.String)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.tearDown()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilter()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile4()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testMissingStartDirectory()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.setUp()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile2()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.handleFile($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile3()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile1()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.<init>($java.io.FileFilter$int)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testHandleStartDirectoryFalse()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.handleDirectoryEnd($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFalseFileFinder.<init>($java.io.FileFilter$int)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.handleCancelled($java.io.File$java.util.Collection$org.apache.commons.io.DirectoryWalker$CancelException)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.suite()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.find($java.io.File)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.<init>($java.lang.String$boolean)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.handleIsCancelled($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestCancelWalker.<init>($java.lang.String$boolean)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.<init>($org.apache.commons.io.filefilter.IOFileFilter$org.apache.commons.io.filefilter.IOFileFilter$int)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.filesOnly($java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.find($java.io.File)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.checkContainsFiles($java.lang.String$java.io.File[]$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFalseFileFinder.handleDirectory($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.handleCancelled($java.io.File$java.util.Collection$org.apache.commons.io.DirectoryWalker$CancelException)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.createNameFilter($java.io.File[])
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testCancel()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.find($java.io.File)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.handleDirectoryEnd($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.handleFile($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.directoriesOnly($java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4$TestFileFinder.handleFile($java.io.File$int$java.util.Collection)
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.<clinit>()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitA()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testLimitToCurrent()
+org.apache.commons.io.DirectoryWalkerTestCaseJava4.testMultiThreadCancel()

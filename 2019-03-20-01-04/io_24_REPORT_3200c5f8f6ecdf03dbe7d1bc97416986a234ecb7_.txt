@@ -1,0 +1,49 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 12
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 12
+TOTAL TIME REQUIRED : 0.548300692 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.input.CharSequenceInputStreamTest.testSkip()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testWithSingleByteRead($java.lang.String$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStreamTest.testCharsetMismatchInfiniteLoop()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testMarkReset()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testLargeUTF8WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testWithBufferedRead($java.lang.String$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF8WithBufferedRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testLargeUTF8WithBufferedRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF8WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.<clinit>()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF16WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testReadZero()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.CharSequenceInputStreamTest.testSkip()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testWithSingleByteRead($java.lang.String$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStreamTest.testCharsetMismatchInfiniteLoop()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testMarkReset()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testLargeUTF8WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testWithBufferedRead($java.lang.String$java.lang.String)
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF8WithBufferedRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testLargeUTF8WithBufferedRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF8WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.<clinit>()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testUTF16WithSingleByteRead()
+org.apache.commons.io.input.CharSequenceInputStreamTest.testReadZero()
