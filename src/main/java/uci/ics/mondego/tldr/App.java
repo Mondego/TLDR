@@ -85,8 +85,8 @@ public class App
        try{
 	       App executorInstance = new App();
 	       
-	       CLASS_DIR = config.getCLASS_DIR();
-	       //CLASS_DIR = args[1];
+	       //CLASS_DIR = config.getCLASS_DIR();
+	       CLASS_DIR = args[1];
 	      
 	       //TEST_DIR = config.getTEST_DIR(); 
 	       //allTestDirectory.put(TEST_DIR, true); /*** comment out later *****/
@@ -127,15 +127,15 @@ public class App
 	       App.EntityToTestMapPool.shutdown();
 	       	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
-	      // String print = getCommand();
-	      // System.out.println(print);
+	       String print = getCommand();
+	       System.out.println(print);
 	       /*****************************/
 	       
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
 	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
 	       	       
-	       //logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
+	       logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
        }
        
        catch( JedisConnectionException e){
