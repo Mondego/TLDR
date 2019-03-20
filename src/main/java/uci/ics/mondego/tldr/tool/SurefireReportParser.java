@@ -44,6 +44,4 @@ public class SurefireReportParser {
 			System.out.println(list.get(i));
 		}
 	}
-
-
 }
