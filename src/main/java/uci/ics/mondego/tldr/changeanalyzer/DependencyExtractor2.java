@@ -221,19 +221,24 @@ public class DependencyExtractor2 {
 		return count;
 	}
 	
-	protected List<String> traverseClassHierarchy(String claz, String pattern){
+	protected List<String> traverseClassHierarchyDownwards(String claz, String pattern){
 		
 		List<String> toTest = new ArrayList<String>();
 
 		Set<String> entity = this.database.getAllKeysByPattern(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
+
+		//System.out.println(entity);
 		
 		for(String e: entity){
 			toTest.add(e.substring(1));
 		}		
+		
 		Set<String> allSubclass = this.database.getSet(Databases.TABLE_ID_SUBCLASS, claz);
 		
+		//System.out.println("#####"+allSubclass);
+		
 		for(String sub: allSubclass){
-			List<String> t = traverseClassHierarchy(sub, pattern);
+			List<String> t = traverseClassHierarchyDownwards(sub, pattern);
 			
 			if(!t.isEmpty() || t!= null)
 				toTest.addAll(t);
@@ -268,16 +273,18 @@ public class DependencyExtractor2 {
 			String claz = dependency.substring(0, dependency.indexOf(pattern) >=0? 
 					dependency.indexOf(pattern) - 1: dependency.length());
 			
-			List<String> keys = traverseClassHierarchy(claz, pattern);
+			List<String> keys = traverseClassHierarchyDownwards(claz, pattern);
 			
 			if(CollectionUtils.isEmpty(keys))
 				return;
+			
 			for(String k: keys){
 				addDependentsInDb(k, dependents); // because we have to remove table id
 			}
 		}
 		
 		catch(NullPointerException e){
+			e.printStackTrace();
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
 		} 
 		catch(StringIndexOutOfBoundsException e){
@@ -295,6 +302,7 @@ public class DependencyExtractor2 {
 			addDependentsInDb(dependency, dependents);
 		}
 		catch(NullPointerException e){
+			e.printStackTrace();
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
 		} 
 		catch (UnknownDBIdException e) {

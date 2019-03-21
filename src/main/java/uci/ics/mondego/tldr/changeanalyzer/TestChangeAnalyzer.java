@@ -54,14 +54,22 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				parsedClass.getClassName());
 				
 		for(int i=0;i<allInterfaces.size();i++){
-			if(!all_superclass_interface.contains(allInterfaces.get(i))){
+			if(!all_superclass_interface.contains(allInterfaces.get(i))
+				&& !(allInterfaces.get(i).startsWith("java.") 
+				|| allInterfaces.get(i).startsWith("junit."))){
+				
 				this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 						allInterfaces.get(i));
 				this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
 			}				
 		}
 		
-		if(!all_superclass_interface.contains(this.superClass) && this.superClass.length() > 0){
+		if(!all_superclass_interface.contains(this.superClass) 
+				&& this.superClass != null 
+				&& this.superClass.length() > 0 
+				&& !this.superClass.startsWith("java") 
+				&& !this.superClass.startsWith("junit")){
+			
 			this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 					this.superClass);
 			this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
@@ -82,7 +90,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	
 	private void parseSuperClass(){
 		try {
-			this.superClass = !parsedClass.getSuperclassName().contains("java.") 
+			this.superClass = !parsedClass.getSuperclassName().startsWith("java.") 
 					? parsedClass.getSuperclassName(): "";			
 		} 
 		catch (Exception e) {
