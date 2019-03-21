@@ -96,8 +96,7 @@ public class DependencyExtractor2 {
 			String dependent = changedMethod.getKey();
 			Method m = changedMethod.getValue();
 			MethodParser parser = new MethodParser(m);
-					
-			
+								
 			this.allVirtualDependency = parser.getAllVirtualDependency();
 			this.allInterfaceDependency = parser.getAllInterfaceDependency();
 			this.allStaticDependency = parser.getAllStaticDependency();
@@ -106,11 +105,6 @@ public class DependencyExtractor2 {
 			this.allStaticFieldUpdated = parser.getAllStaticFieldUpdated();
 			this.allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
 			this.allFieldDependency = parser.getAllFieldDependency();			
-			
-			/*if(dependent.contains("testThreadFactory")){
-				System.out.println(m.getCode());
-				System.out.println(parser);
-			}*/
 			
 			for(String field: allStaticFieldUpdated){
 				if(!(field.startsWith("java.lang") || field.startsWith("java.util") || 
@@ -149,12 +143,10 @@ public class DependencyExtractor2 {
 			*/
 
 			for(String dep: allVirtualDependency){
-				this.syncSingleDependency(dep, dependent);
 				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
 			for(String dep: allInterfaceDependency){
-				this.syncSingleDependency(dep, dependent);
 				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
@@ -221,26 +213,33 @@ public class DependencyExtractor2 {
 		return count;
 	}
 	
-	protected List<String> traverseClassHierarchyDownwards(String claz, String pattern){
-		
+	protected List<String> traverseClassHierarchyDownwards(String claz, String pattern){	
 		List<String> toTest = new ArrayList<String>();
-
-		Set<String> entity = this.database.getAllKeysByPattern(Databases.TABLE_ID_ENTITY, claz+"."+pattern);
-
-		//System.out.println(entity);
 		
-		for(String e: entity){
-			toTest.add(e.substring(1));
-		}		
+		if(this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern))
+			toTest.add(claz+"."+pattern);
 		
 		Set<String> allSubclass = this.database.getSet(Databases.TABLE_ID_SUBCLASS, claz);
-		
-		//System.out.println("#####"+allSubclass);
-		
 		for(String sub: allSubclass){
-			List<String> t = traverseClassHierarchyDownwards(sub, pattern);
-			
-			if(!t.isEmpty() || t!= null)
+			List<String> t = traverseClassHierarchyDownwards(sub, pattern);	
+			if(!t.isEmpty() && t!= null)
+				toTest.addAll(t);
+		}
+		return toTest;
+	}
+	
+	protected List<String> traverseClassHierarchyUpwards(String claz, String pattern){	
+		List<String> toTest = new ArrayList<String>();
+		
+		if(this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)){
+			toTest.add(claz+"."+pattern);
+			return toTest;
+		}
+					
+		Set<String> allSubclass = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, claz);
+		for(String sup: allSubclass){
+			List<String> t = traverseClassHierarchyDownwards(sup, pattern);	
+			if(!t.isEmpty() && t!= null)
 				toTest.addAll(t);
 		}
 		return toTest;
@@ -273,14 +272,21 @@ public class DependencyExtractor2 {
 			String claz = dependency.substring(0, dependency.indexOf(pattern) >=0? 
 					dependency.indexOf(pattern) - 1: dependency.length());
 			
-			List<String> keys = traverseClassHierarchyDownwards(claz, pattern);
-			
-			if(CollectionUtils.isEmpty(keys))
+			List<String> keysDown = traverseClassHierarchyDownwards(claz, pattern);
+			if(CollectionUtils.isEmpty(keysDown))
 				return;
-			
-			for(String k: keys){
+			for(String k: keysDown){
 				addDependentsInDb(k, dependents); // because we have to remove table id
 			}
+			
+			if(!this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)){
+				List<String> keysUp = traverseClassHierarchyUpwards(claz, pattern);
+				if(CollectionUtils.isEmpty(keysUp))
+					return;
+				for(String k: keysUp){
+					addDependentsInDb(k, dependents); // because we have to remove table id
+				}
+			}			
 		}
 		
 		catch(NullPointerException e){
@@ -294,7 +300,6 @@ public class DependencyExtractor2 {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	protected void syncSingleDependency(String dependency, String dependents){
 

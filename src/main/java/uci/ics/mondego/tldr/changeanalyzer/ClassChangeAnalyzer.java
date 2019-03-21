@@ -62,10 +62,10 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			if(!all_superclass_interface.contains(allInterfaces.get(i)) 
 			&&!(allInterfaces.get(i).startsWith("java.") 
 			|| allInterfaces.get(i).startsWith("junit."))){
+				
 				this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 						allInterfaces.get(i));
-				if(allInterfaces.get(i).contains("java"))
-					System.out.println("ole");
+				
 				this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
 			}	
 			
@@ -253,11 +253,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 			/*else{
 				System.out.println(m.getModifiers()+ "     "+parsedClass.getClassName()+"."+m.getName());
 			}*/
-
-		}	
-		
+		}		
 	}
-	
 	
 	private long deleteDepreciatedEntities(){
 		long count = 0;
