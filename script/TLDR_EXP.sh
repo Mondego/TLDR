@@ -27,13 +27,15 @@ do
 		time_log="$repo_base/${project_name[$index]}".txt
 		#for ekstazi log
 		time_log_ekstazi="$repo_base/${project_name[$index]}"_ekstazi.txt
-		mkdir -p "$Ekstazi_log"/"$line"
+		
 
 		echo "" >> $time_log
 		echo "" >> $time_log_ekstazi
 		echo $line >> $time_log
 		echo $line >> $time_log_ekstazi
 		let "i++"
+		mkdir -p "$Ekstazi_log"/"$i"/"$line"/"Ekstazi"
+		mkdir -p "$Ekstazi_log"/"$i"/"$line"/"TLDR"
 	    cd ${repo_dir[$index]}
 	    pwd
 	    rm -f .git/index.lock # needed for errorless checkout to another commit
@@ -55,11 +57,21 @@ do
 			    	# getting only the output test cases.... time can be found in TLDR log
 			    	output=$(mvn -q compile exec:java -Dexec.args="$i ${repo_dir[$index]} $line")		    	
 			    	
+
 			    	if [[ ! -z "${output// }" ]]; then
 			    		cd ${repo_dir[$index]}
 			    		
-			    		var="$( time ( mvn -Dtest=$output -DfailIfNoTests=false test -fae) 2>&1 1>/dev/null )"
-			    		mvn -Dtest=$output -DfailIfNoTests=false test -fae
+			    		var="$( time ( mvn -Dtest=$output test -Dmaven.test.failure.ignore=true -Dmaven.test.error.ignore=true) 2>&1 1>/dev/null )"
+			    		mvn -q surefire-report:report
+			    		report=$( find target/site/* )
+
+						if [[ ! -z "${report// }" ]] ;  then
+							echo "TLDR REPORT FOUND..... MOVING TO LOG DIRECTORY"
+							mv "$report" "$Ekstazi_log"/"$i"/"$line"/"TLDR"
+						else
+							echo 'NO REPORT FOUND FOR TLDR'
+						fi
+
 			    		if [[ ! -z "${var// }" ]] ;  then
 							echo 'TESTING TIME : '$var >> $time_log
 						else
@@ -79,8 +91,8 @@ do
 			    	cd ${repo_dir[$index]}
 			    	mvn -q clean compile
 			    	mvn -q clean test-compile
-			    	var_ekstazi="$( time ( mvn ekstazi:ekstazi surefire-report:report ) 2>&1 1>/dev/null )"
-
+			    	var_ekstazi="$( time ( mvn ekstazi:ekstazi  -Dmaven.test.failure.ignore=true -Dmaven.test.error.ignore=true ) 2>&1 1>/dev/null )"
+			    	mvn -q surefire-report:report
 			    	if [[ ! -z "${var_ekstazi// }" ]] ;  then
 			    			echo "EKSTAZI EXECUTED ......"
 							echo 'TESTING TIME : '$var_ekstazi >> $time_log_ekstazi
@@ -88,8 +100,10 @@ do
 							surefire_report=$( find target/site/* )
 
 							if [[ ! -z "${surefire_report// }" ]] ;  then
-								echo "SUREFIRE REPORT FOUND..... MOVING TO LOG DIRECTORY"
-								mv "$surefire_report" "$Ekstazi_log"/"$line"
+								echo "EKSTAZI REPORT FOUND..... MOVING TO LOG DIRECTORY"
+								mv "$surefire_report" "$Ekstazi_log"/"$i"/"$line"/"Ekstazi"
+							else
+								echo 'NO REPORT FOUND FOR EKSTAZI'
 							fi
 
 					else
@@ -107,4 +121,3 @@ do
 		fi
 	done < "$allSha"
 done
-
