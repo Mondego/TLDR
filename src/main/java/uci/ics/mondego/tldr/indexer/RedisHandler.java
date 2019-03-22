@@ -134,7 +134,7 @@ public class RedisHandler{
 		else if(tableId.equals(Databases.TABLE_ID_TEST_DEPENDENCY)){
 			forwardTableId = Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY;
 		}
-		
+				
 		String tableIdValue = forwardTableId + value;
 		ret2 = jedis.sadd(tableIdValue, key);
 		return ret1 & ret2;

@@ -177,11 +177,12 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				if(!this.allPreviousTestCases.containsKey(methodFqn)){
 					//logger.debug(methodFqn+" is new test, added to testToRun");
-					App.testToRun.put(methodFqn, true);
+					App.completeTestSet.put(methodFqn, true);
 					App.allNewAndChangedTests.put(methodFqn, true);
 					
-					boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
-					if(!ret){
+					boolean ret1 = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+				    boolean ret2 = this.sync(Databases.TABLE_ID_TEST_ENTITY, methodFqn, "1");
+					if(!ret1 && !ret2){
 						throw new DatabaseSyncException(methodFqn);
 					}
 					//logger.info(methodFqn+" didn't exist in db...added");					
@@ -195,7 +196,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					
 					if(!currentHashCode.equals(prevHashCode)){
 						//logger.debug(methodFqn+" is changed test, added to testToRun");
-						App.testToRun.put(methodFqn, true);						
+						App.completeTestSet.put(methodFqn, true);						
 						App.allNewAndChangedTests.put(methodFqn, true);
 						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						
@@ -219,12 +220,16 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		    	count++;
 		    	String key = entry.getKey();
 		    	this.database.removeKey(Databases.TABLE_ID_ENTITY, key);
+		    	
 		    	Set<String> allDependencies = this.database.getSet
 		    			(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	
 		    	this.database.removeKey(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
 		    	for(String dep: allDependencies){
 		    		this.database.removeFromSet(Databases.TABLE_ID_TEST_DEPENDENCY, dep, key);
 		    	}
+		    	
+		    	this.database.removeKey(Databases.TABLE_ID_TEST_ENTITY, key);		    	
 		    	//logger.info(key+ " test case is remomved from DB");
 		    }  
 		}
