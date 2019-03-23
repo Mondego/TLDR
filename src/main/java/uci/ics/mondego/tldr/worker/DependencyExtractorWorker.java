@@ -75,6 +75,7 @@ public class DependencyExtractorWorker extends Worker{
 		
 		Set<Map.Entry<String, Method>> allEntries = changedMethods.entrySet();
 		for(Map.Entry<String, Method> entry: allEntries){
+			
 			DependencyExtractor2 dep = new DependencyExtractor2(entry);
 			Set<String> fieldsChanged = dep.getFieldValueChanged();
 			//logger.debug(entry.getKey()+" changed/new, dependency synced, and sent to DFSTraversal");

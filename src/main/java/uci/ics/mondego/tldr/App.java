@@ -18,6 +18,7 @@ import org.apache.log4j.Logger;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
+import uci.ics.mondego.tldr.resolution.IntraTestDFSTraversal;
 import uci.ics.mondego.tldr.tool.ConfigLoader;
 import uci.ics.mondego.tldr.tool.FindAllTestDirectory;
 import uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker;
@@ -25,6 +26,7 @@ import uci.ics.mondego.tldr.worker.DFSTraversalWorker;
 import uci.ics.mondego.tldr.worker.DependencyExtractorWorker;
 import uci.ics.mondego.tldr.worker.EntityToTestMapWorker;
 import uci.ics.mondego.tldr.worker.FileChangeAnalyzerWorker;
+import uci.ics.mondego.tldr.worker.IntraTestTraversalWorker;
 import uci.ics.mondego.tldr.worker.RepoScannerWorker;
 import uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker;
 import uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker;
@@ -43,12 +45,14 @@ public class App
     public static ThreadedChannel<String> TestFileChangeAnalysisPool;
     public static ThreadedChannel<String> TestParseAndIndexPool;
     public static ThreadedChannel<String> EntityToTestMapPool;
+    public static ThreadedChannel<String> IntraTestTraversalPool;
 
+    
     public static ConcurrentHashMap<String, Boolean> entityToTest;
-    public static ConcurrentHashMap<String, Boolean> testToRun;
     public static ConcurrentHashMap<String, Boolean> allTestDirectory;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangedentities;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangedTests;
+    public static ConcurrentHashMap<String, Boolean> completeTestSet;
 
     public App(){
     	Date date = new Date();      
@@ -65,12 +69,13 @@ public class App
     	this.TestFileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), TestFileChangeAnalyzerWorker.class);
     	this.TestParseAndIndexPool = new ThreadedChannel<String>(config.getThread(), TestChangeAnalyzerAndIndexerWorker.class);
     	this.EntityToTestMapPool = new ThreadedChannel<String>(config.getThread(), EntityToTestMapWorker.class);
-    	    	
+    	this.IntraTestTraversalPool = new ThreadedChannel<String>(config.getThread(), IntraTestTraversalWorker.class);
+    	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
-    	this.testToRun = new ConcurrentHashMap<String, Boolean>();
     	this.allTestDirectory = new ConcurrentHashMap<String, Boolean>();
     	this.allNewAndChangedentities = new ConcurrentHashMap<String, Boolean>();
     	this.allNewAndChangedTests = new ConcurrentHashMap<String, Boolean>();
+    	this.completeTestSet = new ConcurrentHashMap<String, Boolean>();
     	
     }
 
@@ -85,8 +90,8 @@ public class App
        try{
 	       App executorInstance = new App();
 	       
-	       CLASS_DIR = config.getCLASS_DIR();
-	       //CLASS_DIR = args[1];
+	       //CLASS_DIR = config.getCLASS_DIR();
+	        CLASS_DIR = args[1];
 	      
 	       //TEST_DIR = config.getTEST_DIR(); 
 	       //allTestDirectory.put(TEST_DIR, true); /*** comment out later *****/
@@ -97,10 +102,10 @@ public class App
 	    	   		allTestDirectory.put(s, true);
 	       }
 	              	       
-	    	   RepoScannerWorker runnable = new RepoScannerWorker(CLASS_DIR);
-	    	   runnable.scanClassFiles(CLASS_DIR);
-	   	       
-	    	   App.FileChangeAnalysisPool.shutdown();
+    	   RepoScannerWorker runnable = new RepoScannerWorker(CLASS_DIR);
+    	   runnable.scanClassFiles(CLASS_DIR);
+   	       
+	       App.FileChangeAnalysisPool.shutdown();
 		   App.EntityChangeAnalysisPool.shutdown();
 	       App.DependencyExtractionPool.shutdown();
 	       App.DependencyGraphTraversalPool.shutdown();
@@ -125,17 +130,17 @@ public class App
 	       }
 
 	       App.EntityToTestMapPool.shutdown();
+	       App.IntraTestTraversalPool.shutdown();
 	       	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
-	       //String print = getCommand();
-	       //System.out.println(print);
+	       String print = getCommand();
+	       System.out.println(print);
 	       /*****************************/
 	       
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
-	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
-	       	       
-	       //logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
+	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;	       	       
+	       logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
        }
        
        catch( JedisConnectionException e){
@@ -199,7 +204,7 @@ public class App
 			writer1.println("NUMBER OF NEW OR CHANGED ENTITIES : "+allNewAndChangedentities.size());	   
 			writer1.println("NUMBER OF NEW OR CHANGED TESTS : "+allNewAndChangedTests.size());	   
 			writer1.println("NUMBER OF ENTITY TO TEST : "+entityToTest.size());	   
-			writer1.println("NUMBER OF TEST TO RUN : "+testToRun.size());	   
+			writer1.println("NUMBER OF TEST TO RUN : "+completeTestSet.size());	   
 			writer1.println("TOTAL TIME REQUIRED : "+elapsedTimeInSecond+" second");	
 			writer1.println("======================================================");
 			writer1.println("======================================================");
@@ -231,7 +236,7 @@ public class App
 	    	writer1.println("======================================================");
 			writer1.println("======================================================");
 			
-			allEntries = App.testToRun.entrySet();
+			allEntries = App.completeTestSet.entrySet();
 			writer1.println("ALL TESTS TO RUN : \n\n");	   
 	    	for(Entry<String, Boolean> e: allEntries){
 	    		writer1.println(e.getKey());
@@ -251,7 +256,7 @@ public class App
     private static String getCommand(){
     	  StringBuilder sb = new StringBuilder();
 	       //sb.append("mvn test -Dtest=");
-	       Set<Map.Entry<String, Boolean>> all = testToRun.entrySet();
+	       Set<Map.Entry<String, Boolean>> all = completeTestSet.entrySet();
 	       int i=0;
 	       for(Entry<String, Boolean> es: all){
 	    	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
@@ -261,7 +266,7 @@ public class App
 	    	   String func = pkg.substring(pkg.lastIndexOf('.')+1);
 	    	   sb.append("#");
 	    	   sb.append(func);
-	    	   if(i != (testToRun.size() - 1))
+	    	   if(i != (completeTestSet.size() - 1))
 	    		   sb.append(",");
 	    	   i++;
 	       }

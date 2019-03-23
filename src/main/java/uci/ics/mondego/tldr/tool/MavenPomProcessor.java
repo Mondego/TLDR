@@ -11,6 +11,7 @@ import java.util.List;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.maven.model.Build;
+import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
@@ -39,16 +40,29 @@ public class MavenPomProcessor {
 		    Model model = xpp3Reader.read(reader);
 		    Build build = model.getBuild();
 		    List<Plugin> oldPlugins = build.getPlugins();
-		    
+		    List<Dependency> oldDependencies = model.getDependencies();
 		    if(args[1].equals("surefire")){
 		    	for(int i=0;i<oldPlugins.size();i++){
 			    	if(oldPlugins.get(i).getArtifactId().equals("maven-surefire-plugin")){
 			    		Writer writer = new FileWriter(pom2Location);
 			    		MavenXpp3Writer xpp3Writer = new MavenXpp3Writer();
-			    		oldPlugins.get(i).setVersion("2.12.1");
+			    		oldPlugins.get(i).setVersion("2.19.1");
 			    		build.setPlugins(oldPlugins);
+					    /***** for single test run surefire 2.19.1 and junit 4.11/4.8.1 needed
+					     * VERIFIED BY MANUAL LABOR SO ACCURATE
+					     */
+					    for(int j=0;i<oldDependencies.size();i++){
+					    	if(oldDependencies.get(i).getArtifactId().equals("junit")){				    	
+					    		if(oldDependencies.get(i).getVersion() == null ||
+					    			oldDependencies.get(i).getVersion().length() == 0){
+						    		oldDependencies.get(i).setVersion("4.11");
+						    		model.setDependencies(oldDependencies);
+					    		}
+					    	}
+					    }
 					    model.setBuild(build);
 					    xpp3Writer.write( writer, model );
+					    
 					    writer.close();
 					    changed = true;
 					    break;

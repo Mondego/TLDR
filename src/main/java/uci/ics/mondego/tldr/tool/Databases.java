@@ -9,4 +9,6 @@ public interface Databases {
 	public static final String TABLE_ID_INTERFACE_SUPERCLASS = "6";
 	public static final String TABLE_ID_FORWARD_INDEX_DEPENDENCY = "7";
 	public static final String TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY = "8";
+	public static final String TABLE_ID_TEST_ENTITY = "9";
+
 }

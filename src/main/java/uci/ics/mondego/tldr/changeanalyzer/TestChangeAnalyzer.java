@@ -3,7 +3,9 @@ package uci.ics.mondego.tldr.changeanalyzer;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.apache.bcel.classfile.ClassParser;
@@ -21,13 +23,16 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	private final ClassParser parser;
 	private final JavaClass parsedClass;
 	private Map<String, Integer> allPreviousTestCases;
+	private List<String> allInterfaces;
+	private String superClass;
 	
 	public TestChangeAnalyzer(String className) throws IOException, DatabaseSyncException, EOFException{
 		super(className);
 		this.parser = new ClassParser(this.getEntityName());
 		this.parsedClass = parser.parse();
 		this.allPreviousTestCases = new HashMap<String, Integer>();
-		
+		this.allInterfaces = new ArrayList<String>();
+		this.superClass = "";
 		Set<String> prevTst = database.getAllKeysByPattern
 				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
 		
@@ -36,10 +41,63 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		}
 		
 		this.parse();
+		this.syncClassHierarchy();
 		this.deleteDepreciatedTestCases();
-		
 		this.closeRedis();
 	}
+	
+	private void syncClassHierarchy(){	
+		this.parseInterface();
+		this.parseSuperClass();
+		
+		Set<String> all_superclass_interface = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+				parsedClass.getClassName());
+				
+		for(int i=0;i<allInterfaces.size();i++){
+			if(!all_superclass_interface.contains(allInterfaces.get(i))
+				&& !(allInterfaces.get(i).startsWith("java.") 
+				|| allInterfaces.get(i).startsWith("junit."))){
+				
+				this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+						allInterfaces.get(i));
+				this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
+			}				
+		}
+		
+		if(!all_superclass_interface.contains(this.superClass) 
+				&& this.superClass != null 
+				&& this.superClass.length() > 0 
+				&& !this.superClass.startsWith("java") 
+				&& !this.superClass.startsWith("junit")){
+			
+			this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+					this.superClass);
+			this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
+		}				
+	}
+	
+	private void parseInterface(){
+		try {
+			String[] interfaces = this.parsedClass.getInterfaceNames();
+			for(String cls: interfaces){
+				this.allInterfaces.add(cls);
+			}
+		} 
+		catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
+	
+	private void parseSuperClass(){
+		try {
+			this.superClass = !parsedClass.getSuperclassName().startsWith("java.") 
+					? parsedClass.getSuperclassName(): "";			
+		} 
+		catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
+	
 	
 	protected void parse() throws IOException, DatabaseSyncException{
 		
@@ -119,11 +177,12 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				if(!this.allPreviousTestCases.containsKey(methodFqn)){
 					//logger.debug(methodFqn+" is new test, added to testToRun");
-					App.testToRun.put(methodFqn, true);
+					App.completeTestSet.put(methodFqn, true);
 					App.allNewAndChangedTests.put(methodFqn, true);
 					
-					boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
-					if(!ret){
+					boolean ret1 = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+				    boolean ret2 = this.sync(Databases.TABLE_ID_TEST_ENTITY, methodFqn, "1");
+					if(!ret1 && !ret2){
 						throw new DatabaseSyncException(methodFqn);
 					}
 					//logger.info(methodFqn+" didn't exist in db...added");					
@@ -133,15 +192,18 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				else{
 					allPreviousTestCases.put(methodFqn, allPreviousTestCases.get(methodFqn) + 1);
-					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);					
+					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);	
+					
 					if(!currentHashCode.equals(prevHashCode)){
 						//logger.debug(methodFqn+" is changed test, added to testToRun");
-						App.testToRun.put(methodFqn, true);						
+						App.completeTestSet.put(methodFqn, true);						
 						App.allNewAndChangedTests.put(methodFqn, true);
 						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						
 						if(!ret){
 							throw new DatabaseSyncException(methodFqn);
 						}
+						
 						Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);	
 						DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 					}
@@ -158,12 +220,16 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		    	count++;
 		    	String key = entry.getKey();
 		    	this.database.removeKey(Databases.TABLE_ID_ENTITY, key);
+		    	
 		    	Set<String> allDependencies = this.database.getSet
 		    			(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	
 		    	this.database.removeKey(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
 		    	for(String dep: allDependencies){
 		    		this.database.removeFromSet(Databases.TABLE_ID_TEST_DEPENDENCY, dep, key);
 		    	}
+		    	
+		    	this.database.removeKey(Databases.TABLE_ID_TEST_ENTITY, key);		    	
 		    	//logger.info(key+ " test case is remomved from DB");
 		    }  
 		}

@@ -59,14 +59,24 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 				parsedClass.getClassName());
 				
 		for(int i=0;i<allInterfaces.size();i++){
-			if(!all_superclass_interface.contains(allInterfaces.get(i))){
+			if(!all_superclass_interface.contains(allInterfaces.get(i)) 
+			&&!(allInterfaces.get(i).startsWith("java.") 
+			|| allInterfaces.get(i).startsWith("junit."))){
+				
 				this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 						allInterfaces.get(i));
+				
 				this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
-			}				
+			}	
+			
 		}
 		
-		if(!all_superclass_interface.contains(this.superClass) && this.superClass.length() > 0){
+		if(!all_superclass_interface.contains(this.superClass) 
+				&& this.superClass != null 
+				&& this.superClass.length() > 0 
+				&& !this.superClass.startsWith("java") 
+				&& !this.superClass.startsWith("junit")){
+			
 			this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 					this.superClass);
 			this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
@@ -77,7 +87,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		try {
 			String[] interfaces = this.parsedClass.getInterfaceNames();
 			for(String cls: interfaces){
-				this.allInterfaces.add(cls);
+				if(!cls.startsWith("java"))
+					this.allInterfaces.add(cls);
 			}
 		} 
 		catch (Exception e) {
@@ -87,8 +98,8 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	
 	private void parseSuperClass(){
 		try {
-			this.superClass = !parsedClass.getSuperclassName().contains("java.") 
-					? parsedClass.getSuperclassName(): "";			
+			this.superClass = !parsedClass.getSuperclassName().startsWith("java.") 
+					? parsedClass.getSuperclassName(): null;			
 		} 
 		catch (Exception e) {
 			logger.error(e.getMessage());
@@ -213,7 +224,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					if(!ret){
 						throw new DatabaseSyncException(methodFqn);
 					}
-					
+										
 					App.entityToTest.put(methodFqn, true);
 					App.allNewAndChangedentities.put(methodFqn, true);
 					extractedChangedMethods.put(methodFqn, m);
@@ -239,14 +250,11 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 					}
 				}
 			}
-			else{
+			/*else{
 				System.out.println(m.getModifiers()+ "     "+parsedClass.getClassName()+"."+m.getName());
-			}
-
-		}	
-		
+			}*/
+		}		
 	}
-	
 	
 	private long deleteDepreciatedEntities(){
 		long count = 0;
