@@ -12,6 +12,8 @@ import org.apache.bcel.classfile.Method;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
+import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.exception.UnknownDBIdException;
 import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
@@ -142,7 +144,7 @@ public class DependencyExtractor2 {
 			this.fieldValueChanged.addAll(allOwnFieldUpdated);
 			*/
 			
-			for(String dep: allVirtualDependency){
+			for(String dep: allVirtualDependency){				
 				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
@@ -167,11 +169,10 @@ public class DependencyExtractor2 {
 			}
 	}
 	
-	protected void addDependentsInDb(String dependency, String dependents) throws UnknownDBIdException{
+	protected void addDependentsInDb(String dependency, String dependents) throws UnknownDBIdException, NullDbIdException{
 		if(this.dbId.length() == 0 || this.dbId == null){
 			throw new UnknownDBIdException(dbId);
 		}
-		
 		if(dependency.startsWith("java."))
 			return;
 		if(dependency.startsWith("org.junit."))
@@ -230,14 +231,15 @@ public class DependencyExtractor2 {
 	
 	protected List<String> traverseClassHierarchyUpwards(String claz, String pattern){	
 		List<String> toTest = new ArrayList<String>();
+		String dependents = claz+'.'+pattern;
 		
 		if(this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)){
 			toTest.add(claz+"."+pattern);
 			return toTest;
 		}
-					
-		Set<String> allSubclass = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, claz);
-		for(String sup: allSubclass){
+		
+		Set<String> allSuperclass = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, claz);
+		for(String sup: allSuperclass){
 			List<String> t = traverseClassHierarchyUpwards(sup, pattern);	
 			if(!t.isEmpty() && t!= null)
 				toTest.addAll(t);
@@ -271,22 +273,22 @@ public class DependencyExtractor2 {
 			String pattern = sb.toString();
 			String claz = dependency.substring(0, dependency.indexOf(pattern) >=0? 
 					dependency.indexOf(pattern) - 1: dependency.length());
-			
+						
 			List<String> keysDown = traverseClassHierarchyDownwards(claz, pattern);
-			if(CollectionUtils.isEmpty(keysDown))
-				return;
-			for(String k: keysDown){
-				addDependentsInDb(k, dependents); // because we have to remove table id
-			}
-			
-			if(!this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)){
-				List<String> keysUp = traverseClassHierarchyUpwards(claz, pattern);
-				if(CollectionUtils.isEmpty(keysUp))
-					return;
-				for(String k: keysUp){
+			if(!CollectionUtils.isEmpty(keysDown)){
+				for(String k: keysDown){
 					addDependentsInDb(k, dependents); // because we have to remove table id
 				}
-			}			
+			}
+			
+			List<String> keysUp = traverseClassHierarchyUpwards(claz, pattern);
+			
+			if(CollectionUtils.isEmpty(keysUp))
+				return;
+			for(String k: keysUp){
+				addDependentsInDb(k, dependents); // because we have to remove table id
+			}
+						
 		}
 		
 		catch(NullPointerException e){
@@ -298,11 +300,13 @@ public class DependencyExtractor2 {
 		}
 		catch (UnknownDBIdException e) {
 			e.printStackTrace();
+		} 
+		catch (NullDbIdException e) {
+			e.printStackTrace();
 		}
 	}
 	
 	protected void syncSingleDependency(String dependency, String dependents){
-
 		try{
 			addDependentsInDb(dependency, dependents);
 		}
@@ -311,6 +315,9 @@ public class DependencyExtractor2 {
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
 		} 
 		catch (UnknownDBIdException e) {
+			e.printStackTrace();
+		} 	
+		catch (NullDbIdException e) {
 			e.printStackTrace();
 		}
 	}

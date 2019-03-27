@@ -13,6 +13,7 @@ import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
+import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
 import uci.ics.mondego.tldr.tool.StringProcessor;
@@ -44,14 +45,17 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		
 		this.parse();
 				
-		this.syncClassHierarchy();
-		
-		this.deleteDepreciatedEntities();
-		
-		this.closeRedis();
+		try {
+			this.syncClassHierarchy();
+			this.deleteDepreciatedEntities();
+			this.closeRedis();
+		} catch (NullDbIdException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
-	private void syncClassHierarchy(){	
+	private void syncClassHierarchy() throws NullDbIdException{	
 		this.parseInterface();
 		this.parseSuperClass();
 		

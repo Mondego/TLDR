@@ -4,7 +4,9 @@ import java.io.IOException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
+import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 
 public abstract class ChangeAnalyzer {
@@ -48,8 +50,17 @@ public abstract class ChangeAnalyzer {
 	}
 	
 	protected boolean sync(String tableId, String name, String newCheckSum){
-		database.update(tableId, name, newCheckSum);
-		this.isSynced = true;
+		try {
+			database.update(tableId, name, newCheckSum);
+			this.isSynced = true;
+			
+		} catch (JedisConnectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullDbIdException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return isSynced;
 	}
 	

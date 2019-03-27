@@ -7,6 +7,7 @@ import redis.clients.jedis.ScanParams;
 import redis.clients.jedis.ScanResult;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.exceptions.JedisDataException;
+import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.tool.Databases;
 
 import java.awt.List;
@@ -86,9 +87,13 @@ public class RedisHandler{
         return instance; 
     } 
 	
-	public void insert(String tableId, String key, String value) throws JedisConnectionException{		
+	public void insert(String tableId, String key, String value) throws JedisConnectionException, NullDbIdException{		
+		String tableIdKey = tableId+key;
 		try{
-		    jedis.set(tableId+key, value);
+			if(tableIdKey.startsWith("null") || tableId == null)
+				throw new NullDbIdException(key+" "+value);
+		    
+			jedis.set(tableIdKey, value);
 		}
 		catch(JedisDataException e){
 			System.out.println(tableId+"   "+key+"    "+value+"   ");
@@ -100,7 +105,7 @@ public class RedisHandler{
 		}
 	}
 	
-	public void update(String tableId, String key, String value) throws JedisConnectionException{
+	public void update(String tableId, String key, String value) throws JedisConnectionException, NullDbIdException{
 		this.insert(tableId, key, value);
 	}
 	
@@ -121,8 +126,14 @@ public class RedisHandler{
 	    return ret;
 	}
 	
-	public long insertInSet(String tableId, String key, String value){
+	public long insertInSet(String tableId, String key, String value) throws NullDbIdException{
+		
 		String tableIdKey = tableId+key;
+		
+		if(tableIdKey.startsWith("null") || tableId == null || key == null ||
+				value == null)			
+			throw new NullDbIdException(key+" "+value);
+		
 		long ret1 = jedis.sadd(tableIdKey, value);
 		long ret2 = 1;		
 		
