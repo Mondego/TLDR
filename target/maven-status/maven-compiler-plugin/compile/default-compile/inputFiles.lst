@@ -1,4 +1,5 @@
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/worker/DependencyExtractorWorker.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/exception/NullDbIdException.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/exception/package-info.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/model/TestJavaFile.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/AccessCodes.java
