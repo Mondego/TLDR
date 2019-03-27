@@ -91,7 +91,7 @@ public class App
 	       App executorInstance = new App();
 	       
 	       //CLASS_DIR = config.getCLASS_DIR();
-	        CLASS_DIR = args[1];
+	       CLASS_DIR = args[1];
 	      
 	       //TEST_DIR = config.getTEST_DIR(); 
 	       //allTestDirectory.put(TEST_DIR, true); /*** comment out later *****/

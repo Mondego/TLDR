@@ -14,6 +14,7 @@ import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
+import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
 import uci.ics.mondego.tldr.tool.StringProcessor;
@@ -41,12 +42,19 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		}
 		
 		this.parse();
-		this.syncClassHierarchy();
-		this.deleteDepreciatedTestCases();
-		this.closeRedis();
+		try {
+			this.syncClassHierarchy();
+			this.deleteDepreciatedTestCases();
+			this.closeRedis();
+		} 
+		catch (NullDbIdException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 	}
 	
-	private void syncClassHierarchy(){	
+	private void syncClassHierarchy() throws NullDbIdException{	
 		this.parseInterface();
 		this.parseSuperClass();
 		
@@ -179,9 +187,10 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					//logger.debug(methodFqn+" is new test, added to testToRun");
 					App.completeTestSet.put(methodFqn, true);
 					App.allNewAndChangedTests.put(methodFqn, true);
-					
+										
 					boolean ret1 = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
-				    boolean ret2 = this.sync(Databases.TABLE_ID_TEST_ENTITY, methodFqn, "1");
+				    
+					boolean ret2 = this.sync(Databases.TABLE_ID_TEST_ENTITY, methodFqn, "TRUE");
 					if(!ret1 && !ret2){
 						throw new DatabaseSyncException(methodFqn);
 					}
