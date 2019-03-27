@@ -141,7 +141,7 @@ public class DependencyExtractor2 {
 			this.fieldValueChanged.addAll(allStaticFieldUpdated);
 			this.fieldValueChanged.addAll(allOwnFieldUpdated);
 			*/
-
+			
 			for(String dep: allVirtualDependency){
 				this.syncAllPossibleDependency(dep, dependent);
 			}
@@ -238,7 +238,7 @@ public class DependencyExtractor2 {
 					
 		Set<String> allSubclass = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, claz);
 		for(String sup: allSubclass){
-			List<String> t = traverseClassHierarchyDownwards(sup, pattern);	
+			List<String> t = traverseClassHierarchyUpwards(sup, pattern);	
 			if(!t.isEmpty() && t!= null)
 				toTest.addAll(t);
 		}

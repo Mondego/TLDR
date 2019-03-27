@@ -1,0 +1,35 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 5
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 5
+TOTAL TIME REQUIRED : 0.686478498 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.input.BOMInputStreamTest.testClose()
+org.apache.commons.io.input.BOMInputStreamTest.testReadTwiceWithBOM()
+org.apache.commons.io.input.BOMInputStreamTest.readFile($org.apache.commons.io.input.BOMInputStream)
+org.apache.commons.io.input.BOMInputStreamTest.readBOMInputStreamTwice($java.lang.String)
+org.apache.commons.io.input.BOMInputStreamTest.testReadTwiceWithoutBOM()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.BOMInputStreamTest.testClose()
+org.apache.commons.io.input.BOMInputStreamTest.testReadTwiceWithBOM()
+org.apache.commons.io.input.BOMInputStreamTest.readFile($org.apache.commons.io.input.BOMInputStream)
+org.apache.commons.io.input.BOMInputStreamTest.readBOMInputStreamTwice($java.lang.String)
+org.apache.commons.io.input.BOMInputStreamTest.testReadTwiceWithoutBOM()

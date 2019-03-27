@@ -90,7 +90,7 @@ public class App
        try{
 	       App executorInstance = new App();
 	       
-	       //CLASS_DIR = config.getCLASS_DIR();
+	        //CLASS_DIR = config.getCLASS_DIR();
 	        CLASS_DIR = args[1];
 	      
 	       //TEST_DIR = config.getTEST_DIR(); 

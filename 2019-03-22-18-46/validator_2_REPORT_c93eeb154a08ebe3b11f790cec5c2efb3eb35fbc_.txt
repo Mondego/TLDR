@@ -1,0 +1,53 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 14
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 14
+TOTAL TIME REQUIRED : 0.553592794 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.EmailValidatorTest.<clinit>()
+org.apache.commons.validator.routines.EmailValidatorTest.setUp()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithSpaces()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmail()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithDotEnd()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithNumericAddress()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithDash()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithCommas()
+org.apache.commons.validator.routines.EmailValidatorTest._testEmailFromPerl()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailExtension()
+org.apache.commons.validator.routines.EmailValidatorTest.<init>($java.lang.String)
+org.apache.commons.validator.routines.EmailValidatorTest._testEmailUserName()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithControlChars()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithBogusCharacter()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.EmailValidatorTest.<clinit>()
+org.apache.commons.validator.routines.EmailValidatorTest.setUp()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithSpaces()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmail()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithDotEnd()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithNumericAddress()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithDash()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithCommas()
+org.apache.commons.validator.routines.EmailValidatorTest._testEmailFromPerl()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailExtension()
+org.apache.commons.validator.routines.EmailValidatorTest.<init>($java.lang.String)
+org.apache.commons.validator.routines.EmailValidatorTest._testEmailUserName()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithControlChars()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithBogusCharacter()

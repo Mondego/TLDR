@@ -1,0 +1,27 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 1
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.508525752 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.RegexValidatorTest.checkArray($java.lang.String$java.lang.String[]$java.lang.String[])
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.RegexValidatorTest.checkArray($java.lang.String$java.lang.String[]$java.lang.String[])

@@ -1,0 +1,37 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 4
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 7
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.510219262 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.HexDump.<clinit>()
+org.apache.commons.io.HexDump.dump($java.lang.StringBuffer$long)
+org.apache.commons.io.HexDump.dump($byte[]$long$java.io.OutputStream$int)
+org.apache.commons.io.HexDump.dump($java.lang.StringBuffer$byte)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.HexDump.<clinit>()
+org.apache.commons.io.HexDump.dump($java.lang.StringBuffer$long)
+org.apache.commons.io.HexDump.EOL
+org.apache.commons.io.HexDump._shifts
+org.apache.commons.io.HexDump.dump($byte[]$long$java.io.OutputStream$int)
+org.apache.commons.io.HexDump._hexcodes
+org.apache.commons.io.HexDump.dump($java.lang.StringBuffer$byte)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.HexDumpTest.testDump()

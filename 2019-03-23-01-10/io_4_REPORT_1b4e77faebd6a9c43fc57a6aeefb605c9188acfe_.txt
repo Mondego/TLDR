@@ -1,0 +1,45 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 9
+NUMBER OF NEW OR CHANGED TESTS : 1
+NUMBER OF ENTITY TO TEST : 9
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.550096889 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.filefilter.RegexFileFilter.<init>($java.lang.String)
+org.apache.commons.io.filefilter.RegexFileFilter.accept($java.io.File$java.lang.String)
+org.apache.commons.io.filefilter.FileFilterUtils.regex($java.lang.String$int)
+org.apache.commons.io.filefilter.FileFilterUtils.regex($java.lang.String)
+org.apache.commons.io.filefilter.RegexFileFilter.<init>($java.lang.String$org.apache.commons.io.IOCase)
+org.apache.commons.io.filefilter.FileFilterUtils.regex($java.lang.String$org.apache.commons.io.IOCase)
+org.apache.commons.io.filefilter.RegexFileFilter.<init>($java.lang.String$int)
+org.apache.commons.io.filefilter.RegexFileFilter.<init>($java.util.regex.Pattern)
+org.apache.commons.io.filefilter.RegexFileFilter.pattern
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.filefilter.FileFilterTestCase.testRegex()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.filefilter.RegexFileFilter.<init>($java.lang.String)
+org.apache.commons.io.filefilter.RegexFileFilter.accept($java.io.File$java.lang.String)
+org.apache.commons.io.filefilter.FileFilterUtils.regex($java.lang.String$int)
+org.apache.commons.io.filefilter.FileFilterUtils.regex($java.lang.String)
+org.apache.commons.io.filefilter.RegexFileFilter.<init>($java.lang.String$org.apache.commons.io.IOCase)
+org.apache.commons.io.filefilter.FileFilterUtils.regex($java.lang.String$org.apache.commons.io.IOCase)
+org.apache.commons.io.filefilter.RegexFileFilter.<init>($java.lang.String$int)
+org.apache.commons.io.filefilter.RegexFileFilter.<init>($java.util.regex.Pattern)
+org.apache.commons.io.filefilter.RegexFileFilter.pattern
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.filefilter.FileFilterTestCase.testRegex()

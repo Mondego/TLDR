@@ -55,7 +55,11 @@ public class MavenPomProcessor {
 					    	if(oldDependencies.get(i).getArtifactId().equals("junit")){				    	
 					    		if(oldDependencies.get(i).getVersion() == null ||
 					    			oldDependencies.get(i).getVersion().length() == 0){
-						    		oldDependencies.get(i).setVersion("4.11");
+					    			oldDependencies.get(i).setVersion("4.11");
+						    		model.setDependencies(oldDependencies);
+					    		}
+					    		else{
+					    			oldDependencies.get(i).setVersion("4.8.1");
 						    		model.setDependencies(oldDependencies);
 					    		}
 					    	}

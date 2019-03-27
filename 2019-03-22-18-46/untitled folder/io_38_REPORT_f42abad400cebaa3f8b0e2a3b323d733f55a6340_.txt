@@ -1,0 +1,31 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 3
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 3
+TOTAL TIME REQUIRED : 0.631178743 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.input.compatibility.XmlStreamReader.<init>($java.net.URLConnection)
+org.apache.commons.io.input.compatibility.XmlStreamReader.<init>($java.io.InputStream$boolean)
+org.apache.commons.io.input.compatibility.XmlStreamReader.doRawStream($java.io.InputStream)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.compatibility.XmlStreamReader.<init>($java.net.URLConnection)
+org.apache.commons.io.input.compatibility.XmlStreamReader.<init>($java.io.InputStream$boolean)
+org.apache.commons.io.input.compatibility.XmlStreamReader.doRawStream($java.io.InputStream)

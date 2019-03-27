@@ -1,0 +1,43 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF NEW OR CHANGED TESTS : 9
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 9
+TOTAL TIME REQUIRED : 0.598652141 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.DomainValidatorTest.printMap($java.lang.String$java.util.Map$java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.isLowerCase($java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.isSortedLowerCase($java.lang.String$java.lang.String[])
+org.apache.commons.validator.routines.DomainValidatorTest.isInIanaList($java.lang.String$java.util.Set)
+org.apache.commons.validator.routines.DomainValidatorTest.isInIanaList($java.lang.String$java.lang.String[]$java.util.Set)
+org.apache.commons.validator.routines.DomainValidatorTest.download($java.io.File$java.lang.String$long)
+org.apache.commons.validator.routines.DomainValidatorTest.getHtmlInfo($java.io.File)
+org.apache.commons.validator.routines.DomainValidatorTest.isSortedLowerCase($java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.main($java.lang.String[])
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.DomainValidatorTest.printMap($java.lang.String$java.util.Map$java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.isLowerCase($java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.isSortedLowerCase($java.lang.String$java.lang.String[])
+org.apache.commons.validator.routines.DomainValidatorTest.isInIanaList($java.lang.String$java.util.Set)
+org.apache.commons.validator.routines.DomainValidatorTest.isInIanaList($java.lang.String$java.lang.String[]$java.util.Set)
+org.apache.commons.validator.routines.DomainValidatorTest.download($java.io.File$java.lang.String$long)
+org.apache.commons.validator.routines.DomainValidatorTest.getHtmlInfo($java.io.File)
+org.apache.commons.validator.routines.DomainValidatorTest.isSortedLowerCase($java.lang.String)
+org.apache.commons.validator.routines.DomainValidatorTest.main($java.lang.String[])

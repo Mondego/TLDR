@@ -1,0 +1,41 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 7
+NUMBER OF NEW OR CHANGED TESTS : 0
+NUMBER OF ENTITY TO TEST : 8
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.481643533 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.input.TeeInputStream.read()
+org.apache.commons.io.input.TeeInputStream.closeBranch
+org.apache.commons.io.input.TeeInputStream.read($byte[])
+org.apache.commons.io.input.TeeInputStream.close()
+org.apache.commons.io.input.TeeInputStream.<init>($java.io.InputStream$java.io.OutputStream)
+org.apache.commons.io.input.TeeInputStream.<init>($java.io.InputStream$java.io.OutputStream$boolean)
+org.apache.commons.io.input.TeeInputStream.read($byte[]$int$int)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.input.TeeInputStream.read()
+org.apache.commons.io.input.TeeInputStream.closeBranch
+org.apache.commons.io.input.TeeInputStream.read($byte[])
+org.apache.commons.io.input.TeeInputStream.branch
+org.apache.commons.io.input.TeeInputStream.close()
+org.apache.commons.io.input.TeeInputStream.<init>($java.io.InputStream$java.io.OutputStream)
+org.apache.commons.io.input.TeeInputStream.<init>($java.io.InputStream$java.io.OutputStream$boolean)
+org.apache.commons.io.input.TeeInputStream.read($byte[]$int$int)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.TeeInputStreamTest.setUp()

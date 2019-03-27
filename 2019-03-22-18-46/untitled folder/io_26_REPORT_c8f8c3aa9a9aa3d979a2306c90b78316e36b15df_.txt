@@ -1,0 +1,72 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 15
+NUMBER OF NEW OR CHANGED TESTS : 3
+NUMBER OF ENTITY TO TEST : 22
+NUMBER OF TEST TO RUN : 7
+TOTAL TIME REQUIRED : 0.621963873 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$java.nio.charset.Charset$boolean$java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.write($java.lang.String$int$int)
+org.apache.commons.io.output.LockableFileWriter.write($char[]$int$int)
+org.apache.commons.io.output.LockableFileWriter.createLock()
+org.apache.commons.io.output.LockableFileWriter.write($java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.close()
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$boolean$java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.initWriter($java.io.File$java.nio.charset.Charset$boolean)
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$java.lang.String$boolean$java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.testLockDir($java.io.File)
+org.apache.commons.io.output.LockableFileWriter.write($char[])
+org.apache.commons.io.output.LockableFileWriter.write($int)
+org.apache.commons.io.output.LockableFileWriter.flush()
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$java.nio.charset.Charset)
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$java.lang.String)
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.io.output.LockableFileWriterTest.testConstructor_fileName_nullFile()
+org.apache.commons.io.output.LockableFileWriterTest.testConstructor_File_nullFile()
+org.apache.commons.io.output.LockableFileWriterTest.testConstructor_File_encoding_badEncoding()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$java.nio.charset.Charset$boolean$java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.write($java.lang.String$int$int)
+org.apache.commons.io.output.LockableFileWriter.lockFile
+org.apache.commons.io.output.LockableFileWriter.<init>($java.lang.String$boolean$java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.out
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File)
+org.apache.commons.io.output.LockableFileWriter.write($char[]$int$int)
+org.apache.commons.io.output.LockableFileWriter.createLock()
+org.apache.commons.io.output.LockableFileWriter.write($java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.close()
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$boolean)
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$boolean$java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.initWriter($java.io.File$java.nio.charset.Charset$boolean)
+org.apache.commons.io.output.LockableFileWriter.<init>($java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$java.lang.String$boolean$java.lang.String)
+org.apache.commons.io.output.LockableFileWriter.testLockDir($java.io.File)
+org.apache.commons.io.output.LockableFileWriter.write($char[])
+org.apache.commons.io.output.LockableFileWriter.write($int)
+org.apache.commons.io.output.LockableFileWriter.<init>($java.lang.String$boolean)
+org.apache.commons.io.output.LockableFileWriter.flush()
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$java.nio.charset.Charset)
+org.apache.commons.io.output.LockableFileWriter.<init>($java.io.File$java.lang.String)
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.output.LockableFileWriterTest.testConstructor_fileName_nullFile()
+org.apache.commons.io.output.LockableFileWriterTest.testConstructor_File_directory()
+org.apache.commons.io.output.LockableFileWriterTest.testConstructor_File_nullFile()
+org.apache.commons.io.output.LockableFileWriterTest.testFileLocked()
+org.apache.commons.io.output.LockableFileWriterTest.testFileNotLocked()
+org.apache.commons.io.output.LockableFileWriterTest.testAlternateLockDir()
+org.apache.commons.io.output.LockableFileWriterTest.testConstructor_File_encoding_badEncoding()

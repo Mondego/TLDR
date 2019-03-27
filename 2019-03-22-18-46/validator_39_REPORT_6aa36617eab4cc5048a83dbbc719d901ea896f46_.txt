@@ -1,0 +1,102 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 10
+NUMBER OF NEW OR CHANGED TESTS : 2
+NUMBER OF ENTITY TO TEST : 23
+NUMBER OF TEST TO RUN : 42
+TOTAL TIME REQUIRED : 0.594090893 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.validator.routines.InetAddressValidator.<clinit>()
+org.apache.commons.validator.GenericTypeValidator.formatDate($java.lang.String$java.lang.String$boolean)
+org.apache.commons.validator.GenericTypeValidator.LOG
+org.apache.commons.validator.routines.DomainValidator.isValid($java.lang.String)
+org.apache.commons.validator.GenericTypeValidator.formatDate($java.lang.String$java.util.Locale)
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet4Address($java.lang.String)
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet6Address($java.lang.String)
+org.apache.commons.validator.GenericTypeValidator.formatCreditCard($java.lang.String)
+org.apache.commons.validator.routines.InetAddressValidator.isValid($java.lang.String)
+org.apache.commons.validator.GenericTypeValidator.<clinit>()
+======================================================
+======================================================
+NEW OR CHANGED TESTS : 
+
+
+org.apache.commons.validator.routines.InetAddressValidatorTest.testBrokenInetAddresses()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testIPv6()
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.validator.routines.EmailValidator.isValidDomain($java.lang.String)
+org.apache.commons.validator.UrlValidator.isValid($java.lang.String)
+org.apache.commons.validator.GenericTypeValidator.class$org$apache$commons$validator$GenericTypeValidator
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet6Address($java.lang.String)
+org.apache.commons.validator.GenericTypeValidator.formatCreditCard($java.lang.String)
+org.apache.commons.validator.GenericValidator.isUrl($java.lang.String)
+org.apache.commons.validator.routines.InetAddressValidator.VALIDATOR
+org.apache.commons.validator.routines.InetAddressValidator.<clinit>()
+org.apache.commons.validator.GenericTypeValidator.formatDate($java.lang.String$java.lang.String$boolean)
+org.apache.commons.validator.routines.UrlValidator.isValid($java.lang.String)
+org.apache.commons.validator.routines.EmailValidator.isValid($java.lang.String)
+org.apache.commons.validator.GenericTypeValidator.LOG
+org.apache.commons.validator.routines.InetAddressValidator.getInstance()
+org.apache.commons.validator.routines.DomainValidator.isValid($java.lang.String)
+org.apache.commons.validator.GenericTypeValidator.formatDate($java.lang.String$java.util.Locale)
+org.apache.commons.validator.routines.InetAddressValidator.isValidInet4Address($java.lang.String)
+org.apache.commons.validator.EmailValidator.isValid($java.lang.String)
+org.apache.commons.validator.UrlValidator.isValidAuthority($java.lang.String)
+org.apache.commons.validator.routines.UrlValidator.isValidAuthority($java.lang.String)
+org.apache.commons.validator.EmailValidator.isValidDomain($java.lang.String)
+org.apache.commons.validator.routines.InetAddressValidator.isValid($java.lang.String)
+org.apache.commons.validator.GenericValidator.isEmail($java.lang.String)
+org.apache.commons.validator.GenericTypeValidator.<clinit>()
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.validator.routines.UrlValidatorTest.testIsValid()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testReservedInetAddresses()
+org.apache.commons.validator.routines.UrlValidatorTest.main($java.lang.String[])
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithSpaces()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailUserName()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmail()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithDotEnd()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailLocalhost()
+org.apache.commons.validator.UrlTest.testIsValid($java.lang.Object[]$int)
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator218()
+org.apache.commons.validator.UrlTest.testValidator202()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithDash()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithNumericAddress()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithCommas()
+org.apache.commons.validator.routines.EmailValidatorTest._testEmailFromPerl()
+org.apache.commons.validator.UrlTest.testValidator204()
+org.apache.commons.validator.routines.DomainValidatorTest.testValidDomains()
+org.apache.commons.validator.routines.DomainValidatorTest.testIDN()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailExtension()
+org.apache.commons.validator.routines.UrlValidatorTest.testIsValid($java.lang.Object[]$long)
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator276()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithSlashes()
+org.apache.commons.validator.routines.DomainValidatorTest.testTopLevelDomains()
+org.apache.commons.validator.UrlTest.testIsValid()
+org.apache.commons.validator.routines.DomainValidatorTest.testInvalidDomains()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testInetAddressesByClass()
+org.apache.commons.validator.routines.DomainValidatorTest.testAllowLocal()
+org.apache.commons.validator.GenericTypeValidatorImpl.validateDate($java.lang.Object$org.apache.commons.validator.Field$java.util.Locale)
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator204()
+org.apache.commons.validator.routines.EmailValidatorTest.testValidator293()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator248()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testBrokenInetAddresses()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testInetAddressesFromTheWild()
+org.apache.commons.validator.routines.InetAddressValidatorTest.testIPv6()
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator288()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithControlChars()
+org.apache.commons.validator.GenericValidatorImpl.validateEmail($java.lang.Object$org.apache.commons.validator.Field)
+org.apache.commons.validator.routines.UrlValidatorTest.testValidator202()
+org.apache.commons.validator.GenericTypeValidatorImpl.validateDate($java.lang.Object$org.apache.commons.validator.Field)
+org.apache.commons.validator.UrlTest.main($java.lang.String[])
+org.apache.commons.validator.EmailTest.testEmailWithControlChars()
+org.apache.commons.validator.routines.EmailValidatorTest.testEmailWithBogusCharacter()
