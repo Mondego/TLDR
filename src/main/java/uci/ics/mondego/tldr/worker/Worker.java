@@ -14,6 +14,5 @@ public abstract class Worker<E> implements Runnable{
 	
 	public String getName() {
         return this.name;
-    }
-	
+    }	
 }

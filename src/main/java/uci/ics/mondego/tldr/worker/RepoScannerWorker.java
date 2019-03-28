@@ -90,7 +90,7 @@ public class RepoScannerWorker extends Worker{
 	                }	                	         
 	            } 
 	            else if (file.isDirectory() && 
-	            		!App.allTestDirectory.containsKey(file.getAbsolutePath().toString())){
+	            		!App.allTestDirectories.containsKey(file.getAbsolutePath().toString())){
 	            		//!file.getAbsolutePath().equals(App.getTEST_DIR())) {
 	                scanClassFiles(file.getAbsolutePath());
 	            }

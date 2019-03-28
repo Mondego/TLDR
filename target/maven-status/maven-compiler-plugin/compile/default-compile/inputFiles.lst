@@ -5,6 +5,7 @@
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/AccessCodes.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/MavenPomProcessor.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/exception/DatabaseSyncException.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/worker/TestDependencyExtractorWorker.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/exception/UnknownDBIdException.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/worker/TestChangeAnalyzerAndIndexerWorker.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/indexer/RedisHandler.java

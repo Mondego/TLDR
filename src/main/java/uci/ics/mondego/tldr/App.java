@@ -18,7 +18,6 @@ import org.apache.log4j.Logger;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
-import uci.ics.mondego.tldr.resolution.IntraTestDFSTraversal;
 import uci.ics.mondego.tldr.tool.ConfigLoader;
 import uci.ics.mondego.tldr.tool.FindAllTestDirectory;
 import uci.ics.mondego.tldr.worker.ClassChangeAnalyzerWorker;
@@ -29,6 +28,7 @@ import uci.ics.mondego.tldr.worker.FileChangeAnalyzerWorker;
 import uci.ics.mondego.tldr.worker.IntraTestTraversalWorker;
 import uci.ics.mondego.tldr.worker.RepoScannerWorker;
 import uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker;
+import uci.ics.mondego.tldr.worker.TestDependencyExtractorWorker;
 import uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker;
 
 public class App 
@@ -44,16 +44,17 @@ public class App
     public static ThreadedChannel<String> DependencyGraphTraversalPool;
     public static ThreadedChannel<String> TestFileChangeAnalysisPool;
     public static ThreadedChannel<String> TestParseAndIndexPool;
+    public static ThreadedChannel<HashMap<String, Method>> TestDependencyExtractionPool;
     public static ThreadedChannel<String> EntityToTestMapPool;
     public static ThreadedChannel<String> IntraTestTraversalPool;
-
     
     public static ConcurrentHashMap<String, Boolean> entityToTest;
-    public static ConcurrentHashMap<String, Boolean> allTestDirectory;
+    public static ConcurrentHashMap<String, Boolean> allTestDirectories;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangedentities;
-    public static ConcurrentHashMap<String, Boolean> allNewAndChangedTests;
-    public static ConcurrentHashMap<String, Boolean> completeTestSet;
-
+    public static ConcurrentHashMap<String, Boolean> completeTestCaseSet;
+    public static ConcurrentHashMap<String, Method> allExtractedMethods;
+    public static ConcurrentHashMap<String, Method> allExtractedTestMethods;
+    
     public App(){
     	Date date = new Date();      
         String LogDate= new SimpleDateFormat("yyyyMMdd").format(date);
@@ -68,25 +69,24 @@ public class App
     	this.DependencyGraphTraversalPool = new ThreadedChannel<String>(config.getThread(),DFSTraversalWorker.class);
     	this.TestFileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), TestFileChangeAnalyzerWorker.class);
     	this.TestParseAndIndexPool = new ThreadedChannel<String>(config.getThread(), TestChangeAnalyzerAndIndexerWorker.class);
+    	this.TestDependencyExtractionPool = new ThreadedChannel<HashMap<String, Method>>(config.getThread(),TestDependencyExtractorWorker.class);
     	this.EntityToTestMapPool = new ThreadedChannel<String>(config.getThread(), EntityToTestMapWorker.class);
     	this.IntraTestTraversalPool = new ThreadedChannel<String>(config.getThread(), IntraTestTraversalWorker.class);
     	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
-    	this.allTestDirectory = new ConcurrentHashMap<String, Boolean>();
+    	this.allTestDirectories = new ConcurrentHashMap<String, Boolean>();
     	this.allNewAndChangedentities = new ConcurrentHashMap<String, Boolean>();
-    	this.allNewAndChangedTests = new ConcurrentHashMap<String, Boolean>();
-    	this.completeTestSet = new ConcurrentHashMap<String, Boolean>();
-    	
+    	this.completeTestCaseSet = new ConcurrentHashMap<String, Boolean>();
+        this.allExtractedMethods = new ConcurrentHashMap<String, Method>();
+        this.allExtractedTestMethods = new ConcurrentHashMap<String, Method>();
     }
 
     public static void main( String[] args )
     {    	
        //PropertyConfigurator.configure("log4j.properties");
        
-       ConfigLoader config = new ConfigLoader();
-       
+       ConfigLoader config = new ConfigLoader();      
        long startTime = System.nanoTime();
-       
        try{
 	       App executorInstance = new App();
 	       
@@ -99,7 +99,7 @@ public class App
 	       FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
 	       Set<String> allTestDir = find.getAllTestDir();
 	       for(String s: allTestDir){
-	    	   		allTestDirectory.put(s, true);
+	    	   	allTestDirectories.put(s, true);
 	       }
 	              	       
     	   RepoScannerWorker runnable = new RepoScannerWorker(CLASS_DIR);
@@ -107,34 +107,50 @@ public class App
    	       
 	       App.FileChangeAnalysisPool.shutdown();
 		   App.EntityChangeAnalysisPool.shutdown();
+		   
+		   for(Map.Entry<String, Method> entry: App.allExtractedMethods.entrySet()){
+			    HashMap<String, Method> map = new HashMap<String, Method>();
+			    map.put(entry.getKey(), entry.getValue());
+				App.DependencyExtractionPool.send(map);	
+		   }
+		   
 	       App.DependencyExtractionPool.shutdown();
-	       App.DependencyGraphTraversalPool.shutdown();
+	       /*** dangerous comment...uncomment if it doesn't work**/
+//	       App.DependencyGraphTraversalPool.shutdown(); 
     	   
 	       logger.debug("REPO SCANNING FOR TEST SUIT STARTS");
-	       RepoScannerWorker testMap =new RepoScannerWorker(TEST_DIR);
+	       RepoScannerWorker testMap = new RepoScannerWorker(TEST_DIR);
 	       //testMap.scanTestFiles(TEST_DIR);
 	       
-	       for(Entry<String, Boolean> e: allTestDirectory.entrySet()){
+	       for(Entry<String, Boolean> e: allTestDirectories.entrySet()){
 	    	   testMap.scanTestFiles(e.getKey());
 	       }
 	       
 	       App.TestFileChangeAnalysisPool.shutdown();
 	       App.TestParseAndIndexPool.shutdown();
-	       
+	        	       
+	       for(Map.Entry<String, Method> entry: App.allExtractedTestMethods.entrySet()){
+			    HashMap<String, Method> map = new HashMap<String, Method>();
+			    map.put(entry.getKey(), entry.getValue());
+				App.TestDependencyExtractionPool.send(map);	
+		   }
+	       	       
+    	   App.DependencyGraphTraversalPool.shutdown(); // comment out if problem 
+    	   App.TestDependencyExtractionPool.shutdown();
+	           	    	   
     	   logger.debug("REPO SCANNING, TEST PARSING, TEST INDEXING IS COMPLETE, NOW MAPPING STARTING");
-    	   
+    	       	   
     	   Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
 	       for(Map.Entry<String, Boolean> e: allEntries){
 	    	   //logger.debug(e.getKey()+"is being sent to the mapPool from App");
 	    	   App.EntityToTestMapPool.send(e.getKey());
 	       }
-
+	       	       
 	       App.EntityToTestMapPool.shutdown();
 	       App.IntraTestTraversalPool.shutdown();
 	       	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
-	       String print = getCommand();
-	       System.out.println(print);
+	       System.out.println(getCommand());
 	       /*****************************/
 	       
 	       long endTime = System.nanoTime();	 
@@ -145,6 +161,7 @@ public class App
        
        catch( JedisConnectionException e){
     	   System.err.println("NO CONNECTION DETECTED");
+    	   e.printStackTrace();
         }
        
        catch(ArrayIndexOutOfBoundsException e){
@@ -158,35 +175,37 @@ public class App
        }
        
        catch( ClassFormatException e){
+    	   e.printStackTrace();
     	   logger.error("Class Format malfunction : "+ e.getMessage());
        } 
        
        catch (SecurityException e) {
-			// TODO Auto-generated catch block
+    	    logger.error("Security Exception at : "+ e.getMessage());
 			e.printStackTrace();
 		}
        
        catch (InstantiationException e) {
-		// TODO Auto-generated catch block
+    	   logger.error("InstantiationException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
        } 
        
        catch (IllegalAccessException e) {
-		// TODO Auto-generated catch block
+    	   logger.error("IllegalAccessException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
 	   } 
        
        catch (IllegalArgumentException e) {
-		// TODO Auto-generated catch block
+    	   logger.error("IllegalArgumentException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
        } 
        
        catch (InvocationTargetException e) {
+    	   logger.error("InvocationTargetException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
        } 
        
        catch (NoSuchMethodException e) {
-		   
+    	   logger.error("NoSuchMethodException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
        } 
        
@@ -202,9 +221,8 @@ public class App
 		try {
 			writer1 = new PrintWriter(project+"_"+pair+"_REPORT_"+commit+"_.txt", "UTF-8");
 			writer1.println("NUMBER OF NEW OR CHANGED ENTITIES : "+allNewAndChangedentities.size());	   
-			writer1.println("NUMBER OF NEW OR CHANGED TESTS : "+allNewAndChangedTests.size());	   
 			writer1.println("NUMBER OF ENTITY TO TEST : "+entityToTest.size());	   
-			writer1.println("NUMBER OF TEST TO RUN : "+completeTestSet.size());	   
+			writer1.println("NUMBER OF TEST TO RUN : "+completeTestCaseSet.size());	   
 			writer1.println("TOTAL TIME REQUIRED : "+elapsedTimeInSecond+" second");	
 			writer1.println("======================================================");
 			writer1.println("======================================================");
@@ -217,16 +235,7 @@ public class App
 	    	
 	    	writer1.println("======================================================");
 			writer1.println("======================================================");
-			
-			allEntries = App.allNewAndChangedTests.entrySet();
-			writer1.println("NEW OR CHANGED TESTS : \n\n");	   
-	    	for(Entry<String, Boolean> e: allEntries){
-	    		writer1.println(e.getKey());
-	    	}
-	    	
-	    	writer1.println("======================================================");
-			writer1.println("======================================================");
-			
+						
 			allEntries = App.entityToTest.entrySet();
 			writer1.println("ALL ENTITY TO TEST : \n\n");	   
 	    	for(Entry<String, Boolean> e: allEntries){
@@ -236,7 +245,7 @@ public class App
 	    	writer1.println("======================================================");
 			writer1.println("======================================================");
 			
-			allEntries = App.completeTestSet.entrySet();
+			allEntries = App.completeTestCaseSet.entrySet();
 			writer1.println("ALL TESTS TO RUN : \n\n");	   
 	    	for(Entry<String, Boolean> e: allEntries){
 	    		writer1.println(e.getKey());
@@ -245,39 +254,40 @@ public class App
 		} 
 		
 		catch (FileNotFoundException e) {
+	    	logger.error("File Not Found Exception while writing report : "+ e.getMessage());
 			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
+		} 
+		catch (UnsupportedEncodingException e) {
+			logger.error("UnsupportedEncodingException while writing report : "+ e.getMessage());
 			e.printStackTrace();
 		}    	
     }
-    
-    
+     
     /*** this method prepares the command suitable for sure-fire plugin********/
     private static String getCommand(){
-    	  StringBuilder sb = new StringBuilder();
-	       //sb.append("mvn test -Dtest=");
-	       Set<Map.Entry<String, Boolean>> all = completeTestSet.entrySet();
-	       int i=0;
-	       for(Entry<String, Boolean> es: all){
-	    	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
-	    		   continue;
-	    	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
-	    	   sb.append(pkg.substring(0,pkg.lastIndexOf('.')));
-	    	   String func = pkg.substring(pkg.lastIndexOf('.')+1);
-	    	   sb.append("#");
-	    	   sb.append(func);
-	    	   if(i != (completeTestSet.size() - 1))
-	    		   sb.append(",");
-	    	   i++;
-	       }
-	       return sb.toString();
+	   StringBuilder sb = new StringBuilder();
+       Set<Map.Entry<String, Boolean>> all = completeTestCaseSet.entrySet();
+       int i=0;
+       for(Entry<String, Boolean> es: all){
+    	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
+    		   continue;
+    	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
+    	   sb.append(pkg.substring(0,pkg.lastIndexOf('.')));
+    	   String func = pkg.substring(pkg.lastIndexOf('.')+1);
+    	   sb.append("#");
+    	   sb.append(func);
+    	   if(i != (completeTestCaseSet.size() - 1))
+    		   sb.append(",");
+    	   i++;
+       }
+       return sb.toString();
     }
     
     public static String getCLASS_DIR(){
-    		return CLASS_DIR;
+    	return CLASS_DIR;
     }
     
     public static String getTEST_DIR(){
-    		return TEST_DIR;
+    	return TEST_DIR;
     }
 }

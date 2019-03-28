@@ -2,7 +2,6 @@ package uci.ics.mondego.tldr.changeanalyzer;
 
 import java.io.EOFException;
 import java.io.IOException;
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +25,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	private Map<String, Integer> allPreviousTestCases;
 	private List<String> allInterfaces;
 	private String superClass;
+	private Map<String, Method> allExtractedMethods;
 	
 	public TestChangeAnalyzer(String className) throws IOException, DatabaseSyncException, EOFException{
 		super(className);
@@ -34,6 +34,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		this.allPreviousTestCases = new HashMap<String, Integer>();
 		this.allInterfaces = new ArrayList<String>();
 		this.superClass = "";
+		this.allExtractedMethods = new HashMap<String, Method>();
 		Set<String> prevTst = database.getAllKeysByPattern
 				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
 		
@@ -93,6 +94,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		} 
 		catch (Exception e) {
 			logger.error(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	
@@ -103,6 +105,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		} 
 		catch (Exception e) {
 			logger.error(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	
@@ -185,18 +188,16 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				if(!this.allPreviousTestCases.containsKey(methodFqn)){
 					//logger.debug(methodFqn+" is new test, added to testToRun");
-					App.completeTestSet.put(methodFqn, true);
-					App.allNewAndChangedTests.put(methodFqn, true);
+					App.completeTestCaseSet.put(methodFqn, true);
+					this.allExtractedMethods.put(methodFqn, m);
 										
 					boolean ret1 = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 				    
-					boolean ret2 = this.sync(Databases.TABLE_ID_TEST_ENTITY, methodFqn, "TRUE");
+					boolean ret2 = this.sync(Databases.TABLE_ID_TEST_ENTITY, methodFqn, "1");
 					if(!ret1 && !ret2){
 						throw new DatabaseSyncException(methodFqn);
 					}
 					//logger.info(methodFqn+" didn't exist in db...added");					
-					Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);					
-					DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 				}
 				
 				else{
@@ -205,16 +206,13 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					
 					if(!currentHashCode.equals(prevHashCode)){
 						//logger.debug(methodFqn+" is changed test, added to testToRun");
-						App.completeTestSet.put(methodFqn, true);						
-						App.allNewAndChangedTests.put(methodFqn, true);
+						App.completeTestCaseSet.put(methodFqn, true);						
+						this.allExtractedMethods.put(methodFqn, m);
 						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						
 						if(!ret){
 							throw new DatabaseSyncException(methodFqn);
 						}
-						
-						Map.Entry<String, Method> map = new  AbstractMap.SimpleEntry<String, Method>(methodFqn, m);	
-						DependencyExtractor2 dep = new DependencyExtractor2(map, true);
 					}
 				}
 			}
@@ -243,5 +241,9 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		    }  
 		}
 		return count;
+	}
+	
+	public Map<String, Method> getAllExtractedMethods(){
+		return allExtractedMethods;
 	}
 }

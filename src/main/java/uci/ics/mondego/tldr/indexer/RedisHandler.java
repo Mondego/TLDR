@@ -110,7 +110,8 @@ public class RedisHandler{
 	}
 	
 	public String getValueByKey(String tableId, String key) throws JedisConnectionException{ 
-	    String ret = jedis.get(tableId+key);
+	    String tt= tableId+key;
+		String ret = jedis.get(tableId+key);
 	    return ret;
 	}
 	
@@ -139,9 +140,11 @@ public class RedisHandler{
 		
 		//INSERT IN FORWARD INDEX		
 		String forwardTableId = null;
+		
 		if(tableId.equals(Databases.TABLE_ID_DEPENDENCY)){
 			forwardTableId = Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY;
 		}
+		
 		else if(tableId.equals(Databases.TABLE_ID_TEST_DEPENDENCY)){
 			forwardTableId = Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY;
 		}

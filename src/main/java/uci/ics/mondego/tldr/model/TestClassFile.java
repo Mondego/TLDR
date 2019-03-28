@@ -1,12 +1,18 @@
 package uci.ics.mondego.tldr.model;
 
-public class TestClassFile extends SourceFile{
+import org.apache.bcel.classfile.JavaClass;
 
-	private String TestClassFileName;
+public class TestClassFile extends ClassFile{
+	enum Annotation 
+	{ 
+	    Test, 
+	    Before, 
+	    Aftet,
+	    BeforeClass,
+	    AfterClass;
+	};
 	
-	public TestClassFile(String name) {
-		super(name);
-		this.TestClassFileName = name;
+	public TestClassFile(String name, JavaClass code) {
+		super(name, code);		
 	}
-	
 }

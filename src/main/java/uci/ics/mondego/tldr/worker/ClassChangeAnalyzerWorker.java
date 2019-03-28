@@ -50,25 +50,16 @@ public class ClassChangeAnalyzerWorker extends Worker{
 	 		if(m.size() > 0){
 	 			//logger.debug(className.substring(className.lastIndexOf("/"))
 	 			//		+" -- Some method changed and sent to DependencyExtractionPool");
-	 			App.DependencyExtractionPool.send(m);	
+	 			
+	 			App.allExtractedMethods.putAll(m);
+	 				 			
+	 			//App.DependencyExtractionPool.send(m);	
 	 		}
 		} 
 		catch (IOException e1) {
 			e1.printStackTrace();
 		} 
-		catch (InstantiationException e1) {
-			e1.printStackTrace();
-		} 
-		catch (IllegalAccessException e1) {
-			e1.printStackTrace();
-		} 
 		catch (IllegalArgumentException e1) {
-			e1.printStackTrace();
-		} 
-		catch (InvocationTargetException e1) {
-			e1.printStackTrace();
-		} 
-		catch (NoSuchMethodException e1) {
 			e1.printStackTrace();
 		} 
 		catch (SecurityException e1) {

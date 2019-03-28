@@ -74,6 +74,17 @@ public class ThreadedChannel<E> {
 	        }
     }
     
+    public boolean isRunning(){
+    	boolean ret = true;
+    	try{
+    		ret = !this.executor.isShutdown();
+    	}
+    	catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Problem in terminating "+workerType.getName());
+        }
+    	return ret;
+    }
     
     public void shutdown() {
     	logger.debug(workerType.getName()+" Ending");
