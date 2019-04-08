@@ -150,7 +150,11 @@ public class App
 	       App.IntraTestTraversalPool.shutdown();
 	       	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
-	       System.out.println(getCommand());
+	       if(args[3].equals("maven"))
+	    	   System.out.println(getTestFilterForMaven());
+	       else if(args[3].equals("gradle"))
+	    	   System.out.println(getTestFilterForGradle());
+	       
 	       /*****************************/
 	       
 	       long endTime = System.nanoTime();	 
@@ -264,7 +268,7 @@ public class App
     }
      
     /*** this method prepares the command suitable for sure-fire plugin********/
-    private static String getCommand(){
+    private static String getTestFilterForMaven(){
 	   StringBuilder sb = new StringBuilder();
        Set<Map.Entry<String, Boolean>> all = completeTestCaseSet.entrySet();
        int i=0;
@@ -276,12 +280,45 @@ public class App
     	   String func = pkg.substring(pkg.lastIndexOf('.')+1);
     	   sb.append("#");
     	   sb.append(func);
-    	   if(i != (completeTestCaseSet.size() - 1))
-    		   sb.append(",");
     	   i++;
+    	   if(i % 1000 == 0){
+    		   sb.append(" ");
+    	   }
+    	   else if(i != (completeTestCaseSet.size() - 1))
+    		   sb.append(",");
        }
        return sb.toString();
     }
+    /*test {
+    filter {
+        includeTestsMatching '*shouldRunInMultipleThreads'
+    }
+}*/
+    
+    private static String getTestFilterForGradle(){
+ 	    StringBuilder sb = new StringBuilder();
+        Set<Map.Entry<String, Boolean>> all = completeTestCaseSet.entrySet();
+        if(all.size() == 0){
+        	return "";
+        }
+        sb.append("test {\n");
+        sb.append("filter {\n");
+        
+        for(Entry<String, Boolean> es: all){
+     	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
+     		   continue;
+     	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
+     	   sb.append("includeTestsMatching ");
+     	   sb.append("'");
+     	   sb.append(pkg);
+     	   sb.append("'");
+     	   sb.append("\n");    	   
+        }
+        sb.append("}\n");
+        sb.append("}\n");
+
+        return sb.toString();
+     }
     
     public static String getCLASS_DIR(){
     	return CLASS_DIR;

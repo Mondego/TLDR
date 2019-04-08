@@ -1,0 +1,78 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 9
+NUMBER OF ENTITY TO TEST : 21
+NUMBER OF TEST TO RUN : 29
+TOTAL TIME REQUIRED : 0.827409235 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+org.apache.commons.lang3.time.DurationFormatUtils.formatDurationWords($long$boolean$boolean)
+org.apache.commons.lang3.time.DurationFormatUtils.paddedValue($long$boolean$int)
+org.apache.commons.lang3.time.DurationFormatUtils.<clinit>()
+org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod($long$long$java.lang.String)
+org.apache.commons.lang3.time.DurationFormatUtils.formatPeriodISO($long$long)
+org.apache.commons.lang3.time.DurationFormatUtils.lexx($java.lang.String)
+org.apache.commons.lang3.time.DurationFormatUtils.format($org.apache.commons.lang3.time.DurationFormatUtils$Token[]$long$long$long$long$long$long$long$boolean)
+org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod($long$long$java.lang.String$boolean$java.util.TimeZone)
+org.apache.commons.lang3.time.DurationFormatUtils.formatDuration($long$java.lang.String$boolean)
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+org.apache.commons.lang3.time.DurationFormatUtils.formatDuration($long$java.lang.String)
+org.apache.commons.lang3.time.StopWatch.toSplitString()
+org.apache.commons.lang3.time.DurationFormatUtils.formatDurationWords($long$boolean$boolean)
+org.apache.commons.lang3.time.DurationFormatUtils.paddedValue($long$boolean$int)
+org.apache.commons.lang3.time.DurationFormatUtils.formatPeriodISO($long$long)
+org.apache.commons.lang3.time.DurationFormatUtils.lexx($java.lang.String)
+org.apache.commons.lang3.time.DurationFormatUtils.y
+org.apache.commons.lang3.time.DurationFormatUtils.formatDuration($long$java.lang.String$boolean)
+org.apache.commons.lang3.time.DurationFormatUtils.formatDurationISO($long)
+org.apache.commons.lang3.time.DurationFormatUtils.s
+org.apache.commons.lang3.time.DurationFormatUtils.S
+org.apache.commons.lang3.time.DurationFormatUtils.<clinit>()
+org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod($long$long$java.lang.String)
+org.apache.commons.lang3.time.StopWatch.toString()
+org.apache.commons.lang3.time.DurationFormatUtils.m
+org.apache.commons.lang3.time.DurationFormatUtils.M
+org.apache.commons.lang3.time.DurationFormatUtils.format($org.apache.commons.lang3.time.DurationFormatUtils$Token[]$long$long$long$long$long$long$long$boolean)
+org.apache.commons.lang3.time.DurationFormatUtils.H
+org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod($long$long$java.lang.String$boolean$java.util.TimeZone)
+org.apache.commons.lang3.time.DurationFormatUtils.formatDurationHMS($long)
+org.apache.commons.lang3.time.DurationFormatUtils.d
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatDurationHMS()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testBugzilla38401()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatNegativeDurationISO()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatDurationPluralWords()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatNegativeDuration()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testJiraLang281()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.assertEqualDuration($java.lang.String$int[]$int[]$java.lang.String)
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testLowDurations()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatNegativeDurationWords()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testLexx()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testDurationsByBruteForce()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testLANG984()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatDurationWords()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatPeriodeStartGreaterEnd()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testLANG981()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testLANG982()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatPeriodISO()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testLANG815()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.assertEqualDuration($java.lang.String$java.lang.String$int[]$int[]$java.lang.String)
+org.apache.commons.lang3.time.StopWatchTest.testStopWatchSplit()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatPeriodISOMethod()
+org.apache.commons.lang3.time.StopWatchTest.testStopWatchSimpleGet()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatPeriod()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatDurationISO()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatDuration()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.bruteForce($int$int$int$java.lang.String$int)
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatPeriodISOStartGreaterEnd()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testFormatNegativeDurationHMS()
+org.apache.commons.lang3.time.DurationFormatUtilsTest.testEdgeDurations()

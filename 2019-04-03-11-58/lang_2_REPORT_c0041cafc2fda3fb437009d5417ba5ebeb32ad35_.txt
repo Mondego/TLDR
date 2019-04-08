@@ -1,0 +1,20 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 1
+TOTAL TIME REQUIRED : 0.662012247 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.lang3.text.translate.NumericEntityEscaperTest.testSupplementary()

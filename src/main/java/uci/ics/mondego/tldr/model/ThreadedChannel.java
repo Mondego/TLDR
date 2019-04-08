@@ -46,10 +46,7 @@ public class ThreadedChannel<E> {
             NoSuchMethodException, SecurityException {
     	
           long startTime = System.nanoTime();
-          //final Runnable o = workerType;
-          
-           final Runnable o = this.workerType.getDeclaredConstructor(e.getClass()).newInstance(e);
-           
+           final Runnable o = this.workerType.getDeclaredConstructor(e.getClass()).newInstance(e);           
 	        try {           
 	            semaphore.acquire();
 	            

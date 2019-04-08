@@ -1,0 +1,24 @@
+NUMBER OF NEW OR CHANGED ENTITIES : 0
+NUMBER OF ENTITY TO TEST : 0
+NUMBER OF TEST TO RUN : 5
+TOTAL TIME REQUIRED : 0.634510871 second
+======================================================
+======================================================
+NEW OR CHANGED ENTITIES : 
+
+
+======================================================
+======================================================
+ALL ENTITY TO TEST : 
+
+
+======================================================
+======================================================
+ALL TESTS TO RUN : 
+
+
+org.apache.commons.io.input.TailerTest.testTailer()
+org.apache.commons.io.input.TailerTest.createFile($java.io.File$long)
+org.apache.commons.io.input.TailerTest.testStopWithNoFileUsingExecutor()
+org.apache.commons.io.input.TailerTest.tearDown()
+org.apache.commons.io.input.TailerTest.testStopWithNoFile()
