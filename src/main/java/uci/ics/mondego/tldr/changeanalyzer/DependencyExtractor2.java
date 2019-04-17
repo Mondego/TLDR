@@ -12,7 +12,6 @@ import org.apache.bcel.classfile.Method;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.exception.UnknownDBIdException;
 import uci.ics.mondego.tldr.extractor.MethodParser;
@@ -142,8 +141,7 @@ public class DependencyExtractor2 {
 			}
 			this.fieldValueChanged.addAll(allStaticFieldUpdated);
 			this.fieldValueChanged.addAll(allOwnFieldUpdated);
-			*/
-			
+			*/		
 			for(String dep: allVirtualDependency){				
 				this.syncAllPossibleDependency(dep, dependent);
 			}
@@ -231,7 +229,6 @@ public class DependencyExtractor2 {
 	
 	protected List<String> traverseClassHierarchyUpwards(String claz, String pattern){	
 		List<String> toTest = new ArrayList<String>();
-		String dependents = claz+'.'+pattern;
 		
 		if(this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)){
 			toTest.add(claz+"."+pattern);
@@ -246,7 +243,7 @@ public class DependencyExtractor2 {
 		}
 		return toTest;
 	}
-	
+		
 	protected void syncAllPossibleDependency(String dependency, String dependents){
 		
 		// JDK DEPENDENCY IGNORED
@@ -273,22 +270,20 @@ public class DependencyExtractor2 {
 			String pattern = sb.toString();
 			String claz = dependency.substring(0, dependency.indexOf(pattern) >=0? 
 					dependency.indexOf(pattern) - 1: dependency.length());
-						
+				
 			List<String> keysDown = traverseClassHierarchyDownwards(claz, pattern);
 			if(!CollectionUtils.isEmpty(keysDown)){
 				for(String k: keysDown){
 					addDependentsInDb(k, dependents); // because we have to remove table id
 				}
 			}
-			
+						
 			List<String> keysUp = traverseClassHierarchyUpwards(claz, pattern);
-			
 			if(CollectionUtils.isEmpty(keysUp))
 				return;
 			for(String k: keysUp){
 				addDependentsInDb(k, dependents); // because we have to remove table id
-			}
-						
+			}					
 		}
 		
 		catch(NullPointerException e){
@@ -297,12 +292,15 @@ public class DependencyExtractor2 {
 		} 
 		catch(StringIndexOutOfBoundsException e){
 			e.printStackTrace();
+			logger.error("StringIndexOutOfBoundException at method syncAll"+e.getMessage());
 		}
 		catch (UnknownDBIdException e) {
 			e.printStackTrace();
+			logger.error("UnknownDBIdException at method syncAll"+e.getMessage());
 		} 
 		catch (NullDbIdException e) {
 			e.printStackTrace();
+			logger.error("NullDbIdException at method syncAll"+e.getMessage());
 		}
 	}
 	
@@ -316,9 +314,11 @@ public class DependencyExtractor2 {
 		} 
 		catch (UnknownDBIdException e) {
 			e.printStackTrace();
+			logger.error("UnknownDBIdException at method syncSingle"+e.getMessage());
 		} 	
 		catch (NullDbIdException e) {
 			e.printStackTrace();
+			logger.error("NullDbIdException at method syncSingle"+e.getMessage());
 		}
 	}
 	

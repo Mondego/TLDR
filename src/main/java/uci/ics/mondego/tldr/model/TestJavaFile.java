@@ -2,7 +2,6 @@ package uci.ics.mondego.tldr.model;
 
 public class TestJavaFile extends SourceFile{
 	
-	
 	enum Annotation 
 	{ 
 	    Test, 

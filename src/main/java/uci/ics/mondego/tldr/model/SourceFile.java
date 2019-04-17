@@ -25,6 +25,5 @@ public abstract class SourceFile implements Entities{
 	
 	private String getNameFromAbsolutePath(String path){
 		return path.lastIndexOf('/') == -1 ? path : path.substring(path.lastIndexOf('/') + 1);
-	}
-	
+	}	
 }

@@ -59,8 +59,17 @@ public class MavenPomProcessor {
 						    		model.setDependencies(oldDependencies);
 					    		}
 					    		else{
-					    			oldDependencies.get(i).setVersion("4.8.1");
-						    		model.setDependencies(oldDependencies);
+					    			String version = oldDependencies.get(i).getVersion();
+					    			if(!(version.contains("4.11") || version.contains("4.12") ||
+					    					version.contains("4.10") || version.contains("4.9") || 
+					    					version.contains("4.8"))){
+						    			oldDependencies.get(i).setVersion("4.8.1");
+							    		model.setDependencies(oldDependencies);
+					    			}
+					    			else{
+							    		model.setDependencies(oldDependencies);
+					    			}
+
 					    		}
 					    	}
 					    }

@@ -46,10 +46,7 @@ public class ThreadedChannel<E> {
             NoSuchMethodException, SecurityException {
     	
           long startTime = System.nanoTime();
-          //final Runnable o = workerType;
-          
-           final Runnable o = this.workerType.getDeclaredConstructor(e.getClass()).newInstance(e);
-           
+           final Runnable o = this.workerType.getDeclaredConstructor(e.getClass()).newInstance(e);           
 	        try {           
 	            semaphore.acquire();
 	            
@@ -74,6 +71,17 @@ public class ThreadedChannel<E> {
 	        }
     }
     
+    public boolean isRunning(){
+    	boolean ret = true;
+    	try{
+    		ret = !this.executor.isShutdown();
+    	}
+    	catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Problem in terminating "+workerType.getName());
+        }
+    	return ret;
+    }
     
     public void shutdown() {
     	logger.debug(workerType.getName()+" Ending");

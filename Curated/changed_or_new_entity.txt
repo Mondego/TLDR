@@ -1,4 +1,0 @@
-org.apache.commons.io.input.XmlStreamReader.isAppXml($java.lang.String)
-org.apache.commons.io.input.XmlStreamReader.isTextXml($java.lang.String)
-org.apache.commons.io.input.XmlStreamReader.<clinit>()
-org.apache.commons.io.input.XmlStreamReader.getXmlProlog($java.io.InputStream$java.lang.String)

@@ -59,8 +59,7 @@ public class EntityToTestMapWorker extends Worker{
 	   for(String str: tests){
  		   //logger.debug(str+" maps to "+entity+" and written to testToRun");	
 		   App.IntraTestTraversalPool.send(str);
- 	   }  
- 	   
+ 	   }  	   
 	   map.closeRedis();
 	}
 }

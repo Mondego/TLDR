@@ -47,13 +47,14 @@ public class IntraTestTraversalWorker extends Worker{
 	private void extractTransitiveDependency() throws InstantiationException, 
 	    IllegalAccessException, IllegalArgumentException, InvocationTargetException, 
 	    NoSuchMethodException, SecurityException{
-		
+				
 		IntraTestDFSTraversal dfs = new IntraTestDFSTraversal();	             
 	    List<String> dep = dfs.get_all_dependent(entity);
 	    dfs.closeRedis();
+	    
 	   // logger.debug(entity+" -- Intratest DFS TRaversal done, test is written to App");
 	    for(int i=0;i<dep.size();i++){
-	    	App.completeTestSet.put(dep.get(i), true);
+	    	App.completeTestCaseSet.put(dep.get(i), true);
 	    }      
 	}
 }

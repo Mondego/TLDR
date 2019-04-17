@@ -1,0 +1,7 @@
+* make it a maven plugin
+
+* make it suitable for multi-module projects
+
+* take care of reflection
+
+* use docker
