@@ -188,9 +188,9 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				if(!this.allPreviousTestCases.containsKey(methodFqn)){
 					//logger.debug(methodFqn+" is new test, added to testToRun");
-					App.completeTestCaseSet.put(methodFqn, true);
+					App.allNewAndChangeTests.put(methodFqn, true);
 					this.allExtractedMethods.put(methodFqn, m);
-										
+								
 					boolean ret1 = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 				    
 					boolean ret2 = this.sync(Databases.TABLE_ID_TEST_ENTITY, methodFqn, "1");
@@ -206,7 +206,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					
 					if(!currentHashCode.equals(prevHashCode)){
 						//logger.debug(methodFqn+" is changed test, added to testToRun");
-						App.completeTestCaseSet.put(methodFqn, true);						
+						App.allNewAndChangeTests.put(methodFqn, true);						
 						this.allExtractedMethods.put(methodFqn, m);
 						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						

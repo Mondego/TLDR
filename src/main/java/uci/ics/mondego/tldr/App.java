@@ -54,6 +54,7 @@ public class App
     public static ConcurrentHashMap<String, Boolean> completeTestCaseSet;
     public static ConcurrentHashMap<String, Method> allExtractedMethods;
     public static ConcurrentHashMap<String, Method> allExtractedTestMethods;
+    public static ConcurrentHashMap<String, Boolean> allNewAndChangeTests;
     
     public App(){
     	Date date = new Date();      
@@ -76,6 +77,7 @@ public class App
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.allTestDirectories = new ConcurrentHashMap<String, Boolean>();
     	this.allNewAndChangedentities = new ConcurrentHashMap<String, Boolean>();
+    	this.allNewAndChangeTests = new ConcurrentHashMap<String, Boolean>();
     	this.completeTestCaseSet = new ConcurrentHashMap<String, Boolean>();
         this.allExtractedMethods = new ConcurrentHashMap<String, Method>();
         this.allExtractedTestMethods = new ConcurrentHashMap<String, Method>();
@@ -90,8 +92,8 @@ public class App
        try{
 	       App executorInstance = new App();
 	       
-	       //CLASS_DIR = config.getCLASS_DIR();
-	       CLASS_DIR = args[1];
+	       CLASS_DIR = config.getCLASS_DIR();
+	       //CLASS_DIR = args[1];
 	      
 	       //TEST_DIR = config.getTEST_DIR(); 
 	       //allTestDirectory.put(TEST_DIR, true); /*** comment out later *****/
@@ -147,20 +149,28 @@ public class App
 	       }
 	       	       
 	       App.EntityToTestMapPool.shutdown();
+	       
+	       for(Map.Entry<String, Boolean> entry: allNewAndChangeTests.entrySet()){
+	    	   App.IntraTestTraversalPool.send(entry.getKey());
+	       }
+	       
 	       App.IntraTestTraversalPool.shutdown();
 	       	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
-	       if(args[3].equals("maven"))
+	       /*if(args[3].equals("maven"))
 	    	   System.out.println(getTestFilterForMaven());
 	       else if(args[3].equals("gradle"))
-	    	   System.out.println(getTestFilterForGradle());
+	    	   System.out.println(getTestFilterForGradle());*/
 	       
 	       /*****************************/
 	       
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
-	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;	       	       
-	       logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
+	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
+
+	       System.out.println(completeTestCaseSet);
+	       
+	       //logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
        }
        
        catch( JedisConnectionException e){
@@ -289,11 +299,6 @@ public class App
        }
        return sb.toString();
     }
-    /*test {
-    filter {
-        includeTestsMatching '*shouldRunInMultipleThreads'
-    }
-}*/
     
     private static String getTestFilterForGradle(){
  	    StringBuilder sb = new StringBuilder();
