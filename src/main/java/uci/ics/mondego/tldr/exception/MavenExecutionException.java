@@ -1,6 +1,6 @@
 package uci.ics.mondego.tldr.exception;
 
-public class MavenExecutionException {
+public class MavenExecutionException extends Exception{
 
 	 String message;
 	   

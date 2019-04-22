@@ -16,6 +16,8 @@ import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import redis.clients.jedis.exceptions.JedisConnectionException;
+import uci.ics.mondego.tldr.model.TestReport;
+import uci.ics.mondego.tldr.experiments.JUnitRunner;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
 import uci.ics.mondego.tldr.tool.ConfigLoader;
@@ -30,6 +32,7 @@ import uci.ics.mondego.tldr.worker.RepoScannerWorker;
 import uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker;
 import uci.ics.mondego.tldr.worker.TestDependencyExtractorWorker;
 import uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker;
+import uci.ics.mondego.tldr.worker.TestRunnerWorker;
 
 public class App 
 {
@@ -47,6 +50,8 @@ public class App
     public static ThreadedChannel<HashMap<String, Method>> TestDependencyExtractionPool;
     public static ThreadedChannel<String> EntityToTestMapPool;
     public static ThreadedChannel<String> IntraTestTraversalPool;
+    public static ThreadedChannel<String> TestRunnerPool;
+
     
     public static ConcurrentHashMap<String, Boolean> entityToTest;
     public static ConcurrentHashMap<String, Boolean> allTestDirectories;
@@ -55,6 +60,8 @@ public class App
     public static ConcurrentHashMap<String, Method> allExtractedMethods;
     public static ConcurrentHashMap<String, Method> allExtractedTestMethods;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangeTests;
+    public static ConcurrentHashMap<String, TestReport> allTestReport;
+    
     
     public App(){
     	Date date = new Date();      
@@ -73,6 +80,7 @@ public class App
     	this.TestDependencyExtractionPool = new ThreadedChannel<HashMap<String, Method>>(config.getThread(),TestDependencyExtractorWorker.class);
     	this.EntityToTestMapPool = new ThreadedChannel<String>(config.getThread(), EntityToTestMapWorker.class);
     	this.IntraTestTraversalPool = new ThreadedChannel<String>(config.getThread(), IntraTestTraversalWorker.class);
+    	this.TestRunnerPool = new ThreadedChannel<String>(config.getThread(), TestRunnerWorker.class);
     	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.allTestDirectories = new ConcurrentHashMap<String, Boolean>();
@@ -81,6 +89,7 @@ public class App
     	this.completeTestCaseSet = new ConcurrentHashMap<String, Boolean>();
         this.allExtractedMethods = new ConcurrentHashMap<String, Method>();
         this.allExtractedTestMethods = new ConcurrentHashMap<String, Method>();
+        this.allTestReport = new ConcurrentHashMap<String, TestReport> ();
     }
 
     public static void main( String[] args )
@@ -93,11 +102,9 @@ public class App
 	       App executorInstance = new App();
 	       
 	       CLASS_DIR = config.getCLASS_DIR();
+	       System.out.println("hello there");
 	       //CLASS_DIR = args[1];
-	      
-	       //TEST_DIR = config.getTEST_DIR(); 
-	       //allTestDirectory.put(TEST_DIR, true); /*** comment out later *****/
-	       
+	      	       
 	       FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
 	       Set<String> allTestDir = find.getAllTestDir();
 	       for(String s: allTestDir){
@@ -117,12 +124,9 @@ public class App
 		   }
 		   
 	       App.DependencyExtractionPool.shutdown();
-	       /*** dangerous comment...uncomment if it doesn't work**/
-//	       App.DependencyGraphTraversalPool.shutdown(); 
     	   
 	       logger.debug("REPO SCANNING FOR TEST SUIT STARTS");
 	       RepoScannerWorker testMap = new RepoScannerWorker(TEST_DIR);
-	       //testMap.scanTestFiles(TEST_DIR);
 	       
 	       for(Entry<String, Boolean> e: allTestDirectories.entrySet()){
 	    	   testMap.scanTestFiles(e.getKey());
@@ -144,7 +148,6 @@ public class App
     	       	   
     	   Set<Map.Entry<String, Boolean>> allEntries = App.entityToTest.entrySet();
 	       for(Map.Entry<String, Boolean> e: allEntries){
-	    	   //logger.debug(e.getKey()+"is being sent to the mapPool from App");
 	    	   App.EntityToTestMapPool.send(e.getKey());
 	       }
 	       	       
@@ -155,21 +158,24 @@ public class App
 	       }
 	       
 	       App.IntraTestTraversalPool.shutdown();
-	       	       
+	       for(Map.Entry<String, Boolean> entry: completeTestCaseSet.entrySet()){
+	    	   App.TestRunnerPool.send(entry.getKey());
+	       }
+	       
+	       App.TestRunnerPool.shutdown();
+	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
 	       /*if(args[3].equals("maven"))
 	    	   System.out.println(getTestFilterForMaven());
 	       else if(args[3].equals("gradle"))
 	    	   System.out.println(getTestFilterForGradle());*/
-	       
 	       /*****************************/
 	       
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
 	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
+	       //System.out.println(getTestFilterForMaven());
 
-	       System.out.println(completeTestCaseSet);
-	       
 	       //logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
        }
        
@@ -226,6 +232,7 @@ public class App
        finally{
     	   RedisHandler.destroyPool();
     	   logger.debug("Ending the Pipeline");
+	       printReport();
        }
     }
     
@@ -331,5 +338,17 @@ public class App
     
     public static String getTEST_DIR(){
     	return TEST_DIR;
+    }
+    
+    private static void printReport(){
+    	int i = 0;
+    	for(Map.Entry<String, TestReport> entry: App.allTestReport.entrySet()){   		
+			i++;
+			System.out.println(i+" - "+entry.getKey()+" "+entry.getValue().getRuntime()
+        		+"  "+(entry.getValue().isSuccessful() ? "SUCCESSFUL" : "FAILURE") 
+        		+ " "+(entry.getValue().isSuccessful() ? "" : entry.getValue().getFailureMessage()));
+    	}
+    	System.out.println("total time :" + elapsedTimeInSecond);
+    	System.exit(0);
     }
 }
