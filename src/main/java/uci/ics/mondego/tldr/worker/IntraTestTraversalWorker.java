@@ -54,7 +54,7 @@ public class IntraTestTraversalWorker extends Worker{
 	    
 	   // logger.debug(entity+" -- Intratest DFS TRaversal done, test is written to App");
 	    for(int i=0;i<dep.size();i++){
-	    	App.completeTestCaseSet.put(dep.get(i), true);
+	    	App.completeTestCaseSet.put(dep.get(i), 1);
 	    }      
 	}
 }

@@ -8,6 +8,7 @@ public class TestReport {
 	private long runtime;
 	private boolean successful;
 	private String testFqn;
+	private int run = 0;
 	private List<String> failureMessage = new ArrayList<String>();
 	
 	public long getRuntime() {
@@ -16,6 +17,12 @@ public class TestReport {
 	
 	public void addFailureMessage(String msg){
 		this.failureMessage.add(msg);
+	}
+	public void setRun(int r){
+		run = r;
+	}
+	public int getRun(){
+		return run;
 	}
 	
 	public String getFailureMessage(){

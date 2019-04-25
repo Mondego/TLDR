@@ -1,6 +1,9 @@
 package uci.ics.mondego.tldr;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
@@ -56,7 +59,7 @@ public class App
     public static ConcurrentHashMap<String, Boolean> entityToTest;
     public static ConcurrentHashMap<String, Boolean> allTestDirectories;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangedentities;
-    public static ConcurrentHashMap<String, Boolean> completeTestCaseSet;
+    public static ConcurrentHashMap<String, Integer> completeTestCaseSet;
     public static ConcurrentHashMap<String, Method> allExtractedMethods;
     public static ConcurrentHashMap<String, Method> allExtractedTestMethods;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangeTests;
@@ -86,7 +89,7 @@ public class App
     	this.allTestDirectories = new ConcurrentHashMap<String, Boolean>();
     	this.allNewAndChangedentities = new ConcurrentHashMap<String, Boolean>();
     	this.allNewAndChangeTests = new ConcurrentHashMap<String, Boolean>();
-    	this.completeTestCaseSet = new ConcurrentHashMap<String, Boolean>();
+    	this.completeTestCaseSet = new ConcurrentHashMap<String, Integer>();
         this.allExtractedMethods = new ConcurrentHashMap<String, Method>();
         this.allExtractedTestMethods = new ConcurrentHashMap<String, Method>();
         this.allTestReport = new ConcurrentHashMap<String, TestReport> ();
@@ -102,7 +105,6 @@ public class App
 	       App executorInstance = new App();
 	       
 	       CLASS_DIR = config.getCLASS_DIR();
-	       System.out.println("hello there");
 	       //CLASS_DIR = args[1];
 	      	       
 	       FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
@@ -158,7 +160,7 @@ public class App
 	       }
 	       
 	       App.IntraTestTraversalPool.shutdown();
-	       for(Map.Entry<String, Boolean> entry: completeTestCaseSet.entrySet()){
+	       for(Map.Entry<String, Integer> entry: completeTestCaseSet.entrySet()){
 	    	   App.TestRunnerPool.send(entry.getKey());
 	       }
 	       
@@ -232,7 +234,7 @@ public class App
        finally{
     	   RedisHandler.destroyPool();
     	   logger.debug("Ending the Pipeline");
-	       printReport();
+	       printReport(args[0]);
        }
     }
     
@@ -266,9 +268,8 @@ public class App
 	    	writer1.println("======================================================");
 			writer1.println("======================================================");
 			
-			allEntries = App.completeTestCaseSet.entrySet();
 			writer1.println("ALL TESTS TO RUN : \n\n");	   
-	    	for(Entry<String, Boolean> e: allEntries){
+	    	for(Entry<String, Integer> e: App.completeTestCaseSet.entrySet()){
 	    		writer1.println(e.getKey());
 	    	}	    	
 	    	writer1.close();
@@ -287,9 +288,9 @@ public class App
     /*** this method prepares the command suitable for sure-fire plugin********/
     private static String getTestFilterForMaven(){
 	   StringBuilder sb = new StringBuilder();
-       Set<Map.Entry<String, Boolean>> all = completeTestCaseSet.entrySet();
+       Set<Map.Entry<String, Integer>> all = completeTestCaseSet.entrySet();
        int i=0;
-       for(Entry<String, Boolean> es: all){
+       for(Entry<String, Integer> es: all){
     	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
     		   continue;
     	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
@@ -309,14 +310,14 @@ public class App
     
     private static String getTestFilterForGradle(){
  	    StringBuilder sb = new StringBuilder();
-        Set<Map.Entry<String, Boolean>> all = completeTestCaseSet.entrySet();
+        Set<Map.Entry<String, Integer>> all = completeTestCaseSet.entrySet();
         if(all.size() == 0){
         	return "";
         }
         sb.append("test {\n");
         sb.append("filter {\n");
         
-        for(Entry<String, Boolean> es: all){
+        for(Entry<String, Integer> es: all){
      	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
      		   continue;
      	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
@@ -340,15 +341,36 @@ public class App
     	return TEST_DIR;
     }
     
-    private static void printReport(){
+    private static void printReport(String file){
+    	StringBuilder sb = new StringBuilder();
     	int i = 0;
+    	sb.append("Total Time :" + elapsedTimeInSecond+"\n");
+    	sb.append("New or Changed Entity :" + App.allNewAndChangedentities.entrySet().size()+"\n");
+    	sb.append("Test To Run :" + App.completeTestCaseSet.entrySet().size()+"\n");
+    	int run = 0;
     	for(Map.Entry<String, TestReport> entry: App.allTestReport.entrySet()){   		
 			i++;
-			System.out.println(i+" - "+entry.getKey()+" "+entry.getValue().getRuntime()
-        		+"  "+(entry.getValue().isSuccessful() ? "SUCCESSFUL" : "FAILURE") 
-        		+ " "+(entry.getValue().isSuccessful() ? "" : entry.getValue().getFailureMessage()));
+			String report = i+" - "+entry.getKey()+" "+entry.getValue().getRuntime()
+	        		+"  "+(entry.getValue().isSuccessful() ? "SUCCESSFUL" : "FAILURE") 
+	        		+ " "+(entry.getValue().isSuccessful() ? "" : entry.getValue().getFailureMessage());
+			System.out.println(report);
+			run+=entry.getValue().getRun();
+			sb.append(report+"\n");
     	}
-    	System.out.println("total time :" + elapsedTimeInSecond);
+    	sb.append("TOTAL TEST RUN : "+run+"");
+    	writeLog(file, sb.toString());
     	System.exit(0);
     }
+      
+    private static void writeLog(String filename, String log){
+		try {
+			File file = new File(filename);
+			FileWriter fileWriter = new FileWriter(file, true);
+			fileWriter.write(log);			
+			fileWriter.flush();
+			fileWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

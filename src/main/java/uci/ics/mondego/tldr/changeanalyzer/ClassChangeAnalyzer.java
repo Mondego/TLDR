@@ -149,7 +149,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		Method [] allMethods= parsedClass.getMethods();
 		
 		for(Method m: allMethods){
-			System.out.println(m.getCode());
 			if( m.getModifiers() == AccessCodes.ABSTRACT || 
 				m.getModifiers() == AccessCodes.FINAL ||
 				m.getModifiers() == AccessCodes.INTERFACE || 

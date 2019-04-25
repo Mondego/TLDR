@@ -73,6 +73,7 @@ public class TestRunnerWorker extends Worker{
 			    ArrayList<Description> children = description.getChildren();
 			    for (int i = 0; i < parametersCount; i++) {		
 			    	result = (new JUnitCore()).run(Request.method(Class.forName(claz), method+children.get(i)));
+			    	App.completeTestCaseSet.put(testFqn, App.completeTestCaseSet.get(testFqn) + 1);
 			    	successful &= result.wasSuccessful();
 			    } 
 		    }
@@ -85,6 +86,9 @@ public class TestRunnerWorker extends Worker{
 			tr.setTestFqn(claz+"."+method);
 			tr.setRuntime(result.getRunTime());
 			tr.setSuccessful(successful);
+			// cause we had put 1 already...for each paramter we do ++... therefore we put 1 extra.
+			tr.setRun(App.completeTestCaseSet.get(testFqn) == 1 ? App.completeTestCaseSet.get(testFqn) 
+					: App.completeTestCaseSet.get(testFqn) - 1);
 			
 			List<Failure> failures = result.getFailures();
 			if(failures != null){

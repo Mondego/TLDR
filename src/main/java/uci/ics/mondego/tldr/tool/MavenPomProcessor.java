@@ -92,7 +92,25 @@ public class MavenPomProcessor {
 			    xpp3Writer.write( writer, model );
 			    writer.close();
 			    changed = true;
-		    }    			
+		    } 
+		    
+		    else if(args[1].equals("jar")){
+		    	Plugin newPlugIn = createPlugin("org.apache.maven.plugins", 
+		    			"maven-jar-plugin", "3.0.2",null, "test-jar");
+		    	System.out.println(newPlugIn.getGroupId());
+		    	oldPlugins.add(newPlugIn);
+		    	build.setPlugins(oldPlugins);
+			    model.setBuild(build);
+			    Writer writer = new FileWriter(pom2Location);
+	    		MavenXpp3Writer xpp3Writer = new MavenXpp3Writer();
+			    xpp3Writer.write( writer, model );
+			    writer.close();
+			    changed = true;
+		    }
+		    
+		    else if(args[1].equals("import")){
+		        UpdateSelfPOM(pomLocation);   	
+		    }
 		} 
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -123,17 +141,97 @@ public class MavenPomProcessor {
 		}
 	}
 	
+	private static void UpdateSelfPOM(String otherProjectPom){
+		String projectLocation = "/Users/demigorgan/Documents/workspace/tldr";
+		String pomLocation = projectLocation+"/pom.xml";
+		String pom2Location = projectLocation+"/pom2.xml";
+		Reader readerSource = null;
+		Reader readerTarget = null;
+		
+		try {
+			readerSource = new FileReader(otherProjectPom);
+			readerTarget = new FileReader(pomLocation);
+			
+			MavenXpp3Reader xpp3Reader = new MavenXpp3Reader();
+		
+		    Model sourceModel = xpp3Reader.read(readerSource);
+		    Model targetModel = xpp3Reader.read(readerTarget);
+		    boolean exists = false;
+	
+		    List<Dependency> oldDependencies = targetModel.getDependencies();
+		    
+		    for(int i=0;i<oldDependencies.size();i++){
+		    	if(oldDependencies.get(i).getGroupId().equals(sourceModel.getGroupId()) &&
+		    	  oldDependencies.get(i).getArtifactId().equals(sourceModel.getArtifactId())){
+		    		exists = true;
+		    		oldDependencies.get(i).setVersion(sourceModel.getVersion());
+		    	}	
+		    }
+		    if(!exists){
+		    	Dependency newDependencyTest = createDependency(sourceModel.getGroupId(), 
+			    		sourceModel.getArtifactId(), sourceModel.getVersion(), "tests", "test-jar", null);
+			    Dependency newDependencyMain = createDependency(sourceModel.getGroupId(), 
+			    		sourceModel.getArtifactId(), sourceModel.getVersion(), null, null, null);
+				    
+			    oldDependencies.add(newDependencyMain);
+			    oldDependencies.add(newDependencyTest);
+		    }
+		    
+		    targetModel.setDependencies(oldDependencies);
+    		Writer writerTarget = new FileWriter(pom2Location);
+    		MavenXpp3Writer xpp3Writer = new MavenXpp3Writer();
+    		xpp3Writer.write( writerTarget, targetModel);
+    		readerSource.close();
+    		readerTarget.close();
+    		writerTarget.close();
+
+		}
+		catch(Exception e){
+			
+		}
+		finally{
+			File pom = new File(pomLocation);
+			if(pom.delete()){
+				File newPom = new File(pom2Location);
+				newPom.renameTo(new File(pomLocation));
+			}
+			else{
+				logger.error("PROBLEM IS DELETING OLD POM FILE : "+pomLocation);
+			}			
+		}
+	}
+	
+	private static Dependency createDependency(String groupId, 
+			String artifactId, String version, String classifier,
+			String type, String scope){
+		
+		 Dependency dep = new Dependency();
+		 dep.setGroupId(groupId);
+		 dep.setArtifactId(artifactId);
+		 dep.setVersion(version);
+		 if(classifier != null)
+			 dep.setClassifier(classifier);
+		 if(type != null)
+			 dep.setType(type);
+		 if(scope != null)
+			 dep.setScope(scope);
+		 return dep;
+		
+	}
+	
 	private static Plugin createPlugin(String groupId, String artifactId, String version,
 			String executionId, String goal){
+		
 		Plugin plugin = new Plugin();
-		plugin.setArtifactId(artifactId);
 		plugin.setGroupId(groupId);
+		plugin.setArtifactId(artifactId);
 		
 		if(version != null)
 			plugin.setVersion(version);
 		
 		PluginExecution ex = new PluginExecution();
-		ex.setId(executionId);
+		if(executionId != null)
+			ex.setId(executionId);
 		List<String> g = new ArrayList<String>();
 		g.add(goal);
 		ex.setGoals(g);
