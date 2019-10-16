@@ -3,8 +3,11 @@ package uci.ics.mondego.tldr.metainformation;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Set;
+
+import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.ConfigLoader;
 
 public class ExtractMetaInformation {
@@ -20,8 +23,8 @@ public class ExtractMetaInformation {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("\nAll Class File : " + allClasses.size()+"\n");
-		sb.append("All Java File : "+allJavaFiles.size()+"\n");
-		sb.append("Database Size Currently: "+getDatabaseSize()+"\n");
+		sb.append("All Java File : "+allJavaFiles.size()+"\n");		
+		//sb.append("Database Size Currently: "+getDatabaseSize()+" Bytes\n");
 		
 		// args[0] is the commit hashcode
 		String fileName = args[0];
@@ -29,13 +32,21 @@ public class ExtractMetaInformation {
     }
 	
 	public static double getDatabaseSize(){
-		File file =new File("/Users/demigorgan/dump.rdb");
-		double kilobytes = 0;
-		if(file.exists()){
-			double bytes = file.length();
-			kilobytes = (bytes / 1024);
+		RedisHandler database = new RedisHandler();
+		Set<String> allKeys = database.getAllKeys("*");
+		database.close();
+		long size = 0;
+		for(String str: allKeys){
+			byte[] utf8Bytes;
+			try {
+				utf8Bytes = str.getBytes("UTF-8");
+				size+=utf8Bytes.length;
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
 		}
-		return kilobytes;
+		return size;
 	}
 	
 	public static void scanRepo(String directoryName)  {	

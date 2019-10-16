@@ -52,7 +52,8 @@ public class DependencyExtractor2 {
 		this.allFieldDependency = new HashSet<String>();
 		
 		this.previousDependencies = new HashMap<String, Integer>();	
-		Set<String> prevDepInSet = database.getSet(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
+		Set<String> prevDepInSet = database.getSet(
+				Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
 				changedMethod.getKey());
 		
 		for(String dependency: prevDepInSet){
@@ -133,80 +134,71 @@ public class DependencyExtractor2 {
 				}
 			}
 			
-			/*for(String dep: allOwnFieldUpdated){
-				String pkg = dep.substring(0,dep.lastIndexOf('.'));
-				if(pkg.equals(dependent.substring(0,dependent.lastIndexOf('.')))){
-					this.fieldValueChanged.add(dep);
-				}
-			}
-			this.fieldValueChanged.addAll(allStaticFieldUpdated);
-			this.fieldValueChanged.addAll(allOwnFieldUpdated);
-			*/		
-			for(String dep: allVirtualDependency){				
+			for(String dep: allVirtualDependency) {				
 				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
-			for(String dep: allInterfaceDependency){
+			for(String dep: allInterfaceDependency) {
 				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
-			for(String dep: allStaticDependency){
+			for(String dep: allStaticDependency) {
 				this.syncSingleDependency(dep, dependent);
 			}
 			
-			for(String dep: allFinalDependency){
+			for(String dep: allFinalDependency) {
 				this.syncSingleDependency(dep, dependent);
 			}
 			
-			for(String dep: allSpecialDependency){
+			for(String dep: allSpecialDependency) {
 				this.syncSingleDependency(dep, dependent);
 			}
 			
-			for(String dep: allFieldDependency){
+			for(String dep: allFieldDependency) {
 				this.syncSingleDependency(dep, dependent);
 			}
 	}
 	
-	protected void addDependentsInDb(String dependency, String dependents) throws UnknownDBIdException, NullDbIdException{
+	protected void addDependentsInDb(String dependency, String dependents) 
+			throws UnknownDBIdException, NullDbIdException {
 		if(this.dbId.length() == 0 || this.dbId == null){
 			throw new UnknownDBIdException(dbId);
 		}
-		if(dependency.startsWith("java."))
+		if(dependency.startsWith("java.")
+				|| dependency.startsWith("org.junit.")
+				|| dependency.startsWith("org.mockito.")
+				|| dependency.startsWith("org.hamcrest.")) {
 			return;
-		if(dependency.startsWith("org.junit."))
-			return;
-		if(dependency.startsWith("org.mockito."))
-			return;
-		if(dependency.startsWith("org.hamcrest."))
-			return;		
+		}
 		
-		if(previousDependencies.containsKey(dependency)){
+		if (previousDependencies.containsKey(dependency)) {
 			// we increase the hashmap value which is used later to remove depreciated dependencies
 			previousDependencies.put(dependency, previousDependencies.get(dependency) + 1);
 			return;
 		}
 		else{
 			this.database.insertInSet(this.dbId, dependency, dependents);
-			//logger.info(dependents+ " has been updated as "+dependency+" 's dependent in "+this.dbId);
 		}
 	}
 	
-	private long removeAllDepreciateDependency(){
+	private long removeAllDepreciateDependency() {
 		long count = 0;
 		for ( Map.Entry<String, Integer> entry : previousDependencies.entrySet()) {
 		    Integer val = entry.getValue();
 		    if(val == 0){
 		    	String key = entry.getKey();
 		    	
-		    	count += this.database.removeFromSet( !flag ? Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY : 
-		    		Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
-		    		changedMethod.getKey(), key);
+		    	count += this.database.removeFromSet( 
+		    			!flag 
+		    					? Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY 
+		    					: Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
+		    		    changedMethod.getKey(), 
+		    		    key);
 		    	
-		    	this.database.removeFromSet(!flag ? Databases.TABLE_ID_DEPENDENCY: Databases.TABLE_ID_TEST_DEPENDENCY, 
-		    			key, changedMethod.getKey());
-		    	
-		    	//logger.info(changedMethod.getKey()+ " has been removed as "+key+" s dependency  in "+
-		    	//		(!flag ? Databases.TABLE_ID_DEPENDENCY: Databases.TABLE_ID_TEST_DEPENDENCY));
+		    	this.database.removeFromSet(
+		    			!flag ? Databases.TABLE_ID_DEPENDENCY: Databases.TABLE_ID_TEST_DEPENDENCY, 
+		    			key, 
+		    			changedMethod.getKey());		    	
 		    }  
 		}
 		return count;
@@ -215,14 +207,16 @@ public class DependencyExtractor2 {
 	protected List<String> traverseClassHierarchyDownwards(String claz, String pattern){	
 		List<String> toTest = new ArrayList<String>();
 		
-		if(this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern))
-			toTest.add(claz+"."+pattern);
+		if(this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)) {
+			toTest.add(claz+"."+pattern);	
+		}
 		
 		Set<String> allSubclass = this.database.getSet(Databases.TABLE_ID_SUBCLASS, claz);
-		for(String sub: allSubclass){
+		for(String sub: allSubclass) {
 			List<String> t = traverseClassHierarchyDownwards(sub, pattern);	
-			if(!t.isEmpty() && t!= null)
+			if(!t.isEmpty() && t!= null) {
 				toTest.addAll(t);
+			}				
 		}
 		return toTest;
 	}
@@ -230,16 +224,17 @@ public class DependencyExtractor2 {
 	protected List<String> traverseClassHierarchyUpwards(String claz, String pattern){	
 		List<String> toTest = new ArrayList<String>();
 		
-		if(this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)){
+		if (this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)) {
 			toTest.add(claz+"."+pattern);
 			return toTest;
 		}
 		
 		Set<String> allSuperclass = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, claz);
-		for(String sup: allSuperclass){
+		for(String sup: allSuperclass) {
 			List<String> t = traverseClassHierarchyUpwards(sup, pattern);	
-			if(!t.isEmpty() && t!= null)
+			if(!t.isEmpty() && t!= null) {
 				toTest.addAll(t);
+			}
 		}
 		return toTest;
 	}
@@ -247,23 +242,30 @@ public class DependencyExtractor2 {
 	protected void syncAllPossibleDependency(String dependency, String dependents){
 		
 		// JDK DEPENDENCY IGNORED
-		if(dependency.startsWith("java.lang") || dependency.startsWith("java.util") || 
-				dependency.startsWith("java.io")|| dependency.startsWith("java.net") || 
-				dependency.startsWith("java.awt"))
+		if(dependency.startsWith("java.lang") 
+				|| dependency.startsWith("java.util") 
+				|| dependency.startsWith("java.io")
+				|| dependency.startsWith("java.net") 
+				|| dependency.startsWith("java.awt")) {
 			return;
+		}
 		
-		if(dependency.startsWith("java/lang") || dependency.startsWith("java/util") || 
-				dependency.startsWith("java/io")|| dependency.startsWith("java/net") || 
-				dependency.startsWith("java/awt"))
+		if(dependency.startsWith("java/lang") 
+				|| dependency.startsWith("java/util") 
+				|| dependency.startsWith("java/io")
+				|| dependency.startsWith("java/net") 
+				|| dependency.startsWith("java/awt")) {
 			return;
+		}
 		
-		try{
+		try {
 			int index = dependency.indexOf("(");
 			StringBuilder sb = new StringBuilder();
 			sb.append(dependency.substring(index));
-			for(int i = index - 1; i>=0; i--){
-				if(dependency.charAt(i) == '.')
+			for(int i = index - 1; i>=0; i--) {
+				if(dependency.charAt(i) == '.') {
 					break;
+				}
 				sb.insert(0, dependency.charAt(i));
 			}
 			
@@ -272,25 +274,26 @@ public class DependencyExtractor2 {
 					dependency.indexOf(pattern) - 1: dependency.length());
 				
 			List<String> keysDown = traverseClassHierarchyDownwards(claz, pattern);
-			if(!CollectionUtils.isEmpty(keysDown)){
-				for(String k: keysDown){
+			if (!CollectionUtils.isEmpty(keysDown)) {
+				for(String k: keysDown) {
 					addDependentsInDb(k, dependents); // because we have to remove table id
 				}
 			}
 						
 			List<String> keysUp = traverseClassHierarchyUpwards(claz, pattern);
-			if(CollectionUtils.isEmpty(keysUp))
+			if(CollectionUtils.isEmpty(keysUp)) {
 				return;
-			for(String k: keysUp){
+			}
+			for(String k: keysUp) {
 				addDependentsInDb(k, dependents); // because we have to remove table id
 			}					
 		}
 		
-		catch(NullPointerException e){
+		catch(NullPointerException e) {
 			e.printStackTrace();
 			logger.error("Problem is syncing dependencies of changed entities"+e.getMessage());
 		} 
-		catch(StringIndexOutOfBoundsException e){
+		catch(StringIndexOutOfBoundsException e) {
 			e.printStackTrace();
 			logger.error("StringIndexOutOfBoundException at method syncAll"+e.getMessage());
 		}
@@ -305,7 +308,7 @@ public class DependencyExtractor2 {
 	}
 	
 	protected void syncSingleDependency(String dependency, String dependents){
-		try{
+		try {
 			addDependentsInDb(dependency, dependents);
 		}
 		catch(NullPointerException e){

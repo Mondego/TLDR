@@ -114,12 +114,13 @@ public class TestRunnerWorker extends Worker{
 		} 
 		
 		catch (ClassNotFoundException e) {
-		
+			System.out.println(e.getMessage());
 		}
 		catch(NoClassDefFoundError e){	
+			System.out.println(e.getMessage());
 		
 		} catch (NotATestException e) {
-			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
 		} 		
 	}
 }

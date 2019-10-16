@@ -12,7 +12,7 @@ public class FindAllTestDirectory {
 	public FindAllTestDirectory(String CLASS_DIR) {
 		// TODO Auto-generated method stub
 		try {
-			scanTestFiles(CLASS_DIR, "/test-classes");
+			scanTestFiles(CLASS_DIR, "/test");
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

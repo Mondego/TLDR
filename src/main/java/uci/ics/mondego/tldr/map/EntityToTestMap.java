@@ -8,7 +8,7 @@ public class EntityToTestMap {
 	
 	private RedisHandler database;
 	
-	public EntityToTestMap(){
+	public EntityToTestMap() {
 		this.database = new RedisHandler();
 	}
 	

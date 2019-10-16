@@ -20,7 +20,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.model.TestReport;
-import uci.ics.mondego.tldr.experiments.JUnitRunner;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
 import uci.ics.mondego.tldr.tool.ConfigLoader;
@@ -35,7 +34,6 @@ import uci.ics.mondego.tldr.worker.RepoScannerWorker;
 import uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker;
 import uci.ics.mondego.tldr.worker.TestDependencyExtractorWorker;
 import uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker;
-import uci.ics.mondego.tldr.worker.TestRunnerWorker;
 
 public class App 
 {
@@ -53,7 +51,7 @@ public class App
     public static ThreadedChannel<HashMap<String, Method>> TestDependencyExtractionPool;
     public static ThreadedChannel<String> EntityToTestMapPool;
     public static ThreadedChannel<String> IntraTestTraversalPool;
-    public static ThreadedChannel<String> TestRunnerPool;
+    //public static ThreadedChannel<String> TestRunnerPool;
 
     
     public static ConcurrentHashMap<String, Boolean> entityToTest;
@@ -83,7 +81,7 @@ public class App
     	this.TestDependencyExtractionPool = new ThreadedChannel<HashMap<String, Method>>(config.getThread(),TestDependencyExtractorWorker.class);
     	this.EntityToTestMapPool = new ThreadedChannel<String>(config.getThread(), EntityToTestMapWorker.class);
     	this.IntraTestTraversalPool = new ThreadedChannel<String>(config.getThread(), IntraTestTraversalWorker.class);
-    	this.TestRunnerPool = new ThreadedChannel<String>(config.getThread(), TestRunnerWorker.class);
+    	//this.TestRunnerPool = new ThreadedChannel<String>(config.getThread(), TestRunnerWorker.class);
     	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.allTestDirectories = new ConcurrentHashMap<String, Boolean>();
@@ -96,16 +94,14 @@ public class App
     }
 
     public static void main( String[] args )
-    {    	
-       //PropertyConfigurator.configure("log4j.properties");
-       
+    {    	       
        ConfigLoader config = new ConfigLoader();      
        long startTime = System.nanoTime();
        try{
 	       App executorInstance = new App();
 	       
-	       CLASS_DIR = config.getCLASS_DIR();
-	       //CLASS_DIR = args[1];
+	       //CLASS_DIR = config.getCLASS_DIR();
+	       CLASS_DIR = args[1];
 	      	       
 	       FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
 	       Set<String> allTestDir = find.getAllTestDir();
@@ -160,25 +156,24 @@ public class App
 	       }
 	       
 	       App.IntraTestTraversalPool.shutdown();
-	       for(Map.Entry<String, Integer> entry: completeTestCaseSet.entrySet()){
+	       
+	       /*for(Map.Entry<String, Integer> entry: completeTestCaseSet.entrySet()){
 	    	   App.TestRunnerPool.send(entry.getKey());
 	       }
-	       
-	       App.TestRunnerPool.shutdown();
+	       App.TestRunnerPool.shutdown();*/
 	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
-	       /*if(args[3].equals("maven"))
+	       if(args[3].equals("maven"))
 	    	   System.out.println(getTestFilterForMaven());
 	       else if(args[3].equals("gradle"))
-	    	   System.out.println(getTestFilterForGradle());*/
+	    	   System.out.println(getTestFilterForGradle());
 	       /*****************************/
 	       
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
-	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;
-	       //System.out.println(getTestFilterForMaven());
+	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;	       //System.out.println(getTestFilterForMaven());
 
-	       //logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
+	       logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
        }
        
        catch( JedisConnectionException e){
@@ -234,7 +229,6 @@ public class App
        finally{
     	   RedisHandler.destroyPool();
     	   logger.debug("Ending the Pipeline");
-	       printReport(args[0]);
        }
     }
     
@@ -342,6 +336,7 @@ public class App
     }
     
     private static void printReport(String file){
+    	
     	StringBuilder sb = new StringBuilder();
     	int i = 0;
     	sb.append("Total Time :" + elapsedTimeInSecond+"\n");
@@ -359,6 +354,21 @@ public class App
     	}
     	sb.append("TOTAL TEST RUN : "+run+"");
     	writeLog(file, sb.toString());
+    	System.exit(0);
+    }
+    
+ private static void printReport(){
+    	//only prints in the cosole
+    	int i = 0;
+    	int run = 0;
+    	for(Map.Entry<String, TestReport> entry: App.allTestReport.entrySet()){   		
+			i++;
+			String report = i+" - "+entry.getKey()+" "+entry.getValue().getRuntime()
+	        		+"  "+(entry.getValue().isSuccessful() ? "SUCCESSFUL" : "FAILURE") 
+	        		+ " "+(entry.getValue().isSuccessful() ? "" : entry.getValue().getFailureMessage());
+			System.out.println(report);
+			run+=entry.getValue().getRun();
+    	}    	
     	System.exit(0);
     }
       

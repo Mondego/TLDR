@@ -19,64 +19,59 @@ public class RepoScannerWorker extends Worker{
 		// TODO Auto-generated method stub
 		try {		 
 			this.scanClassFiles(repoDir);
-		} 
-		
-		catch (InstantiationException e) {
+		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (IllegalAccessException e) {
+		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (InvocationTargetException e) {
+		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (NoSuchMethodException e) {
+		} catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		catch (SecurityException e) {
+		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
-	public void scanTestFiles(String directoryName) throws InstantiationException, IllegalAccessException,
-    	IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {	
+	public void scanTestFiles(String directoryName) 
+			throws InstantiationException, 
+			IllegalAccessException,
+			IllegalArgumentException, 
+			InvocationTargetException, 
+			NoSuchMethodException, 
+			SecurityException {	
 	
 		File directory = new File(directoryName);
 	    File[] fList = directory.listFiles();	    	
-	    if(fList != null)
-	        for (File file : fList) {    	        	
+	    if(fList != null) {
+	    	for (File file : fList) {    	        	
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
-	                	//logger.debug(file.getName()+" found and sending to TestFileChangeAnalyzer");
 	                	App.TestFileChangeAnalysisPool.send(fileAbsolutePath); 
 	                }	                	         
-	            } 
-	            
-	            else if (file.isDirectory()) {
+	            } else if (file.isDirectory()) {
 	                scanTestFiles(file.getAbsolutePath());
 	            }
 	        }
+	    }	        
     }
 
 	
-	public void scanClassFiles(String directoryName) throws InstantiationException, IllegalAccessException,
-	    IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {	
+	public void scanClassFiles(String directoryName) 
+			throws InstantiationException, 
+			IllegalAccessException,
+			IllegalArgumentException, 
+			InvocationTargetException, 
+			NoSuchMethodException, 
+			SecurityException {	
 		
 		File directory = new File(directoryName);
 	    File[] fList = directory.listFiles();	    	
@@ -89,8 +84,8 @@ public class RepoScannerWorker extends Worker{
 	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);
 	                }	                	         
 	            } 
-	            else if (file.isDirectory() && 
-	            		!App.allTestDirectories.containsKey(file.getAbsolutePath().toString())){
+	            else if (file.isDirectory() 
+	            		&& !App.allTestDirectories.containsKey(file.getAbsolutePath().toString())) {
 	            		//!file.getAbsolutePath().equals(App.getTEST_DIR())) {
 	                scanClassFiles(file.getAbsolutePath());
 	            }

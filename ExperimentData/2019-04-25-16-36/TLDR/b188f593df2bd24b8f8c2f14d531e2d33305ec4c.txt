@@ -1,0 +1,700 @@
+Total Time :12.870321014
+New or Changed Entity :4033
+Test To Run :1211
+1 - org.apache.commons.io.FileUtilsTestCase.testMoveFile_CopyDelete_Failed 2  SUCCESSFUL 
+2 - org.apache.commons.io.input.AutoCloseInputStreamTest.testRead 0  SUCCESSFUL 
+3 - org.apache.commons.io.FilenameUtilsTestCase.testIsExtensionArray 2  SUCCESSFUL 
+4 - org.apache.commons.io.output.TeeOutputStreamTest.testTee 1  SUCCESSFUL 
+5 - org.apache.commons.io.FileCleaningTrackerTestCase.testFileCleanerExitWhenFinishedFirst 641  SUCCESSFUL 
+6 - org.apache.commons.io.output.ProxyWriterTest.testWriteString 0  SUCCESSFUL 
+7 - org.apache.commons.io.IOUtilsTestCase.testReadLines_Reader 3  SUCCESSFUL 
+8 - org.apache.commons.io.input.BrokenInputStreamTest.testAvailable 0  SUCCESSFUL 
+9 - org.apache.commons.io.monitor.FileAlterationObserverTestCase.testFileCreate 0  FAILURE ./test-observer is not a directory,
+10 - org.apache.commons.io.output.XmlStreamWriterTest.testUTF16BEEncoding 0  SUCCESSFUL 
+11 - org.apache.commons.io.monitor.FileAlterationMonitorTestCase.testThreadFactory 437  SUCCESSFUL 
+12 - org.apache.commons.io.IOCaseTestCase.test_checkRegionMatches_case 0  SUCCESSFUL 
+13 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryPreserveDates 16  SUCCESSFUL 
+14 - org.apache.commons.io.FileUtilsTestCase.testForceDeleteAFile3 3  SUCCESSFUL 
+15 - org.apache.commons.io.FileUtilsTestCase.testForceDeleteAFile2 4  SUCCESSFUL 
+16 - org.apache.commons.io.FileUtilsTestCase.testForceDeleteAFile1 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Invalid argument),
+17 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_nullData 0  SUCCESSFUL 
+18 - org.apache.commons.io.IOUtilsTestCase.testByteArrayToWriter 4  SUCCESSFUL 
+19 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToWriter_nullOut 1  SUCCESSFUL 
+20 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToCharArray 6  SUCCESSFUL 
+21 - org.apache.commons.io.DirectoryWalkerTestCase.testHandleStartDirectoryFalse 1  SUCCESSFUL 
+22 - org.apache.commons.io.output.StringBuilderWriterTest.testAppendConstructNull 0  SUCCESSFUL 
+23 - org.apache.commons.io.input.CountingInputStreamTest.testLargeFiles_IO84 97  SUCCESSFUL 
+24 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_nullIn 0  SUCCESSFUL 
+25 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFile2 3  SUCCESSFUL 
+26 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_5argsWithAppendOptionFalse_ShouldDeletePreviousFileLines 20  SUCCESSFUL 
+27 - org.apache.commons.io.input.ClassLoaderObjectInputStreamTest.testResolveProxyClass 1  SUCCESSFUL 
+28 - org.apache.commons.io.IOUtilsTestCase.testSkipReader 6  SUCCESSFUL 
+29 - org.apache.commons.io.output.XmlStreamWriterTest.testEmpty 0  SUCCESSFUL 
+30 - org.apache.commons.io.FileUtilsCleanSymlinksTestCase.testIdentifiesSymlinkFile 22  FAILURE 
+31 - org.apache.commons.io.FileUtilsTestCase.testContentEquals 11  SUCCESSFUL 
+32 - org.apache.commons.io.LineIteratorTestCase.testZeroLines 1  SUCCESSFUL 
+33 - org.apache.commons.io.input.NullInputStreamTest.testMarkAndReset 0  SUCCESSFUL 
+34 - org.apache.commons.io.FileUtilsWaitForTestCase.testWaitFor 5586  SUCCESSFUL 
+35 - org.apache.commons.io.output.ProxyWriterTest.testNullString 1  SUCCESSFUL 
+36 - org.apache.commons.io.filefilter.FileFilterTestCase.testNameFilterNullListArgument 0  SUCCESSFUL 
+37 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_Encoding_nullStream 11  SUCCESSFUL 
+38 - org.apache.commons.io.ThreadMonitorTestCase.testTimeout 105  SUCCESSFUL 
+39 - org.apache.commons.io.output.ClosedOutputStreamTest.testRead 0  SUCCESSFUL 
+40 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToString 1  SUCCESSFUL 
+41 - org.apache.commons.io.monitor.FileAlterationMonitorTestCase.testAddRemoveObservers 1  SUCCESSFUL 
+42 - org.apache.commons.io.filefilter.FileFilterTestCase.testSuffix 1  SUCCESSFUL 
+43 - org.apache.commons.io.input.XmlStreamReaderUtilitiesTest.testContentTypeMime 0  SUCCESSFUL 
+44 - org.apache.commons.io.output.LockableFileWriterTest.testFileNotLocked 3  SUCCESSFUL 
+45 - org.apache.commons.io.filefilter.FileFilterTestCase.testEmpty 4  SUCCESSFUL 
+46 - org.apache.commons.io.filefilter.FileFilterTestCase.testPrefix 1  SUCCESSFUL 
+47 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToChild 13  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/grandparent/parent/child/file3.txt (No such file or directory),
+48 - org.apache.commons.io.output.LockableFileWriterTest.testConstructor_fileName_nullFile 1  SUCCESSFUL 
+49 - org.apache.commons.io.comparator.ExtensionFileComparatorTest.testCaseSensitivity 1  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+50 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding_nullSeparator 0  SUCCESSFUL 
+51 - org.apache.commons.io.FileUtilsFileNewerTestCase.testIsFileNewerNoFile 1  SUCCESSFUL 
+52 - org.apache.commons.io.FilenameUtilsTestCase.testIsExtension 2  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Invalid argument),
+53 - org.apache.commons.io.output.StringBuilderWriterTest.testAppendConstructCapacity 0  SUCCESSFUL 
+54 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToWriter_Encoding_nullStream 1  SUCCESSFUL 
+55 - org.apache.commons.io.input.TeeInputStreamTest.testReadEverything 0  SUCCESSFUL 
+56 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_Writer_nullSeparator 0  SUCCESSFUL 
+57 - org.apache.commons.io.input.CountingInputStreamTest.testEOF3 0  SUCCESSFUL 
+58 - org.apache.commons.io.filefilter.FileFilterTestCase.testFalse 0  SUCCESSFUL 
+59 - org.apache.commons.io.FileUtilsCleanSymlinksTestCase.testCorrectlyIdentifySymlinkWithParentSymLink 40  FAILURE 
+60 - org.apache.commons.io.input.TeeInputStreamTest.testReadOneByte 0  SUCCESSFUL 
+61 - org.apache.commons.io.input.CountingInputStreamTest.testEOF1 0  SUCCESSFUL 
+62 - org.apache.commons.io.input.CountingInputStreamTest.testEOF2 0  SUCCESSFUL 
+63 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_Writer_nullData 0  SUCCESSFUL 
+64 - org.apache.commons.io.filefilter.FileFilterTestCase.testCanWrite 2  SUCCESSFUL 
+65 - org.apache.commons.io.FilenameUtilsTestCase.testSeparatorsToSystem 3  SUCCESSFUL 
+66 - org.apache.commons.io.LineIteratorTestCase.testTwoLines 3  SUCCESSFUL 
+67 - org.apache.commons.io.input.BOMInputStreamTest.testMarkResetAfterReadWithBOM 0  SUCCESSFUL 
+68 - org.apache.commons.io.output.XmlStreamWriterTest.testUTF16LEEncoding 0  SUCCESSFUL 
+69 - org.apache.commons.io.FileUtilsTestCase.testDeleteQuietlyDir 1  FAILURE Unable to delete file: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt,
+70 - org.apache.commons.io.IOUtilsTestCase.testSkipStream 2  SUCCESSFUL 
+71 - org.apache.commons.io.FileUtilsCleanSymlinksTestCase.testCleanDirWithSymlinkFile 23  SUCCESSFUL 
+72 - org.apache.commons.io.FileUtilsTestCase.testGetTempDirectoryPath 11  SUCCESSFUL 
+73 - org.apache.commons.io.filefilter.FileFilterTestCase.testSizeFilter 4  SUCCESSFUL 
+74 - org.apache.commons.io.FilenameUtilsTestCase.testConcat 3  SUCCESSFUL 
+75 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToWriter 0  SUCCESSFUL 
+76 - org.apache.commons.io.input.TeeInputStreamTest.testReadToArrayWithOffset 0  SUCCESSFUL 
+77 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_StripDrive 9  SUCCESSFUL 
+78 - org.apache.commons.io.input.BOMInputStreamTest.testMarkResetBeforeReadWithBOM 0  SUCCESSFUL 
+79 - org.apache.commons.io.FileUtilsTestCase.testForceMkdir 3  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/grandparent/parent/child2/grandChild2 does not exist,
+80 - org.apache.commons.io.filefilter.FileFilterTestCase.testDelegateFileFilter 1  SUCCESSFUL 
+81 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_5argsWithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Invalid argument),
+82 - org.apache.commons.io.output.CountingOutputStreamTest.testLargeFiles_IO84 55  SUCCESSFUL 
+83 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadFloat 0  SUCCESSFUL 
+84 - org.apache.commons.io.LineIteratorTestCase.testNextOnly 3  SUCCESSFUL 
+85 - org.apache.commons.io.input.CountingInputStreamTest.testZeroLength3 0  SUCCESSFUL 
+86 - org.apache.commons.io.input.CountingInputStreamTest.testZeroLength2 0  SUCCESSFUL 
+87 - org.apache.commons.io.input.CountingInputStreamTest.testZeroLength1 0  SUCCESSFUL 
+88 - org.apache.commons.io.FileUtilsTestCase.testGetUserDirectory 12  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt,
+89 - org.apache.commons.io.FileUtilsTestCase.testMoveFile_Rename 2  SUCCESSFUL 
+90 - org.apache.commons.io.filefilter.FileFilterTestCase.testFilterSet 0  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+91 - org.apache.commons.io.input.BOMInputStreamTest.testMarkResetAfterReadWithoutBOM 0  SUCCESSFUL 
+92 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseKbFreeBSD 1  SUCCESSFUL 
+93 - org.apache.commons.io.FileUtilsTestCase.testDecodeUrlLenient 3  SUCCESSFUL 
+94 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16WithBufferedWrite 0  SUCCESSFUL 
+95 - org.apache.commons.io.input.BOMInputStreamTest.testSmallBufferWithoutBOM 0  SUCCESSFUL 
+96 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testHandleStartDirectoryFalse 1  SUCCESSFUL 
+97 - org.apache.commons.io.output.WriterOutputStreamTest.testLargeUTF8WithBufferedWrite 1  SUCCESSFUL 
+98 - org.apache.commons.io.output.CloseShieldOutputStreamTest.testClose 1  SUCCESSFUL 
+99 - org.apache.commons.io.ThreadMonitorTestCase.testCompletedWithoutTimeout 105  SUCCESSFUL 
+100 - org.apache.commons.io.FileCleaningTrackerTestCase.testFileCleanerDirectory_ForceStrategy 2085  SUCCESSFUL 
+101 - org.apache.commons.io.FileUtilsTestCase.testIsFileNewerOlder 1007  FAILURE Cannot create file /Users/demigorgan/Documents/workspace/tldr/test/io/FileUtils-reference.txt as the parent directory does not exist,
+102 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToWriter 0  SUCCESSFUL 
+103 - org.apache.commons.io.FileUtilsTestCase.testWriteByteArrayToFile_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 4  SUCCESSFUL 
+104 - org.apache.commons.io.FileUtilsTestCase.testWriteLinesEncoding_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 166  FAILURE File '/Users/demigorgan/Documents/workspace/tldr/test/io/lines.txt' does not exist,
+105 - org.apache.commons.io.input.BOMInputStreamTest.testAvailableWithoutBOM 0  SUCCESSFUL 
+106 - org.apache.commons.io.EndianUtilsTest.testSwapInteger 0  SUCCESSFUL 
+107 - org.apache.commons.io.filefilter.FileFilterTestCase.testAgeFilter 2009  FAILURE Cannot create file /Users/demigorgan/Documents/workspace/tldr/test/io/new.txt as the parent directory does not exist,
+108 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_Encoding 1  SUCCESSFUL 
+109 - org.apache.commons.io.filefilter.FileFilterTestCase.testMakeCVSAware 5  SUCCESSFUL 
+110 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToWriter_Encoding_nullData 0  SUCCESSFUL 
+111 - org.apache.commons.io.input.ReaderInputStreamTest.testUTF8WithBufferedRead 0  SUCCESSFUL 
+112 - org.apache.commons.io.FileUtilsTestCase.testDeleteQuietlyNonExistent 3  SUCCESSFUL 
+113 - org.apache.commons.io.comparator.PathFileComparatorTest.testCaseSensitivity 1  SUCCESSFUL 
+114 - org.apache.commons.io.EndianUtilsTest.testUnsignedOverrun 0  SUCCESSFUL 
+115 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToItself 7  SUCCESSFUL 
+116 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFile1 17  SUCCESSFUL 
+117 - org.apache.commons.io.output.StringBuilderWriterTest.testAppendChar 0  SUCCESSFUL 
+118 - org.apache.commons.io.IOUtilsTestCase.testSkipFileInput 1  SUCCESSFUL 
+119 - org.apache.commons.io.IOUtilsTestCase.testReaderToCharArray 4  SUCCESSFUL 
+120 - org.apache.commons.io.DirectoryWalkerTestCase.testFilterString 1  FAILURE Result Size expected:<4> but was:<0>,
+121 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF8WithBufferedWrite 1  SUCCESSFUL 
+122 - org.apache.commons.io.FilenameUtilsTestCase.testNormalizeUnixWin 3  SUCCESSFUL 
+123 - org.apache.commons.io.output.XmlStreamWriterTest.testLatin1Encoding 0  SUCCESSFUL 
+124 - org.apache.commons.io.FileUtilsTestCase.testMoveDirectoryToDirectory_Errors 3  SUCCESSFUL 
+125 - org.apache.commons.io.FileUtilsTestCase.test_openInputStream_notExists 2  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+126 - org.apache.commons.io.FilenameUtilsTestCase.testEqualsNormalized 2  SUCCESSFUL 
+127 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding 1  SUCCESSFUL 
+128 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testTempFileBelowThreshold 1  SUCCESSFUL 
+129 - org.apache.commons.io.input.ProxyReaderTest.testNullCharArray 11  SUCCESSFUL 
+130 - org.apache.commons.io.filefilter.FileFilterTestCase.testFilterArrayNullParameters 1  SUCCESSFUL 
+131 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_Encoding 2  SUCCESSFUL 
+132 - org.apache.commons.io.input.BOMInputStreamTest.testLeadingNonBOMBufferedRead 0  SUCCESSFUL 
+133 - org.apache.commons.io.FileUtilsTestCase.testWrite_WithAppendOptionFalse_ShouldDeletePreviousFileLines 6  SUCCESSFUL 
+134 - org.apache.commons.io.input.TeeInputStreamTest.testReadToArray 0  SUCCESSFUL 
+135 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testBelowThreshold 1  SUCCESSFUL 
+136 - org.apache.commons.io.FilenameUtilsTestCase.testGetPath 2  SUCCESSFUL 
+137 - org.apache.commons.io.LineIteratorTestCase.testNextLineOnlyNullEncoding 2  SUCCESSFUL 
+138 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_nullSeparator 0  SUCCESSFUL 
+139 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_Encoding 9  SUCCESSFUL 
+140 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseKbLinux 0  SUCCESSFUL 
+141 - org.apache.commons.io.FileUtilsTestCase.test_openOutputStream_noParentCreateFile 3  SUCCESSFUL 
+142 - org.apache.commons.io.input.XmlStreamReaderUtilitiesTest.testCalculateRawEncodingNoBOM 1  SUCCESSFUL 
+143 - org.apache.commons.io.input.XmlStreamReaderUtilitiesTest.testCalculateRawEncodingAdditonalkUTF16 1  SUCCESSFUL 
+144 - org.apache.commons.io.input.ClassLoaderObjectInputStreamTest.testExpected 1  SUCCESSFUL 
+145 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_Encoding_nullWriter 9  SUCCESSFUL 
+146 - org.apache.commons.io.output.StringBuilderWriterTest.testWriteCharArray 0  SUCCESSFUL 
+147 - org.apache.commons.io.CopyUtilsTest.testCopy_inputStreamToWriter 0  SUCCESSFUL 
+148 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4arg_nullSeparator 3  SUCCESSFUL 
+149 - org.apache.commons.io.FileUtilsTestCase.test_openOutputStream_notExistsCannotCreate 12  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+150 - org.apache.commons.io.comparator.DirectoryFileComparatorTest.testSortArray 1  SUCCESSFUL 
+151 - org.apache.commons.io.filefilter.FileFilterTestCase.testFilterList_fromArray 0  SUCCESSFUL 
+152 - org.apache.commons.io.FileUtilsTestCase.testDecodeUrlEncodingUtf8 4  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+153 - org.apache.commons.io.EndianUtilsTest.testCtor 0  SUCCESSFUL 
+154 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToWriter_nullIn 0  SUCCESSFUL 
+155 - org.apache.commons.io.input.BOMInputStreamTest.testMarkResetBeforeReadWithoutBOM 1  SUCCESSFUL 
+156 - org.apache.commons.io.IOCaseTestCase.test_forName 0  SUCCESSFUL 
+157 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToExistingDest 9  SUCCESSFUL 
+158 - org.apache.commons.io.LineIteratorTestCase.testNextLineOnlyDefaultEncoding 1  SUCCESSFUL 
+159 - org.apache.commons.io.filefilter.FileFilterTestCase.testDirectory 1  SUCCESSFUL 
+160 - org.apache.commons.io.LineIteratorTestCase.testOneLines 4  SUCCESSFUL 
+161 - org.apache.commons.io.FilenameUtilsWildcardTestCase.testMatch 0  SUCCESSFUL 
+162 - org.apache.commons.io.input.BoundedInputStreamTest.testReadArray 0  SUCCESSFUL 
+163 - org.apache.commons.io.LineIteratorTestCase.testFilteringBufferedReader 15  SUCCESSFUL 
+164 - org.apache.commons.io.FileDeleteStrategyTestCase.testDeleteQuietlyNormal 1  SUCCESSFUL 
+165 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_nullStream 1  SUCCESSFUL 
+166 - org.apache.commons.io.IOCaseTestCase.test_getName 0  SUCCESSFUL 
+167 - org.apache.commons.io.FilenameUtilsTestCase.testNormalizeNoEndSeparatorUnixWin 2  SUCCESSFUL 
+168 - org.apache.commons.io.IOCaseTestCase.test_checkEquals_case 0  SUCCESSFUL 
+169 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitD 1  FAILURE [D] Result Size expected:<8> but was:<1>,
+170 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToOutputStream_IO84 62  SUCCESSFUL 
+171 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitC 0  FAILURE [C] Result Size expected:<4> but was:<7>,
+172 - org.apache.commons.io.input.TailerTest.testTailer 409  FAILURE File '/Users/demigorgan/Documents/workspace/tldr/test/io/tailer1-test.txt' does not exist,
+173 - org.apache.commons.io.input.ProxyReaderTest.testNullCharBuffer 0  SUCCESSFUL 
+174 - org.apache.commons.io.input.BOMInputStreamTest.testNoBoms 1  SUCCESSFUL 
+175 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_Writer_nullStream 1  SUCCESSFUL 
+176 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile4 5  FAILURE [DirAndFile4] Result Size expected:<2> but was:<0>,
+177 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile3 1  FAILURE [DirAndFile3] Result Size expected:<6> but was:<1>,
+178 - org.apache.commons.io.output.LockableFileWriterTest.testConstructor_File_directory 0  SUCCESSFUL 
+179 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile2 2  FAILURE [DirAndFile2] Dir[0] src/main/java/org,
+180 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterDirAndFile1 1  FAILURE [DirAndFile1] Result Size expected:<8> but was:<1>,
+181 - org.apache.commons.io.comparator.CompositeFileComparatorTest.testConstructorIterableNull 4  SUCCESSFUL 
+182 - org.apache.commons.io.FileUtilsTestCase.testGetTempDirectory 2  SUCCESSFUL 
+183 - org.apache.commons.io.FilenameUtilsTestCase.testNormalize 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Invalid argument),
+184 - org.apache.commons.io.output.ProxyWriterTest.testNullCharSequencec 0  SUCCESSFUL 
+185 - org.apache.commons.io.IOExceptionWithCauseTestCase.testIOExceptionThrowable 0  SUCCESSFUL 
+186 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_Encoding 0  SUCCESSFUL 
+187 - org.apache.commons.io.filefilter.FileFilterTestCase.testFileFilterUtils_or 1  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+188 - org.apache.commons.io.filefilter.FileFilterTestCase.testCanRead 2  SUCCESSFUL 
+189 - org.apache.commons.io.input.XmlStreamReaderTest.testRawBom 91  SUCCESSFUL 
+190 - org.apache.commons.io.IOCaseTestCase.test_checkCompare_case 0  SUCCESSFUL 
+191 - org.apache.commons.io.input.NullReaderTest.testReadCharArray 0  SUCCESSFUL 
+192 - org.apache.commons.io.FileUtilsTestCase.testDecodeUrl 3  SUCCESSFUL 
+193 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadBoolean 0  SUCCESSFUL 
+194 - org.apache.commons.io.FileUtilsTestCase.testMoveToDirectory_Errors 3  SUCCESSFUL 
+195 - org.apache.commons.io.FileUtilsTestCase.testWriteByteArrayToFile 3  SUCCESSFUL 
+196 - org.apache.commons.io.FileUtilsListFilesTestCase.testListFiles 11  SUCCESSFUL 
+197 - org.apache.commons.io.EndianUtilsTest.testWriteSwappedShort 0  SUCCESSFUL 
+198 - org.apache.commons.io.EndianUtilsTest.testSymmetry 0  SUCCESSFUL 
+199 - org.apache.commons.io.comparator.NameFileComparatorTest.testCaseSensitivity 1  SUCCESSFUL 
+200 - org.apache.commons.io.FileUtilsTestCase.testCopyToSelf 4  SUCCESSFUL 
+201 - org.apache.commons.io.IOCaseTestCase.test_toString 0  SUCCESSFUL 
+202 - org.apache.commons.io.FilenameUtilsTestCase.testEquals 4  FAILURE Cannot create file /Users/demigorgan/Documents/workspace/tldr/test/io/file1a-test.txt as the parent directory does not exist,
+203 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFileWithEncoding_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 4  SUCCESSFUL 
+204 - org.apache.commons.io.input.BOMInputStreamTest.testSkipWithoutBOM 0  SUCCESSFUL 
+205 - org.apache.commons.io.filefilter.FileFilterTestCase.testOr 1  SUCCESSFUL 
+206 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadByte 0  SUCCESSFUL 
+207 - org.apache.commons.io.FileUtilsTestCase.testChecksumOnDirectory 3  SUCCESSFUL 
+208 - org.apache.commons.io.FileUtilsTestCase.testMoveDirectory_CopyDelete 10  SUCCESSFUL 
+209 - org.apache.commons.io.input.BOMInputStreamTest.testLargeBufferWithBOM 0  SUCCESSFUL 
+210 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToOutputStream_nullStream 1  SUCCESSFUL 
+211 - org.apache.commons.io.FilenameUtilsTestCase.testGetFullPathNoEndSeparator_IO_248 4  SUCCESSFUL 
+212 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToOutputStream_nullData 0  SUCCESSFUL 
+213 - org.apache.commons.io.DirectoryWalkerTestCase.testMultiThreadCancel 4  FAILURE CancelException not thrown for 'DirectoryWalker.java',
+214 - org.apache.commons.io.FileUtilsTestCase.testReadLines 4  SUCCESSFUL 
+215 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadUnsignedByte 0  SUCCESSFUL 
+216 - org.apache.commons.io.input.ReaderInputStreamTest.testLargeUTF8WithBufferedRead 7  SUCCESSFUL 
+217 - org.apache.commons.io.output.StringBuilderWriterTest.testWriteString 0  SUCCESSFUL 
+218 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16LEWithBufferedWrite 6  SUCCESSFUL 
+219 - org.apache.commons.io.LineIteratorTestCase.testConstructor 26  SUCCESSFUL 
+220 - org.apache.commons.io.IOUtilsTestCase.testConstants 2  SUCCESSFUL 
+221 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_nullStream 0  SUCCESSFUL 
+222 - org.apache.commons.io.input.CountingInputStreamTest.testResetting 0  SUCCESSFUL 
+223 - org.apache.commons.io.input.BrokenInputStreamTest.testReset 0  SUCCESSFUL 
+224 - org.apache.commons.io.filefilter.FileFilterTestCase.testNameFilter 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io does not exist,
+225 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToOutputStream_nullIn 0  SUCCESSFUL 
+226 - org.apache.commons.io.FilenameUtilsTestCase.testEqualsOnSystem 3  SUCCESSFUL 
+227 - org.apache.commons.io.input.ReaderInputStreamTest.testUTF8WithSingleByteRead 0  SUCCESSFUL 
+228 - org.apache.commons.io.EndianUtilsTest.testReadSwappedShort 0  SUCCESSFUL 
+229 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryFiltered 16  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/file1a-test.txt,
+230 - org.apache.commons.io.filefilter.FileFilterTestCase.testHidden 2  SUCCESSFUL 
+231 - org.apache.commons.io.FileDeleteStrategyTestCase.testDeleteForce 1  SUCCESSFUL 
+232 - org.apache.commons.io.output.ProxyOutputStreamTest.testWriteNullBaSucceeds 0  SUCCESSFUL 
+233 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToOutputStream 1  SUCCESSFUL 
+234 - org.apache.commons.io.filefilter.FileFilterTestCase.testDeprecatedWildcard 2  SUCCESSFUL 
+235 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToWriter 0  SUCCESSFUL 
+236 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding_nullStream 0  SUCCESSFUL 
+237 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testTempFileAboveThreshold 1  SUCCESSFUL 
+238 - org.apache.commons.io.FilenameUtilsTestCase.testIndexOfLastSeparator 5  SUCCESSFUL 
+239 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_Windows 0  SUCCESSFUL 
+240 - org.apache.commons.io.output.FileWriterWithEncodingTest.testConstructor_fileName_nullFile 2  SUCCESSFUL 
+241 - org.apache.commons.io.input.XmlStreamReaderTest.testHttpContent 5  SUCCESSFUL 
+242 - org.apache.commons.io.input.ClosedInputStreamTest.testRead 0  SUCCESSFUL 
+243 - org.apache.commons.io.FilenameUtilsTestCase.testEqualsNormalizedOnSystem 5  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt,
+244 - org.apache.commons.io.CopyUtilsTest.testCopy_byteArrayToOutputStream 0  SUCCESSFUL 
+245 - org.apache.commons.io.output.XmlStreamWriterTest.testEUC_JPEncoding 174  SUCCESSFUL 
+246 - org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterBytesOffset 18  FAILURE Filter(File) org.apache.commons.io.filefilter.MagicNumberFileFilter not true for /Users/demigorgan/Documents/workspace/tldr/test/io/A.tar expected:<true> but was:<false>,
+247 - org.apache.commons.io.EndianUtilsTest.testReadSwappedUnsignedInteger 0  SUCCESSFUL 
+248 - org.apache.commons.io.filefilter.FileFilterTestCase.testMakeSVNAware 5  SUCCESSFUL 
+249 - org.apache.commons.io.filefilter.FileFilterTestCase.testFilterListNullParameters 1  SUCCESSFUL 
+250 - org.apache.commons.io.LineIteratorTestCase.testNextWithException 2  SUCCESSFUL 
+251 - org.apache.commons.io.input.TaggedInputStreamTest.testNormalStream 0  SUCCESSFUL 
+252 - org.apache.commons.io.FileUtilsTestCase.test_openOutputStream_notExists 6  SUCCESSFUL 
+253 - org.apache.commons.io.FileUtilsTestCase.testCopyURLToFile 11  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+254 - org.apache.commons.io.output.WriterOutputStreamTest.testLargeUTF8WithSingleByteWrite 4  SUCCESSFUL 
+255 - org.apache.commons.io.monitor.FileAlterationObserverTestCase.testFileDelete 0  FAILURE ./test-observer is not a directory,
+256 - org.apache.commons.io.monitor.FileAlterationObserverTestCase.testDirectory 0  FAILURE ./test-observer is not a directory,
+257 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testWriteToSmall 0  SUCCESSFUL 
+258 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16LEWithSingleByteWrite 1  SUCCESSFUL 
+259 - org.apache.commons.io.IOCaseTestCase.test_checkCompare_functionality 0  SUCCESSFUL 
+260 - org.apache.commons.io.FileUtilsTestCase.testWriteCharSequence1 5  SUCCESSFUL 
+261 - org.apache.commons.io.FileUtilsTestCase.testWriteCharSequence2 3  SUCCESSFUL 
+262 - org.apache.commons.io.FilenameUtilsWildcardTestCase.testMatchOnSystem 0  SUCCESSFUL 
+263 - org.apache.commons.io.DirectoryWalkerTestCase.testFilterDirAndFile4 5  FAILURE [DirAndFile4] Result Size expected:<2> but was:<0>,
+264 - org.apache.commons.io.DirectoryWalkerTestCase.testFilterDirAndFile3 1  FAILURE [DirAndFile3] Result Size expected:<6> but was:<1>,
+265 - org.apache.commons.io.DirectoryWalkerTestCase.testFilterDirAndFile2 12  FAILURE [DirAndFile2] Dir[0] src/main/java/org,
+266 - org.apache.commons.io.filefilter.FileFilterTestCase.testAnd 16  SUCCESSFUL 
+267 - org.apache.commons.io.DirectoryWalkerTestCase.testFilterDirAndFile1 1  FAILURE [DirAndFile1] Result Size expected:<8> but was:<1>,
+268 - org.apache.commons.io.FileUtilsTestCase.testWriteLinesEncoding_WithAppendOptionFalse_ShouldDeletePreviousFileLines 72  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/file-test.txt,
+269 - org.apache.commons.io.DirectoryWalkerTestCase.testFilter 0  FAILURE Result Size expected:<10> but was:<1>,
+270 - org.apache.commons.io.LineIteratorTestCase.testCloseEarly 2  SUCCESSFUL 
+271 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_nullOut 0  SUCCESSFUL 
+272 - org.apache.commons.io.FilenameUtilsTestCase.testEqualsNormalizedError_IO_128 4  SUCCESSFUL 
+273 - org.apache.commons.io.comparator.DirectoryFileComparatorTest.testSortList 2  SUCCESSFUL 
+274 - org.apache.commons.io.output.ByteArrayOutputStreamTestCase.testStream 0  SUCCESSFUL 
+275 - org.apache.commons.io.output.StringBuilderWriterTest.testWriteCharArrayPortion 0  SUCCESSFUL 
+276 - org.apache.commons.io.IOUtilsTestCase.testSkipFileReader 3  SUCCESSFUL 
+277 - org.apache.commons.io.IOCaseTestCase.test_checkIndexOf_case 0  SUCCESSFUL 
+278 - org.apache.commons.io.IOCaseTestCase.test_checkEquals_functionality 11  SUCCESSFUL 
+279 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToNonExistingDest 5  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/list-files/subdir1/subsubdir1/dummy-file.txt,
+280 - org.apache.commons.io.IOUtilsTestCase.testByteArrayToOutputStream 4  FAILURE Couldn't delete file: /Users/demigorgan/Documents/workspace/tldr/test/io/copy8.txt,
+281 - org.apache.commons.io.FileUtilsTestCase.testMoveFile_CopyDelete 4  SUCCESSFUL 
+282 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToGrandChild 28  FAILURE Unable to delete file: /Users/demigorgan/Documents/workspace/tldr/test/io/grandparent/parent/child2/file4.txt,
+283 - org.apache.commons.io.output.ProxyWriterTest.testWriteCharArrayPartial 0  SUCCESSFUL 
+284 - org.apache.commons.io.FilenameUtilsTestCase.testGetPathNoEndSeparator 3  SUCCESSFUL 
+285 - org.apache.commons.io.FileUtilsTestCase.testForceDeleteDir 3  SUCCESSFUL 
+286 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_nullData 0  SUCCESSFUL 
+287 - org.apache.commons.io.output.BrokenOutputStreamTest.testWrite 0  SUCCESSFUL 
+288 - org.apache.commons.io.output.StringBuilderWriterTest.testClose 0  SUCCESSFUL 
+289 - org.apache.commons.io.IOUtilsTestCase.testStringToInputStream 1  SUCCESSFUL 
+290 - org.apache.commons.io.FileUtilsTestCase.testCopyURLToFileWithTimeout 2  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+291 - org.apache.commons.io.FileUtilsTestCase.testMoveFileToDirectory_Errors 3  SUCCESSFUL 
+292 - org.apache.commons.io.FilenameUtilsTestCase.testSeparatorsToUnix 2  SUCCESSFUL 
+293 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream 0  SUCCESSFUL 
+294 - org.apache.commons.io.FileUtilsTestCase.testCopyFile1 2  SUCCESSFUL 
+295 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitB 1  FAILURE [B] Result Size expected:<2> but was:<3>,
+296 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilterAndLimitA 1  SUCCESSFUL 
+297 - org.apache.commons.io.input.TeeInputStreamTest.testSkip 0  SUCCESSFUL 
+298 - org.apache.commons.io.FileUtilsTestCase.testCopyFile2 5  SUCCESSFUL 
+299 - org.apache.commons.io.input.CharSequenceReaderTest.testReadCharArrayPortion 0  SUCCESSFUL 
+300 - org.apache.commons.io.FilenameUtilsTestCase.testGetExtension 11  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (No such file or directory),
+301 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_quoted 0  SUCCESSFUL 
+302 - org.apache.commons.io.FileUtilsCleanDirectoryTestCase.testCleanEmpty 19  SUCCESSFUL 
+303 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_Encoding_nullStream 1  SUCCESSFUL 
+304 - org.apache.commons.io.TaggedIOExceptionTest.testTaggedIOException 1  SUCCESSFUL 
+305 - org.apache.commons.io.output.XmlStreamWriterTest.testLatin15Encoding 1  SUCCESSFUL 
+306 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF8WithSingleByteWrite 1  SUCCESSFUL 
+307 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream 0  SUCCESSFUL 
+308 - org.apache.commons.io.output.FileWriterWithEncodingTest.testConstructor_File_nullFile 2  SUCCESSFUL 
+309 - org.apache.commons.io.FileUtilsCleanSymlinksTestCase.testIdentifiesSymlinkDir 15  FAILURE 
+310 - org.apache.commons.io.filefilter.FileFilterTestCase.testMakeFileOnly 3  SUCCESSFUL 
+311 - org.apache.commons.io.FileUtilsTestCase.testWriteWithEncoding_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 4  SUCCESSFUL 
+312 - org.apache.commons.io.EndianUtilsTest.testSwapShort 0  SUCCESSFUL 
+313 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testMissingStartDirectory 0  SUCCESSFUL 
+314 - org.apache.commons.io.input.BOMInputStreamTest.testLeadingNonBOMSingleRead 0  SUCCESSFUL 
+315 - org.apache.commons.io.input.XmlStreamReaderUtilitiesTest.testTextXml 0  SUCCESSFUL 
+316 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_LongResponse 0  SUCCESSFUL 
+317 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadFully 0  SUCCESSFUL 
+318 - org.apache.commons.io.LineIteratorTestCase.testNextLineOnlyUtf8Encoding 4  SUCCESSFUL 
+319 - org.apache.commons.io.input.BOMInputStreamTest.testSupportCode 0  SUCCESSFUL 
+320 - org.apache.commons.io.filefilter.FileFilterTestCase.testWildcard 1  SUCCESSFUL 
+321 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_InvalidTextResponse 0  SUCCESSFUL 
+322 - org.apache.commons.io.comparator.CompositeFileComparatorTest.testConstructorArrayNull 3  SUCCESSFUL 
+323 - org.apache.commons.io.input.BoundedInputStreamTest.testReadSingle 1  SUCCESSFUL 
+324 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_NoSuchDirectoryResponse 0  SUCCESSFUL 
+325 - org.apache.commons.io.output.XmlStreamWriterTest.testEBCDICEncoding 39  SUCCESSFUL 
+326 - org.apache.commons.io.FileCleaningTrackerTestCase.testFileCleanerNull 0  SUCCESSFUL 
+327 - org.apache.commons.io.input.BrokenInputStreamTest.testClose 0  SUCCESSFUL 
+328 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToOutputStream_nullOut 0  SUCCESSFUL 
+329 - org.apache.commons.io.DirectoryWalkerTestCase.testFilterAndLimitB 0  FAILURE [B] Result Size expected:<2> but was:<3>,
+330 - org.apache.commons.io.DirectoryWalkerTestCase.testFilterAndLimitA 0  SUCCESSFUL 
+331 - org.apache.commons.io.FileUtilsFileNewerTestCase.testIsFileNewerNoDate 2  SUCCESSFUL 
+332 - org.apache.commons.io.input.XmlStreamReaderUtilitiesTest.testCalculateRawEncodingStandard 1  SUCCESSFUL 
+333 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_Encoding_nullEncoding 0  SUCCESSFUL 
+334 - org.apache.commons.io.input.NullReaderTest.testMarkAndReset 0  SUCCESSFUL 
+335 - org.apache.commons.io.FileUtilsCleanDirectoryTestCase.testDeletesRegular 20  SUCCESSFUL 
+336 - org.apache.commons.io.FileUtilsTestCase.testChecksumCRC32 3  SUCCESSFUL 
+337 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadShort 0  SUCCESSFUL 
+338 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_nullStream 1  SUCCESSFUL 
+339 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_nullOut 0  SUCCESSFUL 
+340 - org.apache.commons.io.FileCleaningTrackerTestCase.testFileCleanerFile 682  SUCCESSFUL 
+341 - org.apache.commons.io.EndianUtilsTest.testReadSwappedFloat 0  SUCCESSFUL 
+342 - org.apache.commons.io.input.CharSequenceReaderTest.testReadCharArray 0  SUCCESSFUL 
+343 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testFilter 0  FAILURE Result Size expected:<10> but was:<1>,
+344 - org.apache.commons.io.input.XmlStreamReaderTest.testRawNoBom 126  SUCCESSFUL 
+345 - org.apache.commons.io.EndianUtilsTest.testSwapDouble 0  SUCCESSFUL 
+346 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_Encoding_nullIn 6  SUCCESSFUL 
+347 - org.apache.commons.io.input.CharSequenceReaderTest.testRead 0  SUCCESSFUL 
+348 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_nullData 0  SUCCESSFUL 
+349 - org.apache.commons.io.CopyUtilsTest.testCopy_stringToOutputStream 1  SUCCESSFUL 
+350 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_nullEncoding 0  SUCCESSFUL 
+351 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testMultiThreadCancel 3  FAILURE CancelException not thrown for 'DirectoryWalker.java',
+352 - org.apache.commons.io.FileUtilsTestCase.testToURLs1 11  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1a-test.txt (No such file or directory),
+353 - org.apache.commons.io.FileUtilsTestCase.testChecksum 4  SUCCESSFUL 
+354 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testTempFileAboveThresholdPrefixOnly 1  SUCCESSFUL 
+355 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadUnsignedShort 1  SUCCESSFUL 
+356 - org.apache.commons.io.DirectoryWalkerTestCase.testFilterAndLimitD 1  FAILURE [D] Result Size expected:<8> but was:<1>,
+357 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadInt 0  SUCCESSFUL 
+358 - org.apache.commons.io.input.XmlStreamReaderTest.testEncodingAttributeXML 0  SUCCESSFUL 
+359 - org.apache.commons.io.DirectoryWalkerTestCase.testFilterAndLimitC 0  FAILURE [C] Result Size expected:<4> but was:<7>,
+360 - org.apache.commons.io.FileUtilsTestCase.testMoveDirectoryToDirectory 5  SUCCESSFUL 
+361 - org.apache.commons.io.input.XmlStreamReaderUtilitiesTest.testCalculateHttpEncoding 1  SUCCESSFUL 
+362 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseLinux 0  SUCCESSFUL 
+363 - org.apache.commons.io.FilenameUtilsTestCase.testNormalizeNoEndSeparator 2  SUCCESSFUL 
+364 - org.apache.commons.io.input.CharSequenceReaderTest.testSkip 0  SUCCESSFUL 
+365 - org.apache.commons.io.FileDeleteStrategyTestCase.testDeleteNormal 2  SUCCESSFUL 
+366 - org.apache.commons.io.input.BOMInputStreamTest.testReadWithBOMInclude 0  SUCCESSFUL 
+367 - org.apache.commons.io.input.BOMInputStreamTest.testEmptyBufferWithoutBOM 0  SUCCESSFUL 
+368 - org.apache.commons.io.CopyUtilsTest.testCopy_inputStreamToOutputStream 0  SUCCESSFUL 
+369 - org.apache.commons.io.DirectoryWalkerTestCase.testMissingStartDirectory 0  SUCCESSFUL 
+370 - org.apache.commons.io.input.XmlStreamReaderUtilitiesTest.testContentTypeEncoding 0  SUCCESSFUL 
+371 - org.apache.commons.io.output.StringBuilderWriterTest.testWriteChar 0  SUCCESSFUL 
+372 - org.apache.commons.io.filefilter.FileFilterTestCase.testFilterSet_fromArray 28  SUCCESSFUL 
+373 - org.apache.commons.io.output.LockableFileWriterTest.testAlternateLockDir 1  SUCCESSFUL 
+374 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_Encoding_nullStream 3  SUCCESSFUL 
+375 - org.apache.commons.io.FileUtilsCleanSymlinksTestCase.testCleanDirWithASymlinkDir 19  FAILURE 
+376 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_3arg_nullSeparator 5  SUCCESSFUL 
+377 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadLine 0  SUCCESSFUL 
+378 - org.apache.commons.io.output.XmlStreamWriterTest.testUTF8Encoding 0  SUCCESSFUL 
+379 - org.apache.commons.io.input.CloseShieldInputStreamTest.testClose 0  SUCCESSFUL 
+380 - org.apache.commons.io.IOUtilsTestCase.testStringToWriter 3  SUCCESSFUL 
+381 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_nullEncoding 0  SUCCESSFUL 
+382 - org.apache.commons.io.IOCaseTestCase.test_checkRegionMatches_functionality 0  SUCCESSFUL 
+383 - org.apache.commons.io.FileDeleteStrategyTestCase.testDeleteNull 1  SUCCESSFUL 
+384 - org.apache.commons.io.EndianUtilsTest.testWriteSwappedFloat 26  SUCCESSFUL 
+385 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testLimitToCurrent 0  SUCCESSFUL 
+386 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding_nullData 0  SUCCESSFUL 
+387 - org.apache.commons.io.FileUtilsTestCase.testReadFileToStringWithEncoding 11  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/read.obj,
+388 - org.apache.commons.io.input.TeeInputStreamTest.testReadNothing 0  SUCCESSFUL 
+389 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_Unix 0  SUCCESSFUL 
+390 - org.apache.commons.io.FileUtilsTestCase.testCopyFile2ToDir 5  SUCCESSFUL 
+391 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter 0  SUCCESSFUL 
+392 - org.apache.commons.io.DirectoryWalkerTestCase.testLimitToCurrent 0  SUCCESSFUL 
+393 - org.apache.commons.io.input.TeeInputStreamTest.testMarkReset 0  SUCCESSFUL 
+394 - org.apache.commons.io.FilenameUtilsTestCase.testGetFullPathNoEndSeparator 3  SUCCESSFUL 
+395 - org.apache.commons.io.FileUtilsTestCase.testReadFileToStringWithDefaultEncoding 16  SUCCESSFUL 
+396 - org.apache.commons.io.IOUtilsTestCase.testByteArrayToString 6  FAILURE Could not clear up /Users/demigorgan/Documents/workspace/tldr/test/io,
+397 - org.apache.commons.io.input.BOMInputStreamTest.testSkipWithBOM 0  SUCCESSFUL 
+398 - org.apache.commons.io.FileUtilsTestCase.testGetUserDirectoryPath 3  SUCCESSFUL 
+399 - org.apache.commons.io.comparator.SizeFileComparatorTest.testNonexistantFile 11  SUCCESSFUL 
+400 - org.apache.commons.io.filefilter.FileFilterTestCase.testSuffixCaseInsensitive 1  SUCCESSFUL 
+401 - org.apache.commons.io.filefilter.FileFilterTestCase.testMakeDirectoryOnly 4  SUCCESSFUL 
+402 - org.apache.commons.io.LineIteratorTestCase.testMissingFile 2  SUCCESSFUL 
+403 - org.apache.commons.io.FileUtilsTestCase.testWrite_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 23  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+404 - org.apache.commons.io.input.NullInputStreamTest.testReadByteArray 1  SUCCESSFUL 
+405 - org.apache.commons.io.LineIteratorTestCase.testValidEncoding 30  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/source/directory does not exist,
+406 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_Encoding 1  SUCCESSFUL 
+407 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFile_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 3  SUCCESSFUL 
+408 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_ParseCommaFormatBytes 0  SUCCESSFUL 
+409 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_Encoding_nullEncoding 2  SUCCESSFUL 
+410 - org.apache.commons.io.input.CharSequenceReaderTest.testMarkSupported 0  SUCCESSFUL 
+411 - org.apache.commons.io.FileUtilsTestCase.testDecodeUrlNullSafe 3  SUCCESSFUL 
+412 - org.apache.commons.io.ByteOrderMarkTestCase.testGet 0  SUCCESSFUL 
+413 - org.apache.commons.io.input.BOMInputStreamTest.testGetBOMFirstThenRead 0  SUCCESSFUL 
+414 - org.apache.commons.io.output.StringBuilderWriterTest.testWriteStringPortion 0  SUCCESSFUL 
+415 - org.apache.commons.io.FileUtilsTestCase.testChecksumDouble 4  SUCCESSFUL 
+416 - org.apache.commons.io.input.AutoCloseInputStreamTest.testClose 0  SUCCESSFUL 
+417 - org.apache.commons.io.filefilter.FileFilterTestCase.testFileFilterUtils_and 1  SUCCESSFUL 
+418 - org.apache.commons.io.FilenameUtilsWildcardTestCase.test_IO_246 1  SUCCESSFUL 
+419 - org.apache.commons.io.monitor.FileAlterationMonitorTestCase.testMonitor 549  SUCCESSFUL 
+420 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadDouble 0  SUCCESSFUL 
+421 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4arg_Writer_nullData 116  SUCCESSFUL 
+422 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_Writer 1  SUCCESSFUL 
+423 - org.apache.commons.io.EndianUtilsTest.testWriteSwappedDouble 1  SUCCESSFUL 
+424 - org.apache.commons.io.output.BrokenOutputStreamTest.testClose 1  SUCCESSFUL 
+425 - org.apache.commons.io.FileUtilsTestCase.testMoveFileToDirectory 3  SUCCESSFUL 
+426 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_Encoding_nullOut 9  SUCCESSFUL 
+427 - org.apache.commons.io.IOUtilsTestCase.testReadLines_InputStream 2  SUCCESSFUL 
+428 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToOutputStream 0  SUCCESSFUL 
+429 - org.apache.commons.io.CopyUtilsTest.testCopy_readerToOutputStream 0  SUCCESSFUL 
+430 - org.apache.commons.io.filefilter.FileFilterTestCase.testTrue 0  SUCCESSFUL 
+431 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_Encoding_nullData 0  SUCCESSFUL 
+432 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_Other 0  SUCCESSFUL 
+433 - org.apache.commons.io.CopyUtilsTest.testCopy_byteArrayToWriter 9  SUCCESSFUL 
+434 - org.apache.commons.io.ByteOrderMarkTestCase.testHashCode 0  SUCCESSFUL 
+435 - org.apache.commons.io.filefilter.FileFilterTestCase.testFilterSetNullParameters 0  SUCCESSFUL 
+436 - org.apache.commons.io.input.NullReaderTest.testMarkNotSupported 1  SUCCESSFUL 
+437 - org.apache.commons.io.LineIteratorTestCase.testInvalidEncoding 42  SUCCESSFUL 
+438 - org.apache.commons.io.HexDumpTest.testDump 24  SUCCESSFUL 
+439 - org.apache.commons.io.output.StringBuilderWriterTest.testAppendConstructStringBuilder 0  SUCCESSFUL 
+440 - org.apache.commons.io.filefilter.FileFilterTestCase.testFiles 15  FAILURE Filter(File) org.apache.commons.io.filefilter.FileFileFilter not true for LICENSE.txt expected:<true> but was:<false>,
+441 - org.apache.commons.io.input.TaggedInputStreamTest.testBrokenStream 1  SUCCESSFUL 
+442 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadChar 0  SUCCESSFUL 
+443 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16BEWithSingleByteWrite 1  SUCCESSFUL 
+444 - org.apache.commons.io.ByteOrderMarkTestCase.testGetBytes 1  SUCCESSFUL 
+445 - org.apache.commons.io.input.AutoCloseInputStreamTest.testReadBuffer 0  SUCCESSFUL 
+446 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_nullEncoding 1  SUCCESSFUL 
+447 - org.apache.commons.io.DirectoryWalkerTestCase.testCancel 4  FAILURE CancelException not thrown for 'DirectoryWalker.java',
+448 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToWriter 1  SUCCESSFUL 
+449 - org.apache.commons.io.FileUtilsTestCase.testDeleteQuietlyFile 3  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt,
+450 - org.apache.commons.io.filefilter.FileFilterTestCase.testNameFilterNullArrayArgument 0  SUCCESSFUL 
+451 - org.apache.commons.io.filefilter.FileFilterTestCase.testNot 1  SUCCESSFUL 
+452 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToWriter_Encoding_nullData 0  SUCCESSFUL 
+453 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToWriter_Encoding_nullStream 0  SUCCESSFUL 
+454 - org.apache.commons.io.input.AutoCloseInputStreamTest.testReadBufferOffsetLength 0  SUCCESSFUL 
+455 - org.apache.commons.io.input.BOMInputStreamTest.testClose 0  SUCCESSFUL 
+456 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFileWithEncoding_WithAppendOptionFalse_ShouldDeletePreviousFileLines 4  SUCCESSFUL 
+457 - org.apache.commons.io.input.CountingInputStreamTest.testCounting 0  SUCCESSFUL 
+458 - org.apache.commons.io.IOUtilsTestCase.testReaderToString 3  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/testMoveDirectory1Dest does not exist,
+459 - org.apache.commons.io.output.XmlStreamWriterTest.testDefaultEncoding 3  SUCCESSFUL 
+460 - org.apache.commons.io.FileCleaningTrackerTestCase.testFileCleanerDirectory 564  FAILURE expected:<true> but was:<false>,
+461 - org.apache.commons.io.input.NullInputStreamTest.testSkip 0  SUCCESSFUL 
+462 - org.apache.commons.io.output.TaggedOutputStreamTest.testNormalStream 0  SUCCESSFUL 
+463 - org.apache.commons.io.FileUtilsTestCase.testReadFileToByteArray 5  SUCCESSFUL 
+464 - org.apache.commons.io.input.NullReaderTest.testRead 1  SUCCESSFUL 
+465 - org.apache.commons.io.EndianUtilsTest.testReadSwappedLong 0  SUCCESSFUL 
+466 - org.apache.commons.io.ByteOrderMarkTestCase.testLength 0  SUCCESSFUL 
+467 - org.apache.commons.io.FileUtilsTestCase.testCopyFile2WithoutFileDatePreservation 8  FAILURE Check Full copy expected:<0> but was:<1>,
+468 - org.apache.commons.io.DirectoryWalkerTestCaseJava4.testCancel 4  FAILURE CancelException not thrown for 'DirectoryWalker.java',
+469 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter 0  SUCCESSFUL 
+470 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpace_String 114  SUCCESSFUL 
+471 - org.apache.commons.io.FilenameUtilsTestCase.testSeparatorsToWindows 7  SUCCESSFUL 
+472 - org.apache.commons.io.output.WriterOutputStreamTest.testWriteImmediately 0  SUCCESSFUL 
+473 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4argsWithAppendOptionTrue_ShouldNotDeletePreviousFileLines 4  FAILURE Unable to delete file: /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt,
+474 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFile_WithAppendOptionFalse_ShouldDeletePreviousFileLines 6  SUCCESSFUL 
+475 - org.apache.commons.io.output.FileWriterWithEncodingTest.testConstructor_File_encoding_badEncoding 10  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+476 - org.apache.commons.io.output.StringBuilderWriterTest.testAppendCharSequencePortion 0  SUCCESSFUL 
+477 - org.apache.commons.io.EndianUtilsTest.testSwapFloat 0  SUCCESSFUL 
+478 - org.apache.commons.io.input.NullInputStreamTest.testRead 0  SUCCESSFUL 
+479 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_nullWriter 0  SUCCESSFUL 
+480 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_Encoding 1  SUCCESSFUL 
+481 - org.apache.commons.io.FileUtilsTestCase.test_openOutputStream_noParentNoFile 4  SUCCESSFUL 
+482 - org.apache.commons.io.input.XmlStreamReaderUtilitiesTest.testAppXml 0  SUCCESSFUL 
+483 - org.apache.commons.io.output.FileWriterWithEncodingTest.testDifferentEncoding 3  SUCCESSFUL 
+484 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_EmptyResponse 0  SUCCESSFUL 
+485 - org.apache.commons.io.input.NullReaderTest.testSkip 0  SUCCESSFUL 
+486 - org.apache.commons.io.input.BOMInputStreamTest.testReadWithMultipleBOM 0  SUCCESSFUL 
+487 - org.apache.commons.io.FileUtilsFileNewerTestCase.testIsFileNewerNoFileReference 2  SUCCESSFUL 
+488 - org.apache.commons.io.CopyUtilsTest.testCopy_byteArrayToWriterWithEncoding 0  SUCCESSFUL 
+489 - org.apache.commons.io.FileUtilsTestCase.testMoveDirectory_Rename 6  SUCCESSFUL 
+490 - org.apache.commons.io.output.XmlStreamWriterTest.testNoXmlHeader 2  SUCCESSFUL 
+491 - org.apache.commons.io.LineIteratorTestCase.testFilteringFileReader 8  SUCCESSFUL 
+492 - org.apache.commons.io.FileCleaningTrackerTestCase.testFileCleanerDirectory_NullStrategy 599  FAILURE expected:<true> but was:<false>,
+493 - org.apache.commons.io.monitor.FileAlterationObserverTestCase.testFileUpdate 0  FAILURE ./test-observer is not a directory,
+494 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToCharArrayWithEncoding 11  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (No such file or directory),
+495 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream 0  SUCCESSFUL 
+496 - org.apache.commons.io.FileUtilsFileNewerTestCase.testIsFileNewer 2  SUCCESSFUL 
+497 - org.apache.commons.io.output.FileWriterWithEncodingTest.testConstructor_File_directory 2  SUCCESSFUL 
+498 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_Encoding_nullIn 1  SUCCESSFUL 
+499 - org.apache.commons.io.FileUtilsCleanDirectoryTestCase.testThrowsOnCannotDeleteFile 34  SUCCESSFUL 
+500 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_NullPath 0  SUCCESSFUL 
+501 - org.apache.commons.io.FilenameUtilsWildcardTestCase.testMatch2 0  SUCCESSFUL 
+502 - org.apache.commons.io.IOCaseTestCase.test_checkIndexOf_functionality 0  SUCCESSFUL 
+503 - org.apache.commons.io.output.LockableFileWriterTest.testConstructor_File_nullFile 1  SUCCESSFUL 
+504 - org.apache.commons.io.FileUtilsTestCase.testIterateFiles 9  FAILURE Unable to delete file: /Users/demigorgan/Documents/workspace/tldr/test/io/list_test/f.txt,
+505 - org.apache.commons.io.FilenameUtilsTestCase.testGetFullPath 2  SUCCESSFUL 
+506 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_3argsWithAppendOptionTrue_ShouldNotDeletePreviousFileLines 3  SUCCESSFUL 
+507 - org.apache.commons.io.output.ProxyWriterTest.testWriteCharArray 0  SUCCESSFUL 
+508 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_EmptyResponse 0  SUCCESSFUL 
+509 - org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterBytes 3  SUCCESSFUL 
+510 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testTempFileError 0  SUCCESSFUL 
+511 - org.apache.commons.io.EndianUtilsTest.testEOFException 0  SUCCESSFUL 
+512 - org.apache.commons.io.DemuxTestCase.testOutputStream 202  SUCCESSFUL 
+513 - org.apache.commons.io.input.XmlStreamReaderTest.testHttp 796  SUCCESSFUL 
+514 - org.apache.commons.io.FileUtilsTestCase.testToFiles3 4  FAILURE Unable to delete file: /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt,
+515 - org.apache.commons.io.FileUtilsTestCase.testToFiles4 6  SUCCESSFUL 
+516 - org.apache.commons.io.FileUtilsTestCase.test_openOutputStream_exists 4  SUCCESSFUL 
+517 - org.apache.commons.io.FileUtilsTestCase.testWriteByteArrayToFile_WithAppendOptionFalse_ShouldDeletePreviousFileLines 4  SUCCESSFUL 
+518 - org.apache.commons.io.input.TailerTest.testStopWithNoFileUsingExecutor 203  SUCCESSFUL 
+519 - org.apache.commons.io.output.LockableFileWriterTest.testFileLocked 2  SUCCESSFUL 
+520 - org.apache.commons.io.FileUtilsTestCase.testToFiles1 36  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (No such file or directory),
+521 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_EmptyPath 0  SUCCESSFUL 
+522 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream 0  SUCCESSFUL 
+523 - org.apache.commons.io.FileUtilsTestCase.testToFiles2 2  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt,
+524 - org.apache.commons.io.FileUtilsTestCase.testMoveDirectory_Errors 13  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/testMoveDirectorySource,
+525 - org.apache.commons.io.IOUtilsTestCase.testReadLines_InputStream_String 12  SUCCESSFUL 
+526 - org.apache.commons.io.EndianUtilsTest.testWriteSwappedLong 0  SUCCESSFUL 
+527 - org.apache.commons.io.FileCleaningTrackerTestCase.testFileCleanerExitWhenFinished1 586  SUCCESSFUL 
+528 - org.apache.commons.io.EndianUtilsTest.testSymmetryOfLong 0  SUCCESSFUL 
+529 - org.apache.commons.io.FileCleaningTrackerTestCase.testFileCleanerExitWhenFinished2 1123  SUCCESSFUL 
+530 - org.apache.commons.io.output.TaggedOutputStreamTest.testOtherException 3  SUCCESSFUL 
+531 - org.apache.commons.io.FileUtilsTestCase.test_openInputStream_existsButIsDirectory 3  SUCCESSFUL 
+532 - org.apache.commons.io.ByteOrderMarkTestCase.testErrors 0  SUCCESSFUL 
+533 - org.apache.commons.io.FileUtilsTestCase.testSizeOfDirectory 2  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/list_test/d.txt,
+534 - org.apache.commons.io.input.NullInputStreamTest.testEOFException 0  SUCCESSFUL 
+535 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testThresholdReached 2  SUCCESSFUL 
+536 - org.apache.commons.io.filefilter.FileFilterTestCase.testPrefixCaseInsensitive 1  SUCCESSFUL 
+537 - org.apache.commons.io.IOUtilsTestCase.testCharSequenceToInputStream 2  SUCCESSFUL 
+538 - org.apache.commons.io.LineIteratorTestCase.testThreeLines 3  SUCCESSFUL 
+539 - org.apache.commons.io.DemuxTestCase.testInputStream 153  SUCCESSFUL 
+540 - org.apache.commons.io.output.ProxyWriterTest.testAppendCharSequence 0  SUCCESSFUL 
+541 - org.apache.commons.io.comparator.SizeFileComparatorTest.testCompareDirectorySizes 15  SUCCESSFUL 
+542 - org.apache.commons.io.output.LockableFileWriterTest.testConstructor_File_encoding_badEncoding 4  SUCCESSFUL 
+543 - org.apache.commons.io.FileUtilsCleanSymlinksTestCase.testCleanDirWithParentSymlinks 22  FAILURE 
+544 - org.apache.commons.io.CopyUtilsTest.testCtor 0  SUCCESSFUL 
+545 - org.apache.commons.io.FileUtilsTestCase.testChecksumOnNullChecksum 113  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+546 - org.apache.commons.io.output.FileWriterWithEncodingTest.testSameEncoding 2  SUCCESSFUL 
+547 - org.apache.commons.io.FilenameUtilsTestCase.testGetPrefix 3  SUCCESSFUL 
+548 - org.apache.commons.io.FilenameUtilsWildcardTestCase.testSplitOnTokens 0  SUCCESSFUL 
+549 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_Encoding_nullData 0  SUCCESSFUL 
+550 - org.apache.commons.io.input.TaggedInputStreamTest.testEmptyStream 1  SUCCESSFUL 
+551 - org.apache.commons.io.input.BOMInputStreamTest.testReadEmpty 1  SUCCESSFUL 
+552 - org.apache.commons.io.FilenameUtilsTestCase.testRemoveExtension 3  SUCCESSFUL 
+553 - org.apache.commons.io.EndianUtilsTest.testReadSwappedDouble 0  SUCCESSFUL 
+554 - org.apache.commons.io.FileUtilsTestCase.test_openInputStream_exists 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1a-test.txt (No such file or directory),
+555 - org.apache.commons.io.monitor.FileAlterationObserverTestCase.testObserveSingleFile 0  FAILURE ./test-observer is not a directory,
+556 - org.apache.commons.io.EndianUtilsTest.testReadSwappedInteger 0  SUCCESSFUL 
+557 - org.apache.commons.io.filefilter.FileFilterTestCase.testFilterArray 1  SUCCESSFUL 
+558 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToWriter_IO84 56  SUCCESSFUL 
+559 - org.apache.commons.io.FileUtilsListFilesTestCase.testListFilesByExtension 6  SUCCESSFUL 
+560 - org.apache.commons.io.ThreadMonitorTestCase.testNoTimeout 210  SUCCESSFUL 
+561 - org.apache.commons.io.FileUtilsTestCase.testTouch 1  FAILURE Cannot create file /Users/demigorgan/Documents/workspace/tldr/test/io/file1a-test.txt as the parent directory does not exist,
+562 - org.apache.commons.io.FileUtilsTestCase.testMoveFile_Errors 3  SUCCESSFUL 
+563 - org.apache.commons.io.input.BOMInputStreamTest.testLargeBufferWithoutBOM 0  SUCCESSFUL 
+564 - org.apache.commons.io.EndianUtilsTest.testSwapLong 0  SUCCESSFUL 
+565 - org.apache.commons.io.output.CountingOutputStreamTest.testCounting 0  SUCCESSFUL 
+566 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_nullStream 0  SUCCESSFUL 
+567 - org.apache.commons.io.input.SwappedDataInputStreamTest.testSkipBytes 0  SUCCESSFUL 
+568 - org.apache.commons.io.input.BOMInputStreamTest.testGetBOMFirstThenReadInclude 0  SUCCESSFUL 
+569 - org.apache.commons.io.input.NullReaderTest.testEOFException 0  SUCCESSFUL 
+570 - org.apache.commons.io.output.TaggedOutputStreamTest.testBrokenStream 0  SUCCESSFUL 
+571 - org.apache.commons.io.input.CharSequenceReaderTest.testMark 0  SUCCESSFUL 
+572 - org.apache.commons.io.FileUtilsListFilesTestCase.testIterateFilesByExtension 8  SUCCESSFUL 
+573 - org.apache.commons.io.FilenameUtilsTestCase.testGetName 6  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/grandparent/parent/child2/grandChild2 does not exist,
+574 - org.apache.commons.io.input.BrokenInputStreamTest.testRead 0  SUCCESSFUL 
+575 - org.apache.commons.io.filefilter.RegexFileFilterTestCase.testRegex 21  SUCCESSFUL 
+576 - org.apache.commons.io.output.XmlStreamWriterTest.testLatin7Encoding 1  SUCCESSFUL 
+577 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseFreeBSD 0  SUCCESSFUL 
+578 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4arg 20  SUCCESSFUL 
+579 - org.apache.commons.io.output.ProxyWriterTest.testWriteStringPartial 4  SUCCESSFUL 
+580 - org.apache.commons.io.input.BrokenInputStreamTest.testSkip 0  SUCCESSFUL 
+581 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToByteArray 3  SUCCESSFUL 
+582 - org.apache.commons.io.input.ReaderInputStreamTest.testLargeUTF8WithSingleByteRead 5  SUCCESSFUL 
+583 - org.apache.commons.io.IOCaseTestCase.test_checkEndsWith_functionality 0  SUCCESSFUL 
+584 - org.apache.commons.io.ByteOrderMarkTestCase.testEquals 0  SUCCESSFUL 
+585 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding_nullEncoding 0  SUCCESSFUL 
+586 - org.apache.commons.io.filefilter.FileFilterTestCase.testFilterList 1  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+587 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_nullData 0  SUCCESSFUL 
+588 - org.apache.commons.io.IOCaseTestCase.test_isCaseSensitive 0  SUCCESSFUL 
+589 - org.apache.commons.io.input.TaggedInputStreamTest.testOtherException 1  SUCCESSFUL 
+590 - org.apache.commons.io.FileUtilsTestCase.testChecksumOnNullFile 3  SUCCESSFUL 
+591 - org.apache.commons.io.CopyUtilsTest.testCopy_readerToWriter 0  SUCCESSFUL 
+592 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToDirectory_NonExistingDest 16  SUCCESSFUL 
+593 - org.apache.commons.io.output.XmlStreamWriterTest.testUTF16Encoding 0  SUCCESSFUL 
+594 - org.apache.commons.io.input.ReaderInputStreamTest.testUTF16WithSingleByteRead 14  SUCCESSFUL 
+595 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testAtThreshold 3  SUCCESSFUL 
+596 - org.apache.commons.io.IOCaseTestCase.test_checkStartsWith_functionality 0  SUCCESSFUL 
+597 - org.apache.commons.io.FilenameUtilsWildcardTestCase.testLocaleIndependence 166  SUCCESSFUL 
+598 - org.apache.commons.io.FileUtilsTestCase.testDeleteQuietlyForNull 3  SUCCESSFUL 
+599 - org.apache.commons.io.filefilter.FileFilterTestCase.testNameFilterNullArgument 5  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/grandparent/parent/child/grandChild,
+600 - org.apache.commons.io.input.NullInputStreamTest.testMarkNotSupported 0  SUCCESSFUL 
+601 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_Encoding_nullEncoding 0  SUCCESSFUL 
+602 - org.apache.commons.io.input.BOMInputStreamTest.testAvailableWithBOM 0  SUCCESSFUL 
+603 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_InvalidResponse3 0  SUCCESSFUL 
+604 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream 0  SUCCESSFUL 
+605 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_InvalidResponse4 0  SUCCESSFUL 
+606 - org.apache.commons.io.output.NullOutputStreamTest.testNull 0  SUCCESSFUL 
+607 - org.apache.commons.io.FileUtilsTestCase.testFileUtils 5  SUCCESSFUL 
+608 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_InvalidResponse1 0  SUCCESSFUL 
+609 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_LongResponseKb 0  SUCCESSFUL 
+610 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_InvalidResponse2 1  SUCCESSFUL 
+611 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_EmptyMultiLineResponse 0  SUCCESSFUL 
+612 - org.apache.commons.io.FileUtilsTestCase.test_openOutputStream_existsButIsDirectory 6  SUCCESSFUL 
+613 - org.apache.commons.io.ByteOrderMarkTestCase.testToString 0  SUCCESSFUL 
+614 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToBufferedInputStream 4  SUCCESSFUL 
+615 - org.apache.commons.io.ByteOrderMarkTestCase.testCharsetName 0  SUCCESSFUL 
+616 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_nullData 0  SUCCESSFUL 
+617 - org.apache.commons.io.CopyUtilsTest.testCopy_inputStreamToWriterWithEncoding 0  SUCCESSFUL 
+618 - org.apache.commons.io.FilenameUtilsTestCase.testGetBaseName 3  SUCCESSFUL 
+619 - org.apache.commons.io.input.ReaderInputStreamTest.testReadZero 0  SUCCESSFUL 
+620 - org.apache.commons.io.FilenameUtilsTestCase.testIndexOfExtension 1  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+621 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_Encoding_nullData 0  SUCCESSFUL 
+622 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryErrors 3  SUCCESSFUL 
+623 - org.apache.commons.io.CopyUtilsTest.testCopy_stringToWriter 20  SUCCESSFUL 
+624 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_Encoding_nullOut 0  SUCCESSFUL 
+625 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_NormalResponse 0  SUCCESSFUL 
+626 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16WithSingleByteWrite 0  SUCCESSFUL 
+627 - org.apache.commons.io.IOUtilsTestCase.testStringToOutputStream 2  SUCCESSFUL 
+628 - org.apache.commons.io.FileUtilsCleanDirectoryTestCase.testDeletesNested 427  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io/list-files/nested.,
+629 - org.apache.commons.io.output.WriterOutputStreamTest.testFlush 0  SUCCESSFUL 
+630 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToWriter_Encoding_nullData 1  SUCCESSFUL 
+631 - org.apache.commons.io.input.CountingInputStreamTest.testSkipping 0  SUCCESSFUL 
+632 - org.apache.commons.io.IOCaseTestCase.test_serialization 7  SUCCESSFUL 
+633 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToWriter_Encoding_nullStream 3  SUCCESSFUL 
+634 - org.apache.commons.io.input.BOMInputStreamTest.testReadWithoutBOM 0  SUCCESSFUL 
+635 - org.apache.commons.io.monitor.FileAlterationObserverTestCase.testToString 0  FAILURE ./test-observer is not a directory,
+636 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4argsWithAppendOptionFalse_ShouldDeletePreviousFileLines 7  SUCCESSFUL 
+637 - org.apache.commons.io.FileUtilsTestCase.testByteCountToDisplaySize 3  SUCCESSFUL 
+638 - org.apache.commons.io.output.StringBuilderWriterTest.testAppendCharSequence 0  SUCCESSFUL 
+639 - org.apache.commons.io.FileUtilsTestCase.testWriteWithEncoding_WithAppendOptionFalse_ShouldDeletePreviousFileLines 6  SUCCESSFUL 
+640 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testAboveThreshold 1  SUCCESSFUL 
+641 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_Encoding_nullData 0  SUCCESSFUL 
+642 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16BEWithBufferedWrite 1  SUCCESSFUL 
+643 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceWindows_String_EmptyPath 0  SUCCESSFUL 
+644 - org.apache.commons.io.IOExceptionWithCauseTestCase.testIOExceptionStringThrowable 0  SUCCESSFUL 
+645 - org.apache.commons.io.FileCleaningTrackerTestCase.testFileCleanerExitWhenFinished_NoTrackAfter 71  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/file-test.txt,
+646 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadLong 0  SUCCESSFUL 
+647 - org.apache.commons.io.IOCaseTestCase.test_checkEndsWith_case 1  SUCCESSFUL 
+648 - org.apache.commons.io.filefilter.FileFilterTestCase.testFilterArray_fromList 1  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+649 - org.apache.commons.io.FileUtilsTestCase.testMoveToDirectory 4  SUCCESSFUL 
+650 - org.apache.commons.io.FileUtilsTestCase.testCopyFile1ToDir 4  SUCCESSFUL 
+651 - org.apache.commons.io.input.BOMInputStreamTest.testReadWithBOM 1  SUCCESSFUL 
+652 - org.apache.commons.io.output.BrokenOutputStreamTest.testFlush 0  SUCCESSFUL 
+653 - org.apache.commons.io.input.XmlStreamReaderTest.testRawContent 0  SUCCESSFUL 
+654 - org.apache.commons.io.monitor.FileAlterationObserverTestCase.testAddRemoveListeners 0  FAILURE ./test-observer is not a directory,
+655 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceUnix_String_NormalResponseKbSolaris 1  SUCCESSFUL 
+656 - org.apache.commons.io.input.BOMInputStreamTest.testEmptyBufferWithBOM 1  SUCCESSFUL 
+657 - org.apache.commons.io.output.NullWriterTest.testNull 0  SUCCESSFUL 
+658 - org.apache.commons.io.FileUtilsTestCase.testSizeOf 1  FAILURE File does not exist: /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt,
+659 - org.apache.commons.io.EndianUtilsTest.testReadSwappedUnsignedShort 0  SUCCESSFUL 
+660 - org.apache.commons.io.input.TailerTest.testStopWithNoFile 211  SUCCESSFUL 
+661 - org.apache.commons.io.output.ProxyOutputStreamTest.testWrite 1  SUCCESSFUL 
+662 - org.apache.commons.io.FilenameUtilsTestCase.testIsExtensionCollection 1  SUCCESSFUL 
+663 - org.apache.commons.io.FileUtilsTestCase.testListFiles 8  SUCCESSFUL 
+664 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_3argsWithAppendOptionFalse_ShouldDeletePreviousFileLines 2  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+665 - org.apache.commons.io.FileUtilsCleanSymlinksTestCase.testStillClearsIfGivenDirectoryIsASymlink 29  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/fakeDir does not exist,
+666 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testWriteToLarge 1  SUCCESSFUL 
+667 - org.apache.commons.io.FilenameUtilsWildcardTestCase.testMatchCaseSpecified 0  SUCCESSFUL 
+668 - org.apache.commons.io.comparator.CompositeFileComparatorTest.testConstructorIterable 3  SUCCESSFUL 
+669 - org.apache.commons.io.input.BOMInputStreamTest.testSmallBufferWithBOM 0  SUCCESSFUL 
+670 - org.apache.commons.io.EndianUtilsTest.testWriteSwappedInteger 0  SUCCESSFUL 
+671 - org.apache.commons.io.FileDeleteStrategyTestCase.testToString 1  SUCCESSFUL 
+672 - org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterStringOffset 6  SUCCESSFUL 
+673 - org.apache.commons.io.FilenameUtilsTestCase.testEquals_fullControl 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/empty-dir does not exist,
+674 - org.apache.commons.io.IOCaseTestCase.test_checkStartsWith_case 0  SUCCESSFUL 
+675 - org.apache.commons.io.output.ProxyWriterTest.testNullCharArray 0  SUCCESSFUL 
+676 - org.apache.commons.io.input.CharSequenceReaderTest.testClose 0  SUCCESSFUL 
+677 - org.apache.commons.io.input.BOMInputStreamTest.testReadSmall 0  SUCCESSFUL 
+678 - org.apache.commons.io.FileUtilsCleanDirectoryTestCase.testThrowsOnNullList 125  SUCCESSFUL 
+679 - org.apache.commons.io.FileUtilsTestCase.testToFileUtf8 2  SUCCESSFUL 
+680 - org.apache.commons.io.FileSystemUtilsTestCase.testGetFreeSpaceOS_String_InitError 1  SUCCESSFUL 
+681 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_nullIn 0  SUCCESSFUL 
+682 - org.apache.commons.io.FileUtilsTestCase.testToFile2 3  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+683 - org.apache.commons.io.FileUtilsTestCase.testToFile3 2  SUCCESSFUL 
+684 - org.apache.commons.io.monitor.FileAlterationMonitorTestCase.testDefaultConstructor 1  SUCCESSFUL 
+685 - org.apache.commons.io.FileUtilsTestCase.testToFile1 2  SUCCESSFUL 
+686 - org.apache.commons.io.FileUtilsFileNewerTestCase.testIsFileNewerImaginaryFile 1  SUCCESSFUL 
+687 - org.apache.commons.io.input.SwappedDataInputStreamTest.testReadUTF 0  SUCCESSFUL 
+688 - org.apache.commons.io.FileUtilsTestCase.testToFile4 3  SUCCESSFUL 
+689 - org.apache.commons.io.FileUtilsTestCase.testToFile5 3  SUCCESSFUL 
+690 - org.apache.commons.io.IOUtilsTestCase.testStringToByteArray 2  FAILURE Could not clear up /Users/demigorgan/Documents/workspace/tldr/test/io,
+691 - org.apache.commons.io.FilenameUtilsTestCase.testGetPrefixLength 2  SUCCESSFUL 
+692 - org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterString 14  FAILURE Unable to delete directory /Users/demigorgan/Documents/workspace/tldr/test/io.,
+TOTAL TEST RUN : 692
+All Class File : 444
+All Java File : 188
+SIZE OF THE DATABASE : 
+1.1M	/Users/demigorgan/dump.rdb

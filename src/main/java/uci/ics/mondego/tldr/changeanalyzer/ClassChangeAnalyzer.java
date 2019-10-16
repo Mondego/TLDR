@@ -247,23 +247,17 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 						extractedChangedMethods.put(methodFqn, m);
 						App.entityToTest.put(methodFqn, true);
 						App.allNewAndChangedentities.put(methodFqn, true);
-						
-						//logger.info(methodFqn+" changed "+"prev : "+prevHashCode+"  new: "+currentHashCode+" "
-						//		+ "class name: "+this.getEntityName());
 					}
 				}
 			}
-			/*else{
-				System.out.println(m.getModifiers()+ "     "+parsedClass.getClassName()+"."+m.getName());
-			}*/
 		}		
 	}
 	
-	private long deleteDepreciatedEntities(){
+	private long deleteDepreciatedEntities() {
 		long count = 0;
 		for ( Map.Entry<String, Integer> entry : allPreviousEntities.entrySet()) {
 		    Integer val = entry.getValue();
-		    if(val == 0){
+		    if(val == 0) {
 		    	count++;
 		    	String key = entry.getKey();
 		    	this.database.removeKey(Databases.TABLE_ID_ENTITY, key);
@@ -273,7 +267,6 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 		    	for(String dep: allDependencies){
 		    		this.database.removeFromSet(Databases.TABLE_ID_DEPENDENCY, dep, key);
 		    	}
-		    	//logger.info(key+ " is remomved from DB");
 		    }  
 		}
 		return count;
