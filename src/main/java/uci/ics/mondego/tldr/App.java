@@ -42,7 +42,8 @@ public class App
 	private static double elapsedTimeInSecond;
 	
 	private static final Logger logger = LogManager.getLogger(App.class);
-    public static ThreadedChannel<String> FileChangeAnalysisPool;
+    
+	public static ThreadedChannel<String> FileChangeAnalysisPool;
     public static ThreadedChannel<String> EntityChangeAnalysisPool;
     public static ThreadedChannel<HashMap<String, Method>> DependencyExtractionPool;
     public static ThreadedChannel<String> DependencyGraphTraversalPool;
@@ -53,7 +54,6 @@ public class App
     public static ThreadedChannel<String> IntraTestTraversalPool;
     //public static ThreadedChannel<String> TestRunnerPool;
 
-    
     public static ConcurrentHashMap<String, Boolean> entityToTest;
     public static ConcurrentHashMap<String, Boolean> allTestDirectories;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangedentities;
@@ -63,7 +63,6 @@ public class App
     public static ConcurrentHashMap<String, Boolean> allNewAndChangeTests;
     public static ConcurrentHashMap<String, TestReport> allTestReport;
     
-    
     public App(){
     	Date date = new Date();      
         String LogDate= new SimpleDateFormat("yyyyMMdd").format(date);
@@ -72,15 +71,24 @@ public class App
     	logger.debug("Beginning of the Pipeline");
     	
     	ConfigLoader config = new ConfigLoader();
-    	this.FileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), FileChangeAnalyzerWorker.class);
-    	this.EntityChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), ClassChangeAnalyzerWorker.class);
-    	this.DependencyExtractionPool = new ThreadedChannel<HashMap<String, Method>>(config.getThread(), DependencyExtractorWorker.class);
-    	this.DependencyGraphTraversalPool = new ThreadedChannel<String>(config.getThread(),DFSTraversalWorker.class);
-    	this.TestFileChangeAnalysisPool = new ThreadedChannel<String>(config.getThread(), TestFileChangeAnalyzerWorker.class);
-    	this.TestParseAndIndexPool = new ThreadedChannel<String>(config.getThread(), TestChangeAnalyzerAndIndexerWorker.class);
-    	this.TestDependencyExtractionPool = new ThreadedChannel<HashMap<String, Method>>(config.getThread(),TestDependencyExtractorWorker.class);
-    	this.EntityToTestMapPool = new ThreadedChannel<String>(config.getThread(), EntityToTestMapWorker.class);
-    	this.IntraTestTraversalPool = new ThreadedChannel<String>(config.getThread(), IntraTestTraversalWorker.class);
+    	this.FileChangeAnalysisPool = 
+    			new ThreadedChannel<String>(config.getThread(), FileChangeAnalyzerWorker.class);
+    	this.EntityChangeAnalysisPool = 
+    			new ThreadedChannel<String>(config.getThread(), ClassChangeAnalyzerWorker.class);
+    	this.DependencyExtractionPool = 
+    			new ThreadedChannel<HashMap<String, Method>>(config.getThread(), DependencyExtractorWorker.class);
+    	this.DependencyGraphTraversalPool = 
+    			new ThreadedChannel<String>(config.getThread(),DFSTraversalWorker.class);
+    	this.TestFileChangeAnalysisPool = 
+    			new ThreadedChannel<String>(config.getThread(), TestFileChangeAnalyzerWorker.class);
+    	this.TestParseAndIndexPool = 
+    			new ThreadedChannel<String>(config.getThread(), TestChangeAnalyzerAndIndexerWorker.class);
+    	this.TestDependencyExtractionPool = 
+    			new ThreadedChannel<HashMap<String, Method>>(config.getThread(),TestDependencyExtractorWorker.class);
+    	this.EntityToTestMapPool = 
+    			new ThreadedChannel<String>(config.getThread(), EntityToTestMapWorker.class);
+    	this.IntraTestTraversalPool = 
+    			new ThreadedChannel<String>(config.getThread(), IntraTestTraversalWorker.class);
     	//this.TestRunnerPool = new ThreadedChannel<String>(config.getThread(), TestRunnerWorker.class);
     	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	

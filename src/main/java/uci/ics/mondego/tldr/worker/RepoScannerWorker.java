@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.App;
 
 public class RepoScannerWorker extends Worker{
-
 	private final String repoDir;
 	private static final Logger logger = LogManager.getLogger(RepoScannerWorker.class);
 
@@ -16,26 +15,19 @@ public class RepoScannerWorker extends Worker{
 	}
 	
 	public void run() {
-		// TODO Auto-generated method stub
 		try {		 
 			this.scanClassFiles(repoDir);
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -64,7 +56,6 @@ public class RepoScannerWorker extends Worker{
 	    }	        
     }
 
-	
 	public void scanClassFiles(String directoryName) 
 			throws InstantiationException, 
 			IllegalAccessException,

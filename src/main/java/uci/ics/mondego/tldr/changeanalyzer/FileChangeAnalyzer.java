@@ -33,7 +33,6 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 			if(!ret){
 				throw new DatabaseSyncException(this.getEntityName());
 			}
-			
 			this.setChanged(true);
 		}
 		
