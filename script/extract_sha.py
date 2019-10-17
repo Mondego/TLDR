@@ -10,7 +10,9 @@ def get_sha(argv):
 	with open(argv) as f:
 		for line in f:
 			if "commit " in line:
-				sha.append(line.split()[1])
+				commit = line.split()[1]
+				if len(commit) == 40:
+					sha.insert(0, commit)
 	return sha
 
 def write_sha(sha):
@@ -21,9 +23,6 @@ def write_sha(sha):
 
 def main(argv):
 	write_sha(get_sha(argv))
-	repo = git.Repo('https://github.com/apache/commons-configuration.git')
-	repo.remotes.origin.pull()
-
 
 if __name__ == "__main__":
    main(sys.argv[1])
