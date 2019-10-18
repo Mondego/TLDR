@@ -152,6 +152,14 @@
               <mainClass>uci.ics.mondego.tldr.metainformation.ExtractMetaInformation</mainClass>
             </configuration>
           </execution>
+          
+           <execution>
+            <id>fourth-cli</id>
+            <configuration>
+              <mainClass>uci.ics.mondego.tldr.ChangeAnalysisExperiment.ChangeAnalysis</mainClass>
+            </configuration>
+          </execution>
+          
         </executions>
       </plugin>
      
