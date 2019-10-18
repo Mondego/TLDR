@@ -41,7 +41,8 @@ public class ChangeAnalysis {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String projectDir = args[0];
-		String commit = args[1];
+		String name = args[1];
+		String commit = args[2];
 		FindAllTestDirectory find = new FindAllTestDirectory(projectDir);
 	    Set<String> allTestDir = find.getAllTestDir();
 	    Map<String, Set<String>> changedSourceEntities = new HashMap<String, Set<String>>();
@@ -101,7 +102,15 @@ public class ChangeAnalysis {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
+			print(name, commit, changedSourceEntities);
 			redisHandler.close();
+		}
+	}
+	
+	private static void print(String name, String commit, Map<String, Set<String>> map) {
+		for(Map.Entry<String, Set<String>> entry : map.entrySet()) {
+			System.out.println(
+					name+"\t"+commit+"\t"+entry.getKey()+"\t"+entry.getValue().size());
 		}
 	}
 	/**
