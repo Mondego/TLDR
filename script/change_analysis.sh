@@ -4,6 +4,10 @@ proj_dir="/Users/demigorgan/Documents/workspace/tldr"
 repo_dir="/Users/demigorgan/commons-math"
 test_project_name="commons-math"
 
+rm -rf /Users/demigorgan/commons-math
+cd ~/
+git clone https://github.com/apache/commons-math.git
+
 cd $repo_dir
 
 git log > $proj_dir'/script/repo_log.txt'
