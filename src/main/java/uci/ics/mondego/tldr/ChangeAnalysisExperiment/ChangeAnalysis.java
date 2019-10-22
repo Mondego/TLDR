@@ -2,6 +2,7 @@ package uci.ics.mondego.tldr.ChangeAnalysisExperiment;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -23,6 +24,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
+import com.opencsv.CSVWriter;
 import com.rfksystems.blake2b.Blake2b;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
@@ -37,8 +39,10 @@ import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class ChangeAnalysis {
 	private static final RedisHandler redisHandler = new RedisHandler();
-	
+	private static MessageDigest md;
 	public static void main(String[] args) {
+		System.out.println("here at start of main");
+
 		// TODO Auto-generated method stub
 		String projectDir = args[0];
 		String name = args[1];
@@ -48,6 +52,7 @@ public class ChangeAnalysis {
 	    Map<String, Set<String>> changedSourceEntities = new HashMap<String, Set<String>>();
 	    
 	    try {
+	    	md = MessageDigest.getInstance("MD5");
 			List<String> allSourceClass = scanClassFiles(projectDir, Optional.of(allTestDir));
 		    
 			List<String> allTestClass = new ArrayList<String>();
@@ -64,12 +69,12 @@ public class ChangeAnalysis {
 		    }
 		    
 		    // find all changed tests
-		    for (int i = 0; i < allTestClass.size(); i++) {
+		    /*for (int i = 0; i < allTestClass.size(); i++) {
 		    	String claz = allTestClass.get(i);
 		    	if (hasClassChanged (claz)) {
 		    		changedSourceEntities.put(claz, getChangedEntities(claz));
 		    	}
-		    }
+		    }*/
 		    
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -102,16 +107,34 @@ public class ChangeAnalysis {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
+			System.out.println("here at finally block");
 			print(name, commit, changedSourceEntities);
 			redisHandler.close();
+			System.out.println("here at the end");
+			System.exit(0);
 		}
 	}
 	
 	private static void print(String name, String commit, Map<String, Set<String>> map) {
-		for(Map.Entry<String, Set<String>> entry : map.entrySet()) {
-			System.out.println(
-					name+"\t"+commit+"\t"+entry.getKey()+"\t"+entry.getValue().size());
-		}
+	  String csv ="/Users/demigorgan/Documents/workspace/tldr/common-math.csv";
+      try{
+    	  FileWriter pw = new FileWriter(csv, true);
+	      for(Map.Entry<String, Set<String>> entry : map.entrySet()) {
+	    	  pw.append(name);
+              pw.append(",");
+              pw.append(commit);
+              pw.append(",");
+              pw.append(entry.getKey());
+              pw.append(",");
+              pw.append(entry.getValue().size()+"");
+              pw.append("\n");
+			}
+	      pw.flush();
+          pw.close();
+      }
+      catch (IOException e) {
+    	  e.printStackTrace();
+      } 
 	}
 	/**
 	 * Returns the set of changed fields and methods of a given class.
@@ -241,6 +264,7 @@ public class ChangeAnalysis {
 			IOException, 
 			NoSuchAlgorithmException {
 		String currentCheckSum = calculateChecksum(file);
+		
 		if(!redisHandler.exists(Databases.TABLE_ID_FILE, file)){	
 			redisHandler.update(Databases.TABLE_ID_FILE, file, currentCheckSum);			
 			return true;
@@ -263,7 +287,7 @@ public class ChangeAnalysis {
 	 * @throws NoSuchAlgorithmException 
 	 */
 	private static String calculateChecksum(String fileName) throws IOException, NoSuchAlgorithmException {
-		MessageDigest md = MessageDigest.getInstance(Blake2b.BLAKE2_B_160);
+		
 		InputStream fis = new FileInputStream(fileName);
         byte[] buffer = new byte[1024];
         int nread;        

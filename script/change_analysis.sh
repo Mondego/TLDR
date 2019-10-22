@@ -20,17 +20,25 @@ sha=$proj_dir'/script/sha.txt'
 
 while read -r line; do
 	echo $line
+	echo '*************************************'
+	echo '*************************************'
+
     cd $repo_dir
     rm -f .git/index.lock # needed for errorless checkout to another commit
     git reset --hard $line 
 	count=`ls -1 pom.xml 2>/dev/null | wc -l`
 	echo $count
 	if [ $count != 0 ]; then
-	    if mvn clean compile ; then
+	    if mvn -q clean compile ; then
 	    	echo 'BUILD SUCCESSFUL FOR COMMIT : '$line
 	    	cd $proj_dir
-	    	mvn compile
-	    	mvn -q exec:java@fourth-cli -Dexec.args="$repo_dir $test_project_name $line"
+	    	echo $line', compiled' >> compilation-info.csv
+	    	mvn -q compile
+	    	mvn exec:java@fourth-cli -Dexec.args="$repo_dir $test_project_name $line"
 	    fi
+	else 
+		cd $proj_dir
+		echo $line', not compiled' >> compilation-info.csv
 	fi
+	echo 'ole'
 done < "$sha"

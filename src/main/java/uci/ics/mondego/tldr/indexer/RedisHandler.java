@@ -109,11 +109,9 @@ public class RedisHandler{
 		boolean ret = false;
 		try{
 	    	 ret = jedis.exists(tableId+key);
-		}
-		catch(NullPointerException e) {
+		} catch(NullPointerException e) {
 			e.printStackTrace();
 		}
-		
 	    return ret;
 	}
 	

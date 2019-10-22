@@ -50,7 +50,9 @@
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/SurefireReportParser.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/FindAllTestDirectory.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/example/ClassB.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/ChangeAnalysisExperiment/package-info.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/tool/ConfigLoader.java
+/Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/ChangeAnalysisExperiment/ChangeAnalysis.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/resolution/IntraTestDFSTraversal.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/changeanalyzer/FileChangeAnalyzer.java
 /Users/demigorgan/Documents/workspace/tldr/src/main/java/uci/ics/mondego/tldr/changeanalyzer/ChangeAnalyzer.java
