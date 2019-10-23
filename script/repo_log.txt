@@ -1,3 +1,44 @@
+commit 3fc25204b54257dfc96762250f3a5e0d07b61a58
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 17:49:16 2019 +0200
+
+    Use a generator with a low overhead.
+    
+    Thanks to Alex Herbert.
+
+commit c7973fe10aeb6179ff10b1c828a02e45648e65fb
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 16:05:26 2019 +0200
+
+    Use "BigFraction" class from "Commons Numbers".
+
+commit 830f1d1443b21bb17f76fba84eb1170d97ba369a
+Merge: 0346204c7 6ce50484f
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 13:59:17 2019 +0200
+
+    Merge branch 'master' of https://gitbox.apache.org/repos/asf/commons-math
+
+commit 0346204c7c2a9a0e71daca0ea3aef676e34b38ac
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 13:58:10 2019 +0200
+
+    Use "BigFraction" class from "Commons Numbers".
+
+commit f8c031ee3810721e99534a1c111f567c3ec6ceb7
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 13:49:45 2019 +0200
+
+    Upgrade to "Commons RNG" (v1.2).
+    
+    Seed had to be modified in class "KolmogorovSmirnovTest" for a unit test to pass.
+
+commit d0d4feaf275b98458e1c02fe1d18b5178d96b710
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 13:45:13 2019 +0200
+
+    Use properties to define version of dependencies.
+
 commit 6ce50484f627a9ade827d7150f47c41cc7dcc3ef
 Author: Sebb <sebb@apache.org>
 Date:   Fri Sep 27 19:47:14 2019 +0100

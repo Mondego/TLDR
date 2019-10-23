@@ -40,6 +40,7 @@ import uci.ics.mondego.tldr.tool.StringProcessor;
 public class ChangeAnalysis {
 	private static final RedisHandler redisHandler = new RedisHandler();
 	private static MessageDigest md;
+	private static int totalFile = 0;
 	public static void main(String[] args) {
 		System.out.println("here at start of main");
 
@@ -54,7 +55,8 @@ public class ChangeAnalysis {
 	    try {
 	    	md = MessageDigest.getInstance("MD5");
 			List<String> allSourceClass = scanClassFiles(projectDir, Optional.of(allTestDir));
-		    
+		    totalFile+= allSourceClass.size();
+			
 			List<String> allTestClass = new ArrayList<String>();
 		    for (String dir: allTestDir) {
 		    	allTestClass.addAll(scanClassFiles(dir, Optional.<Set<String>>absent()));
@@ -119,16 +121,20 @@ public class ChangeAnalysis {
 	  String csv ="/Users/demigorgan/Documents/workspace/tldr/common-math.csv";
       try{
     	  FileWriter pw = new FileWriter(csv, true);
-	      for(Map.Entry<String, Set<String>> entry : map.entrySet()) {
-	    	  pw.append(name);
-              pw.append(",");
-              pw.append(commit);
-              pw.append(",");
-              pw.append(entry.getKey());
-              pw.append(",");
-              pw.append(entry.getValue().size()+"");
-              pw.append("\n");
-			}
+	      int entity = 0; 
+    	  for(Map.Entry<String, Set<String>> entry : map.entrySet()) {
+	    	  entity += entry.getValue().size();
+		  }
+	      pw.append(name);
+          pw.append(",");
+          pw.append(commit);
+          pw.append(",");
+          pw.append(totalFile+"");
+          pw.append(",");
+          pw.append(map.size()+"");
+          pw.append(",");
+          pw.append(entity+"");
+          pw.append("\n");
 	      pw.flush();
           pw.close();
       }

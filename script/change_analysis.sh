@@ -1,11 +1,11 @@
 #!/bin/bash
 
 proj_dir="/Users/demigorgan/Documents/workspace/tldr"
-repo_dir="/Users/demigorgan/commons-math"
+repo_dir="commons-math"
 test_project_name="commons-math"
 
-rm -rf /Users/demigorgan/commons-math
-cd ~/
+#rm -rf commons-math
+
 git clone https://github.com/apache/commons-math.git
 
 cd $repo_dir
