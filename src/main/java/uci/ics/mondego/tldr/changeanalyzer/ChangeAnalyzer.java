@@ -15,7 +15,6 @@ public abstract class ChangeAnalyzer {
 	 * 				ENTITY - HASHCODE ---- 2
 	 * 				ENTITY - LIST OF DEPENDENTS ---- 3
 	 */
-
 	protected static final Logger logger = LogManager.getLogger(ChangeAnalyzer.class);
 	private final String entityName;
 	private boolean changed;

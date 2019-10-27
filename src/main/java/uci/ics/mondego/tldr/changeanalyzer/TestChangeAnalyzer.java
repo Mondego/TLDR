@@ -27,7 +27,8 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	private String superClass;
 	private Map<String, Method> allExtractedMethods;
 	
-	public TestChangeAnalyzer(String className) throws IOException, DatabaseSyncException, EOFException{
+	public TestChangeAnalyzer(String className) 
+			throws IOException, DatabaseSyncException, EOFException {
 		super(className);
 		this.parser = new ClassParser(this.getEntityName());
 		this.parsedClass = parser.parse();
@@ -55,21 +56,27 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		
 	}
 	
-	private void syncClassHierarchy() throws NullDbIdException{	
+	private void syncClassHierarchy() throws NullDbIdException {	
 		this.parseInterface();
 		this.parseSuperClass();
 		
-		Set<String> all_superclass_interface = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+		Set<String> all_superclass_interface = this.database.getSet(
+				Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
 				parsedClass.getClassName());
 				
-		for(int i=0;i<allInterfaces.size();i++){
+		for(int i=0;i<allInterfaces.size();i++) {
 			if(!all_superclass_interface.contains(allInterfaces.get(i))
 				&& !(allInterfaces.get(i).startsWith("java.") 
-				|| allInterfaces.get(i).startsWith("junit."))){
+				|| allInterfaces.get(i).startsWith("junit."))) {
 				
-				this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+				this.database.insertInSet(
+						Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+						parsedClass.getClassName(), 
 						allInterfaces.get(i));
-				this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, allInterfaces.get(i), parsedClass.getClassName());
+				this.database.insertInSet(
+						Databases.TABLE_ID_SUBCLASS, 
+						allInterfaces.get(i), 
+						parsedClass.getClassName());
 			}				
 		}
 		
@@ -79,9 +86,14 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				&& !this.superClass.startsWith("java") 
 				&& !this.superClass.startsWith("junit")){
 			
-			this.database.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+			this.database.insertInSet(
+					Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+					parsedClass.getClassName(), 
 					this.superClass);
-			this.database.insertInSet(Databases.TABLE_ID_SUBCLASS, this.superClass, parsedClass.getClassName());
+			this.database.insertInSet(
+					Databases.TABLE_ID_SUBCLASS, 
+					this.superClass, 
+					parsedClass.getClassName());
 		}				
 	}
 	
@@ -171,22 +183,26 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
 							
-				code = code.substring(0, code.indexOf("StackMapTable") == -1? 
-						code.length() : code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
+				code = code.substring(0, code.indexOf("StackMapTable") == -1
+						? code.length() 
+						: code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
 				
-				code = code.substring(0, code.indexOf("StackMap") == -1? 
-						code.length() : code.indexOf("StackMap"));  // for some reason StackMapTable also change unwanted. WHY??
+				code = code.substring(0, code.indexOf("StackMap") == -1
+						? code.length() 
+						: code.indexOf("StackMap"));  // for some reason StackMapTable also change unwanted. WHY??
 				
 				String methodFqn = parsedClass.getClassName()+"."+m.getName();
 	
 				methodFqn += ("(");
-				for(int i=0;i<m.getArgumentTypes().length;i++)
+				for(int i=0;i<m.getArgumentTypes().length;i++) {
 					methodFqn += ("$"+m.getArgumentTypes()[i]);
+				}
+					
 				methodFqn += (")");
 				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
-				if(!this.allPreviousTestCases.containsKey(methodFqn)){
+				if (!this.allPreviousTestCases.containsKey(methodFqn)) {
 					//logger.debug(methodFqn+" is new test, added to testToRun");
 					App.allNewAndChangeTests.put(methodFqn, true);
 					this.allExtractedMethods.put(methodFqn, m);
@@ -194,7 +210,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					boolean ret1 = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 				    
 					boolean ret2 = this.sync(Databases.TABLE_ID_TEST_ENTITY, methodFqn, "1");
-					if(!ret1 && !ret2){
+					if (!ret1 && !ret2) {
 						throw new DatabaseSyncException(methodFqn);
 					}
 					//logger.info(methodFqn+" didn't exist in db...added");					
@@ -204,13 +220,13 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					allPreviousTestCases.put(methodFqn, allPreviousTestCases.get(methodFqn) + 1);
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);	
 					
-					if(!currentHashCode.equals(prevHashCode)){
+					if (!currentHashCode.equals(prevHashCode)) {
 						//logger.debug(methodFqn+" is changed test, added to testToRun");
 						App.allNewAndChangeTests.put(methodFqn, true);						
 						this.allExtractedMethods.put(methodFqn, m);
 						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						
-						if(!ret){
+						if(!ret) {
 							throw new DatabaseSyncException(methodFqn);
 						}
 					}
@@ -228,8 +244,9 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		    	String key = entry.getKey();
 		    	this.database.removeKey(Databases.TABLE_ID_ENTITY, key);
 		    	
-		    	Set<String> allDependencies = this.database.getSet
-		    			(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	Set<String> allDependencies = this.database.getSet(
+		    			Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
+		    			key);
 		    	
 		    	this.database.removeKey(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
 		    	for(String dep: allDependencies){

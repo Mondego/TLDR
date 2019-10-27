@@ -1,0 +1,184 @@
+Total Time :2.56200928
+New or Changed Entity :48
+Test To Run :183
+1 - org.apache.commons.io.LineIteratorTestCase.testNextLineOnlyUtf8Encoding 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+2 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_Encoding_nullIn 0  SUCCESSFUL 
+3 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToWriter_nullIn 15  SUCCESSFUL 
+4 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToExistingDest 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+5 - org.apache.commons.io.LineIteratorTestCase.testNextLineOnlyDefaultEncoding 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+6 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToOutputStream_nullOut 0  SUCCESSFUL 
+7 - org.apache.commons.io.LineIteratorTestCase.testOneLines 6  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+8 - org.apache.commons.io.IOUtilsTestCase.testReadLines_Reader 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+9 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_Encoding_nullEncoding 0  SUCCESSFUL 
+10 - org.apache.commons.io.input.BoundedInputStreamTest.testReadArray 0  SUCCESSFUL 
+11 - org.apache.commons.io.LineIteratorTestCase.testFilteringBufferedReader 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+12 - org.apache.commons.io.FileUtilsTestCase.testChecksumCRC32 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+13 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_nullStream 1  SUCCESSFUL 
+14 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_3argsWithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+15 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_nullStream 1  SUCCESSFUL 
+16 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_nullOut 0  SUCCESSFUL 
+17 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryPreserveDates 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+18 - org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterBytes 46  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/A.class (Not a directory),
+19 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_nullData 0  SUCCESSFUL 
+20 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_Encoding_nullIn 3  SUCCESSFUL 
+21 - org.apache.commons.io.input.TailerTest.testTailer 12  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/tailer1-test.txt (Not a directory),
+22 - org.apache.commons.io.FileUtilsTestCase.testWriteByteArrayToFile_WithAppendOptionFalse_ShouldDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+23 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_nullData 0  SUCCESSFUL 
+24 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToOutputStream_IO84 130  SUCCESSFUL 
+25 - org.apache.commons.io.IOUtilsTestCase.testByteArrayToWriter 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+26 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_nullEncoding 1  SUCCESSFUL 
+27 - org.apache.commons.io.IOUtilsTestCase.testURLToStringNullEncoding 11  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+28 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToWriter_nullOut 1  SUCCESSFUL 
+29 - org.apache.commons.io.FileUtilsTestCase.testChecksum 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+30 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream 0  SUCCESSFUL 
+31 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToCharArray 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+32 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_Writer_nullStream 1  SUCCESSFUL 
+33 - org.apache.commons.io.IOUtilsTestCase.testReadLines_InputStream_String 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+34 - org.apache.commons.io.input.CountingInputStreamTest.testLargeFiles_IO84 278  SUCCESSFUL 
+35 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_nullIn 0  SUCCESSFUL 
+36 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFile2 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+37 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_5argsWithAppendOptionFalse_ShouldDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+38 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_Encoding 4  SUCCESSFUL 
+39 - org.apache.commons.io.IOUtilsTestCase.testSkipReader 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+40 - org.apache.commons.io.LineIteratorTestCase.testThreeLines 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+41 - org.apache.commons.io.IOUtilsTestCase.testCharSequenceToInputStream 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+42 - org.apache.commons.io.FileUtilsTestCase.testContentEquals 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+43 - org.apache.commons.io.LineIteratorTestCase.testZeroLines 8  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+44 - org.apache.commons.io.FileUtilsTestCase.testChecksumOnNullChecksum 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+45 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_Encoding_nullStream 1  SUCCESSFUL 
+46 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_Encoding_nullData 0  SUCCESSFUL 
+47 - org.apache.commons.io.IOUtilsTestCase.testURLToStringNoEncoding 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+48 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_Encoding_nullStream 0  SUCCESSFUL 
+49 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_3arg_nullSeparator 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+50 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToString 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+51 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFileWithEncoding_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+52 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToWriter_IO84 196  SUCCESSFUL 
+53 - org.apache.commons.io.IOUtilsTestCase.testStringToWriter 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+54 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_nullEncoding 0  SUCCESSFUL 
+55 - org.apache.commons.io.FileUtilsTestCase.testChecksumOnDirectory 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+56 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToOutputStream_nullStream 0  SUCCESSFUL 
+57 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_nullStream 25  SUCCESSFUL 
+58 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToOutputStream_nullData 0  SUCCESSFUL 
+59 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToChild 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+60 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding_nullData 1  SUCCESSFUL 
+61 - org.apache.commons.io.FileUtilsTestCase.testReadLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+62 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding_nullSeparator 0  SUCCESSFUL 
+63 - org.apache.commons.io.FileUtilsTestCase.testReadFileToStringWithEncoding 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+64 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter 0  SUCCESSFUL 
+65 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToWriter_Encoding_nullStream 0  SUCCESSFUL 
+66 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_Writer_nullSeparator 1  SUCCESSFUL 
+67 - org.apache.commons.io.FileUtilsTestCase.testReadFileToStringWithDefaultEncoding 5  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+68 - org.apache.commons.io.IOUtilsTestCase.testConstants 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+69 - org.apache.commons.io.IOUtilsTestCase.testByteArrayToString 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+70 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_Writer_nullData 0  SUCCESSFUL 
+71 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_nullStream 1  SUCCESSFUL 
+72 - org.apache.commons.io.LineIteratorTestCase.testTwoLines 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+73 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4arg 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+74 - org.apache.commons.io.LineIteratorTestCase.testMissingFile 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+75 - org.apache.commons.io.IOUtilsTestCase.testSkipStream 2  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+76 - org.apache.commons.io.FileUtilsTestCase.testWrite_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+77 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToByteArray 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+78 - org.apache.commons.io.IOUtilsTestCase.testURIToStringNullEncoding 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+79 - org.apache.commons.io.LineIteratorTestCase.testValidEncoding 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+80 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_Encoding 3  SUCCESSFUL 
+81 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFile_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+82 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToOutputStream_nullIn 22  SUCCESSFUL 
+83 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToWriter 1  SUCCESSFUL 
+84 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding_nullEncoding 0  SUCCESSFUL 
+85 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_Encoding_nullEncoding 0  SUCCESSFUL 
+86 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_nullData 0  SUCCESSFUL 
+87 - org.apache.commons.io.IOUtilsTestCase.testURIToStringUsAciiEncoding 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+88 - org.apache.commons.io.FileUtilsTestCase.testChecksumOnNullFile 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+89 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToDirectory_NonExistingDest 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+90 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryFiltered 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+91 - org.apache.commons.io.FileUtilsTestCase.testChecksumDouble 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+92 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_5argsWithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+93 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToOutputStream 1  SUCCESSFUL 
+94 - org.apache.commons.io.output.CountingOutputStreamTest.testLargeFiles_IO84 72  SUCCESSFUL 
+95 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToWriter 2  SUCCESSFUL 
+96 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding_nullStream 28  SUCCESSFUL 
+97 - org.apache.commons.io.LineIteratorTestCase.testNextOnly 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+98 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_Encoding_nullEncoding 0  SUCCESSFUL 
+99 - org.apache.commons.io.input.XmlStreamReaderTest.testHttpContent 5  SUCCESSFUL 
+100 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4arg_Writer_nullData 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+101 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream 0  SUCCESSFUL 
+102 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_Writer 0  SUCCESSFUL 
+103 - org.apache.commons.io.FileUtilsTestCase.testFileUtils 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+104 - org.apache.commons.io.IOUtilsTestCase.testURIToStringNoEncoding 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+105 - org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterBytesOffset 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/A.tar (Not a directory),
+106 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToBufferedInputStream 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+107 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_nullData 0  SUCCESSFUL 
+108 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_Encoding_nullOut 3  SUCCESSFUL 
+109 - org.apache.commons.io.IOUtilsTestCase.testReadLines_InputStream 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+110 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToOutputStream 0  SUCCESSFUL 
+111 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream_Encoding_nullData 0  SUCCESSFUL 
+112 - org.apache.commons.io.FileUtilsTestCase.testCopyURLToFile 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+113 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_Encoding_nullData 0  SUCCESSFUL 
+114 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_Encoding_nullOut 0  SUCCESSFUL 
+115 - org.apache.commons.io.IOUtilsTestCase.testStringToOutputStream 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+116 - org.apache.commons.io.LineIteratorTestCase.testInvalidEncoding 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+117 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testWriteToSmall 1  SUCCESSFUL 
+118 - org.apache.commons.io.IOUtilsTestCase.testURLToStringUsAciiEncoding 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+119 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToWriter_Encoding_nullData 0  SUCCESSFUL 
+120 - org.apache.commons.io.FileUtilsTestCase.testWriteCharSequence1 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+121 - org.apache.commons.io.FileUtilsTestCase.testWriteCharSequence2 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+122 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToWriter 1  SUCCESSFUL 
+123 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToWriter_Encoding_nullStream 1  SUCCESSFUL 
+124 - org.apache.commons.io.FileUtilsTestCase.testWriteByteArrayToFile_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+125 - org.apache.commons.io.FileUtilsTestCase.testWriteLinesEncoding_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+126 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4argsWithAppendOptionFalse_ShouldDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+127 - org.apache.commons.io.FileUtilsTestCase.testWriteWithEncoding_WithAppendOptionFalse_ShouldDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+128 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_nullEncoding 1  SUCCESSFUL 
+129 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToWriter 0  SUCCESSFUL 
+130 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_Encoding_nullData 1  SUCCESSFUL 
+131 - org.apache.commons.io.FileUtilsTestCase.testWriteLinesEncoding_WithAppendOptionFalse_ShouldDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+132 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToWriter_Encoding_nullStream 0  SUCCESSFUL 
+133 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToWriter_Encoding_nullData 0  SUCCESSFUL 
+134 - org.apache.commons.io.LineIteratorTestCase.testCloseEarly 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+135 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter_nullOut 0  SUCCESSFUL 
+136 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_Encoding 1  SUCCESSFUL 
+137 - org.apache.commons.io.IOUtilsTestCase.testSkipFileReader 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+138 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToWriter_Encoding_nullData 0  SUCCESSFUL 
+139 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFileWithEncoding_WithAppendOptionFalse_ShouldDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+140 - org.apache.commons.io.IOUtilsTestCase.testByteArrayToOutputStream 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+141 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToNonExistingDest 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+142 - org.apache.commons.io.IOUtilsTestCase.testReaderToString 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+143 - org.apache.commons.io.FileUtilsTestCase.testCopyDirectoryToGrandChild 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+144 - org.apache.commons.io.input.XmlStreamReaderTest.testRawContent 0  SUCCESSFUL 
+145 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_nullData 0  SUCCESSFUL 
+146 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFile1 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+147 - org.apache.commons.io.IOUtilsTestCase.testStringToInputStream 1  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+148 - org.apache.commons.io.FileUtilsTestCase.testCopyURLToFileWithTimeout 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+149 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_inputStreamToWriter 40  SUCCESSFUL 
+150 - org.apache.commons.io.IOUtilsTestCase.testReaderToCharArray 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+151 - org.apache.commons.io.IOUtilsTestCase.testSkipFileInput 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+152 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream 0  SUCCESSFUL 
+153 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4argsWithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+154 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_3argsWithAppendOptionFalse_ShouldDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+155 - org.apache.commons.io.FileUtilsTestCase.testWriteStringToFile_WithAppendOptionFalse_ShouldDeletePreviousFileLines 1  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+156 - org.apache.commons.io.output.DeferredFileOutputStreamTest.testWriteToLarge 2  SUCCESSFUL 
+157 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_nullWriter 0  SUCCESSFUL 
+158 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_Encoding 0  SUCCESSFUL 
+159 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_Encoding 4  SUCCESSFUL 
+160 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_Encoding 29  SUCCESSFUL 
+161 - org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterStringOffset 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/A.tar (Not a directory),
+162 - org.apache.commons.io.FileUtilsTestCase.testWrite_WithAppendOptionFalse_ShouldDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+163 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream_Encoding_nullStream 0  SUCCESSFUL 
+164 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charSequenceToOutputStream 1  SUCCESSFUL 
+165 - org.apache.commons.io.LineIteratorTestCase.testNextLineOnlyNullEncoding 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+166 - org.apache.commons.io.IOUtilsWriteTestCase.testWriteLines_OutputStream_nullSeparator 1  SUCCESSFUL 
+167 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_stringToOutputStream_Encoding 5  SUCCESSFUL 
+168 - org.apache.commons.io.FileUtilsTestCase.testWriteWithEncoding_WithAppendOptionTrue_ShouldNotDeletePreviousFileLines 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+169 - org.apache.commons.io.IOUtilsCopyTestCase.testCopy_readerToOutputStream_nullIn 0  SUCCESSFUL 
+170 - org.apache.commons.io.LineIteratorTestCase.testFilteringFileReader 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+171 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_byteArrayToWriter_Encoding_nullWriter 2  SUCCESSFUL 
+172 - org.apache.commons.io.IOUtilsTestCase.testStringToByteArray 0  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+173 - org.apache.commons.io.FileUtilsTestCase.testWriteLines_4arg_nullSeparator 0  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/file1-test.txt (Not a directory),
+174 - org.apache.commons.io.IOUtilsTestCase.testInputStreamToCharArrayWithEncoding 2  FAILURE Can't run this test because environment could not be built: /Users/demigorgan/Documents/workspace/tldr/test/io/file2-test.txt (Not a directory),
+175 - org.apache.commons.io.IOUtilsWriteTestCase.testWrite_charArrayToOutputStream 0  SUCCESSFUL 
+176 - org.apache.commons.io.filefilter.FileFilterTestCase.testMagicNumberFileFilterString 4  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/A.class (Not a directory),
+TOTAL TEST RUN : 176
+All Class File : 444
+All Java File : 188
+SIZE OF THE DATABASE : 
+2.1M	/Users/demigorgan/dump.rdb

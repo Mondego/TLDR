@@ -1,0 +1,11 @@
+Total Time :1.228689017
+New or Changed Entity :0
+Test To Run :5
+1 - org.apache.commons.io.input.TailerTest.testTailer 11  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/tailer1-test.txt (Not a directory),
+2 - org.apache.commons.io.input.TailerTest.testStopWithNoFileUsingExecutor 209  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+3 - org.apache.commons.io.input.TailerTest.testStopWithNoFile 206  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io is not a directory,
+TOTAL TEST RUN : 3
+All Class File : 444
+All Java File : 188
+SIZE OF THE DATABASE : 
+2.1M	/Users/demigorgan/dump.rdb

@@ -1,6 +1,0 @@
-start : Fixed a parenthesis error in Higham-Hall 5(4) step interpolator.
-
-
-end : Fixed syntax incompatible with Java 5.
-
-

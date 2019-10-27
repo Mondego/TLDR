@@ -1,3 +1,296 @@
+commit 3fc25204b54257dfc96762250f3a5e0d07b61a58
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 17:49:16 2019 +0200
+
+    Use a generator with a low overhead.
+    
+    Thanks to Alex Herbert.
+
+commit c7973fe10aeb6179ff10b1c828a02e45648e65fb
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 16:05:26 2019 +0200
+
+    Use "BigFraction" class from "Commons Numbers".
+
+commit 830f1d1443b21bb17f76fba84eb1170d97ba369a
+Merge: 0346204c7 6ce50484f
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 13:59:17 2019 +0200
+
+    Merge branch 'master' of https://gitbox.apache.org/repos/asf/commons-math
+
+commit 0346204c7c2a9a0e71daca0ea3aef676e34b38ac
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 13:58:10 2019 +0200
+
+    Use "BigFraction" class from "Commons Numbers".
+
+commit f8c031ee3810721e99534a1c111f567c3ec6ceb7
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 13:49:45 2019 +0200
+
+    Upgrade to "Commons RNG" (v1.2).
+    
+    Seed had to be modified in class "KolmogorovSmirnovTest" for a unit test to pass.
+
+commit d0d4feaf275b98458e1c02fe1d18b5178d96b710
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Oct 22 13:45:13 2019 +0200
+
+    Use properties to define version of dependencies.
+
+commit 6ce50484f627a9ade827d7150f47c41cc7dcc3ef
+Author: Sebb <sebb@apache.org>
+Date:   Fri Sep 27 19:47:14 2019 +0100
+
+    Grammar
+
+commit 4a36e444912c5a21e000608079fb861f79ff6722
+Author: Matty G <meawoppl@gmail.com>
+Date:   Fri Sep 27 08:13:19 2019 -0700
+
+    Typo
+
+commit 09f8e50dc884072119de94fd7c1614c6528a4ded
+Author: Matty G <meawoppl@gmail.com>
+Date:   Fri Sep 27 08:10:57 2019 -0700
+
+    Update ode.xml
+
+commit f72172bf66157aedc1ea7c94f6c62ac910e91776
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Sep 17 15:04:42 2019 +0200
+
+    Unnecessary "throws" clauses and unused "import" statements.
+
+commit a9645dbc0249a3d1e477e0b81821beac3fe4debd
+Merge: 4a0b49737 f78d3157f
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Mon Aug 19 12:55:30 2019 +0200
+
+    Merge branch 'master' of https://gitbox.apache.org/repos/asf/commons-math
+
+commit 4a0b49737cb18d0f8a1c114c1b394833aee9c8fb
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Mon Aug 19 12:51:29 2019 +0200
+
+    POM file standardization.
+    
+    Cf. https://markmail.org/message/obiklp3oeuu7y2fc
+
+commit f78d3157f0048c4d9068aa6ab88e676d96d651ea
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Wed Aug 14 13:28:42 2019 -0700
+
+    Drop Oracle JDK 8.
+
+commit 8e309f4ed9a12780f4bdd889cd6d57e5ab7fdb02
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Sun Jul 21 16:54:02 2019 -0400
+
+    Fix the site's source repository link.
+
+commit e7678622471782ff73fd596ee7e988cb83cba33a
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Sun Jul 7 10:33:05 2019 -0400
+
+    Replace Apache HTTP URL with HTTPS version.
+
+commit 4d5ab06012972b6abd6d2724aa9b5bd83c00dda7
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Sun Jul 7 09:54:51 2019 -0400
+
+    Replace SVN with GitBox URL.
+
+commit dc5791c1969fb23f635dc0a00c8b080b5d47ff6f
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Sun Jul 7 09:51:45 2019 -0400
+
+    Replace SVN with GitBox URL.
+
+commit 69581d83ccf37f6e5008ec876d6370af023a2685
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Sat Jul 6 21:02:05 2019 -0400
+
+    Use HTTPS to access Apache resources.
+
+commit 31e69b220a7ce710cc5cfd5d752228414ce80c88
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Sat Jul 6 20:48:06 2019 -0400
+
+    Use HTTPS to access Apache resources.
+
+commit ea44a229dad115a14f0fa76a7597ecdfb8de1367
+Merge: 5fc239965 e6adb911b
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Thu Jun 20 14:02:40 2019 +0200
+
+    Merge branch 'MATH-1492__heinrich'
+    
+    Closes #109.
+
+commit e6adb911b64b1affba49e1b314d0dc837c07131d
+Author: SchamschiLocal <maximilian.schamschula@chello.at>
+Date:   Wed Jun 19 17:28:35 2019 +0200
+
+    MATH-1492: Replace usages of commons-numbers-core methods with equivalent java.lang.Math methods
+    
+    Replace usages of the following methods from org.apache.commons.numbers.core.ArithmeticUtils:
+    
+    addAndCheck(int, int)
+    addAndCheck(long, long)
+    mulAndCheck(int, int)
+    mulAndCheck(long, long)
+    subAndCheck(int, int)
+    subAndCheck(long, long)
+    
+    With the following methods from java.lang.Math:
+    
+    addExact(int, int)
+    addExact(long, long)
+    multiplyExact(int, int)
+    multiplyExact(long, long)
+    subtractExact(int, int)
+    subtractExact(long, long)
+
+commit 5fc2399650f0ecf69d3928230837b66ef16155ad
+Author: aherbert <aherbert@apache.org>
+Date:   Mon Jun 17 12:21:38 2019 +0100
+
+    Use CDATA tag around the MathJax script.
+
+commit 418f2eb7f469c80b0e125377b1669f9be068f6ff
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Sun Jun 16 23:35:19 2019 +0200
+
+    Upgrade to CP 48.
+    
+    Outdated profile removed: New version will target Java 8 (or later).
+    Jacoco configuration removed (inherited from CP).
+
+commit df996651078f32869fe5fa8efac87a32561a0867
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Sun Jun 16 23:34:01 2019 +0200
+
+    Licence header.
+
+commit 4b0f52c0dd9df564d58140e1d717a2da218f0139
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Sun Jun 9 09:56:52 2019 +0200
+
+    Use "BrentSolver" implementation from "Commons Numbers".
+
+commit 49469f756d6a5340fad4ef483e067ce96d261c12
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Thu Jun 6 10:11:24 2019 -0400
+
+    Name "Apache Commons" in page title.
+
+commit 77e603a0fb5e596e71b76758b3566bfa28cc5ff2
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Thu May 30 15:29:47 2019 -0400
+
+    Javadoc: Use "file name" instead of "filename".
+    
+    Camel case vars "filename" to "fileName".
+
+commit 71aed1094ca6e460297a11ef1faaaefa1f483a87
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Thu May 30 13:55:13 2019 -0400
+
+    Javadoc: Use "file system" instead of "filesystem".
+
+commit 77a18f00653f35e638fa5b217b224c58b08f8ac0
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Thu May 16 14:07:36 2019 -0400
+
+    Update NOTICE file for 2019.
+
+commit 005b4b1c28b5e2418874c5f43156ccd85edb367b
+Author: Gary Gregory <gardgregory@gmail.com>
+Date:   Thu May 16 10:05:26 2019 -0400
+
+    Remove Subversion's "@version $Id$".
+
+commit 063713e8755aab8e6847ce0faacd0a5b49d3e1ff
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue May 7 23:14:59 2019 +0200
+
+    Track changes.
+
+commit 5de563e6c764add5980c63310c1df43db2bbdb38
+Merge: 0df313bef 6d448c4e9
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue May 7 23:06:54 2019 +0200
+
+    Merge branch 'MATH-1481__tcharmont'
+    
+    Completes MATH-1481.
+    
+    Closes #105.
+
+commit 6d448c4e9bd4c10cfbbc2ab44ce49d8305f655fb
+Author: Théophile Charmont <theophile.charmont@ensimag.grenoble-inp.fr>
+Date:   Tue May 7 17:02:27 2019 +0200
+
+    Update JavaDoc
+
+commit e7208341dffb03db1c88684e2b82c4763fc657e3
+Author: tcharmont <theophile.charmont@ensimag.grenoble-inp.fr>
+Date:   Tue Apr 30 17:55:15 2019 +0200
+
+    Update the maximum dimension of Sobol generator sequence
+
+commit 0df313bef62d5fedc18286b80fc93248b5f180fd
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Thu Apr 18 14:43:27 2019 +0200
+
+    MATH-1401: Cover all possible inputs.
+    
+    Thanks to Michele De Stefano.
+
+commit 53d9c7fbfbe9cbd7e11cb872ef87e00462fa3eca
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Tue Apr 16 12:54:04 2019 +0200
+
+    MATH-1401: Branch added to prevent passing invalid input to "FDistribution".
+    
+    Thanks to Michele De Stefano for circumscribing the issue.
+
+commit 8694f8478bed676c9bb13a3a9a6e2eca56029c95
+Merge: 286ab7c6d f09514bf2
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Wed Apr 10 03:10:43 2019 +0200
+
+    Merge branch 'MATH-1477__chee'
+    
+    Closes #104.
+
+commit f09514bf2009a4617cf97c85c03a9d88c9c59547
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Wed Apr 10 03:09:45 2019 +0200
+
+    Track changes.
+
+commit 55fbf2dc6e85c63fbfb8693789ec45d44f4976d5
+Author: Chee Sing Lee <lee@bigml.com>
+Date:   Tue Apr 9 11:34:39 2019 -0700
+
+    MATH-1477: fix reordering check in MillerUpdatingRegression.regress
+
+commit 286ab7c6dd4c4aae0b0290517ea3508487438d01
+Merge: 8ba4b12f4 f3719d89a
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Fri Apr 5 15:23:27 2019 +0200
+
+    Merge branch 'master' of https://gitbox.apache.org/repos/asf/commons-math
+
+commit 8ba4b12f40d40a9d705cca8d0b24fc1718bd3c5f
+Author: Gilles Sadowski <gilles@harfang.homelinux.org>
+Date:   Fri Apr 5 15:17:36 2019 +0200
+
+    MATH-1475: Unit test does not display the problem reported.
+
 commit f3719d89ab6a928e8618bbe6a7da8214d9d6eb07
 Author: aherbert <a.herbert@sussex.ac.uk>
 Date:   Fri Feb 15 11:09:44 2019 +0000

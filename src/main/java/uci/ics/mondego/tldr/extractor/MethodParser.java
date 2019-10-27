@@ -47,16 +47,18 @@ public class MethodParser {
 	
 	private void parse() throws EmptyByteCodeException{
 		
-		if(method.getCode() == null || method.getCode().toString() == null ||
-		   method.getCode().toString().length() == 0 || method.isAbstract() 
-		   || method.isInterface() || method.isAnnotation()){
-			
+		if (method.getCode() == null 
+			|| method.getCode().toString() == null 
+			|| method.getCode().toString().length() == 0 
+			|| method.isAbstract() 
+		    || method.isInterface() 
+		    || method.isAnnotation()){
 			throw new EmptyByteCodeException(method.getName());
 		}
 		
 		String[] code = method.getCode().toString().split("\n");
 		
-		for(String line: code){
+		for(String line: code) {
 			//method call
 			String processed = null;
 			String[] parts = line.split("\\s+");
@@ -64,113 +66,64 @@ public class MethodParser {
 			/**** line format it 
 			 * <LINE NUMBER>: <SPACE> <COMMAND> <SPACE> <FIELD/METHOD NAME> <SPACE> <PARAMETERS> <SPACE> <OTHER>
 			 */
-			if(line.contains("invokevirtual") ||	
+			if (line.contains("invokevirtual") ||	
 			   line.contains("invokeinterface") || 
 			   line.contains("invokestatic") ||
 			   line.contains("invokespecial") ||
 			   line.contains("invokefinal")  ||
-			   line.contains("invokedynamic")){
+			   line.contains("invokedynamic")) {
 				
 				// sometime we see anomaly in bytecode -- '<LINE NUMBER>:' and <COMMAND> are together
-				if(parts[0].indexOf(":") < (parts[0].length() - 1))   
+				if (parts[0].indexOf(":") < (parts[0].length() - 1)) {
 					processed = parts[1] + parseMethodParameters(parts[2]);
-				// in regular case
-				else
+				} else {
+					// in regular case
 					processed = parts[2]+parseMethodParameters(parts[3]);	
+				}
 			}
 			
 			// field
 			else if(line.contains("getfield") ||
 				    line.contains("getstatic") || 
 				    line.contains("putstatic") || 
-				    line.contains("putfield")){
+				    line.contains("putfield")) {
 				
-				if(parts[0].indexOf(":") < (parts[0].length() - 1))  
+				if(parts[0].indexOf(":") < (parts[0].length() - 1)) {
 					processed = parts[1];
-				else
+				} else {
 					processed = parts[2];
+				}
 			}
 			///// CHECK CAREFULLY
-			else if(line.contains("checkcast")){
+			else if(line.contains("checkcast")) {
 				// because a checkcast instruction looks like --- 51:   checkcast		<com.mojang.brigadier.tree.CommandNode> (64)
-				if(parts[0].indexOf(":") < (parts[0].length() - 1))
+				if(parts[0].indexOf(":") < (parts[0].length() - 1)) {
 					processed = parts[1].substring(1, parts[1].length() - 1);
-				else
+				} else {
 					processed = parts[2].substring(1, parts[2].length() - 1);
-				
+				}
 				processed = processed+".<init>(*)";
 			}
 			
 			if(processed != null && line.contains("invokestatic")){
 				allStaticDependency.add(processed);
-			}
-			
-			else if(processed != null && line.contains("invokefinal")){
+			} else if(processed != null && line.contains("invokefinal")){
 				allFinalDependency.add(processed);
-			}
-			
-			else if(processed != null && line.contains("invokevirtual")){
+			} else if(processed != null && line.contains("invokevirtual")){
 				allVirtualDependency.add(processed);
-			}
-			
-			else if(processed != null && line.contains("invokeinterface")){
+			} else if(processed != null && line.contains("invokeinterface")){
 				allInterfaceDependency.add(processed);
-			}
-			
-			else if(processed != null && line.contains("invokespecial")){			
+			} else if(processed != null && line.contains("invokespecial")){			
 				allSpecialDependency.add(processed);
-			}
-			
-			else if(processed != null && (line.contains("getfield")  || line.contains("getstatic"))){
+			} else if(processed != null && (line.contains("getfield")  || line.contains("getstatic"))) {
 				allFieldDependency.add(processed);
-			}
-			
-			else if(processed != null && line.contains("putfield")){
+			} else if(processed != null && line.contains("putfield")){
 				allOwnFieldUpdated.add(processed);
-			}
-			
-			else if(processed != null && line.contains("putstatic")){
+			} else if(processed != null && line.contains("putstatic")){
 				allStaticFieldUpdated.add(processed);
 			}
 		}
 	}
-	
-	
-	
-	/*private String parseMethodParameters(String signature){
-		try{
-			signature = signature.substring(signature.indexOf("(")+1, signature.indexOf(")"));
-			
-			if(signature.length() == 0)
-				return "()";
-			StringBuilder sb = new StringBuilder();
-			sb.append("(");
-			
-			String [] params =  signature.split(";");
-			for(int i=0;i<params.length;i++){
-				if(!StringProcessor.isPrimitive(params[i]))
-					params[i] = ("$"+params[i].substring(1));
-				else{
-					StringBuilder sb1 = new StringBuilder();
-					for(int j=0;j<params[i].length();j++){
-						sb1.append("$"+StringProcessor.convertBaseType(params[i].charAt(j)));
-					}
-					params[i] = sb1.toString();
-				}
-				params[i] = StringProcessor.pathToFqnConverter(params[i]);
-				sb.append(params[i]);
-			}
-			
-			sb.append(")");
-			
-			return sb.toString();
-		}
-		catch(StringIndexOutOfBoundsException e){
-			e.printStackTrace();
-		}
-		
-		return null;
-	}*/
 	
 	private String parseMethodParameters(String signature){		
 		try{

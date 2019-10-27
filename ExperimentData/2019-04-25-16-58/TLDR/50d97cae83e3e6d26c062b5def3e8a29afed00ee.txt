@@ -1,0 +1,9 @@
+Total Time :0.92215119
+New or Changed Entity :0
+Test To Run :2
+1 - org.apache.commons.io.input.ReaderInputStreamTest.testCharsetMismatchInfiniteLoop 2  SUCCESSFUL 
+TOTAL TEST RUN : 1
+All Class File : 444
+All Java File : 188
+SIZE OF THE DATABASE : 
+2.1M	/Users/demigorgan/dump.rdb

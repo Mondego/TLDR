@@ -24,48 +24,36 @@ public class TestDependencyExtractorWorker extends Worker{
 		// TODO Auto-generated method stub
 		try {
             this.resolute();
-        } 
-		
-		catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             e.printStackTrace();
-        } 
-		
-		catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
-        } 
-		
-		catch (SecurityException e) {
+        } catch (SecurityException e) {
             e.printStackTrace();
-        } 
-		
-		catch (InstantiationException e) {
+        } catch (InstantiationException e) {
 			e.printStackTrace();
-		} 
-		
-		catch (IllegalAccessException e) {
+		} catch (IllegalAccessException e) {
 			e.printStackTrace();
-		} 
-		
-		catch (InvocationTargetException e) {
+		} catch (InvocationTargetException e) {
 			e.printStackTrace();
-		} 
-		
-		catch (NoSuchMethodException e) {
+		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
-		} 
-		
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}	
 	}
 	
-	
-	public void resolute() throws InstantiationException, IllegalAccessException, 
-		IllegalArgumentException, InvocationTargetException, NoSuchMethodException, 
-		SecurityException, IOException{		
+	public void resolute() 
+			throws InstantiationException, 
+			       IllegalAccessException, 
+			       IllegalArgumentException, 
+			       InvocationTargetException, 
+			       NoSuchMethodException, 
+			       SecurityException, 
+			       IOException {		
 		
 		Set<Map.Entry<String, Method>> allEntries = changedMethods.entrySet();
-		for(Map.Entry<String, Method> entry: allEntries){			
+		for(Map.Entry<String, Method> entry: allEntries) {			
 			DependencyExtractor2 dep = new DependencyExtractor2(entry, true);
 		}
 	}	

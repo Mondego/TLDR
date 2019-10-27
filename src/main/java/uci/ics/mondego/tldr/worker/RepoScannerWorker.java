@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.App;
 
 public class RepoScannerWorker extends Worker{
-
 	private final String repoDir;
 	private static final Logger logger = LogManager.getLogger(RepoScannerWorker.class);
 
@@ -16,67 +15,54 @@ public class RepoScannerWorker extends Worker{
 	}
 	
 	public void run() {
-		// TODO Auto-generated method stub
 		try {		 
 			this.scanClassFiles(repoDir);
-		} 
-		
-		catch (InstantiationException e) {
-			// TODO Auto-generated catch block
+		} catch (InstantiationException e) {
 			e.printStackTrace();
-		} 
-		
-		catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
+		} catch (IllegalAccessException e) {
 			e.printStackTrace();
-		} 
-		
-		catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
-		} 
-		
-		catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
+		} catch (InvocationTargetException e) {
 			e.printStackTrace();
-		} 
-		
-		catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
+		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
-		} 
-		
-		catch (SecurityException e) {
-			// TODO Auto-generated catch block
+		} catch (SecurityException e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
-	public void scanTestFiles(String directoryName) throws InstantiationException, IllegalAccessException,
-    	IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {	
+	public void scanTestFiles(String directoryName) 
+			throws InstantiationException, 
+			IllegalAccessException,
+			IllegalArgumentException, 
+			InvocationTargetException, 
+			NoSuchMethodException, 
+			SecurityException {	
 	
 		File directory = new File(directoryName);
 	    File[] fList = directory.listFiles();	    	
-	    if(fList != null)
-	        for (File file : fList) {    	        	
+	    if(fList != null) {
+	    	for (File file : fList) {    	        	
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
-	                	//logger.debug(file.getName()+" found and sending to TestFileChangeAnalyzer");
 	                	App.TestFileChangeAnalysisPool.send(fileAbsolutePath); 
 	                }	                	         
-	            } 
-	            
-	            else if (file.isDirectory()) {
+	            } else if (file.isDirectory()) {
 	                scanTestFiles(file.getAbsolutePath());
 	            }
 	        }
+	    }	        
     }
 
-	
-	public void scanClassFiles(String directoryName) throws InstantiationException, IllegalAccessException,
-	    IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {	
+	public void scanClassFiles(String directoryName) 
+			throws InstantiationException, 
+			IllegalAccessException,
+			IllegalArgumentException, 
+			InvocationTargetException, 
+			NoSuchMethodException, 
+			SecurityException {	
 		
 		File directory = new File(directoryName);
 	    File[] fList = directory.listFiles();	    	
@@ -89,8 +75,8 @@ public class RepoScannerWorker extends Worker{
 	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);
 	                }	                	         
 	            } 
-	            else if (file.isDirectory() && 
-	            		!App.allTestDirectories.containsKey(file.getAbsolutePath().toString())){
+	            else if (file.isDirectory() 
+	            		&& !App.allTestDirectories.containsKey(file.getAbsolutePath().toString())) {
 	            		//!file.getAbsolutePath().equals(App.getTEST_DIR())) {
 	                scanClassFiles(file.getAbsolutePath());
 	            }

@@ -13,6 +13,7 @@ public class IntraTestDependencyExperiment {
 	private static String CLASS_DIR;
 	public static int count = 0;
 	private static Set<String> allTestClass;
+	private static Set<String> allSureFireReport;
 	private static Set<String> allAnnotatedTestMethod;
 	private static Set<String> allHelperMethod;
 	private static Set<String> allFields;
@@ -25,11 +26,12 @@ public class IntraTestDependencyExperiment {
 	    allAnnotatedTestMethod = new HashSet<String>();
 	    allHelperMethod = new HashSet<String>();
 	    allFields = new HashSet<String>();
+	    allSureFireReport = new HashSet<String>();
 	    
 	   FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
        Set<String> allTestDir = find.getAllTestDir();
        for(String s: allTestDir){
-    	   scanTestFiles(s);
+    	    scanFilesWithPattern(s, ".class", allTestClass);
        }    
 	    
        for(String s: allTestClass){
@@ -39,15 +41,19 @@ public class IntraTestDependencyExperiment {
     	   allFields.addAll(tp.fields);
        }
        
-  	    SureFireReportParserUtilities su = new SureFireReportParserUtilities();
-  	    String str="";
-  	    for(String s: su.Ekstazi){
-  	    	String ss = s.substring(0, s.lastIndexOf('.')) + "#" + s.substring(s.lastIndexOf('.')+1);
-  	    	str+=(ss+"\n");
-  	    }
-  	    writeLog("log.txt", str);
-	    print(su.Ekstazi.size());
+       scanFilesWithPattern(CLASS_DIR, "surefire-report.html", allSureFireReport);
+ 	    String tests="";       
+       for(String str: allSureFireReport){
+    	   System.out.println(str);
+     	    SureFireReportParserUtilities su = new SureFireReportParserUtilities(str);
+      	    for(String s: su.testCases){
+      	    	String ss = s.substring(0, s.lastIndexOf('.')) + "#" + s.substring(s.lastIndexOf('.')+1);
+      	    	tests+=(ss+"\n");
+      	    }
+       }      
+  	    writeLog("log.txt", tests);
 	    print(allHelperMethod.size());
+	    print(allAnnotatedTestMethod.size());
 	    print(allAnnotatedTestMethod.size());
 	    print(allFields.size());
 	}
@@ -64,7 +70,7 @@ public class IntraTestDependencyExperiment {
 		}
 	}
 	
-	public static void scanTestFiles(String directoryName)  {	
+	public static void scanFilesWithPattern(String directoryName, String sufix, Set<String> setToAdd)  {	
 
 		File directory = new File(directoryName);
 	    File[] fList = directory.listFiles();	    	
@@ -72,13 +78,13 @@ public class IntraTestDependencyExperiment {
 	        for (File file : fList) {    	        	
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();	
-	                if(fileAbsolutePath.endsWith(".class")){
-	                	allTestClass.add(fileAbsolutePath); 
+	                if(fileAbsolutePath.endsWith(sufix)){
+	                	setToAdd.add(fileAbsolutePath); 
 	                }	                	         
 	            } 
 	            
 	            else if (file.isDirectory()) {
-	                scanTestFiles(file.getAbsolutePath());
+	                scanFilesWithPattern(file.getAbsolutePath(), sufix, setToAdd);
 	            }
 	        }
 	}

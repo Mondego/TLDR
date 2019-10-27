@@ -50,14 +50,17 @@ public class EntityToTestMapWorker extends Worker{
 		
 	}
 	
-	private void map() throws InstantiationException, 
-	    IllegalAccessException, IllegalArgumentException, InvocationTargetException, 
-	    NoSuchMethodException, SecurityException{
+	private void map() 
+			throws InstantiationException, 
+			IllegalAccessException, 
+			IllegalArgumentException, 
+			InvocationTargetException, 
+			NoSuchMethodException, 
+			SecurityException {
 	   EntityToTestMap map = new EntityToTestMap();
 	   Set<String> tests = map.getTests(entity);
  	   
-	   for(String str: tests){
- 		   //logger.debug(str+" maps to "+entity+" and written to testToRun");	
+	   for(String str: tests) {
 		   App.IntraTestTraversalPool.send(str);
  	   }  	   
 	   map.closeRedis();

@@ -33,22 +33,18 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 			if(!ret){
 				throw new DatabaseSyncException(this.getEntityName());
 			}
-			
 			this.setChanged(true);
-			//logger.info("New file "+this.getEntityName()+" added");
 		}
 		
-		else{
+		else {
 			String prevCheckSum = this.getValue(Databases.TABLE_ID_FILE, this.getEntityName()); // get it from database;
 			String currentCheckSum = calculateChecksum();
-			if(!prevCheckSum.equals(currentCheckSum)){
+			if (!prevCheckSum.equals(currentCheckSum)) {
 				boolean ret = this.sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
-				if(!ret){
+				if (!ret) {
 					throw new DatabaseSyncException(this.getEntityName());
 				}
-				
 				this.setChanged(true);
-				//logger.info("File "+this.getEntityName()+" has changed");
 			}
 		}
 	}

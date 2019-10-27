@@ -1,0 +1,27 @@
+Total Time :1.183389605
+New or Changed Entity :25
+Test To Run :23
+1 - org.apache.commons.io.input.ReaderInputStreamTest.testUTF8WithSingleByteRead 6  SUCCESSFUL 
+2 - org.apache.commons.io.input.ReaderInputStreamTest.testLargeUTF8WithBufferedRead 7  SUCCESSFUL 
+3 - org.apache.commons.io.input.ReaderInputStreamTest.testUTF8WithBufferedRead 9  SUCCESSFUL 
+4 - org.apache.commons.io.output.WriterOutputStreamTest.testLargeUTF8WithSingleByteWrite 23  SUCCESSFUL 
+5 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16WithSingleByteWrite 0  SUCCESSFUL 
+6 - org.apache.commons.io.output.WriterOutputStreamTest.testFlush 12  SUCCESSFUL 
+7 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16WithBufferedWrite 1  SUCCESSFUL 
+8 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16LEWithBufferedWrite 0  SUCCESSFUL 
+9 - org.apache.commons.io.input.ReaderInputStreamTest.testUTF16WithSingleByteRead 3  SUCCESSFUL 
+10 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16LEWithSingleByteWrite 0  SUCCESSFUL 
+11 - org.apache.commons.io.output.WriterOutputStreamTest.testLargeUTF8WithBufferedWrite 1  SUCCESSFUL 
+12 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF8WithSingleByteWrite 0  SUCCESSFUL 
+13 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16BEWithSingleByteWrite 7  SUCCESSFUL 
+14 - org.apache.commons.io.input.ReaderInputStreamTest.testCharsetMismatchInfiniteLoop 8  SUCCESSFUL 
+15 - org.apache.commons.io.output.WriterOutputStreamTest.testWriteImmediately 0  SUCCESSFUL 
+16 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF8WithBufferedWrite 11  SUCCESSFUL 
+17 - org.apache.commons.io.output.WriterOutputStreamTest.testUTF16BEWithBufferedWrite 0  SUCCESSFUL 
+18 - org.apache.commons.io.input.ReaderInputStreamTest.testLargeUTF8WithSingleByteRead 15  SUCCESSFUL 
+19 - org.apache.commons.io.input.ReaderInputStreamTest.testReadZero 8  SUCCESSFUL 
+TOTAL TEST RUN : 19
+All Class File : 444
+All Java File : 188
+SIZE OF THE DATABASE : 
+2.1M	/Users/demigorgan/dump.rdb
