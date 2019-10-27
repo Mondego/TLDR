@@ -6,7 +6,9 @@ tldr_dir=$base_dir'/TLDR'
 
 for i in $(ls $sample_project_dir);
 do
-	echo $i
+	test_project=$sample_project_dir/$i
+	echo $i 
+	echo $test_project
 done
 
 
