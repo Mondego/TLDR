@@ -1,10 +1,8 @@
 #!/bin/bash
 
-proj_dir="/Users/demigorgan/Documents/workspace/tldr"
-repo_dir=$proj_dir/'script/commons-math'
-test_project_name="commons-math"
-
-git clone https://github.com/apache/commons-math.git
+proj_dir=$1
+repo_dir=$2
+test_project_name=$3
 
 cd $repo_dir
 
