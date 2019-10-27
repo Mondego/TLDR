@@ -1,10 +1,8 @@
 #!/bin/bash
 
 proj_dir="/Users/demigorgan/Documents/workspace/tldr"
-repo_dir="commons-math"
+repo_dir=$proj_dir/'script/commons-math'
 test_project_name="commons-math"
-
-#rm -rf commons-math
 
 git clone https://github.com/apache/commons-math.git
 
@@ -40,5 +38,7 @@ while read -r line; do
 		cd $proj_dir
 		echo $line', not compiled' >> compilation-info.csv
 	fi
-	echo 'ole'
 done < "$sha"
+
+rm -rf $repo_dir
+

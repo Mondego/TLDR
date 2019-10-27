@@ -118,7 +118,7 @@ public class ChangeAnalysis {
 	}
 	
 	private static void print(String name, String commit, Map<String, Set<String>> map) {
-	  String csv ="/Users/demigorgan/Documents/workspace/tldr/common-math.csv";
+	  String csv ="/Users/demigorgan/Documents/workspace/tldr/"+name+".csv";
       try{
     	  FileWriter pw = new FileWriter(csv, true);
 	      int entity = 0; 
