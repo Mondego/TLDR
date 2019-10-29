@@ -7,8 +7,7 @@ tldr_dir=$base_dir'/TLDR'
 for i in $(ls $sample_project_dir);
 do
 	test_project=$sample_project_dir/$i
-	echo $i 
-	echo $test_project
+	./change_analysis.sh $tldr_dir $test_project $i 
 done
 
 
