@@ -2,8 +2,6 @@
 
 import sys
 import os
-import git 
-
 
 def get_sha(argv):
 	sha = []
