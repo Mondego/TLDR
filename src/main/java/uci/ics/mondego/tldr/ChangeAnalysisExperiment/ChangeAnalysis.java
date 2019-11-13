@@ -66,35 +66,42 @@ public class ChangeAnalysis {
 	private static String projectDirectory;
 	private static String commitHashCode;
 	
+	private enum FileType {
+		CLASS,
+		JAR,
+		OTHER
+	};
+	
+	private enum CodeType {
+		SOURCE,
+		TEST,
+		OTHER
+	};
+	
 	public static void main(String[] args) {
 		// Get experiment specific information.
 		projectDirectory = args[0];
 		projectName = args[1];
 		commitHashCode = args[2];
 		
-		// Discover all test directory.
-		FindAllTestDirectory find = new FindAllTestDirectory(projectDirectory);
-	    Set<String> allTestDirectory = find.getAllTestDir();
-	    	    
 	    try {
 			List<String> allSourceClass = scanner(
 					/* directoryName= */ projectDirectory, 
-					/* excludeDir= */ Optional.of(allTestDirectory), 
+					/* excludeDir= */ Optional.of(ImmutableSet.copyOf(allTestDirectory)), 
 					/* extension= */ Optional.of(CLASS_EXT), 
-					/* excludeExtension= */ Optional.<HashSet<String>>absent());
+					/* excludeExtension= */ Optional.<ImmutableSet<String>>absent());
 			
 			List<String> allSourceJar = scanner(
 					/* directoryName= */ projectDirectory, 
-					/* excludeDir= */ Optional.of(allTestDirectory), 
+					/* excludeDir= */ Optional.of(ImmutableSet.copyOf(allTestDirectory)), 
 					/* extension= */ Optional.of(CLASS_EXT), 
-					/* excludeExtension= */ Optional.<Set<String>>absent());
+					/* excludeExtension= */ Optional.<ImmutableSet<String>>absent());
 
 			List<String> allSourceOtherFile = scanner(
 					/* directoryName= */ projectDirectory, 
-					/* excludeDir= */ Optional.of(allTestDirectory), 
+					/* excludeDir= */ Optional.of(ImmutableSet.copyOf(allTestDirectory)), 
 					/* extension= */ Optional.<String>absent(), 
-					/* excludeExtension= */ Optional.of(Sets.newHashSet(CLASS_EXT, JAR_EXT)));
-
+					/* excludeExtension= */ Optional.of(ImmutableSet.of(CLASS_EXT, JAR_EXT)));
 			
 			
 			List<String> allTestClass = new ArrayList<String>();
@@ -153,6 +160,74 @@ public class ChangeAnalysis {
 			System.exit(0);
 		}
 	}
+	
+	/** 
+	 * Finds all the changed entities i.e. class, jar, other files
+	 */
+	private static List<String> findChangedEntities (
+			FileType filetype,
+			CodeType codeType) throws 
+		InstantiationException, 
+		IllegalAccessException, 
+		IllegalArgumentException, 
+		InvocationTargetException, 
+		NoSuchMethodException, 
+		SecurityException, 
+		JedisConnectionException, 
+		NoSuchAlgorithmException, 
+		NullDbIdException, 
+		IOException {
+		
+		// Discover all test directory.
+		FindAllTestDirectory find = new FindAllTestDirectory(projectDirectory);
+	    Set<String> allTestDirectory = find.getAllTestDir();
+		
+	    Optional<ImmutableSet<String>> excludeDirOptional = Optional.<ImmutableSet<String>>absent();
+		Optional<String> extensionOptional = Optional.absent();
+		Optional<ImmutableSet<String>> excludeExtOptional = Optional.<ImmutableSet<String>>absent();
+		
+		// If only source is intended to be scanned then test repositories must be
+		// excluded.
+		if (codeType == CodeType.SOURCE) {
+			excludeDirOptional = Optional.of(ImmutableSet.copyOf(allTestDirectory));
+		}
+		
+		switch(filetype) {
+			case CLASS:
+				extensionOptional = Optional.of(CLASS_EXT);
+				break;
+			case JAR:
+				extensionOptional = Optional.of(JAR_EXT);
+				break;
+			case OTHER:
+				// If we want to scan only Other files then class and jar extension 
+				// must be avoided
+				excludeExtOptional = Optional.of(ImmutableSet.of(CLASS_EXT, JAR_EXT));
+				break;
+		}
+		
+		List<String> allInstances = new ArrayList<String>();
+		if (codeType == CodeType.SOURCE) {
+			allInstances.addAll(
+					scanner(projectDirectory, excludeDirOptional, extensionOptional, excludeExtOptional));
+		} else {
+			for (String testDir: allTestDirectory) {
+				allInstances.addAll(
+						scanner(testDir, excludeDirOptional, extensionOptional, excludeExtOptional));
+			}
+		}
+		
+		List<String> allChangedEntities = new ArrayList<String>();
+		
+		for(int i= 0; i < allInstances.size(); i++) {
+			String file = allInstances.get(i);
+			if (hasChanged(file)) {
+				allChangedEntities.add(file);
+			}
+		}
+		
+		return allChangedEntities;
+	}
 		
 	/**
 	 * Returns true if the specified file has changed.
@@ -189,9 +264,9 @@ public class ChangeAnalysis {
 	 */
 	private static List<String> scanner (
 			String directoryName, 
-			Optional<HashSet<String>> excludeDir, 
+			Optional<ImmutableSet<String>> excludeDir, 
 			Optional<String> extension, 
-			Optional<HashSet<String>> excludeExtension) 
+			Optional<ImmutableSet<String>> excludeExtension) 
 				throws InstantiationException, 
 				IllegalAccessException,
 				IllegalArgumentException, 
