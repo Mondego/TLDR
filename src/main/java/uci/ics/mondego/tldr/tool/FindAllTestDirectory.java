@@ -34,8 +34,13 @@ public class FindAllTestDirectory {
 		}
 	}
 	
-	private void scanTestFiles(String directoryName, String pattern) throws InstantiationException, IllegalAccessException,
-	IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {	
+	private void scanTestFiles(String directoryName, String pattern) 
+			throws InstantiationException, 
+				   IllegalAccessException,
+				   IllegalArgumentException, 
+				   InvocationTargetException, 
+				   NoSuchMethodException, 
+				   SecurityException {	
 
 		File directory = new File(directoryName);
 	    File[] fList = directory.listFiles();	    	
