@@ -85,45 +85,7 @@ public class ChangeAnalysis {
 		commitHashCode = args[2];
 		
 	    try {
-			List<String> allSourceClass = scanner(
-					/* directoryName= */ projectDirectory, 
-					/* excludeDir= */ Optional.of(ImmutableSet.copyOf(allTestDirectory)), 
-					/* extension= */ Optional.of(CLASS_EXT), 
-					/* excludeExtension= */ Optional.<ImmutableSet<String>>absent());
 			
-			List<String> allSourceJar = scanner(
-					/* directoryName= */ projectDirectory, 
-					/* excludeDir= */ Optional.of(ImmutableSet.copyOf(allTestDirectory)), 
-					/* extension= */ Optional.of(CLASS_EXT), 
-					/* excludeExtension= */ Optional.<ImmutableSet<String>>absent());
-
-			List<String> allSourceOtherFile = scanner(
-					/* directoryName= */ projectDirectory, 
-					/* excludeDir= */ Optional.of(ImmutableSet.copyOf(allTestDirectory)), 
-					/* extension= */ Optional.<String>absent(), 
-					/* excludeExtension= */ Optional.of(ImmutableSet.of(CLASS_EXT, JAR_EXT)));
-			
-			
-			List<String> allTestClass = new ArrayList<String>();
-		    for (String dir: allTestDir) {
-		    	allTestClass.addAll(scanner(dir, Optional.<Set<String>>absent()));
-		    }
-		    
-		    // find all changed source
-		    for (int i = 0; i < allSourceClass.size(); i++) {
-		    	String claz = allSourceClass.get(i);
-		    	if (hasChanged (claz)) {
-		    		changedSourceEntities.put(claz, getChangedEntities(claz));
-		    	}
-		    }
-		    
-		    // find all changed tests
-		    /*for (int i = 0; i < allTestClass.size(); i++) {
-		    	String claz = allTestClass.get(i);
-		    	if (hasClassChanged (claz)) {
-		    		changedSourceEntities.put(claz, getChangedEntities(claz));
-		    	}
-		    }*/
 		    
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -227,6 +189,24 @@ public class ChangeAnalysis {
 		}
 		
 		return allChangedEntities;
+	}
+	
+	/**
+	 * Returns true if the file is newly added
+	 */
+	private static boolean isNew (String file) 
+			throws JedisConnectionException, 
+				NoSuchAlgorithmException, 
+				NullDbIdException, 
+				IOException {
+		if (!redisHandler.exists(Databases.TABLE_ID_FILE, file)){	
+			redisHandler.update(
+					Databases.TABLE_ID_FILE, 
+					file, 
+					fileHashCalculator.calculateChecksum(file));			
+			return true;
+		}
+		return false;
 	}
 		
 	/**
