@@ -10,6 +10,7 @@ import uci.ics.mondego.tldr.tool.Databases;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.apache.log4j.LogManager;
@@ -62,6 +63,25 @@ public class RedisHandler{
 	    Set<String> ret = jedis.keys(pattern);
 		return ret;
 	}
+	
+	/** Returns all methods and fields of a project. */
+	public Set<String> getAllMethodsAndFields(String projectId){
+		StringBuilder sb = new StringBuilder();
+		sb.append(projectId);
+		sb.append("-");
+		sb.append(Databases.TABLE_ID_ENTITY);
+		sb.append("-");
+		String pattern = sb.toString();
+		Set<String> allEntities = new HashSet<String>();
+	    for(String key: getAllKeys(pattern)) {
+	    	// Remove projectId and tableId from the keys 
+	    	int index = key.lastIndexOf('-'); 
+	    	if (index <= (key.length() - 2)) {
+	    		allEntities.add(key.substring(index + 1));
+	    	}
+	    }
+	    return allEntities;
+	}
 
 	public static RedisHandler getInstane(String ... b) { 
         if (instance == null) {
@@ -100,7 +120,8 @@ public class RedisHandler{
 		this.insert(tableId, key, value);
 	}
 	
-	public String getValueByKey(String tableId, String key) throws JedisConnectionException { 
+	public String getValueByKey(
+			String tableId, String key) throws JedisConnectionException { 
 		String ret = jedis.get(tableId+key);
 	    return ret;
 	}
@@ -115,7 +136,8 @@ public class RedisHandler{
 	    return ret;
 	}
 	
-	public long insertInSet(String tableId, String key, String value) throws NullDbIdException{
+	public long insertInSet (
+			String tableId, String key, String value) throws NullDbIdException{
 		
 		String tableIdKey = tableId+key;
 		
@@ -186,6 +208,17 @@ public class RedisHandler{
 		}
 		return table;
 	}
+	
+	public Map<String, String> getTable(String projectId, String tableId) {
+		Map<String, String> table = new HashMap<String, String>();
+		Set<String> keys = jedis.keys(projectId+","+tableId+"*");
+		for(String k: keys) {
+			String val = this.getValueByKey(null, k);
+			table.put(k, val);
+		}
+		return table;
+	}
+	
 	
 	public boolean existsInSet(String tableId, String key, String value) {
 		boolean ret = jedis.sismember(tableId+key, value);
