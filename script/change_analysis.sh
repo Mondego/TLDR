@@ -1,18 +1,23 @@
 #!/bin/bash
 
-proj_dir=$1
+tldr_dir=$1
 repo_dir=$2
 test_project_name=$3
 
 cd $repo_dir
 
-git log > $proj_dir'/script/repo_log.txt'
+sha_file=$tldr_dir'/script/'$test_project_name'.txt'
 
-cd $proj_dir/'script'
+echo $sha_file
+ls
 
-python extract_sha.py repo_log.txt
+git log > $sha_file
 
-sha=$proj_dir'/script/sha.txt'
+cd $tldr_dir/'script'
+
+python extract_sha.py $test_project_name'.txt' $test_project_name
+
+sha=$tldr_dir'/script/'$test_project_name'_sha.txt'
 
 while read -r line; do
 	echo $line
@@ -23,20 +28,18 @@ while read -r line; do
     rm -f .git/index.lock # needed for errorless checkout to another commit
     git reset --hard $line 
 	count=`ls -1 pom.xml 2>/dev/null | wc -l`
-	echo $count
+	compile_info=$test_project_name'-compile-info.csv'
 	if [ $count != 0 ]; then
 	    if mvn -q clean compile ; then
 	    	echo 'BUILD SUCCESSFUL FOR COMMIT : '$line
-	    	cd $proj_dir
-	    	echo $line', compiled' >> compilation-info.csv
+	    	cd $tldr_dir
+	    	echo $line', compiled' >> $compile_info
 	    	mvn -q compile
 	    	mvn exec:java@fourth-cli -Dexec.args="$repo_dir $test_project_name $line"
 	    fi
 	else 
-		cd $proj_dir
-		echo $line', not compiled' >> compilation-info.csv
+		cd $tldr_dir
+		echo $line', not compiled' >> $compile_info
 	fi
 done < "$sha"
-
-rm -rf $repo_dir
 

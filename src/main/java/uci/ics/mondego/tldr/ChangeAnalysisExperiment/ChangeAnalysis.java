@@ -9,11 +9,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 import org.apache.bcel.classfile.ClassFormatException;
 import org.apache.bcel.classfile.ClassParser;
@@ -24,9 +27,11 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import com.opencsv.CSVWriter;
 import com.rfksystems.blake2b.Blake2b;
 
+import io.netty.util.internal.ConcurrentSet;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
@@ -34,49 +39,53 @@ import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.FileHashCalculator;
 import uci.ics.mondego.tldr.tool.FindAllTestDirectory;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class ChangeAnalysis {
 	private static final RedisHandler redisHandler = new RedisHandler();
-	private static MessageDigest md;
-	private static int totalFile = 0;
+	private static final FileHashCalculator fileHashCalculator = 
+			new FileHashCalculator(); 
+	private static final String CLASS_EXT = ".class";
+	private static final String JAR_EXT = ".jar";
+	
+	private static Data sourceClassData = new Data();
+	private static Data sourceJarData = new Data();
+	private static Data sourceOtherFileData = new Data();
+	private static Data sourceMethodData = new Data();
+	private static Data sourceFieldData = new Data();
+	
+	private static Data testClassData = new Data();
+	private static Data testJarData = new Data();
+	private static Data testOtherFileData = new Data();
+	private static Data testMethodData = new Data();
+	private static Data testFieldData = new Data();
+	
+	private static String projectName;
+	private static String projectDirectory;
+	private static String commitHashCode;
+	
+	private enum FileType {
+		CLASS,
+		JAR,
+		OTHER
+	};
+	
+	private enum CodeType {
+		SOURCE,
+		TEST,
+		OTHER
+	};
+	
 	public static void main(String[] args) {
-		System.out.println("here at start of main");
-
-		// TODO Auto-generated method stub
-		String projectDir = args[0];
-		String name = args[1];
-		String commit = args[2];
-		FindAllTestDirectory find = new FindAllTestDirectory(projectDir);
-	    Set<String> allTestDir = find.getAllTestDir();
-	    Map<String, Set<String>> changedSourceEntities = new HashMap<String, Set<String>>();
-	    
+		// Get experiment specific information.
+		projectDirectory = args[0];
+		projectName = args[1];
+		commitHashCode = args[2];
+		
 	    try {
-	    	md = MessageDigest.getInstance("MD5");
-			List<String> allSourceClass = scanClassFiles(projectDir, Optional.of(allTestDir));
-		    totalFile+= allSourceClass.size();
 			
-			List<String> allTestClass = new ArrayList<String>();
-		    for (String dir: allTestDir) {
-		    	allTestClass.addAll(scanClassFiles(dir, Optional.<Set<String>>absent()));
-		    }
-		    
-		    // find all changed source
-		    for (int i = 0; i < allSourceClass.size(); i++) {
-		    	String claz = allSourceClass.get(i);
-		    	if (hasClassChanged (claz)) {
-		    		changedSourceEntities.put(claz, getChangedEntities(claz));
-		    	}
-		    }
-		    
-		    // find all changed tests
-		    /*for (int i = 0; i < allTestClass.size(); i++) {
-		    	String claz = allTestClass.get(i);
-		    	if (hasClassChanged (claz)) {
-		    		changedSourceEntities.put(claz, getChangedEntities(claz));
-		    	}
-		    }*/
 		    
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -99,9 +108,6 @@ public class ChangeAnalysis {
 		} catch (JedisConnectionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (NullDbIdException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -117,161 +123,103 @@ public class ChangeAnalysis {
 		}
 	}
 	
-	private static void print(String name, String commit, Map<String, Set<String>> map) {
-	  String csv ="/Users/demigorgan/Documents/workspace/tldr/"+name+".csv";
-      try{
-    	  FileWriter pw = new FileWriter(csv, true);
-	      int entity = 0; 
-    	  for(Map.Entry<String, Set<String>> entry : map.entrySet()) {
-	    	  entity += entry.getValue().size();
-		  }
-	      pw.append(name);
-          pw.append(",");
-          pw.append(commit);
-          pw.append(",");
-          pw.append(totalFile+"");
-          pw.append(",");
-          pw.append(map.size()+"");
-          pw.append(",");
-          pw.append(entity+"");
-          pw.append("\n");
-	      pw.flush();
-          pw.close();
-      }
-      catch (IOException e) {
-    	  e.printStackTrace();
-      } 
-	}
-	/**
-	 * Returns the set of changed fields and methods of a given class.
+	/** 
+	 * Finds all the changed entities i.e. class, jar, other files
 	 */
-	private static Set<String> getChangedEntities(String file) 
-			throws JedisConnectionException, 
-			NullDbIdException, 
-			ClassFormatException, 
-			IOException {
-		ClassParser parser = new ClassParser(file);	
-		JavaClass parsedClass = parser.parse();
-		Set<String> changedEntities = new HashSet<String>();
+	private static List<String> findChangedEntities (
+			FileType filetype,
+			CodeType codeType) throws 
+		InstantiationException, 
+		IllegalAccessException, 
+		IllegalArgumentException, 
+		InvocationTargetException, 
+		NoSuchMethodException, 
+		SecurityException, 
+		JedisConnectionException, 
+		NoSuchAlgorithmException, 
+		NullDbIdException, 
+		IOException {
 		
-		Field [] allFields = parsedClass.getFields();
+		// Discover all test directory.
+		FindAllTestDirectory find = new FindAllTestDirectory(projectDirectory);
+	    Set<String> allTestDirectory = find.getAllTestDir();
 		
-		for(Field f: allFields){
-			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
-			String currentHashCode = StringProcessor.CreateBLAKE(f.toString());
-			
-			if(!redisHandler.exists(Databases.TABLE_ID_ENTITY, fieldFqn)){
-				changedEntities.add(fieldFqn);
-				redisHandler.update(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
-			} else {
-				String prevHashCode = redisHandler.getValueByKey(Databases.TABLE_ID_ENTITY, fieldFqn);
-				if (!currentHashCode.equals(prevHashCode)) {
-					changedEntities.add(fieldFqn);
-					redisHandler.update(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
-				}
+	    Optional<ImmutableSet<String>> excludeDirOptional = Optional.<ImmutableSet<String>>absent();
+		Optional<String> extensionOptional = Optional.absent();
+		Optional<ImmutableSet<String>> excludeExtOptional = Optional.<ImmutableSet<String>>absent();
+		
+		// If only source is intended to be scanned then test repositories must be
+		// excluded.
+		if (codeType == CodeType.SOURCE) {
+			excludeDirOptional = Optional.of(ImmutableSet.copyOf(allTestDirectory));
+		}
+		
+		switch(filetype) {
+			case CLASS:
+				extensionOptional = Optional.of(CLASS_EXT);
+				break;
+			case JAR:
+				extensionOptional = Optional.of(JAR_EXT);
+				break;
+			case OTHER:
+				// If we want to scan only Other files then class and jar extension 
+				// must be avoided
+				excludeExtOptional = Optional.of(ImmutableSet.of(CLASS_EXT, JAR_EXT));
+				break;
+		}
+		
+		List<String> allInstances = new ArrayList<String>();
+		if (codeType == CodeType.SOURCE) {
+			allInstances.addAll(
+					scanner(projectDirectory, excludeDirOptional, extensionOptional, excludeExtOptional));
+		} else {
+			for (String testDir: allTestDirectory) {
+				allInstances.addAll(
+						scanner(testDir, excludeDirOptional, extensionOptional, excludeExtOptional));
 			}
 		}
 		
-		Method [] allMethods= parsedClass.getMethods();
+		List<String> allChangedEntities = new ArrayList<String>();
 		
-		for(Method m: allMethods){
-			if( m.getModifiers() == AccessCodes.ABSTRACT || 
-				m.getModifiers() == AccessCodes.FINAL ||
-				m.getModifiers() == AccessCodes.INTERFACE || 
-				m.getModifiers() == AccessCodes.NATIVE || 
-				m.getModifiers() == AccessCodes.PRIVATE || 
-				m.getModifiers() == AccessCodes.PROTECTED || 
-				m.getModifiers() == AccessCodes.PUBLIC || 
-				m.getModifiers() == AccessCodes.STATIC || 
-				m.getModifiers() == AccessCodes.STATIC_INIT ||
-				m.getModifiers() == AccessCodes.STRICT || 
-				m.getModifiers() == AccessCodes.SYNCHRONIZED || 
-				m.getModifiers() == AccessCodes.TRANSIENT || 
-				m.getModifiers() == AccessCodes.VOLATILE ||
-				m.getModifiers() == AccessCodes.DEFAULT_INIT ||
-				m.getModifiers() == AccessCodes.PUBLIC2 ||
-				m.getModifiers() == AccessCodes.INHERIT ||		
-				m.getModifiers() == AccessCodes.PUBLIC3 ||			
-				m.getModifiers() == AccessCodes.PUBLIC4 ||			
-				m.getModifiers() == AccessCodes.PUBLIC5 ||				
-				m.getModifiers() == AccessCodes.ABSTRACT2 ||				
-				m.getModifiers() == AccessCodes.STATIC2 ||	
-				m.getModifiers() == AccessCodes.STATIC3 ||	
-				m.getModifiers() == AccessCodes.INNER ||	
-				m.getModifiers() == AccessCodes.DEFAULT_INIT2 ||
-				m.getModifiers() == AccessCodes.FINAL2 ||
-				m.getModifiers() == AccessCodes.STATIC4 ||
-				m.getModifiers() == AccessCodes.ABSTRACT3||
-				m.getModifiers() == AccessCodes.FINAL3 ||
-				m.getModifiers() == AccessCodes.STATIC5 ||
-				m.getModifiers() == AccessCodes.STATIC6 ||
-				m.getModifiers() == AccessCodes.STATIC7 ||
-				m.getModifiers() == AccessCodes.STATIC8 ||
-				m.getModifiers() == AccessCodes.FINAL4 ||
-				m.getModifiers() == AccessCodes.PUBLIC6 ||
-				m.getModifiers() == AccessCodes.PUBLIC7 ||
-				m.getModifiers() == AccessCodes.PUBLIC8 ||
-				m.getModifiers() == AccessCodes.INNER2 ||	
-				m.getModifiers() == AccessCodes.FINAL5 ||
-				m.getModifiers() == AccessCodes.PUBLIC9 ||
-				m.getModifiers() == AccessCodes.INNER3 ||	
-				m.getModifiers() == AccessCodes.INNER4 ||					
-				m.getModifiers() == AccessCodes.ABSTRACT4 || 
-				m.getModifiers() == AccessCodes.PUBLIC10 ||					
-				m.getModifiers() == AccessCodes.PUBLIC11 ||
-				m.getModifiers() == AccessCodes.PUBLIC12){
-					
-				String code =  m.getModifiers()+"\n"+ m.getName()+ 
-						"\n"+m.getSignature()+"\n"+ m.getCode();
-							
-				String lineInfo = code.substring(code.indexOf("Attribute(s)") == -1
-						? 0 : code.indexOf("Attribute(s)"), 
-						code.indexOf("LocalVariable(") == -1?
-						code.length() : code.indexOf("LocalVariable(")) ;
-				
-				code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
-							
-				code = code.substring(0, code.indexOf("StackMapTable") == -1? 
-						code.length() : code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
-				
-				code = code.substring(0, code.indexOf("StackMap") == -1? 
-						code.length() : code.indexOf("StackMap"));  // for some reason StackMapTable also change unwanted. WHY??
-				
-				String methodFqn = parsedClass.getClassName()+"."+m.getName();
-	
-				methodFqn += ("(");
-				for(int i=0;i<m.getArgumentTypes().length;i++)
-					methodFqn += ("$"+m.getArgumentTypes()[i]);
-				methodFqn += (")");
-				
-				String currentHashCode = StringProcessor.CreateBLAKE(code);
-				
-				if (!redisHandler.exists(Databases.TABLE_ID_ENTITY, methodFqn)) {
-					changedEntities.add(methodFqn);
-					redisHandler.update(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
-				} else {
-					String prevHashCode = redisHandler.getValueByKey(Databases.TABLE_ID_ENTITY, methodFqn);
-					if (!currentHashCode.equals(prevHashCode)) {
-						changedEntities.add(methodFqn);
-						redisHandler.update(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
-					}
-				}
+		for(int i= 0; i < allInstances.size(); i++) {
+			String file = allInstances.get(i);
+			if (hasChanged(file)) {
+				allChangedEntities.add(file);
 			}
 		}
-		return changedEntities;
+		
+		return allChangedEntities;
 	}
 	
+	/**
+	 * Returns true if the file is newly added
+	 */
+	private static boolean isNew (String file) 
+			throws JedisConnectionException, 
+				NoSuchAlgorithmException, 
+				NullDbIdException, 
+				IOException {
+		if (!redisHandler.exists(Databases.TABLE_ID_FILE, file)){	
+			redisHandler.update(
+					Databases.TABLE_ID_FILE, 
+					file, 
+					fileHashCalculator.calculateChecksum(file));			
+			return true;
+		}
+		return false;
+	}
+		
 	/**
 	 * Returns true if the specified file has changed.
 	 */
-	private static boolean hasClassChanged(String file) 
+	private static boolean hasChanged(String file) 
 			throws JedisConnectionException, 
 			NullDbIdException, 
 			IOException, 
 			NoSuchAlgorithmException {
-		String currentCheckSum = calculateChecksum(file);
+		String currentCheckSum = fileHashCalculator.calculateChecksum(file);
 		
-		if(!redisHandler.exists(Databases.TABLE_ID_FILE, file)){	
+		if (!redisHandler.exists(Databases.TABLE_ID_FILE, file)){	
 			redisHandler.update(Databases.TABLE_ID_FILE, file, currentCheckSum);			
 			return true;
 		}
@@ -286,63 +234,93 @@ public class ChangeAnalysis {
 	}
 	
 	/**
-	 * Calculates the checksum of a file using Blake2B algorithm.
-	 * @param fileName: the name of the file
-	 * @return
-	 * @throws IOException
-	 * @throws NoSuchAlgorithmException 
-	 */
-	private static String calculateChecksum(String fileName) throws IOException, NoSuchAlgorithmException {
-		
-		InputStream fis = new FileInputStream(fileName);
-        byte[] buffer = new byte[1024];
-        int nread;        
-        while ((nread = fis.read(buffer)) != -1) {
-            md.update(buffer, 0, nread);
-        }
-        
-        StringBuilder result = new StringBuilder();
-        for (byte b : md.digest()) {
-            result.append(String.format("%02x", b));
-        }
-        
-        fis.close();
-        return result.toString();
-    }
-	
-	/**
-	 * Method to scan repository for .class files. This method can scan a  project's
-	 * source and test repository and returns a list of class file. 
+	 * Method to scan repository for files with a particular extension 
+	 * or all files except some specified extension. This method can scan 
+	 * a project's source and test repository and returns a list of files. 
 	 * @param directoryName The directory from where the scanning is started.
-	 * @param exclude an optional set of directories which are excluded from the search. 
+	 * @param excludeDir an optional set of directories which are excluded from the search. 
+	 * @param extension specified extension of the files to be searched
+	 * @param excludeExtension extensions that are to be excluded from the search
 	 */
-	private static List<String> scanClassFiles(String directoryName, Optional<Set<String>> exclude) 
-			throws InstantiationException, 
-			IllegalAccessException,
-			IllegalArgumentException, 
-			InvocationTargetException, 
-			NoSuchMethodException, 
-			SecurityException {	
+	private static List<String> scanner (
+			String directoryName, 
+			Optional<ImmutableSet<String>> excludeDir, 
+			Optional<String> extension, 
+			Optional<ImmutableSet<String>> excludeExtension) 
+				throws InstantiationException, 
+				IllegalAccessException,
+				IllegalArgumentException, 
+				InvocationTargetException, 
+				NoSuchMethodException, 
+				SecurityException {	
 		
-		List<String> classFiles = new ArrayList<String>();
+		List<String> filesWithExtension = new ArrayList<String>();
 		File directory = new File(directoryName);
 	    File[] fList = directory.listFiles();	    	
 	    
-	    if(fList != null)
-	        for (File file : fList) {    	        	
+	    if(fList != null) {
+	    	for (File file : fList) {    	        	
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();	
-	                if(fileAbsolutePath.endsWith(".class")){
-	                	classFiles.add(fileAbsolutePath);
-	                }	                	         
-	            } 
-	            else if (file.isDirectory()) {
-	            	if (!exclude.isPresent() || !exclude.get().contains(file.getAbsolutePath().toString())) {
-		            	classFiles.addAll(scanClassFiles(file.getAbsolutePath(), exclude));
+	                
+	            	// class file and jar file detection
+	            	if (extension.isPresent()) {
+	            		String extensionString = extension.get();
+	            		if (fileAbsolutePath.endsWith(extensionString)){
+	            			filesWithExtension.add(fileAbsolutePath);
+		                }
+	            	} else {
+	            		// All other file detection
+	            		if (excludeExtension.isPresent()) {
+	            			boolean isExlcuded = false;
+	            			// Making sure the file does not have the
+	            			// excluded extensions.
+	            			for (String ext: excludeExtension.get()) {
+	            				if (fileAbsolutePath.endsWith(ext)) {
+	            					isExlcuded = true;
+	            					break;
+	            				}
+	            			}
+	            			if (!isExlcuded) {
+	            				filesWithExtension.add(fileAbsolutePath);
+	            			}
+	            		}
+	            	}                	         
+	            } else if (file.isDirectory()) {
+	            	if (!excludeDir.isPresent() || 
+	            			!excludeDir.get().contains(file.getAbsolutePath().toString())) {
+	            		filesWithExtension.addAll(
+	            				scanner(file.getAbsolutePath(), excludeDir, extension, excludeExtension));
 	            	}
 	            }
 	        }
-	    return classFiles;
+	    }
+	    return filesWithExtension;
 	  }	
 	
+	private static void print(String name, String commit, Map<String, Set<String>> map) {
+		  String csv ="/lv_scratch/scratch/mondego/local/Maruf/TLDR/"+name+".csv";
+	      try{
+	    	  FileWriter pw = new FileWriter(csv, true);
+		      int entity = 0; 
+	    	  for(Map.Entry<String, Set<String>> entry : map.entrySet()) {
+		    	  entity += entry.getValue().size();
+			  }
+		      pw.append(name);
+	          pw.append(",");
+	          pw.append(commit);
+	          pw.append(",");
+	          pw.append(totalFile+"");
+	          pw.append(",");
+	          pw.append(map.size()+"");
+	          pw.append(",");
+	          pw.append(entity+"");
+	          pw.append("\n");
+		      pw.flush();
+	          pw.close();
+	      }
+	      catch (IOException e) {
+	    	  e.printStackTrace();
+	      } 
+		}
 }
