@@ -21,7 +21,7 @@ public abstract class ChangeAnalyzer {
 	private boolean isSynced;
 	protected RedisHandler database;
 	
-	public ChangeAnalyzer(String className){
+	public ChangeAnalyzer(String className) {
 		this.entityName = className;
 		this.changed = false;
 		this.isSynced = false;

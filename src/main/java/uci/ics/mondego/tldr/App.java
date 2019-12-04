@@ -105,18 +105,20 @@ public class App
     {    	       
        ConfigLoader config = new ConfigLoader();      
        long startTime = System.nanoTime();
+       logger.info("TLDR is starting" + startTime);
        try{
 	       App executorInstance = new App();
-	       
 	       //CLASS_DIR = config.getCLASS_DIR();
 	       CLASS_DIR = args[1];
-	      	       
+	      
+	       logger.info("Test directory search");
 	       FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
 	       Set<String> allTestDir = find.getAllTestDir();
 	       for(String s: allTestDir){
 	    	   	allTestDirectories.put(s, true);
 	       }
-	              	       
+	       logger.info(allTestDirectories.size() + " test directory found");
+       	       
     	   RepoScannerWorker runnable = new RepoScannerWorker(CLASS_DIR);
     	   runnable.scanClassFiles(CLASS_DIR);
    	       
@@ -171,10 +173,12 @@ public class App
 	       App.TestRunnerPool.shutdown();*/
 	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
-	       if(args[3].equals("maven"))
+	       if(args[3].equals("maven")) {
 	    	   System.out.println(getTestFilterForMaven());
-	       else if(args[3].equals("gradle"))
+	       } else if(args[3].equals("gradle")) {
 	    	   System.out.println(getTestFilterForGradle());
+	       }
+	    	   
 	       /*****************************/
 	       
 	       long endTime = System.nanoTime();	 
