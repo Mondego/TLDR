@@ -18,7 +18,11 @@ import uci.ics.mondego.tldr.tool.AccessCodes;
 import uci.ics.mondego.tldr.tool.Databases;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
-
+/**
+ * Change analyzer of the members of a class. 
+ * @author demigorgan
+ *
+ */
 public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private HashMap<String, Method> extractedChangedMethods;
 	private final ClassParser parser;
@@ -27,7 +31,7 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	private String superClass;
 	private Map<String, Integer> allPreviousEntities;
 	
-	public ClassChangeAnalyzer(String className) throws IOException, DatabaseSyncException{
+	public ClassChangeAnalyzer (String className) throws IOException, DatabaseSyncException {
 		super(className);
 		this.parser = new ClassParser(this.getEntityName());
 		this.parsedClass = parser.parse();
@@ -273,14 +277,13 @@ public class ClassChangeAnalyzer extends ChangeAnalyzer{
 	}
 	
 	//for debug purpose
-	private void printMethod(Method m){
+	private void printMethod (Method m) {
 		StringBuilder sb = new StringBuilder();	
 		sb.append("NAME : "+m.getName());
 		sb.append("CODE : \n"+ m.getCode().toString());
 		sb.append("============================");
 		sb.append("============================");
 		System.out.println(sb.toString());
-		
 	}
 	
 	public HashMap<String, Method> getextractedFunctions(){

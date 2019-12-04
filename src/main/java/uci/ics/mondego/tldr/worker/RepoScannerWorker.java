@@ -74,8 +74,7 @@ public class RepoScannerWorker extends Worker{
 	                	//logger.debug(file.getName()+" found and sending to FileChangeAnalyzer");
 	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);
 	                }	                	         
-	            } 
-	            else if (file.isDirectory() 
+	            } else if (file.isDirectory() 
 	            		&& !App.allTestDirectories.containsKey(file.getAbsolutePath().toString())) {
 	            		//!file.getAbsolutePath().equals(App.getTEST_DIR())) {
 	                scanClassFiles(file.getAbsolutePath());

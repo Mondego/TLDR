@@ -35,14 +35,18 @@ import uci.ics.mondego.tldr.worker.TestChangeAnalyzerAndIndexerWorker;
 import uci.ics.mondego.tldr.worker.TestDependencyExtractorWorker;
 import uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker;
 
-public class App 
-{
+public class App {
+	// Directory of the compiles classes
 	private static String CLASS_DIR;
+	// 
 	private static String TEST_DIR;
+	
+	// Total time in second required to figure out which tests need to be run
 	private static double elapsedTimeInSecond;
 	
 	private static final Logger logger = LogManager.getLogger(App.class);
     
+	// Pools of workers
 	public static ThreadedChannel<String> FileChangeAnalysisPool;
     public static ThreadedChannel<String> EntityChangeAnalysisPool;
     public static ThreadedChannel<HashMap<String, Method>> DependencyExtractionPool;
@@ -67,9 +71,7 @@ public class App
     	Date date = new Date();      
         String LogDate= new SimpleDateFormat("yyyyMMdd").format(date);
         System.setProperty("logFilename", LogDate);
-        
-    	logger.debug("Beginning of the Pipeline");
-    	
+            	
     	ConfigLoader config = new ConfigLoader();
     	this.FileChangeAnalysisPool = 
     			new ThreadedChannel<String>(config.getThread(), FileChangeAnalyzerWorker.class);
@@ -98,23 +100,23 @@ public class App
     	this.completeTestCaseSet = new ConcurrentHashMap<String, Integer>();
         this.allExtractedMethods = new ConcurrentHashMap<String, Method>();
         this.allExtractedTestMethods = new ConcurrentHashMap<String, Method>();
-        this.allTestReport = new ConcurrentHashMap<String, TestReport> ();
+        this.allTestReport = new ConcurrentHashMap<String, TestReport>();
     }
 
-    public static void main( String[] args )
-    {    	       
-       ConfigLoader config = new ConfigLoader();      
+    public static void main( String[] args) {    	       
        long startTime = System.nanoTime();
        logger.info("TLDR is starting" + startTime);
        try{
 	       App executorInstance = new App();
+	       
+	       // Project directory can be loaded wither from command line or config.properties
 	       //CLASS_DIR = config.getCLASS_DIR();
 	       CLASS_DIR = args[1];
 	      
-	       logger.info("Test directory search");
+	       logger.info("Test directory search begins");
 	       FindAllTestDirectory find = new FindAllTestDirectory(CLASS_DIR);
 	       Set<String> allTestDir = find.getAllTestDir();
-	       for(String s: allTestDir){
+	       for (String s: allTestDir){
 	    	   	allTestDirectories.put(s, true);
 	       }
 	       logger.info(allTestDirectories.size() + " test directory found");
@@ -125,7 +127,7 @@ public class App
 	       App.FileChangeAnalysisPool.shutdown();
 		   App.EntityChangeAnalysisPool.shutdown();
 		   
-		   for(Map.Entry<String, Method> entry: App.allExtractedMethods.entrySet()){
+		   for (Map.Entry<String, Method> entry: App.allExtractedMethods.entrySet()) {
 			    HashMap<String, Method> map = new HashMap<String, Method>();
 			    map.put(entry.getKey(), entry.getValue());
 				App.DependencyExtractionPool.send(map);	
@@ -136,14 +138,14 @@ public class App
 	       logger.debug("REPO SCANNING FOR TEST SUIT STARTS");
 	       RepoScannerWorker testMap = new RepoScannerWorker(TEST_DIR);
 	       
-	       for(Entry<String, Boolean> e: allTestDirectories.entrySet()){
+	       for (Entry<String, Boolean> e: allTestDirectories.entrySet()){
 	    	   testMap.scanTestFiles(e.getKey());
 	       }
 	       
 	       App.TestFileChangeAnalysisPool.shutdown();
 	       App.TestParseAndIndexPool.shutdown();
 	        	       
-	       for(Map.Entry<String, Method> entry: App.allExtractedTestMethods.entrySet()){
+	       for (Map.Entry<String, Method> entry: App.allExtractedTestMethods.entrySet()) {
 			    HashMap<String, Method> map = new HashMap<String, Method>();
 			    map.put(entry.getKey(), entry.getValue());
 				App.TestDependencyExtractionPool.send(map);	
@@ -180,65 +182,42 @@ public class App
 	       }
 	    	   
 	       /*****************************/
-	       
 	       long endTime = System.nanoTime();	 
 	       long elapsedTime = endTime - startTime;
 	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;	       //System.out.println(getTestFilterForMaven());
 
 	       logExperiment(args[0], args[1].substring(args[1].lastIndexOf('-')+1), args[2]);     
-       }
-       
-       catch( JedisConnectionException e){
+       } catch( JedisConnectionException e){
     	   System.err.println("NO CONNECTION DETECTED");
     	   e.printStackTrace();
-        }
-       
-       catch(ArrayIndexOutOfBoundsException e){
+        } catch(ArrayIndexOutOfBoundsException e){
     	   System.out.println("the file path is too long");
     	   e.printStackTrace();
-       }
-       
-       catch(NullPointerException e){
+       } catch(NullPointerException e){
     	   System.out.println("extractor can't find the designated class");
     	   e.printStackTrace();
-       }
-       
-       catch( ClassFormatException e){
+       } catch( ClassFormatException e){
     	   e.printStackTrace();
     	   logger.error("Class Format malfunction : "+ e.getMessage());
-       } 
-       
-       catch (SecurityException e) {
+       } catch (SecurityException e) {
     	    logger.error("Security Exception at : "+ e.getMessage());
 			e.printStackTrace();
-		}
-       
-       catch (InstantiationException e) {
+		} catch (InstantiationException e) {
     	   logger.error("InstantiationException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
-       } 
-       
-       catch (IllegalAccessException e) {
+       } catch (IllegalAccessException e) {
     	   logger.error("IllegalAccessException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
-	   } 
-       
-       catch (IllegalArgumentException e) {
+	   } catch (IllegalArgumentException e) {
     	   logger.error("IllegalArgumentException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
-       } 
-       
-       catch (InvocationTargetException e) {
+       } catch (InvocationTargetException e) {
     	   logger.error("InvocationTargetException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
-       } 
-       
-       catch (NoSuchMethodException e) {
+       } catch (NoSuchMethodException e) {
     	   logger.error("NoSuchMethodException Exception at : "+ e.getMessage());
     	   e.printStackTrace();
-       } 
-       
-       finally{
+       } finally{
     	   RedisHandler.destroyPool();
     	   logger.debug("Ending the Pipeline");
        }
@@ -258,7 +237,7 @@ public class App
 			
 	    	Set<Entry<String, Boolean>> allEntries = App.allNewAndChangedentities.entrySet();
 			writer1.println("NEW OR CHANGED ENTITIES : \n\n");	   
-	    	for(Entry<String, Boolean> e: allEntries){
+	    	for (Entry<String, Boolean> e: allEntries) {
 	    		writer1.println(e.getKey());
 	    	}
 	    	
@@ -279,13 +258,10 @@ public class App
 	    		writer1.println(e.getKey());
 	    	}	    	
 	    	writer1.close();
-		} 
-		
-		catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 	    	logger.error("File Not Found Exception while writing report : "+ e.getMessage());
 			e.printStackTrace();
-		} 
-		catch (UnsupportedEncodingException e) {
+		} catch (UnsupportedEncodingException e) {
 			logger.error("UnsupportedEncodingException while writing report : "+ e.getMessage());
 			e.printStackTrace();
 		}    	
@@ -296,25 +272,27 @@ public class App
 	   StringBuilder sb = new StringBuilder();
        Set<Map.Entry<String, Integer>> all = completeTestCaseSet.entrySet();
        int i=0;
-       for(Entry<String, Integer> es: all){
-    	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
-    		   continue;
+       for (Entry<String, Integer> es: all) {
+    	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit")) {
+    		   continue;  
+    	   }
+    	
     	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
     	   sb.append(pkg.substring(0,pkg.lastIndexOf('.')));
     	   String func = pkg.substring(pkg.lastIndexOf('.')+1);
     	   sb.append("#");
     	   sb.append(func);
     	   i++;
-    	   if(i % 1000 == 0){
+    	   if(i % 1000 == 0) {
     		   sb.append(" ");
-    	   }
-    	   else if(i != (completeTestCaseSet.size() - 1))
+    	   } else if(i != (completeTestCaseSet.size() - 1)) {
     		   sb.append(",");
+    	   }  		   
        }
        return sb.toString();
     }
     
-    private static String getTestFilterForGradle(){
+    private static String getTestFilterForGradle() {
  	    StringBuilder sb = new StringBuilder();
         Set<Map.Entry<String, Integer>> all = completeTestCaseSet.entrySet();
         if(all.size() == 0){
@@ -324,8 +302,10 @@ public class App
         sb.append("filter {\n");
         
         for(Entry<String, Integer> es: all){
-     	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit"))
-     		   continue;
+     	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit")) {
+     		  continue;
+     	   }
+     	   
      	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
      	   sb.append("includeTestsMatching ");
      	   sb.append("'");

@@ -26,30 +26,21 @@ public class DependencyExtractorWorker extends Worker{
 		// TODO Auto-generated method stub
 		try {
             this.resolute();
-        } 
-		
-		catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             e.printStackTrace();
-        } 
-		catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
-        } 	
-		catch (SecurityException e) {
+        } catch (SecurityException e) {
             e.printStackTrace();
-        } 		
-		catch (InstantiationException e) {
+        } catch (InstantiationException e) {
 			e.printStackTrace();
-		} 	
-		catch (IllegalAccessException e) {
+		} catch (IllegalAccessException e) {
 			e.printStackTrace();
-		} 		
-		catch (InvocationTargetException e) {
+		} catch (InvocationTargetException e) {
 			e.printStackTrace();
-		} 		
-		catch (NoSuchMethodException e) {
+		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
-		} 		
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}	
 	}
@@ -63,10 +54,10 @@ public class DependencyExtractorWorker extends Worker{
 		for(Map.Entry<String, Method> entry: allEntries){			
 			DependencyExtractor2 dep = new DependencyExtractor2(entry);
 			Set<String> fieldsChanged = dep.getFieldValueChanged();
-			//logger.debug(entry.getKey()+" changed/new, dependency synced, and sent to DFSTraversal");
+			logger.debug(entry.getKey()+" changed/new, dependency synced, and sent to DFSTraversal");
 			App.DependencyGraphTraversalPool.send(entry.getKey());
 			for(String field: fieldsChanged){
-				//logger.debug(field+" value changed, sent to DFS");
+				logger.debug(field+" value changed, sent to DFS");
 				App.DependencyGraphTraversalPool.send(field);
 			}
 		}

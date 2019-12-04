@@ -29,16 +29,11 @@ public class FileChangeAnalyzerWorker extends Worker{
 	public void run() {
 		try {			
             this.changeAnalyzer();
-        } 		
-		catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             e.printStackTrace();
-        } 
-		
-		catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
-        } 
-		
-		catch (SecurityException e) {
+        } catch (SecurityException e) {
             e.printStackTrace();
         }		
 	}
@@ -51,31 +46,22 @@ public class FileChangeAnalyzerWorker extends Worker{
 				App.EntityChangeAnalysisPool.send(fileToAnalyze);
 			}
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (DatabaseSyncException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -9,6 +9,11 @@ import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 
+/**
+ * Base class for file and member change analyzer.
+ * @author demigorgan
+ *
+ */
 public abstract class ChangeAnalyzer {
 	
 	/*** TABLE ID : FILE - CHECKSUM ---- 1
@@ -52,7 +57,6 @@ public abstract class ChangeAnalyzer {
 		try {
 			database.update(tableId, name, newCheckSum);
 			this.isSynced = true;
-			
 		} catch (JedisConnectionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

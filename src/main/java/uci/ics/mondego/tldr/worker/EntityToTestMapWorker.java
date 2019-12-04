@@ -2,10 +2,8 @@ package uci.ics.mondego.tldr.worker;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
 import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.map.EntityToTestMap;
 
@@ -19,35 +17,21 @@ public class EntityToTestMapWorker extends Worker{
 	}
 
 	public void run() {
-		// TODO Auto-generated method stub
 		try {
 			this.map();
-		} 
-		catch (InstantiationException e) {
-			// TODO Auto-generated catch block
+		} catch (InstantiationException e) {
 			e.printStackTrace();
-		} 
-		catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
+		} catch (IllegalAccessException e) {
 			e.printStackTrace();
-		} 
-		catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
-		} 
-		catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
+		} catch (InvocationTargetException e) {
 			e.printStackTrace();
-		} 
-		catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
+		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
-		} 
-		catch (SecurityException e) {
-			// TODO Auto-generated catch block
+		} catch (SecurityException e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	private void map() 

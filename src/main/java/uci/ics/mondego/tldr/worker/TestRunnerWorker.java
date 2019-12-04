@@ -14,7 +14,7 @@ import uci.ics.mondego.tldr.App;
 import uci.ics.mondego.tldr.exception.NotATestException;
 import uci.ics.mondego.tldr.model.TestReport;
 
-public class TestRunnerWorker extends Worker{
+public class TestRunnerWorker extends Worker {
 
 	private JUnitCore testCore;
 	private static final Logger logger = LogManager.getLogger(TestRunnerWorker.class);
@@ -33,14 +33,11 @@ public class TestRunnerWorker extends Worker{
 	public void run() {
 		try {
             this.runTest();
-        } 
-		catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             e.printStackTrace();
-        } 
-		catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
-        } 
-		catch (SecurityException e) {
+        } catch (SecurityException e) {
             e.printStackTrace();
         }		
 	}

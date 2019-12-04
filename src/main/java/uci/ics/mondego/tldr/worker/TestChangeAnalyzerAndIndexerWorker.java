@@ -28,15 +28,11 @@ public class TestChangeAnalyzerAndIndexerWorker extends Worker{
 			TestChangeAnalyzer ts = new TestChangeAnalyzer(testClassName);
 			Map<String, Method> allExtractedMethods = ts.getAllExtractedMethods();
 			App.allExtractedTestMethods.putAll(allExtractedMethods);
-		} 
-		
-		catch (EOFException e){
+		} catch (EOFException e){
 			e.printStackTrace();
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
-		} 
-		catch (DatabaseSyncException e) {
+		} catch (DatabaseSyncException e) {
 			e.printStackTrace();
 		}	
 	}

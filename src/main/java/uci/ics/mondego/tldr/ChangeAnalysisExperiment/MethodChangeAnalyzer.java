@@ -42,24 +42,17 @@ public class MethodChangeAnalyzer extends Worker{
         } 
 		catch (NoSuchElementException e) {
             e.printStackTrace();
-        } 
-		catch (IllegalArgumentException e) {
-            // TODO Auto-generated catch block
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (SecurityException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (JedisConnectionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NullDbIdException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
