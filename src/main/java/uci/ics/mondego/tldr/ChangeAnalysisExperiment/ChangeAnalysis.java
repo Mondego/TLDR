@@ -91,7 +91,7 @@ public class ChangeAnalysis {
 		
 		// Print
 		System.out.println("here at finally block");
-		changeAnalysis.print();
+		//changeAnalysis.print();
 		System.out.println("here at the end");
 		System.exit(0);
 	}
@@ -287,7 +287,7 @@ public class ChangeAnalysis {
 	    }
 	    return filesWithExtension;
 	  }	
-	
+	/*
 	private static void print() {
 		  String csv ="/lv_scratch/scratch/mondego/local/Maruf/TLDR/"+name+".csv";
 	      try{
@@ -312,5 +312,6 @@ public class ChangeAnalysis {
 	      catch (IOException e) {
 	    	  e.printStackTrace();
 	      } 
-		}
+	}
+		*/
 }

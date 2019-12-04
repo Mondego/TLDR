@@ -41,9 +41,9 @@ public class MavenPomProcessor {
 		    Build build = model.getBuild();
 		    List<Plugin> oldPlugins = build.getPlugins();
 		    List<Dependency> oldDependencies = model.getDependencies();
-		    if(args[1].equals("surefire")){
-		    	for(int i=0;i<oldPlugins.size();i++){
-			    	if(oldPlugins.get(i).getArtifactId().equals("maven-surefire-plugin")){
+		    if (args[1].equals("surefire")) {
+		    	for(int i = 0; i < oldPlugins.size(); i++){
+			    	if (oldPlugins.get(i).getArtifactId().equals("maven-surefire-plugin")) {
 			    		Writer writer = new FileWriter(pom2Location);
 			    		MavenXpp3Writer xpp3Writer = new MavenXpp3Writer();
 			    		oldPlugins.get(i).setVersion("2.19.1");
@@ -51,22 +51,20 @@ public class MavenPomProcessor {
 					    /***** for single test run surefire 2.19.1 and junit 4.11/4.8.1 needed
 					     * VERIFIED BY MANUAL LABOR SO ACCURATE
 					     */
-					    for(int j=0;i<oldDependencies.size();i++){
-					    	if(oldDependencies.get(i).getArtifactId().equals("junit")){				    	
-					    		if(oldDependencies.get(i).getVersion() == null ||
-					    			oldDependencies.get(i).getVersion().length() == 0){
-					    			oldDependencies.get(i).setVersion("4.11");
+					    for (int j = 0; j < oldDependencies.size(); j++) {
+					    	if (oldDependencies.get(j).getArtifactId().equals("junit")) {				    	
+					    		if(oldDependencies.get(j).getVersion() == null 
+					    			|| oldDependencies.get(j).getVersion().length() == 0) {
+					    			oldDependencies.get(j).setVersion("4.11");
 						    		model.setDependencies(oldDependencies);
-					    		}
-					    		else{
-					    			String version = oldDependencies.get(i).getVersion();
-					    			if(!(version.contains("4.11") || version.contains("4.12") ||
+					    		} else {
+					    			String version = oldDependencies.get(j).getVersion();
+					    			if (!(version.contains("4.11") || version.contains("4.12") ||
 					    					version.contains("4.10") || version.contains("4.9") || 
 					    					version.contains("4.8"))){
-						    			oldDependencies.get(i).setVersion("4.8.1");
+						    			oldDependencies.get(j).setVersion("4.8.1");
 							    		model.setDependencies(oldDependencies);
-					    			}
-					    			else{
+					    			} else{
 							    		model.setDependencies(oldDependencies);
 					    			}
 
@@ -81,8 +79,7 @@ public class MavenPomProcessor {
 					    break;
 			    	}
 			    }
-		    }
-		    else if(args[1].equals("ekstazi")){
+		    } else if(args[1].equals("ekstazi")) {
 		    	oldPlugins.add(createPlugin("org.ekstazi", 
 		    			"ekstazi-maven-plugin", "5.2.0", "ekstazi", "select"));
 		    	build.setPlugins(oldPlugins);
@@ -92,9 +89,7 @@ public class MavenPomProcessor {
 			    xpp3Writer.write( writer, model );
 			    writer.close();
 			    changed = true;
-		    } 
-		    
-		    else if(args[1].equals("jar")){
+		    } else if (args[1].equals("jar")) {
 		    	Plugin newPlugIn = createPlugin("org.apache.maven.plugins", 
 		    			"maven-jar-plugin", "3.0.2",null, "test-jar");
 		    	System.out.println(newPlugIn.getGroupId());
@@ -106,36 +101,28 @@ public class MavenPomProcessor {
 			    xpp3Writer.write( writer, model );
 			    writer.close();
 			    changed = true;
-		    }
-		    
-		    else if(args[1].equals("import")){
+		    } else if(args[1].equals("import")){
 		        UpdateSelfPOM(pomLocation);   	
 		    }
-		} 
-		catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
-		} 
-		catch (XmlPullParserException e) {
+		} catch (XmlPullParserException e) {
 			e.printStackTrace();
-		}	
-		finally {
+		} finally {
 		    try {
 				reader.close();
-				if(changed){
+				if (changed) {
 					File pom = new File(pomLocation);
 					if(pom.delete()){
 						File newPom = new File(pom2Location);
 						newPom.renameTo(new File(pomLocation));
-					}
-					else{
+					} else{
 						logger.error("PROBLEM IS DELETING OLD POM FILE : "+pomLocation);
 					}
 				}
-			} 
-		    catch (IOException e) {
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
@@ -185,11 +172,9 @@ public class MavenPomProcessor {
     		readerTarget.close();
     		writerTarget.close();
 
-		}
-		catch(Exception e){
-			
-		}
-		finally{
+		} catch(Exception e){
+			e.printStackTrace();
+		} finally{
 			File pom = new File(pomLocation);
 			if(pom.delete()){
 				File newPom = new File(pom2Location);
@@ -209,14 +194,18 @@ public class MavenPomProcessor {
 		 dep.setGroupId(groupId);
 		 dep.setArtifactId(artifactId);
 		 dep.setVersion(version);
-		 if(classifier != null)
-			 dep.setClassifier(classifier);
-		 if(type != null)
+		 if(classifier != null) {
+			 dep.setClassifier(classifier); 
+		 }
+		 
+		 if(type != null) {
 			 dep.setType(type);
-		 if(scope != null)
+		 }	 
+		 
+		 if(scope != null) {
 			 dep.setScope(scope);
+		 }
 		 return dep;
-		
 	}
 	
 	private static Plugin createPlugin(String groupId, String artifactId, String version,
@@ -226,12 +215,15 @@ public class MavenPomProcessor {
 		plugin.setGroupId(groupId);
 		plugin.setArtifactId(artifactId);
 		
-		if(version != null)
+		if(version != null) {
 			plugin.setVersion(version);
-		
+		}
+			
 		PluginExecution ex = new PluginExecution();
-		if(executionId != null)
+		if(executionId != null) {
 			ex.setId(executionId);
+		}
+		
 		List<String> g = new ArrayList<String>();
 		g.add(goal);
 		ex.setGoals(g);

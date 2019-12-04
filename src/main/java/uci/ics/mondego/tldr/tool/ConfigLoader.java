@@ -13,7 +13,6 @@ public class ConfigLoader {
 	private int thread;
  
 	public ConfigLoader() {
- 
 		try {
 			Properties prop = new Properties();
 			String propFileName = "config.properties";
@@ -21,8 +20,7 @@ public class ConfigLoader {
  
 			if (inputStream != null) {
 				prop.load(inputStream);
-			} 
-			else {
+			} else {
 				throw new FileNotFoundException
 				    ("property file '" + propFileName + "' not found in the classpath");
 			}
@@ -30,17 +28,12 @@ public class ConfigLoader {
 			CLASS_DIR = prop.getProperty("CLASS_DIR");
 			TEST_DIR = prop.getProperty("TEST_DIR");
 			thread = Integer.parseInt(prop.getProperty("THREAD_COUNT"));
-		} 
-		
-		catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("Exception: " + e);
-		} 
-		
-		finally {
+		} finally {
 			try {
 				inputStream.close();
-			} 
-			catch (IOException e) {
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

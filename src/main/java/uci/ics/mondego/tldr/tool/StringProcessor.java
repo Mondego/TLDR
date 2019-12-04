@@ -12,11 +12,11 @@ public class StringProcessor {
 	public static String typeProcessor(String type){
 		
 		// for one character string it is always primitive type in asm
-		if(type.length() == 1)
+		if(type.length() == 1) {
 			return "primitives";
+		}
 		
 	    return type.substring(1, type.length() - 1);
-		
 	}
 	
 	public static String pathToFqnConverter(String path){
@@ -24,18 +24,17 @@ public class StringProcessor {
 	}
 	
 	public static String[] signatureProcessor(String signature){
-		if(signature != null){
+		if (signature != null) {
 			String [] word = signature.split(";|<|>|\\*");
 			for(int i=0;i<word.length;i++){
-				if(word[i].length() != 0){
+				if(word[i].length() != 0) {
 					word[i] = StringProcessor.pathToFqnConverter(word[i]).substring(1);
 				}		
 			}
 			
 			return word;
-		}
-		else
-			return null;
+		} 
+		return null;
 	}
 	
 	public static String convertBaseType(char type) {
@@ -63,15 +62,15 @@ public class StringProcessor {
 	    }
 	 }
 	
-	public static boolean isPrimitive(char type){
+	public static boolean isPrimitive(char type) {
 		String allPrimitives = "BCDFIJSZV";
-		if(allPrimitives.contains(type+""))
-				return true;
+		if(allPrimitives.contains(type+"")) {
+			return true;
+		}
 		return false;
 	}
 	
-	public static String CreateBLAKE(String input)
-    {
+	public static String CreateBLAKE(String input) {
 		try {
 			Security.addProvider(new Blake2bProvider());
 	        java.security.MessageDigest md = java.security.MessageDigest.getInstance(Blake2b.BLAKE2_B_160);
@@ -79,10 +78,9 @@ public class StringProcessor {
 	        StringBuffer sb = new StringBuffer();
 	        for (int i = 0; i < array.length; ++i) {
 	          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
-	       }
+	        }
 	        return sb.toString();
-	    } 
-		catch (java.security.NoSuchAlgorithmException e) {
+	    } catch (java.security.NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
 	    return null;
