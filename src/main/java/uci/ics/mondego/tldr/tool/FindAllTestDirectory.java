@@ -44,25 +44,28 @@ public class FindAllTestDirectory {
 
 		File directory = new File(directoryName);
 	    File[] fList = directory.listFiles();	    	
-	    if(fList != null)
-	        for (File file : fList) {    	        	
+	    
+	    if (fList != null) {
+	    	for (File file : fList) {    	        	
 	            if (file.isDirectory()) {
 	            	if(file.getAbsolutePath().toString().contains(pattern)){
 	            		String dir = file.getAbsolutePath()
 	            				.substring(0,file.getAbsolutePath().toString().indexOf(pattern));
 	            		
 	            		String temp = file.getAbsolutePath()
-	            				.toString().substring(file.getAbsolutePath().toString().indexOf(pattern) + 1);            		
+	            				.toString().substring(
+	            						file.getAbsolutePath().toString().indexOf(pattern) + 1);            		
 	            		dir = dir+"/"+temp;
 	            		
 	            		if(!all_test_urls.contains(dir)){
 	            			all_test_urls.add(dir);
 	            		}
-	            	}
-	            	else
+	            	} else {
 	            		scanTestFiles(file.getAbsolutePath(), pattern);
+	            	}            		
 	            }
 	        }
+	    }    
 	}
 	
 	public Set<String> getAllTestDir(){

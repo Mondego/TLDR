@@ -13,11 +13,12 @@ public class SurefireReportParser {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		directory = "/Users/demigorgan/TLDR_EXP/Ekstazi_log/2019-03-20-01-04/9afc2969a3b491476525e100a8a542027576952e/surefire-report.html";
+		directory = 
+				"/Users/demigorgan/TLDR_EXP/Ekstazi_log/2019-03-20-01-04/9afc2969a3b491476525e100a8a542027576952e/surefire-report.html";
 		parseEkstazi(directory);
 	}
 		
-	public static void parseEkstazi(String fileName){
+	public static void parseEkstazi(String fileName) {
 		BufferedReader reader;
 		String seed = "<td><a name=";
 		try {
@@ -25,7 +26,7 @@ public class SurefireReportParser {
 			String line = reader.readLine();
 			int i = 0;
 			while (line != null) {
-				if(line.contains(seed)){
+				if (line.contains(seed)) {
 					String temp = line.substring(seed.length()+1);
 					temp = temp.substring(3);
 					Ekstazi.add(temp.substring(0, temp.indexOf("\"")));
@@ -40,7 +41,7 @@ public class SurefireReportParser {
 	}
 	
 	public static void print(ArrayList<String> list){
-		for(int i=0; i<list.size() ;i++){
+		for (int i=0; i<list.size() ;i++) {
 			System.out.println(list.get(i));
 		}
 	}

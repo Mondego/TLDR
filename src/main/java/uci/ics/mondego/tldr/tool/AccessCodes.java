@@ -1,7 +1,7 @@
 package uci.ics.mondego.tldr.tool;
 
-/*
- * access code for different method modifier
+/**
+ * Access code for different method modifier
  */
 public class AccessCodes {
 	

@@ -63,13 +63,59 @@ public class RedisHandler{
 	    Set<String> ret = jedis.keys(pattern);
 		return ret;
 	}
+		
+	/**
+	 * Inserts a project name in the database.
+	 */
+	public void insertProject(String projectName) {
+		try {
+			int projectId = 0;
+			// If the project already exits then does not
+			// insert again.
+			if (projectExists(projectName)) {
+				return;
+			}
+			// Update the 
+			String id =  getValueByKey("", "LAST-PROJECT-ID");
+			if (id !=  null) {
+				projectId = Integer.parseInt(id); 
+				projectId++;
+				insert("", "LAST-PROJECT-ID", projectId+"");
+			}
+			insert(Databases.TABLE_ID_PROJECT, projectName, projectId+"");
+		} catch (JedisConnectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullDbIdException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Returns true if the project exits in the database.
+	 */
+	public boolean projectExists(String projectName) {
+		return exists(Databases.TABLE_ID_PROJECT, projectName);
+	}
+	
+	/**
+	 * Returns the id of a project if exists, else returns a null.
+	 */
+	public String getProjectId(String projectName) {
+		String id = getValueByKey(Databases.TABLE_ID_PROJECT, projectName);
+		if (id == null) {
+			return null;
+		}
+		return id;
+	}
 	
 	/** Returns all methods and fields of a project. */
 	public Set<String> getAllMethodsAndFields(String projectId){
 		StringBuilder sb = new StringBuilder();
-		sb.append(projectId);
-		sb.append("-");
 		sb.append(Databases.TABLE_ID_ENTITY);
+		sb.append("-");
+		sb.append(projectId);
 		sb.append("-");
 		String pattern = sb.toString();
 		Set<String> allEntities = new HashSet<String>();

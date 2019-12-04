@@ -62,9 +62,11 @@ public class ChangeAnalysis {
 	private static Data testMethodData = new Data();
 	private static Data testFieldData = new Data();
 	
-	private static String projectName;
-	private static String projectDirectory;
-	private static String commitHashCode;
+	private String projectName;
+	private String projectDirectory;
+	private String commitHashCode;
+	
+	private Set<String> allFieldsAndMethods = new HashSet<String>();
 	
 	private enum FileType {
 		CLASS,
@@ -80,53 +82,41 @@ public class ChangeAnalysis {
 	
 	public static void main(String[] args) {
 		// Get experiment specific information.
-		projectDirectory = args[0];
-		projectName = args[1];
-		commitHashCode = args[2];
+		ChangeAnalysis changeAnalysis = new ChangeAnalysis(
+				/* projectDirectory= */ args[0], 
+				/* projectName= */ args[1], 
+				/* CommitHashCode= */ args[2]);
+	
+	   // Do analysis
 		
-	    try {
-			
-		    
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JedisConnectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NullDbIdException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			System.out.println("here at finally block");
-			print(name, commit, changedSourceEntities);
-			redisHandler.close();
-			System.out.println("here at the end");
-			System.exit(0);
-		}
+		// Print
+		System.out.println("here at finally block");
+		//changeAnalysis.print();
+		System.out.println("here at the end");
+		System.exit(0);
+	}
+	
+	public ChangeAnalysis(
+			String projectDirectory, String projectName, String CommitHashCode) {
+		this.projectDirectory = projectDirectory;
+		this.projectName = projectName;
+		this.commitHashCode = commitHashCode;
+		 	
+    	if (redisHandler.projectExists(projectName)) {
+    		String projectId = redisHandler.getProjectId(projectName);
+			allFieldsAndMethods.addAll(redisHandler.getAllMethodsAndFields(projectId));
+    	} else {
+    		redisHandler.insertProject(projectName);
+    	} 
+    	
+    	// Close the Redis Handler before terminating the program
+		redisHandler.close();
 	}
 	
 	/** 
 	 * Finds all the changed entities i.e. class, jar, other files
 	 */
-	private static List<String> findChangedEntities (
+	private List<String> findChangedEntities (
 			FileType filetype,
 			CodeType codeType) throws 
 		InstantiationException, 
@@ -297,8 +287,8 @@ public class ChangeAnalysis {
 	    }
 	    return filesWithExtension;
 	  }	
-	
-	private static void print(String name, String commit, Map<String, Set<String>> map) {
+	/*
+	private static void print() {
 		  String csv ="/lv_scratch/scratch/mondego/local/Maruf/TLDR/"+name+".csv";
 	      try{
 	    	  FileWriter pw = new FileWriter(csv, true);
@@ -322,5 +312,6 @@ public class ChangeAnalysis {
 	      catch (IOException e) {
 	    	  e.printStackTrace();
 	      } 
-		}
+	}
+		*/
 }
