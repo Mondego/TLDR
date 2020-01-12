@@ -2,47 +2,54 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
- 
+  
+  
   <groupId>com.mondego.ics.uci</groupId>
-  <artifactId>tldr</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <artifactId>maven-tldr</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
- 
-  <name>TLDR Maven Plugin</name>
+  
+  
+  <name>TLDR</name>
   <description>A fast and efficient Regression Testing tool</description>
-  <url>https://github.com/Mondego/TLDR</url>
- 
+   <url>  https://github.com/Mondego/TLDR/tree/plugin</url>
+  
+  
   <licenses>
-	    <license>
-	        <name>Apache License, Version 2.0</name>
-	        <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-	    </license>
-   </licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
 
-   <developers>
-	    <developer>
-	        <name>Maruf Zaber</name>
-	        <email>mzaber@uci.edu</email>
-	    </developer>
+    <developers>
+        <developer>
+            <name>Maruf Zaber</name>
+            <email>mzaber@uci.edu</email>
+        </developer>
     </developers>
-
-
+    
+    <properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <version.maven>3.0.5</version.maven>	    
+  	</properties>
+  	
   <dependencies>
-
-	<dependency>
+  
+  
+    
+  <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
-    
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-surefire-plugin</artifactId>
       <version>2.20.1</version>
       <type>maven-plugin</type>
     </dependency>
-    
     <dependency>
       <groupId>org.apache.maven.plugin-testing</groupId>
       <artifactId>maven-plugin-testing-tools</artifactId>
@@ -50,23 +57,55 @@
     </dependency>
     
     <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-      <version>3.0</version>
-    </dependency>
- 
-    <dependency>
-      <groupId>org.apache.maven.plugin-tools</groupId>
-      <artifactId>maven-plugin-annotations</artifactId>
-      <version>3.4</version>
-      <scope>provided</scope>
+    	<groupId>org.codehaus.plexus</groupId>
+    	<artifactId>plexus-utils</artifactId>
+    	<version>3.1.0</version>
     </dependency>
   </dependencies>
-
-
+  
+  <build>
+  <pluginManagement>
+   <plugins>
+   
+   <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>install</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      
+       <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-plugin-plugin</artifactId>
+			<version>3.5</version>
+			<configuration>
+				<goalPrefix>tldr</goalPrefix>
+				<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+			</configuration>				
+			</plugin>
+      </plugins>
+      </pluginManagement>
+  </build>
+  
   <modules>
-    <module>tldr-core</module>
-    <module>tldr-plugin</module>
+  <module>tldr-core</module>
+  <module>tldr-plugin</module>
   </modules>
-
 </project>

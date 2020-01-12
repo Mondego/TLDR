@@ -9,8 +9,8 @@ import java.util.Set;
 import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import uci.ics.mondego.tldr.App;
-import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor2;
+import uci.ics.mondego.tldr.TLDR;
+import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor;
 
 public class TestDependencyExtractorWorker extends Worker{
 	private final Map<String, Method> changedMethods;
@@ -54,7 +54,7 @@ public class TestDependencyExtractorWorker extends Worker{
 		
 		Set<Map.Entry<String, Method>> allEntries = changedMethods.entrySet();
 		for(Map.Entry<String, Method> entry: allEntries) {			
-			DependencyExtractor2 dep = new DependencyExtractor2(entry, true);
+			DependencyExtractor dep = new DependencyExtractor(entry, true);
 		}
 	}	
 }

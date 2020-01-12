@@ -9,11 +9,15 @@ import java.util.Set;
 import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import uci.ics.mondego.tldr.App;
-import uci.ics.mondego.tldr.changeanalyzer.ClassChangeAnalyzer;
-import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor2;
+import uci.ics.mondego.tldr.TLDR;
+import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor;
 
-
+/**
+ * This worker extracts dependencies of a method and update the dependencies in the 
+ * redis database.
+ * @author demigorgan
+ *
+ */
 public class DependencyExtractorWorker extends Worker{
 	private final Map<String, Method> changedMethods;
 	private static final Logger logger = LogManager.getLogger(DependencyExtractorWorker.class);
@@ -23,7 +27,6 @@ public class DependencyExtractorWorker extends Worker{
 	}
 	
 	public void run() {
-		// TODO Auto-generated method stub
 		try {
             this.resolute();
         } catch (NoSuchElementException e) {
@@ -46,19 +49,24 @@ public class DependencyExtractorWorker extends Worker{
 	}
 	
 	
-	public void resolute() throws InstantiationException, IllegalAccessException, 
-		IllegalArgumentException, InvocationTargetException, NoSuchMethodException, 
-		SecurityException, IOException{		
+	public void resolute() 
+			throws InstantiationException, 
+			IllegalAccessException, 
+			IllegalArgumentException, 
+			InvocationTargetException, 
+			NoSuchMethodException, 
+			SecurityException, 
+			IOException {		
 		
 		Set<Map.Entry<String, Method>> allEntries = changedMethods.entrySet();
-		for(Map.Entry<String, Method> entry: allEntries){			
-			DependencyExtractor2 dep = new DependencyExtractor2(entry);
+		for (Map.Entry<String, Method> entry: allEntries) {			
+			DependencyExtractor dep = new DependencyExtractor(entry);
 			Set<String> fieldsChanged = dep.getFieldValueChanged();
 			logger.debug(entry.getKey()+" changed/new, dependency synced, and sent to DFSTraversal");
-			App.DependencyGraphTraversalPool.send(entry.getKey());
-			for(String field: fieldsChanged){
+			TLDR.DependencyGraphTraversalPool.send(entry.getKey());
+			for (String field: fieldsChanged) {
 				logger.debug(field+" value changed, sent to DFS");
-				App.DependencyGraphTraversalPool.send(field);
+				TLDR.DependencyGraphTraversalPool.send(field);
 			}
 		}
 	}

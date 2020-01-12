@@ -15,7 +15,7 @@ import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.changeanalyzer.ChangeAnalyzer;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;

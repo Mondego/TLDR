@@ -8,11 +8,11 @@ import java.util.NoSuchElementException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 
-public class FileChangeAnalyzerWorker extends Worker{
+public class FileChangeAnalyzerWorker extends Worker {
 
 	private final String fileToAnalyze;
 	private static final Logger logger = LogManager.getLogger(FileChangeAnalyzerWorker.class);
@@ -42,8 +42,11 @@ public class FileChangeAnalyzerWorker extends Worker{
 		FileChangeAnalyzer fc;
 		try {
 			fc = new FileChangeAnalyzer(fileToAnalyze);
-			if(fc.hasChanged()){ 	   
-				App.EntityChangeAnalysisPool.send(fileToAnalyze);
+			logger.debug(fileToAnalyze + " is being analyzed");
+			if(fc.hasChanged()){
+				logger.debug(fileToAnalyze + " has been changed");
+				logger.debug(fileToAnalyze + " in being pushed to EntityChangeAnlysis pool");
+				TLDR.EntityChangeAnalysisPool.send(fileToAnalyze);
 			}
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();

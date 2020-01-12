@@ -5,6 +5,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Discovers all test directories in the repository.
+ * @author demigorgan
+ *
+ */
 public class FindAllTestDirectory {
 
 	private Set<String> all_test_urls = new HashSet<String>();

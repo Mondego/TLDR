@@ -4,7 +4,7 @@ import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 
 public class RepoScannerWorker extends Worker{
 	private final String repoDir;
@@ -47,7 +47,7 @@ public class RepoScannerWorker extends Worker{
 	            if (file.isFile()) {
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
-	                	App.TestFileChangeAnalysisPool.send(fileAbsolutePath); 
+	                	TLDR.TestFileChangeAnalysisPool.send(fileAbsolutePath); 
 	                }	                	         
 	            } else if (file.isDirectory()) {
 	                scanTestFiles(file.getAbsolutePath());
@@ -72,10 +72,10 @@ public class RepoScannerWorker extends Worker{
 	            	String fileAbsolutePath = file.getAbsolutePath();	
 	                if(fileAbsolutePath.endsWith(".class")){
 	                	//logger.debug(file.getName()+" found and sending to FileChangeAnalyzer");
-	                	App.FileChangeAnalysisPool.send(fileAbsolutePath);
+	                	TLDR.FileChangeAnalysisPool.send(fileAbsolutePath);
 	                }	                	         
 	            } else if (file.isDirectory() 
-	            		&& !App.allTestDirectories.containsKey(file.getAbsolutePath().toString())) {
+	            		&& !TLDR.allTestDirectories.containsKey(file.getAbsolutePath().toString())) {
 	            		//!file.getAbsolutePath().equals(App.getTEST_DIR())) {
 	                scanClassFiles(file.getAbsolutePath());
 	            }

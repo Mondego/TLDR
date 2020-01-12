@@ -15,9 +15,9 @@ public class ConfigLoader {
 	public ConfigLoader() {
 		try {
 			Properties prop = new Properties();
-			String propFileName = "config.properties";
+			String propFileName = "resources/config.properties";
 			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
- 
+			
 			if (inputStream != null) {
 				prop.load(inputStream);
 			} else {
@@ -28,6 +28,7 @@ public class ConfigLoader {
 			CLASS_DIR = prop.getProperty("CLASS_DIR");
 			TEST_DIR = prop.getProperty("TEST_DIR");
 			thread = Integer.parseInt(prop.getProperty("THREAD_COUNT"));
+			System.out.println("**************** "+thread + " ****************");
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
 		} finally {

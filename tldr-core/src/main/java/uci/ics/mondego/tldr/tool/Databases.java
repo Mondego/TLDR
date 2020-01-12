@@ -1,5 +1,10 @@
 package uci.ics.mondego.tldr.tool;
 
+/**
+ * ID of Redis tables.
+ * @author demigorgan
+ *
+ */
 public interface Databases {
 	public static final String TABLE_ID_PROJECT = "0";
 	public static final String TABLE_ID_FILE = "1";

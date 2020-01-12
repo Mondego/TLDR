@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 
@@ -46,7 +46,7 @@ public class TestFileChangeAnalyzerWorker extends Worker{
 		try {			
 			fc = new FileChangeAnalyzer(fileToAnalyze);
 			if(fc.hasChanged()){ 
-		        App.TestParseAndIndexPool.send(fileToAnalyze);
+		        TLDR.TestParseAndIndexPool.send(fileToAnalyze);
 			}
 		} 
 		catch (NoSuchAlgorithmException e) {

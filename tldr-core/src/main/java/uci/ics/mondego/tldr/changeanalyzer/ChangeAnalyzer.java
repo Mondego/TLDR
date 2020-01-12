@@ -8,6 +8,7 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
+import uci.ics.mondego.tldr.tool.Constants;
 
 /**
  * Base class for file and member change analyzer.
@@ -24,13 +25,13 @@ public abstract class ChangeAnalyzer {
 	private final String entityName;
 	private boolean changed;
 	private boolean isSynced;
-	protected RedisHandler database;
+	protected RedisHandler redisHandler;
 	
 	public ChangeAnalyzer(String className) {
 		this.entityName = className;
 		this.changed = false;
 		this.isSynced = false;
-		this.database = new RedisHandler();
+		this.redisHandler = new RedisHandler();
 	}
 	
 	public boolean hasChanged(){
@@ -50,29 +51,27 @@ public abstract class ChangeAnalyzer {
 	}
 	
 	protected void closeRedis(){
-		database.close();
+		redisHandler.close();
 	}
 	
 	protected boolean sync(String tableId, String name, String newCheckSum){
 		try {
-			database.update(tableId, name, newCheckSum);
+			redisHandler.update(tableId, name, newCheckSum);
 			this.isSynced = true;
 		} catch (JedisConnectionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NullDbIdException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return isSynced;
 	}
 	
 	protected String getValue(String tableId, String key){
-		return database.getValueByKey(tableId, key);
+		return redisHandler.getValueByKey(tableId, key);
 	}
 	
 	protected boolean exists(String tableId, String key){
-		return database.exists(tableId, key);
+		return redisHandler.exists(tableId, key);
 	}
 	
 	protected abstract void parse() throws IOException, DatabaseSyncException;

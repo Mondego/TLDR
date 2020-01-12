@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.map.EntityToTestMap;
 
 public class EntityToTestMapWorker extends Worker{
@@ -45,7 +45,7 @@ public class EntityToTestMapWorker extends Worker{
 	   Set<String> tests = map.getTests(entity);
  	   
 	   for(String str: tests) {
-		   App.IntraTestTraversalPool.send(str);
+		   TLDR.IntraTestTraversalPool.send(str);
  	   }  	   
 	   map.closeRedis();
 	}

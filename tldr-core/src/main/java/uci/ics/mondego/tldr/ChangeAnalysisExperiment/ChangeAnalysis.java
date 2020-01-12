@@ -33,7 +33,7 @@ import com.rfksystems.blake2b.Blake2b;
 
 import io.netty.util.internal.ConcurrentSet;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;

@@ -6,6 +6,7 @@ import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.exception.EmptyByteCodeException;
+import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class MethodParser {
@@ -39,8 +40,7 @@ public class MethodParser {
 		
 		try {
 			parse();
-		} 
-		catch (EmptyByteCodeException e) {
+		} catch (EmptyByteCodeException e) {
 			logger.error(method.getName()+" is Abstract/Interface/Annotation... Skipping parsing");
 		}
 	}
@@ -97,7 +97,7 @@ public class MethodParser {
 			///// CHECK CAREFULLY
 			else if(line.contains("checkcast")) {
 				// because a checkcast instruction looks like --- 51:   checkcast		<com.mojang.brigadier.tree.CommandNode> (64)
-				if(parts[0].indexOf(":") < (parts[0].length() - 1)) {
+				if (parts[0].indexOf(":") < (parts[0].length() - 1)) {
 					processed = parts[1].substring(1, parts[1].length() - 1);
 				} else {
 					processed = parts[2].substring(1, parts[2].length() - 1);
@@ -129,25 +129,27 @@ public class MethodParser {
 		try{
 			signature = signature.substring(signature.indexOf("(")+1, signature.indexOf(")"));
 			
-			if(signature.length() == 0)
+			if (signature.length() == 0) {
 				return "()";
+			}
+
 			StringBuilder sb = new StringBuilder();
 			sb.append("(");
 			
-			String [] params =  signature.split(";");
+			String [] params =  signature.split(Constants.SEMI_COLON);
 			
-			String array_append="";
-			for(int i=0;i<params.length;i++){
+			String array_append = Constants.EMPTY;
+			for (int i = 0; i < params.length; i++){
 				
-				for(int j=0;j<params[i].length();j++){
-					if(StringProcessor.isPrimitive(params[i].charAt(j))){
+				for (int j = 0;j < params[i].length(); j++){
+					if (StringProcessor.isPrimitive(params[i].charAt(j))) {
 						sb.append("$"+StringProcessor.convertBaseType(params[i].charAt(j)) + array_append);
-						array_append = "";
+						array_append = Constants.EMPTY;
 					}
 					
 					else if(params[i].charAt(j) == 'L'){
 						sb.append("$"+StringProcessor.pathToFqnConverter(params[i].substring(j+1))+array_append);
-						array_append = "";
+						array_append = Constants.EMPTY;
 						break;
 					}
 					else if(params[i].charAt(j) == '['){

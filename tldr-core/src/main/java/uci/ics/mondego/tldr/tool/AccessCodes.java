@@ -2,6 +2,8 @@ package uci.ics.mondego.tldr.tool;
 
 /**
  * Access code for different method modifier
+ * 
+ * @author demigorgan
  */
 public class AccessCodes {
 	
@@ -94,4 +96,5 @@ public class AccessCodes {
 	public static final int PUBLIC11 = 44;
 
 	public static final int PUBLIC12 = 42;
+	
 }

@@ -10,7 +10,7 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Request;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.exception.NotATestException;
 import uci.ics.mondego.tldr.model.TestReport;
 
@@ -70,7 +70,7 @@ public class TestRunnerWorker extends Worker {
 			    ArrayList<Description> children = description.getChildren();
 			    for (int i = 0; i < parametersCount; i++) {		
 			    	result = (new JUnitCore()).run(Request.method(Class.forName(claz), method+children.get(i)));
-			    	App.completeTestCaseSet.put(testFqn, App.completeTestCaseSet.get(testFqn) + 1);
+			    	TLDR.completeTestCaseSet.put(testFqn, TLDR.completeTestCaseSet.get(testFqn) + 1);
 			    	successful &= result.wasSuccessful();
 			    } 
 		    }
@@ -84,8 +84,8 @@ public class TestRunnerWorker extends Worker {
 			tr.setRuntime(result.getRunTime());
 			tr.setSuccessful(successful);
 			// cause we had put 1 already...for each paramter we do ++... therefore we put 1 extra.
-			tr.setRun(App.completeTestCaseSet.get(testFqn) == 1 ? App.completeTestCaseSet.get(testFqn) 
-					: App.completeTestCaseSet.get(testFqn) - 1);
+			tr.setRun(TLDR.completeTestCaseSet.get(testFqn) == 1 ? TLDR.completeTestCaseSet.get(testFqn) 
+					: TLDR.completeTestCaseSet.get(testFqn) - 1);
 			
 			List<Failure> failures = result.getFailures();
 			if(failures != null){
@@ -107,7 +107,7 @@ public class TestRunnerWorker extends Worker {
 				}
 			}
 			
-			App.allTestReport.put(claz+"."+method, tr);		    
+			TLDR.allTestReport.put(claz+"."+method, tr);		    
 		} 
 		
 		catch (ClassNotFoundException e) {

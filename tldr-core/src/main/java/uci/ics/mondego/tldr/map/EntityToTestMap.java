@@ -4,8 +4,12 @@ import java.util.Set;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.Databases;
 
+/**
+ * This class maps a member to a test method.
+ * @author demigorgan
+ *
+ */
 public class EntityToTestMap {
-	
 	private RedisHandler database;
 	
 	public EntityToTestMap() {
@@ -19,5 +23,4 @@ public class EntityToTestMap {
 	public void closeRedis(){
 		database.close();
 	}
-
 }

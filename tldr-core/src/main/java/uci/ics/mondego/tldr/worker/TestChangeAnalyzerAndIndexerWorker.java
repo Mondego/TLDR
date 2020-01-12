@@ -8,7 +8,7 @@ import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.changeanalyzer.TestChangeAnalyzer;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 
@@ -27,7 +27,7 @@ public class TestChangeAnalyzerAndIndexerWorker extends Worker{
 			//		+"indexed, end of the pool parseindextest");
 			TestChangeAnalyzer ts = new TestChangeAnalyzer(testClassName);
 			Map<String, Method> allExtractedMethods = ts.getAllExtractedMethods();
-			App.allExtractedTestMethods.putAll(allExtractedMethods);
+			TLDR.allExtractedTestMethods.putAll(allExtractedMethods);
 		} catch (EOFException e){
 			e.printStackTrace();
 		} catch (IOException e) {

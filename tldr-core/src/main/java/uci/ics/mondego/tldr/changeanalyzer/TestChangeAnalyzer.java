@@ -11,7 +11,7 @@ import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.tool.AccessCodes;
@@ -36,11 +36,11 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		this.allInterfaces = new ArrayList<String>();
 		this.superClass = "";
 		this.allExtractedMethods = new HashMap<String, Method>();
-		Set<String> prevTst = database.getAllKeysByPattern
+		Set<String> prevTst = redisHandler.getAllKeysByPattern
 				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
 		
-		for(String e: prevTst){
-			allPreviousTestCases.put(e.substring(1), 0); // substring(1) case we have to remove table id
+		for(String entity: prevTst){
+			allPreviousTestCases.put(entity, 0);
 		}
 		
 		this.parse();
@@ -60,7 +60,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		this.parseInterface();
 		this.parseSuperClass();
 		
-		Set<String> all_superclass_interface = this.database.getSet(
+		Set<String> all_superclass_interface = this.redisHandler.getSet(
 				Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
 				parsedClass.getClassName());
 				
@@ -69,11 +69,11 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				&& !(allInterfaces.get(i).startsWith("java.") 
 				|| allInterfaces.get(i).startsWith("junit."))) {
 				
-				this.database.insertInSet(
+				this.redisHandler.insertInSet(
 						Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
 						parsedClass.getClassName(), 
 						allInterfaces.get(i));
-				this.database.insertInSet(
+				this.redisHandler.insertInSet(
 						Databases.TABLE_ID_SUBCLASS, 
 						allInterfaces.get(i), 
 						parsedClass.getClassName());
@@ -86,11 +86,11 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				&& !this.superClass.startsWith("java") 
 				&& !this.superClass.startsWith("junit")){
 			
-			this.database.insertInSet(
+			this.redisHandler.insertInSet(
 					Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
 					parsedClass.getClassName(), 
 					this.superClass);
-			this.database.insertInSet(
+			this.redisHandler.insertInSet(
 					Databases.TABLE_ID_SUBCLASS, 
 					this.superClass, 
 					parsedClass.getClassName());
@@ -120,7 +120,6 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 			e.printStackTrace();
 		}
 	}
-	
 	
 	protected void parse() throws IOException, DatabaseSyncException{
 		
@@ -204,7 +203,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				if (!this.allPreviousTestCases.containsKey(methodFqn)) {
 					//logger.debug(methodFqn+" is new test, added to testToRun");
-					App.allNewAndChangeTests.put(methodFqn, true);
+					TLDR.allNewAndChangeTests.put(methodFqn, true);
 					this.allExtractedMethods.put(methodFqn, m);
 								
 					boolean ret1 = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
@@ -213,7 +212,6 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					if (!ret1 && !ret2) {
 						throw new DatabaseSyncException(methodFqn);
 					}
-					//logger.info(methodFqn+" didn't exist in db...added");					
 				}
 				
 				else{
@@ -221,8 +219,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);	
 					
 					if (!currentHashCode.equals(prevHashCode)) {
-						//logger.debug(methodFqn+" is changed test, added to testToRun");
-						App.allNewAndChangeTests.put(methodFqn, true);						
+						TLDR.allNewAndChangeTests.put(methodFqn, true);						
 						this.allExtractedMethods.put(methodFqn, m);
 						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						
@@ -242,19 +239,18 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		    if(val == 0){
 		    	count++;
 		    	String key = entry.getKey();
-		    	this.database.removeKey(Databases.TABLE_ID_ENTITY, key);
+		    	this.redisHandler.removeKey(Databases.TABLE_ID_ENTITY, key);
 		    	
-		    	Set<String> allDependencies = this.database.getSet(
+		    	Set<String> allDependencies = this.redisHandler.getSet(
 		    			Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
 		    			key);
 		    	
-		    	this.database.removeKey(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	this.redisHandler.removeKey(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
 		    	for(String dep: allDependencies){
-		    		this.database.removeFromSet(Databases.TABLE_ID_TEST_DEPENDENCY, dep, key);
+		    		this.redisHandler.removeFromSet(Databases.TABLE_ID_TEST_DEPENDENCY, dep, key);
 		    	}
 		    	
-		    	this.database.removeKey(Databases.TABLE_ID_TEST_ENTITY, key);		    	
-		    	//logger.info(key+ " test case is remomved from DB");
+		    	this.redisHandler.removeKey(Databases.TABLE_ID_TEST_ENTITY, key);		    	
 		    }  
 		}
 		return count;

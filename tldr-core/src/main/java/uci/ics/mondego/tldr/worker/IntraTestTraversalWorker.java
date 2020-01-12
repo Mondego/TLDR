@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import uci.ics.mondego.tldr.App;
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.resolution.IntraTestDFSTraversal;
 
 public class IntraTestTraversalWorker extends Worker{
@@ -58,7 +58,7 @@ public class IntraTestTraversalWorker extends Worker{
 	    
 	   // logger.debug(entity+" -- Intratest DFS TRaversal done, test is written to App");
 	    for(int i=0;i<dep.size();i++) {
-	    	App.completeTestCaseSet.put(dep.get(i), 1);
+	    	TLDR.completeTestCaseSet.put(dep.get(i), 1);
 	    }      
 	}
 }
