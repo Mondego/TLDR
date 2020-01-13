@@ -9,31 +9,17 @@ import java.util.Map.Entry;
 import uci.ics.mondego.tldr.TLDR;
 
 public class ReportWriter {
-	/**
-     * 
-     * @param pair
-     * @param project
-     * @param commit
-     */
-	private String pair;
-	private String project;
-	private String commit;
 	
-	public ReportWriter(String pair, String project, String commit) {
-		this.pair = pair;
-		this.project = project;
-		this.commit = commit;
-	}
-	
-    public void logExperiment(String elapsedTimeInSecond){ 	
+    public void logExperiment(String logFileName, double selectionTimeInSecond, double testRunTimeInSecond) { 	
     	//System.out.println("GENERATING REPORT FOR "+project+" Commit: "+commit);	           	
     	PrintWriter writer1;
 		try {
-			writer1 = new PrintWriter(project+"_"+pair+"_REPORT_"+commit+"_.txt", "UTF-8");
+			writer1 = new PrintWriter(logFileName, "UTF-8");
 			writer1.println("NUMBER OF NEW OR CHANGED ENTITIES : "+TLDR.allNewAndChangedentities.size());	   
 			writer1.println("NUMBER OF ENTITY TO TEST : "+TLDR.entityToTest.size());	   
 			writer1.println("NUMBER OF TEST TO RUN : "+TLDR.completeTestCaseSet.size());	   
-			writer1.println("TOTAL TIME REQUIRED : "+elapsedTimeInSecond+" second");	
+			writer1.println("TOTAL TIME REQUIRED TO SELECT TEST: "+selectionTimeInSecond+" second");	
+			writer1.println("TOTAL TIME REQUIRED TO RUN TEST: " + testRunTimeInSecond + "second");
 			writer1.println("======================================================");
 			writer1.println("======================================================");
 			

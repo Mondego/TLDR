@@ -17,7 +17,7 @@ import uci.ics.mondego.tldr.exception.UnknownDBIdException;
 import uci.ics.mondego.tldr.extractor.MethodParser;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.Constants;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 
 public class DependencyExtractor {
 
@@ -43,7 +43,7 @@ public class DependencyExtractor {
 	public DependencyExtractor(Entry<String, Method> changedMethod) throws IOException {
 		this.changedMethod = changedMethod;
 		this.flag = false;
-		this.dbId = Databases.TABLE_ID_DEPENDENCY;
+		this.dbId = DatabaseIDs.TABLE_ID_DEPENDENCY;
 		this.database = new RedisHandler();
 		this.fieldValueChanged = new HashSet<String>();
 		this.allVirtualDependency = new HashSet<String>();
@@ -57,7 +57,7 @@ public class DependencyExtractor {
 		
 		this.previousDependencies = new HashMap<String, Integer>();	
 		Set<String> prevDepInSet = database.getSet (
-				Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
+				DatabaseIDs.TABLE_ID_FORWARD_INDEX_DEPENDENCY, 
 				changedMethod.getKey());
 		
 		for(String dependency: prevDepInSet){
@@ -72,7 +72,7 @@ public class DependencyExtractor {
 	public DependencyExtractor (Entry<String, Method> changedMethod, boolean flag) throws IOException {
 		this.changedMethod = changedMethod;
 		this.flag = flag;
-		this.dbId = Databases.TABLE_ID_TEST_DEPENDENCY;
+		this.dbId = DatabaseIDs.TABLE_ID_TEST_DEPENDENCY;
 		this.fieldValueChanged = new HashSet<String>();
 		this.database = new RedisHandler();
 		this.previousDependencies = new HashMap<String, Integer>();	
@@ -86,7 +86,7 @@ public class DependencyExtractor {
 		this.allFieldDependency = new HashSet<String>();
 		
 		Set<String> prevDepInSet = database.getSet(
-				Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
+				DatabaseIDs.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
 				changedMethod.getKey());
 		
 		for(String dependency: prevDepInSet){
@@ -195,15 +195,15 @@ public class DependencyExtractor {
 		    	
 		    	count += this.database.removeFromSet( 
 		    			!flag 
-		    			? Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY 
-		    			: Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
+		    			? DatabaseIDs.TABLE_ID_FORWARD_INDEX_DEPENDENCY 
+		    			: DatabaseIDs.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
 		    		    changedMethod.getKey(), 
 		    		    key);
 		    	
 		    	this.database.removeFromSet(
 		    			!flag 
-		    			? Databases.TABLE_ID_DEPENDENCY
-		    			: Databases.TABLE_ID_TEST_DEPENDENCY, 
+		    			? DatabaseIDs.TABLE_ID_DEPENDENCY
+		    			: DatabaseIDs.TABLE_ID_TEST_DEPENDENCY, 
 		    			key, 
 		    			changedMethod.getKey());		    	
 		    }  
@@ -214,11 +214,11 @@ public class DependencyExtractor {
 	protected List<String> traverseClassHierarchyDownwards(String claz, String pattern){	
 		List<String> toTest = new ArrayList<String>();
 		
-		if(this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)) {
+		if(this.database.exists(DatabaseIDs.TABLE_ID_ENTITY, claz+"."+pattern)) {
 			toTest.add(claz+"."+pattern);	
 		}
 		
-		Set<String> allSubclass = this.database.getSet(Databases.TABLE_ID_SUBCLASS, claz);
+		Set<String> allSubclass = this.database.getSet(DatabaseIDs.TABLE_ID_SUBCLASS, claz);
 		for(String sub: allSubclass) {
 			List<String> t = traverseClassHierarchyDownwards(sub, pattern);	
 			if(!t.isEmpty() && t!= null) {
@@ -231,12 +231,12 @@ public class DependencyExtractor {
 	protected List<String> traverseClassHierarchyUpwards(String claz, String pattern){	
 		List<String> toTest = new ArrayList<String>();
 		
-		if (this.database.exists(Databases.TABLE_ID_ENTITY, claz+"."+pattern)) {
+		if (this.database.exists(DatabaseIDs.TABLE_ID_ENTITY, claz+"."+pattern)) {
 			toTest.add(claz+"."+pattern);
 			return toTest;
 		}
 		
-		Set<String> allSuperclass = this.database.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, claz);
+		Set<String> allSuperclass = this.database.getSet(DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, claz);
 		for (String sup: allSuperclass) {
 			List<String> t = traverseClassHierarchyUpwards(sup, pattern);	
 			if (!t.isEmpty() && t!= null) {

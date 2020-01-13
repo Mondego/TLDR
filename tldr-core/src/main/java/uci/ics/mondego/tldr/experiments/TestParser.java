@@ -20,7 +20,7 @@ import uci.ics.mondego.tldr.changeanalyzer.ChangeAnalyzer;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.tool.AccessCodes;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 

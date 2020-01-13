@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.tool.PomUtil;
 
 import org.apache.log4j.LogManager;
@@ -32,11 +33,6 @@ abstract class BaseMojo extends SurefirePlugin {
     static final String STAR = "*";
 	private static final Logger logger = LogManager.getLogger(BaseMojo.class);
     
-    /**
-     * Log levels as defined in java.util.logging.Level.
-     */
-    @Parameter(property = "TLDRLogging", defaultValue = "CONFIG")
-    protected String loggingLevel;
     
     /**
      * Hash code of a commit. This is needed to generate report for each 
@@ -62,6 +58,12 @@ abstract class BaseMojo extends SurefirePlugin {
     protected File basedir;
     
     protected Classpath sureFireClassPath;
+    
+    protected long elapsedTime;
+    protected long startTime;
+    protected long endTime;
+    
+    protected TLDR tldr = new TLDR();
 
     public List<String> getTestClasses() {
         DefaultScanResult defaultScanResult = null;
@@ -108,4 +110,21 @@ abstract class BaseMojo extends SurefirePlugin {
             iae.printStackTrace();
         }
     }
+    
+    public String getProjectName() {
+    	String projectName = "XXX";
+    	try {
+    		Field projectField = AbstractSurefireMojo.class.getDeclaredField("project");
+    		projectField.setAccessible(true);
+            MavenProject accessedProject = (MavenProject) projectField.get(this);
+            projectName = accessedProject.getArtifact().getArtifactId();
+    	} catch (NoSuchFieldException nsfe) {
+            nsfe.printStackTrace();
+        } catch (IllegalAccessException iae) {
+            iae.printStackTrace();
+        }
+    	
+    	return projectName;
+    }
+    
 }

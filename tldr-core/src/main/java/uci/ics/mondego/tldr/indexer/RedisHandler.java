@@ -6,7 +6,7 @@ import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.exceptions.JedisDataException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 import uci.ics.mondego.tldr.tool.Constants;
 
 import java.time.Duration;
@@ -105,7 +105,7 @@ public class RedisHandler{
 				insert("project", "LAST-PROJECT-ID", projectId+"");
 				project_id = projectId + Constants.EMPTY;
 			}
-			insert(Databases.TABLE_ID_PROJECT, projectName, projectId+"");
+			insert(DatabaseIDs.TABLE_ID_PROJECT, projectName, projectId+"");
 		} catch (JedisConnectionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -119,14 +119,14 @@ public class RedisHandler{
 	 * Returns true if the project exits in the database.
 	 */
 	public boolean projectExists(String projectName) {
-		return jedis.exists(Databases.TABLE_ID_PROJECT + projectName);
+		return jedis.exists(DatabaseIDs.TABLE_ID_PROJECT + projectName);
 	}
 	
 	/**
 	 * Returns the id of a project if exists, else returns a null.
 	 */
 	public String getProjectId(String projectName) {
-		String id = jedis.get(Databases.TABLE_ID_PROJECT + projectName);
+		String id = jedis.get(DatabaseIDs.TABLE_ID_PROJECT + projectName);
 		if (id == null) {
 			return null;
 		}
@@ -140,7 +140,7 @@ public class RedisHandler{
 		StringBuilder sb = new StringBuilder();
 		sb.append(projectId);
 		sb.append(Constants.HYPHEN);
-		sb.append(Databases.TABLE_ID_ENTITY);
+		sb.append(DatabaseIDs.TABLE_ID_ENTITY);
 		String pattern = sb.toString();
 		Set<String> allEntities = new HashSet<String>();
 	    for(String key: getAllKeys(pattern)) {
@@ -179,7 +179,7 @@ public class RedisHandler{
 			lookupKey = key;
 		} 
 		// For inserting project name we don't need to append project id.
-		else if (tableId.equals(Databases.TABLE_ID_PROJECT)) {
+		else if (tableId.equals(DatabaseIDs.TABLE_ID_PROJECT)) {
 			lookupKey = tableId + key;
 		} 
 		else {
@@ -189,7 +189,7 @@ public class RedisHandler{
 		try {
 			if (lookupKey.startsWith("null") 
 				|| tableId == null 
-				|| (!tableId.equals(Databases.TABLE_ID_PROJECT) && projectId == null)) {
+				|| (!tableId.equals(DatabaseIDs.TABLE_ID_PROJECT) && projectId == null)) {
 				System.out.println("hereh ************" + lookupKey + "  "
 						+ tableId+ "   " + projectId);
 				throw new NullDbIdException(key+" "+value);
@@ -252,10 +252,10 @@ public class RedisHandler{
 		//INSERT IN FORWARD INDEX		
 		String forwardTableId = null;
 		
-		if(tableId.equals(Databases.TABLE_ID_DEPENDENCY)){
-			forwardTableId = Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY;
-		} else if (tableId.equals(Databases.TABLE_ID_TEST_DEPENDENCY)) {
-			forwardTableId = Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY;
+		if(tableId.equals(DatabaseIDs.TABLE_ID_DEPENDENCY)){
+			forwardTableId = DatabaseIDs.TABLE_ID_FORWARD_INDEX_DEPENDENCY;
+		} else if (tableId.equals(DatabaseIDs.TABLE_ID_TEST_DEPENDENCY)) {
+			forwardTableId = DatabaseIDs.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY;
 		}
 				
 		String lookupKeyForwardTable = projectId + Constants.HYPHEN + forwardTableId + value;

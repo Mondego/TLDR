@@ -10,7 +10,7 @@ import com.rfksystems.blake2b.Blake2b;
 import com.rfksystems.blake2b.security.*;
 
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 
 /**
  * Analyzes changes in file i.e. class level.
@@ -34,9 +34,9 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 	
 	protected void parse() throws IOException, DatabaseSyncException {
 		
-		if( !exists(Databases.TABLE_ID_FILE, getEntityName()) ){
+		if( !exists(DatabaseIDs.TABLE_ID_FILE, getEntityName()) ){
 			String currentCheckSum = calculateChecksum();
-			boolean ret = sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
+			boolean ret = sync(DatabaseIDs.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
 			
 			// If it is not synced then throw an exception.
 			if(!ret){
@@ -46,11 +46,11 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 		}
 		
 		else {
-			String prevCheckSum = getValue(Databases.TABLE_ID_FILE, this.getEntityName()); 
+			String prevCheckSum = getValue(DatabaseIDs.TABLE_ID_FILE, this.getEntityName()); 
 			String currentCheckSum = calculateChecksum();
 			
 			if (!prevCheckSum.equals(currentCheckSum)) {
-				boolean ret = this.sync(Databases.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
+				boolean ret = this.sync(DatabaseIDs.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
 				if (!ret) {
 					throw new DatabaseSyncException(this.getEntityName());
 				}

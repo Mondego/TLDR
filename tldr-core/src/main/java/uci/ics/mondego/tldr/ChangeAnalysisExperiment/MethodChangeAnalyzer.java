@@ -18,7 +18,7 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.AccessCodes;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 import uci.ics.mondego.tldr.worker.Worker;
 
@@ -75,14 +75,14 @@ public class MethodChangeAnalyzer extends Worker{
 			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
 			String currentHashCode = StringProcessor.CreateBLAKE(f.toString());
 			
-			if(!redisHandler.exists(Databases.TABLE_ID_ENTITY, fieldFqn)){
+			if(!redisHandler.exists(DatabaseIDs.TABLE_ID_ENTITY, fieldFqn)){
 				changedEntities.add(fieldFqn);
-				redisHandler.update(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
+				redisHandler.update(DatabaseIDs.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
 			} else {
-				String prevHashCode = redisHandler.getValueByKey(Databases.TABLE_ID_ENTITY, fieldFqn);
+				String prevHashCode = redisHandler.getValueByKey(DatabaseIDs.TABLE_ID_ENTITY, fieldFqn);
 				if (!currentHashCode.equals(prevHashCode)) {
 					changedEntities.add(fieldFqn);
-					redisHandler.update(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
+					redisHandler.update(DatabaseIDs.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
 				}
 			}
 		}
@@ -161,14 +161,14 @@ public class MethodChangeAnalyzer extends Worker{
 				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
-				if (!redisHandler.exists(Databases.TABLE_ID_ENTITY, methodFqn)) {
+				if (!redisHandler.exists(DatabaseIDs.TABLE_ID_ENTITY, methodFqn)) {
 					changedEntities.add(methodFqn);
-					redisHandler.update(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+					redisHandler.update(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 				} else {
-					String prevHashCode = redisHandler.getValueByKey(Databases.TABLE_ID_ENTITY, methodFqn);
+					String prevHashCode = redisHandler.getValueByKey(DatabaseIDs.TABLE_ID_ENTITY, methodFqn);
 					if (!currentHashCode.equals(prevHashCode)) {
 						changedEntities.add(methodFqn);
-						redisHandler.update(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						redisHandler.update(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					}
 				}
 			}

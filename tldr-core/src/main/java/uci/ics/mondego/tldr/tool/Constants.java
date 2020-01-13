@@ -37,12 +37,14 @@ public class Constants {
     public static final String JAVA_HOME = "java.home";
     public static final String SF_CLASSPATH = "sf-classpath";
     public static final String TEST_CLASSES = "test-classes";
-    public static final String JAR_CHECKSUMS = "jar-checksums";
-    public static final String CHANGED_CLASSES = "changed-classes";
-    public static final String CHECK_IF_ALL_AFFECTED = "checkIfAllAffected";
 
     public static final String JAR_EXTENSION = ".jar";
     public static final String CLASS_EXTENSION = ".class";
     public static final String PROJECT_ID = "PROJECT_ID";
-
+    
+    
+    public static final String LOG_DIRECTORY = "~/Users/demigorgan/TLDR_LOG/";
+    
+    // Logging flag
+    public static final String TEST_RUN_END_TIME_IN_SEC = "TEST RUN END TIME (s) : ";
 }

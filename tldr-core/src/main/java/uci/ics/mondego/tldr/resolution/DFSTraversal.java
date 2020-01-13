@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import uci.ics.mondego.tldr.indexer.RedisHandler;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 
 public class DFSTraversal {
 
@@ -33,7 +33,7 @@ public class DFSTraversal {
 		trace.add(node);
 		visitInfo.put(node, true);
 		
-		Set<String> all_dependents = rh.getSet(Databases.TABLE_ID_DEPENDENCY, node);
+		Set<String> all_dependents = rh.getSet(DatabaseIDs.TABLE_ID_DEPENDENCY, node);
 				
 		for(String child: all_dependents){
 			if(!visitInfo.containsKey(child) || !visitInfo.get(child))

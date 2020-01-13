@@ -12,7 +12,6 @@ import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import uci.ics.mondego.tldr.model.TestReport;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
 import uci.ics.mondego.tldr.tool.FindAllTestDirectory;
@@ -41,7 +40,9 @@ public class TLDR {
 	private static String TEST_DIR;
 	
 	// Total time in second required to figure out which tests need to be run
-	private static double elapsedTimeInSecond;
+	private double selectionElapsedTimeInSecond;
+	private long selectionStartTime;
+	private long selectionEndTime;
 	
 	private static final Logger logger = LogManager.getLogger(TLDR.class);
     
@@ -55,7 +56,6 @@ public class TLDR {
     public static ThreadedChannel<HashMap<String, Method>> TestDependencyExtractionPool;
     public static ThreadedChannel<String> EntityToTestMapPool;
     public static ThreadedChannel<String> IntraTestTraversalPool;
-    //public static ThreadedChannel<String> TestRunnerPool;
 
     public static ConcurrentHashMap<String, Boolean> entityToTest;
     public static ConcurrentHashMap<String, Boolean> allTestDirectories;
@@ -64,7 +64,6 @@ public class TLDR {
     public static ConcurrentHashMap<String, Method> allChangedOrNewMethods;
     public static ConcurrentHashMap<String, Method> allExtractedTestMethods;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangeTests;
-    public static ConcurrentHashMap<String, TestReport> allTestReport;
     
     public TLDR(){
     	Date date = new Date();      
@@ -89,7 +88,6 @@ public class TLDR {
     			new ThreadedChannel<String>(8, EntityToTestMapWorker.class);
     	this.IntraTestTraversalPool = 
     			new ThreadedChannel<String>(8, IntraTestTraversalWorker.class);
-    	//this.TestRunnerPool = new ThreadedChannel<String>(config.getThread(), TestRunnerWorker.class);
     	    	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.allTestDirectories = new ConcurrentHashMap<String, Boolean>();
@@ -98,13 +96,12 @@ public class TLDR {
     	this.completeTestCaseSet = new ConcurrentHashMap<String, Integer>();
         this.allChangedOrNewMethods = new ConcurrentHashMap<String, Method>();
         this.allExtractedTestMethods = new ConcurrentHashMap<String, Method>();
-        this.allTestReport = new ConcurrentHashMap<String, TestReport>();
     }
 
     public String getImpactedTest( TLDRRunProperty tldrRunProperty) {    	       
-       long startTime = System.nanoTime();
+       selectionStartTime = System.nanoTime();
        String testFilter =  null;      
-       logger.info("TLDR is starting" + startTime);
+       logger.info("TLDR is starting" + selectionStartTime);
        
        try {
     	   
@@ -169,11 +166,6 @@ public class TLDR {
 	       
 	       TLDR.IntraTestTraversalPool.shutdown();
 	       
-	       /*for(Map.Entry<String, Integer> entry: completeTestCaseSet.entrySet()){
-	    	   App.TestRunnerPool.send(entry.getKey());
-	       }
-	       App.TestRunnerPool.shutdown();*/
-	       
 	       /**** this is needed for running the tests i.e. for the wrapper*****/
 	       if(tldrRunProperty.getTool_type().equals("maven")) {
 	    	   testFilter = getTestFilterForMaven();
@@ -182,9 +174,9 @@ public class TLDR {
 	       }
 	    	   
 	       /*****************************/
-	       long endTime = System.nanoTime();	 
-	       long elapsedTime = endTime - startTime;
-	       elapsedTimeInSecond = (double)elapsedTime / 1000000000.0;	 
+	       selectionEndTime = System.nanoTime();	 
+	       long elapsedTime = selectionEndTime - selectionStartTime;
+	       selectionElapsedTimeInSecond = (double)elapsedTime / 1000000000.0;	 
 	       
        } 
        catch (JedisConnectionException jedisConnectionException){
@@ -294,5 +286,17 @@ public class TLDR {
     
     public static String getTEST_DIR(){
     	return TEST_DIR;
+    }
+    
+    public double getSelectionElapsedTimeInSecond() {
+    	return selectionElapsedTimeInSecond;
+    }
+    
+    public long getSelectionStartTime() {
+    	return selectionStartTime;
+    }
+    
+    public long getSelectionEndTime() {
+    	return selectionEndTime;
     }
 }

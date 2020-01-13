@@ -15,7 +15,7 @@ import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.tool.AccessCodes;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class TestChangeAnalyzer extends ChangeAnalyzer{
@@ -37,7 +37,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		this.superClass = "";
 		this.allExtractedMethods = new HashMap<String, Method>();
 		Set<String> prevTst = redisHandler.getAllKeysByPattern
-				(Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
+				(DatabaseIDs.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
 		
 		for(String entity: prevTst){
 			allPreviousTestCases.put(entity, 0);
@@ -61,7 +61,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		this.parseSuperClass();
 		
 		Set<String> all_superclass_interface = this.redisHandler.getSet(
-				Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+				DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, 
 				parsedClass.getClassName());
 				
 		for(int i=0;i<allInterfaces.size();i++) {
@@ -70,11 +70,11 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				|| allInterfaces.get(i).startsWith("junit."))) {
 				
 				this.redisHandler.insertInSet(
-						Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+						DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, 
 						parsedClass.getClassName(), 
 						allInterfaces.get(i));
 				this.redisHandler.insertInSet(
-						Databases.TABLE_ID_SUBCLASS, 
+						DatabaseIDs.TABLE_ID_SUBCLASS, 
 						allInterfaces.get(i), 
 						parsedClass.getClassName());
 			}				
@@ -87,11 +87,11 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				&& !this.superClass.startsWith("junit")){
 			
 			this.redisHandler.insertInSet(
-					Databases.TABLE_ID_INTERFACE_SUPERCLASS, 
+					DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, 
 					parsedClass.getClassName(), 
 					this.superClass);
 			this.redisHandler.insertInSet(
-					Databases.TABLE_ID_SUBCLASS, 
+					DatabaseIDs.TABLE_ID_SUBCLASS, 
 					this.superClass, 
 					parsedClass.getClassName());
 		}				
@@ -206,9 +206,9 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 					TLDR.allNewAndChangeTests.put(methodFqn, true);
 					this.allExtractedMethods.put(methodFqn, m);
 								
-					boolean ret1 = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+					boolean ret1 = this.sync(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 				    
-					boolean ret2 = this.sync(Databases.TABLE_ID_TEST_ENTITY, methodFqn, "1");
+					boolean ret2 = this.sync(DatabaseIDs.TABLE_ID_TEST_ENTITY, methodFqn, "1");
 					if (!ret1 && !ret2) {
 						throw new DatabaseSyncException(methodFqn);
 					}
@@ -216,12 +216,12 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				else{
 					allPreviousTestCases.put(methodFqn, allPreviousTestCases.get(methodFqn) + 1);
-					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);	
+					String prevHashCode = this.getValue(DatabaseIDs.TABLE_ID_ENTITY, methodFqn);	
 					
 					if (!currentHashCode.equals(prevHashCode)) {
 						TLDR.allNewAndChangeTests.put(methodFqn, true);						
 						this.allExtractedMethods.put(methodFqn, m);
-						boolean ret = this.sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						boolean ret = this.sync(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						
 						if(!ret) {
 							throw new DatabaseSyncException(methodFqn);
@@ -239,18 +239,18 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		    if(val == 0){
 		    	count++;
 		    	String key = entry.getKey();
-		    	this.redisHandler.removeKey(Databases.TABLE_ID_ENTITY, key);
+		    	this.redisHandler.removeKey(DatabaseIDs.TABLE_ID_ENTITY, key);
 		    	
 		    	Set<String> allDependencies = this.redisHandler.getSet(
-		    			Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
+		    			DatabaseIDs.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
 		    			key);
 		    	
-		    	this.redisHandler.removeKey(Databases.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	this.redisHandler.removeKey(DatabaseIDs.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
 		    	for(String dep: allDependencies){
-		    		this.redisHandler.removeFromSet(Databases.TABLE_ID_TEST_DEPENDENCY, dep, key);
+		    		this.redisHandler.removeFromSet(DatabaseIDs.TABLE_ID_TEST_DEPENDENCY, dep, key);
 		    	}
 		    	
-		    	this.redisHandler.removeKey(Databases.TABLE_ID_TEST_ENTITY, key);		    	
+		    	this.redisHandler.removeKey(DatabaseIDs.TABLE_ID_TEST_ENTITY, key);		    	
 		    }  
 		}
 		return count;

@@ -46,7 +46,6 @@ public final class SurefireMojoInterceptor extends AbstractMojoInterceptor {
         logger.log(Level.FINE, "updating Excludes");
         String currentTests = getStringField(Constants.TEST_FIELD, mojo);
         String newTests = System.getProperty(Constants.TLDR_TEST_PROPERTY);
-        System.out.println("***********************  "+newTests+"  **************************");
         if (currentTests != null) {
         	newTests += (Constants.COMMA + currentTests);
         } 

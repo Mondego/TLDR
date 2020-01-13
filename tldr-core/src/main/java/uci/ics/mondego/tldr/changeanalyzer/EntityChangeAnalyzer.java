@@ -15,7 +15,7 @@ import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.tool.AccessCodes;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
@@ -43,7 +43,7 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 		this.superClass = Constants.EMPTY;
 				
 		Set<String> prevEnt = redisHandler.getAllKeysByPattern(
-				Databases.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
+				DatabaseIDs.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
 		
 		this.allPreviousEntities= new HashMap<String, Integer>();
 		for(String entity: prevEnt){
@@ -69,7 +69,7 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 		parseSuperClass();
 		
 		Set<String> all_superclass_interface = 
-				this.redisHandler.getSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName());
+				this.redisHandler.getSet(DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName());
 				
 		for(int i = 0;i < allInterfaces.size(); i++){
 			String interface_ = allInterfaces.get(i);
@@ -77,10 +77,10 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 					&& !(interface_.startsWith("java.") 
 					|| interface_.startsWith("junit."))) {
 				
-				this.redisHandler.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+				this.redisHandler.insertInSet(DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 						interface_);
 				
-				this.redisHandler.insertInSet(Databases.TABLE_ID_SUBCLASS, interface_, parsedClass.getClassName());
+				this.redisHandler.insertInSet(DatabaseIDs.TABLE_ID_SUBCLASS, interface_, parsedClass.getClassName());
 			}	
 			
 		}
@@ -91,9 +91,9 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 			&& !superClass.startsWith("java") 
 			&& !superClass.startsWith("junit")) {
 			
-			this.redisHandler.insertInSet(Databases.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
+			this.redisHandler.insertInSet(DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, parsedClass.getClassName(), 
 					this.superClass);
-			this.redisHandler.insertInSet(Databases.TABLE_ID_SUBCLASS, superClass, parsedClass.getClassName());
+			this.redisHandler.insertInSet(DatabaseIDs.TABLE_ID_SUBCLASS, superClass, parsedClass.getClassName());
 		}				
 	}
 	
@@ -132,7 +132,7 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 			// Insert this field into DB if it is new in this revision.
 			if (!allPreviousEntities.containsKey(fieldFqn)) {
 				setChanged(true);
-				boolean ret = this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
+				boolean ret = this.sync(DatabaseIDs.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
 				if(!ret){
 					throw new DatabaseSyncException(fieldFqn);
 				}
@@ -145,10 +145,10 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 				// deprecated entities (for which the value will be 0).
 				allPreviousEntities.put(fieldFqn, allPreviousEntities.get(fieldFqn) + 1);
 				
-				String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, fieldFqn);
+				String prevHashCode = this.getValue(DatabaseIDs.TABLE_ID_ENTITY, fieldFqn);
 				if (!currentHashCode.equals(prevHashCode)) {
 					setChanged(true);
-					boolean ret = this.sync(Databases.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
+					boolean ret = this.sync(DatabaseIDs.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
 					if(!ret){
 						throw new DatabaseSyncException(fieldFqn);
 					}
@@ -246,7 +246,7 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 				
 				if (!allPreviousEntities.containsKey(methodFqn)) {				
 					setChanged(true);
-					boolean ret = sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+					boolean ret = sync(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					if (!ret) {
 						throw new DatabaseSyncException(methodFqn);
 					}
@@ -258,11 +258,11 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 				
 				else {
 					allPreviousEntities.put(methodFqn, allPreviousEntities.get(methodFqn) + 1);
-					String prevHashCode = this.getValue(Databases.TABLE_ID_ENTITY, methodFqn);
+					String prevHashCode = this.getValue(DatabaseIDs.TABLE_ID_ENTITY, methodFqn);
 					
 					if (!currentHashCode.equals(prevHashCode)) {	
 						setChanged(true);
-						boolean ret = sync(Databases.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						boolean ret = sync(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						if(!ret){
 							throw new DatabaseSyncException(methodFqn);
 						}
@@ -294,12 +294,12 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 		    if (val == 0) {
 		    	count++;
 		    	String key = entry.getKey();
-		    	this.redisHandler.removeKey(Databases.TABLE_ID_ENTITY, key);
+		    	this.redisHandler.removeKey(DatabaseIDs.TABLE_ID_ENTITY, key);
 		    	Set<String> allDependencies = this.redisHandler.getSet
-		    			(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, key);
-		    	redisHandler.removeKey(Databases.TABLE_ID_FORWARD_INDEX_DEPENDENCY, key);
+		    			(DatabaseIDs.TABLE_ID_FORWARD_INDEX_DEPENDENCY, key);
+		    	redisHandler.removeKey(DatabaseIDs.TABLE_ID_FORWARD_INDEX_DEPENDENCY, key);
 		    	for (String dep: allDependencies) {
-		    		redisHandler.removeFromSet(Databases.TABLE_ID_DEPENDENCY, dep, key);
+		    		redisHandler.removeFromSet(DatabaseIDs.TABLE_ID_DEPENDENCY, dep, key);
 		    	}
 		    }  
 		}

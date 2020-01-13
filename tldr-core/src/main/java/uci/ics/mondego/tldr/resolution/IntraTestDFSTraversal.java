@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 
 public class IntraTestDFSTraversal {
 
@@ -31,9 +31,9 @@ public class IntraTestDFSTraversal {
 	private void DFS(String node){
 		
 		visitInfo.put(node, true);
-		if(database.exists(Databases.TABLE_ID_TEST_ENTITY, node)){
+		if(database.exists(DatabaseIDs.TABLE_ID_TEST_ENTITY, node)){
 			trace.add(node);
-			Set<String> all_dependents = database.getSet(Databases.TABLE_ID_TEST_DEPENDENCY, node);	
+			Set<String> all_dependents = database.getSet(DatabaseIDs.TABLE_ID_TEST_DEPENDENCY, node);	
 			for(String child: all_dependents){
 				if(!visitInfo.containsKey(child) || !visitInfo.get(child))
 					DFS(child);

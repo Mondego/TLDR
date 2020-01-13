@@ -38,7 +38,7 @@ import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.AccessCodes;
-import uci.ics.mondego.tldr.tool.Databases;
+import uci.ics.mondego.tldr.tool.DatabaseIDs;
 import uci.ics.mondego.tldr.tool.FileHashCalculator;
 import uci.ics.mondego.tldr.tool.FindAllTestDirectory;
 import uci.ics.mondego.tldr.tool.StringProcessor;
@@ -189,9 +189,9 @@ public class ChangeAnalysis {
 				NoSuchAlgorithmException, 
 				NullDbIdException, 
 				IOException {
-		if (!redisHandler.exists(Databases.TABLE_ID_FILE, file)){	
+		if (!redisHandler.exists(DatabaseIDs.TABLE_ID_FILE, file)){	
 			redisHandler.update(
-					Databases.TABLE_ID_FILE, 
+					DatabaseIDs.TABLE_ID_FILE, 
 					file, 
 					fileHashCalculator.calculateChecksum(file));			
 			return true;
@@ -209,15 +209,15 @@ public class ChangeAnalysis {
 			NoSuchAlgorithmException {
 		String currentCheckSum = fileHashCalculator.calculateChecksum(file);
 		
-		if (!redisHandler.exists(Databases.TABLE_ID_FILE, file)){	
-			redisHandler.update(Databases.TABLE_ID_FILE, file, currentCheckSum);			
+		if (!redisHandler.exists(DatabaseIDs.TABLE_ID_FILE, file)){	
+			redisHandler.update(DatabaseIDs.TABLE_ID_FILE, file, currentCheckSum);			
 			return true;
 		}
 		
-		String prevCheckSum = redisHandler.getValueByKey(Databases.TABLE_ID_FILE, file);
+		String prevCheckSum = redisHandler.getValueByKey(DatabaseIDs.TABLE_ID_FILE, file);
 
 		if (!prevCheckSum.equals(currentCheckSum)) {
-			redisHandler.update(Databases.TABLE_ID_FILE, file, currentCheckSum);		
+			redisHandler.update(DatabaseIDs.TABLE_ID_FILE, file, currentCheckSum);		
 			return true;
 		}
 		return false;	

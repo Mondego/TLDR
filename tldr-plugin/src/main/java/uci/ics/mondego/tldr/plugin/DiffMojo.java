@@ -27,7 +27,7 @@ public class DiffMojo extends BaseMojo {
     
     public String getImpactedTests() {
     	logger.info("TLDR starting....");
-    	TLDR tldr = new TLDR();
+    	
     	TLDRRunProperty tldrRunProperty = 
     			new TLDRRunProperty(projectBuildDir, "math", commit_hash, commit_serial, "maven");
     	String impactedTests = tldr.getImpactedTest(tldrRunProperty);
@@ -38,5 +38,4 @@ public class DiffMojo extends BaseMojo {
     	
     	return impactedTests;
     } 
-
 }
