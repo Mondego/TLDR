@@ -15,6 +15,7 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.model.ThreadedChannel;
 import uci.ics.mondego.tldr.tool.FindAllTestDirectory;
+import uci.ics.mondego.tldr.tool.Report;
 import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.TLDRRunProperty;
 import uci.ics.mondego.tldr.worker.EntityChangeAnalyzerWorker;
@@ -103,8 +104,7 @@ public class TLDR {
        String testFilter =  null;      
        logger.info("TLDR is starting" + selectionStartTime);
        
-       try {
-    	   
+       try {   	   
 	       CLASS_DIR = tldrRunProperty.getClass_dir();	      
 
 	       String project_id = getProjectId(tldrRunProperty.getProject_name());
@@ -166,14 +166,9 @@ public class TLDR {
 	       
 	       TLDR.IntraTestTraversalPool.shutdown();
 	       
-	       /**** this is needed for running the tests i.e. for the wrapper*****/
-	       if(tldrRunProperty.getTool_type().equals("maven")) {
-	    	   testFilter = getTestFilterForMaven();
-	       } else if(tldrRunProperty.getTool_type().equals("gradle")) {
-	    	   testFilter = getTestFilterForGradle();
-	       }
+	       /**** this is needed for running the tests i.e. for the wrapper*****/	       
+	       testFilter = getTestFilterForMaven();
 	    	   
-	       /*****************************/
 	       selectionEndTime = System.nanoTime();	 
 	       long elapsedTime = selectionEndTime - selectionStartTime;
 	       selectionElapsedTimeInSecond = (double)elapsedTime / 1000000000.0;	 
@@ -232,53 +227,26 @@ public class TLDR {
     private static String getTestFilterForMaven(){
 	   StringBuilder sb = new StringBuilder();
        Set<Map.Entry<String, Integer>> all = completeTestCaseSet.entrySet();
-       int i=0;
+       int i = 0;
        for (Entry<String, Integer> es: all) {
     	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit")) {
     		   continue;  
     	   }
     	
     	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
-    	   sb.append(pkg.substring(0,pkg.lastIndexOf('.')));
-    	   String func = pkg.substring(pkg.lastIndexOf('.')+1);
-    	   sb.append("#");
+    	   sb.append(pkg.substring(0,pkg.lastIndexOf(Constants.DOT)));
+    	   String func = pkg.substring(pkg.lastIndexOf(Constants.DOT)+1);
+    	   sb.append(Constants.POUND);
     	   sb.append(func);
     	   i++;
-    	   if(i % 1000 == 0) {
-    		   sb.append(" ");
-    	   } else if(i != (completeTestCaseSet.size() - 1)) {
-    		   sb.append(",");
-    	   }  		   
+    	   
+    	   sb.append(Constants.COMMA);
+    	  	   
        }
        return sb.toString();
     }
     
-    private static String getTestFilterForGradle() {
- 	    StringBuilder sb = new StringBuilder();
-        Set<Map.Entry<String, Integer>> all = completeTestCaseSet.entrySet();
-        if(all.size() == 0){
-        	return "";
-        }
-        sb.append("test {\n");
-        sb.append("filter {\n");
-        
-        for(Entry<String, Integer> es: all){
-     	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit")) {
-     		  continue;
-     	   }
-     	   
-     	   String pkg = es.getKey().substring(0, es.getKey().lastIndexOf('('));
-     	   sb.append("includeTestsMatching ");
-     	   sb.append("'");
-     	   sb.append(pkg);
-     	   sb.append("'");
-     	   sb.append("\n");    	   
-        }
-        sb.append("}\n");
-        sb.append("}\n");
-
-        return sb.toString();
-     }
+    
     
     public static String getCLASS_DIR(){
     	return CLASS_DIR;
@@ -298,5 +266,15 @@ public class TLDR {
     
     public long getSelectionEndTime() {
     	return selectionEndTime;
+    }
+    
+    public Report getTestSelectionReport() {
+    	
+    	System.out.println("~~~~~~~~~~~~~~~~~"+TLDR.completeTestCaseSet.entrySet());
+    	return new Report(
+    			allNewAndChangedentities, 
+    			entityToTest, 
+    			completeTestCaseSet, 
+    			selectionElapsedTimeInSecond);
     }
 }

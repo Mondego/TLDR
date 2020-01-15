@@ -1,5 +1,6 @@
 package uci.ics.mondego.tldr.tool;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -10,20 +11,21 @@ import uci.ics.mondego.tldr.TLDR;
 
 public class ReportWriter {
 	
-    public void logExperiment(String logFileName, double selectionTimeInSecond, double testRunTimeInSecond) { 	
+    public void logExperiment(String logFileName, Report report, double testRunTimeInSecond) { 	
     	//System.out.println("GENERATING REPORT FOR "+project+" Commit: "+commit);	           	
     	PrintWriter writer1;
 		try {
+			System.out.println(report == null);
 			writer1 = new PrintWriter(logFileName, "UTF-8");
-			writer1.println("NUMBER OF NEW OR CHANGED ENTITIES : "+TLDR.allNewAndChangedentities.size());	   
-			writer1.println("NUMBER OF ENTITY TO TEST : "+TLDR.entityToTest.size());	   
-			writer1.println("NUMBER OF TEST TO RUN : "+TLDR.completeTestCaseSet.size());	   
-			writer1.println("TOTAL TIME REQUIRED TO SELECT TEST: "+selectionTimeInSecond+" second");	
+			writer1.println("NUMBER OF NEW OR CHANGED ENTITIES : "+ report.getNewOrChangedEntities().size());	   
+			writer1.println("NUMBER OF ENTITY TO TEST : "+report.getEntitiesToTest().size());	   
+			writer1.println("NUMBER OF TEST TO RUN : "+report.getTestsToRun().size());	   
+			writer1.println("TOTAL TIME REQUIRED TO SELECT TEST: "+report.getSelectionTimeInSecond()+" second");	
 			writer1.println("TOTAL TIME REQUIRED TO RUN TEST: " + testRunTimeInSecond + "second");
 			writer1.println("======================================================");
 			writer1.println("======================================================");
 			
-	    	Set<Entry<String, Boolean>> allEntries = TLDR.allNewAndChangedentities.entrySet();
+	    	Set<Entry<String, Boolean>> allEntries = report.getNewOrChangedEntities().entrySet();
 			writer1.println("NEW OR CHANGED ENTITIES : \n\n");	   
 	    	for (Entry<String, Boolean> e: allEntries) {
 	    		writer1.println(e.getKey());
@@ -32,7 +34,7 @@ public class ReportWriter {
 	    	writer1.println("======================================================");
 			writer1.println("======================================================");
 						
-			allEntries = TLDR.entityToTest.entrySet();
+			allEntries = report.getEntitiesToTest().entrySet();
 			writer1.println("ALL ENTITY TO TEST : \n\n");	   
 	    	for(Entry<String, Boolean> e: allEntries){
 	    		writer1.println(e.getKey());
@@ -40,17 +42,16 @@ public class ReportWriter {
 	    	
 	    	writer1.println("======================================================");
 			writer1.println("======================================================");
-			
+
 			writer1.println("ALL TESTS TO RUN : \n\n");	   
-	    	for(Entry<String, Integer> e: TLDR.completeTestCaseSet.entrySet()){
+	    	for(Entry<String, Integer> e: report.getTestsToRun().entrySet()){
 	    		writer1.println(e.getKey());
 	    	}	    	
 	    	writer1.close();
 		} 
 		catch (FileNotFoundException fileNotFoundException) {
 	    	fileNotFoundException.printStackTrace();
-		} 
-		catch (UnsupportedEncodingException unsupportedEncodingException) {
+		} catch (UnsupportedEncodingException unsupportedEncodingException) {
 			unsupportedEncodingException.printStackTrace();
 		}    	
     }

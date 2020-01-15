@@ -5,7 +5,7 @@ package uci.ics.mondego.tldr.tool;
  * 
  * @author demigorgan
  */
-public class AccessCodes {
+public interface AccessCodes {
 	
 	public static final int ABSTRACT = 1024;
 

@@ -10,6 +10,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 
 import uci.ics.mondego.tldr.TLDR;
+import uci.ics.mondego.tldr.tool.Constants;
+import uci.ics.mondego.tldr.tool.Report;
 import uci.ics.mondego.tldr.tool.TLDRRunProperty;
 
 @Mojo(name = "diff", requiresDirectInvocation = true, requiresDependencyResolution = ResolutionScope.TEST)
@@ -17,19 +19,28 @@ import uci.ics.mondego.tldr.tool.TLDRRunProperty;
 public class DiffMojo extends BaseMojo {
 	
 	private static final Logger logger = LogManager.getLogger(DiffMojo.class);
-
+    protected static TLDR tldr = new TLDR();
+	
     public void execute() throws MojoExecutionException , MojoFailureException {
     	String impactedTests = getImpactedTests();
-    	
+    	    	
     	logger.info("Following tests were impacted .... ");
     	logger.info(impactedTests);
+    }
+    
+    public Report getTestSelectionReport() {
+    	return tldr.getTestSelectionReport();
     }
     
     public String getImpactedTests() {
     	logger.info("TLDR starting....");
     	
-    	TLDRRunProperty tldrRunProperty = 
-    			new TLDRRunProperty(projectBuildDir, "math", commit_hash, commit_serial, "maven");
+    	TLDRRunProperty tldrRunProperty = new TLDRRunProperty(
+    			projectBuildDir, 
+    			getProjectName(), 
+    			commit_hash, 
+    			commit_serial, 
+    			Constants.BUILD_TOOL_TYPE_MAVEN);
     	String impactedTests = tldr.getImpactedTest(tldrRunProperty);
     	
     	if (impactedTests.length() == 0 || impactedTests == null) {

@@ -1,7 +1,10 @@
 package uci.ics.mondego.tldr.maven;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.tool.Constants;
 
 public final class SurefireMojoInterceptor extends AbstractMojoInterceptor {
@@ -43,13 +46,15 @@ public final class SurefireMojoInterceptor extends AbstractMojoInterceptor {
     }
     
     private static void updateTests(Object mojo) throws Exception {
-        logger.log(Level.FINE, "updating Excludes");
-        String currentTests = getStringField(Constants.TEST_FIELD, mojo);
-        String newTests = System.getProperty(Constants.TLDR_TEST_PROPERTY);
-        if (currentTests != null) {
-        	newTests += (Constants.COMMA + currentTests);
-        } 
+        logger.log(Level.FINE, "updating Tests");
+        String testsToRun = System.getProperty(Constants.TLDR_TEST_PROPERTY);
         
-        setField(Constants.TEST_FIELD, mojo, newTests);
+        if(testsToRun ==  null || testsToRun.length() == 0) {
+        	List<String> excludes = new ArrayList<String>();
+        	excludes.add(Constants.ALL_TEST_REGEX);
+        	setField(Constants.EXCLUDES_FIELD, mojo, excludes);
+        } else {
+        	setField(Constants.TEST_FIELD, mojo, testsToRun);
+        }       
     }
 }

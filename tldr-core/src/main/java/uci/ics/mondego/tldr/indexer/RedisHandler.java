@@ -10,14 +10,10 @@ import uci.ics.mondego.tldr.tool.DatabaseIDs;
 import uci.ics.mondego.tldr.tool.Constants;
 
 import java.time.Duration;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import io.netty.util.internal.ConcurrentSet;
 
 /**
  * This class is a wrapper class to manage access to Redis server. This class is Singleton
@@ -36,7 +32,6 @@ public class RedisHandler{
     private static final JedisPoolConfig poolConfig = buildPoolConfig();
     private final static JedisPool jedisPool = new JedisPool(poolConfig, "localhost", 6379,10*1000);  
     private Jedis jedis;
-    private String project_id = null;
     
     private static JedisPoolConfig buildPoolConfig() {
         final JedisPoolConfig poolConfig = new JedisPoolConfig();
@@ -73,7 +68,7 @@ public class RedisHandler{
 	}
 	
 	/**
-	 * Get all keys with a Regex
+	 * Get all keys with a Regular expression.
 	 * @param pattern
 	 * @return
 	 */
@@ -103,7 +98,6 @@ public class RedisHandler{
 				projectId = Integer.parseInt(id); 
 				projectId++;
 				insert("project", "LAST-PROJECT-ID", projectId+"");
-				project_id = projectId + Constants.EMPTY;
 			}
 			insert(DatabaseIDs.TABLE_ID_PROJECT, projectName, projectId+"");
 		} catch (JedisConnectionException e) {

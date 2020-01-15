@@ -6,8 +6,6 @@ package uci.ics.mondego.tldr.plugin;
 
 import java.io.File;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.List;
 
 import uci.ics.mondego.tldr.TLDR;
@@ -22,7 +20,6 @@ import org.apache.maven.plugin.surefire.SurefirePlugin;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.surefire.booter.Classpath;
-import org.apache.maven.surefire.util.DefaultScanResult;
 
 /**
  * Base Mojo for TLDR.
@@ -32,7 +29,6 @@ import org.apache.maven.surefire.util.DefaultScanResult;
 abstract class BaseMojo extends SurefirePlugin {
     static final String STAR = "*";
 	private static final Logger logger = LogManager.getLogger(BaseMojo.class);
-    
     
     /**
      * Hash code of a commit. This is needed to generate report for each 
@@ -59,27 +55,9 @@ abstract class BaseMojo extends SurefirePlugin {
     
     protected Classpath sureFireClassPath;
     
-    protected long elapsedTime;
-    protected long startTime;
-    protected long endTime;
-    
-    protected TLDR tldr = new TLDR();
-
-    public List<String> getTestClasses() {
-        DefaultScanResult defaultScanResult = null;
-        try {
-            Method scanMethod = AbstractSurefireMojo.class.getDeclaredMethod("scanForTestClasses", null);
-            scanMethod.setAccessible(true);
-            defaultScanResult = (DefaultScanResult) scanMethod.invoke(this, null);
-        } catch (NoSuchMethodException nsme) {
-            nsme.printStackTrace();
-        } catch (InvocationTargetException ite) {
-            ite.printStackTrace();
-        } catch (IllegalAccessException iae) {
-            iae.printStackTrace();
-        }
-        return (List<String>) defaultScanResult.getFiles();
-    }
+    protected static double testRunElapsedTimeInSecond;
+    protected static long testRunEndTime;
+    protected static long testSelectionEndTime;
     
     public Classpath getSureFireClassPath() throws MojoExecutionException {
         if (sureFireClassPath == null) {
@@ -123,7 +101,6 @@ abstract class BaseMojo extends SurefirePlugin {
         } catch (IllegalAccessException iae) {
             iae.printStackTrace();
         }
-    	
     	return projectName;
     }
     

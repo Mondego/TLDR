@@ -56,7 +56,7 @@ public class MethodParser {
 			throw new EmptyByteCodeException(method.getName());
 		}
 		
-		String[] code = method.getCode().toString().split("\n");
+		String[] code = method.getCode().toString().split(Constants.NEW_LINE);
 		
 		for(String line: code) {
 			//method call
@@ -74,7 +74,7 @@ public class MethodParser {
 			   line.contains("invokedynamic")) {
 				
 				// sometime we see anomaly in bytecode -- '<LINE NUMBER>:' and <COMMAND> are together
-				if (parts[0].indexOf(":") < (parts[0].length() - 1)) {
+				if (parts[0].indexOf(Constants.COLON) < (parts[0].length() - 1)) {
 					processed = parts[1] + parseMethodParameters(parts[2]);
 				} else {
 					// in regular case
@@ -88,7 +88,7 @@ public class MethodParser {
 				    line.contains("putstatic") || 
 				    line.contains("putfield")) {
 				
-				if(parts[0].indexOf(":") < (parts[0].length() - 1)) {
+				if(parts[0].indexOf(Constants.COLON) < (parts[0].length() - 1)) {
 					processed = parts[1];
 				} else {
 					processed = parts[2];
@@ -97,7 +97,7 @@ public class MethodParser {
 			///// CHECK CAREFULLY
 			else if(line.contains("checkcast")) {
 				// because a checkcast instruction looks like --- 51:   checkcast		<com.mojang.brigadier.tree.CommandNode> (64)
-				if (parts[0].indexOf(":") < (parts[0].length() - 1)) {
+				if (parts[0].indexOf(Constants.COLON) < (parts[0].length() - 1)) {
 					processed = parts[1].substring(1, parts[1].length() - 1);
 				} else {
 					processed = parts[2].substring(1, parts[2].length() - 1);

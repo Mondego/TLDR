@@ -7,8 +7,10 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 
+import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.maven.AgentLoader;
 import uci.ics.mondego.tldr.tool.Constants;
+import uci.ics.mondego.tldr.tool.Report;
 
 /**
  * Mojo to run TLDR
@@ -19,7 +21,7 @@ import uci.ics.mondego.tldr.tool.Constants;
 public class RunMojo extends DiffMojo {
 
 	 private static final Logger logger = LogManager.getLogger(RunMojo.class);	 
-	 protected String impactedTests =  null;
+	 protected static Report report;
 
 	 @Override
 	 public void execute() throws MojoExecutionException, MojoFailureException  {
@@ -27,8 +29,10 @@ public class RunMojo extends DiffMojo {
 	     if (AgentLoader.loadDynamicAgent()) {
 	        	logger.info("AGENT LOADED!!!");
 	            System.setProperty(Constants.TLDR_TEST_PROPERTY, getImpactedTests());
-	        } else {
-	            throw new MojoExecutionException("I COULD NOT ATTACH THE AGENT");
-	        }
+	            report = getTestSelectionReport();
+		    	testSelectionEndTime = tldr.getSelectionEndTime();		    	
+	     } else {
+	            throw new MojoExecutionException("Agent attachment failed");
+	     }
 	 }
 }
