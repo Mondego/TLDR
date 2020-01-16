@@ -83,28 +83,30 @@ public class RedisHandler{
 	public void insertProject(String projectName) {
 		try {
 			int projectId = 0;
+			
 			// If the project already exits then does not
 			// insert again.
 			if (projectExists(projectName)) {
 				return;
 			}
-			// Update the last used ID number so that the next ID
-			// can be used for next project.
-			String id =  getValueByKey(
-					/* tableId= */ Constants.EMPTY, 
-					/* key= */ "LAST-PROJECT-ID");
 			
-			if (id !=  null) {
+			// Update the last used ID number so that the next ID
+			// can be used for next project.			
+			if (jedis.exists("LAST-PROJECT-ID")) {				
+				String id =  jedis.get("LAST-PROJECT-ID");				
 				projectId = Integer.parseInt(id); 
 				projectId++;
-				insert("project", "LAST-PROJECT-ID", projectId+"");
+				jedis.set("LAST-PROJECT-ID", Integer.toString(projectId));
+			} else {				
+				jedis.set("LAST-PROJECT-ID", Integer.toString(projectId));
 			}
-			insert(DatabaseIDs.TABLE_ID_PROJECT, projectName, projectId+"");
+			insert(DatabaseIDs.TABLE_ID_PROJECT, 
+					projectName, 
+					Integer.toString(projectId));
+			
 		} catch (JedisConnectionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NullDbIdException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -184,15 +186,12 @@ public class RedisHandler{
 			if (lookupKey.startsWith("null") 
 				|| tableId == null 
 				|| (!tableId.equals(DatabaseIDs.TABLE_ID_PROJECT) && projectId == null)) {
-				System.out.println("hereh ************" + lookupKey + "  "
-						+ tableId+ "   " + projectId);
 				throw new NullDbIdException(key+" "+value);
 			}		    
 			jedis.set(lookupKey, value);
 		} catch(JedisDataException e) {
 			e.printStackTrace();
-		}
-		catch(ClassCastException e) {
+		} catch(ClassCastException e) {
 			e.printStackTrace();
 		}
 	}

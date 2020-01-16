@@ -11,7 +11,6 @@ import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.maven.AgentLoader;
 import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.Report;
-
 /**
  * Mojo to run TLDR
  * @author demigorgan
@@ -21,7 +20,7 @@ import uci.ics.mondego.tldr.tool.Report;
 public class RunMojo extends DiffMojo {
 
 	 private static final Logger logger = LogManager.getLogger(RunMojo.class);	 
-	 protected static Report report;
+	 protected static Report report = null;
 
 	 @Override
 	 public void execute() throws MojoExecutionException, MojoFailureException  {

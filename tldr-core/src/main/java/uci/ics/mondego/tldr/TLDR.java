@@ -217,7 +217,8 @@ public class TLDR {
     	RedisHandler redisHandler = new RedisHandler();
     	if (redisHandler.projectExists(projectName)) {
     		return redisHandler.getProjectId(projectName);
-    	} 
+    	}
+    	
     	redisHandler.insertProject(projectName);
     	redisHandler.close();
     	return redisHandler.getProjectId(projectName);
@@ -227,7 +228,7 @@ public class TLDR {
     private static String getTestFilterForMaven(){
 	   StringBuilder sb = new StringBuilder();
        Set<Map.Entry<String, Integer>> all = completeTestCaseSet.entrySet();
-       int i = 0;
+
        for (Entry<String, Integer> es: all) {
     	   if(es.getKey().contains("<init>") || es.getKey().contains("clinit")) {
     		   continue;  
@@ -238,10 +239,7 @@ public class TLDR {
     	   String func = pkg.substring(pkg.lastIndexOf(Constants.DOT)+1);
     	   sb.append(Constants.POUND);
     	   sb.append(func);
-    	   i++;
-    	   
-    	   sb.append(Constants.COMMA);
-    	  	   
+    	   sb.append(Constants.COMMA);   	  	   
        }
        return sb.toString();
     }
@@ -268,9 +266,7 @@ public class TLDR {
     	return selectionEndTime;
     }
     
-    public Report getTestSelectionReport() {
-    	
-    	System.out.println("~~~~~~~~~~~~~~~~~"+TLDR.completeTestCaseSet.entrySet());
+    public Report getTestSelectionReport() {    	
     	return new Report(
     			allNewAndChangedentities, 
     			entityToTest, 

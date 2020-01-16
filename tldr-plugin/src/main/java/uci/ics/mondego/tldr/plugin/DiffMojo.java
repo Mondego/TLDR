@@ -42,7 +42,6 @@ public class DiffMojo extends BaseMojo {
     			commit_serial, 
     			Constants.BUILD_TOOL_TYPE_MAVEN);
     	String impactedTests = tldr.getImpactedTest(tldrRunProperty);
-    	
     	if (impactedTests.length() == 0 || impactedTests == null) {
     		logger.info("No test was impacted.");
     	}

@@ -14,7 +14,6 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
 import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.ReportWriter;
 
-
 /**
  * Mojo to run TLDR
  * @author demigorgan
