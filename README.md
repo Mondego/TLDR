@@ -34,7 +34,10 @@ brew install redis
 `mvn tldr:tldr`
 If the project has used `rat` or `checkStyle` plugin turn them off.
 
-
+* Some optional flags - 
+ `commit.hash` -- Hash code of a particular commit. This can be used to log TLDR result for a particular commit.
+ `commit.serial` -- Serial number of a commit. This is used then the tool is being evaluated on a series of commit one by one.
+ `parallel.retest.all` -- Setting it to `true` will turn off TLDR and perform `retest-all` parallelly.  	
 Contributing to TLDR
 --------------------
 The project is currently under active construction. Details will follow as we continue to build it. We aren't welcoming contribution just yet.
