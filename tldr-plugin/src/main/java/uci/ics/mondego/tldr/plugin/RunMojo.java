@@ -9,8 +9,8 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
 
 import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.maven.AgentLoader;
+import uci.ics.mondego.tldr.model.Report;
 import uci.ics.mondego.tldr.tool.Constants;
-import uci.ics.mondego.tldr.tool.Report;
 /**
  * Mojo to run TLDR
  * @author demigorgan

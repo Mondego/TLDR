@@ -6,6 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.Set;
 import java.util.Map.Entry;
 
+import uci.ics.mondego.tldr.model.Report;
+
 public class ReportWriter {
 	
     public void logExperiment(String logFileName, Report report, double testRunTimeInSecond) { 	

@@ -153,7 +153,8 @@ public class RedisHandler{
         if (instance == null) {
         	if(b.length == 0) {
         		instance = new RedisHandler();       		
-        	} else if(b.length == 1) {
+        	} 
+        	else if(b.length == 1) {
         		instance = new RedisHandler(b[0]);
         	}
         } 
@@ -189,9 +190,11 @@ public class RedisHandler{
 				throw new NullDbIdException(key+" "+value);
 			}		    
 			jedis.set(lookupKey, value);
-		} catch(JedisDataException e) {
+		} 
+		catch(JedisDataException e) {
 			e.printStackTrace();
-		} catch(ClassCastException e) {
+		} 
+		catch(ClassCastException e) {
 			e.printStackTrace();
 		}
 	}
@@ -202,7 +205,7 @@ public class RedisHandler{
 	public void update(String tableId, String key, String value) 
 			throws JedisConnectionException, 
 			       NullDbIdException {
-		this.insert(tableId, key, value);
+		insert(tableId, key, value);
 	}
 	
 	public String getValueByKey(String tableId, String key) throws JedisConnectionException { 
@@ -215,15 +218,17 @@ public class RedisHandler{
 	public boolean exists(String tableId, String key) 
 			throws JedisConnectionException {				
 		boolean ret = false;
-		try{
+		try {
 			String projectId = System.getProperty(Constants.PROJECT_ID);
 			String lookupKey = projectId + Constants.HYPHEN + tableId + key;
 			
 			ret = jedis.exists(lookupKey);
-		} catch(NullPointerException e) {
+		} 
+		catch(NullPointerException e) {
 			e.printStackTrace();
 		}
-	    return ret;
+	    
+		return ret;
 	}
 	
 	public long insertInSet (
@@ -245,9 +250,10 @@ public class RedisHandler{
 		//INSERT IN FORWARD INDEX		
 		String forwardTableId = null;
 		
-		if(tableId.equals(DatabaseIDs.TABLE_ID_DEPENDENCY)){
+		if (tableId.equals(DatabaseIDs.TABLE_ID_DEPENDENCY)) {
 			forwardTableId = DatabaseIDs.TABLE_ID_FORWARD_INDEX_DEPENDENCY;
-		} else if (tableId.equals(DatabaseIDs.TABLE_ID_TEST_DEPENDENCY)) {
+		} 
+		else if (tableId.equals(DatabaseIDs.TABLE_ID_TEST_DEPENDENCY)) {
 			forwardTableId = DatabaseIDs.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY;
 		}
 				
@@ -284,6 +290,7 @@ public class RedisHandler{
 	    		if (extractedKey == null || extractedKey.length() == 0) {
 	    			continue;
 	    		}
+	    		
 	    		keys.add(extractedKey);
 	    	}
 		}
@@ -294,14 +301,17 @@ public class RedisHandler{
 	public Set<String> getSet(String tableId, String key) {
 		String projectId = System.getProperty(Constants.PROJECT_ID);
 		Set<String> ret = new HashSet<String>();
-		try{
+		try {
 			String lookupKey = projectId + Constants.HYPHEN + tableId + key;
 			ret = jedis.smembers(lookupKey);
-		} catch(JedisDataException e) {
+		} 
+		catch(JedisDataException e) {
 			e.printStackTrace();
-		} catch(ClassCastException e) {
+		} 
+		catch(ClassCastException e) {
 			e.printStackTrace();
 		}
+		
 		return ret;
 	}
 	
@@ -319,7 +329,8 @@ public class RedisHandler{
 	}
 	
 	public void close() {
-		if(jedis != null && jedis.isConnected())
-	        jedis.close();
+		if(jedis != null && jedis.isConnected()) {
+			jedis.close();
+		}
 	}	
 }

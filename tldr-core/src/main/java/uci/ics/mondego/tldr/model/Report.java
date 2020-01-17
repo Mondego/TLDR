@@ -1,4 +1,4 @@
-package uci.ics.mondego.tldr.tool;
+package uci.ics.mondego.tldr.model;
 
 import java.util.HashMap;
 import java.util.Map;

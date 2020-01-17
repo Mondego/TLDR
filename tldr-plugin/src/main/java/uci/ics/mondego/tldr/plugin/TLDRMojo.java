@@ -10,7 +10,6 @@ import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
-import org.apache.maven.surefire.util.RunOrder;
 
 import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.ReportWriter;

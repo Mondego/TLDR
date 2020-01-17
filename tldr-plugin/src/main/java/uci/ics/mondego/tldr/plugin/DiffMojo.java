@@ -10,8 +10,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 
 import uci.ics.mondego.tldr.TLDR;
+import uci.ics.mondego.tldr.model.Report;
 import uci.ics.mondego.tldr.tool.Constants;
-import uci.ics.mondego.tldr.tool.Report;
 import uci.ics.mondego.tldr.tool.TLDRRunProperty;
 
 @Mojo(name = "diff", requiresDirectInvocation = true, requiresDependencyResolution = ResolutionScope.TEST)

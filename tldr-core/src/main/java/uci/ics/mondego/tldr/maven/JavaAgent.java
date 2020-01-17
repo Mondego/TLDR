@@ -7,14 +7,6 @@ import uci.ics.mondego.tldr.tool.Constants;
 
 
 public class JavaAgent {
-    /**
-     * This method is invoked if we start the agent after the VM already started.
-     * We use this method to hijack the surefire instance being run, so that we
-     * can set its argLine correctly all the time.
-     *
-     * @param options         The options that we pass to the agent
-     * @param instrumentation The instrumentation instance
-     */
     public static void agentmain(String options, Instrumentation instrumentation) {
         instrumentation.addTransformer(new MavenCFT(), true);
         instrumentMaven(instrumentation);
