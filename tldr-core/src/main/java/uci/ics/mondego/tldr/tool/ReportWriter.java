@@ -1,21 +1,16 @@
 package uci.ics.mondego.tldr.tool;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Set;
 import java.util.Map.Entry;
 
-import uci.ics.mondego.tldr.TLDR;
-
 public class ReportWriter {
 	
     public void logExperiment(String logFileName, Report report, double testRunTimeInSecond) { 	
-    	//System.out.println("GENERATING REPORT FOR "+project+" Commit: "+commit);	           	
     	PrintWriter writer1;
 		try {
-			System.out.println(report == null);
 			writer1 = new PrintWriter(logFileName, "UTF-8");
 			writer1.println("NUMBER OF NEW OR CHANGED ENTITIES : "+ report.getNewOrChangedEntities().size());	   
 			writer1.println("NUMBER OF ENTITY TO TEST : "+report.getEntitiesToTest().size());	   
@@ -47,6 +42,20 @@ public class ReportWriter {
 	    	for(Entry<String, Integer> e: report.getTestsToRun().entrySet()){
 	    		writer1.println(e.getKey());
 	    	}	    	
+	    	writer1.close();
+		} 
+		catch (FileNotFoundException fileNotFoundException) {
+	    	fileNotFoundException.printStackTrace();
+		} catch (UnsupportedEncodingException unsupportedEncodingException) {
+			unsupportedEncodingException.printStackTrace();
+		}    	
+    }
+    
+    public void logExperiment(String logFileName, double testRunTimeInSecond) { 	
+    	PrintWriter writer1;
+		try {
+			writer1 = new PrintWriter(logFileName, "UTF-8");
+			writer1.println("TOTAL TIME REQUIRED TO RUN TEST: " + testRunTimeInSecond + "second");
 	    	writer1.close();
 		} 
 		catch (FileNotFoundException fileNotFoundException) {

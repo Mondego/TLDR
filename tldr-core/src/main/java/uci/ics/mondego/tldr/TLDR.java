@@ -30,7 +30,10 @@ import uci.ics.mondego.tldr.worker.TestDependencyExtractorWorker;
 import uci.ics.mondego.tldr.worker.TestFileChangeAnalyzerWorker;
 
 /**
- * This is the primary of for TLDR. 
+ * This is the primary class of for TLDR. This class exposes an API
+ * {@code getImpactedTest} that returns the list of tests that were
+ * impacted during the latest iteration. 
+ * 
  * @author demigorgan
  *
  */
@@ -217,8 +220,7 @@ public class TLDR {
     	RedisHandler redisHandler = new RedisHandler();
     	if (redisHandler.projectExists(projectName)) {
     		return redisHandler.getProjectId(projectName);
-    	}
-    	
+    	}    	
     	redisHandler.insertProject(projectName);
     	redisHandler.close();
     	return redisHandler.getProjectId(projectName);
@@ -244,8 +246,6 @@ public class TLDR {
        return sb.toString();
     }
     
-    
-    
     public static String getCLASS_DIR(){
     	return CLASS_DIR;
     }
@@ -266,6 +266,10 @@ public class TLDR {
     	return selectionEndTime;
     }
     
+    /**
+     * Returns the report of the TLDR run.
+     * @return
+     */
     public Report getTestSelectionReport() {    	
     	return new Report(
     			allNewAndChangedentities, 

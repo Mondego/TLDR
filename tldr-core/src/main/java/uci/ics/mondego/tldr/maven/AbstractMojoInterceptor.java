@@ -10,6 +10,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.net.JarURLConnection;
 import java.net.URL;
+import java.nio.file.NoSuchFileException;
 import java.util.logging.Logger;
 
 import uci.ics.mondego.tldr.tool.Constants;
@@ -52,13 +53,23 @@ public abstract class AbstractMojoInterceptor {
         try {
             field = mojo.getClass().getDeclaredField(fieldName);
         } catch (NoSuchFieldException ex) {
-            field = mojo.getClass().getSuperclass().getDeclaredField(fieldName);
+            try {
+            	field = mojo
+            			.getClass()
+            			.getSuperclass()
+            			.getDeclaredField(fieldName);
+            } catch (NoSuchFieldException noSuchFileException) {
+            	field = mojo
+            			.getClass()
+            			.getSuperclass()
+            			.getSuperclass()
+            			.getDeclaredField(fieldName);
+            }
         }
-        field.setAccessible(true);
-        
+        field.setAccessible(true);        
         field.set(mojo, value);
     }
-
+    
     protected static Object getField(String fieldName, Object mojo) throws Exception {
         Field field;
         try {

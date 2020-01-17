@@ -5,27 +5,40 @@ import java.util.Set;
 import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
 import uci.ics.mondego.tldr.exception.EmptyByteCodeException;
 import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
+/**
+ * This class parses a particular method bytecode line by line and 
+ * extract all the field and method dependency. Particularly, this 
+ * class extracts the following bytecode instructions -- 
+ * 
+ * "invokevirtual", "invokeinterface", "invokestatic", "invokespecial", 
+ * "invokefinal", "invokedynamic", "getfield", "getstatic", "putstatic", 
+ * "putfield". 
+ * 
+ * @author demigorgan
+ */
 public class MethodParser {
 
 	private final Method method;
-	private Set<String> allInternalDependency;
-	private Set<String> allExternalDependency;
-	private Set<String> allStaticDependency;
-	private Set<String> allFinalDependency;
-	private Set<String> allVirtualDependency;
-	private Set<String> allInterfaceDependency;
-	private Set<String> allStaticFieldUpdated;
-	private Set<String> allOwnFieldUpdated;
-	private Set<String> allSpecialDependency;
-	private Set<String> allFieldDependency;
+	private final Set<String> allInternalDependency;
+	private final Set<String> allExternalDependency;
+	private final Set<String> allStaticDependency;
+	private final Set<String> allFinalDependency;
+	private final Set<String> allVirtualDependency;
+	private final Set<String> allInterfaceDependency;
+	private final Set<String> allStaticFieldUpdated;
+	private final Set<String> allOwnFieldUpdated;
+	private final Set<String> allSpecialDependency;
+	private final Set<String> allFieldDependency;
+	
 	public static final Logger logger = LogManager.getLogger(MethodParser.class);
 	
 	@SuppressWarnings("")
-	public MethodParser(Method m){
+	public MethodParser(Method m) {
 		this.method = m;
 		this.allInternalDependency = new HashSet<String>();
 		this.allExternalDependency = new HashSet<String>();
@@ -40,12 +53,13 @@ public class MethodParser {
 		
 		try {
 			parse();
-		} catch (EmptyByteCodeException e) {
-			logger.error(method.getName()+" is Abstract/Interface/Annotation... Skipping parsing");
+		} 
+		catch (EmptyByteCodeException e) {
+			logger.error(method.getName() + " is Abstract/Interface/Annotation... Skipping parsing");
 		}
 	}
 	
-	private void parse() throws EmptyByteCodeException{
+	private void parse() throws EmptyByteCodeException {
 		
 		if (method.getCode() == null 
 			|| method.getCode().toString() == null 
@@ -79,11 +93,11 @@ public class MethodParser {
 				} else {
 					// in regular case
 					processed = parts[2]+parseMethodParameters(parts[3]);	
-				}
+				}				
 			}
 			
 			// field
-			else if(line.contains("getfield") ||
+			else if (line.contains("getfield") ||
 				    line.contains("getstatic") || 
 				    line.contains("putstatic") || 
 				    line.contains("putfield")) {
@@ -94,6 +108,7 @@ public class MethodParser {
 					processed = parts[2];
 				}
 			}
+			
 			///// CHECK CAREFULLY
 			else if(line.contains("checkcast")) {
 				// because a checkcast instruction looks like --- 51:   checkcast		<com.mojang.brigadier.tree.CommandNode> (64)
@@ -107,19 +122,40 @@ public class MethodParser {
 			
 			if(processed != null && line.contains("invokestatic")){
 				allStaticDependency.add(processed);
-			} else if(processed != null && line.contains("invokefinal")){
+			} 
+			
+			else if(processed != null && line.contains("invokefinal")){
 				allFinalDependency.add(processed);
-			} else if(processed != null && line.contains("invokevirtual")){
+			} 
+			
+			else if(processed != null && line.contains("invokevirtual")){
 				allVirtualDependency.add(processed);
-			} else if(processed != null && line.contains("invokeinterface")){
+			} 
+			
+			else if(processed != null && line.contains("invokeinterface")){
 				allInterfaceDependency.add(processed);
-			} else if(processed != null && line.contains("invokespecial")){			
-				allSpecialDependency.add(processed);
-			} else if(processed != null && (line.contains("getfield")  || line.contains("getstatic"))) {
+			} 
+			
+			else if(processed != null && line.contains("invokespecial")){	
+				allSpecialDependency.add(processed); // Add <init>
+				
+				// For each <init> we assume that there is an implicit dependency on 
+				// static initializer i.e. <clinit>. 
+				String staticInitializer = processStaticInitializer(processed);
+				if (staticInitializer != null) {
+					allSpecialDependency.add(staticInitializer); // Add <clinit>
+				}				 
+			} 
+			
+			else if(processed != null && (line.contains("getfield")  || line.contains("getstatic"))) {
 				allFieldDependency.add(processed);
-			} else if(processed != null && line.contains("putfield")){
+			} 
+			
+			else if(processed != null && line.contains("putfield")){
 				allOwnFieldUpdated.add(processed);
-			} else if(processed != null && line.contains("putstatic")){
+			} 
+			
+			else if(processed != null && line.contains("putstatic")){
 				allStaticFieldUpdated.add(processed);
 			}
 		}
@@ -127,7 +163,7 @@ public class MethodParser {
 	
 	private String parseMethodParameters(String signature){		
 		try{
-			signature = signature.substring(signature.indexOf("(")+1, signature.indexOf(")"));
+			signature = signature.substring(signature.indexOf("(") + 1, signature.indexOf(")"));
 			
 			if (signature.length() == 0) {
 				return "()";
@@ -143,12 +179,14 @@ public class MethodParser {
 				
 				for (int j = 0;j < params[i].length(); j++){
 					if (StringProcessor.isPrimitive(params[i].charAt(j))) {
-						sb.append("$"+StringProcessor.convertBaseType(params[i].charAt(j)) + array_append);
+						sb.append( 
+								"$" + StringProcessor.convertBaseType(params[i].charAt(j)) + array_append);
 						array_append = Constants.EMPTY;
 					}
 					
 					else if(params[i].charAt(j) == 'L'){
-						sb.append("$"+StringProcessor.pathToFqnConverter(params[i].substring(j+1))+array_append);
+						sb.append(
+								"$" + StringProcessor.pathToFqnConverter(params[i].substring(j+1)) + array_append);
 						array_append = Constants.EMPTY;
 						break;
 					}
@@ -168,6 +206,19 @@ public class MethodParser {
 		
 		return null;
 	}
+	
+	private String processStaticInitializer(String fqn) {
+		// This method basically replaces <init> by <clinit>
+		if (!fqn.contains("<init>")) {
+			return null;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(fqn.substring(0, fqn.indexOf('<')));
+		sb.append("<clinit>()");
+		return sb.toString();
+	}
+
 	
 	public Set<String> getAllInternalDependencies(){
 		return allInternalDependency;
@@ -219,30 +270,37 @@ public class MethodParser {
 	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
+		
 		sb.append("\nALL VIRTUAL DEPENDENCY :  \n");
 		for(String str: allVirtualDependency){
 			sb.append(str+" , ");
 		}
+		
 		sb.append("\nALL INTERFACE DEPENDENCY :  \n");
 		for(String str: allInterfaceDependency){
 			sb.append(str+" , ");
 		}
+		
 		sb.append("\nALL FINAL DEPENDENCY :  \n");
 		for(String str: allFinalDependency){
 			sb.append(str+" , ");
 		}
+		
 		sb.append("\nALL STATIC DEPENDENCY :  \n");
 		for(String str: allStaticDependency){
 			sb.append(str+" , ");
 		}
+		
 		sb.append("\nALL SPECIAL DEPENDENCY :  \n");
 		for(String str: allSpecialDependency){
 			sb.append(str+" , ");
 		}
+		
 		sb.append("\nALL FIELD DEPENDENCY :  \n");
 		for(String str: allFieldDependency){
 			sb.append(str+" , ");
 		}
+		
 		return sb.toString();
 	}
 }

@@ -1,7 +1,7 @@
 package uci.ics.mondego.tldr.tool;
 
 /**
- * Property class. This class is created to config properties for a run of TLDR-core.
+ * Property class. This class is created to configure properties to TLDR-core.
  * @author demigorgan
  *
  */
@@ -13,7 +13,7 @@ public class TLDRRunProperty {
 	private String commit_serial;
 	private String tool_type;
 	
-	public TLDRRunProperty(
+	public TLDRRunProperty (
 			String class_dir, 
 			String project_name, 
 			String commit_hash, 

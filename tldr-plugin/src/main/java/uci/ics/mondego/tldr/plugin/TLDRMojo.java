@@ -10,9 +10,11 @@ import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
+import org.apache.maven.surefire.util.RunOrder;
 
 import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.ReportWriter;
+
 
 /**
  * Mojo to run TLDR
@@ -31,16 +33,31 @@ public class TLDRMojo extends RunMojo {
 	     // test selection end time == test run start time
 	     testRunElapsedTimeInSecond = testRunEndTime - testSelectionEndTime;
 	     testRunElapsedTimeInSecond = (double) testRunElapsedTimeInSecond / 1000000000.0;	
-	     
-	     String logFileName = getLogDirectory() + commit_serial + "_REPORT_" + commit_hash + "_.txt";
-	     
+	     	     
 	     ReportWriter reportWriter = new ReportWriter();
-	     reportWriter.logExperiment(
-	    		 logFileName, 
-	    		 report, 
-	    		 testRunElapsedTimeInSecond);
+	     
+	     if (parallel_retest_all.equals(Constants.TRUE)) {
+		     String logFileName = 
+		    		 getLogDirectory() 
+		    		 + commit_serial 
+		    		 + "_RETEST_ALL_REPORT_" 
+		    		 + commit_hash 
+		    		 + "_.txt";
+	    	 reportWriter.logExperiment(logFileName, testRunElapsedTimeInSecond);
+	     } else {
+		     String logFileName = 
+		    		 getLogDirectory() 
+		    		 + commit_serial 
+		    		 + "_REPORT_" 
+		    		 + commit_hash 
+		    		 + "_.txt";
+		     
+	    	 reportWriter.logExperiment(
+		    		 logFileName, 
+		    		 report, 
+		    		 testRunElapsedTimeInSecond); 
+	     }
 	 } 
-	
 	
 	private String getLogDirectory () {
 		String homeDirectory = System.getProperty("user.home");

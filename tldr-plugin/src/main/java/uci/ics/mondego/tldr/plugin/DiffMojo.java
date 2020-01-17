@@ -22,8 +22,7 @@ public class DiffMojo extends BaseMojo {
     protected static TLDR tldr = new TLDR();
 	
     public void execute() throws MojoExecutionException , MojoFailureException {
-    	String impactedTests = getImpactedTests();
-    	    	
+    	String impactedTests = getImpactedTests();   	    	
     	logger.info("Following tests were impacted .... ");
     	logger.info(impactedTests);
     }

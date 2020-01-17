@@ -104,37 +104,49 @@ public class DependencyExtractor {
 			Method m = changedMethod.getValue();
 			MethodParser parser = new MethodParser(m);
 								
-			this.allVirtualDependency = parser.getAllVirtualDependency();
-			this.allInterfaceDependency = parser.getAllInterfaceDependency();
-			this.allStaticDependency = parser.getAllStaticDependency();
-			this.allFinalDependency = parser.getAllFinalDependency();
-			this.allSpecialDependency = parser.getAllSpecialDependency();
-			this.allStaticFieldUpdated = parser.getAllStaticFieldUpdated();
-			this.allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
-			this.allFieldDependency = parser.getAllFieldDependency();			
+			allVirtualDependency = parser.getAllVirtualDependency();
+			allInterfaceDependency = parser.getAllInterfaceDependency();
+			allStaticDependency = parser.getAllStaticDependency();
+			allFinalDependency = parser.getAllFinalDependency();
+			allSpecialDependency = parser.getAllSpecialDependency();
+			allStaticFieldUpdated = parser.getAllStaticFieldUpdated();
+			allOwnFieldUpdated = parser.getAllOwnFieldUpdated();
+			allFieldDependency = parser.getAllFieldDependency();			
 			
 			for(String field: allStaticFieldUpdated) {
-				if(!(field.startsWith("java.lang") || field.startsWith("java.util") || 
-						field.startsWith("java.io")|| field.startsWith("java.net") || 
-						field.startsWith("java.awt"))){
+				if( !(field.startsWith("java.lang") 
+						|| field.startsWith("java.util") 
+						|| field.startsWith("java.io")
+						|| field.startsWith("java.net") 
+						|| field.startsWith("java.awt"))) {
+					
 					this.fieldValueChanged.add(field);
 				}
-				else if(!(field.startsWith("java/lang") || field.startsWith("java/util") || 
-						field.startsWith("java/io")|| field.startsWith("java/net") || 
-						field.startsWith("java/awt"))){
+				else if(!(field.startsWith("java/lang") 
+						|| field.startsWith("java/util") 
+						|| field.startsWith("java/io")
+						|| field.startsWith("java/net") 
+						|| field.startsWith("java/awt"))) {
+					
 					this.fieldValueChanged.add(field);
 				}
 			}
 			
 			for(String field: allOwnFieldUpdated){
-				if(!(field.startsWith("java.lang") || field.startsWith("java.util") || 
-						field.startsWith("java.io")|| field.startsWith("java.net") || 
-						field.startsWith("java.awt"))){
+				if(!(field.startsWith("java.lang") 
+						|| field.startsWith("java.util") 
+						|| field.startsWith("java.io")
+						|| field.startsWith("java.net") 
+						|| field.startsWith("java.awt"))){
+					
 					this.fieldValueChanged.add(field);
 				}
-				else if(!(field.startsWith("java/lang") || field.startsWith("java/util") || 
-						field.startsWith("java/io")|| field.startsWith("java/net") || 
-						field.startsWith("java/awt"))){
+				else if(!(field.startsWith("java/lang") 
+						|| field.startsWith("java/util")
+						|| field.startsWith("java/io")
+						|| field.startsWith("java/net") 
+						|| field.startsWith("java/awt"))) {
+					
 					this.fieldValueChanged.add(field);
 				}
 			}
@@ -147,8 +159,11 @@ public class DependencyExtractor {
 				this.syncAllPossibleDependency(dep, dependent);
 			}
 			
-			for(String dep: allStaticDependency) {
-				this.syncSingleDependency(dep, dependent);
+			for (String dep: allStaticDependency) {
+				this.syncAllPossibleDependency(dep, dependent);
+				
+				/*** this is commented out based on reviews got *****/
+				//this.syncSingleDependency(dep, dependent);
 			}
 			
 			for(String dep: allFinalDependency) {
@@ -269,7 +284,7 @@ public class DependencyExtractor {
 			int index = dependency.indexOf("(");
 			StringBuilder sb = new StringBuilder();
 			sb.append(dependency.substring(index));
-			for(int i = index - 1; i >= 0; i--) {
+			for (int i = index - 1; i >= 0; i--) {
 				if (dependency.charAt(i) == Constants.DOT) {
 					break;
 				}
@@ -277,7 +292,7 @@ public class DependencyExtractor {
 			}
 			
 			String pattern = sb.toString();
-			String claz = dependency.substring(0, dependency.indexOf(pattern) >=0? 
+			String claz = dependency.substring(0, dependency.indexOf(pattern) >= 0 ? 
 					dependency.indexOf(pattern) - 1: dependency.length());
 				
 			List<String> keysDown = traverseClassHierarchyDownwards(claz, pattern);
@@ -288,21 +303,25 @@ public class DependencyExtractor {
 			}
 						
 			List<String> keysUp = traverseClassHierarchyUpwards(claz, pattern);
+			
 			if(CollectionUtils.isEmpty(keysUp)) {
 				return;
 			}
 			
 			for(String k: keysUp) {
 				addDependentsInDb(k, dependents); // because we have to remove table id
-			}	
-			
-		} catch(NullPointerException e) {
+			}			
+		} 
+		catch(NullPointerException e) {
 			e.printStackTrace();
-		} catch(StringIndexOutOfBoundsException e) {
+		} 
+		catch(StringIndexOutOfBoundsException e) {
 			e.printStackTrace();
-		} catch (UnknownDBIdException e) {
+		} 
+		catch (UnknownDBIdException e) {
 			e.printStackTrace();
-		} catch (NullDbIdException e) {
+		} 
+		catch (NullDbIdException e) {
 			e.printStackTrace();
 		}
 	}
@@ -310,11 +329,14 @@ public class DependencyExtractor {
 	protected void syncSingleDependency(String dependency, String dependents){
 		try {
 			addDependentsInDb(dependency, dependents);
-		} catch(NullPointerException e){
+		} 
+		catch(NullPointerException e){
 			e.printStackTrace();
-		} catch (UnknownDBIdException e) {
+		} 
+		catch (UnknownDBIdException e) {
 			e.printStackTrace();
-		} catch (NullDbIdException e) {
+		} 
+		catch (NullDbIdException e) {
 			e.printStackTrace();
 		}
 	}

@@ -54,6 +54,15 @@ public final class SurefireMojoInterceptor extends AbstractMojoInterceptor {
         	excludes.add(Constants.ALL_TEST_REGEX);
         	setField(Constants.EXCLUDES_FIELD, mojo, excludes);
         } else {
+        	
+        	if (System.getProperty(Constants.PARALLEL_RETEST_ALL).equals(Constants.TRUE)) {
+        		// Set up parallel test running configuration.
+            	setField(Constants.PARALLEL_FIELD, mojo, "all");
+            	setField(Constants.THREAD_COUNT_FIELD, mojo, 8);
+            	setField(Constants.REDIRECT_TEST_OUTPUT_TO_FILE_FIELD, mojo, false);
+        	}
+        	
+        	// Set up the selected test methods to run.
         	setField(Constants.TEST_FIELD, mojo, testsToRun);
         }       
     }

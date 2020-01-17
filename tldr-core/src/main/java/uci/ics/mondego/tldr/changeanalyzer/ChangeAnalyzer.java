@@ -8,7 +8,6 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
-import uci.ics.mondego.tldr.tool.Constants;
 
 /**
  * Base class for file and member change analyzer.

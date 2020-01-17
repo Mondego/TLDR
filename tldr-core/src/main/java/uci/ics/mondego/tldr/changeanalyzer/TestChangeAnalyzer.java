@@ -50,7 +50,6 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 			this.closeRedis();
 		} 
 		catch (NullDbIdException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -60,20 +59,20 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		this.parseInterface();
 		this.parseSuperClass();
 		
-		Set<String> all_superclass_interface = this.redisHandler.getSet(
+		Set<String> all_superclass_interface = redisHandler.getSet(
 				DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, 
 				parsedClass.getClassName());
 				
-		for(int i=0;i<allInterfaces.size();i++) {
+		for( int i = 0; i < allInterfaces.size(); i++) {
 			if(!all_superclass_interface.contains(allInterfaces.get(i))
 				&& !(allInterfaces.get(i).startsWith("java.") 
 				|| allInterfaces.get(i).startsWith("junit."))) {
 				
-				this.redisHandler.insertInSet(
+				redisHandler.insertInSet(
 						DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, 
 						parsedClass.getClassName(), 
 						allInterfaces.get(i));
-				this.redisHandler.insertInSet(
+				redisHandler.insertInSet(
 						DatabaseIDs.TABLE_ID_SUBCLASS, 
 						allInterfaces.get(i), 
 						parsedClass.getClassName());
@@ -81,18 +80,18 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		}
 		
 		if(!all_superclass_interface.contains(this.superClass) 
-				&& this.superClass != null 
-				&& this.superClass.length() > 0 
-				&& !this.superClass.startsWith("java") 
-				&& !this.superClass.startsWith("junit")){
+				&& superClass != null 
+				&& superClass.length() > 0 
+				&& !superClass.startsWith("java") 
+				&& !superClass.startsWith("junit")){
 			
-			this.redisHandler.insertInSet(
+			redisHandler.insertInSet(
 					DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, 
 					parsedClass.getClassName(), 
-					this.superClass);
-			this.redisHandler.insertInSet(
+					superClass);
+			redisHandler.insertInSet(
 					DatabaseIDs.TABLE_ID_SUBCLASS, 
-					this.superClass, 
+					superClass, 
 					parsedClass.getClassName());
 		}				
 	}
@@ -101,7 +100,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		try {
 			String[] interfaces = this.parsedClass.getInterfaceNames();
 			for(String cls: interfaces){
-				this.allInterfaces.add(cls);
+				allInterfaces.add(cls);
 			}
 		} 
 		catch (Exception e) {
@@ -112,7 +111,7 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 	
 	private void parseSuperClass(){
 		try {
-			this.superClass = !parsedClass.getSuperclassName().startsWith("java.") 
+			superClass = !parsedClass.getSuperclassName().startsWith("java.") 
 					? parsedClass.getSuperclassName(): "";			
 		} 
 		catch (Exception e) {
@@ -180,15 +179,19 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 						code.indexOf("LocalVariable(") == -1?
 						code.length() : code.indexOf("LocalVariable(")) ;
 				
-				code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
-							
+				// Changes in other function impacts line# of other functions
+				//...so Linecount info of the code must be removed
+				code = StringUtils.replace(code, lineInfo, ""); 
+					
+				// For some reason StackMapTable also change unwanted. WHY??
 				code = code.substring(0, code.indexOf("StackMapTable") == -1
 						? code.length() 
-						: code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
+						: code.indexOf("StackMapTable"));  
 				
+				// For some reason StackMapTable also change unwanted. WHY??
 				code = code.substring(0, code.indexOf("StackMap") == -1
 						? code.length() 
-						: code.indexOf("StackMap"));  // for some reason StackMapTable also change unwanted. WHY??
+						: code.indexOf("StackMap"));  
 				
 				String methodFqn = parsedClass.getClassName()+"."+m.getName();
 	
@@ -201,14 +204,14 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
-				if (!this.allPreviousTestCases.containsKey(methodFqn)) {
-					//logger.debug(methodFqn+" is new test, added to testToRun");
+				if (!allPreviousTestCases.containsKey(methodFqn)) {
 					TLDR.allNewAndChangeTests.put(methodFqn, true);
-					this.allExtractedMethods.put(methodFqn, m);
+					allExtractedMethods.put(methodFqn, m);
 								
-					boolean ret1 = this.sync(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+					boolean ret1 = sync(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 				    
-					boolean ret2 = this.sync(DatabaseIDs.TABLE_ID_TEST_ENTITY, methodFqn, "1");
+					boolean ret2 = sync(DatabaseIDs.TABLE_ID_TEST_ENTITY, methodFqn, "1");
+					
 					if (!ret1 && !ret2) {
 						throw new DatabaseSyncException(methodFqn);
 					}
@@ -216,12 +219,13 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 				
 				else{
 					allPreviousTestCases.put(methodFqn, allPreviousTestCases.get(methodFqn) + 1);
-					String prevHashCode = this.getValue(DatabaseIDs.TABLE_ID_ENTITY, methodFqn);	
+					String prevHashCode = getValue(DatabaseIDs.TABLE_ID_ENTITY, methodFqn);	
 					
 					if (!currentHashCode.equals(prevHashCode)) {
 						TLDR.allNewAndChangeTests.put(methodFqn, true);						
-						this.allExtractedMethods.put(methodFqn, m);
-						boolean ret = this.sync(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
+						allExtractedMethods.put(methodFqn, m);
+						boolean ret = sync(
+								DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 						
 						if(!ret) {
 							throw new DatabaseSyncException(methodFqn);
@@ -245,12 +249,14 @@ public class TestChangeAnalyzer extends ChangeAnalyzer{
 		    			DatabaseIDs.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, 
 		    			key);
 		    	
-		    	this.redisHandler.removeKey(DatabaseIDs.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
+		    	redisHandler.removeKey(
+		    			DatabaseIDs.TABLE_ID_FORWARD_INDEX_TEST_DEPENDENCY, key);
 		    	for(String dep: allDependencies){
-		    		this.redisHandler.removeFromSet(DatabaseIDs.TABLE_ID_TEST_DEPENDENCY, dep, key);
+		    		redisHandler.removeFromSet(
+		    				DatabaseIDs.TABLE_ID_TEST_DEPENDENCY, dep, key);
 		    	}
 		    	
-		    	this.redisHandler.removeKey(DatabaseIDs.TABLE_ID_TEST_ENTITY, key);		    	
+		    	redisHandler.removeKey(DatabaseIDs.TABLE_ID_TEST_ENTITY, key);		    	
 		    }  
 		}
 		return count;
