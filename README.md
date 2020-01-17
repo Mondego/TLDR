@@ -36,7 +36,7 @@ mvn tldr:tldr
 ```
 If the project has used `rat` or `checkStyle` plugin turn them off - 
 ```
- mvn tldr:tldr -Dmaven.test.failure.ignore=true -Drat.skip=true
+ mvn tldr:tldr -Dmaven.test.failure.ignore=true -Drat.skip=true -Dcheckstyle.skip=true
 ```
 
 * Some optional flags - \
