@@ -12,7 +12,8 @@ import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.changeanalyzer.FileChangeAnalyzer;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 
-public class TestFileChangeAnalyzerWorker extends Worker{
+@SuppressWarnings("rawtypes")
+public class TestFileChangeAnalyzerWorker extends Worker {
 
 	private final String fileToAnalyze;
 	private static final Logger logger = LogManager.getLogger(TestFileChangeAnalyzerWorker.class);

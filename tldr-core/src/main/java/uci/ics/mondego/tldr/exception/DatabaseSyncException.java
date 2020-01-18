@@ -1,6 +1,7 @@
 package uci.ics.mondego.tldr.exception;
 
-public class DatabaseSyncException extends Exception{
+@SuppressWarnings("serial")
+public class DatabaseSyncException extends Exception {
 
 	   String message;
 	   public DatabaseSyncException(String val) {

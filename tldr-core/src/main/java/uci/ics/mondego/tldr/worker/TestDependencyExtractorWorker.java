@@ -9,10 +9,10 @@ import java.util.Set;
 import org.apache.bcel.classfile.Method;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor;
 
-public class TestDependencyExtractorWorker extends Worker{
+@SuppressWarnings("rawtypes")
+public class TestDependencyExtractorWorker extends Worker {
 	private final Map<String, Method> changedMethods;
 	private static final Logger logger = LogManager.getLogger(TestDependencyExtractorWorker.class);
 	

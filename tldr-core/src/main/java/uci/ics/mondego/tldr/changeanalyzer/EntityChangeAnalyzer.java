@@ -321,6 +321,7 @@ public class EntityChangeAnalyzer extends ChangeAnalyzer{
 	}
 	
 	//for debug purpose
+	@SuppressWarnings("unused")
 	private void printMethod (Method m) {
 		StringBuilder sb = new StringBuilder();	
 		sb.append("NAME : "+m.getName());

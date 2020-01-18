@@ -1,6 +1,8 @@
 package uci.ics.mondego.tldr.plugin;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -11,9 +13,11 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 
+import com.opencsv.CSVWriter;
+
+import uci.ics.mondego.tldr.model.Report;
 import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.ReportWriter;
-
 
 /**
  * Mojo to run TLDR
@@ -55,11 +59,49 @@ public class TLDRMojo extends RunMojo {
 		    		 logFileName, 
 		    		 report, 
 		    		 testRunElapsedTimeInSecond); 
+	    	 
+	    	 // Appends the run summary in a CSV file names SUMMARY.csv
+	    	 String csvFileName = getLogDirectory()+ "SUMMARY.csv";
+	    	 writeReportSummaryInCsv(csvFileName, report);    	 
 	     }
 	 } 
 	
+	/**
+	 * Appends the run summary to a CSV file in the Log directory.
+	 * CSV Format is : 
+	 * <commit serial number, commit hash, number of tests to run, test selection time, test run time>
+	 * @param csvFileName
+	 * @param report
+	 */
+	private void writeReportSummaryInCsv(String csvFileName, Report report) {
+	    CSVWriter writer;
+		
+	    try {
+			writer = new CSVWriter(new FileWriter(csvFileName, true));
+			String [] record = {
+					commit_serial,
+					commit_hash,
+					Integer.toString(report.getTestsToRun().size()), 
+					Double.toString(report.getSelectionTimeInSecond()),
+					Double.toString(testRunElapsedTimeInSecond)};
+			
+		    writer.writeNext(record);
+		    writer.close();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}      
+	}
+	
 	private String getLogDirectory () {
 		String homeDirectory = System.getProperty("user.home");
+		
+		if (!log_directory.equals("XXXX")) {
+			// If a specific directory is fixed then instead of home directory,
+			// in the specified directory the log file is written.
+			homeDirectory = log_directory; 
+		}
+		
 		String projectName = getProjectName();
 		String logFolder = homeDirectory 
 				+ Constants.SLASH 
@@ -72,10 +114,12 @@ public class TLDRMojo extends RunMojo {
         if (!file.exists()) {
             if (file.mkdirs()) {
             	logger.debug("Log Directory is created!");
-            } else {
+            } 
+            else {
             	logger.debug("Failed to create log directory!");
             }
-        } else {
+        } 
+        else {
         	logger.debug("Log directory exists already!");
         }
         return logFolder;

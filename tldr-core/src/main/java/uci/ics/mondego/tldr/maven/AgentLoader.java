@@ -69,7 +69,8 @@ public final class AgentLoader {
     }
 
     private static Class<?> loadVirtualMachine(URL[] urls) throws Exception {
-        URLClassLoader loader = new URLClassLoader(urls, ClassLoader.getSystemClassLoader());
+        @SuppressWarnings("resource")
+		URLClassLoader loader = new URLClassLoader(urls, ClassLoader.getSystemClassLoader());
         return loader.loadClass("com.sun.tools.attach.VirtualMachine");
     }
 

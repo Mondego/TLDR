@@ -24,7 +24,6 @@ public class SurefireReportParser {
 		try {
 			reader = new BufferedReader(new FileReader(fileName));
 			String line = reader.readLine();
-			int i = 0;
 			while (line != null) {
 				if (line.contains(seed)) {
 					String temp = line.substring(seed.length()+1);

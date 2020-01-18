@@ -32,14 +32,20 @@ public final class MavenCFT implements ClassFileTransformer {
 
         public void visitCode() {
             mv.visitVarInsn(Opcodes.ALOAD, 0);
-            mv.visitMethodInsn(Opcodes.INVOKESTATIC, mavenInterceptorName, mavenMethodName,
-                    mavenMethodDesc.replace("(", "(Ljava/lang/Object;"), false);
+            mv.visitMethodInsn(
+            		Opcodes.INVOKESTATIC, 
+            		mavenInterceptorName, 
+            		mavenMethodName,
+                    mavenMethodDesc.replace("(", "(Ljava/lang/Object;"), 
+                    false);
+            
             mv.visitCode();
         }
     }
 
     private static class MavenClassVisitor extends ClassVisitor {
-        private final String mavenClassName;
+        @SuppressWarnings("unused")
+		private final String mavenClassName;
         private final String mavenInterceptorName;
 
         public MavenClassVisitor(String className, String interceptorName, ClassVisitor cv) {
@@ -71,7 +77,8 @@ public final class MavenCFT implements ClassFileTransformer {
         if (className.equals(Constants.ABSTRACT_SUREFIRE_MOJO_VM) 
         		|| className.equals(Constants.SUREFIRE_PLUGIN_VM)) {
             return addInterceptor(className, classfileBuffer, Constants.SUREFIRE_INTERCEPTOR_CLASS_VM);
-        } else {
+        } 
+        else {
             return null;
         }
     }

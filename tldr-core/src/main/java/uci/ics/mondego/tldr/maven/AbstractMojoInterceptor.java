@@ -1,25 +1,14 @@
-/*
- * Copyright (c) 2015 - Present. The STARTS Team. All Rights Reserved.
- */
-
 package uci.ics.mondego.tldr.maven;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.net.JarURLConnection;
 import java.net.URL;
-import java.nio.file.NoSuchFileException;
 import java.util.logging.Logger;
 
 import uci.ics.mondego.tldr.tool.Constants;
 
-/**
- * This class has been used from STARTS.
- * @author demigorgan
- *
- */
 public abstract class AbstractMojoInterceptor {
 
     protected static final Logger logger = Logger.getGlobal();
@@ -37,14 +26,6 @@ public abstract class AbstractMojoInterceptor {
         URL resource = clz.getResource(
         		"/" + clz.getName().replace('.', File.separatorChar) + Constants.CLASS_EXTENSION);
         return resource;
-    }
-
-    protected static void throwMojoExecutionException(
-    		Object mojo, String message, Exception cause) throws Exception {
-        Class<?> clz = mojo.getClass().getClassLoader().loadClass(Constants.MOJO_EXECUTION_EXCEPTION_BIN);
-        Constructor<?> con = clz.getConstructor(String.class, Exception.class);
-        Exception ex = (Exception) con.newInstance(message, cause);
-        throw ex;
     }
 
     protected static void setField(

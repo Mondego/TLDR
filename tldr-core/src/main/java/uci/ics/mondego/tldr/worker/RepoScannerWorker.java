@@ -6,7 +6,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.TLDR;
 
-public class RepoScannerWorker extends Worker{
+@SuppressWarnings("rawtypes")
+public class RepoScannerWorker extends Worker {
 	private final String repoDir;
 	private static final Logger logger = LogManager.getLogger(RepoScannerWorker.class);
 

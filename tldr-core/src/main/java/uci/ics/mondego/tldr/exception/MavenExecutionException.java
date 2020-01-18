@@ -1,5 +1,6 @@
 package uci.ics.mondego.tldr.exception;
 
+@SuppressWarnings("serial")
 public class MavenExecutionException extends Exception{
 
 	 String message;

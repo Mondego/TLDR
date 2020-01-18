@@ -64,6 +64,12 @@ abstract class BaseMojo extends SurefirePlugin {
 
     @Parameter(defaultValue = "${basedir}")
     protected File basedir;
+
+    /**
+     * Optional flag to write Logs to a particular directory.
+     */
+    @Parameter(property = "log.directory", required = false, defaultValue = "XXXX")
+    protected String log_directory;
     
     protected Classpath sureFireClassPath;
     
@@ -82,20 +88,23 @@ abstract class BaseMojo extends SurefirePlugin {
         return sureFireClassPath;
     }
     
-    public List getTestClasses() {
+    @SuppressWarnings("unchecked")
+	public List<String> getTestClasses() {
         DefaultScanResult defaultScanResult = null;
         try {
             Method scanMethod = AbstractSurefireMojo.class.getDeclaredMethod("scanForTestClasses", null);
             scanMethod.setAccessible(true);
             defaultScanResult = (DefaultScanResult) scanMethod.invoke(this, null);
-        } catch (NoSuchMethodException nsme) {
+        } 
+        catch (NoSuchMethodException nsme) {
             nsme.printStackTrace();
-        } catch (InvocationTargetException ite) {
+        } 
+        catch (InvocationTargetException ite) {
             ite.printStackTrace();
-        } catch (IllegalAccessException iae) {
+        } 
+        catch (IllegalAccessException iae) {
             iae.printStackTrace();
         }
-        long end = System.currentTimeMillis();
         
         return (List<String>) defaultScanResult.getFiles();
     }
@@ -126,33 +135,39 @@ abstract class BaseMojo extends SurefirePlugin {
     		projectField.setAccessible(true);
             MavenProject accessedProject = (MavenProject) projectField.get(this);
             projectName = accessedProject.getArtifact().getArtifactId();
-    	} catch (NoSuchFieldException nsfe) {
+    	} 
+    	catch (NoSuchFieldException nsfe) {
             nsfe.printStackTrace();
-        } catch (IllegalAccessException iae) {
+        } 
+    	catch (IllegalAccessException iae) {
             iae.printStackTrace();
         }
+    	
     	return projectName;
     }
     
     protected void printResult() {
-		try {
+		
+    	try {
             Method createProvidersMethod = 
-            		AbstractSurefireMojo.class.getDeclaredMethod("createProviders", null);
+            		SurefirePlugin.class.getDeclaredMethod("createProviders", null);
             createProvidersMethod.setAccessible(true);                        
 
-            List<ProviderInfo> provideInfos = (List<ProviderInfo>)
-            		createProvidersMethod.invoke(this);
+            List<ProviderInfo> provideInfos = (List<ProviderInfo>)createProvidersMethod.invoke(this);
                            
             Method executeProviderMethod = 
             		AbstractSurefireMojo.class.getDeclaredMethod("executeProvider", null);
             executeProviderMethod.setAccessible(true);
             RunResult runResult = 
             		(RunResult) executeProviderMethod.invoke(this, provideInfos.get(3));
-		} catch (NoSuchMethodException nsme) {
+		} 
+		catch (NoSuchMethodException nsme) {
             nsme.printStackTrace();
-        } catch (InvocationTargetException ite) {
+        } 
+		catch (InvocationTargetException ite) {
             ite.printStackTrace();
-        } catch (IllegalAccessException iae) {
+        } 
+		catch (IllegalAccessException iae) {
             iae.printStackTrace();
         }
 	}	

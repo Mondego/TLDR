@@ -8,7 +8,8 @@ import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.resolution.IntraTestDFSTraversal;
 
-public class IntraTestTraversalWorker extends Worker{
+@SuppressWarnings("rawtypes")
+public class IntraTestTraversalWorker extends Worker {
 
 	private final String entity;
 	private static final Logger logger = LogManager.getLogger(DFSTraversalWorker.class);

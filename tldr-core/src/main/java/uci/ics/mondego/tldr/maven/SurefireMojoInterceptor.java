@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-import uci.ics.mondego.tldr.TLDR;
+import uci.ics.mondego.tldr.exception.TLDRMojoExecutionException;
 import uci.ics.mondego.tldr.tool.Constants;
 
 public final class SurefireMojoInterceptor extends AbstractMojoInterceptor {
@@ -21,7 +21,7 @@ public final class SurefireMojoInterceptor extends AbstractMojoInterceptor {
         try {
         	updateTests(mojo);
         } catch (Exception ex) {
-            throwMojoExecutionException(mojo, UNSUPPORTED_SUREFIRE_VERSION_EXCEPTION, ex);
+        	throw new TLDRMojoExecutionException(UNSUPPORTED_SUREFIRE_VERSION_EXCEPTION);
         }
     }
 
@@ -40,8 +40,9 @@ public final class SurefireMojoInterceptor extends AbstractMojoInterceptor {
         try {
             getField(Constants.TEST_FIELD, mojo);
         } catch (NoSuchMethodException ex) {
-            throwMojoExecutionException(mojo, UNSUPPORTED_SUREFIRE_VERSION_EXCEPTION
-                     + "Try setting Tests in the surefire configuration.", ex);
+        	throw new TLDRMojoExecutionException(
+        			UNSUPPORTED_SUREFIRE_VERSION_EXCEPTION
+                    + "Try setting Tests in the surefire configuration.");
         }
     }
     
@@ -53,8 +54,7 @@ public final class SurefireMojoInterceptor extends AbstractMojoInterceptor {
         	List<String> excludes = new ArrayList<String>();
         	excludes.add(Constants.ALL_TEST_REGEX);
         	setField(Constants.EXCLUDES_FIELD, mojo, excludes);
-        } else {
-        	
+        } else {        	
         	if (System.getProperty(Constants.PARALLEL_RETEST_ALL).equals(Constants.TRUE)) {
         		// Set up parallel test running configuration.
             	setField(Constants.PARALLEL_FIELD, mojo, "all");

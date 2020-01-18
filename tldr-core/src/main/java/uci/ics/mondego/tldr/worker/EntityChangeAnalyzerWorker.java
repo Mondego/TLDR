@@ -12,7 +12,8 @@ import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.changeanalyzer.EntityChangeAnalyzer;
 import uci.ics.mondego.tldr.exception.DatabaseSyncException;
 
-public class EntityChangeAnalyzerWorker extends Worker{
+@SuppressWarnings("rawtypes")
+public class EntityChangeAnalyzerWorker extends Worker {
 
 	private final String className;
 	private static final Logger logger = LogManager.getLogger(EntityChangeAnalyzerWorker.class);

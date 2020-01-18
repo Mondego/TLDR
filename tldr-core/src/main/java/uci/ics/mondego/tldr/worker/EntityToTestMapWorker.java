@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.map.EntityToTestMap;
 
-public class EntityToTestMapWorker extends Worker{
+public class EntityToTestMapWorker extends Worker {
 	
 	private final String entity;
 	private static final Logger logger = LogManager.getLogger(EntityToTestMapWorker.class);

@@ -19,7 +19,8 @@ public class ThreadedChannel<E> {
     private static final Logger logger = LogManager
             .getLogger(ThreadedChannel.class);  
     
-    public ThreadedChannel(int nThreads, Class clazz) {        
+    @SuppressWarnings("unchecked")
+	public ThreadedChannel(int nThreads, @SuppressWarnings("rawtypes") Class clazz) {        
     	this.thread_count = nThreads;		   	    	
     	this.workerType = clazz;
     	

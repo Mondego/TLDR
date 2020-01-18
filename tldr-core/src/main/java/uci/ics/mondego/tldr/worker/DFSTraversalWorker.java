@@ -16,7 +16,8 @@ import uci.ics.mondego.tldr.resolution.DFSTraversal;
  * @author demigorgan
  *
  */
-public class DFSTraversalWorker extends Worker{
+@SuppressWarnings("rawtypes")
+public class DFSTraversalWorker extends Worker {
 	private final String entity;
 	private static final Logger logger = LogManager.getLogger(DFSTraversalWorker.class);
 	

@@ -18,7 +18,8 @@ import uci.ics.mondego.tldr.changeanalyzer.DependencyExtractor;
  * @author demigorgan
  *
  */
-public class DependencyExtractorWorker extends Worker{
+@SuppressWarnings("rawtypes")
+public class DependencyExtractorWorker extends Worker { 
 	private final Map<String, Method> changedMethods;
 	private static final Logger logger = LogManager.getLogger(DependencyExtractorWorker.class);
 	

@@ -71,7 +71,8 @@ public class PomUtil {
 
     public static Plugin lookupPlugin(String name, MavenProject project) {
         Plugin plugin = null;
-        List<Plugin> plugins = project.getBuildPlugins();
+        @SuppressWarnings("unchecked")
+		List<Plugin> plugins = project.getBuildPlugins();
         for (Plugin p : plugins) {
             if (p.getKey().equalsIgnoreCase(name)) {
                 plugin = p;
