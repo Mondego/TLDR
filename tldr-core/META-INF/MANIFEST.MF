@@ -1,0 +1,5 @@
+Premain-Class: uci.ics.mondego.tldr.maven.JavaAgent
+Can-Retransform-Classes: true
+Can-Redefine-Classes: true
+Agent-Class: uci.ics.mondego.tldr.maven.JavaAgent
+Built-By: Maruf Zaber <mzaber@uci.edu>

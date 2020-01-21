@@ -1,9 +1,0 @@
-Total Time :0.934532419
-New or Changed Entity :2
-Test To Run :1
-1 - org.apache.commons.io.input.TailerTest.testTailerEof 17  FAILURE /Users/demigorgan/Documents/workspace/tldr/test/io/tailer2-test.txt (Not a directory),
-TOTAL TEST RUN : 1
-All Class File : 444
-All Java File : 188
-SIZE OF THE DATABASE : 
-2.1M	/Users/demigorgan/dump.rdb

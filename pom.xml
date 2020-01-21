@@ -1,15 +1,21 @@
-<?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   
-  <groupId>uci.ics.mondego</groupId>
-  <artifactId>tldr</artifactId>
-  <version>1.0.1</version>
-  <name>tldr</name>
-  <url>http://maven.apache.org</url>
   
-   <licenses>
+  <groupId>com.mondego.ics.uci</groupId>
+  <artifactId>maven-tldr</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  
+  <name>TLDR</name>
+  <description>A fast and efficient Regression Testing tool</description>
+   <url>  https://github.com/Mondego/TLDR/tree/plugin</url>
+  
+  
+  <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
@@ -22,164 +28,84 @@
             <email>mzaber@uci.edu</email>
         </developer>
     </developers>
-  
-  
-  <properties>
-    <exec.mainClass>uci.ics.mondego.tldr.App</exec.mainClass>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  
+    
+    <properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <version.maven>3.0.5</version.maven>	    
+  	</properties>
+  	
   <dependencies>
-    <dependency>
+  
+  
+    
+  <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
+      <scope>test</scope>
     </dependency>
-    
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>2.20.1</version>
+      <type>maven-plugin</type>
     </dependency>
-    
-<dependency>
-    <groupId>com.google.guava</groupId>
-    <artifactId>guava</artifactId>
-    <version>19.0</version>
-</dependency>
-    
-    
     <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-pool2</artifactId>
-      <version>2.6.1</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.4</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>redis.clients</groupId>
-      <artifactId>jedis</artifactId>
-      <version>2.9.0</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.redisson</groupId>
-      <artifactId>redisson</artifactId>
+      <groupId>org.apache.maven.plugin-testing</groupId>
+      <artifactId>maven-plugin-testing-tools</artifactId>
       <version>3.3.0</version>
     </dependency>
     
     <dependency>
-      <groupId>asm</groupId>
-      <artifactId>asm-tree</artifactId>
-      <version>3.3.1</version>
+    	<groupId>org.codehaus.plexus</groupId>
+    	<artifactId>plexus-utils</artifactId>
+    	<version>3.1.0</version>
     </dependency>
-    
-    <dependency>
-	    <groupId>com.opencsv</groupId>
-	    <artifactId>opencsv</artifactId>
-	    <version>3.3</version>
-	</dependency>
-    
-    <dependency>
-      <groupId>org.hamcrest</groupId>
-      <artifactId>hamcrest-core</artifactId>
-      <version>1.3</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>com.googlecode.slf4j-maven-plugin-log</groupId>
-      <artifactId>slf4j-maven-plugin-log</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-model</artifactId>
-      <version>3.6.0</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.codehaus.plexus</groupId>
-      <artifactId>plexus-utils</artifactId>
-      <version>3.0.24</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.bcel</groupId>
-      <artifactId>bcel</artifactId>
-      <version>6.2</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-collections4</artifactId>
-      <version>4.0</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>com.rfksystems</groupId>
-      <artifactId>blake2b</artifactId>
-      <version>1.0.0</version>
-    </dependency>   
-    
-	<dependency>
-	    <groupId>commons-io</groupId>
-	    <artifactId>commons-io</artifactId>
-	    <version>2.4</version>
-	</dependency>
   </dependencies>
+  
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.2.1</version>
+  <pluginManagement>
+   <plugins>
+   
+   <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.0</version>
         <executions>
           <execution>
-            <id>default-cli</id>
-            <configuration>
-              <mainClass>uci.ics.mondego.tldr.App</mainClass>
-            </configuration>
+            <id>attach-sources</id>
+            <phase>install</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
           </execution>
-          <execution>
-            <id>second-cli</id>
-            <configuration>
-              <mainClass>uci.ics.mondego.tldr.tool.MavenPomProcessor</mainClass>
-            </configuration>
-          </execution>
-          <execution>
-            <id>third-cli</id>
-            <configuration>
-              <mainClass>uci.ics.mondego.tldr.metainformation.ExtractMetaInformation</mainClass>
-            </configuration>
-          </execution>
-          
-           <execution>
-            <id>fourth-cli</id>
-            <configuration>
-              <mainClass>uci.ics.mondego.tldr.ChangeAnalysisExperiment.ChangeAnalysis</mainClass>
-            </configuration>
-          </execution>
-          
         </executions>
       </plugin>
-     
+      
       <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.19</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.maven.surefire</groupId>
-            <artifactId>surefire-junit47</artifactId>
-            <version>2.19</version>
-          </dependency>
-        </dependencies>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
       </plugin>
-    </plugins>
+      
+       <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-plugin-plugin</artifactId>
+			<version>3.5</version>
+			<configuration>
+				<goalPrefix>tldr</goalPrefix>
+				<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+			</configuration>				
+			</plugin>
+      </plugins>
+      </pluginManagement>
   </build>
+  
+  <modules>
+  <module>tldr-core</module>
+  <module>tldr-plugin</module>
+  </modules>
 </project>

@@ -1,8 +1,0 @@
-Total Time :0.826281386
-New or Changed Entity :0
-Test To Run :0
-TOTAL TEST RUN : 0
-All Class File : 444
-All Java File : 188
-SIZE OF THE DATABASE : 
-2.1M	/Users/demigorgan/dump.rdb
