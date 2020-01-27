@@ -44,7 +44,7 @@ import uci.ics.mondego.tldr.tool.FindAllTestDirectory;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 
 public class ChangeAnalysis {
-	private static final RedisHandler redisHandler = new RedisHandler();
+	protected static final RedisHandler redisHandler = new RedisHandler();
 	private static final FileHashCalculator fileHashCalculator = 
 			new FileHashCalculator(); 
 	private static final String CLASS_EXT = ".class";

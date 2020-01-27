@@ -17,7 +17,8 @@ public interface Constants {
 	public static final String EXECUTE_MDESC = "()V";
 
 	public static final String TLDR_NAME = "TLDR";
-	public static final String PARALLEL_RETEST_ALL = "PARALLEL_RETEST_ALL";
+	public static final String FIRST_TIME = "false";
+	public static final String DEBUG_FLAG = "DEBUG_FLAG";
 
 	public static final String TEST_FIELD = "test";
 	public static final String EXCLUDES_FIELD = "excludes";
@@ -41,6 +42,8 @@ public interface Constants {
     public static final String SEMI_COLON = ";";
     public static final String COLON = ":";
     public static final String HYPHEN = "-";
+    public static final String UNDERSCORE = "_";
+
     public static final String STAR = "*";
     public static final String NEW_LINE = "\n";
     public static final String SLASH = "/";

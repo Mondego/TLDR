@@ -4,28 +4,17 @@
 
 package uci.ics.mondego.tldr.plugin;
 
-import java.io.File;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
-import java.util.logging.Level;
-
-import uci.ics.mondego.tldr.TLDR;
-import uci.ics.mondego.tldr.tool.PomUtil;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.surefire.AbstractSurefireMojo;
-import org.apache.maven.plugin.surefire.ProviderInfo;
 import org.apache.maven.plugin.surefire.SurefirePlugin;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.surefire.booter.Classpath;
-import org.apache.maven.surefire.suite.RunResult;
-import org.apache.maven.surefire.util.DefaultScanResult;
 
 /**
  * Base Mojo for TLDR.
@@ -50,26 +39,29 @@ abstract class BaseMojo extends SurefirePlugin {
     protected String commit_serial;
     
     /**
-     * Optional experiment flag to turn on parallel retest-all. It 
-     * expects values -- "true" and "false"
-     */
-    @Parameter(property = "parallel.retest.all", required = false, defaultValue = "false")
-    protected String parallel_retest_all; 
-    
-    /**
      * Build directory of the project upon which the plugin is invoked
      */
     @Parameter(defaultValue = "${project.build.directory}")
     protected String projectBuildDir;
 
-    @Parameter(defaultValue = "${basedir}")
-    protected File basedir;
+    /**
+     * Name of the project. This is needed particularly for multi module projects as it is difficult to
+     * figure out which project is the parent project.
+     */
+    @Parameter(property = "multimodule.projectname", required = false, defaultValue = "XXX")
+    protected String multi_module_project_name;
 
     /**
      * Optional flag to write Logs to a particular directory.
      */
     @Parameter(property = "log.directory", required = false, defaultValue = "XXXX")
     protected String log_directory;
+    
+    /**
+     * Optional flag to for debug print statements. For debugging purpose turn this flag ON.
+     */
+    @Parameter(property = "debug.flag", required = false, defaultValue = "false")
+    protected String debug_flag;
     
     protected Classpath sureFireClassPath;
     
@@ -88,87 +80,43 @@ abstract class BaseMojo extends SurefirePlugin {
         return sureFireClassPath;
     }
     
-    @SuppressWarnings("unchecked")
-	public List<String> getTestClasses() {
-        DefaultScanResult defaultScanResult = null;
-        try {
-            Method scanMethod = AbstractSurefireMojo.class.getDeclaredMethod("scanForTestClasses", null);
-            scanMethod.setAccessible(true);
-            defaultScanResult = (DefaultScanResult) scanMethod.invoke(this, null);
-        } 
-        catch (NoSuchMethodException nsme) {
-            nsme.printStackTrace();
-        } 
-        catch (InvocationTargetException ite) {
-            ite.printStackTrace();
-        } 
-        catch (IllegalAccessException iae) {
-            iae.printStackTrace();
-        }
+    public String getModuleName() {
+    	String moduleName = multi_module_project_name;
+    	Field projectField;
+		try {
+			projectField = AbstractSurefireMojo.class.getDeclaredField("project");
+			projectField.setAccessible(true);
+	        MavenProject accessedProject = (MavenProject) projectField.get(this);
+	        moduleName = accessedProject.getArtifact().getArtifactId();
+		} catch (NoSuchFieldException | SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return moduleName;
+    }
         
-        return (List<String>) defaultScanResult.getFiles();
-    }
-    
-    public void setIncludesExcludes() throws MojoExecutionException {
-        try {
-        	Field projectField = AbstractSurefireMojo.class.getDeclaredField("project");
-            projectField.setAccessible(true);
-            MavenProject accessedProject = (MavenProject) projectField.get(this);
-            List<String> includes = PomUtil.getFromPom("include", accessedProject);
-            List<String> excludes = PomUtil.getFromPom("exclude", accessedProject);
-            logger.info("@@Excludes: " + excludes);
-            logger.info("@@Includes: " + includes);
-           
-            setIncludes(includes);
-            setExcludes(excludes);
-        } catch (NoSuchFieldException nsfe) {
-            nsfe.printStackTrace();
-        } catch (IllegalAccessException iae) {
-            iae.printStackTrace();
-        }
-    }
-    
     public String getProjectName() {
-    	String projectName = "XXX";
+    	String projectName = multi_module_project_name;
     	try {
     		Field projectField = AbstractSurefireMojo.class.getDeclaredField("project");
     		projectField.setAccessible(true);
             MavenProject accessedProject = (MavenProject) projectField.get(this);
-            projectName = accessedProject.getArtifact().getArtifactId();
+            
+            if (multi_module_project_name.equals("XXX")) {          	
+                projectName = accessedProject.getArtifact().getArtifactId();
+            }
     	} 
     	catch (NoSuchFieldException nsfe) {
             nsfe.printStackTrace();
-        } 
-    	catch (IllegalAccessException iae) {
+        } catch (IllegalAccessException iae) {
             iae.printStackTrace();
         }
-    	
     	return projectName;
-    }
-    
-    protected void printResult() {
-		
-    	try {
-            Method createProvidersMethod = 
-            		SurefirePlugin.class.getDeclaredMethod("createProviders", null);
-            createProvidersMethod.setAccessible(true);                        
-
-            List<ProviderInfo> provideInfos = (List<ProviderInfo>)createProvidersMethod.invoke(this);
-                           
-            Method executeProviderMethod = 
-            		AbstractSurefireMojo.class.getDeclaredMethod("executeProvider", null);
-            executeProviderMethod.setAccessible(true);
-            RunResult runResult = 
-            		(RunResult) executeProviderMethod.invoke(this, provideInfos.get(3));
-		} 
-		catch (NoSuchMethodException nsme) {
-            nsme.printStackTrace();
-        } 
-		catch (InvocationTargetException ite) {
-            ite.printStackTrace();
-        } 
-		catch (IllegalAccessException iae) {
-            iae.printStackTrace();
-        }
-	}	
+    }	
 }

@@ -25,18 +25,21 @@ import org.apache.log4j.Logger;
  * @author demigorgan
  *
  */
-public class RedisHandler{
+public class RedisHandler implements DatabaseHandler {
     private final Logger logger = LogManager.getLogger(RedisHandler.class);
 	private static RedisHandler instance = null; 
    
     private static final JedisPoolConfig poolConfig = buildPoolConfig();
-    private final static JedisPool jedisPool = new JedisPool(poolConfig, "localhost", 6379,10*1000);  
+    private static volatile JedisPool jedisPool;
+    //= 
+    //		new JedisPool(poolConfig, "localhost", 6379, 10*1000);  
     private Jedis jedis;
+    private static int jedicInstanceCount = 0; 
     
     private static JedisPoolConfig buildPoolConfig() {
         final JedisPoolConfig poolConfig = new JedisPoolConfig();
-        poolConfig.setMaxTotal(2000);
-        poolConfig.setMaxIdle(500);
+        poolConfig.setMaxTotal(3000);
+        poolConfig.setMaxIdle(1000);
         poolConfig.setMinIdle(100);
         poolConfig.setTestOnBorrow(true);
         poolConfig.setTestOnReturn(true);
@@ -45,24 +48,31 @@ public class RedisHandler{
         poolConfig.setTimeBetweenEvictionRunsMillis(Duration.ofSeconds(60).toMillis());
         poolConfig.setNumTestsPerEvictionRun(100);
         poolConfig.setBlockWhenExhausted(true);
-        //poolConfig.setMaxWaitMillis(Duration.ofSeconds(360).toMillis());
         return poolConfig;
     }
     
-	public RedisHandler(){
-		try{
+	public RedisHandler() {
+		try {
 			 jedis = jedisPool.getResource();
-		}
-		catch(JedisConnectionException e){
+			 
+			 if (jedis != null) {
+				 incJedisCount();
+			 } else {
+				 throw new NullDbIdException("New Jedis object can't be created");
+			 }
+			 
+		} catch(JedisConnectionException e){
 			logger.error("Connection Refused in localHost"+"\n");
+		} catch (NullDbIdException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
 	public RedisHandler(String addr){
-		try{
+		try {
 			 jedis = jedisPool.getResource();
-		}
-		catch(JedisConnectionException e){
+		} catch(JedisConnectionException e){
 			logger.error("Connection Refused in "+addr+"\n");
 		}
 	}
@@ -131,7 +141,7 @@ public class RedisHandler{
 	
 	/** 
 	 * Returns all methods and fields of a project. 
-	 * */
+	 **/
 	public Set<String> getAllMethodsAndFields(String projectId){
 		StringBuilder sb = new StringBuilder();
 		sb.append(projectId);
@@ -289,12 +299,10 @@ public class RedisHandler{
 	    		String extractedKey = string.substring(index + 2);
 	    		if (extractedKey == null || extractedKey.length() == 0) {
 	    			continue;
-	    		}
-	    		
+	    		}		
 	    		keys.add(extractedKey);
 	    	}
-		}
-		
+		}		
 		return keys;
 	}
 	
@@ -304,11 +312,9 @@ public class RedisHandler{
 		try {
 			String lookupKey = projectId + Constants.HYPHEN + tableId + key;
 			ret = jedis.smembers(lookupKey);
-		} 
-		catch(JedisDataException e) {
+		} catch(JedisDataException e) {
 			e.printStackTrace();
-		} 
-		catch(ClassCastException e) {
+		} catch(ClassCastException e) {
 			e.printStackTrace();
 		}
 		
@@ -323,14 +329,31 @@ public class RedisHandler{
 		return ret;
 	}
 	
-	public static void destroyPool() {
+	private static synchronized void incJedisCount() {
+		jedicInstanceCount++;
+	}
+	
+    private static synchronized void decJedisCount() {
+		jedicInstanceCount--;
+	}
+    
+    private static synchronized int getJedisCount() {
+		return jedicInstanceCount;
+	}
+	
+	public static synchronized void destroyPool() {
 		jedisPool.close();
-	    jedisPool.destroy();
+		jedisPool.destroy();	
+	}
+	
+	public static synchronized void createPool() {	
+		jedisPool = new JedisPool(poolConfig, "localhost", 6379, 10*1000);	
 	}
 	
 	public void close() {
-		if(jedis != null && jedis.isConnected()) {
+		if (jedis != null && jedis.isConnected()) {
 			jedis.close();
+			decJedisCount();
 		}
 	}	
 }

@@ -44,7 +44,6 @@ public class DiffMojo extends BaseMojo {
     	if (impactedTests.length() == 0 || impactedTests == null) {
     		logger.info("No test was impacted.");
     	}
-    	
     	return impactedTests;
     } 
 }
