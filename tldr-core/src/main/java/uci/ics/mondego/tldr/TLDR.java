@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.bcel.classfile.Method;
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import redis.clients.jedis.exceptions.JedisConnectionException;
@@ -68,7 +69,7 @@ public class TLDR {
     public static ConcurrentHashMap<String, Method> allChangedOrNewMethods;
     public static ConcurrentHashMap<String, Method> allExtractedTestMethods;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangeTests;
-    
+        
     public TLDR(){
     	Date date = new Date();      
         String LogDate= new SimpleDateFormat("yyyyMMdd").format(date);
@@ -92,7 +93,9 @@ public class TLDR {
     			new ThreadedChannel<String>(8, EntityToTestMapWorker.class);
     	this.IntraTestTraversalPool = 
     			new ThreadedChannel<String>(8, IntraTestTraversalWorker.class);
-    	    	
+    	
+    	BasicConfigurator.configure();
+    	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
     	this.allTestDirectories = new ConcurrentHashMap<String, Boolean>();
     	this.allNewAndChangedentities = new ConcurrentHashMap<String, Boolean>();
@@ -102,12 +105,19 @@ public class TLDR {
         this.allExtractedTestMethods = new ConcurrentHashMap<String, Method>();
     }
 
+    /**
+     * This is the main API for 
+     * @param tldrRunProperty
+     * @return
+     */
     public String getImpactedTest( TLDRRunProperty tldrRunProperty) {    	       
        selectionStartTime = System.nanoTime();
        String testFilter =  null;      
        logger.info("TLDR is starting" + selectionStartTime);
        
-       try {   	   
+       try {   	
+    	   RedisHandler.createPool();
+    	   
 	       CLASS_DIR = tldrRunProperty.getClass_dir();	      
 
 	       String project_id = getProjectId(tldrRunProperty.getProject_name());
@@ -219,11 +229,17 @@ public class TLDR {
     private String getProjectId(String projectName) {
     	RedisHandler redisHandler = new RedisHandler();
     	if (redisHandler.projectExists(projectName)) {
-    		return redisHandler.getProjectId(projectName);
-    	}    	
+    		System.setProperty(Constants.FIRST_TIME, Constants.FALSE);
+    		String projectId = redisHandler.getProjectId(projectName);
+        	redisHandler.close();
+    		return projectId;
+    	}
+    	// Else insert the project and set FIRST_TIME flag to true so that all the tests are run.
+    	System.setProperty(Constants.FIRST_TIME, Constants.TRUE);
     	redisHandler.insertProject(projectName);
+    	String projectId = redisHandler.getProjectId(projectName);
     	redisHandler.close();
-    	return redisHandler.getProjectId(projectName);
+    	return projectId;
     }
  
     /*** this method prepares the command suitable for sure-fire plugin********/

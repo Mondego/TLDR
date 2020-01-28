@@ -23,7 +23,6 @@ import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 public class MavenPomProcessor {
 	private static final Logger logger = LogManager.getLogger(MavenPomProcessor.class);
 
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String projectLocation = args[0];

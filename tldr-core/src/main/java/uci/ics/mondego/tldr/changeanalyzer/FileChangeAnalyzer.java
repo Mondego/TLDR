@@ -33,8 +33,10 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 	}
 	
 	protected void parse() throws IOException, DatabaseSyncException {
-		
+		logger.debug("Change analysis : " + getEntityName());
 		if( !exists(DatabaseIDs.TABLE_ID_FILE, getEntityName()) ){
+			
+			logger.debug("New entity  : " + getEntityName());
 			String currentCheckSum = calculateChecksum();
 			boolean ret = sync(DatabaseIDs.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
 			
@@ -50,6 +52,8 @@ public class FileChangeAnalyzer extends ChangeAnalyzer{
 			String currentCheckSum = calculateChecksum();
 			
 			if (!prevCheckSum.equals(currentCheckSum)) {
+				logger.debug("Changed entity  : " + getEntityName());
+
 				boolean ret = this.sync(DatabaseIDs.TABLE_ID_FILE, this.getEntityName(), currentCheckSum);
 				if (!ret) {
 					throw new DatabaseSyncException(this.getEntityName());

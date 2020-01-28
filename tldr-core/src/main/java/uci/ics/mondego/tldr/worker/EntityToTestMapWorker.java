@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import uci.ics.mondego.tldr.TLDR;
 import uci.ics.mondego.tldr.map.EntityToTestMap;
 
+@SuppressWarnings("rawtypes")
 public class EntityToTestMapWorker extends Worker {
 	
 	private final String entity;

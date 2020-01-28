@@ -66,4 +66,23 @@ public class ReportWriter {
 			unsupportedEncodingException.printStackTrace();
 		}    	
     }
+    
+    public void logError(String errorFileName, String message, String claz) {
+    	PrintWriter writer1;
+		try {
+			
+			writer1 = new PrintWriter(errorFileName, "UTF-8");
+			writer1.println(Constants.DISTINCTION_LINE_EQUAL);
+			writer1.println( "ERROR : "+ message);
+			writer1.println( "CLASS : "+ claz);
+			writer1.println(Constants.DISTINCTION_LINE_EQUAL);
+			
+	    	writer1.close();
+		} 
+		catch (FileNotFoundException fileNotFoundException) {
+	    	fileNotFoundException.printStackTrace();
+		} catch (UnsupportedEncodingException unsupportedEncodingException) {
+			unsupportedEncodingException.printStackTrace();
+		}   
+    }
 }

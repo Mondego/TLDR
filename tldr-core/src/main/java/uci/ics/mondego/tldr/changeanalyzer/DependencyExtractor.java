@@ -228,13 +228,11 @@ public class DependencyExtractor {
 	
 	protected List<String> traverseClassHierarchyDownwards(String claz, String pattern){	
 		List<String> toTest = new ArrayList<String>();
-		
 		if(this.database.exists(DatabaseIDs.TABLE_ID_ENTITY, claz+"."+pattern)) {
 			toTest.add(claz+"."+pattern);	
 		}
 		
-		Set<String> allSubclass = this.database.getSet(DatabaseIDs.TABLE_ID_SUBCLASS, claz);
-		for(String sub: allSubclass) {
+		for(String sub: database.getSet(DatabaseIDs.TABLE_ID_SUBCLASS, claz)) {
 			List<String> t = traverseClassHierarchyDownwards(sub, pattern);	
 			if(!t.isEmpty() && t!= null) {
 				toTest.addAll(t);
@@ -251,8 +249,7 @@ public class DependencyExtractor {
 			return toTest;
 		}
 		
-		Set<String> allSuperclass = this.database.getSet(DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, claz);
-		for (String sup: allSuperclass) {
+		for (String sup: database.getSet(DatabaseIDs.TABLE_ID_INTERFACE_SUPERCLASS, claz)) {
 			List<String> t = traverseClassHierarchyUpwards(sup, pattern);	
 			if (!t.isEmpty() && t!= null) {
 				toTest.addAll(t);
@@ -314,14 +311,11 @@ public class DependencyExtractor {
 		} 
 		catch(NullPointerException e) {
 			e.printStackTrace();
-		} 
-		catch(StringIndexOutOfBoundsException e) {
+		} catch(StringIndexOutOfBoundsException e) {
 			e.printStackTrace();
-		} 
-		catch (UnknownDBIdException e) {
+		} catch (UnknownDBIdException e) {
 			e.printStackTrace();
-		} 
-		catch (NullDbIdException e) {
+		} catch (NullDbIdException e) {
 			e.printStackTrace();
 		}
 	}
@@ -332,11 +326,9 @@ public class DependencyExtractor {
 		} 
 		catch(NullPointerException e){
 			e.printStackTrace();
-		} 
-		catch (UnknownDBIdException e) {
+		} catch (UnknownDBIdException e) {
 			e.printStackTrace();
-		} 
-		catch (NullDbIdException e) {
+		} catch (NullDbIdException e) {
 			e.printStackTrace();
 		}
 	}

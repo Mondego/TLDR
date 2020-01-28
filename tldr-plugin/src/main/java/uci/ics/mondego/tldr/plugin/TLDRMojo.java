@@ -20,50 +20,63 @@ import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.ReportWriter;
 
 /**
- * Mojo to run TLDR
+ * Mojo to run TLDR A sample command to run this plugin would look like  - 
+ * 
+ * mvn -q com.mondego.ics.uci:tldr-plugin:1.0.2-SNAPSHOT:tldr 
+ * -Dcommit.serial=<serial>
+ * -Dcommit.hash=<hash>
+ * -Dlog.directory=<log_dir> 
+ * -Ddebug.flag=<true/false>
+ * -Dmultimodule.projectname=<project name>
+ * -Dmaven.test.failure.ignore=true 
+ * -Drat.skip=true  
  * @author demigorgan
  *
  */
+
 @Mojo(name = "tldr", requiresDirectInvocation = true, requiresDependencyResolution = ResolutionScope.TEST)
 @Execute(phase = LifecyclePhase.TEST, lifecycle = "tldr")
 public class TLDRMojo extends RunMojo {
 	private static final Logger logger = LogManager.getLogger(TLDRMojo.class);
 
 	@Override
-	 public void execute() throws MojoExecutionException, MojoFailureException  {	     
-	     testRunEndTime = System.nanoTime();	 
+	 public void execute() throws MojoExecutionException, MojoFailureException  {	     		
+		testRunEndTime = System.nanoTime();	 
 	     
 	     // test selection end time == test run start time
 	     testRunElapsedTimeInSecond = testRunEndTime - testSelectionEndTime;
 	     testRunElapsedTimeInSecond = (double) testRunElapsedTimeInSecond / 1000000000.0;	
 	     	     
 	     ReportWriter reportWriter = new ReportWriter();
+	     String logFileName = 
+	    		 getLogDirectory()
+	    		 + getModuleName()
+	    		 + Constants.UNDERSCORE
+	    		 + commit_serial 
+	    		 + "_REPORT_" 
+	    		 + commit_hash 
+	    		 + "_.txt";
 	     
-	     if (parallel_retest_all.equals(Constants.TRUE)) {
-		     String logFileName = 
-		    		 getLogDirectory() 
-		    		 + commit_serial 
-		    		 + "_RETEST_ALL_REPORT_" 
-		    		 + commit_hash 
-		    		 + "_.txt";
-	    	 reportWriter.logExperiment(logFileName, testRunElapsedTimeInSecond);
-	     } else {
-		     String logFileName = 
-		    		 getLogDirectory() 
-		    		 + commit_serial 
-		    		 + "_REPORT_" 
-		    		 + commit_hash 
-		    		 + "_.txt";
-		     
-	    	 reportWriter.logExperiment(
-		    		 logFileName, 
-		    		 report, 
-		    		 testRunElapsedTimeInSecond); 
-	    	 
-	    	 // Appends the run summary in a CSV file names SUMMARY.csv
-	    	 String csvFileName = getLogDirectory()+ "SUMMARY.csv";
-	    	 writeReportSummaryInCsv(csvFileName, report);    	 
-	     }
+    	 reportWriter.logExperiment(
+	    		 logFileName, 
+	    		 report, 
+	    		 testRunElapsedTimeInSecond); 
+    	 
+    	 // Appends the run summary in a CSV file names SUMMARY.csv
+    	 String csvFileName = 
+    			 getLogDirectory() 
+    			 + getModuleName() 
+    			 + Constants.UNDERSCORE 
+    			 + "SUMMARY.csv";
+    	 
+    	 writeReportSummaryInCsv(csvFileName, report);  
+    	 
+    	 if(debug_flag.equals(Constants.TRUE)) {
+    		 System.out.println(Constants.DISTINCTION_LINE_STAR);
+    		 System.out.println(" Project name : " + multi_module_project_name);
+    		 System.out.println("Module name : " + getModuleName());
+    		 System.out.println(Constants.DISTINCTION_LINE_STAR);
+    	 }
 	 } 
 	
 	/**
@@ -94,21 +107,8 @@ public class TLDRMojo extends RunMojo {
 	}
 	
 	private String getLogDirectory () {
-		String homeDirectory = System.getProperty("user.home");
 		
-		if (!log_directory.equals("XXXX")) {
-			// If a specific directory is fixed then instead of home directory,
-			// in the specified directory the log file is written.
-			homeDirectory = log_directory; 
-		}
-		
-		String projectName = getProjectName();
-		String logFolder = homeDirectory 
-				+ Constants.SLASH 
-				+ Constants.LOG_DIRECTORY 
-				+ Constants.SLASH 
-				+ projectName 
-				+ Constants.SLASH;
+		String logFolder = log_directory  + Constants.SLASH;
 		
 		File file = new File(logFolder);
         if (!file.exists()) {
