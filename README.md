@@ -44,6 +44,8 @@ If the project has used `rat` or `checkStyle` plugin turn them off -
  `commit.serial` -- Serial number of a commit. This is used then the tool is being evaluated on a series of commit one by one. \
  `parallel.retest.all` -- Setting it to `true` will turn off TLDR and perform `retest-all` parallelly. \
  `log.directory` -- The directory where the logs will be written. If this flag is not used then by default log is written to the home directory.  
+ `debug.flag` -- Setting it to `true` will turn off debug logs. 
+ `multimodule.projectname` -- Name of a multi-module is passed by this flag. 
 
 Contributing to TLDR
 --------------------
