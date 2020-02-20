@@ -1,5 +1,6 @@
 TLDR : Too Long, Didn't Regress.
 =================================
+[![Build Status](https://travis-ci.com/Mondego/TLDR.svg?token=o5WYd55iTZU8HSqiSULp&branch=master)](https://travis-ci.com/Mondego/TLDR)
 
 TLRD is an opensource Regression Test Selection (RTS) tool with minimal selection overhead. It is a maven plugin that selects minimum number of test cases and yet maintains safety during incremental development. This plugin works for Maven projects written in Java. This plugin can be run in tandem with JUnit 4.11 and Surefire 2.17.3.
 
