@@ -1,44 +1,68 @@
 package uci.ics.mondego.tldr.ChangeAnalysisExperiment;
 
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.apache.bcel.classfile.ClassFormatException;
 import org.apache.bcel.classfile.ClassParser;
-import org.apache.bcel.classfile.Field;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.classfile.Method;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import uci.ics.mondego.tldr.exception.NullDbIdException;
 import uci.ics.mondego.tldr.indexer.RedisHandler;
 import uci.ics.mondego.tldr.tool.AccessCodes;
+import uci.ics.mondego.tldr.tool.Constants;
 import uci.ics.mondego.tldr.tool.DatabaseIDs;
 import uci.ics.mondego.tldr.tool.StringProcessor;
 import uci.ics.mondego.tldr.worker.Worker;
 
-public class MethodChangeAnalyzer extends Worker{
-	private final String className;
-	private static final RedisHandler redisHandler = new RedisHandler();
-	private static final Logger logger = LogManager.getLogger(MethodChangeAnalyzer.class);
+public class MethodWorker extends Worker {
+	private String className;
+	private RedisHandler redisHandler;
 	
-	public MethodChangeAnalyzer (String className) {
-		this.className = className;
+	private ClassParser parser;
+	private JavaClass parsedClass;
+	private Map<String, Integer> allPreviousEntities;
+	
+	public MethodWorker (String className) {
+		this.parser = new ClassParser(className);
+		try {
+			this.parsedClass = parser.parse();
+			this.className = className;
+		} catch (ClassFormatException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	public MethodChangeAnalyzer(String name, String className) {
+	public MethodWorker(String name, String className) {
 		super(name);
-		this.className = className;
+		this.parser = new ClassParser(className);
+		try {
+			this.parsedClass = parser.parse();
+			this.className = className;
+		} catch (ClassFormatException | IOException e) {
+			e.printStackTrace();
+		}		
 	}
 	
 	public void run() {
 		try {
-			getChangedEntities(className);
+			this.redisHandler = new RedisHandler();
+			Set<String> prevEnt = redisHandler.getAllKeysByPattern(
+					DatabaseIDs.TABLE_ID_ENTITY, parsedClass.getClassName()+".*");  
+			
+			this.allPreviousEntities= new HashMap<String, Integer>();
+			for(String entity: prevEnt){
+				allPreviousEntities.put(entity, 0);
+			}
+			
+			this.anlysis(className);
+			this.redisHandler.close();
         } 
 		catch (NoSuchElementException e) {
             e.printStackTrace();
@@ -57,39 +81,14 @@ public class MethodChangeAnalyzer extends Worker{
 		}	
 	}
 	
-	/**
-	 * Returns the set of changed fields and methods of a given class.
-	 */
-	private Set<String> getChangedEntities(String file) 
-			throws JedisConnectionException, 
-			NullDbIdException, 
-			ClassFormatException, 
-			IOException {
-		ClassParser parser = new ClassParser(file);	
-		JavaClass parsedClass = parser.parse();
-		Set<String> changedEntities = new HashSet<String>();
-		
-		Field [] allFields = parsedClass.getFields();
-		
-		for(Field f: allFields){
-			String fieldFqn = parsedClass.getClassName()+"."+f.getName();
-			String currentHashCode = StringProcessor.CreateBLAKE(f.toString());
-			
-			if(!redisHandler.exists(DatabaseIDs.TABLE_ID_ENTITY, fieldFqn)){
-				changedEntities.add(fieldFqn);
-				redisHandler.update(DatabaseIDs.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
-			} else {
-				String prevHashCode = redisHandler.getValueByKey(DatabaseIDs.TABLE_ID_ENTITY, fieldFqn);
-				if (!currentHashCode.equals(prevHashCode)) {
-					changedEntities.add(fieldFqn);
-					redisHandler.update(DatabaseIDs.TABLE_ID_ENTITY,fieldFqn, currentHashCode);
-				}
-			}
-		}
-		
+	
+	private void anlysis(String file) 
+			throws JedisConnectionException, NullDbIdException, ClassFormatException, IOException {
+				
 		Method [] allMethods= parsedClass.getMethods();
 		
 		for(Method m: allMethods){
+			
 			if( m.getModifiers() == AccessCodes.ABSTRACT || 
 				m.getModifiers() == AccessCodes.FINAL ||
 				m.getModifiers() == AccessCodes.INTERFACE || 
@@ -134,23 +133,22 @@ public class MethodChangeAnalyzer extends Worker{
 				m.getModifiers() == AccessCodes.ABSTRACT4 || 
 				m.getModifiers() == AccessCodes.PUBLIC10 ||					
 				m.getModifiers() == AccessCodes.PUBLIC11 ||
-				m.getModifiers() == AccessCodes.PUBLIC12){
+				m.getModifiers() == AccessCodes.PUBLIC12) {
+
+				ChangeAnalysis.methodData.incCount();
 					
-				String code =  m.getModifiers()+"\n"+ m.getName()+ 
-						"\n"+m.getSignature()+"\n"+ m.getCode();
+				String code =  m.getModifiers()+Constants.NEW_LINE + m.getName() + Constants.NEW_LINE + m.getSignature() + Constants.NEW_LINE + m.getCode();
 							
 				String lineInfo = code.substring(code.indexOf("Attribute(s)") == -1
 						? 0 : code.indexOf("Attribute(s)"), 
 						code.indexOf("LocalVariable(") == -1?
 						code.length() : code.indexOf("LocalVariable(")) ;
 				
-				code = StringUtils.replace(code, lineInfo, ""); // changes in other function impacts line# of other functions...so Linecount info of the code must be removed
+				code = StringUtils.replace(code, lineInfo, ""); 
 							
-				code = code.substring(0, code.indexOf("StackMapTable") == -1? 
-						code.length() : code.indexOf("StackMapTable"));  // for some reason StackMapTable also change unwanted. WHY??
+				code = code.substring(0, code.indexOf("StackMapTable") == -1? code.length() : code.indexOf("StackMapTable"));  
 				
-				code = code.substring(0, code.indexOf("StackMap") == -1? 
-						code.length() : code.indexOf("StackMap"));  // for some reason StackMapTable also change unwanted. WHY??
+				code = code.substring(0, code.indexOf("StackMap") == -1? code.length() : code.indexOf("StackMap"));  
 				
 				String methodFqn = parsedClass.getClassName()+"."+m.getName();
 	
@@ -161,18 +159,30 @@ public class MethodChangeAnalyzer extends Worker{
 				
 				String currentHashCode = StringProcessor.CreateBLAKE(code);
 				
-				if (!redisHandler.exists(DatabaseIDs.TABLE_ID_ENTITY, methodFqn)) {
-					changedEntities.add(methodFqn);
+				if (!allPreviousEntities.containsKey(methodFqn)) {
+					ChangeAnalysis.methodData.addNew(methodFqn);
 					redisHandler.update(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 				} else {
+					allPreviousEntities.put(methodFqn, allPreviousEntities.get(methodFqn) + 1);
+					
 					String prevHashCode = redisHandler.getValueByKey(DatabaseIDs.TABLE_ID_ENTITY, methodFqn);
 					if (!currentHashCode.equals(prevHashCode)) {
-						changedEntities.add(methodFqn);
+						ChangeAnalysis.methodData.addChanged(methodFqn);
 						redisHandler.update(DatabaseIDs.TABLE_ID_ENTITY, methodFqn, currentHashCode);
 					}
 				}
 			}
 		}
-		return changedEntities;
+		deleteDepreciatedEntities();
 	}	
+	
+	private void deleteDepreciatedEntities() {
+		for ( Map.Entry<String, Integer> entry : allPreviousEntities.entrySet()) {
+		    Integer val = entry.getValue();
+		    if (val == 0) {
+		    	ChangeAnalysis.methodData.addDeleted(entry.getKey());
+		    	redisHandler.removeKey(DatabaseIDs.TABLE_ID_ENTITY, entry.getKey());
+		    }  
+		}
+	}
 }
