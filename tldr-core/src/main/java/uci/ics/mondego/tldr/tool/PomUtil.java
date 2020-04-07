@@ -11,7 +11,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Extension;
 import org.apache.maven.model.Plugin;
+import org.apache.maven.model.PluginExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
@@ -108,4 +111,62 @@ public class PomUtil {
         }
         return values;
     }
+    
+    public static Plugin createPlugin(String groupId, String artifactId, String version,
+			String executionId, String goal){
+		
+		Plugin plugin = new Plugin();
+		plugin.setGroupId(groupId);
+		plugin.setArtifactId(artifactId);
+		
+		if(version != null) {
+			plugin.setVersion(version);
+		}
+			
+		PluginExecution ex = new PluginExecution();
+		if(executionId != null) {
+			ex.setId(executionId);
+		}
+		
+		List<String> g = new ArrayList<String>();
+		g.add(goal);
+		ex.setGoals(g);
+		List<PluginExecution> executions = new ArrayList<PluginExecution>();
+		executions.add(ex);
+		plugin.setExecutions(executions);
+		
+		return plugin;
+	}
+    
+    public static Dependency createDependency(String groupId, 
+			String artifactId, String version, String classifier,
+			String type, String scope){
+		
+		 Dependency dep = new Dependency();
+		 dep.setGroupId(groupId);
+		 dep.setArtifactId(artifactId);
+		 dep.setVersion(version);
+		 if(classifier != null) {
+			 dep.setClassifier(classifier); 
+		 }
+		 
+		 if(type != null) {
+			 dep.setType(type);
+		 }	 
+		 
+		 if(scope != null) {
+			 dep.setScope(scope);
+		 }
+		 return dep;
+	}
+    
+    public static Extension createExtension(
+    		String groupId, String artifactId, String version) {
+		 Extension dep = new Extension();
+		 dep.setGroupId(groupId);
+		 dep.setArtifactId(artifactId);
+		 dep.setVersion(version);
+		 return dep;
+	}
+    
 }

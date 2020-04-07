@@ -71,4 +71,6 @@ public interface Constants {
 
     // Logging flag
     public static final String TEST_RUN_END_TIME_IN_SEC = "TEST RUN END TIME (s) : ";
+    
+    public static final String CONFIGURE_FLAKINESS_DETECTOR = "deflaker";
 }

@@ -1,24 +1,20 @@
 package uci.ics.mondego.tldr.tool;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
-import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.maven.model.Build;
 import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Extension;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.Plugin;
-import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
-import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
-
 
 public class MavenPomProcessor {
 	private static final Logger logger = LogManager.getLogger(MavenPomProcessor.class);
@@ -79,7 +75,7 @@ public class MavenPomProcessor {
 			    	}
 			    }
 		    } else if(args[1].equals("ekstazi")) {
-		    	oldPlugins.add(createPlugin("org.ekstazi", 
+		    	oldPlugins.add(PomUtil.createPlugin("org.ekstazi", 
 		    			"ekstazi-maven-plugin", "5.2.0", "ekstazi", "select"));
 		    	build.setPlugins(oldPlugins);
 			    model.setBuild(build);
@@ -89,9 +85,8 @@ public class MavenPomProcessor {
 			    writer.close();
 			    changed = true;
 		    } else if (args[1].equals("jar")) {
-		    	Plugin newPlugIn = createPlugin("org.apache.maven.plugins", 
+		    	Plugin newPlugIn = PomUtil.createPlugin("org.apache.maven.plugins", 
 		    			"maven-jar-plugin", "3.0.2",null, "test-jar");
-		    	System.out.println(newPlugIn.getGroupId());
 		    	oldPlugins.add(newPlugIn);
 		    	build.setPlugins(oldPlugins);
 			    model.setBuild(build);
@@ -102,12 +97,23 @@ public class MavenPomProcessor {
 			    changed = true;
 		    } else if(args[1].equals("import")){
 		        UpdateSelfPOM(pomLocation);   	
-		    }
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (XmlPullParserException e) {
+		    } else if(args[1].equals(Constants.CONFIGURE_FLAKINESS_DETECTOR)){
+		         List<Extension> oldExtensions = build.getExtensions();
+		         oldExtensions.add(
+		        		 PomUtil.createExtension(
+		        				 "org.deflaker", 
+		        				 "deflaker-maven-extension", 
+		        				 "1.5-SNAPSHOT"));
+		         build.setExtensions(oldExtensions);
+		         model.setBuild(build);
+				 Writer writer = new FileWriter(pom2Location);
+	    		 MavenXpp3Writer xpp3Writer = new MavenXpp3Writer();
+			     xpp3Writer.write( writer, model );
+			     writer.close();
+			     changed = true;
+		    } 
+		    
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 		    try {
@@ -154,9 +160,9 @@ public class MavenPomProcessor {
 		    	}	
 		    }
 		    if(!exists){
-		    	Dependency newDependencyTest = createDependency(sourceModel.getGroupId(), 
+		    	Dependency newDependencyTest = PomUtil.createDependency(sourceModel.getGroupId(), 
 			    		sourceModel.getArtifactId(), sourceModel.getVersion(), "tests", "test-jar", null);
-			    Dependency newDependencyMain = createDependency(sourceModel.getGroupId(), 
+			    Dependency newDependencyMain = PomUtil.createDependency(sourceModel.getGroupId(), 
 			    		sourceModel.getArtifactId(), sourceModel.getVersion(), null, null, null);
 				    
 			    oldDependencies.add(newDependencyMain);
@@ -183,53 +189,5 @@ public class MavenPomProcessor {
 				logger.error("PROBLEM IS DELETING OLD POM FILE : "+pomLocation);
 			}			
 		}
-	}
-	
-	private static Dependency createDependency(String groupId, 
-			String artifactId, String version, String classifier,
-			String type, String scope){
-		
-		 Dependency dep = new Dependency();
-		 dep.setGroupId(groupId);
-		 dep.setArtifactId(artifactId);
-		 dep.setVersion(version);
-		 if(classifier != null) {
-			 dep.setClassifier(classifier); 
-		 }
-		 
-		 if(type != null) {
-			 dep.setType(type);
-		 }	 
-		 
-		 if(scope != null) {
-			 dep.setScope(scope);
-		 }
-		 return dep;
-	}
-	
-	private static Plugin createPlugin(String groupId, String artifactId, String version,
-			String executionId, String goal){
-		
-		Plugin plugin = new Plugin();
-		plugin.setGroupId(groupId);
-		plugin.setArtifactId(artifactId);
-		
-		if(version != null) {
-			plugin.setVersion(version);
-		}
-			
-		PluginExecution ex = new PluginExecution();
-		if(executionId != null) {
-			ex.setId(executionId);
-		}
-		
-		List<String> g = new ArrayList<String>();
-		g.add(goal);
-		ex.setGoals(g);
-		List<PluginExecution> executions = new ArrayList<PluginExecution>();
-		executions.add(ex);
-		plugin.setExecutions(executions);
-		
-		return plugin;
 	}
 }
