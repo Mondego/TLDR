@@ -1,0 +1,324 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from logstash-logback-encoder
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Logstash Logback Encoder 6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-license-plugin:1.9.0:format (default) @ logstash-logback-encoder ---
+[INFO] Updating license headers...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ logstash-logback-encoder ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ logstash-logback-encoder ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.2.0:manifest (bundle-manifest) @ logstash-logback-encoder ---
+[WARNING] Manifest net.logstash.logback:logstash-logback-encoder:jar:6.1-SNAPSHOT : Export net.logstash.logback.encoder,  has 4,  private references [net.logstash.logback, net.logstash.logback.composite.accessevent, net.logstash.logback.composite.loggingevent, net.logstash.logback.decorate]
+[WARNING] Manifest net.logstash.logback:logstash-logback-encoder:jar:6.1-SNAPSHOT : Export net.logstash.logback.appender,  has 5,  private references [net.logstash.logback, net.logstash.logback.appender.destination, net.logstash.logback.appender.listener, net.logstash.logback.decorate, net.logstash.logback.layout]
+[WARNING] Manifest net.logstash.logback:logstash-logback-encoder:jar:6.1-SNAPSHOT : Export net.logstash.logback.composite,  has 2,  private references [net.logstash.logback.decorate, net.logstash.logback.pattern]
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ logstash-logback-encoder ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ logstash-logback-encoder ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 1cabdda7c680b2f4d92a44de30ebdccabc0d5bfa against: c3cf1a1e6ed17973f88c33dd3dba9ea0bc1b0510
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ logstash-logback-encoder ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 60 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/src/test/java/net/logstash/logback/ConfigurationTest.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/src/test/java/net/logstash/logback/ConfigurationTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/src/test/java/net/logstash/logback/appender/WaitStrategyFactoryTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/src/test/java/net/logstash/logback/appender/WaitStrategyFactoryTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ logstash-logback-encoder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running net.logstash.logback.composite.loggingevent.MdcJsonProviderTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.718 sec - in net.logstash.logback.composite.loggingevent.MdcJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.ThrowableClassNameJsonProviderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.logstash.logback.composite.loggingevent.ThrowableClassNameJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.ThrowableRootCauseClassNameJsonProviderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.logstash.logback.composite.loggingevent.ThrowableRootCauseClassNameJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.LoggingEventCompositeJsonFormatterTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.192 sec - in net.logstash.logback.composite.loggingevent.LoggingEventCompositeJsonFormatterTest
+Running net.logstash.logback.composite.loggingevent.SequenceJsonProviderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.logstash.logback.composite.loggingevent.SequenceJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.LogstashMarkersJsonProviderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec - in net.logstash.logback.composite.loggingevent.LogstashMarkersJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.StackTraceJsonProviderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec - in net.logstash.logback.composite.loggingevent.StackTraceJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.LogLevelJsonProviderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.logstash.logback.composite.loggingevent.LogLevelJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.TagsJsonProviderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in net.logstash.logback.composite.loggingevent.TagsJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.ContextNameJsonProviderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in net.logstash.logback.composite.loggingevent.ContextNameJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.MessageJsonProviderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.logstash.logback.composite.loggingevent.MessageJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.LoggingEventPatternJsonProviderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 sec - in net.logstash.logback.composite.loggingevent.LoggingEventPatternJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.LoggingEventNestedJsonProviderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec - in net.logstash.logback.composite.loggingevent.LoggingEventNestedJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.StackHashJsonProviderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in net.logstash.logback.composite.loggingevent.StackHashJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.LogLevelValueJsonProviderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.logstash.logback.composite.loggingevent.LogLevelValueJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.RawMessageJsonProviderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.logstash.logback.composite.loggingevent.RawMessageJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.ArgumentsJsonProviderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec - in net.logstash.logback.composite.loggingevent.ArgumentsJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.CallerDataJsonProviderTest
+[MockitoHint] CallerDataJsonProviderTest.testFieldName (see javadoc for MockitoHint):
+[MockitoHint] 1. Unused -> at net.logstash.logback.composite.loggingevent.CallerDataJsonProviderTest.testFieldName(CallerDataJsonProviderTest.java:109)
+
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in net.logstash.logback.composite.loggingevent.CallerDataJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.UuidProviderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in net.logstash.logback.composite.loggingevent.UuidProviderTest
+Running net.logstash.logback.composite.loggingevent.ThreadNameJsonProviderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.logstash.logback.composite.loggingevent.ThreadNameJsonProviderTest
+Running net.logstash.logback.composite.loggingevent.LoggerNameJsonProviderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.logstash.logback.composite.loggingevent.LoggerNameJsonProviderTest
+Running net.logstash.logback.composite.accessevent.RequestHeadersJsonProviderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in net.logstash.logback.composite.accessevent.RequestHeadersJsonProviderTest
+Running net.logstash.logback.composite.accessevent.AccessEventPatternJsonProviderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in net.logstash.logback.composite.accessevent.AccessEventPatternJsonProviderTest
+Running net.logstash.logback.composite.accessevent.ResponseHeadersJsonProviderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.logstash.logback.composite.accessevent.ResponseHeadersJsonProviderTest
+Running net.logstash.logback.composite.accessevent.IncludeExcludeHeaderFilterTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.logstash.logback.composite.accessevent.IncludeExcludeHeaderFilterTest
+Running net.logstash.logback.composite.accessevent.AccessEventNestedJsonProviderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 sec - in net.logstash.logback.composite.accessevent.AccessEventNestedJsonProviderTest
+Running net.logstash.logback.composite.LogstashVersionJsonProviderTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.logstash.logback.composite.LogstashVersionJsonProviderTest
+Running net.logstash.logback.composite.GlobalCustomFieldsJsonProviderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in net.logstash.logback.composite.GlobalCustomFieldsJsonProviderTest
+Running net.logstash.logback.marker.MapEntriesAppendingMarkerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.logstash.logback.marker.MapEntriesAppendingMarkerTest
+Running net.logstash.logback.marker.DeferredLogstashMarkerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in net.logstash.logback.marker.DeferredLogstashMarkerTest
+Running net.logstash.logback.marker.ObjectAppendingMarkerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.logstash.logback.marker.ObjectAppendingMarkerTest
+Running net.logstash.logback.marker.MarkersTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.logstash.logback.marker.MarkersTest
+Running net.logstash.logback.marker.RawJsonAppendingMarkerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.logstash.logback.marker.RawJsonAppendingMarkerTest
+Running net.logstash.logback.marker.ObjectFieldsAppendingMarkerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.logstash.logback.marker.ObjectFieldsAppendingMarkerTest
+Running net.logstash.logback.appender.destination.PreferPrimaryDestinationConnectionStrategyTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.logstash.logback.appender.destination.PreferPrimaryDestinationConnectionStrategyTest
+Running net.logstash.logback.appender.destination.DestinationParserTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in net.logstash.logback.appender.destination.DestinationParserTest
+Running net.logstash.logback.appender.destination.RoundRobinDestinationConnectionStrategyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.logstash.logback.appender.destination.RoundRobinDestinationConnectionStrategyTest
+Running net.logstash.logback.appender.destination.RandomDestinationConnectionStrategyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec - in net.logstash.logback.appender.destination.RandomDestinationConnectionStrategyTest
+Running net.logstash.logback.appender.WaitStrategyFactoryTest
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in net.logstash.logback.appender.WaitStrategyFactoryTest
+Running net.logstash.logback.appender.AsyncDisruptorAppenderTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 sec - in net.logstash.logback.appender.AsyncDisruptorAppenderTest
+Running net.logstash.logback.appender.LogstashSocketAppenderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec - in net.logstash.logback.appender.LogstashSocketAppenderTest
+Running net.logstash.logback.appender.LogstashTcpSocketAppenderTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.508 sec - in net.logstash.logback.appender.LogstashTcpSocketAppenderTest
+Running net.logstash.logback.appender.CachingAbbreviatorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in net.logstash.logback.appender.CachingAbbreviatorTest
+Running net.logstash.logback.appender.listener.FailureSummaryLoggingAppenderListenerTest
+01:29:27,994 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [file:/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/target/test-classes/logback-test.xml]
+01:29:28,065 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [testContext]
+01:29:28,066 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+01:29:28,069 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [stash]
+01:29:28,087 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1888420238 - No compression will be used
+01:29:28,089 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1888420238 - Will use the pattern /tmp/test.log.%d{yyyy-MM-dd}.log for the active file
+01:29:28,092 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd' from file name pattern '/tmp/test.log.%d{yyyy-MM-dd}.log'.
+01:29:28,092 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at midnight.
+01:29:28,097 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to Fri Feb 14 15:04:13 PST 2020
+01:29:28,104 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[stash] - Active log file name: /tmp/test.log
+01:29:28,104 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[stash] - File property is set to [/tmp/test.log]
+01:29:28,105 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+01:29:28,106 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [logstashEncoderAppender]
+01:29:28,107 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.fieldnames.LogstashFieldNames] for [fieldNames] property
+01:29:28,114 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LoggingEventJsonProviders] for [providers] property
+01:29:28,127 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+01:29:28,127 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [loggingEventCompositeJsonEncoderAppender]
+01:29:28,127 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LoggingEventJsonProviders] for [providers] property
+01:29:28,128 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LoggingEventFormattedTimestampJsonProvider] for [timestamp] property
+01:29:28,128 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.LogstashVersionJsonProvider] for [version] property
+01:29:28,128 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.MessageJsonProvider] for [message] property
+01:29:28,129 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LoggingEventNestedJsonProvider] for [nestedField] property
+01:29:28,129 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LoggingEventJsonProviders] for [providers] property
+01:29:28,129 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.UuidProvider] for [uuid] property
+01:29:28,130 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.RawMessageJsonProvider] for [rawMessage] property
+01:29:28,130 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.SequenceJsonProvider] for [sequence] property
+01:29:28,130 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LoggerNameJsonProvider] for [loggerName] property
+01:29:28,131 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.ThreadNameJsonProvider] for [threadName] property
+01:29:28,131 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LogLevelJsonProvider] for [logLevel] property
+01:29:28,131 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LogLevelValueJsonProvider] for [logLevelValue] property
+01:29:28,131 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.CallerDataJsonProvider] for [callerData] property
+01:29:28,132 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.StackTraceJsonProvider] for [stackTrace] property
+01:29:28,133 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.StackHashJsonProvider] for [stackHash] property
+01:29:28,134 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.ContextJsonProvider] for [context] property
+01:29:28,134 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.ContextNameJsonProvider] for [contextName] property
+01:29:28,134 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.JsonMessageJsonProvider] for [jsonMessage] property
+01:29:28,134 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.MdcJsonProvider] for [mdc] property
+01:29:28,135 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.ContextMapJsonProvider] for [contextMap] property
+01:29:28,135 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.GlobalCustomFieldsJsonProvider] for [globalCustomFields] property
+01:29:28,136 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.TagsJsonProvider] for [tags] property
+01:29:28,136 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LogstashMarkersJsonProvider] for [logstashMarkers] property
+01:29:28,136 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.LoggingEventPatternJsonProvider] for [pattern] property
+01:29:28,137 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.ArgumentsJsonProvider] for [arguments] property
+01:29:28,137 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.ThrowableClassNameJsonProvider] for [throwableClassName] property
+01:29:28,138 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [net.logstash.logback.composite.loggingevent.ThrowableRootCauseClassNameJsonProvider] for [throwableRootCauseClassName] property
+01:29:28,138 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.read.ListAppender]
+01:29:28,139 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [listAppender]
+01:29:28,139 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [net.logstash.logback.appender.LoggingEventAsyncDisruptorAppender]
+01:29:28,140 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [asyncAppender]
+01:29:28,142 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [net.logstash.logback.encoder.LogstashEncoderTest] to DEBUG
+01:29:28,143 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [stash] to Logger[net.logstash.logback.encoder.LogstashEncoderTest]
+01:29:28,143 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [net.logstash.logback.ConfigurationTest] to DEBUG
+01:29:28,143 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [loggingEventCompositeJsonEncoderAppender] to Logger[net.logstash.logback.ConfigurationTest]
+01:29:28,143 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [logstashEncoderAppender] to Logger[net.logstash.logback.ConfigurationTest]
+01:29:28,143 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [listAppender] to Logger[net.logstash.logback.ConfigurationTest]
+01:29:28,143 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [asyncAppender] to Logger[net.logstash.logback.ConfigurationTest]
+01:29:28,143 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+01:29:28,144 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@66933239 - Registering current configuration as safe fallback point
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.265 sec - in net.logstash.logback.appender.listener.FailureSummaryLoggingAppenderListenerTest
+Running net.logstash.logback.appender.DelegatingAsyncDisruptorAppenderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in net.logstash.logback.appender.DelegatingAsyncDisruptorAppenderTest
+Running net.logstash.logback.ConfigurationTest
+{"@timestamp":"2020-04-10T01:29:28.223-07:00","@version":"1","customMessage":"message arg k1=v1 k2=[v2] v3","nested":{"id":"64ac0816-7b05-11ea-b73f-00c0f03d5b7c","customRawMessage":"message {} {} {} {}"},"sequenceNumberField":1,"logger_name":"n.l.l.ConfigurationTest","thread_name":"main","level":"INFO","level_value":20000,"caller":{"class":"net.logstash.logback.ConfigurationTest","method":"verifyOutput","file":"ConfigurationTest.java","line":218},"stack_trace":"<#e97a15e0> java.lang.Throwable: null\n\tat n.l.logback.ConfigurationTest.verifyOutput(ConfigurationTest.java:223)\n\tat n.l.logback.ConfigurationTest.testLogstashEncoderAppender(ConfigurationTest.java:90)\n\tat s.r.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java)\n\tat s.r.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat s.r.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat o.j.r.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)\n\tat o.j.i.r.m.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat o.j.r.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)\n\tat o.j.i.r.s.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat o.j.i.r.statements.RunBefores.evaluate(RunBefores.java:26)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)\n\tat o.j.r.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)\n\tat o.j.r.BlockJUnit4ClassRunner.ru...\n","stack_hash":"e97a15e0","context":"testContext","customName":"customValue","markerFieldName":"markerFieldValue","patternName":"patternValue","relativeTime":253,"prefix0":"arg","k1":"v1","k2":"v2","k3":"v3","throwable_class":"Throwable","throwable_root_cause_class":"java.lang.Throwable"}
+{"@timestamp":"2020-04-10T01:29:28.223-07:00","@version":"1","customMessage":"message arg k1=v1 k2=[v2] v3","logger_name":"n.l.l.ConfigurationTest","thread_name":"main","level":"INFO","level_value":20000,"stack_trace":"<#e97a15e0> java.lang.Throwable: null\n\tat n.l.logback.ConfigurationTest.verifyOutput(ConfigurationTest.java:223)\n\tat n.l.logback.ConfigurationTest.testLogstashEncoderAppender(ConfigurationTest.java:90)\n\tat s.r.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java)\n\tat s.r.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat s.r.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat o.j.r.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)\n\tat o.j.i.r.m.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat o.j.r.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)\n\tat o.j.i.r.s.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat o.j.i.r.statements.RunBefores.evaluate(RunBefores.java:26)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)\n\tat o.j.r.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)\n\tat o.j.r.BlockJUnit4ClassRunner.ru...\n","markerFieldName":"markerFieldValue","caller":{"class":"net.logstash.logback.ConfigurationTest","method":"verifyOutput","file":"ConfigurationTest.java","line":218},"customName":"customValue","patternName":"patternValue","relativeTime":253,"nested":{"customRawMessage":"message {} {} {} {}","id":"64ad4097-7b05-11ea-b73f-00c0f03d5b7c","customErrorHash":"e97a15e0"},"sequenceNumberField":1,"prefix0":"arg","k1":"v1","k2":"v2","k3":"v3","context":"testContext"}
+{"@timestamp":"2020-04-10T01:29:28.260-07:00","@version":"1","customMessage":"message arg k1=v1 k2=[v2] v3","nested":{"id":"64b11129-7b05-11ea-b73f-00c0f03d5b7c","customRawMessage":"message {} {} {} {}"},"sequenceNumberField":2,"logger_name":"n.l.l.ConfigurationTest","thread_name":"main","level":"INFO","level_value":20000,"caller":{"class":"net.logstash.logback.ConfigurationTest","method":"verifyOutput","file":"ConfigurationTest.java","line":218},"stack_trace":"<#1c9f5ad4> java.lang.Throwable: null\n\tat n.l.logback.ConfigurationTest.verifyOutput(ConfigurationTest.java:223)\n\tat n.l.logback.ConfigurationTest.testLoggingEventCompositeJsonEncoderAppender(ConfigurationTest.java:103)\n\tat s.r.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java)\n\tat s.r.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat s.r.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat o.j.r.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)\n\tat o.j.i.r.m.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat o.j.r.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)\n\tat o.j.i.r.s.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat o.j.i.r.statements.RunBefores.evaluate(RunBefores.java:26)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)\n\tat o.j.r.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)\n\tat o.j.r.BlockJU...\n","stack_hash":"1c9f5ad4","context":"testContext","customName":"customValue","markerFieldName":"markerFieldValue","patternName":"patternValue","relativeTime":290,"prefix0":"arg","k1":"v1","k2":"v2","k3":"v3","throwable_class":"Throwable","throwable_root_cause_class":"java.lang.Throwable"}
+{"@timestamp":"2020-04-10T01:29:28.260-07:00","@version":"1","customMessage":"message arg k1=v1 k2=[v2] v3","logger_name":"n.l.l.ConfigurationTest","thread_name":"main","level":"INFO","level_value":20000,"stack_trace":"<#1c9f5ad4> java.lang.Throwable: null\n\tat n.l.logback.ConfigurationTest.verifyOutput(ConfigurationTest.java:223)\n\tat n.l.logback.ConfigurationTest.testLoggingEventCompositeJsonEncoderAppender(ConfigurationTest.java:103)\n\tat s.r.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java)\n\tat s.r.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat s.r.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat o.j.r.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)\n\tat o.j.i.r.m.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat o.j.r.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)\n\tat o.j.i.r.s.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat o.j.i.r.statements.RunBefores.evaluate(RunBefores.java:26)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)\n\tat o.j.r.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)\n\tat o.j.r.BlockJU...\n","markerFieldName":"markerFieldValue","caller":{"class":"net.logstash.logback.ConfigurationTest","method":"verifyOutput","file":"ConfigurationTest.java","line":218},"customName":"customValue","patternName":"patternValue","relativeTime":290,"nested":{"customRawMessage":"message {} {} {} {}","id":"64b15f4a-7b05-11ea-b73f-00c0f03d5b7c","customErrorHash":"1c9f5ad4"},"sequenceNumberField":3,"prefix0":"arg","k1":"v1","k2":"v2","k3":"v3","context":"testContext"}
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec - in net.logstash.logback.ConfigurationTest
+Running net.logstash.logback.pattern.LoggingEventJsonPatternParserTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in net.logstash.logback.pattern.LoggingEventJsonPatternParserTest
+Running net.logstash.logback.pattern.AccessEventJsonPatternParserTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 sec - in net.logstash.logback.pattern.AccessEventJsonPatternParserTest
+Running net.logstash.logback.encoder.LogstashEncoderTest
+LOGBACK: No context given for net.logstash.logback.encoder.LogstashEncoder@dd4aec3
+LOGBACK: No context given for net.logstash.logback.encoder.LogstashEncoder@3e28fee1
+01:29:28,455 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Elapsed period: Fri Feb 14 15:04:13 PST 2020
+01:29:28,455 |-INFO in c.q.l.co.rolling.helper.RenameUtil - Renaming file [/tmp/test.log] to [/tmp/test.log.2020-02-14.log]
+01:29:28,458 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+01:29:28,458 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+LOGBACK: No context given for net.logstash.logback.encoder.LogstashEncoder@4b432e53
+Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec - in net.logstash.logback.encoder.LogstashEncoderTest
+Running net.logstash.logback.encoder.CompositeJsonEncoderTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in net.logstash.logback.encoder.CompositeJsonEncoderTest
+Running net.logstash.logback.encoder.LogstashAccessEncoderTest
+LOGBACK: No context given for net.logstash.logback.encoder.LogstashAccessEncoder@4b8137c5
+LOGBACK: No context given for net.logstash.logback.encoder.LogstashAccessEncoder@41b64020
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in net.logstash.logback.encoder.LogstashAccessEncoderTest
+Running net.logstash.logback.stacktrace.ShortenedThrowableConverterTest
+LOGBACK: No context given for ch.qos.logback.core.spi.ContextAwareBase@5d66e944
+LOGBACK: No context given for ch.qos.logback.core.spi.ContextAwareBase@4351ed61
+LOGBACK: No context given for ch.qos.logback.core.spi.ContextAwareBase@2f20f7ad
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in net.logstash.logback.stacktrace.ShortenedThrowableConverterTest
+Running net.logstash.logback.stacktrace.StackHasherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.logstash.logback.stacktrace.StackHasherTest
+Running net.logstash.logback.argument.StructuredArgumentsToStringTest
+01:29:28,615 |-WARN in class net.logstash.logback.argument.StructuredArguments - Failed toString() invocation on an object of type [net.logstash.logback.argument.StructuredArgumentsToStringTest$BuguyToString] net.logstash.logback.argument.StructuredArgumentsToStringTest$BuguyToString$1: npe
+	at net.logstash.logback.argument.StructuredArgumentsToStringTest$BuguyToString$1: npe
+01:29:28,617 |-WARN in class net.logstash.logback.argument.StructuredArguments - Failed toString() invocation on an object of type [net.logstash.logback.argument.StructuredArgumentsToStringTest$BuguyToString] net.logstash.logback.argument.StructuredArgumentsToStringTest$BuguyToString$1: npe
+	at net.logstash.logback.argument.StructuredArgumentsToStringTest$BuguyToString$1: npe
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in net.logstash.logback.argument.StructuredArgumentsToStringTest
+Running net.logstash.logback.decorate.FeatureJsonFactoryDecoratorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.logstash.logback.decorate.FeatureJsonFactoryDecoratorTest
+Running net.logstash.logback.decorate.CharacterEscapesJsonFactoryDecoratorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.logstash.logback.decorate.CharacterEscapesJsonFactoryDecoratorTest
+Running net.logstash.logback.layout.CompositeJsonLayoutTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.logstash.logback.layout.CompositeJsonLayoutTest
+
+Results :
+
+Tests run: 299, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.18:check (ensure-java-1.8-compatible) @ logstash-logback-encoder ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ logstash-logback-encoder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ logstash-logback-encoder ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Logstash Logback Encoderlogstash-logback-encoder
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/.diffCache
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ logstash-logback-encoder ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/target/logstash-logback-encoder-6.1-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.1.0:jar (attach-sources) > generate-sources @ logstash-logback-encoder >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:3.1.0:jar (attach-sources) < generate-sources @ logstash-logback-encoder <<<
+[INFO] 
+[INFO] --- maven-source-plugin:3.1.0:jar (attach-sources) @ logstash-logback-encoder ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/target/logstash-logback-encoder-6.1-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:3.2.1:shade (default) @ logstash-logback-encoder ---
+Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.pom
+2/11 KB   3/11 KB   5/11 KB   6/11 KB   7/11 KB   9/11 KB   10/11 KB   11/11 KB   11/11 KB              Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.pom (11 KB at 35.0 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0-beta/asm-analysis-7.0-beta.pom
+2/4 KB     3/4 KB   4/4 KB            Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0-beta/asm-analysis-7.0-beta.pom (4 KB at 51.5 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0-beta/asm-tree-7.0-beta.pom
+2/4 KB   3/4 KB   4/4 KB            Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0-beta/asm-tree-7.0-beta.pom (4 KB at 80.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0-beta/asm-commons-7.0-beta.pom
+2/4 KB   3/4 KB   4/4 KB            Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0-beta/asm-commons-7.0-beta.pom (4 KB at 21.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.pom
+2/4 KB   3/4 KB   4/4 KB            Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.pom (4 KB at 61.8 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.jar
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.jar
+2/182 KB   3/182 KB   5/182 KB   6/182 KB   7/182 KB   9/182 KB   10/182 KB   11/182 KB   13/182 KB   14/182 KB   15/182 KB   17/182 KB   18/182 KB   19/182 KB   21/182 KB   22/182 KB   23/182 KB   25/182 KB   26/182 KB   27/182 KB   29/182 KB   30/182 KB   31/182 KB   33/182 KB   34/182 KB   35/182 KB   37/182 KB   38/182 KB   39/182 KB   41/182 KB   42/182 KB   43/182 KB   45/182 KB   46/182 KB   47/182 KB   49/182 KB   50/182 KB   51/182 KB   53/182 KB   54/182 KB   2/79 KB   55/182 KB   2/79 KB   55/182 KB   2/79 KB   57/182 KB   2/79 KB   58/182 KB   2/79 KB   59/182 KB   2/79 KB   61/182 KB   3/79 KB   61/182 KB   3/79 KB   62/182 KB   5/79 KB   62/182 KB   5/79 KB   63/182 KB   6/79 KB   63/182 KB   6/79 KB   65/182 KB   7/79 KB   65/182 KB   7/79 KB   66/182 KB   9/79 KB   67/182 KB   9/79 KB   67/182 KB   9/79 KB   69/182 KB   10/79 KB   69/182 KB   10/79 KB   70/182 KB   11/79 KB   70/182 KB   11/79 KB   71/182 KB   13/79 KB   71/182 KB   13/79 KB   73/182 KB   14/79 KB   73/182 KB   14/79 KB   74/182 KB   15/79 KB   74/182 KB   17/79 KB   74/182 KB   17/79 KB   75/182 KB   18/79 KB   75/182 KB   18/79 KB   77/182 KB   19/79 KB   77/182 KB   19/79 KB   78/182 KB   21/79 KB   78/182 KB   22/79 KB   79/182 KB   22/79 KB   79/182 KB   22/79 KB   81/182 KB   23/79 KB   81/182 KB   23/79 KB   82/182 KB   25/79 KB   82/182 KB   26/79 KB   82/182 KB   27/79 KB   82/182 KB   27/79 KB   84/182 KB   29/79 KB   84/182 KB   29/79 KB   85/182 KB   30/79 KB   85/182 KB   30/79 KB   86/182 KB   31/79 KB   86/182 KB   31/79 KB   88/182 KB   33/79 KB   88/182 KB   33/79 KB   89/182 KB   34/79 KB   89/182 KB   34/79 KB   90/182 KB   35/79 KB   90/182 KB   35/79 KB   92/182 KB   37/79 KB   92/182 KB   37/79 KB   93/182 KB   37/79 KB   94/182 KB   38/79 KB   94/182 KB   38/79 KB   96/182 KB   39/79 KB   96/182 KB   39/79 KB   97/182 KB   41/79 KB   97/182 KB   41/79 KB   98/182 KB   42/79 KB   98/182 KB   42/79 KB   100/182 KB   43/79 KB   100/182 KB   45/79 KB   100/182 KB   45/79 KB   101/182 KB   46/79 KB   101/182 KB   46/79 KB   102/182 KB   47/79 KB   102/182 KB   47/79 KB   104/182 KB   49/79 KB   105/182 KB   49/79 KB   105/182 KB   50/79 KB   105/182 KB   50/79 KB   106/182 KB   51/79 KB   106/182 KB   51/79 KB   108/182 KB   51/79 KB   109/182 KB   53/79 KB   109/182 KB   53/79 KB   110/182 KB   54/79 KB   110/182 KB   54/79 KB   112/182 KB   55/79 KB   112/182 KB   55/79 KB   113/182 KB   57/79 KB   113/182 KB   57/79 KB   114/182 KB   58/79 KB   114/182 KB   58/79 KB   116/182 KB   59/79 KB   116/182 KB   59/79 KB   117/182 KB   61/79 KB   117/182 KB   61/79 KB   118/182 KB   62/79 KB   118/182 KB   62/79 KB   120/182 KB   63/79 KB   120/182 KB   63/79 KB   121/182 KB   65/79 KB   121/182 KB   65/79 KB   122/182 KB   66/79 KB   122/182 KB   66/79 KB   124/182 KB   67/79 KB   124/182 KB   67/79 KB   125/182 KB   69/79 KB   125/182 KB   69/79 KB   126/182 KB   70/79 KB   126/182 KB   70/79 KB   128/182 KB   71/79 KB   128/182 KB   71/79 KB   129/182 KB   73/79 KB   129/182 KB   73/79 KB   130/182 KB   74/79 KB   130/182 KB   74/79 KB   132/182 KB   75/79 KB   132/182 KB   75/79 KB   133/182 KB   77/79 KB   133/182 KB   77/79 KB   134/182 KB   78/79 KB   134/182 KB   78/79 KB   136/182 KB   79/79 KB   136/182 KB   79/79 KB   137/182 KB   79/79 KB   138/182 KB   79/79 KB   140/182 KB   79/79 KB   141/182 KB   79/79 KB   142/182 KB   79/79 KB   144/182 KB   79/79 KB   145/182 KB   79/79 KB   146/182 KB   79/79 KB   148/182 KB   79/79 KB   149/182 KB   79/79 KB   150/182 KB   79/79 KB   152/182 KB   79/79 KB   153/182 KB   79/79 KB   154/182 KB   79/79 KB   156/182 KB   79/79 KB   157/182 KB   79/79 KB   158/182 KB   79/79 KB   160/182 KB   79/79 KB   161/182 KB   79/79 KB   163/182 KB   79/79 KB   164/182 KB   79/79 KB   165/182 KB   79/79 KB   167/182 KB   79/79 KB   168/182 KB   79/79 KB   169/182 KB   79/79 KB   171/182 KB   79/79 KB   172/182 KB   79/79 KB   173/182 KB   79/79 KB   175/182 KB   79/79 KB   176/182 KB   79/79 KB   177/182 KB   79/79 KB   179/182 KB   79/79 KB   180/182 KB   79/79 KB   181/182 KB   79/79 KB   182/182 KB                           Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.jar (79 KB at 1293.7 KB/sec)
+                        Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.jar (182 KB at 2525.8 KB/sec)
+[INFO] Excluding ch.qos.logback:logback-classic:jar:1.2.3 from the shaded jar.
+[INFO] Excluding org.slf4j:slf4j-api:jar:1.7.25 from the shaded jar.
+[INFO] Excluding ch.qos.logback:logback-access:jar:1.2.3 from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.core:jackson-databind:jar:2.9.9 from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0 from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.core:jackson-core:jar:2.9.9 from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:jar:2.9.9 from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.dataformat:jackson-dataformat-smile:jar:2.9.9 from the shaded jar.
+[INFO] Excluding com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.9.9 from the shaded jar.
+[INFO] Excluding org.yaml:snakeyaml:jar:1.23 from the shaded jar.
+[INFO] Excluding com.fasterxml.uuid:java-uuid-generator:jar:3.2.0 from the shaded jar.
+[INFO] Including org.apache.commons:commons-lang3:jar:3.9 in the shaded jar.
+[INFO] Including com.lmax:disruptor:jar:3.4.2 in the shaded jar.
+[INFO] Minimizing jar net.logstash.logback:logstash-logback-encoder:jar:6.1-SNAPSHOT
+[INFO] Minimized 577 -> 405 (70%)
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/target/logstash-logback-encoder-6.1-SNAPSHOT.jar with /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/target/logstash-logback-encoder-6.1-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/logstash-logback-encoder/dependency-reduced-pom.xml
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB                           Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 0.8 KB/sec)
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 17.2 KB/sec)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 21.477 s
+[INFO] Finished at: 2020-04-10T01:29:37-07:00
+[INFO] Final Memory: 59M/2563M
+[INFO] ------------------------------------------------------------------------

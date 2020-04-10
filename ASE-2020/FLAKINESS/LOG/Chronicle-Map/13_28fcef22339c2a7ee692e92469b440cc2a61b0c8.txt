@@ -1,0 +1,149 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/net/openhft/chronicle-bom/2.17-SNAPSHOT/maven-metadata.xml
+605/605 B               Downloaded: https://oss.sonatype.org/content/repositories/snapshots/net/openhft/chronicle-bom/2.17-SNAPSHOT/maven-metadata.xml (605 B at 1.0 KB/sec)
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from chronicle-map
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OpenHFT/Chronicle-Map 3.17.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB               Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 11.8 KB/sec)
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 12.2 KB/sec)
+[INFO] 
+[INFO] --- depends-maven-plugin:1.4.0:generate-depends-file (generate-depends-file) @ chronicle-map ---
+[INFO] Created: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/classes/META-INF/maven/dependencies.properties
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ chronicle-map ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ chronicle-map ---
+[INFO] Compiling 7 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.5.0:manifest (default) @ chronicle-map ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ chronicle-map ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ chronicle-map ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 28fcef22339c2a7ee692e92469b440cc2a61b0c8 against: c72fdcb306c91155da500d003dc45b75046c95d1
+net/openhft/chronicle/map/ToString$ToString : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$IBean : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$7 : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$PrefixStringFunction : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$6 : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest : [Edit [start=254, end=253], Edit [start=295, end=294], Edit [start=445, end=444]]
+	 Methods to watch:[]
+net/openhft/chronicle/map/ValueAlignmentRelocationTest : [Edit [start=145, end=144]]
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$1 : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/MissSizedMapsTest : [Edit [start=61, end=60]]
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$IData : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$DataDataAccess : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$5 : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$4 : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$3 : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$2 : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$UnsignedShortValue : []
+	 Methods to watch:[]
+net/openhft/lang/values/MovingAverageArray : [Edit [start=49, end=48]]
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$UnsignedByteValue : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$StringPrefixUnaryOperator : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$UnsignedIntValue : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$TypeOfMap : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$DataReader : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$I1 : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$IBean$Inner : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$IData$Data : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString : []
+	 Methods to watch:[]
+net/openhft/chronicle/map/ToString$CHMUseCasesTest$StringValue : []
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ chronicle-map ---
+[INFO] Compiling 131 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/test-classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/utility/ProcessInstanceLimiter.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/lang/values/MovingAverageArray.java:[25,34] net.openhft.chronicle.wire.AbstractBytesMarshallable in net.openhft.chronicle.wire has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/lang/values/MovingAverageCompact.java:[21,34] net.openhft.chronicle.wire.AbstractBytesMarshallable in net.openhft.chronicle.wire has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/AbstractMarshallableKeyValueTest.java:[19,34] net.openhft.chronicle.wire.AbstractMarshallable in net.openhft.chronicle.wire has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/ForEachSeqmentTest.java:[9,34] net.openhft.chronicle.wire.AbstractBytesMarshallable in net.openhft.chronicle.wire has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/fromdocs/pingpong_latency/PingPongCASLeft.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/eg/BigData.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/utility/ProcessInstanceLimiter.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/lang/values/MovingAverageArray.java:[25,34] net.openhft.chronicle.wire.AbstractBytesMarshallable in net.openhft.chronicle.wire has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/lang/values/MovingAverageCompact.java:[21,34] net.openhft.chronicle.wire.AbstractBytesMarshallable in net.openhft.chronicle.wire has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/AbstractMarshallableKeyValueTest.java:[19,34] net.openhft.chronicle.wire.AbstractMarshallable in net.openhft.chronicle.wire has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/ForEachSeqmentTest.java:[9,34] net.openhft.chronicle.wire.AbstractBytesMarshallable in net.openhft.chronicle.wire has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/fromdocs/pingpong_latency/PingPongCASLeft.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/eg/BigData.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[INFO] 14 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[24,39] package net.openhft.chronicle.core.jlbh does not exist
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[25,39] package net.openhft.chronicle.core.jlbh does not exist
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[26,39] package net.openhft.chronicle.core.jlbh does not exist
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[37,37] cannot find symbol
+  symbol: class JLBHTask
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[60,22] cannot find symbol
+  symbol:   class JLBH
+  location: class net.openhft.chronicle.map.perf.MapJLBHTest
+[INFO] 5 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 8.747 s
+[INFO] Finished at: 2020-04-09T18:46:14-07:00
+[INFO] Final Memory: 72M/2310M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project chronicle-map: Compilation failure: Compilation failure:
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[24,39] package net.openhft.chronicle.core.jlbh does not exist
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[25,39] package net.openhft.chronicle.core.jlbh does not exist
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[26,39] package net.openhft.chronicle.core.jlbh does not exist
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[37,37] cannot find symbol
+[ERROR] symbol: class JLBHTask
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/perf/MapJLBHTest.java:[60,22] cannot find symbol
+[ERROR] symbol:   class JLBH
+[ERROR] location: class net.openhft.chronicle.map.perf.MapJLBHTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

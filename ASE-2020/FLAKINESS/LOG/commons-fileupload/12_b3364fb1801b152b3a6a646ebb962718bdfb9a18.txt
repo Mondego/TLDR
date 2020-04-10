@@ -1,0 +1,143 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-fileupload
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-fileupload
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons FileUpload 2.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-fileupload ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-fileupload ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-fileupload ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-fileupload ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload
+[INFO] Storing buildNumber: b3364fb1801b152b3a6a646ebb962718bdfb9a18 at timestamp: 1586493915703
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-fileupload ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ commons-fileupload ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 39 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/main/java/org/apache/commons/fileupload/servlet/ServletFileUpload.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/main/java/org/apache/commons/fileupload/servlet/ServletFileUpload.java uses or overrides a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/main/java/org/apache/commons/fileupload/servlet/ServletFileUpload.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.4.0:manifest (bundle-manifest) @ commons-fileupload ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (checkAPIcompatibility) @ commons-fileupload ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-fileupload ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-fileupload ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing b3364fb1801b152b3a6a646ebb962718bdfb9a18 against: d7518ac9ecc80f5c6d4ed1324ec0becd81c320dd
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-fileupload ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-fileupload ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.fileupload.ProgressListenerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.499 sec - in org.apache.commons.fileupload.ProgressListenerTest
+Running org.apache.commons.fileupload.portlet.PortletFileUploadTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.fileupload.portlet.PortletFileUploadTest
+Running org.apache.commons.fileupload.DefaultFileItemTest
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec <<< FAILURE! - in org.apache.commons.fileupload.DefaultFileItemTest
+testAboveThresholdSpecifiedRepository(org.apache.commons.fileupload.DefaultFileItemTest)  Time elapsed: 0.009 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.fileupload.DefaultFileItemTest.testAboveThresholdSpecifiedRepository(DefaultFileItemTest.java:150)
+
+Running org.apache.commons.fileupload.StreamingTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.893 sec - in org.apache.commons.fileupload.StreamingTest
+Running org.apache.commons.fileupload.servlet.ServletFileUploadTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.fileupload.servlet.ServletFileUploadTest
+Running org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase
+Running org.apache.commons.fileupload.util.mime.Base64DecoderTestCase
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.fileupload.util.mime.Base64DecoderTestCase
+Running org.apache.commons.fileupload.util.mime.MimeUtilityTestCase
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.fileupload.util.mime.MimeUtilityTestCase
+Running org.apache.commons.fileupload.DiskFileItemSerializeTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.apache.commons.fileupload.DiskFileItemSerializeTest
+Running org.apache.commons.fileupload.MultipartStreamTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.fileupload.MultipartStreamTest
+Running org.apache.commons.fileupload.FileUploadTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.apache.commons.fileupload.FileUploadTest
+Running org.apache.commons.fileupload.DiskFileUploadTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.fileupload.DiskFileUploadTest
+Running org.apache.commons.fileupload.SizesTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 sec - in org.apache.commons.fileupload.SizesTest
+Running org.apache.commons.fileupload.ParameterParserTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.fileupload.ParameterParserTest
+Running org.apache.commons.fileupload.FileItemHeadersTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.fileupload.FileItemHeadersTest
+
+Results :
+
+Failed tests: 
+  DefaultFileItemTest.testAboveThresholdSpecifiedRepository:150
+
+Tests run: 82, Failures: 1, Errors: 0, Skipped: 0
+
+[ERROR] There are test failures.
+
+Please refer to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/surefire-reports for the individual test results.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-fileupload ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-fileupload ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons FileUploadcommons-fileupload
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/.diffCache
+[WARNING] FLAKY>> Test org.apache.commons.fileupload.DefaultFileItemTest.testAboveThresholdSpecifiedRepository failed, but did not appear to run any changed code
+[WARNING] 
+There are test failures!
+
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.0:jar (default-jar) @ commons-fileupload ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/commons-fileupload-2.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7:attach-descriptor (attach-descriptor) @ commons-fileupload ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 16.573 s
+[INFO] Finished at: 2020-04-09T21:45:29-07:00
+[INFO] Final Memory: 57M/2307M
+[INFO] ------------------------------------------------------------------------

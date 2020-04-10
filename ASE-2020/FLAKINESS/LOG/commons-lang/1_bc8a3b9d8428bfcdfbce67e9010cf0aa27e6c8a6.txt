@@ -1,0 +1,165 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-lang3
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-lang3
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-lang3
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Lang 3.10-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-lang3 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-lang3 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang
+[INFO] Storing buildNumber: bc8a3b9d8428bfcdfbce67e9010cf0aa27e6c8a6 at timestamp: 1586496414722
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 157 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Recompile with -Xlint:deprecation for details.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/java/org/apache/commons/lang3/text/StrBuilder.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/java/org/apache/commons/lang3/text/StrBuilder.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.1.0:manifest (bundle-manifest) @ commons-lang3 ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-lang3 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-lang3 ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing bc8a3b9d8428bfcdfbce67e9010cf0aa27e6c8a6 against: 1163e177137f5c57ce80092c0743209b28d33400
+org/apache/commons/lang3/builder/HashCodeBuilderTest$ReflectionTestCycleB : []
+	 Methods to watch:[]
+org/apache/commons/lang3/builder/HashCodeBuilder : [Edit [start=23, end=23], Edit [start=25, end=25], Edit [start=194, end=194]]
+	 Methods to watch:[]
+org/apache/commons/lang3/builder/HashCodeBuilderTest$TestObjectHashCodeExclude2 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/builder/HashCodeBuilderTest$ReflectionTestCycleA : []
+	 Methods to watch:[]
+org/apache/commons/lang3/builder/HashCodeBuilderTest$TestObjectWithMultipleFields : []
+	 Methods to watch:[]
+org/apache/commons/lang3/builder/HashCodeBuilderTest : [Edit [start=493, end=493], Edit [start=495, end=497]]
+	 Methods to watch:[]
+org/apache/commons/lang3/builder/HashCodeBuilderTest$TestObject : []
+	 Methods to watch:[]
+org/apache/commons/lang3/builder/HashCodeBuilderTest$TestObjectHashCodeExclude : []
+	 Methods to watch:[]
+org/apache/commons/lang3/builder/HashCodeBuilderTest$TestSubObject : []
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 176 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/test/java/org/apache/commons/lang3/StringEscapeUtilsTest.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/test/java/org/apache/commons/lang3/StringEscapeUtilsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/test/java/org/apache/commons/lang3/builder/DiffResultTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/test/java/org/apache/commons/lang3/builder/DiffResultTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-lang3 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-lang3 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-lang3 ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Langcommons-lang3
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/.diffCache
+[WARNING] Diff has gone untested: org/apache/commons/lang3/builder/HashCodeBuilder has uncovered changes [23, 25, 194]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/builder/HashCodeBuilderTest has uncovered changes [493, 495, 496, 497]
+[WARNING] No tests found!
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7.1:attach-descriptor (attach-descriptor) @ commons-lang3 ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:test-jar (default) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar-no-fork (create-source-jar) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:test-jar-no-fork (create-source-jar) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT-test-sources.jar
+[INFO] 
+[INFO] >>> maven-javadoc-plugin:3.1.0:javadoc (create-javadoc-jar) > generate-sources @ commons-lang3 >>>
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 3.6 KB/sec)
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 23.5 KB/sec)
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-lang3 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-javadoc-plugin:3.1.0:javadoc (create-javadoc-jar) < generate-sources @ commons-lang3 <<<
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.1.0:javadoc (create-javadoc-jar) @ commons-lang3 ---
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.1/maven-artifact-transfer-0.10.1.pom
+2/12 KB   3/12 KB   5/12 KB   6/12 KB   7/12 KB   9/12 KB   10/12 KB   11/12 KB   12/12 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.1/maven-artifact-transfer-0.10.1.pom (12 KB at 94.0 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/com/thoughtworks/qdox/qdox/2.0-M10/qdox-2.0-M10.pom
+2/16 KB    3/16 KB   5/16 KB   6/16 KB   7/16 KB   9/16 KB   10/16 KB   11/16 KB   13/16 KB   14/16 KB   15/16 KB   16/16 KB              Downloaded: https://repo.maven.apache.org/maven2/com/thoughtworks/qdox/qdox/2.0-M10/qdox-2.0-M10.pom (16 KB at 329.2 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.1/maven-artifact-transfer-0.10.1.jar
+Downloading: https://repo.maven.apache.org/maven2/com/thoughtworks/qdox/qdox/2.0-M10/qdox-2.0-M10.jar
+2/310 KB   3/310 KB   5/310 KB   6/310 KB   7/310 KB   9/310 KB   10/310 KB   11/310 KB   13/310 KB   14/310 KB   15/310 KB   17/310 KB   18/310 KB   19/310 KB   21/310 KB   22/310 KB   23/310 KB   25/310 KB   26/310 KB   27/310 KB   29/310 KB   30/310 KB   31/310 KB   33/310 KB   34/310 KB   34/310 KB   2/125 KB   35/310 KB   2/125 KB   37/310 KB   2/125 KB   38/310 KB   2/125 KB   38/310 KB   3/125 KB   39/310 KB   3/125 KB   39/310 KB   5/125 KB   41/310 KB   5/125 KB   41/310 KB   6/125 KB   42/310 KB   6/125 KB   42/310 KB   7/125 KB   42/310 KB   9/125 KB   43/310 KB   9/125 KB   43/310 KB   10/125 KB   43/310 KB   11/125 KB   45/310 KB   11/125 KB   45/310 KB   13/125 KB   46/310 KB   13/125 KB   46/310 KB   14/125 KB   46/310 KB   15/125 KB   47/310 KB   15/125 KB   47/310 KB   17/125 KB   49/310 KB   17/125 KB   49/310 KB   18/125 KB   49/310 KB   19/125 KB   50/310 KB   19/125 KB   50/310 KB   21/125 KB   51/310 KB   21/125 KB   51/310 KB   22/125 KB   51/310 KB   23/125 KB   53/310 KB   23/125 KB   53/310 KB   25/125 KB   54/310 KB   25/125 KB   54/310 KB   26/125 KB   54/310 KB   27/125 KB   55/310 KB   27/125 KB   55/310 KB   29/125 KB   57/310 KB   29/125 KB   57/310 KB   30/125 KB   57/310 KB   31/125 KB   58/310 KB   31/125 KB   58/310 KB   33/125 KB   59/310 KB   33/125 KB   59/310 KB   34/125 KB   61/310 KB   34/125 KB   61/310 KB   35/125 KB   61/310 KB   37/125 KB   62/310 KB   37/125 KB   62/310 KB   38/125 KB   63/310 KB   38/125 KB   63/310 KB   39/125 KB   65/310 KB   41/125 KB   65/310 KB   41/125 KB   65/310 KB   42/125 KB   65/310 KB   43/125 KB   66/310 KB   43/125 KB   66/310 KB   45/125 KB   66/310 KB   46/125 KB   67/310 KB   46/125 KB   67/310 KB   47/125 KB   69/310 KB   47/125 KB   69/310 KB   49/125 KB   70/310 KB   49/125 KB   70/310 KB   50/125 KB   71/310 KB   50/125 KB   71/310 KB   51/125 KB   73/310 KB   51/125 KB   73/310 KB   53/125 KB   73/310 KB   54/125 KB   74/310 KB   54/125 KB   74/310 KB   55/125 KB   74/310 KB   57/125 KB   75/310 KB   57/125 KB   75/310 KB   58/125 KB   77/310 KB   58/125 KB   77/310 KB   59/125 KB   78/310 KB   59/125 KB   78/310 KB   61/125 KB   79/310 KB   61/125 KB   79/310 KB   62/125 KB   79/310 KB   63/125 KB   81/310 KB   63/125 KB   81/310 KB   65/125 KB   81/310 KB   66/125 KB   82/310 KB   66/125 KB   82/310 KB   67/125 KB   84/310 KB   67/125 KB   84/310 KB   69/125 KB   85/310 KB   70/125 KB   85/310 KB   70/125 KB   85/310 KB   71/125 KB   86/310 KB   71/125 KB   86/310 KB   73/125 KB   88/310 KB   73/125 KB   88/310 KB   74/125 KB   89/310 KB   75/125 KB   89/310 KB   75/125 KB   89/310 KB   77/125 KB   90/310 KB   77/125 KB   90/310 KB   78/125 KB   92/310 KB   78/125 KB   92/310 KB   79/125 KB   92/310 KB   81/125 KB   93/310 KB   81/125 KB   93/310 KB   82/125 KB   94/310 KB   84/125 KB   94/310 KB   84/125 KB   94/310 KB   85/125 KB   96/310 KB   85/125 KB   96/310 KB   86/125 KB   97/310 KB   86/125 KB   97/310 KB   88/125 KB   97/310 KB   89/125 KB   98/310 KB   89/125 KB   98/310 KB   90/125 KB   100/310 KB   90/125 KB   100/310 KB   92/125 KB   100/310 KB   93/125 KB   101/310 KB   93/125 KB   101/310 KB   94/125 KB   102/310 KB   94/125 KB   102/310 KB   96/125 KB   102/310 KB   97/125 KB   104/310 KB   97/125 KB   104/310 KB   98/125 KB   105/310 KB   98/125 KB   105/310 KB   100/125 KB   105/310 KB   101/125 KB   106/310 KB   101/125 KB   106/310 KB   102/125 KB   108/310 KB   102/125 KB   108/310 KB   104/125 KB   109/310 KB   104/125 KB   109/310 KB   105/125 KB   109/310 KB   106/125 KB   110/310 KB   106/125 KB   110/310 KB   108/125 KB   112/310 KB   108/125 KB   112/310 KB   109/125 KB   113/310 KB   109/125 KB   113/310 KB   110/125 KB   113/310 KB   112/125 KB   114/310 KB   112/125 KB   114/310 KB   113/125 KB   116/310 KB   113/125 KB   116/310 KB   114/125 KB   116/310 KB   116/125 KB   117/310 KB   116/125 KB   117/310 KB   117/125 KB   118/310 KB   118/125 KB   118/310 KB   118/125 KB   118/310 KB   120/125 KB   120/310 KB   120/125 KB   120/310 KB   121/125 KB   121/310 KB   122/125 KB   121/310 KB   122/125 KB   121/310 KB   124/125 KB   122/310 KB   124/125 KB   122/310 KB   125/125 KB   122/310 KB   125/125 KB   124/310 KB   125/125 KB   125/310 KB   125/125 KB   126/310 KB   125/125 KB   128/310 KB   125/125 KB   129/310 KB   125/125 KB   130/310 KB   125/125 KB   132/310 KB   125/125 KB   133/310 KB   125/125 KB   134/310 KB   125/125 KB   136/310 KB   125/125 KB   137/310 KB   125/125 KB   138/310 KB   125/125 KB   140/310 KB   125/125 KB   141/310 KB   125/125 KB   142/310 KB   125/125 KB   144/310 KB   125/125 KB   145/310 KB   125/125 KB   146/310 KB   125/125 KB   148/310 KB   125/125 KB   149/310 KB   125/125 KB   150/310 KB   125/125 KB   152/310 KB   125/125 KB   153/310 KB   125/125 KB   154/310 KB   125/125 KB   156/310 KB   125/125 KB   157/310 KB   125/125 KB   158/310 KB   125/125 KB   160/310 KB   125/125 KB   161/310 KB   125/125 KB   163/310 KB   125/125 KB   164/310 KB   125/125 KB   165/310 KB   125/125 KB   167/310 KB   125/125 KB   168/310 KB   125/125 KB   169/310 KB   125/125 KB   171/310 KB   125/125 KB   172/310 KB   125/125 KB   173/310 KB   125/125 KB   175/310 KB   125/125 KB   176/310 KB   125/125 KB   177/310 KB   125/125 KB   179/310 KB   125/125 KB   180/310 KB   125/125 KB   181/310 KB   125/125 KB   183/310 KB   125/125 KB                             184/310 KB                Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.1/maven-artifact-transfer-0.10.1.jar (125 KB at 2081.8 KB/sec)
+185/310 KB   187/310 KB   188/310 KB   189/310 KB   191/310 KB   192/310 KB   193/310 KB   195/310 KB   196/310 KB   197/310 KB   199/310 KB   200/310 KB   201/310 KB   203/310 KB   204/310 KB   205/310 KB   207/310 KB   208/310 KB   209/310 KB   211/310 KB   212/310 KB   213/310 KB   215/310 KB   216/310 KB   217/310 KB   219/310 KB   220/310 KB   221/310 KB   223/310 KB   224/310 KB   225/310 KB   227/310 KB   228/310 KB   229/310 KB   231/310 KB   232/310 KB   233/310 KB   235/310 KB   236/310 KB   237/310 KB   239/310 KB   240/310 KB   241/310 KB   243/310 KB   244/310 KB   246/310 KB   247/310 KB   248/310 KB   250/310 KB   251/310 KB   252/310 KB   254/310 KB   255/310 KB   256/310 KB   258/310 KB   259/310 KB   260/310 KB   262/310 KB   263/310 KB   264/310 KB   266/310 KB   267/310 KB   268/310 KB   270/310 KB   271/310 KB   272/310 KB   274/310 KB   275/310 KB   276/310 KB   278/310 KB   279/310 KB   280/310 KB   282/310 KB   283/310 KB   284/310 KB   286/310 KB   287/310 KB   288/310 KB   290/310 KB   291/310 KB   292/310 KB   294/310 KB   295/310 KB   296/310 KB   298/310 KB   299/310 KB   300/310 KB   302/310 KB   303/310 KB   304/310 KB   306/310 KB   307/310 KB   308/310 KB   310/310 KB   310/310 KB                Downloaded: https://repo.maven.apache.org/maven2/com/thoughtworks/qdox/qdox/2.0-M10/qdox-2.0-M10.jar (310 KB at 3520.9 KB/sec)
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.1.0:jar (create-javadoc-jar) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT-javadoc.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 34.511 s
+[INFO] Finished at: 2020-04-09T22:27:25-07:00
+[INFO] Final Memory: 86M/3731M
+[INFO] ------------------------------------------------------------------------

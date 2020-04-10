@@ -1,0 +1,131 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from invokebinder
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building invokebinder 1.4-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 0.2 KB/sec)
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 6.2 KB/sec)
+[INFO] 
+[INFO] --- maven-resources-plugin:2.2:resources (default-resources) @ invokebinder ---
+[INFO] Using encoding: 'UTF-8' to copy filtered resources.
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ invokebinder ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.2:testResources (default-testResources) @ invokebinder ---
+[INFO] Using encoding: 'UTF-8' to copy filtered resources.
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ invokebinder ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing fa3a1e9dc1fd46cbfa01a9eafeda2d7dfb861abd against: 59821c188c182cc96fb2cf6a11ca6325eb161122
+com/headius/invokebinder/SmartBinder : [Edit [start=31, end=31], Edit [start=308, end=308], Edit [start=334, end=334], Edit [start=338, end=338], Edit [start=340, end=340], Edit [start=791, end=791], Edit [start=865, end=865], Edit [start=868, end=868], Edit [start=870, end=870], Edit [start=889, end=889], Edit [start=905, end=905], Edit [start=944, end=944], Edit [start=981, end=981], Edit [start=1024, end=1024], Edit [start=1039, end=1039]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Cast : [Edit [start=24, end=24]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Fold : [Edit [start=24, end=24]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Catch : [Edit [start=24, end=24]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Insert : [Edit [start=25, end=25]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Transform : [Edit [start=46, end=46]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/FilterReturn : [Edit [start=26, end=26]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Spread : [Edit [start=25, end=25]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Drop : [Edit [start=25, end=25]]
+	 Methods to watch:[]
+com/headius/invokebinder/Binder : [Edit [start=50, end=50], Edit [start=54, end=54], Edit [start=58, end=58], Edit [start=102, end=103], Edit [start=330, end=330], Edit [start=887, end=887], Edit [start=991, end=991], Edit [start=997, end=997], Edit [start=1079, end=1079], Edit [start=1103, end=1103], Edit [start=1110, end=1110], Edit [start=1121, end=1121], Edit [start=1124, end=1124], Edit [start=1145, end=1145], Edit [start=1153, end=1154], Edit [start=1165, end=1165], Edit [start=1168, end=1168], Edit [start=1192, end=1192], Edit [start=1199, end=1200], Edit [start=1211, end=1211], Edit [start=1214, end=1214], Edit [start=1237, end=1237], Edit [start=1245, end=1246], Edit [start=1257, end=1257], Edit [start=1260, end=1260], Edit [start=1284, end=1284], Edit [start=1291, end=1292], Edit [start=1303, end=1303], Edit [start=1306, end=1306], Edit [start=1329, end=1329], Edit [start=1336, end=1339], Edit [start=1350, end=1350], Edit [start=1353, end=1353], Edit [start=1376, end=1376], Edit [start=1384, end=1385], Edit [start=1396, end=1396], Edit [start=1399, end=1399], Edit [start=1423, end=1423], Edit [start=1430, end=1431], Edit [start=1442, end=1442], Edit [start=1445, end=1445], Edit [start=1468, end=1468], Edit [start=1476, end=1477], Edit [start=1488, end=1488], Edit [start=1491, end=1491]]
+	 Methods to watch:[]
+com/headius/invokebinder/SmartHandle : [Edit [start=26, end=26], Edit [start=30, end=30], Edit [start=32, end=32], Edit [start=38, end=38], Edit [start=45, end=45], Edit [start=54, end=54], Edit [start=137, end=137], Edit [start=165, end=164], Edit [start=173, end=173], Edit [start=176, end=178], Edit [start=186, end=186], Edit [start=189, end=191], Edit [start=199, end=199], Edit [start=202, end=203], Edit [start=323, end=323]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/TryFinally : [Edit [start=26, end=26], Edit [start=28, end=28]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Convert : [Edit [start=24, end=24]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Permute : [Edit [start=27, end=27]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Varargs : [Edit [start=23, end=23]]
+	 Methods to watch:[]
+com/headius/invokebinder/Signature : [Edit [start=30, end=30], Edit [start=36, end=36], Edit [start=39, end=39], Edit [start=43, end=43], Edit [start=148, end=152], Edit [start=164, end=164], Edit [start=174, end=174], Edit [start=185, end=185], Edit [start=200, end=200], Edit [start=217, end=217], Edit [start=232, end=232], Edit [start=248, end=248], Edit [start=261, end=261], Edit [start=273, end=273], Edit [start=296, end=296], Edit [start=374, end=375], Edit [start=395, end=399], Edit [start=417, end=419], Edit [start=434, end=437], Edit [start=449, end=452], Edit [start=696, end=696], Edit [start=698, end=698]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Filter : [Edit [start=25, end=25]]
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Collect : [Edit [start=25, end=25]]
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ invokebinder ---
+[INFO] Compiling 4 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ invokebinder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.headius.invokebinder.SignatureTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 sec - in com.headius.invokebinder.SignatureTest
+Running com.headius.invokebinder.SmartBinderTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.headius.invokebinder.SmartBinderTest
+Running com.headius.invokebinder.BinderTest
+(BinderTest,String)String
+Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 sec - in com.headius.invokebinder.BinderTest
+
+Results :
+
+Tests run: 99, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ invokebinder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ invokebinder ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] invokebinderinvokebinder
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/.diffCache
+[WARNING] Diff has gone untested: com/headius/invokebinder/SmartBinder has uncovered changes [31, 308, 334, 338, 340, 791, 865, 868, 870, 889, 905, 944, 981, 1024, 1039]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Cast has uncovered changes [24]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Fold has uncovered changes [24]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Catch has uncovered changes [24]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Insert has uncovered changes [25]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Transform has uncovered changes [46]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/FilterReturn has uncovered changes [26]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Spread has uncovered changes [25]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Drop has uncovered changes [25]
+[WARNING] Diff has gone untested: com/headius/invokebinder/Binder has uncovered changes [50, 54, 58, 102, 103, 330, 887, 991, 997, 1079, 1103, 1110, 1121, 1124, 1145, 1153, 1154, 1165, 1168, 1192, 1199, 1200, 1211, 1214, 1237, 1245, 1246, 1257, 1260, 1284, 1291, 1292, 1303, 1306, 1329, 1336, 1337, 1338, 1339, 1350, 1353, 1376, 1384, 1385, 1396, 1399, 1423, 1430, 1431, 1442, 1445, 1468, 1476, 1477, 1488, 1491]
+[WARNING] Diff has gone untested: com/headius/invokebinder/SmartHandle has uncovered changes [26, 30, 32, 38, 45, 54, 137, 173, 176, 177, 178, 186, 189, 190, 191, 199, 202, 203, 323]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/TryFinally has uncovered changes [26, 28]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Convert has uncovered changes [24]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Permute has uncovered changes [27]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Varargs has uncovered changes [23]
+[WARNING] Diff has gone untested: com/headius/invokebinder/Signature has uncovered changes [30, 36, 39, 43, 148, 149, 150, 151, 152, 164, 174, 185, 200, 217, 232, 248, 261, 273, 296, 374, 375, 395, 396, 397, 398, 399, 417, 418, 419, 434, 435, 436, 437, 449, 450, 451, 452, 696, 698]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Filter has uncovered changes [25]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Collect has uncovered changes [25]
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ invokebinder ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/invokebinder-1.4-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 19.923 s
+[INFO] Finished at: 2020-04-10T01:21:50-07:00
+[INFO] Final Memory: 47M/2064M
+[INFO] ------------------------------------------------------------------------

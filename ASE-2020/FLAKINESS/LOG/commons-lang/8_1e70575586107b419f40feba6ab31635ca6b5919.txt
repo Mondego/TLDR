@@ -1,0 +1,304 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-lang3
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-lang3
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-lang3
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Lang 3.10-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-lang3 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-lang3 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang
+[INFO] Storing buildNumber: 1e70575586107b419f40feba6ab31635ca6b5919 at timestamp: 1586496749373
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 157 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Recompile with -Xlint:deprecation for details.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/java/org/apache/commons/lang3/text/StrBuilder.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/main/java/org/apache/commons/lang3/text/StrBuilder.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.1.0:manifest (bundle-manifest) @ commons-lang3 ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-lang3 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-lang3 ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 1e70575586107b419f40feba6ab31635ca6b5919 against: 7bbbdd2477305992e4d809db5288d6f62718124b
+org/apache/commons/lang3/reflect/TypeUtilsTest$Thing : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AClass : [Edit [start=507, end=507]]
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/TypeUtilsTest$And : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AClass$BClass : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$Inner$DeeplyNested : []
+	 Methods to watch:[]
+org/apache/commons/lang3/StringUtilsTest$1 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$Inner : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$4 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/StringUtilsStartsEndsWithTest : [Edit [start=95, end=95], Edit [start=174, end=174], Edit [start=176, end=179]]
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AClass$CClass : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$5 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$2 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest : [Edit [start=1263, end=1263]]
+	 Methods to watch:[]
+org/apache/commons/lang3/ObjectUtilsTest$UncloneableString : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$3 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$8 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$9 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$6 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$7 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$4 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$5 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$2 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ObjectUtilsTest$NonComparableCharSequence : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$3 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/TypeUtilsTest$The : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$8 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/TypeUtilsTest$Tester : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$9 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$1 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$6 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$7 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest : [Edit [start=1033, end=1033], Edit [start=1049, end=1049], Edit [start=1089, end=1089], Edit [start=1093, end=1093], Edit [start=1097, end=1097], Edit [start=1113, end=1113], Edit [start=1117, end=1117], Edit [start=1121, end=1121], Edit [start=1134, end=1134]]
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$14 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$13 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/WordUtilsTest : [Edit [start=203, end=204], Edit [start=235, end=236], Edit [start=287, end=288]]
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$15 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$10 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/TypeUtilsTest$This : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$12 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$11 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$Named : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/TypeUtilsTest$That : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/translate/NumericEntityUnescaper : [Edit [start=63, end=63]]
+	 Methods to watch:[]
+org/apache/commons/lang3/ObjectUtilsTest$CharSequenceComparator : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ObjectUtilsTest$CloneableString : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$ID : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$IC : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$IF : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AAAClass$BBBClass : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$IE : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$10 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$IB : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$12 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$IA : []
+	 Methods to watch:[]
+org/apache/commons/lang3/text/StrBuilderAppendInsertTest$11 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/math/NumberUtilsTest : [Edit [start=694, end=694], Edit [start=699, end=700], Edit [start=702, end=703], Edit [start=713, end=713], Edit [start=732, end=732], Edit [start=737, end=738], Edit [start=740, end=741], Edit [start=756, end=757], Edit [start=759, end=760], Edit [start=770, end=770], Edit [start=778, end=779], Edit [start=789, end=789], Edit [start=797, end=798], Edit [start=808, end=808], Edit [start=813, end=817], Edit [start=827, end=827], Edit [start=846, end=846], Edit [start=851, end=855], Edit [start=870, end=874], Edit [start=884, end=884], Edit [start=895, end=895], Edit [start=898, end=902], Edit [start=912, end=912], Edit [start=920, end=921]]
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AClass$EClass : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AAClass$BBClass : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/TypeUtilsTest : [Edit [start=507, end=507]]
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AClass$FClass : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$CX : []
+	 Methods to watch:[]
+org/apache/commons/lang3/math/IEEE754rUtilsTest : [Edit [start=85, end=85], Edit [start=95, end=95]]
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/TypeUtilsTest$ClassWithSuperClassWithGenericType : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$CY : []
+	 Methods to watch:[]
+org/apache/commons/lang3/CharSetUtilsTest : [Edit [start=67, end=69], Edit [start=73, end=73], Edit [start=78, end=78], Edit [start=107, end=107], Edit [start=112, end=112], Edit [start=117, end=117], Edit [start=147, end=147], Edit [start=152, end=152], Edit [start=157, end=157], Edit [start=188, end=190], Edit [start=194, end=194], Edit [start=199, end=199], Edit [start=230, end=232], Edit [start=236, end=236], Edit [start=241, end=241]]
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AAAClass : [Edit [start=507, end=507]]
+	 Methods to watch:[]
+org/apache/commons/lang3/ClassUtilsTest$1 : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/TypeUtilsTest$Other : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AAClass : [Edit [start=507, end=507]]
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AClass$DClass : []
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AClass$GClass : []
+	 Methods to watch:[]
+org/apache/commons/lang3/StringUtilsTest : [Edit [start=433, end=433], Edit [start=457, end=457], Edit [start=800, end=815], Edit [start=1534, end=1534], Edit [start=1558, end=1558]]
+	 Methods to watch:[]
+org/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION : []
+	 Methods to watch:[]
+org/apache/commons/lang3/ObjectUtilsTest : [Edit [start=223, end=223]]
+	 Methods to watch:[]
+org/apache/commons/lang3/StringUtilsEmptyBlankTest : [Edit [start=76, end=76]]
+	 Methods to watch:[]
+org/apache/commons/lang3/reflect/AClass$AInterface : []
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 176 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/test/java/org/apache/commons/lang3/StringEscapeUtilsTest.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/test/java/org/apache/commons/lang3/StringEscapeUtilsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/test/java/org/apache/commons/lang3/builder/DiffResultTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/src/test/java/org/apache/commons/lang3/builder/DiffResultTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-lang3 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-lang3 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-lang3 ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Langcommons-lang3
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/.diffCache
+[WARNING] Diff has gone untested: org/apache/commons/lang3/reflect/AClass has uncovered changes [507]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/StringUtilsStartsEndsWithTest has uncovered changes [95, 174, 176, 177, 178, 179]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/ClassUtilsTest has uncovered changes [1263]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/text/StrBuilderAppendInsertTest has uncovered changes [1033, 1049, 1089, 1093, 1097, 1113, 1117, 1121, 1134]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/text/WordUtilsTest has uncovered changes [203, 204, 235, 236, 287, 288]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/text/translate/NumericEntityUnescaper has uncovered changes [63]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/math/NumberUtilsTest has uncovered changes [694, 699, 700, 702, 703, 713, 732, 737, 738, 740, 741, 756, 757, 759, 760, 770, 778, 779, 789, 797, 798, 808, 813, 814, 815, 816, 817, 827, 846, 851, 852, 853, 854, 855, 870, 871, 872, 873, 874, 884, 895, 898, 899, 900, 901, 902, 912, 920, 921]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/reflect/TypeUtilsTest has uncovered changes [507]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/math/IEEE754rUtilsTest has uncovered changes [85, 95]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/CharSetUtilsTest has uncovered changes [67, 68, 69, 73, 78, 107, 112, 117, 147, 152, 157, 188, 189, 190, 194, 199, 230, 231, 232, 236, 241]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/reflect/AAAClass has uncovered changes [507]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/reflect/AAClass has uncovered changes [507]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/StringUtilsTest has uncovered changes [433, 457, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 1534, 1558]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/ObjectUtilsTest has uncovered changes [223]
+[WARNING] Diff has gone untested: org/apache/commons/lang3/StringUtilsEmptyBlankTest has uncovered changes [76]
+[WARNING] No tests found!
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7.1:attach-descriptor (attach-descriptor) @ commons-lang3 ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:test-jar (default) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar-no-fork (create-source-jar) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:test-jar-no-fork (create-source-jar) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT-test-sources.jar
+[INFO] 
+[INFO] >>> maven-javadoc-plugin:3.1.0:javadoc (create-javadoc-jar) > generate-sources @ commons-lang3 >>>
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 4.0 KB/sec)
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 24.6 KB/sec)
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-lang3 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-javadoc-plugin:3.1.0:javadoc (create-javadoc-jar) < generate-sources @ commons-lang3 <<<
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.1.0:javadoc (create-javadoc-jar) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.1.0:jar (create-javadoc-jar) @ commons-lang3 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-lang/target/commons-lang3-3.10-SNAPSHOT-javadoc.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 33.597 s
+[INFO] Finished at: 2020-04-09T22:32:59-07:00
+[INFO] Final Memory: 69M/3624M
+[INFO] ------------------------------------------------------------------------

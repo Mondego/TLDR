@@ -1,0 +1,92 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from invokebinder
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building invokebinder 1.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.2:resources (default-resources) @ invokebinder ---
+[INFO] Using encoding: 'UTF-8' to copy filtered resources.
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ invokebinder ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.2:testResources (default-testResources) @ invokebinder ---
+[INFO] Using encoding: 'UTF-8' to copy filtered resources.
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ invokebinder ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 24eea5f61531ce21eed1637d25b0bc60d4dd8d9e against: 479b9ef653d3a2bd6633d2a55ae8b2c705bb310c
+com/headius/invokebinder/BinderTest : [Edit [start=393, end=399], Edit [start=926, end=930]]
+	 Methods to watch:[]
+com/headius/invokebinder/BinderTest$Constructable : []
+	 Methods to watch:[]
+com/headius/invokebinder/BinderTest$BlahException : []
+	 Methods to watch:[]
+com/headius/invokebinder/transform/Varargs : [Edit [start=54, end=54]]
+	 Methods to watch:[]
+com/headius/invokebinder/BinderTest$Fields : []
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ invokebinder ---
+[INFO] Compiling 4 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ invokebinder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.headius.invokebinder.SignatureTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 sec - in com.headius.invokebinder.SignatureTest
+Running com.headius.invokebinder.SmartBinderTest
+(String x)String
+(Subjects this, String a, Integer b1, Integer b2, Integer b3)String
+(Subjects,String,Integer,Integer,Integer)String
+(String x)String
+(Subjects this, String a, Integer b1, Integer b2, Integer b3)String
+(Subjects,String,Integer,Integer,Integer)String
+(String x)String
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.headius.invokebinder.SmartBinderTest
+Running com.headius.invokebinder.BinderTest
+(BinderTest,String)String
+Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in com.headius.invokebinder.BinderTest
+
+Results :
+
+Tests run: 106, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ invokebinder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ invokebinder ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] invokebinderinvokebinder
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/.diffCache
+[WARNING] Diff has gone untested: com/headius/invokebinder/BinderTest has uncovered changes [395, 396, 397, 399, 928]
+[WARNING] Diff has gone untested: com/headius/invokebinder/transform/Varargs has uncovered changes [54]
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ invokebinder ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/invokebinder-1.6-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.187 s
+[INFO] Finished at: 2020-04-10T01:28:05-07:00
+[INFO] Final Memory: 44M/2181M
+[INFO] ------------------------------------------------------------------------

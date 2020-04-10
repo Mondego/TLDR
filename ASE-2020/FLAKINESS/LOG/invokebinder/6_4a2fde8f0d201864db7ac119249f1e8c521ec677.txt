@@ -1,0 +1,79 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from invokebinder
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building invokebinder 1.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.2:resources (default-resources) @ invokebinder ---
+[INFO] Using encoding: 'UTF-8' to copy filtered resources.
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ invokebinder ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.2:testResources (default-testResources) @ invokebinder ---
+[INFO] Using encoding: 'UTF-8' to copy filtered resources.
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ invokebinder ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 4a2fde8f0d201864db7ac119249f1e8c521ec677 against: 5f425b218475e0f33f215e2361960c32d87c8fa8
+com/headius/invokebinder/SmartBinder : [Edit [start=1088, end=1102]]
+	 Methods to watch:[]
+com/headius/invokebinder/SmartBinderTest : [Edit [start=259, end=271], Edit [start=277, end=277]]
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ invokebinder ---
+[INFO] Compiling 4 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ invokebinder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.headius.invokebinder.SignatureTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 sec - in com.headius.invokebinder.SignatureTest
+Running com.headius.invokebinder.SmartBinderTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in com.headius.invokebinder.SmartBinderTest
+Running com.headius.invokebinder.BinderTest
+(BinderTest,String)String
+Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec - in com.headius.invokebinder.BinderTest
+
+Results :
+
+Tests run: 103, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ invokebinder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ invokebinder ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] invokebinderinvokebinder
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/.diffCache
+[WARNING] Diff has gone untested: com/headius/invokebinder/SmartBinder has uncovered changes [1100]
+[WARNING] Diff has gone untested: com/headius/invokebinder/SmartBinderTest has uncovered changes [262, 263, 264, 265, 266, 267, 269, 270, 271, 277]
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ invokebinder ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/invokebinder-1.5-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 13.641 s
+[INFO] Finished at: 2020-04-10T01:24:12-07:00
+[INFO] Final Memory: 45M/2287M
+[INFO] ------------------------------------------------------------------------
