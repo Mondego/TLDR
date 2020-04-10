@@ -1,0 +1,223 @@
+[INFO] Scanning for projects...
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/deflaker/deflaker-parent/1.5-SNAPSHOT/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/deflaker/deflaker-agent/1.5-SNAPSHOT/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/deflaker/deflaker-maven-plugin/1.5-SNAPSHOT/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/eclipse/osgi/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/eclipse/equinox/common/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/eclipse/core/jobs/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/eclipse/equinox/registry/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/eclipse/equinox/preferences/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/eclipse/core/contenttype/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/eclipse/equinox/app/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+Downloading: https://mymavenrepo.com/repo/6hsJXoD6yIwTibr6Kuza/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-pool2
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-pool2
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Pool 2.7.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-maven-plugin/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-maven-plugin/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 4.4 KB/sec)
+Downloading: https://repository.apache.org/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 11.7 KB/sec)
+         Downloading: https://repository.apache.org/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 12.2 KB/sec)
+         [INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-pool2 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-pool2 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-pool2 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-pool2 ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool
+[INFO] Storing buildNumber: 4c5c366525c3d75cd1e48da4d8b9e1edf0db38c0 at timestamp: 1586502061539
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-pool2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-pool2 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.1.0:manifest (bundle-manifest) @ commons-pool2 ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (checkAPIcompatibility) @ commons-pool2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-pool2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-pool2 ---
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/osgi/maven-metadata.xml
+         Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/equinox/common/maven-metadata.xml
+         Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/core/jobs/maven-metadata.xml
+         Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/equinox/registry/maven-metadata.xml
+         Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/equinox/preferences/maven-metadata.xml
+         Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/core/contenttype/maven-metadata.xml
+         Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/equinox/app/maven-metadata.xml
+         Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 5.0 KB/sec)
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 4c5c366525c3d75cd1e48da4d8b9e1edf0db38c0 against: b3993612489f87247e5b753724457f2cf97d3396
+org/apache/commons/pool2/impl/TestGenericObjectPool$ConcurrentBorrowAndEvictThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$SimpleFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$WaitingTestThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$DummyFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$TimeTest : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$TestThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$4 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$CreateFailFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$3 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$2 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$CreateErrorFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$1 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$AtomicIntegerFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$InvalidateThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool : [Edit [start=2129, end=2149]]
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$HashSetFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$EvictionThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$TestEvictionPolicy : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$6 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$InvalidFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$5 : []
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-pool2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 41 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/src/test/java/org/apache/commons/pool2/ObjectPoolIssue326.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/src/test/java/org/apache/commons/pool2/ObjectPoolIssue326.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-pool2 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.145 sec - in org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure
+Running org.apache.commons.pool2.impl.TestDefaultPooledObject
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.866 sec - in org.apache.commons.pool2.impl.TestDefaultPooledObject
+Running org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.411 sec - in org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders
+Running org.apache.commons.pool2.impl.TestGenericObjectPool
+Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 99.381 sec - in org.apache.commons.pool2.impl.TestGenericObjectPool
+Running org.apache.commons.pool2.impl.TestBaseGenericObjectPool
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.pool2.impl.TestBaseGenericObjectPool
+Running org.apache.commons.pool2.impl.TestPooledSoftReference
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.pool2.impl.TestPooledSoftReference
+Running org.apache.commons.pool2.impl.TestEvictionConfig
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.pool2.impl.TestEvictionConfig
+Running org.apache.commons.pool2.impl.TestLinkedBlockingDeque
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.364 sec - in org.apache.commons.pool2.impl.TestLinkedBlockingDeque
+Running org.apache.commons.pool2.impl.TestDefaultPooledObjectInfo
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.352 sec - in org.apache.commons.pool2.impl.TestDefaultPooledObjectInfo
+Running org.apache.commons.pool2.impl.TestSoftReferenceObjectPool
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.259 sec - in org.apache.commons.pool2.impl.TestSoftReferenceObjectPool
+Running org.apache.commons.pool2.impl.TestGenericKeyedObjectPool
+Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 167.568 sec - in org.apache.commons.pool2.impl.TestGenericKeyedObjectPool
+Running org.apache.commons.pool2.impl.TestAbandonedObjectPool
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.864 sec - in org.apache.commons.pool2.impl.TestAbandonedObjectPool
+Running org.apache.commons.pool2.impl.TestPoolImplUtils
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.pool2.impl.TestPoolImplUtils
+Running org.apache.commons.pool2.impl.TestEvictionTimer
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.pool2.impl.TestEvictionTimer
+Running org.apache.commons.pool2.TestBaseObjectPool
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.pool2.TestBaseObjectPool
+Running org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithCglibProxy
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 sec - in org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithCglibProxy
+Running org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithJdkProxy
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.008 sec - in org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithJdkProxy
+Running org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithCglibProxy
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.013 sec - in org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithCglibProxy
+Running org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithJdkProxy
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithJdkProxy
+Running org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory
+Running org.apache.commons.pool2.TestBasePoolableObjectFactory
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.pool2.TestBasePoolableObjectFactory
+Running org.apache.commons.pool2.TestPoolUtils
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.33 sec - in org.apache.commons.pool2.TestPoolUtils
+
+Results :
+
+Tests run: 292, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-pool2 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-pool2 ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Poolcommons-pool2
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/.diffCache
+[WARNING] Diff has gone untested: org/apache/commons/pool2/impl/TestGenericObjectPool has uncovered changes [2134, 2135, 2136, 2137, 2139, 2141, 2142, 2144, 2145, 2147, 2148]
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ commons-pool2 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/commons-pool2-2.7.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7.1:attach-descriptor (attach-descriptor) @ commons-pool2 ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:test-jar (default) @ commons-pool2 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/commons-pool2-2.7.1-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar-no-fork (create-source-jar) @ commons-pool2 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/commons-pool2-2.7.1-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:test-jar-no-fork (create-source-jar) @ commons-pool2 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/commons-pool2-2.7.1-SNAPSHOT-test-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 05:51 min
+[INFO] Finished at: 2020-04-10T00:06:42-07:00
+[INFO] Final Memory: 52M/2441M
+[INFO] ------------------------------------------------------------------------

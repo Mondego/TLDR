@@ -1,0 +1,752 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor-build-tools:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ org.apache.commons:commons-functor-parent:1.0-SNAPSHOT, /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/pom.xml, line 151, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor-api:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ org.apache.commons:commons-functor-parent:1.0-SNAPSHOT, /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/pom.xml, line 151, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ org.apache.commons:commons-functor-parent:1.0-SNAPSHOT, /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/pom.xml, line 151, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor-parent:pom:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ line 151, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor-parent
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor-build-tools
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor-api
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Commons Functor
+[INFO] Commons Functor Build Tools
+[INFO] Commons Functor API
+[INFO] Commons Functor Core
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/apache/maven/plugins/maven-checkstyle-plugin/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor-parent ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor-parent ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494118527
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor-parent ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing bca3cec0623b2b4dfcb2de488ef9a5d43add0bcd against: c9b961f3414bbc7b0c0f7faa0da1373c96d2d5f1
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor-parent ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functorcommons-functor-parent
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor-parent >>>
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 0.3 KB/sec)
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 24.0 KB/sec)
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor-parent <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor-parent ---
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor-parent ---
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/2.3/wagon-ssh-2.3.pom
+2/6 KB   3/6 KB   5/6 KB   6/6 KB   6/6 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/2.3/wagon-ssh-2.3.pom (6 KB at 27.9 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-providers/2.3/wagon-providers-2.3.pom
+2/3 KB   3/3 KB   3/3 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-providers/2.3/wagon-providers-2.3.pom (3 KB at 112.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon/2.3/wagon-2.3.pom
+2/20 KB   3/20 KB   5/20 KB   6/20 KB   7/20 KB   9/20 KB   10/20 KB   11/20 KB   13/20 KB   14/20 KB   15/20 KB   17/20 KB   18/20 KB   19/20 KB   20/20 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon/2.3/wagon-2.3.pom (20 KB at 735.7 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/2.3/wagon-ssh-common-2.3.pom
+2/2 KB     2/2 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/2.3/wagon-ssh-common-2.3.pom (2 KB at 71.8 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/2.3/wagon-provider-api-2.3.pom
+2/2 KB   2/2 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/2.3/wagon-provider-api-2.3.pom (2 KB at 35.9 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-exec/1.0.2/maven-reporting-exec-1.0.2.pom
+2/9 KB   3/9 KB   5/9 KB   6/9 KB   7/9 KB   9/9 KB   9/9 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-exec/1.0.2/maven-reporting-exec-1.0.2.pom (9 KB at 304.0 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.3/doxia-sink-api-1.3.pom
+2/2 KB   2/2 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.3/doxia-sink-api-1.3.pom (2 KB at 53.4 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.3/doxia-1.3.pom
+2/18 KB   3/18 KB   5/18 KB   6/18 KB   7/18 KB   9/18 KB   10/18 KB   11/18 KB   13/18 KB   14/18 KB   15/18 KB   17/18 KB   18/18 KB   18/18 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.3/doxia-1.3.pom (18 KB at 727.3 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.3/doxia-logging-api-1.3.pom
+2/2 KB     2/2 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.3/doxia-logging-api-1.3.pom (2 KB at 30.9 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.3/doxia-core-1.3.pom
+2/5 KB   3/5 KB   5/5 KB   5/5 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.3/doxia-core-1.3.pom (5 KB at 125.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.3/doxia-module-xhtml-1.3.pom
+2/2 KB   2/2 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.3/doxia-module-xhtml-1.3.pom (2 KB at 74.7 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-modules/1.3/doxia-modules-1.3.pom
+2/3 KB   3/3 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-modules/1.3/doxia-modules-1.3.pom (3 KB at 102.2 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-apt/1.3/doxia-module-apt-1.3.pom
+2/3 KB   3/3 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-apt/1.3/doxia-module-apt-1.3.pom (3 KB at 101.8 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xdoc/1.3/doxia-module-xdoc-1.3.pom
+2/6 KB   3/6 KB   5/6 KB   6/6 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xdoc/1.3/doxia-module-xdoc-1.3.pom (6 KB at 230.3 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-fml/1.3/doxia-module-fml-1.3.pom
+2/6 KB   3/6 KB   5/6 KB   6/6 KB   6/6 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-fml/1.3/doxia-module-fml-1.3.pom (6 KB at 148.5 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.3/doxia-decoration-model-1.3.pom
+2/3 KB   3/3 KB   3/3 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.3/doxia-decoration-model-1.3.pom (3 KB at 74.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sitetools/1.3/doxia-sitetools-1.3.pom
+2/16 KB   3/16 KB   5/16 KB   6/16 KB   7/16 KB   9/16 KB   10/16 KB   11/16 KB   13/16 KB   14/16 KB   15/16 KB   16/16 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sitetools/1.3/doxia-sitetools-1.3.pom (16 KB at 704.2 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.3/doxia-site-renderer-1.3.pom
+2/7 KB     3/7 KB   5/7 KB   6/7 KB   7/7 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.3/doxia-site-renderer-1.3.pom (7 KB at 134.4 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.5/doxia-integration-tools-1.5.pom
+2/7 KB   3/7 KB   5/7 KB   6/7 KB   7/7 KB   7/7 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.5/doxia-integration-tools-1.5.pom (7 KB at 210.9 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-tools/2/doxia-tools-2.pom
+2/12 KB   3/12 KB   5/12 KB   6/12 KB   7/12 KB   9/12 KB   10/12 KB   11/12 KB   12/12 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-tools/2/doxia-tools-2.pom (12 KB at 318.3 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.10/plexus-utils-1.5.10.pom
+2/6 KB     3/6 KB   5/6 KB   6/6 KB   6/6 KB            Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.10/plexus-utils-1.5.10.pom (6 KB at 262.0 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/2.3/wagon-ssh-2.3.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/2.3/wagon-ssh-common-2.3.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-exec/1.0.2/maven-reporting-exec-1.0.2.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.3/doxia-sink-api-1.3.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.3/doxia-logging-api-1.3.jar
+2/22 KB   3/22 KB   5/22 KB   6/22 KB   7/22 KB   9/22 KB   10/22 KB   11/22 KB   13/22 KB   14/22 KB   15/22 KB   17/22 KB   18/22 KB   19/22 KB   21/22 KB   22/22 KB   22/22 KB   2/29 KB   2/11 KB   22/22 KB   2/29 KB   2/11 KB   22/22 KB   2/25 KB   2/29 KB   2/11 KB   22/22 KB   2/12 KB   2/25 KB   2/29 KB   2/11 KB   22/22 KB   2/12 KB   2/25 KB   2/29 KB   3/11 KB   22/22 KB   2/12 KB   2/25 KB   3/29 KB   3/11 KB   22/22 KB   2/12 KB   2/25 KB   3/29 KB   5/11 KB   22/22 KB   2/12 KB   2/25 KB   5/29 KB   5/11 KB   22/22 KB   2/12 KB   2/25 KB   5/29 KB   6/11 KB   22/22 KB   2/12 KB   2/25 KB   6/29 KB   7/11 KB   22/22 KB   2/12 KB   2/25 KB   6/29 KB   7/11 KB   22/22 KB   2/12 KB   2/25 KB   6/29 KB   9/11 KB   22/22 KB   2/12 KB   2/25 KB   7/29 KB   9/11 KB   22/22 KB   2/12 KB   3/25 KB   7/29 KB   9/11 KB   22/22 KB   2/12 KB   3/25 KB   9/29 KB   10/11 KB   22/22 KB   3/12 KB   3/25 KB   9/29 KB   10/11 KB   22/22 KB   3/12 KB   3/25 KB   9/29 KB   10/11 KB   22/22 KB   3/12 KB   5/25 KB   9/29 KB   10/11 KB   22/22 KB   3/12 KB   5/25 KB   9/29 KB   11/11 KB   22/22 KB   3/12 KB   5/25 KB   10/29 KB   11/11 KB   22/22 KB   5/12 KB   6/25 KB   10/29 KB   11/11 KB   22/22 KB   5/12 KB   6/25 KB   10/29 KB   11/11 KB   22/22 KB   5/12 KB   6/25 KB   11/29 KB   11/11 KB   22/22 KB   5/12 KB   6/25 KB   10/29 KB   11/11 KB   22/22 KB   5/12 KB   7/25 KB   11/29 KB   11/11 KB   22/22 KB   5/12 KB   7/25 KB   13/29 KB   11/11 KB   22/22 KB   6/12 KB   9/25 KB   13/29 KB   11/11 KB   22/22 KB   6/12 KB   9/25 KB   14/29 KB   11/11 KB   22/22 KB   6/12 KB   10/25 KB   14/29 KB   11/11 KB   22/22 KB   6/12 KB   10/25 KB   14/29 KB   11/11 KB   22/22 KB   6/12 KB   10/25 KB   15/29 KB   11/11 KB                                                         6/12 KB   11/25 KB   15/29 KB   11/11 KB              7/12 KB   11/25 KB   17/29 KB   11/11 KB   7/12 KB   11/25 KB   17/29 KB   11/11 KB   9/12 KB   13/25 KB   17/29 KB   11/11 KB   Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-exec/1.0.2/maven-reporting-exec-1.0.2.jar (22 KB at 657.0 KB/sec)
+9/12 KB   13/25 KB   18/29 KB   11/11 KB   Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.3/doxia-core-1.3.jar
+10/12 KB   13/25 KB   18/29 KB   11/11 KB   10/12 KB   13/25 KB   19/29 KB   11/11 KB   11/12 KB   13/25 KB   19/29 KB   11/11 KB   11/12 KB   13/25 KB   21/29 KB   11/11 KB   12/12 KB   13/25 KB   21/29 KB   11/11 KB   7/12 KB   13/25 KB   17/29 KB   11/11 KB    12/12 KB   13/25 KB   22/29 KB   11/11 KB   12/12 KB   14/25 KB   23/29 KB   11/11 KB   12/12 KB   14/25 KB   23/29 KB   11/11 KB   12/12 KB   14/25 KB   25/29 KB   11/11 KB   12/12 KB   15/25 KB   25/29 KB   11/11 KB   12/12 KB   15/25 KB   26/29 KB   11/11 KB   12/12 KB   17/25 KB   26/29 KB   11/11 KB   12/12 KB   18/25 KB   27/29 KB   11/11 KB   12/12 KB   18/25 KB   27/29 KB   11/11 KB   12/12 KB   19/25 KB   27/29 KB   11/11 KB   12/12 KB   19/25 KB   29/29 KB   11/11 KB   12/12 KB   21/25 KB   29/29 KB   11/11 KB   12/12 KB   21/25 KB   29/29 KB   11/11 KB   12/12 KB   22/25 KB   29/29 KB   11/11 KB   12/12 KB   23/25 KB   29/29 KB   11/11 KB   12/12 KB   25/25 KB   29/29 KB   11/11 KB   12/12 KB   25/25 KB   29/29 KB   11/11 KB                                               Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.3/doxia-sink-api-1.3.jar (11 KB at 219.5 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.3/doxia-module-xhtml-1.3.jar
+12/12 KB   2/156 KB   25/25 KB   29/29 KB                                               Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.3/doxia-logging-api-1.3.jar (12 KB at 217.3 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-apt/1.3/doxia-module-apt-1.3.jar
+3/156 KB   25/25 KB   29/29 KB              5/156 KB   25/25 KB   29/29 KB   6/156 KB   25/25 KB   29/29 KB   7/156 KB   25/25 KB   29/29 KB   9/156 KB   25/25 KB   29/29 KB   10/156 KB   25/25 KB   29/29 KB   11/156 KB   25/25 KB   29/29 KB   13/156 KB   25/25 KB   29/29 KB   14/156 KB   25/25 KB   29/29 KB   15/156 KB   25/25 KB   29/29 KB   17/156 KB   25/25 KB   29/29 KB   18/156 KB   25/25 KB   29/29 KB   19/156 KB   25/25 KB   29/29 KB   21/156 KB   25/25 KB   29/29 KB   22/156 KB   25/25 KB   29/29 KB   23/156 KB   25/25 KB   29/29 KB   25/156 KB   25/25 KB   29/29 KB   26/156 KB   25/25 KB   29/29 KB   27/156 KB   25/25 KB   29/29 KB   29/156 KB   25/25 KB   29/29 KB   30/156 KB   25/25 KB   29/29 KB   31/156 KB   25/25 KB   29/29 KB   33/156 KB   25/25 KB   29/29 KB   34/156 KB   25/25 KB   29/29 KB   35/156 KB   25/25 KB   29/29 KB   37/156 KB   25/25 KB   29/29 KB                                     38/156 KB   25/25 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/2.3/wagon-ssh-2.3.jar (29 KB at 505.4 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xdoc/1.3/doxia-module-xdoc-1.3.jar
+39/156 KB   25/25 KB   41/156 KB   25/25 KB   42/156 KB   25/25 KB   43/156 KB   25/25 KB   45/156 KB   25/25 KB   46/156 KB   25/25 KB   47/156 KB   25/25 KB   49/156 KB   25/25 KB                          50/156 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/2.3/wagon-ssh-common-2.3.jar (25 KB at 435.4 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-fml/1.3/doxia-module-fml-1.3.jar
+51/156 KB   53/156 KB   54/156 KB   55/156 KB   57/156 KB   58/156 KB   59/156 KB   61/156 KB   62/156 KB   63/156 KB   65/156 KB   2/15 KB   65/156 KB   2/15 KB   66/156 KB   2/15 KB   67/156 KB   2/15 KB   69/156 KB   2/15 KB   70/156 KB   2/15 KB   71/156 KB   3/15 KB   71/156 KB   5/15 KB   71/156 KB   5/15 KB   73/156 KB   5/15 KB   73/156 KB   2/51 KB   6/15 KB   73/156 KB   2/51 KB   6/15 KB   74/156 KB   2/51 KB   7/15 KB   74/156 KB   2/51 KB   7/15 KB   75/156 KB   2/51 KB   9/15 KB   75/156 KB   2/51 KB   9/15 KB   77/156 KB   2/51 KB   10/15 KB   77/156 KB   2/51 KB   10/15 KB   78/156 KB   2/51 KB   11/15 KB   78/156 KB   2/51 KB   11/15 KB   79/156 KB   2/51 KB   13/15 KB   79/156 KB   3/51 KB   13/15 KB   79/156 KB   3/51 KB   13/15 KB   81/156 KB   3/51 KB   14/15 KB   81/156 KB   3/51 KB   14/15 KB   82/156 KB   3/51 KB   14/15 KB   82/156 KB   5/51 KB   15/15 KB   82/156 KB   5/51 KB   15/15 KB   84/156 KB   5/51 KB   15/15 KB   84/156 KB   5/51 KB   15/15 KB   85/156 KB   6/51 KB   15/15 KB   85/156 KB   6/51 KB   15/15 KB   86/156 KB   7/51 KB   15/15 KB   86/156 KB   7/51 KB   15/15 KB   88/156 KB   7/51 KB   15/15 KB   88/156 KB   9/51 KB   15/15 KB   89/156 KB   9/51 KB   15/15 KB   90/156 KB   10/51 KB   15/15 KB   90/156 KB   10/51 KB   15/15 KB   92/156 KB   10/51 KB   15/15 KB   92/156 KB   11/51 KB   15/15 KB   93/156 KB   11/51 KB   15/15 KB   93/156 KB   13/51 KB   15/15 KB   94/156 KB   13/51 KB   15/15 KB   96/156 KB   14/51 KB   15/15 KB   96/156 KB   14/51 KB   15/15 KB   96/156 KB   15/51 KB   15/15 KB   97/156 KB   15/51 KB   2/36 KB   15/15 KB   97/156 KB   15/51 KB   2/36 KB   15/15 KB   98/156 KB   17/51 KB   2/36 KB   15/15 KB   98/156 KB   17/51 KB   2/36 KB   15/15 KB   100/156 KB   17/51 KB   2/36 KB   15/15 KB   100/156 KB   18/51 KB   2/36 KB   15/15 KB   101/156 KB   18/51 KB   2/36 KB   15/15 KB   102/156 KB   19/51 KB   2/36 KB   15/15 KB   102/156 KB   19/51 KB   3/36 KB   15/15 KB   102/156 KB   19/51 KB   3/36 KB   15/15 KB   102/156 KB   21/51 KB   3/36 KB   15/15 KB   104/156 KB   21/51 KB   5/36 KB   15/15 KB   104/156 KB   21/51 KB   5/36 KB   15/15 KB   104/156 KB   22/51 KB   5/36 KB   15/15 KB   105/156 KB   22/51 KB   6/36 KB   15/15 KB   105/156 KB   22/51 KB   6/36 KB   15/15 KB   105/156 KB   23/51 KB   6/36 KB   15/15 KB   106/156 KB   23/51 KB   7/36 KB   15/15 KB   106/156 KB   23/51 KB   7/36 KB   15/15 KB   106/156 KB   25/51 KB   7/36 KB   15/15 KB   108/156 KB   25/51 KB   9/36 KB   15/15 KB   108/156 KB   25/51 KB   9/36 KB   15/15 KB   109/156 KB   25/51 KB   9/36 KB   15/15 KB   109/156 KB   26/51 KB   10/36 KB   15/15 KB   109/156 KB   26/51 KB   10/36 KB   15/15 KB   109/156 KB   26/51 KB   2/37 KB   10/36 KB   15/15 KB   110/156 KB   26/51 KB   2/37 KB   11/36 KB   15/15 KB   110/156 KB   26/51 KB   2/37 KB   11/36 KB   15/15 KB   110/156 KB   27/51 KB   2/37 KB   13/36 KB   15/15 KB   110/156 KB   27/51 KB   2/37 KB   13/36 KB   15/15 KB   112/156 KB   27/51 KB   2/37 KB   13/36 KB   15/15 KB   112/156 KB   29/51 KB   2/37 KB   14/36 KB   15/15 KB   112/156 KB   29/51 KB   2/37 KB   14/36 KB   15/15 KB   113/156 KB   29/51 KB   2/37 KB   14/36 KB   15/15 KB   113/156 KB   30/51 KB   2/37 KB   15/36 KB   15/15 KB   113/156 KB   30/51 KB   2/37 KB   15/36 KB   15/15 KB   114/156 KB   30/51 KB   2/37 KB   15/36 KB   15/15 KB   114/156 KB   31/51 KB   2/37 KB   17/36 KB   15/15 KB   114/156 KB   31/51 KB   2/37 KB   17/36 KB   15/15 KB   116/156 KB   31/51 KB   2/37 KB   17/36 KB   15/15 KB   116/156 KB   33/51 KB   2/37 KB   18/36 KB   15/15 KB   117/156 KB   33/51 KB   2/37 KB   18/36 KB   15/15 KB   117/156 KB   33/51 KB   2/37 KB   18/36 KB   15/15 KB   117/156 KB   34/51 KB   3/37 KB   18/36 KB   15/15 KB   117/156 KB   34/51 KB   2/37 KB   19/36 KB   15/15 KB   117/156 KB   34/51 KB   3/37 KB   19/36 KB   15/15 KB   118/156 KB   34/51 KB   3/37 KB   19/36 KB   15/15 KB   118/156 KB   34/51 KB   5/37 KB   19/36 KB   15/15 KB   118/156 KB   35/51 KB   5/37 KB   21/36 KB   15/15 KB   120/156 KB   35/51 KB   6/37 KB   21/36 KB   15/15 KB   120/156 KB   37/51 KB   6/37 KB   21/36 KB   15/15 KB   120/156 KB   37/51 KB   6/37 KB   21/36 KB   15/15 KB   120/156 KB   35/51 KB   6/37 KB   21/36 KB   15/15 KB   121/156 KB   37/51 KB   6/37 KB   21/36 KB   15/15 KB   121/156 KB   38/51 KB   6/37 KB   22/36 KB   15/15 KB   121/156 KB   38/51 KB   6/37 KB   22/36 KB   15/15 KB   122/156 KB   38/51 KB   7/37 KB   22/36 KB   15/15 KB   122/156 KB   38/51 KB   7/37 KB   22/36 KB   15/15 KB   122/156 KB   39/51 KB   7/37 KB   23/36 KB   15/15 KB   122/156 KB   39/51 KB   7/37 KB   23/36 KB   15/15 KB   124/156 KB   39/51 KB   7/37 KB   23/36 KB   15/15 KB   124/156 KB   39/51 KB   9/37 KB   23/36 KB   15/15 KB   124/156 KB   41/51 KB   9/37 KB   25/36 KB   15/15 KB   124/156 KB   41/51 KB   9/37 KB   25/36 KB   15/15 KB   125/156 KB   41/51 KB   9/37 KB   25/36 KB   15/15 KB   125/156 KB   41/51 KB   10/37 KB   25/36 KB   15/15 KB   125/156 KB   42/51 KB   10/37 KB   26/36 KB   15/15 KB   126/156 KB   42/51 KB   11/37 KB   26/36 KB   15/15 KB   126/156 KB   42/51 KB   11/37 KB   26/36 KB   15/15 KB   126/156 KB   42/51 KB   11/37 KB   26/36 KB   15/15 KB   126/156 KB   43/51 KB   11/37 KB   26/36 KB   15/15 KB   128/156 KB   43/51 KB   11/37 KB   27/36 KB   15/15 KB   128/156 KB   43/51 KB   11/37 KB   27/36 KB   15/15 KB   128/156 KB   43/51 KB   13/37 KB   27/36 KB   15/15 KB   128/156 KB   45/51 KB   13/37 KB   27/36 KB   15/15 KB   129/156 KB   45/51 KB   13/37 KB   29/36 KB   15/15 KB   129/156 KB   45/51 KB   13/37 KB   29/36 KB   15/15 KB   129/156 KB   45/51 KB   14/37 KB   29/36 KB   15/15 KB   129/156 KB   46/51 KB   14/37 KB   29/36 KB   15/15 KB   130/156 KB   46/51 KB   14/37 KB   30/36 KB   15/15 KB   130/156 KB   46/51 KB   14/37 KB   30/36 KB   15/15 KB   130/156 KB   46/51 KB   15/37 KB   30/36 KB   15/15 KB   130/156 KB   47/51 KB   15/37 KB   30/36 KB   15/15 KB   132/156 KB   47/51 KB   15/37 KB   31/36 KB   15/15 KB   132/156 KB   47/51 KB   15/37 KB   31/36 KB   15/15 KB   132/156 KB   47/51 KB   17/37 KB   31/36 KB   15/15 KB   133/156 KB   47/51 KB   17/37 KB   31/36 KB   15/15 KB   133/156 KB   49/51 KB   17/37 KB   33/36 KB   15/15 KB   133/156 KB   49/51 KB   18/37 KB   33/36 KB   15/15 KB   133/156 KB   49/51 KB   18/37 KB   33/36 KB   15/15 KB   134/156 KB   49/51 KB   18/37 KB   33/36 KB   15/15 KB   134/156 KB   50/51 KB   18/37 KB   34/36 KB   15/15 KB   134/156 KB   50/51 KB   18/37 KB   34/36 KB   15/15 KB   136/156 KB   50/51 KB   18/37 KB   34/36 KB   15/15 KB   136/156 KB   50/51 KB   19/37 KB   34/36 KB   15/15 KB   136/156 KB   51/51 KB   19/37 KB   35/36 KB   15/15 KB   136/156 KB   51/51 KB   19/37 KB   35/36 KB   15/15 KB   137/156 KB   51/51 KB   19/37 KB   35/36 KB   15/15 KB   137/156 KB   51/51 KB   21/37 KB   36/36 KB   15/15 KB   137/156 KB   51/51 KB   21/37 KB   36/36 KB   15/15 KB   138/156 KB   51/51 KB   21/37 KB   36/36 KB   15/15 KB   138/156 KB   51/51 KB   22/37 KB   36/36 KB   15/15 KB   140/156 KB   51/51 KB   22/37 KB   36/36 KB   15/15 KB   141/156 KB   51/51 KB   22/37 KB   36/36 KB   15/15 KB   141/156 KB   51/51 KB   23/37 KB   36/36 KB   15/15 KB   142/156 KB   51/51 KB   23/37 KB   36/36 KB   15/15 KB   142/156 KB   51/51 KB   25/37 KB   36/36 KB   15/15 KB   144/156 KB   51/51 KB   25/37 KB   36/36 KB   15/15 KB   144/156 KB   51/51 KB   26/37 KB   36/36 KB   15/15 KB   145/156 KB   51/51 KB   26/37 KB   36/36 KB   15/15 KB   145/156 KB   51/51 KB   27/37 KB   36/36 KB   15/15 KB   146/156 KB   51/51 KB   27/37 KB   36/36 KB   15/15 KB   148/156 KB   51/51 KB   27/37 KB   36/36 KB   15/15 KB   148/156 KB   51/51 KB   29/37 KB   36/36 KB   15/15 KB   149/156 KB   51/51 KB   29/37 KB   36/36 KB   15/15 KB   149/156 KB   51/51 KB   30/37 KB   36/36 KB   15/15 KB   150/156 KB   51/51 KB   30/37 KB   36/36 KB   15/15 KB   150/156 KB   51/51 KB   31/37 KB   36/36 KB   15/15 KB   152/156 KB   51/51 KB   31/37 KB   36/36 KB   15/15 KB   153/156 KB   51/51 KB   33/37 KB   36/36 KB   15/15 KB   153/156 KB   51/51 KB   33/37 KB   36/36 KB   15/15 KB   154/156 KB   51/51 KB   33/37 KB   36/36 KB   15/15 KB   154/156 KB   51/51 KB   34/37 KB   36/36 KB   15/15 KB   156/156 KB   51/51 KB   34/37 KB   36/36 KB   15/15 KB   156/156 KB   51/51 KB   35/37 KB   36/36 KB   15/15 KB   156/156 KB   51/51 KB   37/37 KB   36/36 KB   15/15 KB   156/156 KB   51/51 KB   37/37 KB                                                            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.3/doxia-module-xhtml-1.3.jar (15 KB at 196.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.3/doxia-decoration-model-1.3.jar
+                                                         Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xdoc/1.3/doxia-module-xdoc-1.3.jar (36 KB at 430.5 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.3/doxia-site-renderer-1.3.jar
+                                                         Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-apt/1.3/doxia-module-apt-1.3.jar (51 KB at 611.3 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.5/doxia-integration-tools-1.5.jar
+                                                         Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.3/doxia-core-1.3.jar (156 KB at 1845.2 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.10/plexus-utils-1.5.10.jar
+                                                         Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-fml/1.3/doxia-module-fml-1.3.jar (37 KB at 434.9 KB/sec)
+4/60 KB                                                  8/60 KB   12/60 KB   16/60 KB   20/60 KB   24/60 KB   28/60 KB   32/60 KB   36/60 KB   40/60 KB   44/60 KB   48/60 KB   48/60 KB   2/53 KB   52/60 KB   2/53 KB   56/60 KB   2/53 KB   60/60 KB   2/53 KB   2/45 KB   60/60 KB   2/53 KB   2/45 KB   60/60 KB   3/53 KB   2/45 KB   60/60 KB   5/53 KB   2/45 KB   60/60 KB   6/53 KB   2/45 KB   60/60 KB   7/53 KB   2/45 KB   60/60 KB   7/53 KB   2/274 KB   2/45 KB   60/60 KB   9/53 KB   2/274 KB   3/45 KB   60/60 KB   9/53 KB   2/274 KB   3/45 KB   60/60 KB   10/53 KB   2/274 KB   5/45 KB   60/60 KB   10/53 KB   2/274 KB   6/45 KB   60/60 KB   10/53 KB   2/274 KB   6/45 KB   60/60 KB   11/53 KB   2/274 KB   7/45 KB   60/60 KB   11/53 KB   2/274 KB   7/45 KB   60/60 KB   13/53 KB   2/274 KB   9/45 KB   60/60 KB   13/53 KB   2/274 KB   9/45 KB   60/60 KB   14/53 KB   2/274 KB   10/45 KB   60/60 KB   14/53 KB   2/274 KB   10/45 KB   60/60 KB   15/53 KB   2/274 KB   11/45 KB   60/60 KB   15/53 KB   2/274 KB   11/45 KB   60/60 KB   17/53 KB   2/274 KB   11/45 KB   60/60 KB   17/53 KB   3/274 KB   13/45 KB   60/60 KB   17/53 KB   3/274 KB   13/45 KB   60/60 KB   18/53 KB   3/274 KB   13/45 KB   60/60 KB   18/53 KB   5/274 KB   13/45 KB   60/60 KB   19/53 KB   5/274 KB   14/45 KB   60/60 KB   19/53 KB   5/274 KB   14/45 KB   60/60 KB   19/53 KB   6/274 KB   14/45 KB   60/60 KB   21/53 KB   6/274 KB   15/45 KB   60/60 KB   21/53 KB   6/274 KB   15/45 KB   60/60 KB   21/53 KB   7/274 KB   15/45 KB   60/60 KB   22/53 KB   7/274 KB   17/45 KB   60/60 KB   22/53 KB   7/274 KB   17/45 KB   60/60 KB   22/53 KB   9/274 KB   17/45 KB   60/60 KB   23/53 KB   9/274 KB   18/45 KB   60/60 KB   23/53 KB   9/274 KB   18/45 KB   60/60 KB   23/53 KB   10/274 KB   18/45 KB   60/60 KB   25/53 KB   10/274 KB   19/45 KB   60/60 KB   25/53 KB   10/274 KB   19/45 KB   60/60 KB   25/53 KB   11/274 KB   19/45 KB   60/60 KB   26/53 KB   11/274 KB   21/45 KB   60/60 KB   26/53 KB   11/274 KB   21/45 KB   60/60 KB   26/53 KB   13/274 KB   21/45 KB   60/60 KB   27/53 KB   13/274 KB   22/45 KB   60/60 KB   27/53 KB   13/274 KB   22/45 KB   60/60 KB   27/53 KB   14/274 KB   22/45 KB   60/60 KB   29/53 KB   14/274 KB   23/45 KB   60/60 KB   29/53 KB   14/274 KB   23/45 KB   60/60 KB   29/53 KB   15/274 KB   23/45 KB   60/60 KB   30/53 KB   15/274 KB   25/45 KB   60/60 KB   30/53 KB   15/274 KB   25/45 KB   60/60 KB   30/53 KB   17/274 KB   25/45 KB   60/60 KB   31/53 KB   17/274 KB   26/45 KB   60/60 KB   31/53 KB   17/274 KB   26/45 KB   60/60 KB   31/53 KB   18/274 KB   26/45 KB   60/60 KB   33/53 KB   18/274 KB   27/45 KB   60/60 KB   33/53 KB   18/274 KB   27/45 KB   60/60 KB   33/53 KB   19/274 KB   29/45 KB   60/60 KB   33/53 KB   19/274 KB   29/45 KB   60/60 KB   34/53 KB   19/274 KB   29/45 KB   60/60 KB   34/53 KB   21/274 KB   30/45 KB   60/60 KB   34/53 KB   21/274 KB   30/45 KB   60/60 KB   35/53 KB   21/274 KB   30/45 KB   60/60 KB   35/53 KB   22/274 KB   31/45 KB   60/60 KB   35/53 KB   22/274 KB   31/45 KB   60/60 KB   36/53 KB   22/274 KB   31/45 KB   60/60 KB   36/53 KB   23/274 KB   33/45 KB   60/60 KB   36/53 KB   23/274 KB   33/45 KB   60/60 KB   37/53 KB   23/274 KB   33/45 KB   60/60 KB   37/53 KB   25/274 KB   34/45 KB   60/60 KB   37/53 KB   25/274 KB   34/45 KB   60/60 KB   38/53 KB   25/274 KB   34/45 KB   60/60 KB   38/53 KB   26/274 KB   35/45 KB   60/60 KB   38/53 KB   26/274 KB   35/45 KB   60/60 KB   40/53 KB   26/274 KB   35/45 KB   60/60 KB   40/53 KB   27/274 KB   37/45 KB   60/60 KB   40/53 KB   27/274 KB   37/45 KB   60/60 KB   41/53 KB   27/274 KB   38/45 KB   60/60 KB   41/53 KB   27/274 KB   38/45 KB   60/60 KB   41/53 KB   29/274 KB   38/45 KB   60/60 KB   42/53 KB   29/274 KB   39/45 KB   60/60 KB   42/53 KB   29/274 KB   39/45 KB   60/60 KB   42/53 KB   30/274 KB   41/45 KB   60/60 KB   42/53 KB   30/274 KB   41/45 KB   60/60 KB   44/53 KB   30/274 KB   41/45 KB   60/60 KB   44/53 KB   31/274 KB   42/45 KB   60/60 KB   44/53 KB   31/274 KB   42/45 KB   60/60 KB   45/53 KB   31/274 KB   42/45 KB   60/60 KB   45/53 KB   33/274 KB   43/45 KB   60/60 KB   45/53 KB   33/274 KB   43/45 KB   60/60 KB   46/53 KB   33/274 KB   43/45 KB   60/60 KB   46/53 KB   34/274 KB   45/45 KB   60/60 KB   46/53 KB   34/274 KB   45/45 KB   60/60 KB   48/53 KB   34/274 KB   45/45 KB   60/60 KB   48/53 KB   35/274 KB   45/45 KB   60/60 KB   49/53 KB   35/274 KB   45/45 KB   60/60 KB   49/53 KB   37/274 KB   45/45 KB   60/60 KB   50/53 KB   37/274 KB   45/45 KB   60/60 KB   50/53 KB   38/274 KB   45/45 KB   60/60 KB   52/53 KB   38/274 KB   45/45 KB   60/60 KB   52/53 KB   39/274 KB   45/45 KB   60/60 KB   53/53 KB   39/274 KB   45/45 KB   60/60 KB   53/53 KB   41/274 KB   45/45 KB   60/60 KB   53/53 KB   42/274 KB   45/45 KB   60/60 KB   53/53 KB   43/274 KB   45/45 KB   60/60 KB   53/53 KB   45/274 KB   45/45 KB   60/60 KB   53/53 KB   46/274 KB   45/45 KB   60/60 KB   53/53 KB   47/274 KB   45/45 KB   60/60 KB   53/53 KB   49/274 KB   45/45 KB   60/60 KB   53/53 KB   50/274 KB   45/45 KB   60/60 KB   53/53 KB   51/274 KB   45/45 KB   60/60 KB   53/53 KB   53/274 KB   45/45 KB   60/60 KB   53/53 KB   54/274 KB   45/45 KB   60/60 KB   53/53 KB   55/274 KB   45/45 KB   60/60 KB   53/53 KB   57/274 KB   45/45 KB   60/60 KB   53/53 KB   58/274 KB   45/45 KB   60/60 KB   53/53 KB   59/274 KB   45/45 KB   60/60 KB   53/53 KB   61/274 KB                                                45/45 KB   53/53 KB   62/274 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.3/doxia-decoration-model-1.3.jar (60 KB at 572.6 KB/sec)
+45/45 KB   53/53 KB   63/274 KB   45/45 KB   53/53 KB   65/274 KB   45/45 KB   53/53 KB   66/274 KB   45/45 KB   53/53 KB   67/274 KB   45/45 KB   53/53 KB   69/274 KB   45/45 KB   53/53 KB   70/274 KB   45/45 KB   53/53 KB   71/274 KB   45/45 KB   53/53 KB   73/274 KB   45/45 KB   53/53 KB   74/274 KB   45/45 KB   53/53 KB   75/274 KB   45/45 KB   53/53 KB   77/274 KB   45/45 KB   53/53 KB   78/274 KB   45/45 KB   53/53 KB   79/274 KB   45/45 KB   53/53 KB   81/274 KB   45/45 KB   53/53 KB   82/274 KB   45/45 KB   53/53 KB   84/274 KB   45/45 KB   53/53 KB   85/274 KB   45/45 KB   53/53 KB   86/274 KB   45/45 KB   53/53 KB   88/274 KB   45/45 KB   53/53 KB   89/274 KB   45/45 KB   53/53 KB   90/274 KB   45/45 KB   53/53 KB   92/274 KB   45/45 KB   53/53 KB   93/274 KB   45/45 KB   53/53 KB   94/274 KB   45/45 KB   53/53 KB   96/274 KB   45/45 KB   53/53 KB   97/274 KB   45/45 KB   53/53 KB   98/274 KB   45/45 KB   53/53 KB   100/274 KB   45/45 KB   53/53 KB   101/274 KB   45/45 KB   53/53 KB   102/274 KB   45/45 KB   53/53 KB   104/274 KB   45/45 KB   53/53 KB   105/274 KB   45/45 KB   53/53 KB   106/274 KB   45/45 KB   53/53 KB   108/274 KB   45/45 KB   53/53 KB   109/274 KB   45/45 KB   53/53 KB   110/274 KB   45/45 KB   53/53 KB   112/274 KB   45/45 KB   53/53 KB   113/274 KB   45/45 KB   53/53 KB   114/274 KB   45/45 KB   53/53 KB   116/274 KB   45/45 KB   53/53 KB   117/274 KB                                      Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.5/doxia-integration-tools-1.5.jar (45 KB at 396.8 KB/sec)
+53/53 KB   118/274 KB              53/53 KB   120/274 KB   53/53 KB   121/274 KB   53/53 KB   122/274 KB   53/53 KB   124/274 KB   53/53 KB   125/274 KB   53/53 KB   126/274 KB   53/53 KB   128/274 KB   53/53 KB   129/274 KB   53/53 KB   130/274 KB   53/53 KB   132/274 KB   53/53 KB   133/274 KB   53/53 KB   134/274 KB   53/53 KB   136/274 KB   53/53 KB   137/274 KB   53/53 KB   138/274 KB   53/53 KB   140/274 KB   53/53 KB   141/274 KB   53/53 KB   142/274 KB   53/53 KB   144/274 KB   53/53 KB   145/274 KB   53/53 KB   146/274 KB   53/53 KB   148/274 KB   53/53 KB   149/274 KB                           Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.3/doxia-site-renderer-1.3.jar (53 KB at 453.7 KB/sec)
+150/274 KB              152/274 KB   153/274 KB   154/274 KB   156/274 KB   157/274 KB   158/274 KB   160/274 KB   161/274 KB   163/274 KB   164/274 KB   165/274 KB   167/274 KB   168/274 KB   169/274 KB   171/274 KB   172/274 KB   173/274 KB   175/274 KB   176/274 KB   177/274 KB   179/274 KB   180/274 KB   181/274 KB   183/274 KB   184/274 KB   185/274 KB   187/274 KB   188/274 KB   189/274 KB   191/274 KB   192/274 KB   193/274 KB   195/274 KB   196/274 KB   197/274 KB   199/274 KB   200/274 KB   201/274 KB   203/274 KB   204/274 KB   205/274 KB   207/274 KB   208/274 KB   209/274 KB   211/274 KB   212/274 KB   213/274 KB   215/274 KB   216/274 KB   217/274 KB   219/274 KB   220/274 KB   221/274 KB   223/274 KB   224/274 KB   225/274 KB   227/274 KB   228/274 KB   229/274 KB   231/274 KB   232/274 KB   233/274 KB   235/274 KB   236/274 KB   237/274 KB   239/274 KB   240/274 KB   241/274 KB   243/274 KB   244/274 KB   246/274 KB   247/274 KB   248/274 KB   250/274 KB   250/274 KB   254/274 KB   258/274 KB   262/274 KB   266/274 KB   270/274 KB   274/274 KB   274/274 KB                Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.10/plexus-utils-1.5.10.jar (274 KB at 1942.8 KB/sec)
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor Build Tools 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-build-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor-build-tools ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494130546
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-functor-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons-functor-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-functor-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons-functor-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor-build-tools ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functor Build Toolscommons-functor-build-tools
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ commons-functor-build-tools ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/target/commons-functor-build-tools-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor-build-tools >>>
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-build-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor-build-tools <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor-build-tools ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/target/commons-functor-build-tools-1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor-build-tools ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor API 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-api ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor-api ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor-api ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494131489
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-functor-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons-functor-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor-api ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-functor-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor-api ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons-functor-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-functor-api ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-functor-api ---
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor-api ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functor APIcommons-functor-api
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ commons-functor-api ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/commons-functor-api-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor-api >>>
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-api ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor-api <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor-api ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/commons-functor-api-1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor-api ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor Core 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494132245
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-functor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons-functor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 167 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-functor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons-functor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 198 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/test-classes
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/src/test/java/org/apache/commons/functor/example/map/LazyMap.java: Some input files use unchecked or unsafe operations.
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/src/test/java/org/apache/commons/functor/example/map/LazyMap.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-functor ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.functor.example.kata.four.TestWeather
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.apache.commons.functor.example.kata.four.TestWeather
+Running org.apache.commons.functor.example.kata.four.TestSoccer
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.functor.example.kata.four.TestSoccer
+Running org.apache.commons.functor.example.kata.two.TestBinaryChop
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 sec - in org.apache.commons.functor.example.kata.two.TestBinaryChop
+Running org.apache.commons.functor.example.map.TestAll
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.apache.commons.functor.example.map.TestAll
+Running org.apache.commons.functor.example.map.TestLazyMap
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.example.map.TestLazyMap
+Running org.apache.commons.functor.example.map.TestFixedSizeMap
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.example.map.TestFixedSizeMap
+Running org.apache.commons.functor.example.map.TestPredicatedMap
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.example.map.TestPredicatedMap
+Running org.apache.commons.functor.example.lines.TestAll
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.functor.example.lines.TestAll
+Running org.apache.commons.functor.example.lines.TestLines
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.example.lines.TestLines
+Running org.apache.commons.functor.core.comparator.TestMin
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.functor.core.comparator.TestMin
+Running org.apache.commons.functor.core.comparator.TestIsLessThan
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.functor.core.comparator.TestIsLessThan
+Running org.apache.commons.functor.core.comparator.TestComparableComparator
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.comparator.TestComparableComparator
+Running org.apache.commons.functor.core.comparator.TestComparatorFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.comparator.TestComparatorFunction
+Running org.apache.commons.functor.core.comparator.TestIsWithinRange
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.comparator.TestIsWithinRange
+Running org.apache.commons.functor.core.comparator.TestMax
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.comparator.TestMax
+Running org.apache.commons.functor.core.comparator.TestIsGreaterThanOrEqual
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsGreaterThanOrEqual
+Running org.apache.commons.functor.core.comparator.TestIsNotEquivalent
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.comparator.TestIsNotEquivalent
+Running org.apache.commons.functor.core.comparator.TestIsGreaterThan
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsGreaterThan
+Running org.apache.commons.functor.core.comparator.TestIsEquivalent
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsEquivalent
+Running org.apache.commons.functor.core.comparator.TestIsLessThanOrEqual
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsLessThanOrEqual
+Running org.apache.commons.functor.core.TestNoOp
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.TestNoOp
+Running org.apache.commons.functor.core.TestLimit
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.TestLimit
+Running org.apache.commons.functor.core.composite.TestBinaryNot
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestBinaryNot
+Running org.apache.commons.functor.core.composite.TestTransposedPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestTransposedPredicate
+Running org.apache.commons.functor.core.composite.TestBinarySequence
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.composite.TestBinarySequence
+Running org.apache.commons.functor.core.composite.TestBinaryAnd
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.functor.core.composite.TestBinaryAnd
+Running org.apache.commons.functor.core.composite.TestConditionalPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalPredicate
+Running org.apache.commons.functor.core.composite.TestCompositeUnaryFunction
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestCompositeUnaryFunction
+Running org.apache.commons.functor.core.composite.TestComposite
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.composite.TestComposite
+Running org.apache.commons.functor.core.composite.TestWhileDoProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestWhileDoProcedure
+Running org.apache.commons.functor.core.composite.TestConditionalBinaryPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalBinaryPredicate
+Running org.apache.commons.functor.core.composite.TestCompositeUnaryPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestCompositeUnaryPredicate
+Running org.apache.commons.functor.core.composite.TestConditionalUnaryPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.composite.TestConditionalUnaryPredicate
+Running org.apache.commons.functor.core.composite.TestNot
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.composite.TestNot
+Running org.apache.commons.functor.core.composite.TestConditionalBinaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalBinaryFunction
+Running org.apache.commons.functor.core.composite.TestAbstractLoopProcedure
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestAbstractLoopProcedure
+Running org.apache.commons.functor.core.composite.TestUnaryCompositeBinaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestUnaryCompositeBinaryFunction
+Running org.apache.commons.functor.core.composite.TestTransposedFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestTransposedFunction
+Running org.apache.commons.functor.core.composite.TestConditionalProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalProcedure
+Running org.apache.commons.functor.core.composite.TestTransformedBinaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestTransformedBinaryProcedure
+Running org.apache.commons.functor.core.composite.TestBinaryOr
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestBinaryOr
+Running org.apache.commons.functor.core.composite.TestUnarySequence
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestUnarySequence
+Running org.apache.commons.functor.core.composite.TestUnaryAnd
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestUnaryAnd
+Running org.apache.commons.functor.core.composite.TestConditionalFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.composite.TestConditionalFunction
+Running org.apache.commons.functor.core.composite.TestSequence
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestSequence
+Running org.apache.commons.functor.core.composite.TestConditionalBinaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalBinaryProcedure
+Running org.apache.commons.functor.core.composite.TestAnd
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestAnd
+Running org.apache.commons.functor.core.composite.TestUnaryCompositeBinaryPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestUnaryCompositeBinaryPredicate
+Running org.apache.commons.functor.core.composite.TestCompositeUnaryProcedure
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestCompositeUnaryProcedure
+Running org.apache.commons.functor.core.composite.TestBinaryCompositeBinaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestBinaryCompositeBinaryFunction
+Running org.apache.commons.functor.core.composite.TestTransposedProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestTransposedProcedure
+Running org.apache.commons.functor.core.composite.TestDoWhileProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestDoWhileProcedure
+Running org.apache.commons.functor.core.composite.TestTransformedBinaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestTransformedBinaryFunction
+Running org.apache.commons.functor.core.composite.TestConditional
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditional
+Running org.apache.commons.functor.core.composite.TestUnaryNot
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestUnaryNot
+Running org.apache.commons.functor.core.composite.TestConditionalUnaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalUnaryFunction
+Running org.apache.commons.functor.core.composite.TestOr
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestOr
+Running org.apache.commons.functor.core.composite.TestTransformedProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestTransformedProcedure
+Running org.apache.commons.functor.core.composite.TestTransformedFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestTransformedFunction
+Running org.apache.commons.functor.core.composite.TestConditionalUnaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalUnaryProcedure
+Running org.apache.commons.functor.core.composite.TestUnaryOr
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestUnaryOr
+Running org.apache.commons.functor.core.algorithm.TestDoUntil
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestDoUntil
+Running org.apache.commons.functor.core.algorithm.TestUntilDo
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestUntilDo
+Running org.apache.commons.functor.core.algorithm.TestRetainMatching
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.algorithm.TestRetainMatching
+Running org.apache.commons.functor.core.algorithm.TestWhileDo
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestWhileDo
+Running org.apache.commons.functor.core.algorithm.TestRemoveMatching
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.algorithm.TestRemoveMatching
+Running org.apache.commons.functor.core.algorithm.TestFoldLeft
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.algorithm.TestFoldLeft
+Running org.apache.commons.functor.core.algorithm.TestGeneratorContains
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.algorithm.TestGeneratorContains
+Running org.apache.commons.functor.core.algorithm.TestFoldRight
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestFoldRight
+Running org.apache.commons.functor.core.algorithm.TestDoWhile
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestDoWhile
+Running org.apache.commons.functor.core.algorithm.TestRecursiveEvaluation
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestRecursiveEvaluation
+Running org.apache.commons.functor.core.algorithm.TestInPlaceTransform
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.algorithm.TestInPlaceTransform
+Running org.apache.commons.functor.core.algorithm.TestIndexOfInGenerator
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.algorithm.TestIndexOfInGenerator
+Running org.apache.commons.functor.core.algorithm.TestFindWithinGenerator
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.algorithm.TestFindWithinGenerator
+Running org.apache.commons.functor.core.collection.TestIsEmpty
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.collection.TestIsEmpty
+Running org.apache.commons.functor.core.collection.TestFilteredIterable
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.functor.core.collection.TestFilteredIterable
+Running org.apache.commons.functor.core.collection.TestFilteredIterator
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.collection.TestFilteredIterator
+Running org.apache.commons.functor.core.collection.TestIsElementOf
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.collection.TestIsElementOf
+Running org.apache.commons.functor.core.collection.TestSize
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.collection.TestSize
+Running org.apache.commons.functor.core.collection.TestTransformedIterator
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.collection.TestTransformedIterator
+Running org.apache.commons.functor.core.TestOffset
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestOffset
+Running org.apache.commons.functor.core.TestConstant
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestConstant
+Running org.apache.commons.functor.core.TestIsNotSame
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNotSame
+Running org.apache.commons.functor.core.TestIsNotEqual
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNotEqual
+Running org.apache.commons.functor.core.TestIsEqual
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestIsEqual
+Running org.apache.commons.functor.core.TestRightIdentity
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestRightIdentity
+Running org.apache.commons.functor.core.TestIsInstance
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsInstance
+Running org.apache.commons.functor.core.TestIsSame
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestIsSame
+Running org.apache.commons.functor.core.TestIsNull
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNull
+Running org.apache.commons.functor.core.TestLeftIdentity
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestLeftIdentity
+Running org.apache.commons.functor.core.TestIdentity
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestIdentity
+Running org.apache.commons.functor.core.TestIsNotNull
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNotNull
+Running org.apache.commons.functor.adapter.TestUnaryFunctionUnaryPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestUnaryFunctionUnaryPredicate
+Running org.apache.commons.functor.adapter.TestLeftBoundPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestLeftBoundPredicate
+Running org.apache.commons.functor.adapter.TestFunctionProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestFunctionProcedure
+Running org.apache.commons.functor.adapter.TestBoundFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBoundFunction
+Running org.apache.commons.functor.adapter.TestIgnoreRightProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestIgnoreRightProcedure
+Running org.apache.commons.functor.adapter.TestBoundPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBoundPredicate
+Running org.apache.commons.functor.adapter.TestBinaryPredicateBinaryFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestBinaryPredicateBinaryFunction
+Running org.apache.commons.functor.adapter.TestProcedureUnaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestProcedureUnaryProcedure
+Running org.apache.commons.functor.adapter.TestPredicateFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestPredicateFunction
+Running org.apache.commons.functor.adapter.TestBoundProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBoundProcedure
+Running org.apache.commons.functor.adapter.TestUnaryFunctionUnaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestUnaryFunctionUnaryProcedure
+Running org.apache.commons.functor.adapter.TestProcedureFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.adapter.TestProcedureFunction
+Running org.apache.commons.functor.adapter.TestFullyBoundFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestFullyBoundFunction
+Running org.apache.commons.functor.adapter.TestIgnoreLeftProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestIgnoreLeftProcedure
+Running org.apache.commons.functor.adapter.TestBinaryProcedureBinaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryProcedureBinaryFunction
+Running org.apache.commons.functor.adapter.TestFullyBoundProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestFullyBoundProcedure
+Running org.apache.commons.functor.adapter.TestFunctionPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestFunctionPredicate
+Running org.apache.commons.functor.adapter.TestRightBoundFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestRightBoundFunction
+Running org.apache.commons.functor.adapter.TestBinaryFunctionUnaryFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryFunctionUnaryFunction
+Running org.apache.commons.functor.adapter.TestIgnoreRightPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestIgnoreRightPredicate
+Running org.apache.commons.functor.adapter.TestRightBoundPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestRightBoundPredicate
+Running org.apache.commons.functor.adapter.TestIgnoreRightFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestIgnoreRightFunction
+Running org.apache.commons.functor.adapter.TestPredicateUnaryPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestPredicateUnaryPredicate
+Running org.apache.commons.functor.adapter.TestUnaryProcedureUnaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestUnaryProcedureUnaryFunction
+Running org.apache.commons.functor.adapter.TestFunctionUnaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestFunctionUnaryFunction
+Running org.apache.commons.functor.adapter.TestIgnoreLeftFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestIgnoreLeftFunction
+Running org.apache.commons.functor.adapter.TestBinaryProcedureUnaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryProcedureUnaryProcedure
+Running org.apache.commons.functor.adapter.TestBinaryFunctionBinaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryFunctionBinaryProcedure
+Running org.apache.commons.functor.adapter.TestRightBoundProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestRightBoundProcedure
+Running org.apache.commons.functor.adapter.TestLeftBoundProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestLeftBoundProcedure
+Running org.apache.commons.functor.adapter.TestUnaryPredicateUnaryFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestUnaryPredicateUnaryFunction
+Running org.apache.commons.functor.adapter.TestBinaryFunctionBinaryPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryFunctionBinaryPredicate
+Running org.apache.commons.functor.adapter.TestLeftBoundFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestLeftBoundFunction
+Running org.apache.commons.functor.adapter.TestBinaryPredicateUnaryPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestBinaryPredicateUnaryPredicate
+Running org.apache.commons.functor.adapter.TestFullyBoundPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestFullyBoundPredicate
+Running org.apache.commons.functor.adapter.TestIgnoreLeftPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestIgnoreLeftPredicate
+Running org.apache.commons.functor.aggregator.ArrayListBackedAggregatorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.aggregator.ArrayListBackedAggregatorTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMedianValueAggregatorFunctionTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleMedianValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMeanValueAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.functions.IntMeanValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoublePercentileAggregatorFunctionTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.functions.DoublePercentileAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntPercentileAggregatorFunctionTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntPercentileAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMaxAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntMaxAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntSumAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntSumAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntCountAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntCountAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMaxAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntMaxAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntSumAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntSumAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMeanValueAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.DoubleMeanValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMedianValueAggregatorFunctionTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntMedianValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.AbstractNoStoreAggregatorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.AbstractNoStoreAggregatorTest
+Running org.apache.commons.functor.aggregator.AbstractTimedAggregatorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.062 sec - in org.apache.commons.functor.aggregator.AbstractTimedAggregatorTest
+Running org.apache.commons.functor.aggregator.AbstractListBackedAggregatorTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.functor.aggregator.AbstractListBackedAggregatorTest
+Running org.apache.commons.functor.generator.util.TestEachElement
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.functor.generator.util.TestEachElement
+Running org.apache.commons.functor.generator.util.TestIntegerRange
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.util.TestIntegerRange
+Running org.apache.commons.functor.generator.util.TestLongRange
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.util.TestLongRange
+Running org.apache.commons.functor.generator.TestGenerateUntil
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.TestGenerateUntil
+Running org.apache.commons.functor.generator.TestBaseGenerator
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.generator.TestBaseGenerator
+Running org.apache.commons.functor.generator.TestWhileGenerate
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.TestWhileGenerate
+Running org.apache.commons.functor.generator.TestFilteredGenerator
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.TestFilteredGenerator
+Running org.apache.commons.functor.generator.TestUntilGenerate
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.TestUntilGenerate
+Running org.apache.commons.functor.generator.TestGenerateWhile
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.TestGenerateWhile
+Running org.apache.commons.functor.generator.TestIteratorToGeneratorAdapter
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.TestIteratorToGeneratorAdapter
+Running org.apache.commons.functor.generator.TestTransformedGenerator
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.TestTransformedGenerator
+Running org.apache.commons.functor.TestAlgorithms
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.TestAlgorithms
+
+Results :
+
+Tests run: 1079, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-functor ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functor Corecommons-functor
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ commons-functor ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:1.6:shade (default) @ commons-functor ---
+Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/0.7/jdependency-0.7.pom
+4/8 KB       8/8 KB            Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/0.7/jdependency-0.7.pom (8 KB at 141.5 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/0.7/jdependency-0.7.jar
+4/12 KB   8/12 KB   12/12 KB              Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/0.7/jdependency-0.7.jar (12 KB at 501.2 KB/sec)
+[INFO] Excluding org.apache.commons:commons-functor-api:jar:1.0-SNAPSHOT from the shaded jar.
+[INFO] Including org.apache.commons:commons-lang3:jar:3.1 in the shaded jar.
+Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1-sources.jar
+4/384 KB   8/384 KB   12/384 KB   16/384 KB   20/384 KB   24/384 KB   28/384 KB   32/384 KB   36/384 KB   40/384 KB   44/384 KB   48/384 KB   52/384 KB   56/384 KB   60/384 KB   64/384 KB   68/384 KB   72/384 KB   76/384 KB   80/384 KB   84/384 KB   88/384 KB   92/384 KB   96/384 KB   100/384 KB   104/384 KB   108/384 KB   112/384 KB   116/384 KB   120/384 KB   124/384 KB   128/384 KB   132/384 KB   136/384 KB   140/384 KB   144/384 KB   148/384 KB   152/384 KB   156/384 KB   160/384 KB   164/384 KB   168/384 KB   172/384 KB   176/384 KB   180/384 KB   184/384 KB   188/384 KB   192/384 KB   196/384 KB   200/384 KB   204/384 KB   208/384 KB   212/384 KB   216/384 KB   220/384 KB   224/384 KB   228/384 KB   232/384 KB   236/384 KB   240/384 KB   244/384 KB   248/384 KB   252/384 KB   256/384 KB   260/384 KB   264/384 KB   268/384 KB   272/384 KB   276/384 KB   280/384 KB   284/384 KB   288/384 KB   292/384 KB   296/384 KB   300/384 KB   304/384 KB   308/384 KB   312/384 KB   316/384 KB   320/384 KB   324/384 KB   328/384 KB   332/384 KB   336/384 KB   340/384 KB   344/384 KB   348/384 KB   352/384 KB   356/384 KB   360/384 KB   364/384 KB   368/384 KB   372/384 KB   376/384 KB   380/384 KB   384/384 KB                Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1-sources.jar (384 KB at 3655.6 KB/sec)
+[INFO] Minimizing jar org.apache.commons:commons-functor:jar:1.0-SNAPSHOT
+[INFO] Minimized 348 -> 224 (64%)
+[INFO] Minimized 464 -> 340 (73%)
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT.jar with /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-shaded.jar
+[INFO] Replacing /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-sources.jar with /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-shaded-sources.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:test-jar (default) @ commons-functor ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor >>>
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Commons Functor .................................... SUCCESS [ 14.141 s]
+[INFO] Commons Functor Build Tools ........................ SUCCESS [  0.997 s]
+[INFO] Commons Functor API ................................ SUCCESS [  0.661 s]
+[INFO] Commons Functor Core ............................... SUCCESS [ 11.265 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 28.822 s
+[INFO] Finished at: 2020-04-09T21:49:03-07:00
+[INFO] Final Memory: 62M/2306M
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,245 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-pool2
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-pool2
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Pool 2.7.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-pool2 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-pool2 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-pool2 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-pool2 ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool
+[INFO] Storing buildNumber: 40e4649b7f95aa2cb3f22daa3fd2e7ddcdc59ef1 at timestamp: 1586505653655
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-pool2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-pool2 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.1.0:manifest (bundle-manifest) @ commons-pool2 ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (checkAPIcompatibility) @ commons-pool2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-pool2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-pool2 ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 40e4649b7f95aa2cb3f22daa3fd2e7ddcdc59ef1 against: 81ddcd73f6b236906d7c2a54558777a39c0c5881
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$SimpleFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$SimplePerKeyFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/EvictionTimer : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/EvictionTimer$EvictorThreadFactory : [Edit [start=123, end=125]]
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$SimpleFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$DummyFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$TimeTest : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestDefaultPooledObject : [Edit [start=41, end=45], Edit [start=47, end=46], Edit [start=48, end=55], Edit [start=57, end=61]]
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$TestThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/TestPoolUtils$2 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$4 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/TestPoolUtils$1 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$CreateFailFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$3 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$2 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$TestThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$1 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$AtomicIntegerFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$InvalidateThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/TestPoolUtils$3 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$SimpleTestThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$HashSetFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$ObjectFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$EvictionThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/SecurityManagerCallStack$PrivateSecurityManager : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$InvalidateThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$5 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool : [Edit [start=38, end=37], Edit [start=2006, end=2015], Edit [start=2017, end=2018]]
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$ConcurrentBorrowAndEvictThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$HashSetFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$DummyFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$WaitingTestThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/SecurityManagerCallStack : [Edit [start=55, end=55]]
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$WaitingTestThread : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$SlowEvictionPolicy : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$CreateErrorFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool : [Edit [start=2751, end=2753], Edit [start=2755, end=2755]]
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$1 : []
+	 Methods to watch:[]
+org/apache/commons/pool2/TestPoolUtils$MethodCallLogger : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/SecurityManagerCallStack$Snapshot : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericKeyedObjectPool$DaemonThreadFactory : []
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$TestEvictionPolicy : []
+	 Methods to watch:[]
+org/apache/commons/pool2/TestPoolUtils : [Edit [start=561, end=561], Edit [start=683, end=683]]
+	 Methods to watch:[]
+org/apache/commons/pool2/impl/TestGenericObjectPool$InvalidFactory : []
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-pool2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 41 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/src/test/java/org/apache/commons/pool2/ObjectPoolIssue326.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/src/test/java/org/apache/commons/pool2/ObjectPoolIssue326.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-pool2 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.168 sec - in org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure
+Running org.apache.commons.pool2.impl.TestDefaultPooledObject
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.216 sec - in org.apache.commons.pool2.impl.TestDefaultPooledObject
+Running org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.348 sec - in org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders
+Running org.apache.commons.pool2.impl.TestGenericObjectPool
+Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 99.554 sec - in org.apache.commons.pool2.impl.TestGenericObjectPool
+Running org.apache.commons.pool2.impl.TestBaseGenericObjectPool
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.pool2.impl.TestBaseGenericObjectPool
+Running org.apache.commons.pool2.impl.TestPooledSoftReference
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.pool2.impl.TestPooledSoftReference
+Running org.apache.commons.pool2.impl.TestEvictionConfig
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.pool2.impl.TestEvictionConfig
+Running org.apache.commons.pool2.impl.TestLinkedBlockingDeque
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.365 sec - in org.apache.commons.pool2.impl.TestLinkedBlockingDeque
+Running org.apache.commons.pool2.impl.TestDefaultPooledObjectInfo
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.349 sec - in org.apache.commons.pool2.impl.TestDefaultPooledObjectInfo
+Running org.apache.commons.pool2.impl.TestSoftReferenceObjectPool
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.258 sec - in org.apache.commons.pool2.impl.TestSoftReferenceObjectPool
+Running org.apache.commons.pool2.impl.TestGenericKeyedObjectPool
+Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 172.684 sec - in org.apache.commons.pool2.impl.TestGenericKeyedObjectPool
+Running org.apache.commons.pool2.impl.TestAbandonedObjectPool
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.866 sec - in org.apache.commons.pool2.impl.TestAbandonedObjectPool
+Running org.apache.commons.pool2.impl.TestPoolImplUtils
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.pool2.impl.TestPoolImplUtils
+Running org.apache.commons.pool2.impl.TestEvictionTimer
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.pool2.impl.TestEvictionTimer
+Running org.apache.commons.pool2.TestBaseObjectPool
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.pool2.TestBaseObjectPool
+Running org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithCglibProxy
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 sec - in org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithCglibProxy
+Running org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithJdkProxy
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.01 sec - in org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithJdkProxy
+Running org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithCglibProxy
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.015 sec - in org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithCglibProxy
+Running org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithJdkProxy
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithJdkProxy
+Running org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory
+Running org.apache.commons.pool2.TestBasePoolableObjectFactory
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.pool2.TestBasePoolableObjectFactory
+Running org.apache.commons.pool2.TestPoolUtils
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.334 sec - in org.apache.commons.pool2.TestPoolUtils
+
+Results :
+
+Tests run: 293, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-pool2 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-pool2 ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Poolcommons-pool2
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/.diffCache
+[WARNING] Diff has gone untested: org/apache/commons/pool2/impl/EvictionTimer$EvictorThreadFactory has uncovered changes [123, 124, 125]
+[WARNING] Diff has gone untested: org/apache/commons/pool2/impl/TestDefaultPooledObject has uncovered changes [41, 42, 43, 44, 45, 48, 49, 50, 51, 52, 55, 57, 58, 59, 60, 61]
+[WARNING] Diff has gone untested: org/apache/commons/pool2/impl/TestGenericKeyedObjectPool has uncovered changes [2006, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2018]
+[WARNING] Diff has gone untested: org/apache/commons/pool2/impl/SecurityManagerCallStack has uncovered changes [55]
+[WARNING] Diff has gone untested: org/apache/commons/pool2/impl/TestGenericObjectPool has uncovered changes [2751, 2752, 2753, 2755]
+[WARNING] Diff has gone untested: org/apache/commons/pool2/TestPoolUtils has uncovered changes [561, 683]
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ commons-pool2 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/commons-pool2-2.7.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7.1:attach-descriptor (attach-descriptor) @ commons-pool2 ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:test-jar (default) @ commons-pool2 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/commons-pool2-2.7.1-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar-no-fork (create-source-jar) @ commons-pool2 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/commons-pool2-2.7.1-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:test-jar-no-fork (create-source-jar) @ commons-pool2 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-pool/target/commons-pool2-2.7.1-SNAPSHOT-test-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 05:52 min
+[INFO] Finished at: 2020-04-10T01:06:41-07:00
+[INFO] Final Memory: 56M/2317M
+[INFO] ------------------------------------------------------------------------

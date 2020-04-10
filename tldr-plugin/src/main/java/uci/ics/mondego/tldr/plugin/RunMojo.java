@@ -28,7 +28,6 @@ public class RunMojo extends DiffMojo {
     	 
 		 // TLDR is flagged on. It gets the impacted tests and set the tests field on.
 	     if (AgentLoader.loadDynamicAgent()) {
-	        	logger.info("AGENT LOADED!!!");
 	            System.setProperty(Constants.TLDR_TEST_PROPERTY, getImpactedTests());
 	            report = getTestSelectionReport();
 		    	testSelectionEndTime = tldr.getSelectionEndTime();		    	

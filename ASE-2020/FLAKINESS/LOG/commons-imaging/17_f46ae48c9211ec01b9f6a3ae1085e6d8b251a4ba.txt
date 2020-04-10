@@ -1,0 +1,188 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-imaging
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-imaging
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-imaging
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Imaging 1.0-alpha2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-imaging ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-imaging ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-imaging ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-imaging ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging
+[INFO] Storing buildNumber: f46ae48c9211ec01b9f6a3ae1085e6d8b251a4ba at timestamp: 1586495347088
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-imaging ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-imaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 360 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.1.0:manifest (bundle-manifest) @ commons-imaging ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-imaging ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-imaging ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-imaging ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing f46ae48c9211ec01b9f6a3ae1085e6d8b251a4ba against: a1072f61f68dcd4f58d171ce576314be7d57101d
+org/apache/commons/imaging/formats/ico/IcoRoundtripTest$GeneratorFor24BitBitmaps : []
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/jpeg/exif/ExifRewriteTest : [Edit [start=87, end=87], Edit [start=127, end=127], Edit [start=148, end=148], Edit [start=217, end=217]]
+	 Methods to watch:[]
+org/apache/commons/imaging/roundtrip/PixelDensityRoundtrip : [Edit [start=47, end=47]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/ico/IcoRoundtripTest$GeneratorFor8BitBitmaps : []
+	 Methods to watch:[]
+org/apache/commons/imaging/ImagingTest$ImageFilter : []
+	 Methods to watch:[]
+org/apache/commons/imaging/roundtrip/NullParametersRoundtripTest : [Edit [start=40, end=40]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/png/PngMultipleRoundtripTest : [Edit [start=65, end=65]]
+	 Methods to watch:[]
+org/apache/commons/imaging/common/bytesource/ByteSourceTest : [Edit [start=29, end=29]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/ico/IcoRoundtripTest : [Edit [start=540, end=540]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/png/PngWriteForceTrueColorText : [Edit [start=56, end=56]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/jpeg/iptc/IptcUpdateTest : [Edit [start=77, end=77], Edit [start=110, end=110], Edit [start=159, end=159]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/png/ConvertPngToGifTest : [Edit [start=55, end=55]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/jpeg/iptc/IptcAddTest : [Edit [start=83, end=83]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/png/PngTextTest : [Edit [start=74, end=74]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/jpeg/xmp/JpegXmpRewriteTest : [Edit [start=52, end=52], Edit [start=73, end=73], Edit [start=92, end=92]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/ico/IcoRoundtripTest$BitmapGenerator : []
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/jpeg/exif/ExifRewriteTest$Rewriter : []
+	 Methods to watch:[]
+org/apache/commons/imaging/roundtrip/RoundtripBase : [Edit [start=35, end=34], Edit [start=39, end=38], Edit [start=42, end=42], Edit [start=62, end=62], Edit [start=69, end=68]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/jpeg/exif/WriteExifMetadataExampleTest : [Edit [start=49, end=49]]
+	 Methods to watch:[]
+org/apache/commons/imaging/ImagingTest : [Edit [start=29, end=28], Edit [start=31, end=30]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/ico/IcoRoundtripTest$GeneratorFor32BitBitmaps : []
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/ico/IcoRoundtripTest$GeneratorFor1BitBitmaps : []
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/bmp/BmpRoundtripTest : [Edit [start=154, end=154]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/icns/IcnsRoundTripTest : [Edit [start=410, end=410]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/ico/IcoRoundtripTest$GeneratorFor4BitBitmaps : []
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/png/PngWriteReadTest : [Edit [start=195, end=195], Edit [start=224, end=224]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/ico/IcoRoundtripTest$GeneratorFor16BitBitmaps : []
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/tiff/TiffRoundtripTest : [Edit [start=62, end=62]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/xmp/XmpUpdateTest : [Edit [start=80, end=80]]
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-imaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 164 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-imaging ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-imaging ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (check-java-api) @ commons-imaging ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-imaging ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Imagingcommons-imaging
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/.diffCache
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/jpeg/exif/ExifRewriteTest has uncovered changes [87, 127, 148, 217]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/roundtrip/PixelDensityRoundtrip has uncovered changes [47]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/roundtrip/NullParametersRoundtripTest has uncovered changes [40]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/png/PngMultipleRoundtripTest has uncovered changes [65]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/common/bytesource/ByteSourceTest has uncovered changes [29]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/ico/IcoRoundtripTest has uncovered changes [540]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/png/PngWriteForceTrueColorText has uncovered changes [56]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/jpeg/iptc/IptcUpdateTest has uncovered changes [77, 110, 159]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/png/ConvertPngToGifTest has uncovered changes [55]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/jpeg/iptc/IptcAddTest has uncovered changes [83]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/png/PngTextTest has uncovered changes [74]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/jpeg/xmp/JpegXmpRewriteTest has uncovered changes [52, 73, 92]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/roundtrip/RoundtripBase has uncovered changes [42, 62]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/jpeg/exif/WriteExifMetadataExampleTest has uncovered changes [49]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/bmp/BmpRoundtripTest has uncovered changes [154]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/icns/IcnsRoundTripTest has uncovered changes [410]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/png/PngWriteReadTest has uncovered changes [195, 224]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/tiff/TiffRoundtripTest has uncovered changes [62]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/xmp/XmpUpdateTest has uncovered changes [80]
+[WARNING] No tests found!
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ commons-imaging ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/commons-imaging-1.0-alpha2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7.1:attach-descriptor (attach-descriptor) @ commons-imaging ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:test-jar (default) @ commons-imaging ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/commons-imaging-1.0-alpha2-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar-no-fork (create-source-jar) @ commons-imaging ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/commons-imaging-1.0-alpha2-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:test-jar-no-fork (create-source-jar) @ commons-imaging ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/commons-imaging-1.0-alpha2-SNAPSHOT-test-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 14.956 s
+[INFO] Finished at: 2020-04-09T22:09:18-07:00
+[INFO] Final Memory: 63M/2361M
+[INFO] ------------------------------------------------------------------------
