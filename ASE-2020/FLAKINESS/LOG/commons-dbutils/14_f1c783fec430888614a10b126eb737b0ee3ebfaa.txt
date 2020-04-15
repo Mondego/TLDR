@@ -1,0 +1,258 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-dbutils
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-dbutils
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons DbUtils 2.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-dbutils ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-dbutils ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-dbutils ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-dbutils ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils
+[INFO] Storing buildNumber: f1c783fec430888614a10b126eb737b0ee3ebfaa at timestamp: 1586492839640
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-dbutils ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-dbutils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 47 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/target/classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java uses unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.1.0:manifest (bundle-manifest) @ commons-dbutils ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-dbutils ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-dbutils ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-dbutils ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing f1c783fec430888614a10b126eb737b0ee3ebfaa against: 87cb92d1be9d7d9b79c757ffad234b730db8c000
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-dbutils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 46 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java uses unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-dbutils ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.195 sec - in org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.columns.DoubleColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.DoubleColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.columns.StringColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.dbutils.handlers.columns.StringColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.columns.ByteColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.ByteColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.columns.BooleanColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.BooleanColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.columns.TimestampColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.TimestampColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.columns.LongColumnHandlerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.LongColumnHandlerTest
+Running org.apache.commons.dbutils.handlers.ColumnListHandlerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec - in org.apache.commons.dbutils.handlers.ColumnListHandlerTest
+Running org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest
+Running org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest
+Running org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest
+Running org.apache.commons.dbutils.handlers.ArrayListHandlerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.dbutils.handlers.ArrayListHandlerTest
+Running org.apache.commons.dbutils.handlers.ArrayHandlerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.dbutils.handlers.ArrayHandlerTest
+Running org.apache.commons.dbutils.handlers.BeanMapHandlerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.apache.commons.dbutils.handlers.BeanMapHandlerTest
+Running org.apache.commons.dbutils.handlers.MapListHandlerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.dbutils.handlers.MapListHandlerTest
+Running org.apache.commons.dbutils.handlers.BeanHandlerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.apache.commons.dbutils.handlers.BeanHandlerTest
+Running org.apache.commons.dbutils.handlers.ScalarHandlerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.dbutils.handlers.ScalarHandlerTest
+Running org.apache.commons.dbutils.handlers.MapHandlerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.dbutils.handlers.MapHandlerTest
+Running org.apache.commons.dbutils.handlers.KeyedHandlerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.dbutils.handlers.KeyedHandlerTest
+Running org.apache.commons.dbutils.handlers.BeanListHandlerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.dbutils.handlers.BeanListHandlerTest
+Running org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest
+Running org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest
+Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest
+Running org.apache.commons.dbutils.BaseResultSetHandlerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.dbutils.BaseResultSetHandlerTest
+Running org.apache.commons.dbutils.ProxyFactoryTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.dbutils.ProxyFactoryTest
+Running org.apache.commons.dbutils.QueryLoaderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.QueryLoaderTest
+Running org.apache.commons.dbutils.OutParameterTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec - in org.apache.commons.dbutils.OutParameterTest
+Running org.apache.commons.dbutils.StatementConfigurationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.StatementConfigurationTest
+Running org.apache.commons.dbutils.QueryRunnerTest
+Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 sec - in org.apache.commons.dbutils.QueryRunnerTest
+Running org.apache.commons.dbutils.BeanProcessorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.BeanProcessorTest
+Running org.apache.commons.dbutils.ServiceLoaderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.ServiceLoaderTest
+Running org.apache.commons.dbutils.AsyncQueryRunnerTest
+############ Logging method invocation #1 on mock/spy ########
+queryRunner.insert(
+    "1",
+    org.apache.commons.dbutils.handlers.ArrayHandler@76c9218c
+);
+   invoked: -> at org.apache.commons.dbutils.AsyncQueryRunner$13.call(AsyncQueryRunner.java:571)
+   has returned: "null"
+
+############ Logging method invocation #2 on mock/spy ########
+queryRunner.insert(
+    "2",
+    org.apache.commons.dbutils.handlers.ArrayHandler@76c9218c,
+    "param1"
+);
+   invoked: -> at org.apache.commons.dbutils.AsyncQueryRunner$14.call(AsyncQueryRunner.java:594)
+   has returned: "null"
+
+############ Logging method invocation #3 on mock/spy ########
+queryRunner.insert(
+    conn,
+    "3",
+    org.apache.commons.dbutils.handlers.ArrayHandler@76c9218c
+);
+   invoked: -> at org.apache.commons.dbutils.AsyncQueryRunner$15.call(AsyncQueryRunner.java:616)
+   has returned: "null"
+
+############ Logging method invocation #4 on mock/spy ########
+queryRunner.insert(
+    conn,
+    "4",
+    org.apache.commons.dbutils.handlers.ArrayHandler@76c9218c,
+    "param1"
+);
+   invoked: -> at org.apache.commons.dbutils.AsyncQueryRunner$16.call(AsyncQueryRunner.java:639)
+   has returned: "null"
+
+############ Logging method invocation #5 on mock/spy ########
+queryRunner.insert(
+    "1",
+    org.apache.commons.dbutils.handlers.ArrayHandler@76c9218c
+);
+   invoked: -> at org.apache.commons.dbutils.AsyncQueryRunnerTest.testInsertUsesGivenQueryRunner(AsyncQueryRunnerTest.java:460)
+   has returned: "null"
+
+############ Logging method invocation #6 on mock/spy ########
+queryRunner.insert(
+    "2",
+    org.apache.commons.dbutils.handlers.ArrayHandler@76c9218c,
+    "param1"
+);
+   invoked: -> at org.apache.commons.dbutils.AsyncQueryRunnerTest.testInsertUsesGivenQueryRunner(AsyncQueryRunnerTest.java:461)
+   has returned: "null"
+
+############ Logging method invocation #7 on mock/spy ########
+queryRunner.insert(
+    conn,
+    "3",
+    org.apache.commons.dbutils.handlers.ArrayHandler@76c9218c
+);
+   invoked: -> at org.apache.commons.dbutils.AsyncQueryRunnerTest.testInsertUsesGivenQueryRunner(AsyncQueryRunnerTest.java:462)
+   has returned: "null"
+
+############ Logging method invocation #8 on mock/spy ########
+queryRunner.insert(
+    conn,
+    "4",
+    org.apache.commons.dbutils.handlers.ArrayHandler@76c9218c,
+    "param1"
+);
+   invoked: -> at org.apache.commons.dbutils.AsyncQueryRunnerTest.testInsertUsesGivenQueryRunner(AsyncQueryRunnerTest.java:463)
+   has returned: "null"
+
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 sec - in org.apache.commons.dbutils.AsyncQueryRunnerTest
+Running org.apache.commons.dbutils.ResultSetIteratorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.ResultSetIteratorTest
+Running org.apache.commons.dbutils.BasicRowProcessorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.dbutils.BasicRowProcessorTest
+Running org.apache.commons.dbutils.DbUtilsTest
+Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.apache.commons.dbutils.DbUtilsTest
+Running org.apache.commons.dbutils.GenerousBeanProcessorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.dbutils.GenerousBeanProcessorTest
+
+Results :
+
+Tests run: 308, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-dbutils ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-dbutils ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons DbUtilscommons-dbutils
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/.diffCache
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ commons-dbutils ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/target/commons-dbutils-2.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7.1:attach-descriptor (attach-descriptor) @ commons-dbutils ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:test-jar (default) @ commons-dbutils ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/target/commons-dbutils-2.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar-no-fork (create-source-jar) @ commons-dbutils ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/target/commons-dbutils-2.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:test-jar-no-fork (create-source-jar) @ commons-dbutils ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-dbutils/target/commons-dbutils-2.0-SNAPSHOT-test-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 11.508 s
+[INFO] Finished at: 2020-04-09T21:27:28-07:00
+[INFO] Final Memory: 54M/2325M
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,85 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from invokebinder
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building invokebinder 1.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.2:resources (default-resources) @ invokebinder ---
+[INFO] Using encoding: 'UTF-8' to copy filtered resources.
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ invokebinder ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.2:testResources (default-testResources) @ invokebinder ---
+[INFO] Using encoding: 'UTF-8' to copy filtered resources.
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ invokebinder ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing e3fe758711d6087b29f20af3a2c60d68fae3cad0 against: e71e9f880fb2039c6bbca9da08f297857abc2247
+com/headius/invokebinder/SmartBinder : [Edit [start=38, end=38], Edit [start=90, end=90], Edit [start=102, end=102], Edit [start=128, end=128], Edit [start=142, end=142], Edit [start=220, end=220], Edit [start=236, end=236], Edit [start=326, end=326], Edit [start=483, end=483], Edit [start=497, end=497], Edit [start=618, end=619], Edit [start=631, end=631], Edit [start=752, end=752], Edit [start=765, end=765], Edit [start=870, end=870], Edit [start=885, end=885], Edit [start=896, end=896], Edit [start=915, end=915], Edit [start=1008, end=1008], Edit [start=1029, end=1029]]
+	 Methods to watch:[]
+com/headius/invokebinder/Binder : [Edit [start=71, end=72], Edit [start=181, end=181], Edit [start=192, end=192], Edit [start=203, end=203], Edit [start=215, end=215], Edit [start=227, end=227], Edit [start=240, end=240], Edit [start=464, end=464], Edit [start=476, end=476], Edit [start=667, end=667], Edit [start=678, end=678], Edit [start=689, end=689], Edit [start=700, end=700], Edit [start=795, end=795], Edit [start=818, end=818], Edit [start=831, end=831], Edit [start=841, end=841], Edit [start=861, end=861], Edit [start=865, end=865], Edit [start=878, end=878], Edit [start=890, end=890], Edit [start=902, end=902], Edit [start=947, end=947], Edit [start=959, end=959], Edit [start=1177, end=1177], Edit [start=1198, end=1198], Edit [start=1269, end=1269], Edit [start=1290, end=1290], Edit [start=1315, end=1315], Edit [start=1335, end=1335], Edit [start=1408, end=1408], Edit [start=1429, end=1429], Edit [start=1500, end=1500], Edit [start=1521, end=1521]]
+	 Methods to watch:[]
+com/headius/invokebinder/SmartHandle : [Edit [start=103, end=103], Edit [start=181, end=181], Edit [start=194, end=194], Edit [start=206, end=206], Edit [start=264, end=264], Edit [start=313, end=313], Edit [start=325, end=325]]
+	 Methods to watch:[]
+com/headius/invokebinder/Signature : [Edit [start=59, end=59], Edit [start=71, end=71], Edit [start=84, end=84], Edit [start=141, end=141], Edit [start=154, end=154], Edit [start=166, end=166], Edit [start=176, end=176], Edit [start=187, end=187], Edit [start=202, end=202], Edit [start=219, end=219], Edit [start=234, end=234], Edit [start=250, end=251], Edit [start=263, end=264], Edit [start=275, end=275], Edit [start=298, end=298], Edit [start=397, end=397], Edit [start=406, end=406], Edit [start=421, end=421], Edit [start=442, end=442], Edit [start=446, end=446], Edit [start=478, end=478], Edit [start=487, end=487], Edit [start=624, end=624], Edit [start=633, end=633], Edit [start=642, end=642], Edit [start=653, end=653], Edit [start=668, end=669], Edit [start=681, end=681], Edit [start=695, end=696], Edit [start=710, end=710]]
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ invokebinder ---
+[INFO] Compiling 4 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ invokebinder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.headius.invokebinder.SignatureTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 sec - in com.headius.invokebinder.SignatureTest
+Running com.headius.invokebinder.SmartBinderTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.headius.invokebinder.SmartBinderTest
+Running com.headius.invokebinder.BinderTest
+(BinderTest,String)String
+Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec - in com.headius.invokebinder.BinderTest
+
+Results :
+
+Tests run: 103, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ invokebinder ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ invokebinder ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] invokebinderinvokebinder
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/.diffCache
+[WARNING] Diff has gone untested: com/headius/invokebinder/SmartBinder has uncovered changes [38, 619]
+[WARNING] Diff has gone untested: com/headius/invokebinder/Binder has uncovered changes [71, 72, 861, 865]
+[WARNING] Diff has gone untested: com/headius/invokebinder/SmartHandle has uncovered changes [103, 181, 194, 206, 264, 313, 325]
+[WARNING] Diff has gone untested: com/headius/invokebinder/Signature has uncovered changes [251, 264, 406, 442, 446, 478, 487, 668, 669, 681, 695, 696, 710]
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ invokebinder ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/invokebinder/target/invokebinder-1.6-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 11.980 s
+[INFO] Finished at: 2020-04-10T01:25:31-07:00
+[INFO] Final Memory: 45M/2241M
+[INFO] ------------------------------------------------------------------------

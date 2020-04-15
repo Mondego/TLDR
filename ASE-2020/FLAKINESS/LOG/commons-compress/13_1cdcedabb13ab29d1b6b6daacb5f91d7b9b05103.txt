@@ -1,0 +1,466 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-compress
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-compress
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-compress
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Compress 1.20-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-compress ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-compress ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-compress ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-compress ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress
+[INFO] Storing buildNumber: 1cdcedabb13ab29d1b6b6daacb5f91d7b9b05103 at timestamp: 1586492181184
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-compress ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-compress ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.5.1:manifest (bundle-manifest) @ commons-compress ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-compress ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-compress ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 191 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (default) @ commons-compress ---
+[INFO] Executing tasks
+
+main:
+    [untar] Expanding: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/src/test/resources/zstd-tests.tar into /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/test-classes
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-compress ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 1cdcedabb13ab29d1b6b6daacb5f91d7b9b05103 against: 205876d6f9eb60ac31f3ec848b23d025f32995ab
+org/apache/commons/compress/archivers/zip/ZipFile : [Edit [start=51, end=51], Edit [start=147, end=151], Edit [start=160, end=160], Edit [start=362, end=365], Edit [start=788, end=788], Edit [start=810, end=810], Edit [start=835, end=835], Edit [start=845, end=845], Edit [start=849, end=849], Edit [start=865, end=868], Edit [start=916, end=938], Edit [start=989, end=1016], Edit [start=1057, end=1073], Edit [start=1080, end=1100], Edit [start=1112, end=1129], Edit [start=1262, end=1269]]
+	 Methods to watch:[]
+org/apache/commons/compress/utils/ZipSplitReadOnlySeekableByteChannel Structural diff: []
+org/apache/commons/compress/archivers/zip/ZipArchiveEntry : [Edit [start=147, end=147], Edit [start=1084, end=1091]]
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipArchiveEntry$ExtraFieldParsingMode$1 : []
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipArchiveEntry$ExtraFieldParsingMode$2 : []
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipFile$BoundedInputStream : []
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipFile$StoredStatisticsStream : []
+	 Methods to watch:[]
+org/apache/commons/compress/utils/MultiReadOnlySeekableByteChannelTest : [Edit [start=52, end=52], Edit [start=64, end=64], Edit [start=109, end=109], Edit [start=153, end=153]]
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipArchiveEntry$CommentSource : []
+	 Methods to watch:[]
+org/apache/commons/compress/utils/ZipSplitSegmentComparator Structural diff: []
+org/apache/commons/compress/archivers/zip/ZipFile$NameAndComment : []
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipArchiveEntry$ExtraFieldParsingMode : []
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipFile$2 : [Edit [start=1439, end=1444]]
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipArchiveEntry$NameSource : []
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipFile$1 : []
+	 Methods to watch:[]
+org/apache/commons/compress/compressors/FileNameUtil : [Edit [start=196, end=224]]
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipFile$BoundedFileChannelInputStream : []
+	 Methods to watch:[]
+org/apache/commons/compress/utils/MultiReadOnlySeekableByteChannel : [Edit [start=47, end=49], Edit [start=198, end=198]]
+	 Methods to watch:[]
+org/apache/commons/compress/archivers/zip/ZipFile$Entry : [Edit [start=1473, end=1475]]
+	 Methods to watch:[]
+org/apache/commons/compress/utils/MultiReadOnlySeekableByteChannelTest$ThrowingSeekableByteChannel : []
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-compress ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 150 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/src/test/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestampTest.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/src/test/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestampTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/src/test/java/org/apache/commons/compress/compressors/z/ZCompressorInputStreamTest.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/src/test/java/org/apache/commons/compress/compressors/z/ZCompressorInputStreamTest.java uses unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/src/test/java/org/apache/commons/compress/compressors/z/ZCompressorInputStreamTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-compress ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.compress.archivers.zip.BitStreamTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.compress.archivers.zip.BitStreamTest
+Running org.apache.commons.compress.archivers.zip.EncryptedArchiveTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in org.apache.commons.compress.archivers.zip.EncryptedArchiveTest
+Running org.apache.commons.compress.archivers.zip.ZipFileIgnoringLocalFileHeaderTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec - in org.apache.commons.compress.archivers.zip.ZipFileIgnoringLocalFileHeaderTest
+Running org.apache.commons.compress.archivers.zip.ZipClassCoverageTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.compress.archivers.zip.ZipClassCoverageTest
+Running org.apache.commons.compress.archivers.zip.ScatterSampleTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.compress.archivers.zip.ScatterSampleTest
+Running org.apache.commons.compress.archivers.zip.ZipFileTest
+Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 sec - in org.apache.commons.compress.archivers.zip.ZipFileTest
+Running org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec - in org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest
+Running org.apache.commons.compress.archivers.zip.Zip64ExtendedInformationExtraFieldTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.archivers.zip.Zip64ExtendedInformationExtraFieldTest
+Running org.apache.commons.compress.archivers.zip.ZipEightByteIntegerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.compress.archivers.zip.ZipEightByteIntegerTest
+Running org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestampTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestampTest
+Running org.apache.commons.compress.archivers.zip.ParallelScatterZipCreatorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.145 sec - in org.apache.commons.compress.archivers.zip.ParallelScatterZipCreatorTest
+Running org.apache.commons.compress.archivers.zip.X7875_NewUnixTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.compress.archivers.zip.X7875_NewUnixTest
+Running org.apache.commons.compress.archivers.zip.AsiExtraFieldTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.zip.AsiExtraFieldTest
+Running org.apache.commons.compress.archivers.zip.X000A_NTFSTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.zip.X000A_NTFSTest
+Running org.apache.commons.compress.archivers.zip.ZipArchiveEntryTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.compress.archivers.zip.ZipArchiveEntryTest
+Running org.apache.commons.compress.archivers.zip.ExtraFieldUtilsTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.compress.archivers.zip.ExtraFieldUtilsTest
+Running org.apache.commons.compress.archivers.zip.ScatterZipOutputStreamTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.archivers.zip.ScatterZipOutputStreamTest
+Running org.apache.commons.compress.archivers.zip.DataDescriptorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.compress.archivers.zip.DataDescriptorTest
+Running org.apache.commons.compress.archivers.zip.ZipLongTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.zip.ZipLongTest
+Running org.apache.commons.compress.archivers.zip.PkWareExtraHeaderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.zip.PkWareExtraHeaderTest
+Running org.apache.commons.compress.archivers.zip.Maven221MultiVolumeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.108 sec - in org.apache.commons.compress.archivers.zip.Maven221MultiVolumeTest
+Running org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec - in org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest
+Running org.apache.commons.compress.archivers.zip.ZipShortTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.zip.ZipShortTest
+Running org.apache.commons.compress.archivers.zip.CircularBufferTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.zip.CircularBufferTest
+Running org.apache.commons.compress.archivers.zip.StreamCompressorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.zip.StreamCompressorTest
+Running org.apache.commons.compress.archivers.zip.ZipEncodingTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.compress.archivers.zip.ZipEncodingTest
+Running org.apache.commons.compress.archivers.zip.GeneralPurposeBitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.archivers.zip.GeneralPurposeBitTest
+Running org.apache.commons.compress.archivers.zip.ExplodeSupportTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.apache.commons.compress.archivers.zip.ExplodeSupportTest
+Running org.apache.commons.compress.archivers.zip.BinaryTreeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.zip.BinaryTreeTest
+Running org.apache.commons.compress.archivers.zip.NioZipEncodingTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.compress.archivers.zip.NioZipEncodingTest
+Running org.apache.commons.compress.archivers.zip.ZipUtilTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.compress.archivers.zip.ZipUtilTest
+Running org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStreamTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStreamTest
+Running org.apache.commons.compress.archivers.cpio.CpioArchiveTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.compress.archivers.cpio.CpioArchiveTest
+Running org.apache.commons.compress.archivers.cpio.CpioUtilTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.archivers.cpio.CpioUtilTest
+Running org.apache.commons.compress.archivers.cpio.CpioArchiveInputStreamTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.317 sec - in org.apache.commons.compress.archivers.cpio.CpioArchiveInputStreamTest
+Running org.apache.commons.compress.archivers.sevenz.SevenZOutputFileTest
+Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.378 sec - in org.apache.commons.compress.archivers.sevenz.SevenZOutputFileTest
+Running org.apache.commons.compress.archivers.sevenz.SevenZArchiveEntryTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.sevenz.SevenZArchiveEntryTest
+Running org.apache.commons.compress.archivers.sevenz.AES256SHA256DecoderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.sevenz.AES256SHA256DecoderTest
+Running org.apache.commons.compress.archivers.sevenz.CoverageTest
+Analysing /dev/null/not-there
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.archivers.sevenz.CoverageTest
+Running org.apache.commons.compress.archivers.sevenz.SevenZMethodConfigurationTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.sevenz.SevenZMethodConfigurationTest
+Running org.apache.commons.compress.archivers.sevenz.SevenZFileTest
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.919 sec - in org.apache.commons.compress.archivers.sevenz.SevenZFileTest
+Running org.apache.commons.compress.archivers.sevenz.FolderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.sevenz.FolderTest
+Running org.apache.commons.compress.archivers.sevenz.SevenZNativeHeapTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.archivers.sevenz.SevenZNativeHeapTest
+Running org.apache.commons.compress.archivers.dump.DumpArchiveEntryTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.archivers.dump.DumpArchiveEntryTest
+Running org.apache.commons.compress.archivers.dump.DumpArchiveInputStreamTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.compress.archivers.dump.DumpArchiveInputStreamTest
+Running org.apache.commons.compress.archivers.dump.DumpArchiveUtilTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.dump.DumpArchiveUtilTest
+Running org.apache.commons.compress.archivers.ZipTestCase
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 sec - in org.apache.commons.compress.archivers.ZipTestCase
+Running org.apache.commons.compress.archivers.memory.MemoryArchiveTestCase
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.memory.MemoryArchiveTestCase
+Running org.apache.commons.compress.archivers.jar.JarArchiveOutputStreamTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.jar.JarArchiveOutputStreamTest
+Running org.apache.commons.compress.archivers.jar.JarMarkerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.jar.JarMarkerTest
+Running org.apache.commons.compress.archivers.LongSymLinkTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.compress.archivers.LongSymLinkTest
+Running org.apache.commons.compress.archivers.ArchiveOutputStreamTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.compress.archivers.ArchiveOutputStreamTest
+Running org.apache.commons.compress.archivers.arj.ArjArchiveInputStreamTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.compress.archivers.arj.ArjArchiveInputStreamTest
+Running org.apache.commons.compress.archivers.arj.CoverageTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.arj.CoverageTest
+Running org.apache.commons.compress.archivers.tar.TarUtilsTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.compress.archivers.tar.TarUtilsTest
+Running org.apache.commons.compress.archivers.tar.TarArchiveInputStreamTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.compress.archivers.tar.TarArchiveInputStreamTest
+Running org.apache.commons.compress.archivers.tar.TarArchiveEntryTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.006 sec - in org.apache.commons.compress.archivers.tar.TarArchiveEntryTest
+Running org.apache.commons.compress.archivers.tar.TarArchiveOutputStreamTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.06 sec - in org.apache.commons.compress.archivers.tar.TarArchiveOutputStreamTest
+Running org.apache.commons.compress.archivers.tar.SparseFilesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.tar.SparseFilesTest
+Running org.apache.commons.compress.archivers.ArchiveServiceLoaderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.compress.archivers.ArchiveServiceLoaderTest
+Running org.apache.commons.compress.archivers.ExceptionMessageTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.archivers.ExceptionMessageTest
+Running org.apache.commons.compress.archivers.CpioTestCase
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.compress.archivers.CpioTestCase
+Running org.apache.commons.compress.archivers.ar.ArArchiveOutputStreamTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.compress.archivers.ar.ArArchiveOutputStreamTest
+Running org.apache.commons.compress.archivers.ar.ArArchiveInputStreamTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.compress.archivers.ar.ArArchiveInputStreamTest
+Running org.apache.commons.compress.archivers.examples.ParameterizedExpanderTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 sec - in org.apache.commons.compress.archivers.examples.ParameterizedExpanderTest
+Running org.apache.commons.compress.archivers.examples.SevenZArchiverTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 sec - in org.apache.commons.compress.archivers.examples.SevenZArchiverTest
+Running org.apache.commons.compress.archivers.examples.ParameterizedArchiverTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.compress.archivers.examples.ParameterizedArchiverTest
+Running org.apache.commons.compress.archivers.examples.ExpanderTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.332 sec - in org.apache.commons.compress.archivers.examples.ExpanderTest
+Running org.apache.commons.compress.archivers.SevenZTestCase
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.666 sec - in org.apache.commons.compress.archivers.SevenZTestCase
+Running org.apache.commons.compress.archivers.LongPathTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 sec - in org.apache.commons.compress.archivers.LongPathTest
+Running org.apache.commons.compress.archivers.ArTestCase
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.014 sec - in org.apache.commons.compress.archivers.ArTestCase
+Running org.apache.commons.compress.archivers.JarTestCase
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.compress.archivers.JarTestCase
+Running org.apache.commons.compress.archivers.DumpTestCase
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.apache.commons.compress.archivers.DumpTestCase
+Running org.apache.commons.compress.archivers.ArchiveStreamFactoryTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.compress.archivers.ArchiveStreamFactoryTest
+Running org.apache.commons.compress.archivers.TarTestCase
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.apache.commons.compress.archivers.TarTestCase
+Running org.apache.commons.compress.compressors.deflate64.HuffmanDecoderTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.compressors.deflate64.HuffmanDecoderTest
+Running org.apache.commons.compress.compressors.deflate64.Deflate64CompressorInputStreamTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 sec - in org.apache.commons.compress.compressors.deflate64.Deflate64CompressorInputStreamTest
+Running org.apache.commons.compress.compressors.deflate64.Deflate64BugsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.compress.compressors.deflate64.Deflate64BugsTest
+Running org.apache.commons.compress.compressors.bzip2.BlockSortTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.compress.compressors.bzip2.BlockSortTest
+Running org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.513 sec - in org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStreamTest
+Running org.apache.commons.compress.compressors.bzip2.PythonTruncatedBzip2Test
+Attempt to read the whole thing in, should throw ...
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.compress.compressors.bzip2.PythonTruncatedBzip2Test
+Running org.apache.commons.compress.compressors.GzipUtilsTestCase
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.compress.compressors.GzipUtilsTestCase
+Running org.apache.commons.compress.compressors.lz4.BlockLZ4CompressorInputStreamTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.compress.compressors.lz4.BlockLZ4CompressorInputStreamTest
+Running org.apache.commons.compress.compressors.lz4.XXHash32Test
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec - in org.apache.commons.compress.compressors.lz4.XXHash32Test
+Running org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.508 sec - in org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorRoundtripTest
+Running org.apache.commons.compress.compressors.lz4.FactoryTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.compress.compressors.lz4.FactoryTest
+Running org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest
+Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec - in org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest
+Running org.apache.commons.compress.compressors.lz4.BlockLZ4CompressorRoundtripTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.027 sec - in org.apache.commons.compress.compressors.lz4.BlockLZ4CompressorRoundtripTest
+Running org.apache.commons.compress.compressors.lz4.BlockLZ4CompressorOutputStreamTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.023 sec - in org.apache.commons.compress.compressors.lz4.BlockLZ4CompressorOutputStreamTest
+Running org.apache.commons.compress.compressors.brotli.BrotliCompressorInputStreamTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec - in org.apache.commons.compress.compressors.brotli.BrotliCompressorInputStreamTest
+Running org.apache.commons.compress.compressors.DetectCompressorTestCase
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 sec - in org.apache.commons.compress.compressors.DetectCompressorTestCase
+Running org.apache.commons.compress.compressors.FramedSnappyTestCase
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.375 sec - in org.apache.commons.compress.compressors.FramedSnappyTestCase
+Running org.apache.commons.compress.compressors.deflate.DeflateCompressorOutputStreamTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.compressors.deflate.DeflateCompressorOutputStreamTest
+Running org.apache.commons.compress.compressors.deflate.DeflateParametersTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.compressors.deflate.DeflateParametersTest
+Running org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStreamTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStreamTest
+Running org.apache.commons.compress.compressors.zstandard.ZstdRoundtripTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.compress.compressors.zstandard.ZstdRoundtripTest
+Running org.apache.commons.compress.compressors.zstandard.ZstdUtilsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.compressors.zstandard.ZstdUtilsTest
+Running org.apache.commons.compress.compressors.zstandard.ZstdCompressorInputStreamTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.compress.compressors.zstandard.ZstdCompressorInputStreamTest
+Running org.apache.commons.compress.compressors.BZip2UtilsTestCase
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.compressors.BZip2UtilsTestCase
+Running org.apache.commons.compress.compressors.LZMATestCase
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec - in org.apache.commons.compress.compressors.LZMATestCase
+Running org.apache.commons.compress.compressors.pack200.Pack200UtilsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec - in org.apache.commons.compress.compressors.pack200.Pack200UtilsTest
+Running org.apache.commons.compress.compressors.CompressorServiceLoaderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.compressors.CompressorServiceLoaderTest
+Running org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 sec - in org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest
+Running org.apache.commons.compress.compressors.snappy.SnappyRoundtripTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.095 sec - in org.apache.commons.compress.compressors.snappy.SnappyRoundtripTest
+Running org.apache.commons.compress.compressors.XZTestCase
+XZTestCase: HeapMax=2097676288 bytes 2000.5 MB
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec - in org.apache.commons.compress.compressors.XZTestCase
+Running org.apache.commons.compress.compressors.GZipTestCase
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.compress.compressors.GZipTestCase
+Running org.apache.commons.compress.compressors.ZTestCase
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.compress.compressors.ZTestCase
+Running org.apache.commons.compress.compressors.DeflateTestCase
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.compress.compressors.DeflateTestCase
+Running org.apache.commons.compress.compressors.xz.XZUtilsTestCase
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.compressors.xz.XZUtilsTestCase
+Running org.apache.commons.compress.compressors.xz.XZCompressorInputStreamTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.apache.commons.compress.compressors.xz.XZCompressorInputStreamTest
+Running org.apache.commons.compress.compressors.xz.XZCompressorOutputStreamTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec - in org.apache.commons.compress.compressors.xz.XZCompressorOutputStreamTest
+Running org.apache.commons.compress.compressors.lz77support.LZ77CompressorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.compress.compressors.lz77support.LZ77CompressorTest
+Running org.apache.commons.compress.compressors.lz77support.AbstractLZ77CompressorInputStreamTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.compressors.lz77support.AbstractLZ77CompressorInputStreamTest
+Running org.apache.commons.compress.compressors.lz77support.ParametersTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.compressors.lz77support.ParametersTest
+Running org.apache.commons.compress.compressors.Pack200TestCase
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 sec - in org.apache.commons.compress.compressors.Pack200TestCase
+Running org.apache.commons.compress.compressors.CompressorStreamFactoryRoundtripTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec - in org.apache.commons.compress.compressors.CompressorStreamFactoryRoundtripTest
+Running org.apache.commons.compress.compressors.z.ZCompressorInputStreamTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.apache.commons.compress.compressors.z.ZCompressorInputStreamTest
+Running org.apache.commons.compress.compressors.lzma.LZMAUtilsTestCase
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.compressors.lzma.LZMAUtilsTestCase
+Running org.apache.commons.compress.compressors.BZip2TestCase
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.compress.compressors.BZip2TestCase
+Running org.apache.commons.compress.utils.IOUtilsTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.compress.utils.IOUtilsTest
+Running org.apache.commons.compress.utils.ServiceLoaderIteratorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.utils.ServiceLoaderIteratorTest
+Running org.apache.commons.compress.utils.ChecksumVerifyingInputStreamTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.utils.ChecksumVerifyingInputStreamTest
+Running org.apache.commons.compress.utils.BitInputStreamTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.utils.BitInputStreamTest
+Running org.apache.commons.compress.utils.FixedLengthBlockOutputStreamTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec - in org.apache.commons.compress.utils.FixedLengthBlockOutputStreamTest
+Running org.apache.commons.compress.utils.CharsetsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.utils.CharsetsTest
+Running org.apache.commons.compress.utils.ChecksumCalculatingInputStreamTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.utils.ChecksumCalculatingInputStreamTest
+Running org.apache.commons.compress.utils.SeekableInMemoryByteChannelTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.utils.SeekableInMemoryByteChannelTest
+Running org.apache.commons.compress.utils.CountingStreamTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.utils.CountingStreamTest
+Running org.apache.commons.compress.utils.ByteUtilsTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.utils.ByteUtilsTest
+Running org.apache.commons.compress.utils.SkipShieldingInputStreamTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.utils.SkipShieldingInputStreamTest
+Running org.apache.commons.compress.utils.MultiReadOnlySeekableByteChannelTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec - in org.apache.commons.compress.utils.MultiReadOnlySeekableByteChannelTest
+Running org.apache.commons.compress.ArchiveReadTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec - in org.apache.commons.compress.ArchiveReadTest
+Running org.apache.commons.compress.ArchiveUtilsTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.compress.ArchiveUtilsTest
+Running org.apache.commons.compress.OsgiITest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.707 sec <<< FAILURE! - in org.apache.commons.compress.OsgiITest
+loadBundle(org.apache.commons.compress.OsgiITest)  Time elapsed: 0.607 sec  <<< ERROR!
+java.io.IOException: Error resolving artifact org.ops4j.pax.exam:pax-exam-inject:jar:4.13.1: Could not transfer artifact org.ops4j.pax.exam:pax-exam-inject:jar:4.13.1 from/to central (http://repo1.maven.org/maven2/): Failed to transfer file: http://repo1.maven.org/maven2/org/ops4j/pax/exam/pax-exam-inject/4.13.1/pax-exam-inject-4.13.1.jar. Return code is: 501 , ReasonPhrase:HTTPS Required.
+
+Running org.apache.commons.compress.ChainingTestCase
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.compress.ChainingTestCase
+Running org.apache.commons.compress.DetectArchiverTestCase
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.compress.DetectArchiverTestCase
+Running org.apache.commons.compress.IOMethodsTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.apache.commons.compress.IOMethodsTest
+Running org.apache.commons.compress.changes.ChangeTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.compress.changes.ChangeTest
+Running org.apache.commons.compress.changes.ChangeSetTestCase
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 sec - in org.apache.commons.compress.changes.ChangeSetTestCase
+
+Results :
+
+Tests in error: 
+  OsgiITest.loadBundle » IO Error resolving artifact org.ops4j.pax.exam:pax-exam...
+
+Tests run: 1107, Failures: 0, Errors: 1, Skipped: 5
+
+[ERROR] There are test failures.
+
+Please refer to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/surefire-reports for the individual test results.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-compress ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-compress ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Compresscommons-compress
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/.diffCache
+[WARNING] Diff has gone untested: org/apache/commons/compress/archivers/zip/ZipFile has uncovered changes [150, 160, 362, 363, 788, 810, 845, 867, 868, 1057, 1058, 1059, 1060, 1062, 1063, 1064, 1065, 1066, 1067, 1069, 1070, 1071, 1081, 1082, 1084, 1085, 1086, 1088, 1090, 1091, 1092, 1093, 1094, 1095, 1097, 1098, 1099, 1112, 1113, 1114, 1115, 1116, 1118, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1262, 1263, 1264, 1266, 1268]
+[WARNING] Diff has gone untested: org/apache/commons/compress/utils/ZipSplitReadOnlySeekableByteChannel has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/compress/archivers/zip/ZipArchiveEntry has uncovered changes [1085, 1089, 1090]
+[WARNING] Diff has gone untested: org/apache/commons/compress/utils/MultiReadOnlySeekableByteChannelTest has uncovered changes [52, 64, 109, 153]
+[WARNING] Diff has gone untested: org/apache/commons/compress/utils/ZipSplitSegmentComparator has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/compress/archivers/zip/ZipFile$2 has uncovered changes [1441, 1442, 1443]
+[WARNING] Diff has gone untested: org/apache/commons/compress/compressors/FileNameUtil has uncovered changes [198, 199, 202, 203, 204, 205, 207, 211, 212, 215, 216, 218, 219, 220, 223]
+[WARNING] Diff has gone untested: org/apache/commons/compress/utils/MultiReadOnlySeekableByteChannel has uncovered changes [47, 48, 49, 198]
+[WARNING] Diff has gone untested: org/apache/commons/compress/archivers/zip/ZipFile$Entry has uncovered changes [1473, 1474, 1475]
+[WARNING] FLAKY>> Test org.apache.commons.compress.OsgiITest.loadBundle failed, but did not appear to run any changed code
+[WARNING] 
+There are test failures!
+
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ commons-compress ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/commons-compress-1.20-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7.1:attach-descriptor (attach-descriptor) @ commons-compress ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:test-jar (default) @ commons-compress ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/commons-compress-1.20-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar-no-fork (create-source-jar) @ commons-compress ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/commons-compress-1.20-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:test-jar-no-fork (create-source-jar) @ commons-compress ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/commons-compress-1.20-SNAPSHOT-test-sources.jar
+[INFO] 
+[INFO] --- japicmp-maven-plugin:0.13.0:cmp (default) @ commons-compress ---
+[WARNING] The POM for javax.xml.bind:jaxb-api:jar:2.2.7 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for com.sun.xml.bind:jaxb-core:jar:2.2.7 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for com.sun.xml.bind:jaxb-impl:jar:2.2.7 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] Written file '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/japicmp/japicmp.diff'.
+[INFO] Written file '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/japicmp/japicmp.xml'.
+[INFO] Written file '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-compress/target/japicmp/japicmp.html'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 37.177 s
+[INFO] Finished at: 2020-04-09T21:16:54-07:00
+[INFO] Final Memory: 63M/2696M
+[INFO] ------------------------------------------------------------------------

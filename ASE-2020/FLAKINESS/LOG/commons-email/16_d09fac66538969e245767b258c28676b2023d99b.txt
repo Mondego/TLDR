@@ -1,0 +1,171 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-email
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-email
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-email
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Email 1.6-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[WARNING] The POM for com.sun.mail:javax.mail:jar:1.5.6 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-email ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-email ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-email ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-email ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email' && 'svn' '--non-interactive' 'info'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email
+[INFO] Storing buildNumber: ?????? at timestamp: 1586493534529
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email' && 'svn' '--non-interactive' 'info'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-email ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ commons-email ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 23 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.4.0:manifest (bundle-manifest) @ commons-email ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (checkAPIcompatibility) @ commons-email ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-email ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 20 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-email ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing d09fac66538969e245767b258c28676b2023d99b against: 2b90f7270b9568c486ed6fec3a379909631a14c0
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-email ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 26 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/src/test/java/org/apache/commons/mail/ImageHtmlEmailTest.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/src/test/java/org/apache/commons/mail/ImageHtmlEmailTest.java uses or overrides a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/src/test/java/org/apache/commons/mail/ImageHtmlEmailTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-email ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.mail.resolver.DataSourceFileResolverTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec - in org.apache.commons.mail.resolver.DataSourceFileResolverTest
+Running org.apache.commons.mail.resolver.DataSourceCompositeResolverTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.299 sec - in org.apache.commons.mail.resolver.DataSourceCompositeResolverTest
+Running org.apache.commons.mail.resolver.DataSourceClassPathResolverTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.mail.resolver.DataSourceClassPathResolverTest
+Running org.apache.commons.mail.resolver.DataSourceUrlResolverTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.212 sec - in org.apache.commons.mail.resolver.DataSourceUrlResolverTest
+Running org.apache.commons.mail.SendWithAttachmentsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.218 sec - in org.apache.commons.mail.SendWithAttachmentsTest
+Running org.apache.commons.mail.util.IDNEmailAddressConverterTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.274 sec - in org.apache.commons.mail.util.IDNEmailAddressConverterTest
+Running org.apache.commons.mail.util.MimeMessageParserTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 sec - in org.apache.commons.mail.util.MimeMessageParserTest
+Running org.apache.commons.mail.EmailLiveTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec - in org.apache.commons.mail.EmailLiveTest
+Running org.apache.commons.mail.SimpleEmailTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.012 sec - in org.apache.commons.mail.SimpleEmailTest
+Running org.apache.commons.mail.EmailAttachmentTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.mail.EmailAttachmentTest
+Running org.apache.commons.mail.HtmlEmailTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.938 sec - in org.apache.commons.mail.HtmlEmailTest
+Running org.apache.commons.mail.InvalidAddressTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.mail.InvalidAddressTest
+Running org.apache.commons.mail.DefaultAuthenticatorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.mail.DefaultAuthenticatorTest
+Running org.apache.commons.mail.EmailTest
+Tests run: 79, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in org.apache.commons.mail.EmailTest
+Running org.apache.commons.mail.InvalidInternetAddressTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.mail.InvalidInternetAddressTest
+Running org.apache.commons.mail.ImageHtmlEmailTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 6.512 sec - in org.apache.commons.mail.ImageHtmlEmailTest
+Running org.apache.commons.mail.EmailUtilsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.mail.EmailUtilsTest
+Running org.apache.commons.mail.MultiPartEmailTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.751 sec - in org.apache.commons.mail.MultiPartEmailTest
+
+Results :
+
+Tests run: 190, Failures: 0, Errors: 0, Skipped: 3
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-email ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-email ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Emailcommons-email
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/.diffCache
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.0:jar (default-jar) @ commons-email ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/target/commons-email-1.6-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7:attach-descriptor (attach-descriptor) @ commons-email ---
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/3.0.0/wagon-ssh-3.0.0.pom
+2/7 KB   3/7 KB   5/7 KB   6/7 KB   7/7 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/3.0.0/wagon-ssh-3.0.0.pom (7 KB at 28.7 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-providers/3.0.0/wagon-providers-3.0.0.pom
+2/3 KB   3/3 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-providers/3.0.0/wagon-providers-3.0.0.pom (3 KB at 121.1 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon/3.0.0/wagon-3.0.0.pom
+2/21 KB   3/21 KB   5/21 KB   6/21 KB   7/21 KB   9/21 KB   10/21 KB   11/21 KB   13/21 KB   14/21 KB   15/21 KB   17/21 KB   18/21 KB   19/21 KB   21/21 KB   21/21 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon/3.0.0/wagon-3.0.0.pom (21 KB at 453.9 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/3.0.0/wagon-ssh-common-3.0.0.pom
+2/2 KB     2/2 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/3.0.0/wagon-ssh-common-3.0.0.pom (2 KB at 68.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/3.0.0/wagon-provider-api-3.0.0.pom
+2/2 KB   2/2 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/3.0.0/wagon-provider-api-3.0.0.pom (2 KB at 60.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.8/doxia-decoration-model-1.8.pom
+2/4 KB   3/4 KB   4/4 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.8/doxia-decoration-model-1.8.pom (4 KB at 92.2 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sitetools/1.8/doxia-sitetools-1.8.pom
+2/15 KB   3/15 KB   5/15 KB   6/15 KB   7/15 KB   9/15 KB   10/15 KB   11/15 KB   13/15 KB   14/15 KB   15/15 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sitetools/1.8/doxia-sitetools-1.8.pom (15 KB at 641.1 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.8/doxia-site-renderer-1.8.pom
+2/7 KB     3/7 KB   5/7 KB   6/7 KB   7/7 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.8/doxia-site-renderer-1.8.pom (7 KB at 134.9 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-skin-model/1.8/doxia-skin-model-1.8.pom
+2/3 KB   3/3 KB   3/3 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-skin-model/1.8/doxia-skin-model-1.8.pom (3 KB at 119.9 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.8/doxia-integration-tools-1.8.pom
+2/6 KB   3/6 KB   5/6 KB   6/6 KB   6/6 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.8/doxia-integration-tools-1.8.pom (6 KB at 187.2 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/3.0.0/wagon-ssh-3.0.0.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/3.0.0/wagon-ssh-common-3.0.0.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.8/doxia-decoration-model-1.8.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.8/doxia-site-renderer-1.8.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-skin-model/1.8/doxia-skin-model-1.8.jar
+2/31 KB   3/31 KB   5/31 KB   6/31 KB   7/31 KB   9/31 KB   10/31 KB   11/31 KB   13/31 KB   14/31 KB   15/31 KB   17/31 KB   18/31 KB   19/31 KB   21/31 KB   22/31 KB   23/31 KB   25/31 KB   26/31 KB   27/31 KB   29/31 KB   30/31 KB   31/31 KB   31/31 KB   31/31 KB   2/60 KB   31/31 KB   3/60 KB   31/31 KB   5/60 KB   31/31 KB   6/60 KB   31/31 KB   7/60 KB   31/31 KB   9/60 KB   31/31 KB   10/60 KB   31/31 KB   11/60 KB   31/31 KB   13/60 KB   31/31 KB   14/60 KB   31/31 KB   15/60 KB   31/31 KB   17/60 KB   31/31 KB   18/60 KB   31/31 KB   19/60 KB   31/31 KB   21/60 KB   31/31 KB   22/60 KB   31/31 KB   23/60 KB   31/31 KB   25/60 KB   31/31 KB   26/60 KB   31/31 KB   27/60 KB   31/31 KB   29/60 KB   31/31 KB   30/60 KB   31/31 KB   31/60 KB   31/31 KB   2/16 KB   31/60 KB   31/31 KB   2/16 KB   33/60 KB   31/31 KB   2/16 KB   33/60 KB   2/64 KB   31/31 KB   2/16 KB   34/60 KB   2/64 KB   31/31 KB   2/16 KB   35/60 KB   2/64 KB   31/31 KB   2/16 KB   37/60 KB   2/64 KB   31/31 KB   3/16 KB   37/60 KB   2/64 KB   31/31 KB   3/16 KB   38/60 KB   2/64 KB   31/31 KB   3/16 KB   38/60 KB   3/64 KB   31/31 KB   5/16 KB   39/60 KB   3/64 KB   31/31 KB   5/16 KB   38/60 KB   3/64 KB   31/31 KB   5/16 KB   39/60 KB   5/64 KB   31/31 KB   5/16 KB   41/60 KB   5/64 KB   31/31 KB   6/16 KB   41/60 KB   5/64 KB   31/31 KB   6/16 KB   41/60 KB   6/64 KB   31/31 KB   7/16 KB   42/60 KB   6/64 KB   31/31 KB   6/16 KB   42/60 KB   6/64 KB   31/31 KB   7/16 KB   42/60 KB   7/64 KB   31/31 KB   9/16 KB   42/60 KB   7/64 KB   31/31 KB   9/16 KB   43/60 KB   7/64 KB   31/31 KB   9/16 KB   43/60 KB   9/64 KB   31/31 KB   10/16 KB   43/60 KB   9/64 KB   31/31 KB   10/16 KB   45/60 KB   9/64 KB   31/31 KB   10/16 KB   45/60 KB   10/64 KB   31/31 KB   11/16 KB   45/60 KB   10/64 KB   31/31 KB   11/16 KB   46/60 KB   10/64 KB   31/31 KB   11/16 KB   47/60 KB   10/64 KB   31/31 KB   11/16 KB   47/60 KB   11/64 KB   31/31 KB   13/16 KB   47/60 KB   11/64 KB   31/31 KB   13/16 KB   49/60 KB   11/64 KB   31/31 KB   13/16 KB   49/60 KB   13/64 KB   31/31 KB   14/16 KB   49/60 KB   13/64 KB   31/31 KB   14/16 KB   50/60 KB   13/64 KB   31/31 KB   15/16 KB   51/60 KB   14/64 KB   31/31 KB   15/16 KB   51/60 KB   14/64 KB   31/31 KB   15/16 KB   51/60 KB   14/64 KB   31/31 KB   15/16 KB   53/60 KB   14/64 KB   31/31 KB   16/16 KB   53/60 KB   14/64 KB   31/31 KB   16/16 KB   53/60 KB   15/64 KB   31/31 KB   16/16 KB   54/60 KB   15/64 KB   31/31 KB   16/16 KB   54/60 KB   17/64 KB   31/31 KB   16/16 KB   55/60 KB   17/64 KB   2/27 KB   31/31 KB   16/16 KB   55/60 KB   17/64 KB   2/27 KB   31/31 KB   16/16 KB   55/60 KB   18/64 KB   2/27 KB   31/31 KB   16/16 KB   57/60 KB   18/64 KB   2/27 KB   31/31 KB   16/16 KB   57/60 KB   19/64 KB   2/27 KB   31/31 KB   16/16 KB   58/60 KB   19/64 KB   2/27 KB   31/31 KB   16/16 KB   59/60 KB   19/64 KB   2/27 KB   31/31 KB   16/16 KB   60/60 KB   19/64 KB   2/27 KB   31/31 KB   16/16 KB   60/60 KB   21/64 KB   2/27 KB   31/31 KB   16/16 KB   60/60 KB   22/64 KB   3/27 KB   31/31 KB   16/16 KB   60/60 KB   23/64 KB   3/27 KB   31/31 KB   16/16 KB   60/60 KB   23/64 KB   3/27 KB   31/31 KB   16/16 KB   60/60 KB   25/64 KB   5/27 KB   31/31 KB   16/16 KB   60/60 KB   25/64 KB   6/27 KB   31/31 KB   16/16 KB   60/60 KB   26/64 KB   5/27 KB   31/31 KB   16/16 KB   60/60 KB   26/64 KB   7/27 KB   31/31 KB   16/16 KB   60/60 KB   26/64 KB   7/27 KB   31/31 KB   16/16 KB   60/60 KB   27/64 KB   9/27 KB   31/31 KB   16/16 KB   60/60 KB   27/64 KB   9/27 KB   31/31 KB   16/16 KB   60/60 KB   29/64 KB                                                         10/27 KB   16/16 KB   60/60 KB   29/64 KB             10/27 KB   16/16 KB   60/60 KB   30/64 KB   Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/3.0.0/wagon-ssh-3.0.0.jar (31 KB at 789.7 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.8/doxia-integration-tools-1.8.jar
+11/27 KB   16/16 KB   60/60 KB   30/64 KB   11/27 KB   16/16 KB   60/60 KB   31/64 KB   13/27 KB   16/16 KB   60/60 KB   31/64 KB   13/27 KB   16/16 KB   60/60 KB   33/64 KB   14/27 KB   16/16 KB   60/60 KB   33/64 KB   14/27 KB   16/16 KB   60/60 KB   34/64 KB   15/27 KB   16/16 KB   60/60 KB   34/64 KB   15/27 KB   16/16 KB   60/60 KB   35/64 KB   15/27 KB   16/16 KB   60/60 KB   37/64 KB   15/27 KB   16/16 KB   60/60 KB   38/64 KB   15/27 KB   16/16 KB   60/60 KB   39/64 KB   17/27 KB   16/16 KB   60/60 KB   39/64 KB   17/27 KB   16/16 KB   60/60 KB   41/64 KB   18/27 KB   16/16 KB   60/60 KB   41/64 KB   18/27 KB   16/16 KB   60/60 KB   42/64 KB   19/27 KB   16/16 KB   60/60 KB   42/64 KB   21/27 KB   16/16 KB   60/60 KB   43/64 KB   21/27 KB   16/16 KB   60/60 KB   43/64 KB   22/27 KB   16/16 KB   60/60 KB   45/64 KB   22/27 KB   16/16 KB   60/60 KB   45/64 KB   22/27 KB   16/16 KB   60/60 KB   46/64 KB   23/27 KB   16/16 KB   60/60 KB   46/64 KB   25/27 KB   16/16 KB   60/60 KB   46/64 KB   25/27 KB   16/16 KB   60/60 KB   47/64 KB   26/27 KB   16/16 KB   60/60 KB   47/64 KB   26/27 KB   16/16 KB   60/60 KB   49/64 KB   27/27 KB   16/16 KB   60/60 KB   49/64 KB   27/27 KB   16/16 KB   60/60 KB   50/64 KB   27/27 KB   16/16 KB   60/60 KB   51/64 KB   27/27 KB   16/16 KB   60/60 KB   53/64 KB   27/27 KB   16/16 KB   60/60 KB   54/64 KB   27/27 KB   16/16 KB   60/60 KB   55/64 KB   27/27 KB   16/16 KB   60/60 KB   57/64 KB   27/27 KB   16/16 KB   60/60 KB   58/64 KB   27/27 KB   16/16 KB   60/60 KB   59/64 KB   27/27 KB   16/16 KB   60/60 KB   61/64 KB   27/27 KB   16/16 KB   60/60 KB   62/64 KB   27/27 KB   16/16 KB   60/60 KB   63/64 KB   27/27 KB   16/16 KB   60/60 KB   64/64 KB   27/27 KB   2/46 KB   16/16 KB   60/60 KB   64/64 KB   27/27 KB   3/46 KB   16/16 KB   60/60 KB   64/64 KB   27/27 KB   5/46 KB   16/16 KB   60/60 KB   64/64 KB   27/27 KB   6/46 KB   16/16 KB   60/60 KB   64/64 KB                                                         Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-skin-model/1.8/doxia-skin-model-1.8.jar (16 KB at 306.2 KB/sec)
+27/27 KB   7/46 KB   60/60 KB   64/64 KB                                                         Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.8/doxia-decoration-model-1.8.jar (60 KB at 1152.9 KB/sec)
+27/27 KB   9/46 KB   64/64 KB              27/27 KB   10/46 KB   64/64 KB   27/27 KB   11/46 KB   64/64 KB   27/27 KB   13/46 KB   64/64 KB   27/27 KB   14/46 KB   64/64 KB   27/27 KB   15/46 KB   64/64 KB   27/27 KB   17/46 KB   64/64 KB   27/27 KB   18/46 KB   64/64 KB   27/27 KB   19/46 KB   64/64 KB   27/27 KB   21/46 KB   64/64 KB   27/27 KB   22/46 KB   64/64 KB   27/27 KB   23/46 KB   64/64 KB   27/27 KB   25/46 KB   64/64 KB   27/27 KB   26/46 KB   64/64 KB   27/27 KB   27/46 KB   64/64 KB   27/27 KB   29/46 KB   64/64 KB   27/27 KB   30/46 KB   64/64 KB   27/27 KB   31/46 KB   64/64 KB   27/27 KB   33/46 KB   64/64 KB   27/27 KB   34/46 KB   64/64 KB   27/27 KB   35/46 KB   64/64 KB   27/27 KB   37/46 KB   64/64 KB   27/27 KB   38/46 KB   64/64 KB   27/27 KB   39/46 KB   64/64 KB   27/27 KB   41/46 KB   64/64 KB   27/27 KB   42/46 KB   64/64 KB   27/27 KB   43/46 KB   64/64 KB   27/27 KB   45/46 KB   64/64 KB   27/27 KB   46/46 KB   64/64 KB   27/27 KB   46/46 KB   64/64 KB                                                                     Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.8/doxia-site-renderer-1.8.jar (64 KB at 938.5 KB/sec)
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-integration-tools/1.8/doxia-integration-tools-1.8.jar (46 KB at 675.7 KB/sec)
+                                 Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/3.0.0/wagon-ssh-common-3.0.0.jar (27 KB at 209.9 KB/sec)
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 26.303 s
+[INFO] Finished at: 2020-04-09T21:39:17-07:00
+[INFO] Final Memory: 65M/2293M
+[INFO] ------------------------------------------------------------------------

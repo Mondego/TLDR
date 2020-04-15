@@ -1,0 +1,1791 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor-build-tools:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ org.apache.commons:commons-functor-parent:1.0-SNAPSHOT, /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/pom.xml, line 152, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor-api:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ org.apache.commons:commons-functor-parent:1.0-SNAPSHOT, /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/pom.xml, line 152, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ org.apache.commons:commons-functor-parent:1.0-SNAPSHOT, /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/pom.xml, line 152, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor-parent:pom:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ line 152, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor-parent
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor-build-tools
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor-api
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Commons Functor
+[INFO] Commons Functor Build Tools
+[INFO] Commons Functor API
+[INFO] Commons Functor Core
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor-parent ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor-parent ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494346864
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor-parent ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 7e97a58cd9629d811bab6ad40cce98113d1a1c1d against: 074aba39f3462720ae5790156e50e35ec745ab67
+org/apache/commons/functor/adapter/TestBoundNullaryFunction Structural diff: []
+org/apache/commons/functor/core/composite/TestDoWhileNullaryProcedure$ListRemoveFirstProcedure Structural diff: []
+org/apache/commons/functor/adapter/TestRightBoundProcedure : [Edit [start=25, end=25], Edit [start=49, end=49], Edit [start=57, end=57]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestIsNotEqual : [Edit [start=25, end=25], Edit [start=76, end=77]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/RecursiveEvaluation : [Edit [start=21, end=21], Edit [start=25, end=25], Edit [start=30, end=30], Edit [start=36, end=36], Edit [start=40, end=40], Edit [start=42, end=42], Edit [start=47, end=47], Edit [start=49, end=49], Edit [start=55, end=55], Edit [start=58, end=61], Edit [start=77, end=77], Edit [start=121, end=121]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/FunctoredMap : [Edit [start=26, end=27], Edit [start=29, end=28], Edit [start=104, end=104], Edit [start=170, end=170]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestConditionalFunction : [Edit [start=24, end=24], Edit [start=37, end=37], Edit [start=48, end=53], Edit [start=58, end=59], Edit [start=63, end=64], Edit [start=67, end=68], Edit [start=71, end=71], Edit [start=74, end=73], Edit [start=75, end=78]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/PredicatedMap$2 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/PredicatedMap$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestLeftBoundProcedure : [Edit [start=25, end=25], Edit [start=48, end=48], Edit [start=56, end=56]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestIsInstance : [Edit [start=26, end=26], Edit [start=56, end=56], Edit [start=84, end=84]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestWhileDoNullaryProcedure Structural diff: []
+org/apache/commons/functor/Predicate : [Edit [start=20, end=20], Edit [start=26, end=26], Edit [start=30, end=30], Edit [start=33, end=34], Edit [start=37, end=37]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/CompositePredicate Structural diff: []
+org/apache/commons/functor/example/kata/four/NthColumn : [Edit [start=21, end=21], Edit [start=29, end=29]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/ArrayListBackedAggregatorTest : [Edit [start=27, end=27], Edit [start=38, end=38], Edit [start=50, end=50]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestIsEqual : [Edit [start=27, end=27], Edit [start=81, end=82]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestNullarySequence$RunCounter Structural diff: []
+org/apache/commons/functor/example/map/FunctoredMap$Throw : [Edit [start=188, end=188]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/NullaryPredicateNullaryFunction Structural diff: []
+org/apache/commons/functor/core/composite/TestTransformedNullaryFunction$One Structural diff: []
+org/apache/commons/functor/core/composite/TestWhileDoNullaryProcedure$1 Structural diff: []
+org/apache/commons/functor/core/composite/TestTransformedBinaryProcedure$Total : [Edit [start=51, end=51]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/LeftBoundFunction : [Edit [start=22, end=22], Edit [start=29, end=29], Edit [start=43, end=43], Edit [start=117, end=117]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/BasePredicateList : [Edit [start=36, end=36], Edit [start=39, end=40], Edit [start=44, end=44], Edit [start=50, end=50], Edit [start=55, end=55], Edit [start=66, end=66], Edit [start=69, end=69], Edit [start=80, end=80], Edit [start=83, end=83], Edit [start=115, end=115], Edit [start=125, end=126], Edit [start=128, end=128], Edit [start=133, end=134], Edit [start=137, end=137], Edit [start=142, end=142], Edit [start=150, end=150]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/util/LongRange : [Edit [start=17, end=17], Edit [start=95, end=95]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedBinaryFunction$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedBinaryFunction$2 : [Edit [start=85, end=85]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/ConditionalPredicate : [Edit [start=28, end=28], Edit [start=32, end=32], Edit [start=41, end=41], Edit [start=44, end=44], Edit [start=48, end=48], Edit [start=57, end=57], Edit [start=61, end=61], Edit [start=65, end=65], Edit [start=75, end=76], Edit [start=87, end=88], Edit [start=96, end=97], Edit [start=105, end=105]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestFindWithinGenerator : [Edit [start=28, end=28], Edit [start=108, end=110]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/functions/IntegerMeanValueAggregatorFunction : [Edit [start=21, end=21], Edit [start=28, end=28]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/ConditionalFunction : [Edit [start=31, end=31], Edit [start=33, end=33], Edit [start=42, end=42], Edit [start=46, end=46], Edit [start=50, end=50], Edit [start=59, end=59], Edit [start=63, end=63], Edit [start=67, end=67], Edit [start=77, end=78], Edit [start=89, end=91], Edit [start=93, end=93], Edit [start=102, end=103], Edit [start=111, end=111]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestFilteredIterable$1 : [Edit [start=51, end=51]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestFilteredIterator$3 : [Edit [start=237, end=237]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/BaseGenerator : [Edit [start=19, end=19], Edit [start=83, end=83], Edit [start=86, end=86]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/lines/Lines : [Edit [start=25, end=25], Edit [start=48, end=48]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TransformedGenerator : [Edit [start=19, end=20], Edit [start=33, end=33], Edit [start=35, end=35], Edit [start=40, end=40], Edit [start=42, end=42], Edit [start=44, end=44], Edit [start=50, end=51]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/util/CollectionTransformer$1 : [Edit [start=65, end=65]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/LazyMap$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/BaseNullaryPredicateList Structural diff: []
+org/apache/commons/functor/example/kata/two/TestBinaryChop : [Edit [start=24, end=26], Edit [start=212, end=212], Edit [start=221, end=221], Edit [start=233, end=233], Edit [start=255, end=257], Edit [start=432, end=432], Edit [start=513, end=513]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/RightBoundFunction : [Edit [start=22, end=22], Edit [start=29, end=29], Edit [start=43, end=43], Edit [start=116, end=116]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/ArrayListBackedAggregator : [Edit [start=22, end=22], Edit [start=33, end=33], Edit [start=40, end=40], Edit [start=46, end=46], Edit [start=55, end=55], Edit [start=73, end=73]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TransformedBinaryFunction$Helper : [Edit [start=56, end=56], Edit [start=61, end=61], Edit [start=64, end=64], Edit [start=66, end=66]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestCompositePredicate Structural diff: []
+org/apache/commons/functor/core/TestIsNull : [Edit [start=24, end=24], Edit [start=45, end=45], Edit [start=61, end=61]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/FilteredIterable$2 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/FilteredIterable$1 : [Edit [start=53, end=53]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/FilteredIterable$3 : [Edit [start=159, end=159]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/UntilGenerate$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestWhileGenerate : [Edit [start=26, end=27], Edit [start=56, end=56], Edit [start=66, end=66]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestFilteredIterator$2 : [Edit [start=222, end=222]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestCompositeBinaryFunction Structural diff: []
+org/apache/commons/functor/example/kata/two/TestBinaryChop$4 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestFilteredIterator$1 : [Edit [start=217, end=217]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$5 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$2 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/FoldRight$FoldRightHelper : [Edit [start=48, end=48]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$3 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$8 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/CompositeFunction Structural diff: []
+org/apache/commons/functor/example/kata/two/TestBinaryChop$6 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$7 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/IsWithinRange : [Edit [start=20, end=20], Edit [start=24, end=24], Edit [start=31, end=31]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestIsEmpty : [Edit [start=32, end=32], Edit [start=109, end=109]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/lines/TestLines : [Edit [start=27, end=27], Edit [start=31, end=32], Edit [start=81, end=81], Edit [start=88, end=88], Edit [start=97, end=97], Edit [start=110, end=110]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestFullyBoundNullaryProcedure Structural diff: []
+org/apache/commons/functor/core/composite/TestConditionalNullaryFunction Structural diff: []
+org/apache/commons/functor/core/collection/IsElementOf : [Edit [start=24, end=24], Edit [start=139, end=139], Edit [start=141, end=141], Edit [start=143, end=143], Edit [start=145, end=145]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestFunctionPredicate : [Edit [start=39, end=39], Edit [start=47, end=48], Edit [start=53, end=54], Edit [start=59, end=59], Edit [start=61, end=61], Edit [start=63, end=63]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TransformedBinaryProcedure$Helper : [Edit [start=56, end=56], Edit [start=61, end=61], Edit [start=64, end=64], Edit [start=66, end=66]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestInPlaceTransform : [Edit [start=26, end=26]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestNot : [Edit [start=20, end=19], Edit [start=39, end=39], Edit [start=47, end=50], Edit [start=55, end=55], Edit [start=57, end=57], Edit [start=59, end=59], Edit [start=71, end=71]]
+	 Methods to watch:[]
+org/apache/commons/functor/NullaryPredicate Structural diff: []
+org/apache/commons/functor/core/composite/TestCompositeFunction Structural diff: []
+org/apache/commons/functor/core/collection/FilteredIterable : [Edit [start=22, end=23], Edit [start=25, end=25], Edit [start=73, end=73], Edit [start=88, end=88], Edit [start=108, end=108], Edit [start=114, end=114]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestNullaryNot Structural diff: []
+org/apache/commons/functor/example/kata/one/Subtract : [Edit [start=19, end=19], Edit [start=34, end=34]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/Limit : [Edit [start=23, end=23], Edit [start=25, end=24], Edit [start=34, end=34]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestBoundNullaryProcedure Structural diff: []
+org/apache/commons/functor/core/collection/FilteredIterator : [Edit [start=22, end=22], Edit [start=27, end=27], Edit [start=39, end=39], Edit [start=65, end=65], Edit [start=67, end=67], Edit [start=151, end=151]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/ConditionalNullaryPredicate Structural diff: []
+org/apache/commons/functor/aggregator/AbstractListBackedAggregatorTest : [Edit [start=29, end=29], Edit [start=88, end=88], Edit [start=126, end=126]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/functions/DoubleSumAggregatorFunction : [Edit [start=21, end=21], Edit [start=28, end=28]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestDoWhileNullaryProcedure Structural diff: []
+org/apache/commons/functor/core/IsNotNull : [Edit [start=22, end=22], Edit [start=34, end=34]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/DoWhileNullaryProcedure Structural diff: []
+org/apache/commons/functor/core/composite/TestTransformedBinaryFunction$AddOne : [Edit [start=51, end=51]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/IsLessThan : [Edit [start=23, end=23], Edit [start=135, end=135], Edit [start=139, end=139], Edit [start=141, end=141]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestConditionalPredicate : [Edit [start=24, end=24], Edit [start=37, end=37], Edit [start=48, end=53], Edit [start=58, end=59], Edit [start=61, end=61], Edit [start=63, end=64], Edit [start=66, end=68], Edit [start=71, end=71], Edit [start=75, end=76]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/WhileDo : [Edit [start=19, end=20], Edit [start=39, end=39]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedNullaryFunction Structural diff: []
+org/apache/commons/functor/example/map/FixedSizeMap : [Edit [start=26, end=26]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/IsGreaterThan : [Edit [start=23, end=23], Edit [start=135, end=135], Edit [start=139, end=139], Edit [start=141, end=141]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/NullaryFunctionNullaryPredicate Structural diff: []
+org/apache/commons/functor/core/algorithm/FindWithinGenerator$FindProcedure : [Edit [start=51, end=51], Edit [start=63, end=63], Edit [start=69, end=69]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestNullaryFunctionNullaryPredicate Structural diff: []
+org/apache/commons/functor/core/algorithm/IndexOfInGenerator : [Edit [start=22, end=23], Edit [start=27, end=27], Edit [start=33, end=33], Edit [start=93, end=93], Edit [start=95, end=95]]
+	 Methods to watch:[]
+org/apache/commons/functor/Function : [Edit [start=20, end=20], Edit [start=26, end=26], Edit [start=31, end=31], Edit [start=34, end=35], Edit [start=38, end=38]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/IgnoreLeftFunction : [Edit [start=22, end=22], Edit [start=27, end=27], Edit [start=49, end=50], Edit [start=54, end=54], Edit [start=56, end=57], Edit [start=104, end=104], Edit [start=111, end=111]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/IgnoreRightFunction : [Edit [start=22, end=22], Edit [start=27, end=27], Edit [start=49, end=50], Edit [start=54, end=54], Edit [start=56, end=57], Edit [start=104, end=104], Edit [start=108, end=108], Edit [start=111, end=111]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/lines/Contains : [Edit [start=19, end=19], Edit [start=25, end=25]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/FunctoredMap$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/FunctoredMap$2 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/FunctoredMap$3 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/FunctoredMap$4 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/FunctoredMap$5 : [Edit [start=164, end=164]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestIgnoreLeftPredicate : [Edit [start=49, end=49], Edit [start=57, end=57], Edit [start=60, end=60]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/EiffelStyleLoop$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/Conditional : [Edit [start=22, end=24], Edit [start=28, end=27], Edit [start=51, end=51], Edit [start=54, end=54], Edit [start=56, end=57], Edit [start=61, end=61], Edit [start=65, end=65], Edit [start=67, end=68], Edit [start=72, end=72], Edit [start=77, end=77], Edit [start=79, end=81], Edit [start=85, end=85], Edit [start=89, end=89], Edit [start=91, end=92], Edit [start=96, end=96], Edit [start=101, end=101], Edit [start=103, end=104], Edit [start=108, end=108], Edit [start=114, end=114], Edit [start=116, end=118], Edit [start=122, end=122], Edit [start=128, end=128], Edit [start=130, end=132], Edit [start=136, end=136], Edit [start=141, end=141], Edit [start=143, end=145]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/ProcedureFunction : [Edit [start=39, end=39], Edit [start=43, end=43], Edit [start=47, end=47], Edit [start=49, end=49], Edit [start=55, end=55], Edit [start=62, end=63], Edit [start=72, end=73], Edit [start=77, end=77], Edit [start=81, end=81], Edit [start=104, end=105], Edit [start=108, end=108], Edit [start=110, end=111]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/WhileGenerate : [Edit [start=19, end=20], Edit [start=24, end=24], Edit [start=35, end=35], Edit [start=39, end=39], Edit [start=42, end=42], Edit [start=44, end=44], Edit [start=50, end=51]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestBaseGenerator$5 : [Edit [start=129, end=129]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/IndexOfInGenerator$IndexProcedure : [Edit [start=48, end=48], Edit [start=56, end=56], Edit [start=73, end=73]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestBaseGenerator$6 : [Edit [start=139, end=139]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestBaseGenerator$3 : [Edit [start=101, end=101]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestBaseGenerator$4 : [Edit [start=118, end=118]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestBaseGenerator$1 : [Edit [start=47, end=47]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestBaseGenerator$2 : [Edit [start=89, end=89]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/UntilDo : [Edit [start=19, end=20], Edit [start=39, end=39]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/IsEquivalent : [Edit [start=23, end=23], Edit [start=140, end=140], Edit [start=142, end=142]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestRemoveMatching$1 : [Edit [start=76, end=76]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/util/CollectionTransformer : [Edit [start=20, end=21], Edit [start=33, end=33]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/FlexiMapExample$5 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/NoOp : [Edit [start=22, end=22], Edit [start=24, end=23], Edit [start=29, end=29], Edit [start=33, end=33], Edit [start=108, end=108], Edit [start=110, end=110], Edit [start=113, end=114]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/FlexiMapExample$4 : []
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/IgnoreLeftProcedure : [Edit [start=22, end=22], Edit [start=27, end=27], Edit [start=48, end=49], Edit [start=55, end=56], Edit [start=102, end=102], Edit [start=108, end=108]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestUntilDo : [Edit [start=24, end=24]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestAbstractLoopNullaryProcedure Structural diff: []
+org/apache/commons/functor/core/composite/TestConditionalNullaryProcedure$RunCounter Structural diff: []
+org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestOffset : [Edit [start=24, end=24], Edit [start=26, end=25], Edit [start=49, end=49], Edit [start=67, end=67], Edit [start=76, end=76]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/IgnoreLeftPredicate : [Edit [start=22, end=22], Edit [start=27, end=27], Edit [start=48, end=49], Edit [start=55, end=56], Edit [start=102, end=102], Edit [start=108, end=108]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestLeftBoundFunction : [Edit [start=25, end=25], Edit [start=49, end=49], Edit [start=55, end=55]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/IsGreaterThanOrEqual : [Edit [start=23, end=23], Edit [start=136, end=136], Edit [start=140, end=140], Edit [start=142, end=142]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/FlexiMapExample$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/FlexiMapExample$3 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/FlexiMapExample$2 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedBinaryProcedure : [Edit [start=26, end=26]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestIgnoreRightProcedure$1 : [Edit [start=60, end=60]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/QuicksortExample$5 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/QuicksortExample$4 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/FilteredIterable$2$1 : [Edit [start=137, end=137]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/QuicksortExample$3 : [Edit [start=447, end=447]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/GeneratorContains : [Edit [start=22, end=23], Edit [start=27, end=27], Edit [start=32, end=32], Edit [start=78, end=78], Edit [start=80, end=80]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/QuicksortExample$2 : [Edit [start=437, end=437]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/QuicksortExample$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestUntilGenerate : [Edit [start=26, end=27], Edit [start=57, end=57], Edit [start=67, end=67]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestNullaryProcedureNullaryFunction$1 Structural diff: []
+org/apache/commons/functor/generator/TestUntilGenerate$1 : [Edit [start=79, end=79]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestUntilGenerate$3 : [Edit [start=115, end=115]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestUntilGenerate$2 : [Edit [start=99, end=99]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/PredicateFunction : [Edit [start=38, end=38], Edit [start=41, end=41], Edit [start=45, end=45], Edit [start=47, end=47], Edit [start=53, end=53], Edit [start=65, end=66], Edit [start=74, end=75], Edit [start=83, end=83], Edit [start=107, end=107], Edit [start=111, end=112]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$2 : [Edit [start=351, end=351]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$1 : [Edit [start=344, end=344]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestConditionalProcedure$RunCounter : [Edit [start=101, end=102]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$4 : [Edit [start=363, end=363]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$3 : [Edit [start=357, end=357]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestIsNotNull : [Edit [start=23, end=23], Edit [start=44, end=44], Edit [start=52, end=52]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/lines/WordCount : [Edit [start=21, end=21], Edit [start=26, end=26]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/InPlaceTransform : [Edit [start=23, end=23], Edit [start=32, end=32], Edit [start=45, end=45], Edit [start=47, end=47]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$5 : [Edit [start=369, end=369]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/DoUntil : [Edit [start=19, end=20], Edit [start=39, end=39]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/one/Add : [Edit [start=19, end=19], Edit [start=34, end=34]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestFunctionProcedure$EvaluateCounter : [Edit [start=49, end=49], Edit [start=51, end=51]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestIsSame : [Edit [start=27, end=27], Edit [start=81, end=81], Edit [start=83, end=83]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TransformedNullaryProcedure Structural diff: []
+org/apache/commons/functor/core/IsInstance : [Edit [start=22, end=22], Edit [start=96, end=96], Edit [start=99, end=99], Edit [start=101, end=101]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TransformedBinaryFunction : [Edit [start=22, end=22], Edit [start=26, end=26], Edit [start=86, end=86], Edit [start=89, end=89]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/Identity : [Edit [start=21, end=22], Edit [start=36, end=36]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/aggregator/list/OwnListImplementationSample$CustomListAggregator : [Edit [start=54, end=54], Edit [start=58, end=58], Edit [start=62, end=62]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/DoWhile : [Edit [start=19, end=20], Edit [start=39, end=39]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/PredicatedLoop : [Edit [start=21, end=22], Edit [start=29, end=29], Edit [start=37, end=37], Edit [start=41, end=41], Edit [start=48, end=48], Edit [start=55, end=55], Edit [start=57, end=57], Edit [start=63, end=63], Edit [start=65, end=65]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/one/ToMoney : [Edit [start=19, end=19], Edit [start=25, end=25], Edit [start=35, end=35]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/Or Structural diff: [Edit [start=34, end=34], Edit [start=37, end=37], Edit [start=42, end=42], Edit [start=56, end=56], Edit [start=58, end=58], Edit [start=65, end=65], Edit [start=67, end=67], Edit [start=71, end=72], Edit [start=78, end=78], Edit [start=88, end=90], Edit [start=102, end=102], Edit [start=110, end=110]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/lines/Lines$TunneledException : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$8$1 : [Edit [start=520, end=520]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/WhileDoNullaryProcedure Structural diff: []
+org/apache/commons/functor/adapter/TestBinaryPredicatePredicate Structural diff: []
+org/apache/commons/functor/core/comparator/Max : [Edit [start=23, end=23], Edit [start=118, end=118], Edit [start=122, end=122], Edit [start=124, end=124]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestRetainMatching : [Edit [start=25, end=26]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestRightBoundFunction : [Edit [start=25, end=25], Edit [start=49, end=49], Edit [start=55, end=55]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestDoWhile$Counter : [Edit [start=54, end=54]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/WhileGenerate$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/CompositeBinaryPredicate$Helper Structural diff: []
+org/apache/commons/functor/core/composite/TestAnd : [Edit [start=20, end=20], Edit [start=22, end=21], Edit [start=31, end=31], Edit [start=39, end=39], Edit [start=47, end=50], Edit [start=52, end=53], Edit [start=56, end=56], Edit [start=59, end=60], Edit [start=63, end=63], Edit [start=66, end=67], Edit [start=72, end=74], Edit [start=76, end=77], Edit [start=79, end=80], Edit [start=83, end=84], Edit [start=87, end=87], Edit [start=90, end=91], Edit [start=96, end=98], Edit [start=101, end=101], Edit [start=105, end=105], Edit [start=108, end=108], Edit [start=110, end=110], Edit [start=114, end=114], Edit [start=118, end=118], Edit [start=120, end=120], Edit [start=124, end=131]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestInPlaceTransform$Doubler : [Edit [start=89, end=89]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestFilteredGenerator$2 : [Edit [start=100, end=100]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestFilteredGenerator$1 : [Edit [start=79, end=79]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestNullaryProcedureNullaryFunction Structural diff: []
+org/apache/commons/functor/core/algorithm/FoldLeft : [Edit [start=22, end=23], Edit [start=35, end=35]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/NullaryProcedureProcedure Structural diff: []
+org/apache/commons/functor/generator/TestFilteredGenerator$3 : []
+	 Methods to watch:[]
+org/apache/commons/functor/NullaryFunction Structural diff: []
+org/apache/commons/functor/core/composite/CompositeBinaryPredicate Structural diff: []
+org/apache/commons/functor/core/collection/TestTransformedIterator : [Edit [start=33, end=33]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/ArrayListBackedAggregatorTest$SelectFirstFunction Structural diff: [Edit [start=57, end=57], Edit [start=61, end=61]]
+org/apache/commons/functor/TestAlgorithms : [Edit [start=32, end=32], Edit [start=105, end=105], Edit [start=113, end=113]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/IsEqual : [Edit [start=22, end=22], Edit [start=107, end=107], Edit [start=111, end=111], Edit [start=113, end=113]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/FullyBoundNullaryPredicate Structural diff: []
+org/apache/commons/functor/example/map/FunctoredMap$ContainsKey : [Edit [start=176, end=176]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestIdentity : [Edit [start=26, end=27], Edit [start=48, end=48], Edit [start=58, end=58], Edit [start=77, end=77]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure$AggregatorProcedure Structural diff: []
+org/apache/commons/functor/core/composite/TestConditionalNullaryProcedure Structural diff: []
+org/apache/commons/functor/adapter/FullyBoundNullaryProcedure Structural diff: []
+org/apache/commons/functor/aggregator/Aggregator : [Edit [start=19, end=19], Edit [start=39, end=39]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/IsNotSame : [Edit [start=22, end=22], Edit [start=98, end=98], Edit [start=102, end=102], Edit [start=104, end=104]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestConditionalNullaryPredicate Structural diff: []
+org/apache/commons/functor/generator/TestTransformedGenerator$3 : [Edit [start=115, end=115]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/NullaryFunctionFunction Structural diff: []
+org/apache/commons/functor/core/composite/NullarySequence Structural diff: []
+org/apache/commons/functor/generator/TestTransformedGenerator$1 : [Edit [start=77, end=77]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/BoundNullaryPredicate Structural diff: []
+org/apache/commons/functor/generator/TransformedGenerator$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestTransformedGenerator$2 : [Edit [start=98, end=98]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/functions/IntegerMedianValueAggregatorFunction : [Edit [start=23, end=23], Edit [start=31, end=31]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestRemoveMatching : [Edit [start=25, end=26]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/FlexiMapExample : [Edit [start=33, end=34], Edit [start=37, end=36]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/BoundNullaryProcedure Structural diff: []
+org/apache/commons/functor/core/algorithm/RemoveMatching : [Edit [start=23, end=23], Edit [start=26, end=26], Edit [start=32, end=32], Edit [start=45, end=45], Edit [start=47, end=47]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestNullaryFunctionFunction Structural diff: []
+org/apache/commons/functor/core/algorithm/FindWithinGenerator : [Edit [start=23, end=24], Edit [start=28, end=28], Edit [start=34, end=34], Edit [start=85, end=85], Edit [start=116, end=116], Edit [start=118, end=118]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/IsNotEquivalent : [Edit [start=23, end=23], Edit [start=136, end=136], Edit [start=139, end=140], Edit [start=142, end=142]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestRecursiveEvaluation : [Edit [start=25, end=25], Edit [start=45, end=45]]
+	 Methods to watch:[]
+org/apache/commons/functor/TestAlgorithms$Doubler : [Edit [start=192, end=192]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestNullaryOr Structural diff: []
+org/apache/commons/functor/core/composite/TestTransformedNullaryFunction$AddOne Structural diff: []
+org/apache/commons/functor/core/composite/TestDoWhileNullaryProcedure$1 Structural diff: []
+org/apache/commons/functor/generator/GenerateWhile$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TransformedNullaryFunction$Helper Structural diff: []
+org/apache/commons/functor/adapter/TestBinaryProcedureProcedure Structural diff: []
+org/apache/commons/functor/adapter/TestNullaryPredicatePredicate Structural diff: []
+org/apache/commons/functor/core/composite/TestConditional : [Edit [start=21, end=21], Edit [start=45, end=52], Edit [start=54, end=57], Edit [start=65, end=65]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/CompositeProcedure Structural diff: []
+org/apache/commons/functor/adapter/TestLeftBoundPredicate : [Edit [start=26, end=26], Edit [start=49, end=49], Edit [start=57, end=57]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestIsNotSame : [Edit [start=27, end=27], Edit [start=81, end=81], Edit [start=83, end=83]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/NullaryPredicatePredicate Structural diff: []
+org/apache/commons/functor/core/collection/TestSize : [Edit [start=31, end=31], Edit [start=103, end=103]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/AbstractListBackedAggregator : [Edit [start=21, end=21], Edit [start=31, end=31], Edit [start=55, end=55], Edit [start=59, end=59], Edit [start=66, end=66], Edit [start=72, end=72], Edit [start=81, end=81], Edit [start=100, end=100], Edit [start=103, end=103], Edit [start=176, end=176]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestRightBoundPredicate : [Edit [start=26, end=26], Edit [start=49, end=49], Edit [start=57, end=57]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestOr : [Edit [start=20, end=19], Edit [start=21, end=20], Edit [start=30, end=30], Edit [start=38, end=38], Edit [start=45, end=44], Edit [start=46, end=48], Edit [start=50, end=51], Edit [start=54, end=54], Edit [start=57, end=58], Edit [start=61, end=61], Edit [start=64, end=65], Edit [start=70, end=73], Edit [start=75, end=76], Edit [start=79, end=79], Edit [start=82, end=83], Edit [start=86, end=86], Edit [start=89, end=90], Edit [start=95, end=97], Edit [start=100, end=100], Edit [start=106, end=106], Edit [start=109, end=109], Edit [start=112, end=112], Edit [start=116, end=116], Edit [start=118, end=118], Edit [start=120, end=120], Edit [start=123, end=123], Edit [start=125, end=125], Edit [start=127, end=127], Edit [start=131, end=135]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestIgnoreLeftProcedure : [Edit [start=28, end=28], Edit [start=50, end=50], Edit [start=60, end=60]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$3$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestWhileDoNullaryProcedure$ListRemoveFirstProcedure Structural diff: []
+org/apache/commons/functor/adapter/TestPredicateFunction : [Edit [start=39, end=39], Edit [start=47, end=48], Edit [start=53, end=54], Edit [start=59, end=59], Edit [start=61, end=61], Edit [start=63, end=63]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/FilteredGenerator : [Edit [start=19, end=21], Edit [start=26, end=26], Edit [start=36, end=36], Edit [start=41, end=41], Edit [start=43, end=43], Edit [start=45, end=45], Edit [start=51, end=52]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/Not : [Edit [start=35, end=35], Edit [start=38, end=38], Edit [start=42, end=42], Edit [start=46, end=46], Edit [start=48, end=48], Edit [start=56, end=56], Edit [start=65, end=66], Edit [start=74, end=74], Edit [start=79, end=79], Edit [start=82, end=82], Edit [start=107, end=110], Edit [start=112, end=113], Edit [start=115, end=115]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/QuicksortExample$ListFunction : [Edit [start=392, end=392]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestCompositeFunction$1 Structural diff: []
+org/apache/commons/functor/generator/TestGenerateWhile : [Edit [start=22, end=22], Edit [start=52, end=52], Edit [start=62, end=62], Edit [start=97, end=97]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/ConditionalProcedure : [Edit [start=33, end=33], Edit [start=42, end=42], Edit [start=45, end=45], Edit [start=49, end=49], Edit [start=53, end=52], Edit [start=58, end=58], Edit [start=62, end=62], Edit [start=66, end=66], Edit [start=75, end=75], Edit [start=85, end=87], Edit [start=98, end=100], Edit [start=102, end=102], Edit [start=111, end=112], Edit [start=116, end=117], Edit [start=120, end=120]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/IsSame : [Edit [start=22, end=22], Edit [start=98, end=98], Edit [start=102, end=102], Edit [start=104, end=104]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/Min : [Edit [start=23, end=23], Edit [start=118, end=118], Edit [start=122, end=122], Edit [start=124, end=124]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestGenerateUntil$1 : [Edit [start=75, end=75]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/NullaryProcedureNullaryFunction Structural diff: []
+org/apache/commons/functor/core/algorithm/TestDoUntil$Counter : [Edit [start=54, end=54]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestIsElementOf : [Edit [start=28, end=28], Edit [start=55, end=55], Edit [start=69, end=69]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestGenerateUntil$2 : [Edit [start=97, end=97]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/CompositeFunction$Helper Structural diff: []
+org/apache/commons/functor/example/QuicksortExample : [Edit [start=29, end=29], Edit [start=34, end=34], Edit [start=309, end=309], Edit [start=340, end=340], Edit [start=389, end=389]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/RetainMatching : [Edit [start=23, end=24], Edit [start=27, end=27], Edit [start=33, end=33], Edit [start=50, end=50], Edit [start=52, end=53]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/MockLoopProcedure Structural diff: []
+org/apache/commons/functor/adapter/TestProcedureFunction$1 : [Edit [start=59, end=62]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/BoundNullaryFunction Structural diff: []
+org/apache/commons/functor/core/composite/TestCompositeProcedure Structural diff: []
+org/apache/commons/functor/example/kata/four/Abs : [Edit [start=19, end=19], Edit [start=27, end=27]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/NullaryAnd Structural diff: []
+org/apache/commons/functor/example/kata/one/Multiply : [Edit [start=19, end=19], Edit [start=35, end=35]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestBaseGenerator$Summer : [Edit [start=199, end=199]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestBoundNullaryPredicate Structural diff: []
+org/apache/commons/functor/generator/TestGenerateUntil : [Edit [start=22, end=22]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestFullyBoundNullaryFunction Structural diff: []
+org/apache/commons/functor/core/composite/TransformedNullaryFunction Structural diff: []
+org/apache/commons/functor/example/map/LazyMap : [Edit [start=22, end=22], Edit [start=28, end=28]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/one/SupermarketPricingExample$BuyNGetMFree : [Edit [start=211, end=211]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestNullaryFunctionNullaryProcedure$EvaluateCounter Structural diff: []
+org/apache/commons/functor/core/composite/TestSequence$RunCounter : [Edit [start=140, end=141]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/FlexiMapExample$FlexiMap : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestUntilDo$Counter : [Edit [start=54, end=54]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/IsLessThanOrEqual : [Edit [start=23, end=23], Edit [start=135, end=135], Edit [start=139, end=139], Edit [start=141, end=141]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestFunctionProcedure : [Edit [start=41, end=41], Edit [start=54, end=54], Edit [start=56, end=56], Edit [start=58, end=58], Edit [start=64, end=64], Edit [start=66, end=66], Edit [start=68, end=68]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/one/Mod : [Edit [start=19, end=19], Edit [start=34, end=34]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestRemoveMatching$Doubler : [Edit [start=85, end=85]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/AbstractLoopNullaryProcedure Structural diff: []
+org/apache/commons/functor/core/TestNoOp : [Edit [start=24, end=24], Edit [start=26, end=25], Edit [start=62, end=63]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/TestMin : [Edit [start=25, end=25], Edit [start=71, end=73]]
+	 Methods to watch:[]
+org/apache/commons/functor/NullaryProcedure Structural diff: []
+org/apache/commons/functor/example/aggregator/list/OwnListImplementationSample : [Edit [start=25, end=25]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestRecursiveEvaluation$InnerNullaryFunction Structural diff: [Edit [start=106, end=106], Edit [start=111, end=111], Edit [start=124, end=124], Edit [start=127, end=127], Edit [start=132, end=132]]
+org/apache/commons/functor/core/composite/TestTransformedBinaryProcedure$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/one/Divide : [Edit [start=19, end=19], Edit [start=35, end=35]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/CompositeBinaryFunction$Helper Structural diff: []
+org/apache/commons/functor/core/composite/TestTransformedBinaryProcedure$Sum : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedBinaryProcedure$2 : [Edit [start=91, end=91]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/functions/IntegerSumAggregatorFunction : [Edit [start=21, end=21], Edit [start=28, end=28]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestConditionalProcedure : [Edit [start=25, end=25], Edit [start=39, end=39], Edit [start=50, end=66], Edit [start=71, end=72], Edit [start=76, end=77], Edit [start=80, end=80], Edit [start=84, end=85], Edit [start=88, end=89], Edit [start=92, end=92], Edit [start=94, end=94]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/one/SupermarketPricingExample : [Edit [start=21, end=22], Edit [start=26, end=27], Edit [start=124, end=124], Edit [start=147, end=148], Edit [start=185, end=185], Edit [start=207, end=207]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/functions/DoubleMedianValueAggregatorFunction : [Edit [start=23, end=23], Edit [start=31, end=31]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/FullyBoundNullaryFunction Structural diff: []
+org/apache/commons/functor/generator/TestBaseGenerator$4$1 : [Edit [start=121, end=121]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/GenerateWhile : [Edit [start=19, end=20], Edit [start=24, end=24], Edit [start=35, end=35], Edit [start=40, end=40], Edit [start=42, end=42], Edit [start=44, end=44], Edit [start=50, end=51]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestGeneratorContains : [Edit [start=26, end=26], Edit [start=53, end=54]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/NullaryFunctionNullaryProcedure Structural diff: []
+org/apache/commons/functor/Procedure : [Edit [start=20, end=20], Edit [start=26, end=26], Edit [start=30, end=35]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/EiffelStyleLoop : [Edit [start=19, end=21], Edit [start=29, end=31], Edit [start=33, end=35], Edit [start=44, end=45], Edit [start=50, end=50], Edit [start=55, end=55], Edit [start=61, end=62], Edit [start=76, end=76], Edit [start=81, end=81], Edit [start=112, end=116]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$6$1 : [Edit [start=444, end=444]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/lines/Count : [Edit [start=19, end=19], Edit [start=24, end=24]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/GenerateUntil : [Edit [start=19, end=20], Edit [start=24, end=24], Edit [start=35, end=35], Edit [start=40, end=40], Edit [start=42, end=42], Edit [start=44, end=44], Edit [start=50, end=51]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedBinaryFunction$Sum : []
+	 Methods to watch:[]
+org/apache/commons/functor/generator/Generator : [Edit [start=18, end=19], Edit [start=22, end=22], Edit [start=31, end=31], Edit [start=33, end=33], Edit [start=50, end=51], Edit [start=54, end=54]]
+	 Methods to watch:[]
+org/apache/commons/functor/TestAlgorithms$Summer : [Edit [start=185, end=185]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/ConditionalNullaryProcedure Structural diff: []
+org/apache/commons/functor/adapter/TestFullyBoundNullaryPredicate Structural diff: []
+org/apache/commons/functor/adapter/TestNullaryPredicateNullaryFunction Structural diff: []
+org/apache/commons/functor/core/TestLimit : [Edit [start=25, end=25], Edit [start=27, end=26], Edit [start=48, end=48], Edit [start=66, end=66], Edit [start=75, end=75]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestSequence : [Edit [start=20, end=20], Edit [start=33, end=33], Edit [start=41, end=41], Edit [start=49, end=50], Edit [start=55, end=55], Edit [start=58, end=59], Edit [start=62, end=63], Edit [start=66, end=66], Edit [start=69, end=71], Edit [start=77, end=77], Edit [start=79, end=79], Edit [start=81, end=82], Edit [start=88, end=88], Edit [start=91, end=91], Edit [start=94, end=96], Edit [start=102, end=103], Edit [start=108, end=108], Edit [start=110, end=110], Edit [start=117, end=117], Edit [start=119, end=119], Edit [start=127, end=127], Edit [start=129, end=129], Edit [start=134, end=134]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/IteratorToGeneratorAdapter : [Edit [start=17, end=17], Edit [start=53, end=53]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestDoWhile : [Edit [start=24, end=24]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TransformedIterator : [Edit [start=21, end=21], Edit [start=25, end=25], Edit [start=39, end=39], Edit [start=52, end=53], Edit [start=131, end=131], Edit [start=146, end=146]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/LeftBoundPredicate : [Edit [start=22, end=22], Edit [start=29, end=29], Edit [start=42, end=42], Edit [start=117, end=117]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedNullaryFunction$2 Structural diff: []
+org/apache/commons/functor/core/composite/Sequence : [Edit [start=40, end=40], Edit [start=43, end=43], Edit [start=48, end=48], Edit [start=52, end=52], Edit [start=54, end=54], Edit [start=70, end=70], Edit [start=73, end=73], Edit [start=84, end=84], Edit [start=87, end=87], Edit [start=96, end=96], Edit [start=100, end=100], Edit [start=112, end=114], Edit [start=122, end=123], Edit [start=127, end=127], Edit [start=131, end=131]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedNullaryFunction$1 Structural diff: []
+org/apache/commons/functor/example/QuicksortExample$ObjectListFunction : []
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/two/TestBinaryChop$Loop : [Edit [start=260, end=260]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestTransformedGenerator : [Edit [start=23, end=24], Edit [start=59, end=59], Edit [start=64, end=64]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/LeftBoundProcedure : [Edit [start=22, end=22], Edit [start=29, end=29], Edit [start=42, end=42], Edit [start=116, end=116]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestWhileDo : [Edit [start=24, end=24]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/lines/StartsWith : [Edit [start=19, end=19], Edit [start=25, end=25]]
+	 Methods to watch:[]
+org/apache/commons/functor/TestAlgorithms$2 : [Edit [start=169, end=169]]
+	 Methods to watch:[]
+org/apache/commons/functor/TestAlgorithms$1 : [Edit [start=164, end=164]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestTransformedIterator$1 : [Edit [start=191, end=191]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestTransformedIterator$2 : [Edit [start=206, end=206]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/And Structural diff: [Edit [start=34, end=34], Edit [start=37, end=37], Edit [start=42, end=42], Edit [start=44, end=45], Edit [start=56, end=56], Edit [start=58, end=58], Edit [start=65, end=65], Edit [start=67, end=67], Edit [start=74, end=74], Edit [start=78, end=78], Edit [start=88, end=90], Edit [start=102, end=102], Edit [start=106, end=107], Edit [start=110, end=110]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/four/ToInteger : [Edit [start=19, end=19], Edit [start=30, end=30]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestIndexOfInGenerator : [Edit [start=25, end=25], Edit [start=50, end=50]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestWhileGenerate$1 : [Edit [start=78, end=78]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestWhileGenerate$2 : [Edit [start=98, end=98]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestWhileGenerate$3 : [Edit [start=114, end=114]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestNullaryFunctionNullaryProcedure Structural diff: []
+org/apache/commons/functor/core/algorithm/FoldLeft$FoldLeftHelper : [Edit [start=47, end=47]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestDoUntil : [Edit [start=24, end=24]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestIgnoreRightPredicate : [Edit [start=49, end=49], Edit [start=57, end=57], Edit [start=60, end=60]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure Structural diff: []
+org/apache/commons/functor/example/map/FixedSizeMap$2 : [Edit [start=53, end=53]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestFilteredIterable : [Edit [start=33, end=33], Edit [start=278, end=278]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/map/FixedSizeMap$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/IgnoreRightProcedure : [Edit [start=22, end=22], Edit [start=27, end=27], Edit [start=48, end=49], Edit [start=53, end=53], Edit [start=55, end=56], Edit [start=103, end=103], Edit [start=106, end=106], Edit [start=109, end=109]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestNoOp$2 : []
+	 Methods to watch:[]
+org/apache/commons/functor/core/TestNoOp$1 : []
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/AbstractListBackedAggregatorTest$TestFunction Structural diff: [Edit [start=169, end=169], Edit [start=172, end=172]]
+org/apache/commons/functor/core/TestNoOp$3 : []
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/IgnoreRightPredicate : [Edit [start=22, end=22], Edit [start=27, end=27], Edit [start=48, end=49], Edit [start=55, end=56], Edit [start=103, end=103], Edit [start=109, end=109]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/Size : [Edit [start=23, end=23], Edit [start=33, end=33]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/TestFilteredIterator : [Edit [start=31, end=31]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestFilteredGenerator : [Edit [start=26, end=27], Edit [start=57, end=57], Edit [start=67, end=67], Edit [start=114, end=114]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TransformedBinaryProcedure : [Edit [start=23, end=23], Edit [start=27, end=27], Edit [start=86, end=86], Edit [start=89, end=89]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/AbstractListBackedAggregatorTest$TestListBackedAggregator : [Edit [start=192, end=192], Edit [start=202, end=202]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/FlexiMapExample$UniversalFunctor : [Edit [start=553, end=554]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestWhileDo$Counter : [Edit [start=55, end=55]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/NullaryNot Structural diff: []
+org/apache/commons/functor/adapter/TestProcedureFunction : [Edit [start=41, end=41], Edit [start=49, end=50], Edit [start=55, end=55], Edit [start=57, end=57]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/IsNotEqual : [Edit [start=22, end=22], Edit [start=105, end=105], Edit [start=109, end=109], Edit [start=111, end=111]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestInPlaceTransform$1 : [Edit [start=68, end=68]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/BinaryPredicatePredicate Structural diff: []
+org/apache/commons/functor/core/composite/TestNullarySequence Structural diff: []
+org/apache/commons/functor/core/composite/TestTransformedBinaryFunction : [Edit [start=26, end=26]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure$One Structural diff: []
+org/apache/commons/functor/core/algorithm/FoldRight : [Edit [start=23, end=24], Edit [start=36, end=36]]
+	 Methods to watch:[]
+org/apache/commons/functor/TestAlgorithms$Counter : [Edit [start=178, end=178]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestRetainMatching$Doubler : [Edit [start=85, end=85]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestGenerateWhile$2 : []
+	 Methods to watch:[]
+org/apache/commons/functor/generator/util/IntegerRange : [Edit [start=17, end=17], Edit [start=96, end=96]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/comparator/TestMax : [Edit [start=25, end=25], Edit [start=71, end=73]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestGenerateWhile$1 : [Edit [start=74, end=74]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/NullaryOr Structural diff: []
+org/apache/commons/functor/core/composite/TestCompositeBinaryPredicate Structural diff: []
+org/apache/commons/functor/core/algorithm/TestRecursiveEvaluation$RecFunc : [Edit [start=65, end=65], Edit [start=81, end=81]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/CompositeBinaryFunction Structural diff: []
+org/apache/commons/functor/core/composite/ConditionalNullaryFunction Structural diff: []
+org/apache/commons/functor/core/composite/TestNullaryAnd Structural diff: []
+org/apache/commons/functor/example/map/PredicatedMap : [Edit [start=25, end=25], Edit [start=33, end=33]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/IsNull : [Edit [start=22, end=22], Edit [start=34, end=34]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestBinaryFunctionFunction Structural diff: []
+org/apache/commons/functor/core/composite/TransformedNullaryProcedure$Helper Structural diff: []
+org/apache/commons/functor/example/kata/four/DataMunger : [Edit [start=24, end=25], Edit [start=84, end=84], Edit [start=88, end=88], Edit [start=91, end=91]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/functions/IntegerMaxAggregatorFunction : [Edit [start=21, end=21], Edit [start=29, end=29]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/aggregator/list/OwnFunctionImplementationSample : [Edit [start=21, end=21]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/aggregator/list/OwnFunctionImplementationSample$OwnFunction : [Edit [start=66, end=66]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/GeneratorContains$ContainsProcedure : [Edit [start=48, end=48], Edit [start=52, end=52], Edit [start=63, end=63]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/functions/DoubleMaxAggregatorFunction : [Edit [start=21, end=21], Edit [start=29, end=29]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/functions/DoubleMeanValueAggregatorFunction : [Edit [start=21, end=21], Edit [start=28, end=28]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/four/IsInteger : [Edit [start=19, end=19], Edit [start=27, end=27]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/Constant : [Edit [start=24, end=25], Edit [start=27, end=26], Edit [start=44, end=45]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestProcedureProcedure Structural diff: []
+org/apache/commons/functor/adapter/BinaryFunctionFunction Structural diff: []
+org/apache/commons/functor/aggregator/functions/DoublePercentileAggregatorFunction : [Edit [start=23, end=23], Edit [start=34, end=34]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/UntilGenerate : [Edit [start=19, end=20], Edit [start=24, end=24], Edit [start=35, end=35], Edit [start=40, end=40], Edit [start=42, end=42], Edit [start=44, end=44], Edit [start=50, end=51]]
+	 Methods to watch:[]
+org/apache/commons/functor/example/kata/one/Product : [Edit [start=19, end=19], Edit [start=30, end=30], Edit [start=40, end=40], Edit [start=52, end=52], Edit [start=66, end=66]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/FunctionPredicate : [Edit [start=27, end=29], Edit [start=34, end=34], Edit [start=38, end=38], Edit [start=41, end=41], Edit [start=45, end=45], Edit [start=47, end=47], Edit [start=50, end=52], Edit [start=54, end=54], Edit [start=59, end=59], Edit [start=63, end=62], Edit [start=64, end=65], Edit [start=73, end=74], Edit [start=82, end=82], Edit [start=105, end=116], Edit [start=118, end=119], Edit [start=121, end=121]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/algorithm/TestRetainMatching$1 : [Edit [start=76, end=76]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/RightBoundPredicate : [Edit [start=22, end=22], Edit [start=29, end=29], Edit [start=42, end=42], Edit [start=116, end=116]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/TestIgnoreRightProcedure : [Edit [start=26, end=26], Edit [start=50, end=50]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/TestBaseGenerator : [Edit [start=27, end=27], Edit [start=183, end=185], Edit [start=190, end=190]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/BinaryProcedureProcedure Structural diff: []
+org/apache/commons/functor/adapter/RightBoundProcedure : [Edit [start=22, end=22], Edit [start=29, end=29], Edit [start=42, end=42], Edit [start=116, end=116]]
+	 Methods to watch:[]
+org/apache/commons/functor/aggregator/functions/IntegerPercentileAggregatorFunction : [Edit [start=23, end=23], Edit [start=34, end=34]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure$2 Structural diff: []
+org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure$1 Structural diff: []
+org/apache/commons/functor/core/composite/Composite : [Edit [start=21, end=23], Edit [start=43, end=43], Edit [start=45, end=46], Edit [start=48, end=49], Edit [start=53, end=53], Edit [start=56, end=58], Edit [start=60, end=62], Edit [start=66, end=66], Edit [start=68, end=69], Edit [start=71, end=72], Edit [start=76, end=76], Edit [start=79, end=81], Edit [start=83, end=85], Edit [start=95, end=96], Edit [start=99, end=102], Edit [start=106, end=106], Edit [start=109, end=110], Edit [start=112, end=113], Edit [start=117, end=117], Edit [start=121, end=123], Edit [start=125, end=127], Edit [start=131, end=131], Edit [start=136, end=136], Edit [start=140, end=140], Edit [start=143, end=143], Edit [start=147, end=147], Edit [start=154, end=155], Edit [start=158, end=161]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/Offset : [Edit [start=22, end=22], Edit [start=24, end=23], Edit [start=33, end=34]]
+	 Methods to watch:[]
+org/apache/commons/functor/adapter/FunctionProcedure : [Edit [start=38, end=38], Edit [start=41, end=42], Edit [start=46, end=46], Edit [start=48, end=48], Edit [start=55, end=55], Edit [start=60, end=61], Edit [start=63, end=62], Edit [start=64, end=65], Edit [start=73, end=74], Edit [start=78, end=79], Edit [start=82, end=82], Edit [start=111, end=111], Edit [start=118, end=119]]
+	 Methods to watch:[]
+org/apache/commons/functor/core/collection/IsEmpty : [Edit [start=24, end=24], Edit [start=31, end=31]]
+	 Methods to watch:[]
+org/apache/commons/functor/generator/GenerateUntil$1 : []
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor-parent ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functorcommons-functor-parent
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor-parent >>>
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 3.8 KB/sec)
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 22.9 KB/sec)
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor-parent <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor-parent ---
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor-parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor Build Tools 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-build-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor-build-tools ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494351167
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-functor-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons-functor-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-functor-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons-functor-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor-build-tools ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functor Build Toolscommons-functor-build-tools
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ commons-functor-build-tools ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/target/commons-functor-build-tools-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor-build-tools >>>
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-build-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor-build-tools <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor-build-tools ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/target/commons-functor-build-tools-1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor-build-tools ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor API 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-api ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor-api ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor-api ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494352079
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-functor-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons-functor-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor-api ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-functor-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor-api ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons-functor-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-functor-api ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-functor-api ---
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor-api ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functor APIcommons-functor-api
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ commons-functor-api ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/commons-functor-api-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor-api >>>
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-api ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor-api <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor-api ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/commons-functor-api-1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor-api ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor Core 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494352741
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-functor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons-functor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 167 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-functor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons-functor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 198 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/test-classes
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/src/test/java/org/apache/commons/functor/example/map/LazyMap.java: Some input files use unchecked or unsafe operations.
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/src/test/java/org/apache/commons/functor/example/map/LazyMap.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-functor ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.functor.example.kata.four.TestWeather
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 sec - in org.apache.commons.functor.example.kata.four.TestWeather
+Running org.apache.commons.functor.example.kata.four.TestSoccer
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.example.kata.four.TestSoccer
+Running org.apache.commons.functor.example.kata.two.TestBinaryChop
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec - in org.apache.commons.functor.example.kata.two.TestBinaryChop
+Running org.apache.commons.functor.example.map.TestAll
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in org.apache.commons.functor.example.map.TestAll
+Running org.apache.commons.functor.example.map.TestLazyMap
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.example.map.TestLazyMap
+Running org.apache.commons.functor.example.map.TestFixedSizeMap
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.example.map.TestFixedSizeMap
+Running org.apache.commons.functor.example.map.TestPredicatedMap
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.example.map.TestPredicatedMap
+Running org.apache.commons.functor.example.lines.TestAll
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.functor.example.lines.TestAll
+Running org.apache.commons.functor.example.lines.TestLines
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.example.lines.TestLines
+Running org.apache.commons.functor.core.comparator.TestMin
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.functor.core.comparator.TestMin
+Running org.apache.commons.functor.core.comparator.TestIsLessThan
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.functor.core.comparator.TestIsLessThan
+Running org.apache.commons.functor.core.comparator.TestComparableComparator
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.comparator.TestComparableComparator
+Running org.apache.commons.functor.core.comparator.TestComparatorFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.comparator.TestComparatorFunction
+Running org.apache.commons.functor.core.comparator.TestIsWithinRange
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.comparator.TestIsWithinRange
+Running org.apache.commons.functor.core.comparator.TestMax
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestMax
+Running org.apache.commons.functor.core.comparator.TestIsGreaterThanOrEqual
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsGreaterThanOrEqual
+Running org.apache.commons.functor.core.comparator.TestIsNotEquivalent
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.comparator.TestIsNotEquivalent
+Running org.apache.commons.functor.core.comparator.TestIsGreaterThan
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsGreaterThan
+Running org.apache.commons.functor.core.comparator.TestIsEquivalent
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsEquivalent
+Running org.apache.commons.functor.core.comparator.TestIsLessThanOrEqual
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsLessThanOrEqual
+Running org.apache.commons.functor.core.TestNoOp
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.TestNoOp
+Running org.apache.commons.functor.core.TestLimit
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.TestLimit
+Running org.apache.commons.functor.core.composite.TestTransformedNullaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.functor.core.composite.TestTransformedNullaryProcedure
+Running org.apache.commons.functor.core.composite.TestBinaryNot
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestBinaryNot
+Running org.apache.commons.functor.core.composite.TestWhileDoNullaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.composite.TestWhileDoNullaryProcedure
+Running org.apache.commons.functor.core.composite.TestNullaryOr
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.functor.core.composite.TestNullaryOr
+Running org.apache.commons.functor.core.composite.TestTransposedPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestTransposedPredicate
+Running org.apache.commons.functor.core.composite.TestCompositeFunction
+CompositeFunction<Constant<x> of Constant<y> of Constant<z>>
+1752658058
+CompositeFunction<Constant<x>>
+-2109509044
+CompositeFunction<Constant<x> of Constant<y> of Constant<z> of Constant<y> of Constant<z>>
+-885564182
+CompositeFunction<Constant<x> of Constant<y> of Constant<z>>
+1752658058
+CompositeFunction<Constant<x> of Constant<y> of Constant<z> of Constant<y> of Constant<z> of Constant<y> of Constant<z>>
+-13264150
+CompositeFunction<Constant<x> of Constant<y> of Constant<z> of Constant<y> of Constant<z>>
+-885564182
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestCompositeFunction
+Running org.apache.commons.functor.core.composite.TestBinarySequence
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestBinarySequence
+Running org.apache.commons.functor.core.composite.TestBinaryAnd
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.composite.TestBinaryAnd
+Running org.apache.commons.functor.core.composite.TestConditionalPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestConditionalPredicate
+Running org.apache.commons.functor.core.composite.TestDoWhileNullaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestDoWhileNullaryProcedure
+Running org.apache.commons.functor.core.composite.TestConditionalNullaryPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestConditionalNullaryPredicate
+Running org.apache.commons.functor.core.composite.TestComposite
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestComposite
+Running org.apache.commons.functor.core.composite.TestConditionalBinaryPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestConditionalBinaryPredicate
+Running org.apache.commons.functor.core.composite.TestNot
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestNot
+Running org.apache.commons.functor.core.composite.TestConditionalBinaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestConditionalBinaryFunction
+Running org.apache.commons.functor.core.composite.TestTransposedFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestTransposedFunction
+Running org.apache.commons.functor.core.composite.TestConditionalProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestConditionalProcedure
+Running org.apache.commons.functor.core.composite.TestNullaryAnd
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestNullaryAnd
+Running org.apache.commons.functor.core.composite.TestCompositeBinaryPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestCompositeBinaryPredicate
+Running org.apache.commons.functor.core.composite.TestTransformedBinaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.functor.core.composite.TestTransformedBinaryProcedure
+Running org.apache.commons.functor.core.composite.TestBinaryOr
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestBinaryOr
+Running org.apache.commons.functor.core.composite.TestNullaryNot
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestNullaryNot
+Running org.apache.commons.functor.core.composite.TestConditionalNullaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestConditionalNullaryFunction
+Running org.apache.commons.functor.core.composite.TestSequence
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.composite.TestSequence
+Running org.apache.commons.functor.core.composite.TestConditionalFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestConditionalFunction
+Running org.apache.commons.functor.core.composite.TestConditionalBinaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestConditionalBinaryProcedure
+Running org.apache.commons.functor.core.composite.TestAnd
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestAnd
+Running org.apache.commons.functor.core.composite.TestBinaryCompositeBinaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestBinaryCompositeBinaryFunction
+Running org.apache.commons.functor.core.composite.TestCompositeBinaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestCompositeBinaryFunction
+Running org.apache.commons.functor.core.composite.TestTransposedProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestTransposedProcedure
+Running org.apache.commons.functor.core.composite.TestTransformedBinaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.functor.core.composite.TestTransformedBinaryFunction
+Running org.apache.commons.functor.core.composite.TestTransformedNullaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.composite.TestTransformedNullaryFunction
+Running org.apache.commons.functor.core.composite.TestNullarySequence
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestNullarySequence
+Running org.apache.commons.functor.core.composite.TestConditional
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestConditional
+Running org.apache.commons.functor.core.composite.TestCompositeProcedure
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestCompositeProcedure
+Running org.apache.commons.functor.core.composite.TestOr
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestOr
+Running org.apache.commons.functor.core.composite.TestAbstractLoopNullaryProcedure
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestAbstractLoopNullaryProcedure
+Running org.apache.commons.functor.core.composite.TestCompositePredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestCompositePredicate
+Running org.apache.commons.functor.core.composite.TestConditionalNullaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalNullaryProcedure
+Running org.apache.commons.functor.core.algorithm.TestDoUntil
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.algorithm.TestDoUntil
+Running org.apache.commons.functor.core.algorithm.TestUntilDo
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestUntilDo
+Running org.apache.commons.functor.core.algorithm.TestRetainMatching
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.algorithm.TestRetainMatching
+Running org.apache.commons.functor.core.algorithm.TestWhileDo
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.algorithm.TestWhileDo
+Running org.apache.commons.functor.core.algorithm.TestRemoveMatching
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.algorithm.TestRemoveMatching
+Running org.apache.commons.functor.core.algorithm.TestFoldLeft
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestFoldLeft
+Running org.apache.commons.functor.core.algorithm.TestGeneratorContains
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestGeneratorContains
+Running org.apache.commons.functor.core.algorithm.TestFoldRight
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.algorithm.TestFoldRight
+Running org.apache.commons.functor.core.algorithm.TestDoWhile
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.algorithm.TestDoWhile
+Running org.apache.commons.functor.core.algorithm.TestRecursiveEvaluation
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.algorithm.TestRecursiveEvaluation
+Running org.apache.commons.functor.core.algorithm.TestInPlaceTransform
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestInPlaceTransform
+Running org.apache.commons.functor.core.algorithm.TestIndexOfInGenerator
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.algorithm.TestIndexOfInGenerator
+Running org.apache.commons.functor.core.algorithm.TestFindWithinGenerator
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.algorithm.TestFindWithinGenerator
+Running org.apache.commons.functor.core.collection.TestIsEmpty
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.collection.TestIsEmpty
+Running org.apache.commons.functor.core.collection.TestFilteredIterable
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.functor.core.collection.TestFilteredIterable
+Running org.apache.commons.functor.core.collection.TestFilteredIterator
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.functor.core.collection.TestFilteredIterator
+Running org.apache.commons.functor.core.collection.TestIsElementOf
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.collection.TestIsElementOf
+Running org.apache.commons.functor.core.collection.TestSize
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.collection.TestSize
+Running org.apache.commons.functor.core.collection.TestTransformedIterator
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.functor.core.collection.TestTransformedIterator
+Running org.apache.commons.functor.core.TestOffset
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestOffset
+Running org.apache.commons.functor.core.TestConstant
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestConstant
+Running org.apache.commons.functor.core.TestIsNotSame
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNotSame
+Running org.apache.commons.functor.core.TestIsNotEqual
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNotEqual
+Running org.apache.commons.functor.core.TestIsEqual
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsEqual
+Running org.apache.commons.functor.core.TestRightIdentity
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestRightIdentity
+Running org.apache.commons.functor.core.TestIsInstance
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.TestIsInstance
+Running org.apache.commons.functor.core.TestIsSame
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.TestIsSame
+Running org.apache.commons.functor.core.TestIsNull
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNull
+Running org.apache.commons.functor.core.TestLeftIdentity
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.TestLeftIdentity
+Running org.apache.commons.functor.core.TestIdentity
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIdentity
+Running org.apache.commons.functor.core.TestIsNotNull
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.TestIsNotNull
+Running org.apache.commons.functor.adapter.TestLeftBoundPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestLeftBoundPredicate
+Running org.apache.commons.functor.adapter.TestFunctionProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.adapter.TestFunctionProcedure
+Running org.apache.commons.functor.adapter.TestProcedureProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestProcedureProcedure
+Running org.apache.commons.functor.adapter.TestBinaryFunctionFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryFunctionFunction
+Running org.apache.commons.functor.adapter.TestIgnoreRightProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestIgnoreRightProcedure
+Running org.apache.commons.functor.adapter.TestBinaryPredicateBinaryFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryPredicateBinaryFunction
+Running org.apache.commons.functor.adapter.TestPredicateFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestPredicateFunction
+Running org.apache.commons.functor.adapter.TestNullaryFunctionNullaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestNullaryFunctionNullaryProcedure
+Running org.apache.commons.functor.adapter.TestNullaryPredicateNullaryFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestNullaryPredicateNullaryFunction
+Running org.apache.commons.functor.adapter.TestNullaryFunctionFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestNullaryFunctionFunction
+Running org.apache.commons.functor.adapter.TestProcedureFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestProcedureFunction
+Running org.apache.commons.functor.adapter.TestIgnoreLeftProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestIgnoreLeftProcedure
+Running org.apache.commons.functor.adapter.TestBinaryProcedureBinaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryProcedureBinaryFunction
+Running org.apache.commons.functor.adapter.TestFunctionPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.adapter.TestFunctionPredicate
+Running org.apache.commons.functor.adapter.TestBinaryPredicatePredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryPredicatePredicate
+Running org.apache.commons.functor.adapter.TestRightBoundFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestRightBoundFunction
+Running org.apache.commons.functor.adapter.TestIgnoreRightPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestIgnoreRightPredicate
+Running org.apache.commons.functor.adapter.TestNullaryProcedureNullaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestNullaryProcedureNullaryFunction
+Running org.apache.commons.functor.adapter.TestFullyBoundNullaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestFullyBoundNullaryFunction
+Running org.apache.commons.functor.adapter.TestFullyBoundNullaryPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestFullyBoundNullaryPredicate
+Running org.apache.commons.functor.adapter.TestRightBoundPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestRightBoundPredicate
+Running org.apache.commons.functor.adapter.TestBoundNullaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBoundNullaryFunction
+Running org.apache.commons.functor.adapter.TestIgnoreRightFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestIgnoreRightFunction
+Running org.apache.commons.functor.adapter.TestNullaryFunctionNullaryPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestNullaryFunctionNullaryPredicate
+Running org.apache.commons.functor.adapter.TestIgnoreLeftFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestIgnoreLeftFunction
+Running org.apache.commons.functor.adapter.TestBinaryFunctionBinaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestBinaryFunctionBinaryProcedure
+Running org.apache.commons.functor.adapter.TestBinaryProcedureProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryProcedureProcedure
+Running org.apache.commons.functor.adapter.TestFullyBoundNullaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestFullyBoundNullaryProcedure
+Running org.apache.commons.functor.adapter.TestBoundNullaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestBoundNullaryProcedure
+Running org.apache.commons.functor.adapter.TestNullaryPredicatePredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestNullaryPredicatePredicate
+Running org.apache.commons.functor.adapter.TestRightBoundProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestRightBoundProcedure
+Running org.apache.commons.functor.adapter.TestLeftBoundProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestLeftBoundProcedure
+Running org.apache.commons.functor.adapter.TestBinaryFunctionBinaryPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryFunctionBinaryPredicate
+Running org.apache.commons.functor.adapter.TestLeftBoundFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestLeftBoundFunction
+Running org.apache.commons.functor.adapter.TestBoundNullaryPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBoundNullaryPredicate
+Running org.apache.commons.functor.adapter.TestIgnoreLeftPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestIgnoreLeftPredicate
+Running org.apache.commons.functor.aggregator.ArrayListBackedAggregatorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.aggregator.ArrayListBackedAggregatorTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMedianValueAggregatorFunctionTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.DoubleMedianValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMeanValueAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.functions.IntMeanValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoublePercentileAggregatorFunctionTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.functions.DoublePercentileAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntPercentileAggregatorFunctionTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.functions.IntPercentileAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMaxAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntMaxAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntSumAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntSumAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntCountAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntCountAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMaxAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntMaxAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntSumAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntSumAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMeanValueAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleMeanValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMedianValueAggregatorFunctionTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntMedianValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.AbstractNoStoreAggregatorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.AbstractNoStoreAggregatorTest
+Running org.apache.commons.functor.aggregator.AbstractTimedAggregatorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.063 sec - in org.apache.commons.functor.aggregator.AbstractTimedAggregatorTest
+Running org.apache.commons.functor.aggregator.AbstractListBackedAggregatorTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.functor.aggregator.AbstractListBackedAggregatorTest
+Running org.apache.commons.functor.generator.util.TestEachElement
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.functor.generator.util.TestEachElement
+Running org.apache.commons.functor.generator.util.TestIntegerRange
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.util.TestIntegerRange
+Running org.apache.commons.functor.generator.util.TestLongRange
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.util.TestLongRange
+Running org.apache.commons.functor.generator.TestGenerateUntil
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.TestGenerateUntil
+Running org.apache.commons.functor.generator.TestBaseGenerator
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.generator.TestBaseGenerator
+Running org.apache.commons.functor.generator.TestWhileGenerate
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.generator.TestWhileGenerate
+Running org.apache.commons.functor.generator.TestFilteredGenerator
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.generator.TestFilteredGenerator
+Running org.apache.commons.functor.generator.TestUntilGenerate
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.TestUntilGenerate
+Running org.apache.commons.functor.generator.TestGenerateWhile
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.TestGenerateWhile
+Running org.apache.commons.functor.generator.TestIteratorToGeneratorAdapter
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.TestIteratorToGeneratorAdapter
+Running org.apache.commons.functor.generator.TestTransformedGenerator
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.generator.TestTransformedGenerator
+Running org.apache.commons.functor.TestAlgorithms
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.functor.TestAlgorithms
+
+Results :
+
+Tests run: 1081, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-functor ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functor Corecommons-functor
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestBoundNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestDoWhileNullaryProcedure$ListRemoveFirstProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestRightBoundProcedure has uncovered changes [49, 57]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestIsNotEqual has uncovered changes [77]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/RecursiveEvaluation has uncovered changes [58, 59, 60, 61, 77]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/map/FunctoredMap has uncovered changes [170]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestConditionalFunction has uncovered changes [37, 48, 50, 51, 52, 53, 58, 63, 67, 71, 75, 77, 78]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestLeftBoundProcedure has uncovered changes [48, 56]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestIsInstance has uncovered changes [56, 84]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestWhileDoNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/Predicate has uncovered changes [20, 26, 30, 33, 34, 37]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/CompositePredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/four/NthColumn has uncovered changes [29]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/ArrayListBackedAggregatorTest has uncovered changes [38, 50]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestIsEqual has uncovered changes [82]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestNullarySequence$RunCounter has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/map/FunctoredMap$Throw has uncovered changes [188]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/NullaryPredicateNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryFunction$One has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestWhileDoNullaryProcedure$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedBinaryProcedure$Total has uncovered changes [51]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/LeftBoundFunction has uncovered changes [22, 29, 43, 117]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/BasePredicateList has uncovered changes [50, 69, 83]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/util/LongRange has uncovered changes [17, 95]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedBinaryFunction$2 has uncovered changes [85]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/ConditionalPredicate has uncovered changes [76, 88, 96, 97]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestFindWithinGenerator has uncovered changes [108, 109, 110]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/IntegerMeanValueAggregatorFunction has uncovered changes [28]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/ConditionalFunction has uncovered changes [78, 90, 91, 93, 102, 103]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestFilteredIterable$1 has uncovered changes [51]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestFilteredIterator$3 has uncovered changes [237]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/BaseGenerator has uncovered changes [19, 83, 86]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/lines/Lines has uncovered changes [25, 48]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TransformedGenerator has uncovered changes [44, 51]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/util/CollectionTransformer$1 has uncovered changes [65]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/BaseNullaryPredicateList has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/TestBinaryChop has uncovered changes [24, 25, 26, 212, 221, 233, 255, 256, 257, 432, 513]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/RightBoundFunction has uncovered changes [22, 29, 43, 116]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/ArrayListBackedAggregator has uncovered changes [22, 33, 40, 46, 55, 73]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TransformedBinaryFunction$Helper has uncovered changes [64, 66]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestCompositePredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestIsNull has uncovered changes [45, 61]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/FilteredIterable$1 has uncovered changes [53]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/FilteredIterable$3 has uncovered changes [159]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestWhileGenerate has uncovered changes [26, 27, 56, 66]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestFilteredIterator$2 has uncovered changes [222]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestCompositeBinaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestFilteredIterator$1 has uncovered changes [217]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/FoldRight$FoldRightHelper has uncovered changes [48]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/CompositeFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/IsWithinRange has uncovered changes [31]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestIsEmpty has uncovered changes [109]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/lines/TestLines has uncovered changes [81, 88, 97, 110]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestFullyBoundNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestConditionalNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/IsElementOf has uncovered changes [24, 139, 141, 143, 145]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestFunctionPredicate has uncovered changes [39, 47, 48, 53, 54, 59, 61, 63]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TransformedBinaryProcedure$Helper has uncovered changes [64, 66]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestInPlaceTransform has uncovered changes [26]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestNot has uncovered changes [39, 47, 48, 49, 50, 55, 57, 59, 71]
+[WARNING] Diff has gone untested: org/apache/commons/functor/NullaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestCompositeFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/FilteredIterable has uncovered changes [114]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestNullaryNot has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/one/Subtract has uncovered changes [19, 34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/Limit has uncovered changes [23, 34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestBoundNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/FilteredIterator has uncovered changes [65, 67]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/ConditionalNullaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/AbstractListBackedAggregatorTest has uncovered changes [88, 126]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/DoubleSumAggregatorFunction has uncovered changes [28]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestDoWhileNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/IsNotNull has uncovered changes [22, 34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/DoWhileNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedBinaryFunction$AddOne has uncovered changes [51]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/IsLessThan has uncovered changes [23, 135, 139, 141]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestConditionalPredicate has uncovered changes [37, 48, 52, 53, 58, 63, 67, 71, 75]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/WhileDo has uncovered changes [19, 20, 39]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/map/FixedSizeMap has uncovered changes [26]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/IsGreaterThan has uncovered changes [23, 135, 139, 141]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/NullaryFunctionNullaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/FindWithinGenerator$FindProcedure has uncovered changes [51, 69]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestNullaryFunctionNullaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/IndexOfInGenerator has uncovered changes [22, 23, 27, 33, 93, 95]
+[WARNING] Diff has gone untested: org/apache/commons/functor/Function has uncovered changes [20, 26, 31, 34, 35, 38]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/IgnoreLeftFunction has uncovered changes [56, 57]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/IgnoreRightFunction has uncovered changes [56, 57]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/lines/Contains has uncovered changes [19, 25]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/map/FunctoredMap$5 has uncovered changes [164]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestIgnoreLeftPredicate has uncovered changes [49, 57, 60]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/Conditional has uncovered changes [57, 68, 81, 92, 104, 118, 132, 145]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/ProcedureFunction has uncovered changes [55, 63, 72, 73, 111]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/WhileGenerate has uncovered changes [44, 51]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestBaseGenerator$5 has uncovered changes [129]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/IndexOfInGenerator$IndexProcedure has uncovered changes [48, 73]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestBaseGenerator$6 has uncovered changes [139]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestBaseGenerator$3 has uncovered changes [101]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestBaseGenerator$4 has uncovered changes [118]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestBaseGenerator$1 has uncovered changes [47]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestBaseGenerator$2 has uncovered changes [89]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/UntilDo has uncovered changes [19, 20, 39]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/IsEquivalent has uncovered changes [23, 140, 142]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestRemoveMatching$1 has uncovered changes [76]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/util/CollectionTransformer has uncovered changes [33]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/NoOp has uncovered changes [114]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/IgnoreLeftProcedure has uncovered changes [55, 56]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestUntilDo has uncovered changes [24]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestAbstractLoopNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestConditionalNullaryProcedure$RunCounter has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestOffset has uncovered changes [49, 67, 76]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/IgnoreLeftPredicate has uncovered changes [55, 56]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestLeftBoundFunction has uncovered changes [49, 55]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/IsGreaterThanOrEqual has uncovered changes [23, 136, 140, 142]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedBinaryProcedure has uncovered changes [26]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestIgnoreRightProcedure$1 has uncovered changes [60]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/FilteredIterable$2$1 has uncovered changes [137]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/QuicksortExample$3 has uncovered changes [447]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/GeneratorContains has uncovered changes [32]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/QuicksortExample$2 has uncovered changes [437]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestUntilGenerate has uncovered changes [26, 27, 57, 67]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestNullaryProcedureNullaryFunction$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestUntilGenerate$1 has uncovered changes [79]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestUntilGenerate$3 has uncovered changes [115]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestUntilGenerate$2 has uncovered changes [99]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/PredicateFunction has uncovered changes [41, 53, 66, 74, 75, 112]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$2 has uncovered changes [351]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$1 has uncovered changes [344]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestConditionalProcedure$RunCounter has uncovered changes [101]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$4 has uncovered changes [363]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$3 has uncovered changes [357]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestIsNotNull has uncovered changes [44, 52]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/lines/WordCount has uncovered changes [26]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/InPlaceTransform has uncovered changes [23, 32, 45, 47]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/TestBinaryChop$BinarySearchLoop$5 has uncovered changes [369]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/DoUntil has uncovered changes [19, 20, 39]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/one/Add has uncovered changes [19, 34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestFunctionProcedure$EvaluateCounter has uncovered changes [49, 51]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestIsSame has uncovered changes [83]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TransformedNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/IsInstance has uncovered changes [22, 96, 99, 101]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TransformedBinaryFunction has uncovered changes [89]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/Identity has uncovered changes [21, 22, 36]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/aggregator/list/OwnListImplementationSample$CustomListAggregator has uncovered changes [54, 58, 62]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/DoWhile has uncovered changes [19, 20, 39]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/PredicatedLoop has uncovered changes [48]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/one/ToMoney has uncovered changes [19, 25, 35]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/Or has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/TestBinaryChop$8$1 has uncovered changes [520]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/WhileDoNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestBinaryPredicatePredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/Max has uncovered changes [23, 118, 122, 124]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestRetainMatching has uncovered changes [25, 26]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestRightBoundFunction has uncovered changes [49, 55]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestDoWhile$Counter has uncovered changes [54]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/CompositeBinaryPredicate$Helper has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestAnd has uncovered changes [39, 47, 48, 49, 50, 52, 53, 56, 59, 60, 63, 66, 67, 72, 73, 74, 76, 77, 79, 80, 83, 84, 87, 90, 91, 96, 97, 98, 101, 108, 110, 114, 118, 120, 124, 125, 126, 127, 128, 129, 130, 131]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestInPlaceTransform$Doubler has uncovered changes [89]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestFilteredGenerator$2 has uncovered changes [100]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestFilteredGenerator$1 has uncovered changes [79]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestNullaryProcedureNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/FoldLeft has uncovered changes [35]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/NullaryProcedureProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/NullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/CompositeBinaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestTransformedIterator has uncovered changes [33]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/ArrayListBackedAggregatorTest$SelectFirstFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/TestAlgorithms has uncovered changes [105, 113]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/IsEqual has uncovered changes [22, 107, 111, 113]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/FullyBoundNullaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/map/FunctoredMap$ContainsKey has uncovered changes [176]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestIdentity has uncovered changes [48, 58, 77]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure$AggregatorProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestConditionalNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/FullyBoundNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/Aggregator has uncovered changes [19, 39]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/IsNotSame has uncovered changes [22, 98, 102, 104]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestConditionalNullaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestTransformedGenerator$3 has uncovered changes [115]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/NullaryFunctionFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/NullarySequence has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestTransformedGenerator$1 has uncovered changes [77]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/BoundNullaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestTransformedGenerator$2 has uncovered changes [98]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/IntegerMedianValueAggregatorFunction has uncovered changes [31]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestRemoveMatching has uncovered changes [25, 26]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/FlexiMapExample has uncovered changes [33, 34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/BoundNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/RemoveMatching has uncovered changes [23, 26, 32, 45, 47]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestNullaryFunctionFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/FindWithinGenerator has uncovered changes [23, 24, 28, 34, 85, 116, 118]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/IsNotEquivalent has uncovered changes [23, 136, 139, 140, 142]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestRecursiveEvaluation has uncovered changes [45]
+[WARNING] Diff has gone untested: org/apache/commons/functor/TestAlgorithms$Doubler has uncovered changes [192]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestNullaryOr has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryFunction$AddOne has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestDoWhileNullaryProcedure$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TransformedNullaryFunction$Helper has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestBinaryProcedureProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestNullaryPredicatePredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestConditional has uncovered changes [46, 47, 48, 49, 50, 54, 55, 56, 57, 65]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/CompositeProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestLeftBoundPredicate has uncovered changes [49, 57]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestIsNotSame has uncovered changes [83]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/NullaryPredicatePredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestSize has uncovered changes [103]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/AbstractListBackedAggregator has uncovered changes [103]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestRightBoundPredicate has uncovered changes [49, 57]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestOr has uncovered changes [38, 46, 47, 48, 50, 51, 54, 57, 58, 61, 64, 65, 70, 71, 72, 73, 75, 76, 79, 82, 83, 86, 89, 90, 95, 96, 97, 100, 106, 109, 112, 116, 118, 120, 123, 125, 127, 131, 132, 133, 134, 135]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestIgnoreLeftProcedure has uncovered changes [60]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestWhileDoNullaryProcedure$ListRemoveFirstProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestPredicateFunction has uncovered changes [39, 47, 48, 53, 54, 59, 61, 63]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/FilteredGenerator has uncovered changes [45, 52]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/Not has uncovered changes [56, 66, 74, 113]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/QuicksortExample$ListFunction has uncovered changes [392]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestCompositeFunction$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestGenerateWhile has uncovered changes [97]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/ConditionalProcedure has uncovered changes [87, 99, 100, 102, 111, 112]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/IsSame has uncovered changes [22, 98, 102, 104]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/Min has uncovered changes [23, 118, 122, 124]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestGenerateUntil$1 has uncovered changes [75]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/NullaryProcedureNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestDoUntil$Counter has uncovered changes [54]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestIsElementOf has uncovered changes [55, 69]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestGenerateUntil$2 has uncovered changes [97]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/CompositeFunction$Helper has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/QuicksortExample has uncovered changes [29, 34, 309, 340, 389]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/RetainMatching has uncovered changes [53]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/MockLoopProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestProcedureFunction$1 has uncovered changes [59, 61]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/BoundNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestCompositeProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/four/Abs has uncovered changes [27]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/NullaryAnd has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/one/Multiply has uncovered changes [19, 35]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestBaseGenerator$Summer has uncovered changes [199]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestBoundNullaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestGenerateUntil has uncovered changes [22]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestFullyBoundNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TransformedNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/map/LazyMap has uncovered changes [22, 28]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/one/SupermarketPricingExample$BuyNGetMFree has uncovered changes [211]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestNullaryFunctionNullaryProcedure$EvaluateCounter has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestSequence$RunCounter has uncovered changes [140]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestUntilDo$Counter has uncovered changes [54]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/IsLessThanOrEqual has uncovered changes [23, 135, 139, 141]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestFunctionProcedure has uncovered changes [41, 54, 56, 58, 64, 66, 68]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/one/Mod has uncovered changes [19, 34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestRemoveMatching$Doubler has uncovered changes [85]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/AbstractLoopNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestNoOp has uncovered changes [62, 63]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/TestMin has uncovered changes [72, 73]
+[WARNING] Diff has gone untested: org/apache/commons/functor/NullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/aggregator/list/OwnListImplementationSample has uncovered changes [25]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestRecursiveEvaluation$InnerNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/one/Divide has uncovered changes [19, 35]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/CompositeBinaryFunction$Helper has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedBinaryProcedure$2 has uncovered changes [91]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/IntegerSumAggregatorFunction has uncovered changes [28]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestConditionalProcedure has uncovered changes [39, 50, 51, 52, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 71, 76, 80, 84, 88, 92]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/one/SupermarketPricingExample has uncovered changes [21, 22, 26, 27, 124, 147, 148, 185, 207]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/DoubleMedianValueAggregatorFunction has uncovered changes [31]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/FullyBoundNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestBaseGenerator$4$1 has uncovered changes [121]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/GenerateWhile has uncovered changes [44, 51]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestGeneratorContains has uncovered changes [53, 54]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/NullaryFunctionNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/Procedure has uncovered changes [20, 26, 30, 31, 32, 33, 34, 35]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/EiffelStyleLoop has uncovered changes [44, 62, 112, 113, 114, 115, 116]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/TestBinaryChop$6$1 has uncovered changes [444]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/lines/Count has uncovered changes [24]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/GenerateUntil has uncovered changes [44, 51]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/Generator has uncovered changes [18, 19, 22, 31, 33, 50, 51, 54]
+[WARNING] Diff has gone untested: org/apache/commons/functor/TestAlgorithms$Summer has uncovered changes [185]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/ConditionalNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestFullyBoundNullaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestNullaryPredicateNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/TestLimit has uncovered changes [48, 66, 75]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestSequence has uncovered changes [41, 49, 50, 55, 58, 59, 62, 63, 69, 70, 71, 77, 79, 81, 82, 88, 91, 94, 95, 96, 102, 103, 108, 110, 117, 119, 127, 129, 134]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/IteratorToGeneratorAdapter has uncovered changes [17, 53]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestDoWhile has uncovered changes [24]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TransformedIterator has uncovered changes [52, 53]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/LeftBoundPredicate has uncovered changes [22, 29, 42, 117]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryFunction$2 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/Sequence has uncovered changes [54, 73, 87, 113, 114, 123]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryFunction$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/two/TestBinaryChop$Loop has uncovered changes [260]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestTransformedGenerator has uncovered changes [23, 24, 59, 64]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/LeftBoundProcedure has uncovered changes [22, 29, 42, 116]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestWhileDo has uncovered changes [24]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/lines/StartsWith has uncovered changes [19, 25]
+[WARNING] Diff has gone untested: org/apache/commons/functor/TestAlgorithms$2 has uncovered changes [169]
+[WARNING] Diff has gone untested: org/apache/commons/functor/TestAlgorithms$1 has uncovered changes [164]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestTransformedIterator$1 has uncovered changes [191]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestTransformedIterator$2 has uncovered changes [206]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/And has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/four/ToInteger has uncovered changes [30]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestIndexOfInGenerator has uncovered changes [50]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestWhileGenerate$1 has uncovered changes [78]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestWhileGenerate$2 has uncovered changes [98]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestWhileGenerate$3 has uncovered changes [114]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestNullaryFunctionNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/FoldLeft$FoldLeftHelper has uncovered changes [47]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestDoUntil has uncovered changes [24]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestIgnoreRightPredicate has uncovered changes [49, 57, 60]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/map/FixedSizeMap$2 has uncovered changes [53]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestFilteredIterable has uncovered changes [278]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/IgnoreRightProcedure has uncovered changes [55, 56]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/AbstractListBackedAggregatorTest$TestFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/IgnoreRightPredicate has uncovered changes [55, 56]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/Size has uncovered changes [33]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/TestFilteredIterator has uncovered changes [31]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestFilteredGenerator has uncovered changes [114]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TransformedBinaryProcedure has uncovered changes [89]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/AbstractListBackedAggregatorTest$TestListBackedAggregator has uncovered changes [192, 202]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/FlexiMapExample$UniversalFunctor has uncovered changes [553, 554]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestWhileDo$Counter has uncovered changes [55]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/NullaryNot has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestProcedureFunction has uncovered changes [41, 49, 50, 55, 57]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/IsNotEqual has uncovered changes [22, 105, 109, 111]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestInPlaceTransform$1 has uncovered changes [68]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/BinaryPredicatePredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestNullarySequence has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedBinaryFunction has uncovered changes [26]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure$One has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/FoldRight has uncovered changes [36]
+[WARNING] Diff has gone untested: org/apache/commons/functor/TestAlgorithms$Counter has uncovered changes [178]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestRetainMatching$Doubler has uncovered changes [85]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/util/IntegerRange has uncovered changes [17, 96]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/comparator/TestMax has uncovered changes [72, 73]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestGenerateWhile$1 has uncovered changes [74]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/NullaryOr has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestCompositeBinaryPredicate has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestRecursiveEvaluation$RecFunc has uncovered changes [81]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/CompositeBinaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/ConditionalNullaryFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestNullaryAnd has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/map/PredicatedMap has uncovered changes [25, 33]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/IsNull has uncovered changes [22, 34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestBinaryFunctionFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TransformedNullaryProcedure$Helper has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/four/DataMunger has uncovered changes [24, 25, 84, 88, 91]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/IntegerMaxAggregatorFunction has uncovered changes [29]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/aggregator/list/OwnFunctionImplementationSample has uncovered changes [21]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/aggregator/list/OwnFunctionImplementationSample$OwnFunction has uncovered changes [66]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/GeneratorContains$ContainsProcedure has uncovered changes [48, 63]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/DoubleMaxAggregatorFunction has uncovered changes [29]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/DoubleMeanValueAggregatorFunction has uncovered changes [28]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/four/IsInteger has uncovered changes [27]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/Constant has uncovered changes [24, 25, 44, 45]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestProcedureProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/BinaryFunctionFunction has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/DoublePercentileAggregatorFunction has uncovered changes [34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/UntilGenerate has uncovered changes [44, 51]
+[WARNING] Diff has gone untested: org/apache/commons/functor/example/kata/one/Product has uncovered changes [19, 30, 40, 52, 66]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/FunctionPredicate has uncovered changes [54, 65, 73, 74, 119]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/algorithm/TestRetainMatching$1 has uncovered changes [76]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/RightBoundPredicate has uncovered changes [22, 29, 42, 116]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/TestIgnoreRightProcedure has uncovered changes [26, 50]
+[WARNING] Diff has gone untested: org/apache/commons/functor/generator/TestBaseGenerator has uncovered changes [27, 183, 184, 185, 190]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/BinaryProcedureProcedure has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/RightBoundProcedure has uncovered changes [22, 29, 42, 116]
+[WARNING] Diff has gone untested: org/apache/commons/functor/aggregator/functions/IntegerPercentileAggregatorFunction has uncovered changes [34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure$2 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/TestTransformedNullaryProcedure$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/composite/Composite has uncovered changes [49, 62, 72, 85, 102, 113, 127, 161]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/Offset has uncovered changes [22, 33, 34]
+[WARNING] Diff has gone untested: org/apache/commons/functor/adapter/FunctionProcedure has uncovered changes [55, 65, 73, 74, 119]
+[WARNING] Diff has gone untested: org/apache/commons/functor/core/collection/IsEmpty has uncovered changes [24, 31]
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ commons-functor ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:1.6:shade (default) @ commons-functor ---
+[INFO] Excluding org.apache.commons:commons-functor-api:jar:1.0-SNAPSHOT from the shaded jar.
+[INFO] Including org.apache.commons:commons-lang3:jar:3.1 in the shaded jar.
+[INFO] Minimizing jar org.apache.commons:commons-functor:jar:1.0-SNAPSHOT
+[INFO] Minimized 348 -> 224 (64%)
+[INFO] Minimized 464 -> 340 (73%)
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT.jar with /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-shaded.jar
+[INFO] Replacing /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-sources.jar with /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-shaded-sources.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:test-jar (default) @ commons-functor ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor >>>
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Commons Functor .................................... SUCCESS [  5.504 s]
+[INFO] Commons Functor Build Tools ........................ SUCCESS [  0.945 s]
+[INFO] Commons Functor API ................................ SUCCESS [  0.659 s]
+[INFO] Commons Functor Core ............................... SUCCESS [ 11.275 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.181 s
+[INFO] Finished at: 2020-04-09T21:52:43-07:00
+[INFO] Final Memory: 64M/2864M
+[INFO] ------------------------------------------------------------------------

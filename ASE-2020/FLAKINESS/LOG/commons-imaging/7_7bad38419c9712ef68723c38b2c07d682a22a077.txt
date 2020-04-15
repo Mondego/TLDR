@@ -1,0 +1,124 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-imaging
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-imaging
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-imaging
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Imaging 1.0-alpha2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-imaging ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-imaging ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-imaging ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-imaging ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging
+[INFO] Storing buildNumber: 7bad38419c9712ef68723c38b2c07d682a22a077 at timestamp: 1586494994946
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-imaging ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-imaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 360 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.1.0:manifest (bundle-manifest) @ commons-imaging ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-imaging ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-imaging ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-imaging ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 7bad38419c9712ef68723c38b2c07d682a22a077 against: 7d8193b6f02243314b7d1ede256d75591c6fd202
+org/apache/commons/imaging/formats/png/PngWriter : [Edit [start=27, end=27], Edit [start=36, end=35], Edit [start=309, end=308], Edit [start=348, end=348], Edit [start=365, end=367], Edit [start=370, end=370], Edit [start=444, end=444], Edit [start=447, end=446], Edit [start=449, end=449], Edit [start=451, end=451], Edit [start=453, end=453], Edit [start=523, end=524], Edit [start=563, end=562], Edit [start=564, end=566]]
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/png/PngWriter$ImageHeader : []
+	 Methods to watch:[]
+org/apache/commons/imaging/formats/png/PngConstants : [Edit [start=80, end=89]]
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-imaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 162 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-imaging ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.imaging.roundtrip.LimitedColorRoundtripTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.93 sec - in org.apache.commons.imaging.roundtrip.LimitedColorRoundtripTest
+Running org.apache.commons.imaging.roundtrip.BitmapRoundtripTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.125 sec - in org.apache.commons.imaging.roundtrip.BitmapRoundtripTest
+Running org.apache.commons.imaging.roundtrip.GrayscaleRountripTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.369 sec - in org.apache.commons.imaging.roundtrip.GrayscaleRountripTest
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-imaging ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (check-java-api) @ commons-imaging ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-imaging ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Imagingcommons-imaging
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/.diffCache
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/png/PngWriter has uncovered changes [348, 365, 366, 370, 444, 449, 451, 453, 523, 524, 564, 565]
+[WARNING] Diff has gone untested: org/apache/commons/imaging/formats/png/PngConstants has uncovered changes [80, 81, 82, 83, 84, 85, 86, 87, 88, 89]
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ commons-imaging ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/commons-imaging-1.0-alpha2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7.1:attach-descriptor (attach-descriptor) @ commons-imaging ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:test-jar (default) @ commons-imaging ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/commons-imaging-1.0-alpha2-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar-no-fork (create-source-jar) @ commons-imaging ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/commons-imaging-1.0-alpha2-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:test-jar-no-fork (create-source-jar) @ commons-imaging ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-imaging/target/commons-imaging-1.0-alpha2-SNAPSHOT-test-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 26.973 s
+[INFO] Finished at: 2020-04-09T22:03:38-07:00
+[INFO] Final Memory: 64M/2414M
+[INFO] ------------------------------------------------------------------------

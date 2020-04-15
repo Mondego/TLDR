@@ -1,0 +1,342 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-fileupload2
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-fileupload2
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons FileUpload 2.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-fileupload2 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-fileupload2 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-fileupload2 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-fileupload2 ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload
+[INFO] Storing buildNumber: ed6c3a405de8959db6dc3a35118ead31df07bfb2 at timestamp: 1586493971833
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-fileupload2 ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ commons-fileupload2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 39 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/main/java/org/apache/commons/fileupload2/servlet/ServletFileUpload.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/main/java/org/apache/commons/fileupload2/servlet/ServletFileUpload.java uses or overrides a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/main/java/org/apache/commons/fileupload2/servlet/ServletFileUpload.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.4.0:manifest (bundle-manifest) @ commons-fileupload2 ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (checkAPIcompatibility) @ commons-fileupload2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-fileupload2 ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-fileupload2 ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing ed6c3a405de8959db6dc3a35118ead31df07bfb2 against: 7fb10911a7c7a28395e450c10bb12acbc4ea486f
+org/apache/commons/fileupload2/util/Closeable Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$InvalidContentTypeException Structural diff: []
+org/apache/commons/fileupload2/ParameterParserTest Structural diff: []
+org/apache/commons/fileupload2/MultipartStream Structural diff: []
+org/apache/commons/fileupload2/portlet/PortletFileUploadTest Structural diff: []
+org/apache/commons/fileupload2/util/mime/QuotedPrintableDecoderTestCase Structural diff: []
+org/apache/commons/fileupload2/util/LimitedInputStream Structural diff: []
+org/apache/commons/fileupload2/servlet/ServletFileUploadTest Structural diff: []
+org/apache/commons/fileupload2/util/mime/Base64DecoderTestCase Structural diff: []
+org/apache/commons/fileupload2/util/mime/MimeUtility Structural diff: []
+org/apache/commons/fileupload2/util/mime/QuotedPrintableDecoder Structural diff: []
+org/apache/commons/fileupload2/Constants Structural diff: []
+org/apache/commons/fileupload2/ProgressListenerTest$1 Structural diff: []
+org/apache/commons/fileupload2/FileItemStream Structural diff: []
+org/apache/commons/fileupload2/MultipartStreamTest Structural diff: []
+org/apache/commons/fileupload2/MultipartStream$IllegalBoundaryException Structural diff: []
+org/apache/commons/fileupload2/FileUploadTest Structural diff: []
+org/apache/commons/fileupload2/HttpServletRequestFactory Structural diff: []
+org/apache/commons/fileupload2/ParameterParser Structural diff: []
+org/apache/commons/fileupload2/MultipartStream$MalformedStreamException Structural diff: []
+org/apache/commons/fileupload2/InvalidFileNameException Structural diff: []
+org/apache/commons/fileupload2/MultipartStream$ItemInputStream Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$SizeException Structural diff: []
+org/apache/commons/fileupload2/FileUpload Structural diff: []
+org/apache/commons/fileupload2/servlet/ServletRequestContext Structural diff: []
+org/apache/commons/fileupload2/DiskFileUpload Structural diff: []
+org/apache/commons/fileupload2/DiskFileUploadTest Structural diff: []
+org/apache/commons/fileupload2/FileItemHeaders Structural diff: []
+org/apache/commons/fileupload2/portlet/PortletFileUpload Structural diff: []
+org/apache/commons/fileupload2/MockHttpServletRequest$MyServletInputStream Structural diff: []
+org/apache/commons/fileupload2/portlet/MockPortletActionRequest Structural diff: []
+org/apache/commons/fileupload2/util/mime/ParseException Structural diff: []
+org/apache/commons/fileupload2/FileItemFactory Structural diff: []
+org/apache/commons/fileupload2/DiskFileItemSerializeTest Structural diff: []
+org/apache/commons/fileupload2/StreamingTest$2 Structural diff: []
+org/apache/commons/fileupload2/StreamingTest$1 Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$FileUploadIOException Structural diff: []
+org/apache/commons/fileupload2/disk/DiskFileItemFactory Structural diff: []
+org/apache/commons/fileupload2/FileItemHeadersSupport Structural diff: []
+org/apache/commons/fileupload2/RequestContext Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$IOFileUploadException Structural diff: []
+org/apache/commons/fileupload2/util/mime/Base64Decoder Structural diff: []
+org/apache/commons/fileupload2/UploadContext Structural diff: []
+org/apache/commons/fileupload2/DefaultFileItem Structural diff: []
+org/apache/commons/fileupload2/util/Streams Structural diff: []
+org/apache/commons/fileupload2/FileItemIterator Structural diff: []
+org/apache/commons/fileupload2/util/mime/MimeUtilityTestCase Structural diff: []
+org/apache/commons/fileupload2/DefaultFileItemFactory Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$SizeLimitExceededException Structural diff: []
+org/apache/commons/fileupload2/Util Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$FileSizeLimitExceededException Structural diff: []
+org/apache/commons/fileupload2/SizesTest Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase Structural diff: []
+org/apache/commons/fileupload2/ProgressListenerTest$ProgressListenerImpl Structural diff: []
+org/apache/commons/fileupload2/FileItem Structural diff: []
+org/apache/commons/fileupload2/disk/DiskFileItem Structural diff: []
+org/apache/commons/fileupload2/ProgressListenerTest Structural diff: []
+org/apache/commons/fileupload2/ProgressListener Structural diff: []
+org/apache/commons/fileupload2/FileItemHeadersTest Structural diff: []
+org/apache/commons/fileupload2/MockHttpServletRequest Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$FileItemIteratorImpl$1 Structural diff: []
+org/apache/commons/fileupload2/servlet/FileCleanerCleanup Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$FileItemIteratorImpl$FileItemStreamImpl Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$FileItemIteratorImpl$FileItemStreamImpl$1 Structural diff: []
+org/apache/commons/fileupload2/FileItemStream$ItemSkippedException Structural diff: []
+org/apache/commons/fileupload2/FileUploadException Structural diff: []
+org/apache/commons/fileupload2/servlet/ServletFileUpload Structural diff: []
+org/apache/commons/fileupload2/DefaultFileItemTest Structural diff: []
+org/apache/commons/fileupload2/util/FileItemHeadersImpl Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$UnknownSizeException Structural diff: []
+org/apache/commons/fileupload2/MultipartStream$ProgressNotifier Structural diff: []
+org/apache/commons/fileupload2/StreamingTest Structural diff: []
+org/apache/commons/fileupload2/portlet/PortletRequestContext Structural diff: []
+org/apache/commons/fileupload2/FileUploadBase$FileItemIteratorImpl Structural diff: []
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-fileupload2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/test/java/org/apache/commons/fileupload2/DefaultFileItemTest.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/src/test/java/org/apache/commons/fileupload2/DefaultFileItemTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-fileupload2 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.fileupload2.DefaultFileItemTest
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.114 sec <<< FAILURE! - in org.apache.commons.fileupload2.DefaultFileItemTest
+testAboveThresholdSpecifiedRepository(org.apache.commons.fileupload2.DefaultFileItemTest)  Time elapsed: 0.016 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.fileupload2.DefaultFileItemTest.testAboveThresholdSpecifiedRepository(DefaultFileItemTest.java:155)
+
+Running org.apache.commons.fileupload2.util.mime.MimeUtilityTestCase
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.fileupload2.util.mime.MimeUtilityTestCase
+Running org.apache.commons.fileupload2.util.mime.QuotedPrintableDecoderTestCase
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.fileupload2.util.mime.QuotedPrintableDecoderTestCase
+Running org.apache.commons.fileupload2.util.mime.Base64DecoderTestCase
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.fileupload2.util.mime.Base64DecoderTestCase
+Running org.apache.commons.fileupload2.DiskFileUploadTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.fileupload2.DiskFileUploadTest
+Running org.apache.commons.fileupload2.ProgressListenerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.605 sec - in org.apache.commons.fileupload2.ProgressListenerTest
+Running org.apache.commons.fileupload2.ParameterParserTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.fileupload2.ParameterParserTest
+Running org.apache.commons.fileupload2.SizesTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.4 sec - in org.apache.commons.fileupload2.SizesTest
+Running org.apache.commons.fileupload2.FileItemHeadersTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.fileupload2.FileItemHeadersTest
+Running org.apache.commons.fileupload2.DiskFileItemSerializeTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec - in org.apache.commons.fileupload2.DiskFileItemSerializeTest
+Running org.apache.commons.fileupload2.StreamingTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.985 sec - in org.apache.commons.fileupload2.StreamingTest
+Running org.apache.commons.fileupload2.servlet.ServletFileUploadTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.fileupload2.servlet.ServletFileUploadTest
+Running org.apache.commons.fileupload2.FileUploadTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.apache.commons.fileupload2.FileUploadTest
+Running org.apache.commons.fileupload2.portlet.PortletFileUploadTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.fileupload2.portlet.PortletFileUploadTest
+Running org.apache.commons.fileupload2.MultipartStreamTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.fileupload2.MultipartStreamTest
+
+Results :
+
+Failed tests: 
+  DefaultFileItemTest.testAboveThresholdSpecifiedRepository:155
+
+Tests run: 82, Failures: 1, Errors: 0, Skipped: 0
+
+[ERROR] There are test failures.
+
+Please refer to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/surefire-reports for the individual test results.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-fileupload2 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.fileupload2.DefaultFileItemTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec <<< FAILURE! - in org.apache.commons.fileupload2.DefaultFileItemTest
+testAboveThresholdSpecifiedRepository(org.apache.commons.fileupload2.DefaultFileItemTest)  Time elapsed: 0.038 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.fileupload2.DefaultFileItemTest.testAboveThresholdSpecifiedRepository(DefaultFileItemTest.java:155)
+
+Running org.apache.commons.fileupload2.DefaultFileItemTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.099 sec <<< FAILURE! - in org.apache.commons.fileupload2.DefaultFileItemTest
+testAboveThresholdSpecifiedRepository(org.apache.commons.fileupload2.DefaultFileItemTest)  Time elapsed: 0.04 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.fileupload2.DefaultFileItemTest.testAboveThresholdSpecifiedRepository(DefaultFileItemTest.java:155)
+
+Running org.apache.commons.fileupload2.DefaultFileItemTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.093 sec <<< FAILURE! - in org.apache.commons.fileupload2.DefaultFileItemTest
+testAboveThresholdSpecifiedRepository(org.apache.commons.fileupload2.DefaultFileItemTest)  Time elapsed: 0.037 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.fileupload2.DefaultFileItemTest.testAboveThresholdSpecifiedRepository(DefaultFileItemTest.java:155)
+
+Running org.apache.commons.fileupload2.DefaultFileItemTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec <<< FAILURE! - in org.apache.commons.fileupload2.DefaultFileItemTest
+testAboveThresholdSpecifiedRepository(org.apache.commons.fileupload2.DefaultFileItemTest)  Time elapsed: 0.038 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.fileupload2.DefaultFileItemTest.testAboveThresholdSpecifiedRepository(DefaultFileItemTest.java:155)
+
+Running org.apache.commons.fileupload2.DefaultFileItemTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec <<< FAILURE! - in org.apache.commons.fileupload2.DefaultFileItemTest
+testAboveThresholdSpecifiedRepository(org.apache.commons.fileupload2.DefaultFileItemTest)  Time elapsed: 0.037 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.fileupload2.DefaultFileItemTest.testAboveThresholdSpecifiedRepository(DefaultFileItemTest.java:155)
+
+
+Results :
+
+Failed tests: 
+org.apache.commons.fileupload2.DefaultFileItemTest.testAboveThresholdSpecifiedRepository(org.apache.commons.fileupload2.DefaultFileItemTest)
+  Run 1: DefaultFileItemTest.testAboveThresholdSpecifiedRepository:155
+  Run 2: DefaultFileItemTest.testAboveThresholdSpecifiedRepository:155
+  Run 3: DefaultFileItemTest.testAboveThresholdSpecifiedRepository:155
+  Run 4: DefaultFileItemTest.testAboveThresholdSpecifiedRepository:155
+  Run 5: DefaultFileItemTest.testAboveThresholdSpecifiedRepository:155
+
+
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+
+[ERROR] There are test failures.
+
+Please refer to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/surefire-reports-isolated-reruns for the individual test results.
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-fileupload2 ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons FileUploadcommons-fileupload2
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/.diffCache
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/Closeable has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$InvalidContentTypeException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/ParameterParserTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/MultipartStream has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/portlet/PortletFileUploadTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/mime/QuotedPrintableDecoderTestCase has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/LimitedInputStream has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/servlet/ServletFileUploadTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/mime/Base64DecoderTestCase has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/mime/MimeUtility has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/mime/QuotedPrintableDecoder has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/Constants has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/ProgressListenerTest$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileItemStream has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/MultipartStreamTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/MultipartStream$IllegalBoundaryException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/HttpServletRequestFactory has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/ParameterParser has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/MultipartStream$MalformedStreamException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/InvalidFileNameException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/MultipartStream$ItemInputStream has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$SizeException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUpload has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/servlet/ServletRequestContext has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/DiskFileUpload has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/DiskFileUploadTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileItemHeaders has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/portlet/PortletFileUpload has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/MockHttpServletRequest$MyServletInputStream has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/portlet/MockPortletActionRequest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/mime/ParseException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileItemFactory has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/DiskFileItemSerializeTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/StreamingTest$2 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/StreamingTest$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$FileUploadIOException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/disk/DiskFileItemFactory has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileItemHeadersSupport has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/RequestContext has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$IOFileUploadException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/mime/Base64Decoder has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/UploadContext has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/DefaultFileItem has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/Streams has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileItemIterator has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/mime/MimeUtilityTestCase has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/DefaultFileItemFactory has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$SizeLimitExceededException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/Util has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$FileSizeLimitExceededException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/SizesTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/ProgressListenerTest$ProgressListenerImpl has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileItem has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/disk/DiskFileItem has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/ProgressListenerTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/ProgressListener has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileItemHeadersTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/MockHttpServletRequest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$FileItemIteratorImpl$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/servlet/FileCleanerCleanup has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$FileItemIteratorImpl$FileItemStreamImpl has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$FileItemIteratorImpl$FileItemStreamImpl$1 has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileItemStream$ItemSkippedException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/servlet/ServletFileUpload has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/DefaultFileItemTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/util/FileItemHeadersImpl has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$UnknownSizeException has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/MultipartStream$ProgressNotifier has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/StreamingTest has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/portlet/PortletRequestContext has structural changes!
+[WARNING] Diff has gone untested: org/apache/commons/fileupload2/FileUploadBase$FileItemIteratorImpl has structural changes!
+[WARNING] Test org.apache.commons.fileupload2.DefaultFileItemTest.testAboveThresholdSpecifiedRepository failed, perhaps due to relevant changed code:
+	org.apache.commons.fileupload2.disk.DiskFileItemFactory (structural changes)
+	org.apache.commons.fileupload2.DefaultFileItem (structural changes)
+	org.apache.commons.fileupload2.DefaultFileItemTest (structural changes)
+	org.apache.commons.fileupload2.disk.DiskFileItem (structural changes)
+	org.apache.commons.fileupload2.ParameterParser (structural changes)
+	org.apache.commons.fileupload2.DefaultFileItemFactory (structural changes)
+
+[WARNING] 
+There are test failures!
+
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.0:jar (default-jar) @ commons-fileupload2 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-fileupload/target/commons-fileupload2-2.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7:attach-descriptor (attach-descriptor) @ commons-fileupload2 ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 18.924 s
+[INFO] Finished at: 2020-04-09T21:46:27-07:00
+[INFO] Final Memory: 53M/2296M
+[INFO] ------------------------------------------------------------------------

@@ -21,9 +21,7 @@ import org.apache.maven.surefire.booter.Classpath;
  * @author demigorgan
  *
  */
-abstract class BaseMojo extends SurefirePlugin {
-	private static final Logger logger = LogManager.getLogger(BaseMojo.class);
-    
+abstract class BaseMojo extends SurefirePlugin {    
     /**
      * Hash code of a commit. This is needed to generate report for each 
      * sample commit iteratively in an experiment.

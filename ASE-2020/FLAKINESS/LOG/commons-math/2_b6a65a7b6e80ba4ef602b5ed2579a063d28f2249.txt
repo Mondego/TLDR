@@ -1,0 +1,92 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-math4
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-math4
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-math4
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Math 4.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.7:parse-version (parse-version) @ commons-math4 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-math4 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-math4 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-math4 ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math
+[INFO] Storing buildNumber: b6a65a7b6e80ba4ef602b5ed2579a063d28f2249 at timestamp: 2020-04-09 22:47:22-0700
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-jgit-buildnumber-plugin:1.2.11:extract-buildnumber (default) @ commons-math4 ---
+[INFO] Git info extracted in 191ms, revision: 'b6a65a7', branch: 'master', tag: '', commitsCount: '6453', commitDate: '2019-12-03', buildDate: '2020-04-09', buildnumber: 'master.6453.b6a65a7'
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-math4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-math4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 716 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/target/classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/src/main/java/org/apache/commons/math4/analysis/solvers/BaseAbstractUnivariateSolver.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/src/main/java/org/apache/commons/math4/analysis/solvers/BaseAbstractUnivariateSolver.java: Recompile with -Xlint:deprecation for details.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/src/main/java/org/apache/commons/math4/field/linalg/FieldDenseMatrix.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/src/main/java/org/apache/commons/math4/field/linalg/FieldDenseMatrix.java uses unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/src/main/java/org/apache/commons/math4/field/linalg/FieldDenseMatrix.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.1.0:manifest (bundle-manifest) @ commons-math4 ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-math4 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-math4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 38 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-math4 ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing b6a65a7b6e80ba4ef602b5ed2579a063d28f2249 against: a55b8520afc62ae1d0c281dfa32054f2608a760f
+org/apache/commons/math4/stat/inference/KolmogorovSmirnovTest : [Edit [start=404, end=404], Edit [start=442, end=442], Edit [start=481, end=481]]
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-math4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 443 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/src/test/java/org/apache/commons/math4/util/IncrementorTest.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/src/test/java/org/apache/commons/math4/util/IncrementorTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/src/test/java/org/apache/commons/math4/transform/FastFourierTransformerTest.java:[304,27] cannot find symbol
+  symbol:   method ofReal(double)
+  location: class org.apache.commons.numbers.complex.Complex
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 16.785 s
+[INFO] Finished at: 2020-04-09T22:47:36-07:00
+[INFO] Final Memory: 61M/2339M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project commons-math4: Compilation failure
+[ERROR] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-math/src/test/java/org/apache/commons/math4/transform/FastFourierTransformerTest.java:[304,27] cannot find symbol
+[ERROR] symbol:   method ofReal(double)
+[ERROR] location: class org.apache.commons.numbers.complex.Complex
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

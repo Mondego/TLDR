@@ -1,0 +1,873 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from chronicle-map
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OpenHFT/Chronicle-Map 3.17.4-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 3.0 KB/sec)
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 11.9 KB/sec)
+[INFO] 
+[INFO] --- depends-maven-plugin:1.4.0:generate-depends-file (generate-depends-file) @ chronicle-map ---
+[INFO] Created: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/classes/META-INF/maven/dependencies.properties
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ chronicle-map ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ chronicle-map ---
+[INFO] Compiling 7 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.5.0:manifest (default) @ chronicle-map ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ chronicle-map ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ chronicle-map ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing d33ed44fc7e0ca8b0ba1a8fdda4a486a046e06ec against: f18c9d076dca5ca2e9d313ec68cfb165397ec795
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ chronicle-map ---
+[INFO] Compiling 130 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/test-classes
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/utility/ProcessInstanceLimiter.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/fromdocs/pingpong_latency/PingPongCASLeft.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/eg/BigData.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/utility/ProcessInstanceLimiter.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/fromdocs/pingpong_latency/PingPongCASLeft.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/eg/BigData.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/utility/ProcessInstanceLimiter.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/fromdocs/pingpong_latency/PingPongCASLeft.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/eg/BigData.java:[19,28] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/utility/ProcessInstanceLimiter.java:[94,9] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/CHMUseCasesTest.java:[108,22] readUTFΔ() in net.openhft.chronicle.bytes.StreamingDataInput has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/CHMUseCasesTest.java:[118,16] writeUTFΔ(java.lang.CharSequence) in net.openhft.chronicle.bytes.StreamingDataOutput has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/CHMUseCasesTest.java:[418,13] assertEquals(java.lang.Object[],java.lang.Object[]) in org.junit.Assert has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/ValueAlignmentRelocationTest.java:[46,16] String(byte[],int,int,int) in java.lang.String has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/Issue62ChronicleServer.java:[54,74] privateAPI() in net.openhft.chronicle.map.ChronicleMapBuilder has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/fromdocs/pingpong_latency/PingPongCASLeft.java:[90,9] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/jsr166/JSR166TestCase.java:[302,23] stop() in java.lang.Thread has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/ReplicatedChronicleMapTest.java:[41,56] privateAPI() in net.openhft.chronicle.map.ChronicleMapBuilder has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/ReplicatedChronicleMapTest.java:[51,56] privateAPI() in net.openhft.chronicle.map.ChronicleMapBuilder has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/eg/BigData.java:[124,9] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/eg/BigData.java:[141,9] net.openhft.affinity.AffinitySupport in net.openhft.affinity has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/Issue62ChronicleClient.java:[42,74] privateAPI() in net.openhft.chronicle.map.ChronicleMapBuilder has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/RecoverTest.java:[61,63] privateAPI() in net.openhft.chronicle.map.ChronicleMapBuilder has been deprecated
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/RecoverTest.java:[112,82] privateAPI() in net.openhft.chronicle.map.ChronicleMapBuilder has been deprecated
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/utility/ProcessInstanceLimiter.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/src/test/java/net/openhft/chronicle/map/utility/ProcessInstanceLimiter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ chronicle-map ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running net.openhft.chronicle.map.RecursiveRefereneChMapTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.272 sec - in net.openhft.chronicle.map.RecursiveRefereneChMapTest
+Running net.openhft.chronicle.map.ChronicleMapTest
+null
+world
+world
+Tests run: 52, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 5.253 sec - in net.openhft.chronicle.map.ChronicleMapTest
+Running net.openhft.chronicle.map.jsr166.map.ChronicleMapTest
+Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.061 sec - in net.openhft.chronicle.map.jsr166.map.ChronicleMapTest
+Running net.openhft.chronicle.map.ChronicleMapImportExportTest
+/tmp/chronicle-map-49259177123344646.json
+/tmp/chronicle-map-49259177251355089.json
+/tmp/chronicle-map-49259178071443298.json
+/lv_scratch/tmp/chronicle-map-49259178092864519.json
+/lv_scratch/tmp/chronicle-map-249259178093169466.json
+/tmp/chronicle-map-49259178099315276.json
+/tmp/chronicle-map-49259178104466993.json
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.989 sec - in net.openhft.chronicle.map.ChronicleMapImportExportTest
+Running net.openhft.chronicle.map.ChronicleMap3_8FormatCompatibilityTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec - in net.openhft.chronicle.map.ChronicleMap3_8FormatCompatibilityTest
+Running net.openhft.chronicle.map.AbstractMarshallableKeyValueTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in net.openhft.chronicle.map.AbstractMarshallableKeyValueTest
+Running net.openhft.chronicle.map.BasicReplicationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 sec - in net.openhft.chronicle.map.BasicReplicationTest
+Running net.openhft.chronicle.map.fromdocs.PointSerializationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.openhft.chronicle.map.fromdocs.PointSerializationTest
+Running net.openhft.chronicle.map.fromdocs.OpenJDKAndHashMapExamplesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in net.openhft.chronicle.map.fromdocs.OpenJDKAndHashMapExamplesTest
+Running net.openhft.chronicle.map.fromdocs.ChecksumEntryTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.openhft.chronicle.map.fromdocs.ChecksumEntryTest
+Running net.openhft.chronicle.map.fromdocs.CustomCharSequenceEncodingTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in net.openhft.chronicle.map.fromdocs.CustomCharSequenceEncodingTest
+Running net.openhft.chronicle.map.fromdocs.CharSequenceArraySerializationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.openhft.chronicle.map.fromdocs.CharSequenceArraySerializationTest
+Running net.openhft.chronicle.map.example.SimpleMapOperationsListeningTest
+insert 1 -> IntValue{ value=2 }
+remove 1: IntValue{ value=2 }
+default 3 -> IntValue{ value=0 }
+insert 3 -> IntValue{ value=0 }
+replace 3: IntValue{ value=1 } -> IntValue{ value=5 }
+remove 3: IntValue{ value=5 }
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.33 sec - in net.openhft.chronicle.map.example.SimpleMapOperationsListeningTest
+Running net.openhft.chronicle.map.example.PointListSerializationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.openhft.chronicle.map.example.PointListSerializationTest
+Running net.openhft.chronicle.map.IntValueMapTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.openhft.chronicle.map.IntValueMapTest
+Running net.openhft.chronicle.map.LargeEntriesTest
+Put/Get rate was 187.8 MB/s
+Put/Get rate was 378.3 MB/s
+Put/Get rate was 441.4 MB/s
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.807 sec - in net.openhft.chronicle.map.LargeEntriesTest
+Running net.openhft.chronicle.map.DeletedSearchStateTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.openhft.chronicle.map.DeletedSearchStateTest
+Running net.openhft.chronicle.map.CHMUseCasesTest
+Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.611 sec - in net.openhft.chronicle.map.CHMUseCasesTest
+Running net.openhft.chronicle.map.ValueAlignmentRelocationTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.372 sec - in net.openhft.chronicle.map.ValueAlignmentRelocationTest
+Running net.openhft.chronicle.map.ChronicleMapEqualsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.openhft.chronicle.map.ChronicleMapEqualsTest
+Running net.openhft.chronicle.map.ListenersTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in net.openhft.chronicle.map.ListenersTest
+Running net.openhft.chronicle.map.BiMapTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.273 sec - in net.openhft.chronicle.map.BiMapTest
+Running net.openhft.chronicle.map.BytesMarshallableValueTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.openhft.chronicle.map.BytesMarshallableValueTest
+Running net.openhft.chronicle.map.NestedContextsInIterationContextTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in net.openhft.chronicle.map.NestedContextsInIterationContextTest
+Running net.openhft.chronicle.map.KeySegmentDistributionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec - in net.openhft.chronicle.map.KeySegmentDistributionTest
+Running net.openhft.chronicle.map.Issue42Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.openhft.chronicle.map.Issue42Test
+Running net.openhft.chronicle.map.HistogramTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.openhft.chronicle.map.HistogramTest
+Running net.openhft.chronicle.map.Issue125Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 sec - in net.openhft.chronicle.map.Issue125Test
+Running net.openhft.chronicle.map.GlobalMutableStateTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.openhft.chronicle.map.GlobalMutableStateTest
+Running net.openhft.chronicle.map.OverflowAllocationDuringIterationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.304 sec - in net.openhft.chronicle.map.OverflowAllocationDuringIterationTest
+Running net.openhft.chronicle.map.externalizable.ExternalizableTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in net.openhft.chronicle.map.externalizable.ExternalizableTest
+Running net.openhft.chronicle.map.HColl423Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.openhft.chronicle.map.HColl423Test
+Running net.openhft.chronicle.map.DemoChronicleMapTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.494 sec - in net.openhft.chronicle.map.DemoChronicleMapTest
+Running net.openhft.chronicle.map.MapCloseTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.057 sec - in net.openhft.chronicle.map.MapCloseTest
+Running net.openhft.chronicle.map.ChronicleMapSanityCheckTest
+Starting sanity test 1. Chronicle file :/tmp/testSanity1-56baf139-336c-461f-9e5d-8e857e552c61.dat
+Before PRODUCING size is 0
+Before CONSUMING size is 0
+
+After CONSUMING size is 0
+After PRODUCING size is 1000
+Before PRODUCING size is 1000
+Before CONSUMING size is 1000
+
+After CONSUMING size is 529
+After PRODUCING size is 926
+Before PRODUCING size is 926
+Before CONSUMING size is 927
+
+After CONSUMING size is 580
+After PRODUCING size is 978
+Before PRODUCING size is 978
+Before CONSUMING size is 978
+
+After CONSUMING size is 549
+After PRODUCING size is 952
+Before PRODUCING size is 952
+Before CONSUMING size is 952
+
+After CONSUMING size is 579
+After PRODUCING size is 982
+Before PRODUCING size is 982
+Before CONSUMING size is 986
+
+After CONSUMING size is 538
+After PRODUCING size is 957
+Before PRODUCING size is 957
+Before CONSUMING size is 958
+
+After CONSUMING size is 540
+After PRODUCING size is 973
+Before PRODUCING size is 973
+Before CONSUMING size is 978
+
+After CONSUMING size is 550
+After PRODUCING size is 964
+Before PRODUCING size is 964
+Before CONSUMING size is 966
+
+After CONSUMING size is 579
+After PRODUCING size is 976
+Before PRODUCING size is 976
+Before CONSUMING size is 980
+
+After CONSUMING size is 545
+After PRODUCING size is 967
+Before PRODUCING size is 967
+Before CONSUMING size is 975
+
+After CONSUMING size is 538
+After PRODUCING size is 975
+Before PRODUCING size is 975
+Before CONSUMING size is 976
+
+After CONSUMING size is 564
+After PRODUCING size is 975
+Before PRODUCING size is 975
+Before CONSUMING size is 977
+
+After CONSUMING size is 561
+After PRODUCING size is 982
+Before PRODUCING size is 982
+Before CONSUMING size is 983
+
+After CONSUMING size is 527
+After PRODUCING size is 969
+Before PRODUCING size is 969
+Before CONSUMING size is 971
+
+After CONSUMING size is 561
+After PRODUCING size is 974
+Before PRODUCING size is 974
+Before CONSUMING size is 981
+
+After CONSUMING size is 553
+After PRODUCING size is 974
+Before PRODUCING size is 974
+Before CONSUMING size is 975
+
+After CONSUMING size is 558
+After PRODUCING size is 986
+Before PRODUCING size is 986
+Before CONSUMING size is 989
+
+After CONSUMING size is 547
+After PRODUCING size is 978
+Before PRODUCING size is 978
+Before CONSUMING size is 987
+
+After CONSUMING size is 514
+After PRODUCING size is 978
+Before PRODUCING size is 978
+Before CONSUMING size is 984
+
+After CONSUMING size is 552
+After PRODUCING size is 980
+Before PRODUCING size is 980
+Before CONSUMING size is 980
+
+After CONSUMING size is 515
+After PRODUCING size is 985
+Before PRODUCING size is 985
+Before CONSUMING size is 990
+
+After CONSUMING size is 534
+After PRODUCING size is 981
+Before PRODUCING size is 981
+Before CONSUMING size is 983
+
+After CONSUMING size is 542
+After PRODUCING size is 978
+Before PRODUCING size is 978
+Before CONSUMING size is 985
+
+After CONSUMING size is 540
+After PRODUCING size is 965
+Before PRODUCING size is 965
+Before CONSUMING size is 967
+
+After CONSUMING size is 536
+After PRODUCING size is 978
+Before PRODUCING size is 978
+Before CONSUMING size is 982
+
+After CONSUMING size is 566
+After PRODUCING size is 970
+Before PRODUCING size is 970
+Before CONSUMING size is 971
+
+After CONSUMING size is 517
+After PRODUCING size is 976
+Before PRODUCING size is 976
+Before CONSUMING size is 980
+
+After CONSUMING size is 542
+After PRODUCING size is 976
+Before PRODUCING size is 976
+Before CONSUMING size is 977
+
+After CONSUMING size is 524
+After PRODUCING size is 974
+Before PRODUCING size is 974
+Before CONSUMING size is 978
+
+After CONSUMING size is 572
+After PRODUCING size is 968
+Before PRODUCING size is 968
+Before CONSUMING size is 972
+
+After CONSUMING size is 540
+After PRODUCING size is 980
+Before PRODUCING size is 980
+Before CONSUMING size is 983
+
+After CONSUMING size is 524
+After PRODUCING size is 975
+Before PRODUCING size is 975
+Before CONSUMING size is 978
+
+After CONSUMING size is 547
+After PRODUCING size is 979
+Before PRODUCING size is 979
+Before CONSUMING size is 984
+
+After CONSUMING size is 552
+Before CONSUMING size is 953
+
+After PRODUCING size is 748
+Before PRODUCING size is 721
+After CONSUMING size is 517
+After PRODUCING size is 996
+Before PRODUCING size is 996
+Before CONSUMING size is 996
+
+After CONSUMING size is 534
+After PRODUCING size is 953
+Before PRODUCING size is 953
+Before CONSUMING size is 958
+
+After CONSUMING size is 516
+After PRODUCING size is 988
+Before PRODUCING size is 988
+Before CONSUMING size is 990
+
+After CONSUMING size is 536
+After PRODUCING size is 966
+Before PRODUCING size is 966
+Before CONSUMING size is 971
+
+After CONSUMING size is 530
+After PRODUCING size is 972
+Before PRODUCING size is 972
+Before CONSUMING size is 978
+
+After CONSUMING size is 554
+After PRODUCING size is 975
+Before PRODUCING size is 975
+Before CONSUMING size is 975
+
+After CONSUMING size is 543
+After PRODUCING size is 979
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.078 sec - in net.openhft.chronicle.map.ChronicleMapSanityCheckTest
+Running net.openhft.chronicle.map.ConstantSizeBySampleTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec - in net.openhft.chronicle.map.ConstantSizeBySampleTest
+Running net.openhft.chronicle.map.GuavaTest
+Tests run: 655, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.293 sec - in net.openhft.chronicle.map.GuavaTest
+Running net.openhft.chronicle.map.ExitHookTest
+Classpath: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/test-classes:/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/classes:/home/mondego/.m2/repository/net/openhft/chronicle-core/2.17.12/chronicle-core-2.17.12.jar:/home/mondego/.m2/repository/com/intellij/annotations/12.0/annotations-12.0.jar:/home/mondego/.m2/repository/net/openhft/chronicle-values/2.16.1/chronicle-values-2.16.1.jar:/pkg/java/1.8.0_181/jre/../lib/tools.jar:/home/mondego/.m2/repository/com/squareup/javapoet/1.5.1/javapoet-1.5.1.jar:/home/mondego/.m2/repository/net/openhft/chronicle-threads/2.17.3/chronicle-threads-2.17.3.jar:/home/mondego/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/mondego/.m2/repository/net/openhft/chronicle-wire/2.17.38/chronicle-wire-2.17.38.jar:/home/mondego/.m2/repository/net/openhft/compiler/2.3.4/compiler-2.3.4.jar:/home/mondego/.m2/repository/net/openhft/chronicle-bytes/2.17.27/chronicle-bytes-2.17.27.jar:/home/mondego/.m2/repository/net/openhft/chronicle-algorithms/1.16.0/chronicle-algorithms-1.16.0.jar:/home/mondego/.m2/repository/net/java/dev/jna/jna/4.2.1/jna-4.2.1.jar:/home/mondego/.m2/repository/net/java/dev/jna/jna-platform/4.2.1/jna-platform-4.2.1.jar:/home/mondego/.m2/repository/com/thoughtworks/xstream/xstream/1.4.9/xstream-1.4.9.jar:/home/mondego/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/home/mondego/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/home/mondego/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar:/home/mondego/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/home/mondego/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar:/home/mondego/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar:/home/mondego/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/mondego/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/mondego/.m2/repository/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar:/home/mondego/.m2/repository/org/mockito/mockito-core/2.20.0/mockito-core-2.20.0.jar:/home/mondego/.m2/repository/net/bytebuddy/byte-buddy/1.8.13/byte-buddy-1.8.13.jar:/home/mondego/.m2/repository/net/bytebuddy/byte-buddy-agent/1.8.13/byte-buddy-agent-1.8.13.jar:/home/mondego/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/mondego/.m2/repository/org/powermock/powermock-module-junit4/1.6.4/powermock-module-junit4-1.6.4.jar:/home/mondego/.m2/repository/org/powermock/powermock-module-junit4-common/1.6.4/powermock-module-junit4-common-1.6.4.jar:/home/mondego/.m2/repository/org/powermock/powermock-core/1.6.4/powermock-core-1.6.4.jar:/home/mondego/.m2/repository/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar:/home/mondego/.m2/repository/org/powermock/powermock-reflect/1.6.4/powermock-reflect-1.6.4.jar:/home/mondego/.m2/repository/org/powermock/powermock-api-mockito/1.6.4/powermock-api-mockito-1.6.4.jar:/home/mondego/.m2/repository/org/powermock/powermock-api-support/1.6.4/powermock-api-support-1.6.4.jar:/home/mondego/.m2/repository/net/openhft/affinity/3.1.11/affinity-3.1.11.jar:/home/mondego/.m2/repository/com/google/guava/guava-testlib/19.0/guava-testlib-19.0.jar:/home/mondego/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/home/mondego/.m2/repository/com/google/errorprone/error_prone_annotations/2.0.2/error_prone_annotations-2.0.2.jar:/home/mondego/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar:/home/mondego/.m2/repository/net/openhft/stage-compiler/1.11/stage-compiler-1.11.jar:/home/mondego/.m2/repository/net/openhft/spoon-core/4.4.1/spoon-core-4.4.1.jar:/home/mondego/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar:/home/mondego/.m2/repository/com/martiansoftware/jsap/2.1/jsap-2.1.jar:/home/mondego/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/mondego/.m2/repository/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar:/home/mondego/.m2/repository/it/unimi/dsi/fastutil/7.0.6/fastutil-7.0.6.jar:/home/mondego/.m2/repository/net/openhft/zero-allocation-hashing/0.8/zero-allocation-hashing-0.8.jar:/home/mondego/.m2/repository/com/samskivert/samskivert/1.9/samskivert-1.9.jar:/home/mondego/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/home/mondego/.m2/repository/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/deflaker-test-listener-1.5-SNAPSHOT.jar:/home/mondego/.m2/repository/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/deflaker-agent-bootpath-1.5-SNAPSHOT.jar:/home/mondego/.m2/repository/com/amazonaws/aws-java-sdk-s3/1.11.161/aws-java-sdk-s3-1.11.161.jar:/home/mondego/.m2/repository/com/amazonaws/aws-java-sdk-kms/1.11.161/aws-java-sdk-kms-1.11.161.jar:/home/mondego/.m2/repository/com/amazonaws/aws-java-sdk-core/1.11.161/aws-java-sdk-core-1.11.161.jar:/home/mondego/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/mondego/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar:/home/mondego/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar:/home/mondego/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/home/mondego/.m2/repository/software/amazon/ion/ion-java/1.0.2/ion-java-1.0.2.jar:/home/mondego/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.6.7.1/jackson-databind-2.6.7.1.jar:/home/mondego/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.6.0/jackson-annotations-2.6.0.jar:/home/mondego/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.6.7/jackson-core-2.6.7.jar:/home/mondego/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.6.7/jackson-dataformat-cbor-2.6.7.jar:/home/mondego/.m2/repository/joda-time/joda-time/2.10/joda-time-2.10.jar:/home/mondego/.m2/repository/com/amazonaws/jmespath-java/1.11.161/jmespath-java-1.11.161.jar:
+Other process started, yo
+1
+2
+3
+4
+exit hooktrue
+Executing user defined shutdown hook
+Classpath: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/test-classes:/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/classes:/home/mondego/.m2/repository/net/openhft/chronicle-core/2.17.12/chronicle-core-2.17.12.jar:/home/mondego/.m2/repository/com/intellij/annotations/12.0/annotations-12.0.jar:/home/mondego/.m2/repository/net/openhft/chronicle-values/2.16.1/chronicle-values-2.16.1.jar:/pkg/java/1.8.0_181/jre/../lib/tools.jar:/home/mondego/.m2/repository/com/squareup/javapoet/1.5.1/javapoet-1.5.1.jar:/home/mondego/.m2/repository/net/openhft/chronicle-threads/2.17.3/chronicle-threads-2.17.3.jar:/home/mondego/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/mondego/.m2/repository/net/openhft/chronicle-wire/2.17.38/chronicle-wire-2.17.38.jar:/home/mondego/.m2/repository/net/openhft/compiler/2.3.4/compiler-2.3.4.jar:/home/mondego/.m2/repository/net/openhft/chronicle-bytes/2.17.27/chronicle-bytes-2.17.27.jar:/home/mondego/.m2/repository/net/openhft/chronicle-algorithms/1.16.0/chronicle-algorithms-1.16.0.jar:/home/mondego/.m2/repository/net/java/dev/jna/jna/4.2.1/jna-4.2.1.jar:/home/mondego/.m2/repository/net/java/dev/jna/jna-platform/4.2.1/jna-platform-4.2.1.jar:/home/mondego/.m2/repository/com/thoughtworks/xstream/xstream/1.4.9/xstream-1.4.9.jar:/home/mondego/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/home/mondego/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/home/mondego/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar:/home/mondego/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/home/mondego/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar:/home/mondego/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar:/home/mondego/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/mondego/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/mondego/.m2/repository/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar:/home/mondego/.m2/repository/org/mockito/mockito-core/2.20.0/mockito-core-2.20.0.jar:/home/mondego/.m2/repository/net/bytebuddy/byte-buddy/1.8.13/byte-buddy-1.8.13.jar:/home/mondego/.m2/repository/net/bytebuddy/byte-buddy-agent/1.8.13/byte-buddy-agent-1.8.13.jar:/home/mondego/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/mondego/.m2/repository/org/powermock/powermock-module-junit4/1.6.4/powermock-module-junit4-1.6.4.jar:/home/mondego/.m2/repository/org/powermock/powermock-module-junit4-common/1.6.4/powermock-module-junit4-common-1.6.4.jar:/home/mondego/.m2/repository/org/powermock/powermock-core/1.6.4/powermock-core-1.6.4.jar:/home/mondego/.m2/repository/org/javassist/javassist/3.20.0-GA/javassist-3.20.0-GA.jar:/home/mondego/.m2/repository/org/powermock/powermock-reflect/1.6.4/powermock-reflect-1.6.4.jar:/home/mondego/.m2/repository/org/powermock/powermock-api-mockito/1.6.4/powermock-api-mockito-1.6.4.jar:/home/mondego/.m2/repository/org/powermock/powermock-api-support/1.6.4/powermock-api-support-1.6.4.jar:/home/mondego/.m2/repository/net/openhft/affinity/3.1.11/affinity-3.1.11.jar:/home/mondego/.m2/repository/com/google/guava/guava-testlib/19.0/guava-testlib-19.0.jar:/home/mondego/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/home/mondego/.m2/repository/com/google/errorprone/error_prone_annotations/2.0.2/error_prone_annotations-2.0.2.jar:/home/mondego/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar:/home/mondego/.m2/repository/net/openhft/stage-compiler/1.11/stage-compiler-1.11.jar:/home/mondego/.m2/repository/net/openhft/spoon-core/4.4.1/spoon-core-4.4.1.jar:/home/mondego/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar:/home/mondego/.m2/repository/com/martiansoftware/jsap/2.1/jsap-2.1.jar:/home/mondego/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/mondego/.m2/repository/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar:/home/mondego/.m2/repository/it/unimi/dsi/fastutil/7.0.6/fastutil-7.0.6.jar:/home/mondego/.m2/repository/net/openhft/zero-allocation-hashing/0.8/zero-allocation-hashing-0.8.jar:/home/mondego/.m2/repository/com/samskivert/samskivert/1.9/samskivert-1.9.jar:/home/mondego/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/home/mondego/.m2/repository/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/deflaker-test-listener-1.5-SNAPSHOT.jar:/home/mondego/.m2/repository/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/deflaker-agent-bootpath-1.5-SNAPSHOT.jar:/home/mondego/.m2/repository/com/amazonaws/aws-java-sdk-s3/1.11.161/aws-java-sdk-s3-1.11.161.jar:/home/mondego/.m2/repository/com/amazonaws/aws-java-sdk-kms/1.11.161/aws-java-sdk-kms-1.11.161.jar:/home/mondego/.m2/repository/com/amazonaws/aws-java-sdk-core/1.11.161/aws-java-sdk-core-1.11.161.jar:/home/mondego/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/mondego/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar:/home/mondego/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar:/home/mondego/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/home/mondego/.m2/repository/software/amazon/ion/ion-java/1.0.2/ion-java-1.0.2.jar:/home/mondego/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.6.7.1/jackson-databind-2.6.7.1.jar:/home/mondego/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.6.0/jackson-annotations-2.6.0.jar:/home/mondego/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.6.7/jackson-core-2.6.7.jar:/home/mondego/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.6.7/jackson-dataformat-cbor-2.6.7.jar:/home/mondego/.m2/repository/joda-time/joda-time/2.10/joda-time-2.10.jar:/home/mondego/.m2/repository/com/amazonaws/jmespath-java/1.11.161/jmespath-java-1.11.161.jar:
+Other process started, yo
+1
+2
+3
+4
+exit hookfalse
+Executing pre-shutdown action
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 61.597 sec - in net.openhft.chronicle.map.ExitHookTest
+Running net.openhft.chronicle.map.ReplicatedChronicleMapTest
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.554 sec - in net.openhft.chronicle.map.ReplicatedChronicleMapTest
+Running net.openhft.chronicle.map.WriteThroughputTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0 sec - in net.openhft.chronicle.map.WriteThroughputTest
+Running net.openhft.chronicle.map.TrickyContextCasesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.02 sec - in net.openhft.chronicle.map.TrickyContextCasesTest
+Running net.openhft.chronicle.map.KeySizesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.openhft.chronicle.map.KeySizesTest
+Running net.openhft.chronicle.map.BitUnitTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.openhft.chronicle.map.BitUnitTest
+Running net.openhft.chronicle.map.ChronicleMap3_12IntegerKeyCompatibilityTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in net.openhft.chronicle.map.ChronicleMap3_12IntegerKeyCompatibilityTest
+Running net.openhft.chronicle.map.WarnOnWindowsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec - in net.openhft.chronicle.map.WarnOnWindowsTest
+Running net.openhft.chronicle.map.ValueInterfaceWithEnumTest
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.592 sec - in net.openhft.chronicle.map.ValueInterfaceWithEnumTest
+Running net.openhft.chronicle.map.MissSizedMapsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.201 sec - in net.openhft.chronicle.map.MissSizedMapsTest
+Running net.openhft.chronicle.map.DefaultValueTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in net.openhft.chronicle.map.DefaultValueTest
+Running net.openhft.chronicle.map.MarkTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0 sec - in net.openhft.chronicle.map.MarkTest
+Running net.openhft.chronicle.map.BooleanValuesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.openhft.chronicle.map.BooleanValuesTest
+Running net.openhft.chronicle.map.Issue63Test
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec - in net.openhft.chronicle.map.Issue63Test
+Running net.openhft.chronicle.map.BuildVersionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.openhft.chronicle.map.BuildVersionTest
+Running net.openhft.chronicle.map.SimplePersistedMapOverflowTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.openhft.chronicle.map.SimplePersistedMapOverflowTest
+Running net.openhft.chronicle.map.DatasetTrackerIssue61Test
+{}
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.openhft.chronicle.map.DatasetTrackerIssue61Test
+Running net.openhft.chronicle.map.DataKeyValueTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.openhft.chronicle.map.DataKeyValueTest
+Running net.openhft.chronicle.map.MemoryLeaksTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 8, Time elapsed: 0.04 sec - in net.openhft.chronicle.map.MemoryLeaksTest
+Running net.openhft.chronicle.map.ChronicleMapNameTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in net.openhft.chronicle.map.ChronicleMapNameTest
+Running net.openhft.chronicle.map.EntryCountMapTest
+testSmall seeds.segs: 8 min: 250 was 569 [73, 63, 72, 73, 75, 78, 74, 61] sum: 569
+..................................................................segs: 8 min: 250 was 529 [58, 61, 71, 57, 59, 76, 77, 70] sum: 529
+......................segs: 8 min: 250 was 540 [74, 65, 61, 67, 79, 70, 68, 56] sum: 540
+..................... Score: 1.59
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 3.89 sec - in net.openhft.chronicle.map.EntryCountMapTest
+Running net.openhft.chronicle.map.Issue110Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.453 sec - in net.openhft.chronicle.map.Issue110Test
+Running net.openhft.chronicle.map.NestedContextsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.308 sec - in net.openhft.chronicle.map.NestedContextsTest
+Running net.openhft.chronicle.map.NoUpperBoundChunksPerEntryTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.openhft.chronicle.map.NoUpperBoundChunksPerEntryTest
+Running net.openhft.chronicle.map.Issue43Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.openhft.chronicle.map.Issue43Test
+Running net.openhft.chronicle.map.Issue60Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.openhft.chronicle.map.Issue60Test
+Running net.openhft.chronicle.map.NegativeIntegerKeyTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.openhft.chronicle.map.NegativeIntegerKeyTest
+Running net.openhft.chronicle.map.ArrayTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in net.openhft.chronicle.map.ArrayTest
+Running net.openhft.chronicle.map.RecoverTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.009 sec - in net.openhft.chronicle.map.RecoverTest
+Running net.openhft.chronicle.set.Issue3Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in net.openhft.chronicle.set.Issue3Test
+Running net.openhft.chronicle.set.ChronicleSetBuilderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.openhft.chronicle.set.ChronicleSetBuilderTest
+Running net.openhft.chronicle.set.Issue24ChronicleSetTest
+pool-13-thread-1 Start. Command = 0
+pool-13-thread-2 Start. Command = 0
+pool-13-thread-3 Start. Command = 0
+pool-13-thread-4 Start. Command = 0
+pool-13-thread-5 Start. Command = 8
+#############################5
+#############################2
+#############################7
+#############################5
+#############################1
+#############################2
+#############################7
+#############################1
+#############################3
+#############################2
+#############################7
+#############################0
+#############################2
+#############################9
+#############################3
+#############################2
+#############################7
+#############################2
+#############################6
+#############################9
+#############################7
+#############################0
+#############################7
+#############################1
+#############################5
+#############################3
+#############################9
+#############################6
+#############################2
+#############################1
+#############################9
+#############################0
+#############################3
+#############################7
+pool-13-thread-3 End.
+#############################6
+#############################1
+#############################0
+#############################3
+pool-13-thread-3 Start. Command = 8
+#############################6
+#############################9
+#############################0
+#############################1
+#############################3
+#############################4
+#############################6
+#############################0
+#############################5
+pool-13-thread-1 End.
+#############################2
+#############################5
+pool-13-thread-1 Start. Command = 10
+#############################8
+#############################5
+#############################7
+#############################2
+#############################9
+#############################2
+#############################8
+#############################1
+#############################7
+#############################8
+#############################7
+#############################3
+#############################9
+#############################4
+#############################9
+#############################1
+#############################6
+#############################1
+#############################3
+#############################0
+pool-13-thread-5 End.
+#############################3
+pool-13-thread-5 Start. Command = 9
+pool-13-thread-2 End.
+pool-13-thread-2 Start. Command = 10
+#############################4
+#############################6
+pool-13-thread-4 End.
+pool-13-thread-4 Start. Command = 9
+#############################5
+#############################2
+#############################7
+#############################9
+#############################1
+#############################5
+#############################3
+#############################4
+#############################2
+#############################0
+#############################7
+#############################9
+#############################1
+#############################3
+#############################4
+#############################6
+#############################5
+#############################5
+#############################5
+#############################7
+#############################2
+#############################2
+#############################7
+#############################7
+#############################3
+#############################5
+#############################3
+#############################3
+#############################2
+#############################4
+#############################4
+#############################4
+#############################6
+#############################6
+#############################7
+#############################6
+#############################0
+#############################0
+#############################0
+#############################3
+pool-13-thread-1 End.
+#############################4
+#############################6
+#############################0
+pool-13-thread-3 End.
+#############################5
+#############################5
+#############################2
+#############################5
+#############################7
+#############################2
+#############################7
+#############################9
+#############################2
+#############################7
+#############################1
+#############################9
+#############################3
+#############################9
+#############################4
+#############################1
+#############################6
+#############################3
+#############################0
+#############################1
+#############################4
+#############################3
+#############################6
+#############################4
+#############################0
+pool-13-thread-5 End.
+#############################6
+#############################5
+#############################0
+pool-13-thread-2 End.
+#############################2
+#############################8
+#############################7
+#############################9
+#############################1
+#############################3
+#############################4
+#############################6
+#############################0
+pool-13-thread-4 End.
+Finished all threads
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in net.openhft.chronicle.set.Issue24ChronicleSetTest
+Running net.openhft.chronicle.set.SetEntryOperationsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.openhft.chronicle.set.SetEntryOperationsTest
+Running net.openhft.chronicle.hash.impl.util.CleanerUtilsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.openhft.chronicle.hash.impl.util.CleanerUtilsTest
+Running net.openhft.chronicle.hash.impl.util.ThrowablesTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.openhft.chronicle.hash.impl.util.ThrowablesTest
+Running net.openhft.chronicle.hash.serialization.impl.ByteBufferDataAccessTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.openhft.chronicle.hash.serialization.impl.ByteBufferDataAccessTest
+Running net.openhft.lang.values.DoubleArrayTest
+[ 1.0, 2.0, 3.0, 4.0, 5.0 ]
+[ 5.0, 6.0, 7.0, 8.0, 9.0 ]
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.003 sec - in net.openhft.lang.values.DoubleArrayTest
+Running net.openhft.lang.values.ArrayTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in net.openhft.lang.values.ArrayTest
+Running examples.portfolio.PortfolioValueTest
+Inserting batch 2/112 of 89285 records
+Inserting batch 1/112 of 89285 records
+Inserting batch 3/112 of 89285 records
+Inserting batch 4/112 of 89285 records
+Inserting batch 7/112 of 89285 records
+Inserting batch 6/112 of 89285 records
+Inserting batch 8/112 of 89285 records
+Inserting batch 10/112 of 89285 records
+Inserting batch 9/112 of 89285 records
+Inserting batch 5/112 of 89285 records
+Inserting batch 17/112 of 89285 records
+Inserting batch 11/112 of 89285 records
+Inserting batch 21/112 of 89285 records
+Inserting batch 15/112 of 89285 records
+Inserting batch 12/112 of 89285 records
+Inserting batch 19/112 of 89285 records
+Inserting batch 14/112 of 89285 records
+Inserting batch 22/112 of 89285 records
+Inserting batch 32/112 of 89285 records
+Inserting batch 36/112 of 89285 records
+Inserting batch 34/112 of 89285 records
+Inserting batch 18/112 of 89285 records
+Inserting batch 30/112 of 89285 records
+Inserting batch 16/112 of 89285 records
+Inserting batch 23/112 of 89285 records
+Inserting batch 28/112 of 89285 records
+Inserting batch 40/112 of 89285 records
+Inserting batch 38/112 of 89285 records
+Inserting batch 24/112 of 89285 records
+Inserting batch 33/112 of 89285 records
+Inserting batch 39/112 of 89285 records
+Inserting batch 42/112 of 89285 records
+Inserting batch 25/112 of 89285 records
+Inserting batch 41/112 of 89285 records
+Inserting batch 27/112 of 89285 records
+Inserting batch 26/112 of 89285 records
+Inserting batch 35/112 of 89285 records
+Inserting batch 13/112 of 89285 records
+Inserting batch 43/112 of 89285 records
+Inserting batch 29/112 of 89285 records
+Inserting batch 44/112 of 89285 records
+Inserting batch 20/112 of 89285 records
+Inserting batch 45/112 of 89285 records
+Inserting batch 37/112 of 89285 records
+Inserting batch 31/112 of 89285 records
+Inserting batch 46/112 of 89285 records
+Inserting batch 47/112 of 89285 records
+Inserting batch 48/112 of 89285 records
+Inserting batch 49/112 of 89285 records
+Inserting batch 50/112 of 89285 records
+Inserting batch 51/112 of 89285 records
+Inserting batch 52/112 of 89285 records
+Inserting batch 53/112 of 89285 records
+Inserting batch 54/112 of 89285 records
+Inserting batch 55/112 of 89285 records
+Inserting batch 56/112 of 89285 records
+Inserting batch 57/112 of 89285 records
+Inserting batch 58/112 of 89285 records
+Inserting batch 59/112 of 89285 records
+Inserting batch 60/112 of 89285 records
+Inserting batch 61/112 of 89285 records
+Inserting batch 62/112 of 89285 records
+Inserting batch 63/112 of 89285 records
+Inserting batch 65/112 of 89285 records
+Inserting batch 66/112 of 89285 records
+Inserting batch 67/112 of 89285 records
+Inserting batch 68/112 of 89285 records
+Inserting batch 70/112 of 89285 records
+Inserting batch 71/112 of 89285 records
+Inserting batch 73/112 of 89285 records
+Inserting batch 72/112 of 89285 records
+Inserting batch 69/112 of 89285 records
+Inserting batch 74/112 of 89285 records
+Inserting batch 64/112 of 89285 records
+Inserting batch 75/112 of 89285 records
+Inserting batch 76/112 of 89285 records
+Inserting batch 77/112 of 89285 records
+Inserting batch 78/112 of 89285 records
+Inserting batch 79/112 of 89285 records
+Inserting batch 80/112 of 89285 records
+Inserting batch 81/112 of 89285 records
+Inserting batch 82/112 of 89285 records
+Inserting batch 83/112 of 89285 records
+Inserting batch 84/112 of 89285 records
+Inserting batch 85/112 of 89285 records
+Inserting batch 86/112 of 89285 records
+Inserting batch 87/112 of 89285 records
+Inserting batch 88/112 of 89285 records
+Inserting batch 89/112 of 89285 records
+Inserting batch 90/112 of 89285 records
+Inserting batch 91/112 of 89285 records
+Inserting batch 92/112 of 89285 records
+Inserting batch 93/112 of 89285 records
+Inserting batch 94/112 of 89285 records
+Inserting batch 95/112 of 89285 records
+Inserting batch 96/112 of 89285 records
+Inserting batch 97/112 of 89285 records
+Inserting batch 98/112 of 89285 records
+Inserting batch 99/112 of 89285 records
+Inserting batch 100/112 of 89285 records
+Inserting batch 101/112 of 89285 records
+Inserting batch 103/112 of 89285 records
+Inserting batch 102/112 of 89285 records
+Inserting batch 104/112 of 89285 records
+Inserting batch 105/112 of 89285 records
+Inserting batch 107/112 of 89285 records
+Inserting batch 108/112 of 89285 records
+Inserting batch 106/112 of 89285 records
+Inserting batch 109/112 of 89285 records
+Inserting batch 110/112 of 89285 records
+Inserting batch 112/112 of 89285 records
+Inserting batch 111/112 of 89285 records
+Data inserted in 647 ms
+Total Portfolio Value: 1.9687188E7 for 9999920, computed in 175 ms, using Iterator
+Total Portfolio Value: 1.9687188E7 for 9999920, computed in 104 ms, using Iterator
+Total Portfolio Value: 1.9687188E7 for 9999920, computed in 82 ms, using Iterator
+Total Portfolio Value: 1.9687188E7 for 9999920, computed in 73 ms, using Iterator
+Total Portfolio Value: 1.9687188E7 for 9999920, computed in 87 ms, using Iterator
+Total Portfolio Value: 1.9687188E7 for 9999920, computed in 95 ms, using Iterator
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.854 sec <<< FAILURE! - in examples.portfolio.PortfolioValueTest
+test(examples.portfolio.PortfolioValueTest)  Time elapsed: 1.853 sec  <<< ERROR!
+java.lang.OutOfMemoryError: unable to create new native thread
+	at java.lang.Thread.start0(Native Method)
+	at java.lang.Thread.start(Thread.java:717)
+	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:957)
+	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1367)
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134)
+	at examples.portfolio.PortfolioValueTest.computeValueUsingIterator(PortfolioValueTest.java:54)
+	at examples.portfolio.PortfolioValueTest.computeValue(PortfolioValueTest.java:39)
+	at examples.portfolio.PortfolioValueTest.test(PortfolioValueTest.java:113)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.deflaker.surefire.ReExecJunit4Provider.execute(ReExecJunit4Provider.java:517)
+	at org.deflaker.surefire.ReExecJunit4Provider.executeWithRerun(ReExecJunit4Provider.java:336)
+	at org.deflaker.surefire.ReExecJunit4Provider.executeTestSet(ReExecJunit4Provider.java:300)
+	at org.deflaker.surefire.ReExecJunit4Provider.invoke(ReExecJunit4Provider.java:223)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+
+Running eg.OffHeapByteArrayExampleTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.8 sec - in eg.OffHeapByteArrayExampleTest
+Running eg.AverageValueSizeTest
+7.0
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in eg.AverageValueSizeTest
+Running eg.WordCountTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.897 sec - in eg.WordCountTest
+
+Results :
+
+Tests in error: 
+  PortfolioValueTest.test:113->computeValue:39->computeValueUsingIterator:54 » OutOfMemory
+
+Tests run: 1027, Failures: 0, Errors: 1, Skipped: 23
+
+[ERROR] There are test failures.
+
+Please refer to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/surefire-reports for the individual test results.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ chronicle-map ---
+[WARNING] The parameter forkMode is deprecated since version 2.14. Use forkCount and reuseForks instead.
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ chronicle-map ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] OpenHFT/Chronicle-Mapchronicle-map
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/.diffCache
+[WARNING] FLAKY>> Test examples.portfolio.PortfolioValueTest.test failed, but did not appear to run any changed code
+[WARNING] 
+There are test failures!
+
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.5.0:bundle (default-bundle) @ chronicle-map ---
+[INFO] 
+[INFO] >>> maven-source-plugin:3.0.1:jar (attach-sources) > generate-sources @ chronicle-map >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:3.0.1:jar (attach-sources) < generate-sources @ chronicle-map <<<
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar (attach-sources) @ chronicle-map ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/Chronicle-Map/target/chronicle-map-3.17.4-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.0.1:jar (attach-javadocs) @ chronicle-map ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:15 min
+[INFO] Finished at: 2020-04-09T18:33:51-07:00
+[INFO] Final Memory: 63M/2460M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-javadoc-plugin:3.0.1:jar (attach-javadocs) on project chronicle-map: Unable to parse configuration of mojo org.apache.maven.plugins:maven-javadoc-plugin:3.0.1:jar for parameter additionalOptions: Cannot assign configuration entry 'additionalOptions' with value '-Xdoclint:none' of type java.lang.String to property of type java.lang.String[] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginConfigurationException

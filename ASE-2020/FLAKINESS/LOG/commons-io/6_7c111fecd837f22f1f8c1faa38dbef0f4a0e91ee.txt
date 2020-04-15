@@ -1,0 +1,143 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-io
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-io
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-io
+ReuseForks is false, but should be OK
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons IO 2.7-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-io ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-io ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-io ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-io ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io
+[INFO] Storing buildNumber: 7c111fecd837f22f1f8c1faa38dbef0f4a0e91ee at timestamp: 1586495575121
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-io ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-io ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 149 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/main/java/org/apache/commons/io/IOExceptionList.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/main/java/org/apache/commons/io/IOExceptionList.java uses unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/main/java/org/apache/commons/io/IOExceptionList.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-io ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.18:check (checkAPIcompatibility) @ commons-io ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-io ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 24 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-io ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 7c111fecd837f22f1f8c1faa38dbef0f4a0e91ee against: 76672675c2086a3a27eeba56c2b9643e5c544c7f
+org/apache/commons/io/file/Counters$BigIntegerPathCounters Structural diff: []
+org/apache/commons/io/file/PathUtils : [Edit [start=21, end=21], Edit [start=27, end=29], Edit [start=45, end=46], Edit [start=65, end=65], Edit [start=67, end=77], Edit [start=88, end=88], Edit [start=92, end=92], Edit [start=95, end=96], Edit [start=99, end=98], Edit [start=144, end=143], Edit [start=145, end=146], Edit [start=152, end=152], Edit [start=159, end=193]]
+	 Methods to watch:[]
+org/apache/commons/io/file/CountingPathVisitorTest Structural diff: []
+org/apache/commons/io/file/SimplePathVisitor Structural diff: []
+org/apache/commons/io/file/DeletingPathVisitorTest Structural diff: []
+org/apache/commons/io/file/PathUtilsDeleteTest : [Edit [start=20, end=21], Edit [start=28, end=28], Edit [start=30, end=29], Edit [start=34, end=34], Edit [start=38, end=38], Edit [start=43, end=44], Edit [start=50, end=50], Edit [start=61, end=62], Edit [start=64, end=64], Edit [start=75, end=76], Edit [start=78, end=78], Edit [start=86, end=86], Edit [start=88, end=88], Edit [start=91, end=92], Edit [start=100, end=100], Edit [start=102, end=102]]
+	 Methods to watch:[]
+org/apache/commons/io/file/Counters$BigIntegerCounter Structural diff: []
+org/apache/commons/io/file/Counters$LongPathCounters Structural diff: []
+org/apache/commons/io/file/CountingPathVisitor Structural diff: []
+org/apache/commons/io/file/Counters$Counter Structural diff: []
+org/apache/commons/io/file/Counters$PathCounters Structural diff: []
+org/apache/commons/io/file/PathUtilsDeleteDirectoryTest : [Edit [start=20, end=21], Edit [start=29, end=28], Edit [start=33, end=33], Edit [start=37, end=37], Edit [start=42, end=43], Edit [start=49, end=49], Edit [start=58, end=59], Edit [start=61, end=61], Edit [start=70, end=71], Edit [start=73, end=73], Edit [start=82, end=83], Edit [start=85, end=85], Edit [start=93, end=93], Edit [start=95, end=95]]
+	 Methods to watch:[]
+org/apache/commons/io/file/CleaningPathVisitor Structural diff: []
+org/apache/commons/io/file/Counters$AbstractPathCounters Structural diff: []
+org/apache/commons/io/file/PathUtilsIsEmptyTest : [Edit [start=25, end=24], Edit [start=45, end=45], Edit [start=47, end=47], Edit [start=49, end=49], Edit [start=56, end=56], Edit [start=58, end=58], Edit [start=60, end=60]]
+	 Methods to watch:[]
+org/apache/commons/io/file/Counters$LongCounter Structural diff: []
+org/apache/commons/io/file/Counters Structural diff: []
+org/apache/commons/io/file/CleaningPathVisitorTest Structural diff: []
+org/apache/commons/io/file/CountersTest Structural diff: []
+org/apache/commons/io/file/TestArguments Structural diff: []
+org/apache/commons/io/file/PathUtilsDeleteFileTest : [Edit [start=20, end=21], Edit [start=29, end=29], Edit [start=36, end=36], Edit [start=40, end=40], Edit [start=45, end=46], Edit [start=52, end=52], Edit [start=63, end=64], Edit [start=66, end=66], Edit [start=77, end=78], Edit [start=80, end=80], Edit [start=88, end=88], Edit [start=90, end=90], Edit [start=93, end=94], Edit [start=102, end=102], Edit [start=104, end=104]]
+	 Methods to watch:[]
+org/apache/commons/io/file/CounterAssertions Structural diff: []
+org/apache/commons/io/file/PathUtilsCountingTest : [Edit [start=20, end=21], Edit [start=27, end=27], Edit [start=35, end=34], Edit [start=40, end=40], Edit [start=42, end=43], Edit [start=45, end=45], Edit [start=54, end=54], Edit [start=56, end=56], Edit [start=64, end=64], Edit [start=66, end=66], Edit [start=74, end=74], Edit [start=76, end=76]]
+	 Methods to watch:[]
+org/apache/commons/io/file/DeletingPathVisitor Structural diff: []
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-io ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 149 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/test/java/org/apache/commons/io/LineIteratorTestCase.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/test/java/org/apache/commons/io/LineIteratorTestCase.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-io ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-io ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-io ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons IOcommons-io
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ commons-io ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/commons-io-2.7-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.8.2:attach-descriptor (attach-descriptor) @ commons-io ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:test-jar (default) @ commons-io ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/commons-io-2.7-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.1.0:jar-no-fork (create-source-jar) @ commons-io ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/commons-io-2.7-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.1.0:test-jar-no-fork (create-source-jar) @ commons-io ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/commons-io-2.7-SNAPSHOT-test-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 13.275 s
+[INFO] Finished at: 2020-04-09T22:13:05-07:00
+[INFO] Final Memory: 57M/2813M
+[INFO] ------------------------------------------------------------------------

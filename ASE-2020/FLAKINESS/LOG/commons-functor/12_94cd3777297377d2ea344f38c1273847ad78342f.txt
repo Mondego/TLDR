@@ -1,0 +1,697 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor-build-tools:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ org.apache.commons:commons-functor-parent:1.0-SNAPSHOT, /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/pom.xml, line 152, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor-api:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ org.apache.commons:commons-functor-parent:1.0-SNAPSHOT, /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/pom.xml, line 152, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ org.apache.commons:commons-functor-parent:1.0-SNAPSHOT, /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/pom.xml, line 152, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-functor-parent:pom:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ line 152, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor-parent
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor-build-tools
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor-api
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-functor
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache Commons Functor
+[INFO] Commons Functor Build Tools
+[INFO] Commons Functor API
+[INFO] Commons Functor Core
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Functor 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor-parent ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor-parent ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494475599
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor-parent ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 94cd3777297377d2ea344f38c1273847ad78342f against: 0e350c99f84e784936ca574079c04b56ce16227b
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor-parent ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Functorcommons-functor-parent
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor-parent >>>
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-test-listener/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 1.9 KB/sec)
+Downloading: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml
+2/2 KB            Downloaded: https://oss.sonatype.org/content/repositories/snapshots/org/deflaker/deflaker-agent-bootpath/1.5-SNAPSHOT/maven-metadata.xml (2 KB at 22.4 KB/sec)
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor-parent <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor-parent ---
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor-parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor Build Tools 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-build-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor-build-tools ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494478930
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-functor-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons-functor-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-functor-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons-functor-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-functor-build-tools ---
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor-build-tools ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functor Build Toolscommons-functor-build-tools
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ commons-functor-build-tools ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/target/commons-functor-build-tools-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor-build-tools >>>
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-build-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor-build-tools <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor-build-tools ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/build-tools/target/commons-functor-build-tools-1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor-build-tools ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor API 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-api ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor-api ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor-api ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494479813
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-functor-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons-functor-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor-api ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-functor-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor-api ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons-functor-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-functor-api ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-functor-api ---
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor-api ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functor APIcommons-functor-api
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ commons-functor-api ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/commons-functor-api-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor-api >>>
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor-api ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor-api <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor-api ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/api/target/commons-functor-api-1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor-api ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Commons Functor Core 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.4:process (default) @ commons-functor ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-functor ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core
+[INFO] Storing buildNumber: ?????? at timestamp: 1586494480501
+[INFO] Executing: /bin/sh -c cd /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core && svn --non-interactive info
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-functor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons-functor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 178 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.3.7:manifest (bundle-manifest) @ commons-functor ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-functor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-functor ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons-functor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 203 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/test-classes
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/src/test/java/org/apache/commons/functor/example/map/LazyMap.java: Some input files use unchecked or unsafe operations.
+[WARNING] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/src/test/java/org/apache/commons/functor/example/map/LazyMap.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-functor ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.functor.example.kata.four.TestWeather
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec - in org.apache.commons.functor.example.kata.four.TestWeather
+Running org.apache.commons.functor.example.kata.four.TestSoccer
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.functor.example.kata.four.TestSoccer
+Running org.apache.commons.functor.example.kata.two.TestBinaryChop
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec - in org.apache.commons.functor.example.kata.two.TestBinaryChop
+Running org.apache.commons.functor.example.map.TestAll
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.functor.example.map.TestAll
+Running org.apache.commons.functor.example.map.TestLazyMap
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.example.map.TestLazyMap
+Running org.apache.commons.functor.example.map.TestFixedSizeMap
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.example.map.TestFixedSizeMap
+Running org.apache.commons.functor.example.map.TestPredicatedMap
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.example.map.TestPredicatedMap
+Running org.apache.commons.functor.example.lines.TestAll
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.example.lines.TestAll
+Running org.apache.commons.functor.example.lines.TestLines
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.example.lines.TestLines
+Running org.apache.commons.functor.core.comparator.TestMin
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.functor.core.comparator.TestMin
+Running org.apache.commons.functor.core.comparator.TestIsLessThan
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.functor.core.comparator.TestIsLessThan
+Running org.apache.commons.functor.core.comparator.TestComparableComparator
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.comparator.TestComparableComparator
+Running org.apache.commons.functor.core.comparator.TestComparatorFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.comparator.TestComparatorFunction
+Running org.apache.commons.functor.core.comparator.TestIsWithinRange
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.comparator.TestIsWithinRange
+Running org.apache.commons.functor.core.comparator.TestMax
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.comparator.TestMax
+Running org.apache.commons.functor.core.comparator.TestIsGreaterThanOrEqual
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.comparator.TestIsGreaterThanOrEqual
+Running org.apache.commons.functor.core.comparator.TestIsNotEquivalent
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.comparator.TestIsNotEquivalent
+Running org.apache.commons.functor.core.comparator.TestIsGreaterThan
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsGreaterThan
+Running org.apache.commons.functor.core.comparator.TestIsEquivalent
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.comparator.TestIsEquivalent
+Running org.apache.commons.functor.core.comparator.TestIsLessThanOrEqual
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.comparator.TestIsLessThanOrEqual
+Running org.apache.commons.functor.core.TestNoOp
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestNoOp
+Running org.apache.commons.functor.core.TestLimit
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.TestLimit
+Running org.apache.commons.functor.core.composite.TestTransformedNullaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestTransformedNullaryProcedure
+Running org.apache.commons.functor.core.composite.TestBinaryNot
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestBinaryNot
+Running org.apache.commons.functor.core.composite.TestWhileDoNullaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestWhileDoNullaryProcedure
+Running org.apache.commons.functor.core.composite.TestNullaryOr
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.functor.core.composite.TestNullaryOr
+Running org.apache.commons.functor.core.composite.TestTransposedPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestTransposedPredicate
+Running org.apache.commons.functor.core.composite.TestCompositeFunction
+CompositeFunction<Constant<x> of Constant<y> of Constant<z>>
+1752658058
+CompositeFunction<Constant<x>>
+-2109509044
+CompositeFunction<Constant<x> of Constant<y> of Constant<z> of Constant<y> of Constant<z>>
+-885564182
+CompositeFunction<Constant<x> of Constant<y> of Constant<z>>
+1752658058
+CompositeFunction<Constant<x> of Constant<y> of Constant<z> of Constant<y> of Constant<z> of Constant<y> of Constant<z>>
+-13264150
+CompositeFunction<Constant<x> of Constant<y> of Constant<z> of Constant<y> of Constant<z>>
+-885564182
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestCompositeFunction
+Running org.apache.commons.functor.core.composite.TestBinarySequence
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestBinarySequence
+Running org.apache.commons.functor.core.composite.TestBinaryAnd
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestBinaryAnd
+Running org.apache.commons.functor.core.composite.TestConditionalPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestConditionalPredicate
+Running org.apache.commons.functor.core.composite.TestDoWhileNullaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestDoWhileNullaryProcedure
+Running org.apache.commons.functor.core.composite.TestConditionalNullaryPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalNullaryPredicate
+Running org.apache.commons.functor.core.composite.TestComposite
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestComposite
+Running org.apache.commons.functor.core.composite.TestConditionalBinaryPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalBinaryPredicate
+Running org.apache.commons.functor.core.composite.TestNot
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestNot
+Running org.apache.commons.functor.core.composite.TestConditionalBinaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestConditionalBinaryFunction
+Running org.apache.commons.functor.core.composite.TestTransposedFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestTransposedFunction
+Running org.apache.commons.functor.core.composite.TestConditionalProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalProcedure
+Running org.apache.commons.functor.core.composite.TestNullaryAnd
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestNullaryAnd
+Running org.apache.commons.functor.core.composite.TestCompositeBinaryPredicate
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestCompositeBinaryPredicate
+Running org.apache.commons.functor.core.composite.TestTransformedBinaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestTransformedBinaryProcedure
+Running org.apache.commons.functor.core.composite.TestBinaryOr
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestBinaryOr
+Running org.apache.commons.functor.core.composite.TestNullaryNot
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestNullaryNot
+Running org.apache.commons.functor.core.composite.TestConditionalNullaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalNullaryFunction
+Running org.apache.commons.functor.core.composite.TestSequence
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestSequence
+Running org.apache.commons.functor.core.composite.TestConditionalFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestConditionalFunction
+Running org.apache.commons.functor.core.composite.TestConditionalBinaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalBinaryProcedure
+Running org.apache.commons.functor.core.composite.TestAnd
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestAnd
+Running org.apache.commons.functor.core.composite.TestBinaryCompositeBinaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestBinaryCompositeBinaryFunction
+Running org.apache.commons.functor.core.composite.TestCompositeBinaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestCompositeBinaryFunction
+Running org.apache.commons.functor.core.composite.TestTransposedProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestTransposedProcedure
+Running org.apache.commons.functor.core.composite.TestTransformedBinaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestTransformedBinaryFunction
+Running org.apache.commons.functor.core.composite.TestTransformedNullaryFunction
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.composite.TestTransformedNullaryFunction
+Running org.apache.commons.functor.core.composite.TestNullarySequence
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestNullarySequence
+Running org.apache.commons.functor.core.composite.TestConditional
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.composite.TestConditional
+Running org.apache.commons.functor.core.composite.TestCompositeProcedure
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.composite.TestCompositeProcedure
+Running org.apache.commons.functor.core.composite.TestOr
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestOr
+Running org.apache.commons.functor.core.composite.TestAbstractLoopNullaryProcedure
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestAbstractLoopNullaryProcedure
+Running org.apache.commons.functor.core.composite.TestCompositePredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.composite.TestCompositePredicate
+Running org.apache.commons.functor.core.composite.TestConditionalNullaryProcedure
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.composite.TestConditionalNullaryProcedure
+Running org.apache.commons.functor.core.algorithm.TestDoUntil
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestDoUntil
+Running org.apache.commons.functor.core.algorithm.TestUntilDo
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestUntilDo
+Running org.apache.commons.functor.core.algorithm.TestRetainMatching
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.algorithm.TestRetainMatching
+Running org.apache.commons.functor.core.algorithm.TestWhileDo
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.algorithm.TestWhileDo
+Running org.apache.commons.functor.core.algorithm.TestRemoveMatching
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.algorithm.TestRemoveMatching
+Running org.apache.commons.functor.core.algorithm.TestFoldLeft
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestFoldLeft
+Running org.apache.commons.functor.core.algorithm.TestGeneratorContains
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.algorithm.TestGeneratorContains
+Running org.apache.commons.functor.core.algorithm.TestFoldRight
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.algorithm.TestFoldRight
+Running org.apache.commons.functor.core.algorithm.TestDoWhile
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestDoWhile
+Running org.apache.commons.functor.core.algorithm.TestRecursiveEvaluation
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestRecursiveEvaluation
+Running org.apache.commons.functor.core.algorithm.TestInPlaceTransform
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.algorithm.TestInPlaceTransform
+Running org.apache.commons.functor.core.algorithm.TestIndexOfInGenerator
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.algorithm.TestIndexOfInGenerator
+Running org.apache.commons.functor.core.algorithm.TestFindWithinGenerator
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.algorithm.TestFindWithinGenerator
+Running org.apache.commons.functor.core.collection.TestIsEmpty
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.collection.TestIsEmpty
+Running org.apache.commons.functor.core.collection.TestFilteredIterable
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.functor.core.collection.TestFilteredIterable
+Running org.apache.commons.functor.core.collection.TestFilteredIterator
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.functor.core.collection.TestFilteredIterator
+Running org.apache.commons.functor.core.collection.TestIsElementOf
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.collection.TestIsElementOf
+Running org.apache.commons.functor.core.collection.TestSize
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.collection.TestSize
+Running org.apache.commons.functor.core.collection.TestTransformedIterator
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.core.collection.TestTransformedIterator
+Running org.apache.commons.functor.core.TestOffset
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestOffset
+Running org.apache.commons.functor.core.TestConstant
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestConstant
+Running org.apache.commons.functor.core.TestIsNotSame
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNotSame
+Running org.apache.commons.functor.core.TestIsNotEqual
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.TestIsNotEqual
+Running org.apache.commons.functor.core.TestIsEqual
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsEqual
+Running org.apache.commons.functor.core.TestRightIdentity
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestRightIdentity
+Running org.apache.commons.functor.core.TestIsInstance
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.core.TestIsInstance
+Running org.apache.commons.functor.core.TestIsSame
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsSame
+Running org.apache.commons.functor.core.TestIsNull
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNull
+Running org.apache.commons.functor.core.TestLeftIdentity
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestLeftIdentity
+Running org.apache.commons.functor.core.TestIdentity
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.core.TestIdentity
+Running org.apache.commons.functor.core.TestIsNotNull
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.core.TestIsNotNull
+Running org.apache.commons.functor.adapter.TestLeftBoundPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestLeftBoundPredicate
+Running org.apache.commons.functor.adapter.TestFunctionProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestFunctionProcedure
+Running org.apache.commons.functor.adapter.TestProcedureProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestProcedureProcedure
+Running org.apache.commons.functor.adapter.TestBinaryFunctionFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryFunctionFunction
+Running org.apache.commons.functor.adapter.TestIgnoreRightProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestIgnoreRightProcedure
+Running org.apache.commons.functor.adapter.TestBinaryPredicateBinaryFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryPredicateBinaryFunction
+Running org.apache.commons.functor.adapter.TestPredicateFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestPredicateFunction
+Running org.apache.commons.functor.adapter.TestNullaryFunctionNullaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestNullaryFunctionNullaryProcedure
+Running org.apache.commons.functor.adapter.TestNullaryPredicateNullaryFunction
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestNullaryPredicateNullaryFunction
+Running org.apache.commons.functor.adapter.TestNullaryFunctionFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestNullaryFunctionFunction
+Running org.apache.commons.functor.adapter.TestProcedureFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestProcedureFunction
+Running org.apache.commons.functor.adapter.TestIgnoreLeftProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestIgnoreLeftProcedure
+Running org.apache.commons.functor.adapter.TestBinaryProcedureBinaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestBinaryProcedureBinaryFunction
+Running org.apache.commons.functor.adapter.TestFunctionPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestFunctionPredicate
+Running org.apache.commons.functor.adapter.TestBinaryPredicatePredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestBinaryPredicatePredicate
+Running org.apache.commons.functor.adapter.TestRightBoundFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestRightBoundFunction
+Running org.apache.commons.functor.adapter.TestIgnoreRightPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestIgnoreRightPredicate
+Running org.apache.commons.functor.adapter.TestNullaryProcedureNullaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestNullaryProcedureNullaryFunction
+Running org.apache.commons.functor.adapter.TestFullyBoundNullaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestFullyBoundNullaryFunction
+Running org.apache.commons.functor.adapter.TestFullyBoundNullaryPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestFullyBoundNullaryPredicate
+Running org.apache.commons.functor.adapter.TestRightBoundPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestRightBoundPredicate
+Running org.apache.commons.functor.adapter.TestBoundNullaryFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBoundNullaryFunction
+Running org.apache.commons.functor.adapter.TestIgnoreRightFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestIgnoreRightFunction
+Running org.apache.commons.functor.adapter.TestNullaryFunctionNullaryPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestNullaryFunctionNullaryPredicate
+Running org.apache.commons.functor.adapter.TestIgnoreLeftFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.adapter.TestIgnoreLeftFunction
+Running org.apache.commons.functor.adapter.TestBinaryFunctionBinaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryFunctionBinaryProcedure
+Running org.apache.commons.functor.adapter.TestBinaryProcedureProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryProcedureProcedure
+Running org.apache.commons.functor.adapter.TestFullyBoundNullaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestFullyBoundNullaryProcedure
+Running org.apache.commons.functor.adapter.TestBoundNullaryProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestBoundNullaryProcedure
+Running org.apache.commons.functor.adapter.TestNullaryPredicatePredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.adapter.TestNullaryPredicatePredicate
+Running org.apache.commons.functor.adapter.TestRightBoundProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestRightBoundProcedure
+Running org.apache.commons.functor.adapter.TestLeftBoundProcedure
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestLeftBoundProcedure
+Running org.apache.commons.functor.adapter.TestBinaryFunctionBinaryPredicate
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBinaryFunctionBinaryPredicate
+Running org.apache.commons.functor.adapter.TestLeftBoundFunction
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestLeftBoundFunction
+Running org.apache.commons.functor.adapter.TestBoundNullaryPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestBoundNullaryPredicate
+Running org.apache.commons.functor.adapter.TestIgnoreLeftPredicate
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.adapter.TestIgnoreLeftPredicate
+Running org.apache.commons.functor.generator.loop.TestTransformedGenerator
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.loop.TestTransformedGenerator
+Running org.apache.commons.functor.generator.loop.TestLoopGenerator
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.loop.TestLoopGenerator
+Running org.apache.commons.functor.generator.loop.TestWhileGenerate
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.loop.TestWhileGenerate
+Running org.apache.commons.functor.generator.loop.TestGenerateUntil
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.loop.TestGenerateUntil
+Running org.apache.commons.functor.generator.loop.TestIteratorToGeneratorAdapter
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.loop.TestIteratorToGeneratorAdapter
+Running org.apache.commons.functor.generator.loop.TestGenerateWhile
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.loop.TestGenerateWhile
+Running org.apache.commons.functor.generator.loop.TestUntilGenerate
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.generator.loop.TestUntilGenerate
+Running org.apache.commons.functor.generator.util.TestEachElement
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.generator.util.TestEachElement
+Running org.apache.commons.functor.generator.TestBaseGenerator
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.generator.TestBaseGenerator
+Running org.apache.commons.functor.generator.TestFilteredGenerator
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.generator.TestFilteredGenerator
+Running org.apache.commons.functor.aggregator.ArrayListBackedAggregatorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.aggregator.ArrayListBackedAggregatorTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMedianValueAggregatorFunctionTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleMedianValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.functions.DoubleMaxAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleSumAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMeanValueAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntMeanValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoublePercentileAggregatorFunctionTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.functor.aggregator.functions.DoublePercentileAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntPercentileAggregatorFunctionTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntPercentileAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMaxAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntMaxAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntSumAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntSumAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntCountAggregatorBinaryFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntCountAggregatorBinaryFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMaxAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.aggregator.functions.IntMaxAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntSumAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntSumAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.DoubleMeanValueAggregatorFunctionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.DoubleMeanValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.functions.IntMedianValueAggregatorFunctionTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.aggregator.functions.IntMedianValueAggregatorFunctionTest
+Running org.apache.commons.functor.aggregator.AbstractNoStoreAggregatorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.functor.aggregator.AbstractNoStoreAggregatorTest
+Running org.apache.commons.functor.aggregator.AbstractTimedAggregatorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.065 sec - in org.apache.commons.functor.aggregator.AbstractTimedAggregatorTest
+Running org.apache.commons.functor.aggregator.AbstractListBackedAggregatorTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.functor.aggregator.AbstractListBackedAggregatorTest
+Running org.apache.commons.functor.range.TestIntegerRange
+Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.functor.range.TestIntegerRange
+Running org.apache.commons.functor.range.TestDoubleRange
+Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.apache.commons.functor.range.TestDoubleRange
+Running org.apache.commons.functor.range.TestCharacterRange
+Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.functor.range.TestCharacterRange
+Running org.apache.commons.functor.range.TestEndpoint
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.functor.range.TestEndpoint
+Running org.apache.commons.functor.range.TestLongRange
+Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.functor.range.TestLongRange
+Running org.apache.commons.functor.range.TestFloatRange
+Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.functor.range.TestFloatRange
+Running org.apache.commons.functor.TestAlgorithms
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.functor.TestAlgorithms
+
+Results :
+
+Tests run: 1279, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-functor ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-functor ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Commons Functor Corecommons-functor
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/.diffCache
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ commons-functor ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:1.6:shade (default) @ commons-functor ---
+[INFO] Excluding org.apache.commons:commons-functor-api:jar:1.0-SNAPSHOT from the shaded jar.
+[INFO] Including org.apache.commons:commons-lang3:jar:3.1 in the shaded jar.
+[INFO] Minimizing jar org.apache.commons:commons-functor:jar:1.0-SNAPSHOT
+[INFO] Minimized 362 -> 238 (65%)
+[INFO] Minimized 478 -> 354 (74%)
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT.jar with /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-shaded.jar
+[INFO] Replacing /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-sources.jar with /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-shaded-sources.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:test-jar (default) @ commons-functor ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ commons-functor >>>
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-functor ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ commons-functor <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons-functor ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-functor/core/target/commons-functor-1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.2:attach-descriptor (attach-descriptor) @ commons-functor ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Apache Commons Functor ............................. SUCCESS [  4.400 s]
+[INFO] Commons Functor Build Tools ........................ SUCCESS [  0.936 s]
+[INFO] Commons Functor API ................................ SUCCESS [  0.680 s]
+[INFO] Commons Functor Core ............................... SUCCESS [ 10.978 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 18.799 s
+[INFO] Finished at: 2020-04-09T21:54:51-07:00
+[INFO] Final Memory: 61M/2360M
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,457 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-collections4
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-collections4
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-collections4
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Collections 4.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-collections4 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-collections4 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-collections4 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-collections4 ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections
+[INFO] Storing buildNumber: 37c770f29e5f5c90b2f00629847dae2891701354 at timestamp: 1586490712553
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-collections4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-collections4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 326 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/target/classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/src/main/java/org/apache/commons/collections4/MapUtils.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/src/main/java/org/apache/commons/collections4/MapUtils.java: Recompile with -Xlint:deprecation for details.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/src/main/java/org/apache/commons/collections4/SetUtils.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/src/main/java/org/apache/commons/collections4/SetUtils.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.1.0:manifest (bundle-manifest) @ commons-collections4 ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-collections4 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-collections4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 179 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-collections4 ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 37c770f29e5f5c90b2f00629847dae2891701354 against: 334941d06a1bd58aa0af8b16a8fd67cb5e4752ed
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-collections4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 217 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/src/test/java/org/apache/commons/collections4/MapUtilsTest.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/src/test/java/org/apache/commons/collections4/MapUtilsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/src/test/java/org/apache/commons/collections4/iterators/PeekingIteratorTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/src/test/java/org/apache/commons/collections4/iterators/PeekingIteratorTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-collections4 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.collections4.iterators.ObjectArrayListIterator2Test
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.apache.commons.collections4.iterators.ObjectArrayListIterator2Test
+Running org.apache.commons.collections4.iterators.PeekingIteratorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.collections4.iterators.PeekingIteratorTest
+Running org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest
+Running org.apache.commons.collections4.iterators.IteratorChainTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.collections4.iterators.IteratorChainTest
+Running org.apache.commons.collections4.iterators.ListIteratorWrapperTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec - in org.apache.commons.collections4.iterators.ListIteratorWrapperTest
+Running org.apache.commons.collections4.iterators.IteratorIterableTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.iterators.IteratorIterableTest
+Running org.apache.commons.collections4.iterators.PushbackIteratorTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.iterators.PushbackIteratorTest
+Running org.apache.commons.collections4.iterators.ListIteratorWrapper2Test
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.iterators.ListIteratorWrapper2Test
+Running org.apache.commons.collections4.iterators.IteratorEnumerationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec - in org.apache.commons.collections4.iterators.IteratorEnumerationTest
+Running org.apache.commons.collections4.iterators.BoundedIteratorTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.iterators.BoundedIteratorTest
+Running org.apache.commons.collections4.iterators.FilterListIteratorTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec - in org.apache.commons.collections4.iterators.FilterListIteratorTest
+Running org.apache.commons.collections4.iterators.UnmodifiableIteratorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.iterators.UnmodifiableIteratorTest
+Running org.apache.commons.collections4.iterators.FilterIteratorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.iterators.FilterIteratorTest
+Running org.apache.commons.collections4.iterators.NodeListIteratorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec - in org.apache.commons.collections4.iterators.NodeListIteratorTest
+Running org.apache.commons.collections4.iterators.SingletonListIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.iterators.SingletonListIteratorTest
+Running org.apache.commons.collections4.iterators.ArrayIterator2Test
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.iterators.ArrayIterator2Test
+Running org.apache.commons.collections4.iterators.ObjectGraphIteratorTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.iterators.ObjectGraphIteratorTest
+Running org.apache.commons.collections4.iterators.SingletonIterator2Test
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.iterators.SingletonIterator2Test
+Running org.apache.commons.collections4.iterators.ArrayListIteratorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.iterators.ArrayListIteratorTest
+Running org.apache.commons.collections4.iterators.ArrayIteratorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.iterators.ArrayIteratorTest
+Running org.apache.commons.collections4.iterators.SingletonIteratorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.iterators.SingletonIteratorTest
+Running org.apache.commons.collections4.iterators.LoopingListIteratorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.collections4.iterators.LoopingListIteratorTest
+Running org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest
+Running org.apache.commons.collections4.iterators.PermutationIteratorTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.iterators.PermutationIteratorTest
+Running org.apache.commons.collections4.iterators.ObjectArrayIteratorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.iterators.ObjectArrayIteratorTest
+Running org.apache.commons.collections4.iterators.SkippingIteratorTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.iterators.SkippingIteratorTest
+Running org.apache.commons.collections4.iterators.CollatingIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.iterators.CollatingIteratorTest
+Running org.apache.commons.collections4.iterators.LoopingIteratorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.iterators.LoopingIteratorTest
+Running org.apache.commons.collections4.iterators.ZippingIteratorTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.iterators.ZippingIteratorTest
+Running org.apache.commons.collections4.iterators.ArrayListIterator2Test
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.iterators.ArrayListIterator2Test
+Running org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest
+Running org.apache.commons.collections4.iterators.ReverseListIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.iterators.ReverseListIteratorTest
+Running org.apache.commons.collections4.iterators.LazyIteratorChainTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.iterators.LazyIteratorChainTest
+Running org.apache.commons.collections4.iterators.UniqueFilterIteratorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.collections4.iterators.UniqueFilterIteratorTest
+Running org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest
+Running org.apache.commons.collections4.map.MultiKeyMapTest
+Tests run: 167, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 sec - in org.apache.commons.collections4.map.MultiKeyMapTest
+Running org.apache.commons.collections4.map.UnmodifiableOrderedMapTest
+Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in org.apache.commons.collections4.map.UnmodifiableOrderedMapTest
+Running org.apache.commons.collections4.map.DefaultedMapTest
+Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.apache.commons.collections4.map.DefaultedMapTest
+Running org.apache.commons.collections4.map.LinkedMapTest
+Tests run: 337, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 sec - in org.apache.commons.collections4.map.LinkedMapTest
+Running org.apache.commons.collections4.map.LRUMapTest
+Tests run: 193, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.138 sec - in org.apache.commons.collections4.map.LRUMapTest
+Running org.apache.commons.collections4.map.SingletonMapTest
+Tests run: 178, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec - in org.apache.commons.collections4.map.SingletonMapTest
+Running org.apache.commons.collections4.map.LazyMapTest
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec - in org.apache.commons.collections4.map.LazyMapTest
+Running org.apache.commons.collections4.map.Flat3MapTest
+Tests run: 199, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec - in org.apache.commons.collections4.map.Flat3MapTest
+Running org.apache.commons.collections4.map.ListOrderedMap2Test
+Tests run: 333, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec - in org.apache.commons.collections4.map.ListOrderedMap2Test
+Running org.apache.commons.collections4.map.FixedSizeMapTest
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.collections4.map.FixedSizeMapTest
+Running org.apache.commons.collections4.map.CompositeMapTest
+Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec - in org.apache.commons.collections4.map.CompositeMapTest
+Running org.apache.commons.collections4.map.UnmodifiableMapTest
+Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.collections4.map.UnmodifiableMapTest
+Running org.apache.commons.collections4.map.TransformedSortedMapTest
+Tests run: 558, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 sec - in org.apache.commons.collections4.map.TransformedSortedMapTest
+Running org.apache.commons.collections4.map.TransformedMapTest
+Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.map.TransformedMapTest
+Running org.apache.commons.collections4.map.ReferenceMapTest
+Tests run: 159, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.465 sec - in org.apache.commons.collections4.map.ReferenceMapTest
+Running org.apache.commons.collections4.map.UnmodifiableSortedMapTest
+Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.collections4.map.UnmodifiableSortedMapTest
+Running org.apache.commons.collections4.map.ListOrderedMapTest
+Tests run: 494, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in org.apache.commons.collections4.map.ListOrderedMapTest
+Running org.apache.commons.collections4.map.HashedMapTest
+Tests run: 158, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec - in org.apache.commons.collections4.map.HashedMapTest
+Running org.apache.commons.collections4.map.PredicatedMapTest
+Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.collections4.map.PredicatedMapTest
+Running org.apache.commons.collections4.map.MultiValueMapTest
+Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.collections4.map.MultiValueMapTest
+Running org.apache.commons.collections4.map.CaseInsensitiveMapTest
+Tests run: 161, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec - in org.apache.commons.collections4.map.CaseInsensitiveMapTest
+Running org.apache.commons.collections4.map.FixedSizeSortedMapTest
+Tests run: 555, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in org.apache.commons.collections4.map.FixedSizeSortedMapTest
+Running org.apache.commons.collections4.map.LazySortedMapTest
+Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.map.LazySortedMapTest
+Running org.apache.commons.collections4.map.ReferenceIdentityMapTest
+Tests run: 159, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.81 sec - in org.apache.commons.collections4.map.ReferenceIdentityMapTest
+Running org.apache.commons.collections4.map.PredicatedSortedMapTest
+Tests run: 54, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.collections4.map.PredicatedSortedMapTest
+Running org.apache.commons.collections4.map.PassiveExpiringMapTest
+Tests run: 148, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.05 sec - in org.apache.commons.collections4.map.PassiveExpiringMapTest
+Running org.apache.commons.collections4.map.StaticBucketMapTest
+Tests run: 155, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec - in org.apache.commons.collections4.map.StaticBucketMapTest
+Running org.apache.commons.collections4.bidimap.DualTreeBidiMapTest
+Tests run: 818, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.244 sec - in org.apache.commons.collections4.bidimap.DualTreeBidiMapTest
+Running org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest
+Tests run: 370, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec - in org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest
+Running org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest
+Tests run: 391, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 sec - in org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest
+Running org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test
+Tests run: 823, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.379 sec - in org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test
+Running org.apache.commons.collections4.bidimap.DualHashBidiMapTest
+Tests run: 368, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 sec - in org.apache.commons.collections4.bidimap.DualHashBidiMapTest
+Running org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest
+Tests run: 820, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 sec - in org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest
+Running org.apache.commons.collections4.bidimap.DualLinkedHashBidiMapTest
+Tests run: 368, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in org.apache.commons.collections4.bidimap.DualLinkedHashBidiMapTest
+Running org.apache.commons.collections4.bidimap.TreeBidiMapTest
+Tests run: 389, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 sec - in org.apache.commons.collections4.bidimap.TreeBidiMapTest
+Running org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest
+Tests run: 343, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec - in org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest
+Running org.apache.commons.collections4.multimap.HashSetValuedHashMapTest
+Tests run: 344, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.collections4.multimap.HashSetValuedHashMapTest
+Running org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest
+Tests run: 347, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec - in org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest
+Running org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest
+Tests run: 341, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec - in org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest
+Running org.apache.commons.collections4.collection.CompositeCollectionTest
+Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.collections4.collection.CompositeCollectionTest
+Running org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest
+Running org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest
+Running org.apache.commons.collections4.collection.SynchronizedCollectionTest
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.collections4.collection.SynchronizedCollectionTest
+Running org.apache.commons.collections4.collection.PredicatedCollectionTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.collection.PredicatedCollectionTest
+Running org.apache.commons.collections4.collection.IndexedCollectionTest
+Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.collection.IndexedCollectionTest
+Running org.apache.commons.collections4.collection.UnmodifiableCollectionTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.collection.UnmodifiableCollectionTest
+Running org.apache.commons.collections4.collection.TransformedCollectionTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.collection.TransformedCollectionTest
+Running org.apache.commons.collections4.set.PredicatedNavigableSetTest
+Tests run: 207, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec - in org.apache.commons.collections4.set.PredicatedNavigableSetTest
+Running org.apache.commons.collections4.set.PredicatedSetTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.set.PredicatedSetTest
+Running org.apache.commons.collections4.set.UnmodifiableSetTest
+Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.set.UnmodifiableSetTest
+Running org.apache.commons.collections4.set.PredicatedSortedSetTest
+Tests run: 120, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.collections4.set.PredicatedSortedSetTest
+Running org.apache.commons.collections4.set.ListOrderedSetTest
+Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.collections4.set.ListOrderedSetTest
+Running org.apache.commons.collections4.set.ListOrderedSet2Test
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.set.ListOrderedSet2Test
+Running org.apache.commons.collections4.set.TransformedSetTest
+Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.set.TransformedSetTest
+Running org.apache.commons.collections4.set.UnmodifiableNavigableSetTest
+Tests run: 206, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec - in org.apache.commons.collections4.set.UnmodifiableNavigableSetTest
+Running org.apache.commons.collections4.set.MapBackedSet2Test
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.set.MapBackedSet2Test
+Running org.apache.commons.collections4.set.TransformedSortedSetTest
+Tests run: 118, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.collections4.set.TransformedSortedSetTest
+Running org.apache.commons.collections4.set.UnmodifiableSortedSetTest
+Tests run: 119, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.set.UnmodifiableSortedSetTest
+Running org.apache.commons.collections4.set.CompositeSetTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.set.CompositeSetTest
+Running org.apache.commons.collections4.set.MapBackedSetTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.set.MapBackedSetTest
+Running org.apache.commons.collections4.set.TransformedNavigableSetTest
+Tests run: 205, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec - in org.apache.commons.collections4.set.TransformedNavigableSetTest
+Running org.apache.commons.collections4.multiset.SynchronizedMultiSetTest
+Tests run: 77, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.collections4.multiset.SynchronizedMultiSetTest
+Running org.apache.commons.collections4.multiset.PredicatedMultiSetTest
+Tests run: 80, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.collections4.multiset.PredicatedMultiSetTest
+Running org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest
+Tests run: 83, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest
+Running org.apache.commons.collections4.multiset.HashMultiSetTest
+Tests run: 77, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.collections4.multiset.HashMultiSetTest
+Running org.apache.commons.collections4.queue.CircularFifoQueueTest
+Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.collections4.queue.CircularFifoQueueTest
+Running org.apache.commons.collections4.queue.UnmodifiableQueueTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.queue.UnmodifiableQueueTest
+Running org.apache.commons.collections4.queue.SynchronizedQueueTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.collections4.queue.SynchronizedQueueTest
+Running org.apache.commons.collections4.queue.TransformedQueueTest
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.collections4.queue.TransformedQueueTest
+Running org.apache.commons.collections4.queue.PredicatedQueueTest
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.queue.PredicatedQueueTest
+Running org.apache.commons.collections4.bag.TransformedBagTest
+Tests run: 78, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.bag.TransformedBagTest
+Running org.apache.commons.collections4.bag.UnmodifiableBagTest
+Tests run: 78, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.collections4.bag.UnmodifiableBagTest
+Running org.apache.commons.collections4.bag.PredicatedSortedBagTest
+Tests run: 78, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.collections4.bag.PredicatedSortedBagTest
+Running org.apache.commons.collections4.bag.CollectionBagTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.collections4.bag.CollectionBagTest
+Running org.apache.commons.collections4.bag.SynchronizedBagTest
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.bag.SynchronizedBagTest
+Running org.apache.commons.collections4.bag.UnmodifiableSortedBagTest
+Tests run: 78, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.bag.UnmodifiableSortedBagTest
+Running org.apache.commons.collections4.bag.HashBagTest
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.bag.HashBagTest
+Running org.apache.commons.collections4.bag.CollectionSortedBagTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.collections4.bag.CollectionSortedBagTest
+Running org.apache.commons.collections4.bag.PredicatedBagTest
+Tests run: 79, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.bag.PredicatedBagTest
+Running org.apache.commons.collections4.bag.TreeBagTest
+Tests run: 79, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.collections4.bag.TreeBagTest
+Running org.apache.commons.collections4.bag.TransformedSortedBagTest
+Tests run: 78, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.collections4.bag.TransformedSortedBagTest
+Running org.apache.commons.collections4.keyvalue.MultiKeyTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.keyvalue.MultiKeyTest
+Running org.apache.commons.collections4.keyvalue.DefaultKeyValueTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.keyvalue.DefaultKeyValueTest
+Running org.apache.commons.collections4.keyvalue.TiedMapEntryTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.keyvalue.TiedMapEntryTest
+Running org.apache.commons.collections4.keyvalue.DefaultMapEntryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.keyvalue.DefaultMapEntryTest
+Running org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest
+Running org.apache.commons.collections4.ClosureUtilsTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.ClosureUtilsTest
+Running org.apache.commons.collections4.QueueUtilsTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.QueueUtilsTest
+Running org.apache.commons.collections4.list.NodeCachingLinkedListTest
+Tests run: 158, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.collections4.list.NodeCachingLinkedListTest
+Running org.apache.commons.collections4.list.SetUniqueListTest
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.collections4.list.SetUniqueListTest
+Running org.apache.commons.collections4.list.FixedSizeListTest
+Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.list.FixedSizeListTest
+Running org.apache.commons.collections4.list.TreeListTest
+Tests run: 160, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 sec - in org.apache.commons.collections4.list.TreeListTest
+Running org.apache.commons.collections4.list.TransformedListTest
+Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.list.TransformedListTest
+Running org.apache.commons.collections4.list.PredicatedListTest
+Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.list.PredicatedListTest
+Running org.apache.commons.collections4.list.LazyListTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec - in org.apache.commons.collections4.list.LazyListTest
+Running org.apache.commons.collections4.list.GrowthListTest
+Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.list.GrowthListTest
+Running org.apache.commons.collections4.list.CursorableLinkedListTest
+Tests run: 198, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec - in org.apache.commons.collections4.list.CursorableLinkedListTest
+Running org.apache.commons.collections4.list.Collections701Test
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.list.Collections701Test
+Running org.apache.commons.collections4.list.UnmodifiableListTest
+Tests run: 61, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.list.UnmodifiableListTest
+Running org.apache.commons.collections4.functors.ComparatorPredicateTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.functors.ComparatorPredicateTest
+Running org.apache.commons.collections4.functors.AllPredicateTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.collections4.functors.AllPredicateTest
+Running org.apache.commons.collections4.functors.EqualPredicateTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.functors.EqualPredicateTest
+Running org.apache.commons.collections4.functors.CatchAndRethrowClosureTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.functors.CatchAndRethrowClosureTest
+Running org.apache.commons.collections4.functors.NullPredicateTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.functors.NullPredicateTest
+Running org.apache.commons.collections4.ComparatorUtilsTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.collections4.ComparatorUtilsTest
+Running org.apache.commons.collections4.comparators.ReverseComparatorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.comparators.ReverseComparatorTest
+Running org.apache.commons.collections4.comparators.ComparatorChainTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.comparators.ComparatorChainTest
+Running org.apache.commons.collections4.comparators.TransformingComparatorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.collections4.comparators.TransformingComparatorTest
+Running org.apache.commons.collections4.comparators.BooleanComparatorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.collections4.comparators.BooleanComparatorTest
+Running org.apache.commons.collections4.comparators.FixedOrderComparatorTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.comparators.FixedOrderComparatorTest
+Running org.apache.commons.collections4.comparators.ComparableComparatorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.comparators.ComparableComparatorTest
+Running org.apache.commons.collections4.TrieUtilsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.TrieUtilsTest
+Running org.apache.commons.collections4.sequence.SequencesComparatorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 sec - in org.apache.commons.collections4.sequence.SequencesComparatorTest
+Running org.apache.commons.collections4.properties.SortedPropertiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.properties.SortedPropertiesTest
+Running org.apache.commons.collections4.properties.SortedPropertiesFactoryTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.apache.commons.collections4.properties.SortedPropertiesFactoryTest
+Running org.apache.commons.collections4.properties.PropertiesFactoryTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.properties.PropertiesFactoryTest
+Running org.apache.commons.collections4.IteratorUtilsTest
+Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 sec - in org.apache.commons.collections4.IteratorUtilsTest
+Running org.apache.commons.collections4.PredicateUtilsTest
+Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.apache.commons.collections4.PredicateUtilsTest
+Running org.apache.commons.collections4.FluentIterableTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.collections4.FluentIterableTest
+Running org.apache.commons.collections4.trie.PatriciaTrie2Test
+Tests run: 177, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.14 sec - in org.apache.commons.collections4.trie.PatriciaTrie2Test
+Running org.apache.commons.collections4.trie.PatriciaTrieTest
+Tests run: 562, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.233 sec - in org.apache.commons.collections4.trie.PatriciaTrieTest
+Running org.apache.commons.collections4.trie.UnmodifiableTrieTest
+Tests run: 557, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec - in org.apache.commons.collections4.trie.UnmodifiableTrieTest
+Running org.apache.commons.collections4.SetUtilsTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.SetUtilsTest
+Running org.apache.commons.collections4.FactoryUtilsTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.FactoryUtilsTest
+Running org.apache.commons.collections4.ListUtilsTest
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.collections4.ListUtilsTest
+Running org.apache.commons.collections4.MapUtilsTest
+Tests run: 8480, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.672 sec - in org.apache.commons.collections4.MapUtilsTest
+Running org.apache.commons.collections4.CollectionUtilsTest
+Tests run: 115, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.CollectionUtilsTest
+Running org.apache.commons.collections4.ArrayStackTest
+Tests run: 156, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.ArrayStackTest
+Running org.apache.commons.collections4.IterableUtilsTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.IterableUtilsTest
+Running org.apache.commons.collections4.TransformerUtilsTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.TransformerUtilsTest
+Running org.apache.commons.collections4.BagUtilsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.BagUtilsTest
+Running org.apache.commons.collections4.splitmap.TransformedSplitMapTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.splitmap.TransformedSplitMapTest
+Running org.apache.commons.collections4.SplitMapUtilsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.SplitMapUtilsTest
+Running org.apache.commons.collections4.EnumerationUtilsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.EnumerationUtilsTest
+Running org.apache.commons.collections4.MultiMapUtilsTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.MultiMapUtilsTest
+Running org.apache.commons.collections4.MultiSetUtilsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.collections4.MultiSetUtilsTest
+
+Results :
+
+Tests run: 24997, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-collections4 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-collections4 ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Collectionscommons-collections4
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/.diffCache
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ commons-collections4 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/target/commons-collections4-4.5-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7.1:attach-descriptor (attach-descriptor) @ commons-collections4 ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.1:test-jar (default) @ commons-collections4 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/target/commons-collections4-4.5-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar-no-fork (create-source-jar) @ commons-collections4 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/target/commons-collections4-4.5-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:test-jar-no-fork (create-source-jar) @ commons-collections4 ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-collections/target/commons-collections4-4.5-SNAPSHOT-test-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 37.097 s
+[INFO] Finished at: 2020-04-09T20:52:25-07:00
+[INFO] Final Memory: 64M/2811M
+[INFO] ------------------------------------------------------------------------

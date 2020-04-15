@@ -1,0 +1,138 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-email
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-email
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-email
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Email 1.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[WARNING] The POM for com.sun.mail:javax.mail:jar:1.5.6 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.10:parse-version (parse-version) @ commons-email ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-email ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (default) @ commons-email ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-email ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email' && 'svn' '--non-interactive' 'info'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email
+[INFO] Storing buildNumber: ?????? at timestamp: 1586492991129
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email' && 'svn' '--non-interactive' 'info'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-email ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ commons-email ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 23 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.0.1:manifest (bundle-manifest) @ commons-email ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.15:check (checkAPIcompatibility) @ commons-email ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-email ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 20 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-email ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 63db6bed06f0ea5a9c136abe80433be3890b55ff against: 8306e15abf055d46957e2dc56194f7bbafbdbdc4
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ commons-email ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 26 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/src/test/java/org/apache/commons/mail/ImageHtmlEmailTest.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/src/test/java/org/apache/commons/mail/ImageHtmlEmailTest.java uses or overrides a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/src/test/java/org/apache/commons/mail/ImageHtmlEmailTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-email ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.mail.resolver.DataSourceFileResolverTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec - in org.apache.commons.mail.resolver.DataSourceFileResolverTest
+Running org.apache.commons.mail.resolver.DataSourceCompositeResolverTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.284 sec - in org.apache.commons.mail.resolver.DataSourceCompositeResolverTest
+Running org.apache.commons.mail.resolver.DataSourceClassPathResolverTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.mail.resolver.DataSourceClassPathResolverTest
+Running org.apache.commons.mail.resolver.DataSourceUrlResolverTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.384 sec - in org.apache.commons.mail.resolver.DataSourceUrlResolverTest
+Running org.apache.commons.mail.SendWithAttachmentsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 sec - in org.apache.commons.mail.SendWithAttachmentsTest
+Running org.apache.commons.mail.util.IDNEmailAddressConverterTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.28 sec - in org.apache.commons.mail.util.IDNEmailAddressConverterTest
+Running org.apache.commons.mail.util.MimeMessageParserTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec - in org.apache.commons.mail.util.MimeMessageParserTest
+Running org.apache.commons.mail.EmailLiveTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec - in org.apache.commons.mail.EmailLiveTest
+Running org.apache.commons.mail.SimpleEmailTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.013 sec - in org.apache.commons.mail.SimpleEmailTest
+Running org.apache.commons.mail.EmailAttachmentTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.mail.EmailAttachmentTest
+Running org.apache.commons.mail.HtmlEmailTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.281 sec - in org.apache.commons.mail.HtmlEmailTest
+Running org.apache.commons.mail.InvalidAddressTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.mail.InvalidAddressTest
+Running org.apache.commons.mail.DefaultAuthenticatorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.mail.DefaultAuthenticatorTest
+Running org.apache.commons.mail.EmailTest
+Tests run: 79, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 sec - in org.apache.commons.mail.EmailTest
+Running org.apache.commons.mail.InvalidInternetAddressTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.mail.InvalidInternetAddressTest
+Running org.apache.commons.mail.ImageHtmlEmailTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 6.762 sec - in org.apache.commons.mail.ImageHtmlEmailTest
+Running org.apache.commons.mail.EmailUtilsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.mail.EmailUtilsTest
+Running org.apache.commons.mail.MultiPartEmailTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.871 sec - in org.apache.commons.mail.MultiPartEmailTest
+
+Results :
+
+Tests run: 190, Failures: 0, Errors: 0, Skipped: 3
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-email ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-email ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons Emailcommons-email
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/.diffCache
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ commons-email ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-email/target/commons-email-1.5-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.4:attach-descriptor (attach-descriptor) @ commons-email ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 25.715 s
+[INFO] Finished at: 2020-04-09T21:30:13-07:00
+[INFO] Final Memory: 60M/2405M
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,143 @@
+[INFO] Scanning for projects...
+[WARNING] The POM for commons-io:commons-io:jar:1.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Deflaker, version 1.5-SNAPSHOT loading...
+Warning: Deflaker disabling incompatible org.apache.maven.plugins:maven-enforcer-plugin from commons-io
+Warning: Deflaker disabling incompatible org.apache.rat:apache-rat-plugin from commons-io
+Warning: Deflaker disabling incompatible org.jacoco:jacoco-maven-plugin from commons-io
+ReuseForks is false, but should be OK
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons IO 2.7-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-io ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-io ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-io ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-io ---
+[INFO] Executing: /bin/sh -c cd '/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io
+[INFO] Storing buildNumber: 6ce3e0014c330832c8a8719db65d6305157f86db at timestamp: 1586495440575
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-io ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-io ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 147 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/main/java/org/apache/commons/io/IOExceptionList.java: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/main/java/org/apache/commons/io/IOExceptionList.java uses unchecked or unsafe operations.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/main/java/org/apache/commons/io/IOExceptionList.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-io ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.18:check (checkAPIcompatibility) @ commons-io ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-io ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 24 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:diff (deflaker-diff) @ commons-io ---
+/lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/.git DIFF'ing to HEAD
+[ERROR] fatal: Invalid path '/pkg/git/2.13.1/etc': No such file or directory
+
+Diff'ing 6ce3e0014c330832c8a8719db65d6305157f86db against: 3798a6b504d3c8d46dcb50289e71741c7f029472
+org/apache/commons/io/FileUtils : [Edit [start=1323, end=1325]]
+	 Methods to watch:[]
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-io ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 143 source files to /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/test-classes
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/test/java/org/apache/commons/io/LineIteratorTestCase.java: Some input files use or override a deprecated API.
+[INFO] /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/src/test/java/org/apache/commons/io/LineIteratorTestCase.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-io ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test-rerunfailures) @ commons-io ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- deflaker-maven-plugin:1.5-SNAPSHOT:report (deflaker-report-tests) @ commons-io ---
+[INFO] ------------------------------------------------------------------------
+[INFO] TEST DIFFCOV ANALYSIS
+[INFO] Apache Commons IOcommons-io
+[INFO] ------------------------------------------------------------------------
+[INFO] Using covFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/diffcov.log
+[INFO] Using difFile: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/.diffCache
+[INFO] No test data found
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ commons-io ---
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.4.0/maven-archiver-3.4.0.pom
+2/5 KB   3/5 KB   5/5 KB   5/5 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.4.0/maven-archiver-3.4.0.pom (5 KB at 17.7 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.1.0/plexus-archiver-4.1.0.pom
+2/5 KB   3/5 KB   5/5 KB   5/5 KB            Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.1.0/plexus-archiver-4.1.0.pom (5 KB at 39.0 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.1/plexus-utils-3.1.1.pom
+2/5 KB   3/5 KB   5/5 KB   5/5 KB            Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.1/plexus-utils-3.1.1.pom (5 KB at 170.7 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.1.1/plexus-io-3.1.1.pom
+2/5 KB   3/5 KB   5/5 KB   5/5 KB            Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.1.1/plexus-io-3.1.1.pom (5 KB at 96.5 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.4.0/maven-archiver-3.4.0.jar
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.1.0/plexus-archiver-4.1.0.jar
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.1.1/plexus-io-3.1.1.jar
+2/24 KB   3/24 KB   5/24 KB   6/24 KB   7/24 KB   9/24 KB   10/24 KB   11/24 KB   13/24 KB   14/24 KB   15/24 KB   17/24 KB   18/24 KB   19/24 KB   21/24 KB   22/24 KB   23/24 KB   24/24 KB   24/24 KB   2/74 KB   24/24 KB   3/74 KB   24/24 KB   5/74 KB   24/24 KB   6/74 KB   24/24 KB   7/74 KB   24/24 KB   9/74 KB   24/24 KB   10/74 KB   24/24 KB   11/74 KB   24/24 KB   13/74 KB   24/24 KB   14/74 KB   24/24 KB   15/74 KB   24/24 KB   17/74 KB   24/24 KB   18/74 KB   24/24 KB   19/74 KB   24/24 KB   21/74 KB   24/24 KB   22/74 KB   24/24 KB   23/74 KB   24/24 KB   25/74 KB   24/24 KB   26/74 KB   24/24 KB   27/74 KB   24/24 KB   29/74 KB   2/188 KB   24/24 KB   29/74 KB   2/188 KB   24/24 KB   30/74 KB   2/188 KB   24/24 KB   31/74 KB   2/188 KB   24/24 KB   33/74 KB   2/188 KB   24/24 KB   34/74 KB   2/188 KB   24/24 KB   35/74 KB   2/188 KB   24/24 KB   37/74 KB   2/188 KB   24/24 KB   38/74 KB   2/188 KB   24/24 KB   39/74 KB   3/188 KB   24/24 KB   39/74 KB   3/188 KB   24/24 KB   41/74 KB   3/188 KB   24/24 KB   42/74 KB   5/188 KB   24/24 KB   42/74 KB                                    5/188 KB   43/74 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.4.0/maven-archiver-3.4.0.jar (24 KB at 720.8 KB/sec)
+5/188 KB   45/74 KB   6/188 KB   45/74 KB   6/188 KB   46/74 KB   7/188 KB   46/74 KB   7/188 KB   47/74 KB   7/188 KB   49/74 KB   7/188 KB   50/74 KB   9/188 KB   50/74 KB   9/188 KB   51/74 KB   9/188 KB   53/74 KB   10/188 KB   53/74 KB   10/188 KB   54/74 KB   10/188 KB   55/74 KB   10/188 KB   57/74 KB   11/188 KB   57/74 KB   11/188 KB   58/74 KB   11/188 KB   59/74 KB   13/188 KB   59/74 KB   13/188 KB   61/74 KB   13/188 KB   62/74 KB   14/188 KB   62/74 KB   14/188 KB   63/74 KB   15/188 KB   63/74 KB   15/188 KB   65/74 KB   15/188 KB   66/74 KB   17/188 KB   66/74 KB   17/188 KB   67/74 KB   17/188 KB   69/74 KB   18/188 KB   69/74 KB   18/188 KB   70/74 KB   18/188 KB   71/74 KB   19/188 KB   71/74 KB   19/188 KB   73/74 KB   19/188 KB   74/74 KB   19/188 KB   74/74 KB   21/188 KB   74/74 KB   22/188 KB   74/74 KB   23/188 KB   74/74 KB   25/188 KB   74/74 KB   26/188 KB   74/74 KB   27/188 KB   74/74 KB   29/188 KB   74/74 KB   30/188 KB   74/74 KB   31/188 KB   74/74 KB   33/188 KB   74/74 KB   34/188 KB   74/74 KB   35/188 KB   74/74 KB   37/188 KB   74/74 KB   38/188 KB   74/74 KB   39/188 KB   74/74 KB   41/188 KB   74/74 KB   42/188 KB   74/74 KB   43/188 KB   74/74 KB   45/188 KB   74/74 KB   46/188 KB   74/74 KB   47/188 KB   74/74 KB   49/188 KB   74/74 KB   50/188 KB   74/74 KB   51/188 KB   74/74 KB   53/188 KB   74/74 KB   54/188 KB   74/74 KB   55/188 KB   74/74 KB   57/188 KB   74/74 KB   58/188 KB   74/74 KB   59/188 KB   74/74 KB   61/188 KB   74/74 KB   62/188 KB   74/74 KB   63/188 KB   74/74 KB   65/188 KB   74/74 KB   66/188 KB   74/74 KB   67/188 KB   74/74 KB   69/188 KB   74/74 KB   70/188 KB   74/74 KB   71/188 KB   74/74 KB   73/188 KB   74/74 KB   74/188 KB   74/74 KB   75/188 KB   74/74 KB   77/188 KB   74/74 KB   78/188 KB   74/74 KB   79/188 KB   74/74 KB   81/188 KB   74/74 KB   82/188 KB   74/74 KB   84/188 KB   74/74 KB                          85/188 KB              Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.1.1/plexus-io-3.1.1.jar (74 KB at 1503.6 KB/sec)
+86/188 KB   88/188 KB   89/188 KB   90/188 KB   92/188 KB   93/188 KB   94/188 KB   96/188 KB   97/188 KB   98/188 KB   100/188 KB   101/188 KB   102/188 KB   104/188 KB   105/188 KB   106/188 KB   108/188 KB   109/188 KB   110/188 KB   112/188 KB   113/188 KB   114/188 KB   116/188 KB   117/188 KB   118/188 KB   120/188 KB   121/188 KB   122/188 KB   124/188 KB   125/188 KB   126/188 KB   128/188 KB   129/188 KB   130/188 KB   132/188 KB   133/188 KB   134/188 KB   136/188 KB   137/188 KB   138/188 KB   140/188 KB   141/188 KB   142/188 KB   144/188 KB   145/188 KB   146/188 KB   148/188 KB   149/188 KB   150/188 KB   152/188 KB   153/188 KB   154/188 KB   156/188 KB   157/188 KB   158/188 KB   160/188 KB   161/188 KB   163/188 KB   164/188 KB   165/188 KB   167/188 KB   168/188 KB   169/188 KB   171/188 KB   172/188 KB   173/188 KB   175/188 KB   176/188 KB   177/188 KB   179/188 KB   180/188 KB   181/188 KB   183/188 KB   184/188 KB   185/188 KB   187/188 KB   188/188 KB                Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.1.0/plexus-archiver-4.1.0.jar (188 KB at 2154.2 KB/sec)
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/commons-io-2.7-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.8.2:attach-descriptor (attach-descriptor) @ commons-io ---
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/3.3.3/wagon-ssh-3.3.3.pom
+2/7 KB       3/7 KB   5/7 KB   6/7 KB   7/7 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/3.3.3/wagon-ssh-3.3.3.pom (7 KB at 113.0 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-providers/3.3.3/wagon-providers-3.3.3.pom
+2/3 KB   3/3 KB   3/3 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-providers/3.3.3/wagon-providers-3.3.3.pom (3 KB at 68.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon/3.3.3/wagon-3.3.3.pom
+2/21 KB   3/21 KB   5/21 KB   6/21 KB   7/21 KB   9/21 KB   10/21 KB   11/21 KB   13/21 KB   14/21 KB   15/21 KB   17/21 KB   18/21 KB   19/21 KB   21/21 KB   21/21 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon/3.3.3/wagon-3.3.3.pom (21 KB at 390.2 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/3.3.3/wagon-ssh-common-3.3.3.pom
+2/2 KB              Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/3.3.3/wagon-ssh-common-3.3.3.pom (2 KB at 53.4 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/3.3.3/wagon-provider-api-3.3.3.pom
+2/2 KB            Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/3.3.3/wagon-provider-api-3.3.3.pom (2 KB at 53.3 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/3.3.3/wagon-ssh-3.3.3.jar
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/3.3.3/wagon-ssh-common-3.3.3.jar
+4/27 KB   2/32 KB   4/27 KB   2/32 KB   8/27 KB   2/32 KB   12/27 KB   2/32 KB   16/27 KB   3/32 KB   16/27 KB   5/32 KB   16/27 KB   6/32 KB   16/27 KB   6/32 KB   20/27 KB   7/32 KB   20/27 KB   7/32 KB   24/27 KB   7/32 KB   27/27 KB   9/32 KB   27/27 KB   10/32 KB   27/27 KB   11/32 KB   27/27 KB   13/32 KB   27/27 KB   14/32 KB   27/27 KB   15/32 KB   27/27 KB   17/32 KB   27/27 KB   18/32 KB   27/27 KB   19/32 KB   27/27 KB   21/32 KB   27/27 KB   22/32 KB   27/27 KB   23/32 KB   27/27 KB   25/32 KB   27/27 KB   26/32 KB   27/27 KB   27/32 KB   27/27 KB   29/32 KB   27/27 KB   30/32 KB   27/27 KB   31/32 KB   27/27 KB   32/32 KB   27/27 KB                         Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh-common/3.3.3/wagon-ssh-common-3.3.3.jar (27 KB at 840.5 KB/sec)
+                      Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-ssh/3.3.3/wagon-ssh-3.3.3.jar (32 KB at 943.9 KB/sec)
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:test-jar (default) @ commons-io ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/commons-io-2.7-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.1.0:jar-no-fork (create-source-jar) @ commons-io ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/commons-io-2.7-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.1.0:test-jar-no-fork (create-source-jar) @ commons-io ---
+[INFO] Building jar: /lv_scratch/scratch/mondego/local/Maruf/ASE/projects/commons-io/target/commons-io-2.7-SNAPSHOT-test-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 16.184 s
+[INFO] Finished at: 2020-04-09T22:10:53-07:00
+[INFO] Final Memory: 62M/3205M
+[INFO] ------------------------------------------------------------------------
