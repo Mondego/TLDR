@@ -19,7 +19,7 @@ import uci.ics.mondego.tldr.tool.TLDRRunProperty;
 public class DiffMojo extends BaseMojo {
 	
 	private static final Logger logger = LogManager.getLogger(DiffMojo.class);
-    protected static TLDR tldr = new TLDR();
+    protected static TLDR tldr = new TLDR(Integer.parseInt(thread_count));
 	
     public void execute() throws MojoExecutionException , MojoFailureException {
     	String impactedTests = getImpactedTests();   	    	

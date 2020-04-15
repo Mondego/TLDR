@@ -70,29 +70,31 @@ public class TLDR {
     public static ConcurrentHashMap<String, Method> allExtractedTestMethods;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangeTests;
         
-    public TLDR(){
+    public TLDR(int threadCount){
     	Date date = new Date();      
         String LogDate= new SimpleDateFormat("yyyyMMdd").format(date);
         System.setProperty("logFilename", LogDate);
-            	    	
+        
+        System.out.println("Thread Count : " + threadCount);
+        
     	this.FileChangeAnalysisPool = 
-    			new ThreadedChannel<String>(8, FileChangeAnalyzerWorker.class);
+    			new ThreadedChannel<String>(threadCount, FileChangeAnalyzerWorker.class);
     	this.EntityChangeAnalysisPool = 
-    			new ThreadedChannel<String>(8, EntityChangeAnalyzerWorker.class);
+    			new ThreadedChannel<String>(threadCount, EntityChangeAnalyzerWorker.class);
     	this.DependencyExtractionPool = 
-    			new ThreadedChannel<HashMap<String, Method>>(8, DependencyExtractorWorker.class);
+    			new ThreadedChannel<HashMap<String, Method>>(threadCount, DependencyExtractorWorker.class);
     	this.DependencyGraphTraversalPool = 
-    			new ThreadedChannel<String>(8,DFSTraversalWorker.class);
+    			new ThreadedChannel<String>(threadCount,DFSTraversalWorker.class);
     	this.TestFileChangeAnalysisPool = 
-    			new ThreadedChannel<String>(8, TestFileChangeAnalyzerWorker.class);
+    			new ThreadedChannel<String>(threadCount, TestFileChangeAnalyzerWorker.class);
     	this.TestParseAndIndexPool = 
-    			new ThreadedChannel<String>(8, TestChangeAnalyzerAndIndexerWorker.class);
+    			new ThreadedChannel<String>(threadCount, TestChangeAnalyzerAndIndexerWorker.class);
     	this.TestDependencyExtractionPool = 
-    			new ThreadedChannel<HashMap<String, Method>>(8,TestDependencyExtractorWorker.class);
+    			new ThreadedChannel<HashMap<String, Method>>(threadCount,TestDependencyExtractorWorker.class);
     	this.EntityToTestMapPool = 
-    			new ThreadedChannel<String>(8, EntityToTestMapWorker.class);
+    			new ThreadedChannel<String>(threadCount, EntityToTestMapWorker.class);
     	this.IntraTestTraversalPool = 
-    			new ThreadedChannel<String>(8, IntraTestTraversalWorker.class);
+    			new ThreadedChannel<String>(threadCount, IntraTestTraversalWorker.class);
     	
     	BasicConfigurator.configure();
     	

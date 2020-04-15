@@ -63,6 +63,12 @@ abstract class BaseMojo extends SurefirePlugin {
     @Parameter(property = "debug.flag", required = false, defaultValue = "false")
     protected String debug_flag;
     
+    /**
+     * Optional flag to for the number of threads in each pool. Default value is 8.
+     */
+    @Parameter(property = "thread.count", required = false, defaultValue = "8")
+    protected static String thread_count;
+    
     protected Classpath sureFireClassPath;
     
     protected static double testRunElapsedTimeInSecond;
