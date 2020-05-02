@@ -12,7 +12,7 @@ def get_sha(argv):
 			if "commit " in line:
 				commit = line.split()[1]
 				if len(commit) == 40:
-					sha.append(commit)
+					sha.insert(0,commit)
 	length = len(sha)
 	return sha[length - 40: length]
 
