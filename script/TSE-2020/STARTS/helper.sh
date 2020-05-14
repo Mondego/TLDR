@@ -21,6 +21,13 @@ commit_sample_directory=$PWD"/SAMPLE_COMMIT"
 log_directory=$PWD"/LOG"
 maven_pom_processor="$PWD"/"MavenPOMProcessor"
 
+# Skip all optional plugins, extensions
+MAVEN_SKIPS="-Drat.skip=true -Dmaven.javadoc.skip=true \
+             -Djacoco.skip=true -Dcheckstyle.skip=true \
+             -Dfindbugs.skip=true -Dcobertura.skip=true \
+             -Dpmd.skip=true -Dcpd.skip=true \
+             -Dmaven.test.failure.ignore=true \
+             -fae"
 
 for project in $(ls $dataset_dir); do
 
@@ -41,23 +48,22 @@ for project in $(ls $dataset_dir); do
 	    git reset --hard $line  
 
 	     # This line changes surefire version to make the project compatible to STARTS.
-            cd $maven_pom_processor
-            mvn -q clean compile
-            mvn -q compile exec:java -Dexec.args="$project_directory maven-surefire-plugin 2.19.1" 
-            cd $project_directory
-
+        cd $maven_pom_processor
+        mvn -q clean compile
+        mvn -q compile exec:java -Dexec.args="$project_directory maven-surefire-plugin 2.19.1" 
+        cd $project_directory
 	    
-	    if mvn -q clean compile ; then			    	
+	    if mvn -q clean compile $MAVEN_SKIPS; then			    	
 	    	# If we have 20 pairs commits that builds successfully then stop. 
-	    	if [ "$serial" -eq 20 ]; then
+	    	if [ "$serial" -eq 30 ]; then
       			break
   			fi
   			
   			mvn clean
 	    	((serial=serial+1))
 		    			
-			mvn edu.illinois:starts-maven-plugin:1.4-SNAPSHOT:starts -Drat.skip=true -Dmaven.test.failure.ignore=true -Dcheckstyle.skip -Dcommit.hash=$line -Dcommit.serial=$serial -Dlog.directory=$project_log_directory -X
-			mvn surefire-report:report-only -Drat.skip=true -Dmaven.test.failure.ignore=true -Dcheckstyle.skip
+			mvn edu.illinois:starts-maven-plugin:1.4-SNAPSHOT:starts $MAVEN_SKIPS -Dcommit.hash=$line -Dcommit.serial=$serial -Dlog.directory=$project_log_directory
+			mvn surefire-report:report-only $MAVEN_SKIPS
 
 			num=1
 	     	for surefire_report in $( find . -name surefire-report.html );

@@ -23,6 +23,13 @@ maven_pom_processor="$PWD"/"MavenPOMProcessor"
 commit_sample_directory=$PWD"/SAMPLE_COMMIT"
 log_directory=$PWD"/LOG"
 
+# Skip all optional plugins, extensions
+MAVEN_SKIPS="-Drat.skip=true -Dmaven.javadoc.skip=true \
+             -Djacoco.skip=true -Dcheckstyle.skip=true \
+             -Dfindbugs.skip=true -Dcobertura.skip=true \
+             -Dpmd.skip=true -Dcpd.skip=true \
+             -Dmaven.test.failure.ignore=true"
+
 for project in $(ls $dataset_dir); do
 
 	echo "*****************  "$project"  *****************"
@@ -46,21 +53,21 @@ for project in $(ls $dataset_dir); do
 	    
 	    # This line changes surefire version to make the project compatible to TLDR.
 	    cd $maven_pom_processor
-	    mvn -q clean compile
+	    mvn -q clean compile $MAVEN_SKIPS
 	    mvn -q compile exec:java -Dexec.args="$project_directory maven-surefire-plugin 2.19.1"
 	    cd $project_directory
 
-	    if mvn -q clean compile ; then			    	
+	    if mvn -q clean compile $MAVEN_SKIPS; then			    	
 	    	# If we have 20 pairs commits that builds successfully then stop. 
-	    	if [ "$serial" -eq 6 ]; then
+	    	if [ "$serial" -eq 30 ]; then
       			break
   			fi
   			
 	    	((serial=serial+1))
 		    		
 		    #mvn com.mondego.ics.uci:tldr-plugin:1.0.2-SNAPSHOT:tldr -Dmultimodule.projectname=commons-math -Ddebug.flag=true -Dlog.directory=$project_log_directory -Dmaven.test.failure.ignore=true -Drat.skip=true -Dcommit.hash=$line -Dcommit.serial=$serial -DforkCount=8 -DreuseForks=true -fae
-			mvn com.mondego.ics.uci:tldr-plugin:1.0.2-SNAPSHOT:tldr -Dmultimodule.projectname=$project -Ddebug.flag=true -Dlog.directory=$project_log_directory -Dmaven.test.failure.ignore=true -Drat.skip=true -Dcommit.hash=$line -Dcommit.serial=$serial -fae
-			mvn -q surefire-report:report-only -Drat.skip=true -Dmaven.test.failure.ignore=true -Dcheckstyle.skip
+			mvn com.mondego.ics.uci:tldr-plugin:1.0.2-SNAPSHOT:tldr $MAVEN_SKIPS -Dmultimodule.projectname=$project -Ddebug.flag=true -Dlog.directory=$project_log_directory -Dcommit.hash=$line -Dcommit.serial=$serial
+			mvn -q surefire-report:report-only $MAVEN_SKIPS
 
 			num=1
 	     	for surefire_report in $( find . -name surefire-report.html );

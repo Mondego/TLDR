@@ -27,7 +27,8 @@ MAVEN_SKIPS="-Drat.skip=true -Dmaven.javadoc.skip=true \
              -Djacoco.skip=true -Dcheckstyle.skip=true \
              -Dfindbugs.skip=true -Dcobertura.skip=true \
              -Dpmd.skip=true -Dcpd.skip=true \
-             -Dmaven.test.failure.ignore=true"
+             -Dmaven.test.failure.ignore=true \
+             -fae"
 
 
 for project in $(ls $dataset_dir); do

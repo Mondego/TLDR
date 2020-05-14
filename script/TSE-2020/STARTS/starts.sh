@@ -26,7 +26,7 @@ if [[ ! -e $maven_pom_processor ]]; then
 	git clone https://github.com/marufzaber/MavenPOMProcessor.git
 fi
 
-for num in {1..3};
+for num in {1..1};
 do
 	./helper.sh "project"$num
 done
