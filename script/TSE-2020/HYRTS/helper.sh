@@ -39,7 +39,7 @@ for project in $(ls $dataset_dir); do
 	    
 	    if mvn -q clean compile ; then			    	
 	    	# If we have 20 pairs commits that builds successfully then stop. 
-	    	if [ "$serial" -eq 42 ]; then
+	    	if [ "$serial" -eq 30 ]; then
       			break
   			fi
   			
