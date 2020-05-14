@@ -8,7 +8,7 @@
 
 root_directory=$PWD
 parser_directory=$root_directory'/surefirereportparser'
-baselines=("TLDR" "EKSTAZI" "STARTS")
+baselines=("TLDR" "EKSTAZI" "STARTS" "HYRTS" "1-TLDR")
 log_root_dir=$PWD'/TIME-DATA'
 
 

@@ -22,6 +22,7 @@ public interface Constants {
 
 	public static final String TEST_FIELD = "test";
 	public static final String EXCLUDES_FIELD = "excludes";
+    public static final String SKIP_FIELD = "skipTests";
 		
 	public static final String THREAD_COUNT_FIELD = "threadCount"; 
 	public static final String USE_UNLIMITED_THREADS_FIELD = "useUnlimitedThreads";

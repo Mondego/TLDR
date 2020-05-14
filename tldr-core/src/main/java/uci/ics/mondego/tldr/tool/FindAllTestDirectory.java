@@ -18,6 +18,7 @@ public class FindAllTestDirectory {
 		// TODO Auto-generated method stub
 		try {
 			scanTestFiles(CLASS_DIR, "/test");
+			scanTestFiles(CLASS_DIR, "/test-classes");
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

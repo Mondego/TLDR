@@ -14,7 +14,7 @@ def get_sha(argv):
 				if len(commit) == 40:
 					sha.insert(0,commit)
 	length = len(sha)
-	return sha[length - 40: length]
+	return sha[length - 100: length]
 
 def write_sha(sha, argv1):
 	os.unlink(argv1)
