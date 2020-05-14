@@ -21,6 +21,6 @@ rm -rf LOG/
 
 for num in {1..3};
 do
-	./helper.sh "project"$num &
+	./helper.sh "project"$num
 done
 

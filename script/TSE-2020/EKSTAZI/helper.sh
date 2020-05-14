@@ -22,9 +22,19 @@ commit_sample_directory=$PWD"/SAMPLE_COMMIT"
 maven_pom_processor="$PWD"/"MavenPOMProcessor"
 log_directory=$PWD"/LOG"
 
+# Skip all optional plugins, extensions
+MAVEN_SKIPS="-Drat.skip=true -Dmaven.javadoc.skip=true \
+             -Djacoco.skip=true -Dcheckstyle.skip=true \
+             -Dfindbugs.skip=true -Dcobertura.skip=true \
+             -Dpmd.skip=true -Dcpd.skip=true \
+             -Dmaven.test.failure.ignore=true"
+
+
 for project in $(ls $dataset_dir); do
 
 	echo "*****************  "$project"  *****************"
+	project_directory=$dataset_dir'/'$project
+
 	project_log_directory=$log_directory'/'$project
 	mkdir -p $project_log_directory
 	
@@ -33,7 +43,7 @@ for project in $(ls $dataset_dir); do
 
 	serial=0
 	while read -r line; do		
-		cd $dataset_dir'/'$project
+		cd $project_directory
 
 		# needed for errorless checkout to another commit
 		rm -f .git/index.lock 
@@ -41,21 +51,21 @@ for project in $(ls $dataset_dir); do
 
 	    # This line changes surefire version to make the project compatible to TLDR.
 	    cd $maven_pom_processor
-	    mvn -q clean compile
+	    mvn -q clean compile $MAVEN_SKIPS
 	    mvn -q exec:java -Dexec.args="$project_directory maven-surefire-plugin 2.19.1"
 	    cd $project_directory
 	    
-	    if mvn -q clean compile ; then			    	
+	    if mvn -q clean compile $MAVEN_SKIPS; then			    	
 	    	# If we have 20 pairs commits that builds successfully then stop. 
-	    	if [ "$serial" -eq 42 ]; then
+	    	if [ "$serial" -eq 30 ]; then
       			break
   			fi
   			
   			mvn clean
 	    	((serial=serial+1))
 		    			
-			mvn org.ekstazi:ekstazi-maven-plugin:5.3.0:ekstazi -Drat.skip=true -Dmaven.test.failure.ignore=true -Dcheckstyle.skip -Dcommit.hash=$line -Dcommit.serial=$serial -Dlog.directory=$project_log_directory
-			mvn surefire-report:report-only -Drat.skip=true -Dmaven.test.failure.ignore=true -Dcheckstyle.skip
+			mvn org.ekstazi:ekstazi-maven-plugin:5.3.0:ekstazi $MAVEN_SKIPS -Dcommit.hash=$line -Dcommit.serial=$serial -Dlog.directory=$project_log_directory
+			mvn surefire-report:report-only $MAVEN_SKIPS
 
 			num=1
 	     	for surefire_report in $( find . -name surefire-report.html );
@@ -69,4 +79,3 @@ for project in $(ls $dataset_dir); do
 	
 	cd $base_directory
 done
-
