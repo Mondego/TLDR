@@ -51,7 +51,7 @@ public class TLDR {
 	
 	private static final Logger logger = LogManager.getLogger(TLDR.class);
     
-	// Pools of workers
+	// Pools of workers	
 	public static ThreadedChannel<String> FileChangeAnalysisPool;
     public static ThreadedChannel<String> EntityChangeAnalysisPool;
     public static ThreadedChannel<HashMap<String, Method>> DependencyExtractionPool;
@@ -69,33 +69,15 @@ public class TLDR {
     public static ConcurrentHashMap<String, Method> allChangedOrNewMethods;
     public static ConcurrentHashMap<String, Method> allExtractedTestMethods;
     public static ConcurrentHashMap<String, Boolean> allNewAndChangeTests;
-        
+    
+	private int THREADCOUNT;
+    
     public TLDR(int threadCount){
     	Date date = new Date();      
         String LogDate= new SimpleDateFormat("yyyyMMdd").format(date);
         System.setProperty("logFilename", LogDate);
-        
-        System.out.println("Thread Count : " + threadCount);
-        
-    	this.FileChangeAnalysisPool = 
-    			new ThreadedChannel<String>(threadCount, FileChangeAnalyzerWorker.class);
-    	this.EntityChangeAnalysisPool = 
-    			new ThreadedChannel<String>(threadCount, EntityChangeAnalyzerWorker.class);
-    	this.DependencyExtractionPool = 
-    			new ThreadedChannel<HashMap<String, Method>>(threadCount, DependencyExtractorWorker.class);
-    	this.DependencyGraphTraversalPool = 
-    			new ThreadedChannel<String>(threadCount,DFSTraversalWorker.class);
-    	this.TestFileChangeAnalysisPool = 
-    			new ThreadedChannel<String>(threadCount, TestFileChangeAnalyzerWorker.class);
-    	this.TestParseAndIndexPool = 
-    			new ThreadedChannel<String>(threadCount, TestChangeAnalyzerAndIndexerWorker.class);
-    	this.TestDependencyExtractionPool = 
-    			new ThreadedChannel<HashMap<String, Method>>(threadCount,TestDependencyExtractorWorker.class);
-    	this.EntityToTestMapPool = 
-    			new ThreadedChannel<String>(threadCount, EntityToTestMapWorker.class);
-    	this.IntraTestTraversalPool = 
-    			new ThreadedChannel<String>(threadCount, IntraTestTraversalWorker.class);
-    	
+        this.THREADCOUNT = threadCount;        
+      	
     	BasicConfigurator.configure();
     	
     	this.entityToTest = new ConcurrentHashMap<String, Boolean>();   	
@@ -105,6 +87,31 @@ public class TLDR {
     	this.completeTestCaseSet = new ConcurrentHashMap<String, Integer>();
         this.allChangedOrNewMethods = new ConcurrentHashMap<String, Method>();
         this.allExtractedTestMethods = new ConcurrentHashMap<String, Method>();
+    }
+    
+    /** 
+     * This method initializes each workers. It needs to be called, everytime 
+     * {@code getImacptedTests} method is being called.
+     */
+    private void createWorkers() {
+    	this.FileChangeAnalysisPool = 
+    			new ThreadedChannel<String>(THREADCOUNT, FileChangeAnalyzerWorker.class);
+    	this.EntityChangeAnalysisPool = 
+    			new ThreadedChannel<String>(THREADCOUNT, EntityChangeAnalyzerWorker.class);
+    	this.DependencyExtractionPool = 
+    			new ThreadedChannel<HashMap<String, Method>>(THREADCOUNT, DependencyExtractorWorker.class);
+    	this.DependencyGraphTraversalPool = 
+    			new ThreadedChannel<String>(THREADCOUNT,DFSTraversalWorker.class);
+    	this.TestFileChangeAnalysisPool = 
+    			new ThreadedChannel<String>(THREADCOUNT, TestFileChangeAnalyzerWorker.class);
+    	this.TestParseAndIndexPool = 
+    			new ThreadedChannel<String>(THREADCOUNT, TestChangeAnalyzerAndIndexerWorker.class);
+    	this.TestDependencyExtractionPool = 
+    			new ThreadedChannel<HashMap<String, Method>>(THREADCOUNT,TestDependencyExtractorWorker.class);
+    	this.EntityToTestMapPool = 
+    			new ThreadedChannel<String>(THREADCOUNT, EntityToTestMapWorker.class);
+    	this.IntraTestTraversalPool = 
+    			new ThreadedChannel<String>(THREADCOUNT, IntraTestTraversalWorker.class);
     }
 
     /**
@@ -118,6 +125,7 @@ public class TLDR {
        logger.info("TLDR is starting" + selectionStartTime);
        
        try {   	
+    	   createWorkers();
     	   RedisHandler.createPool();
     	   
 	       CLASS_DIR = tldrRunProperty.getClass_dir();	      
