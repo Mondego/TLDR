@@ -8,19 +8,17 @@
 # in the LOG folder. In order to make this script place #
 # this script to the home directory of this particular  #
 # baseline. For example - 								#
-#    RETEST-ALL/										#
-#        -------- project1/								#
+#    EKSTAZI/										#
+#        -------- projects/								#
 #		 -------- SAMPLE_COMMIT/						#
 #		 -------- LOG/									#
-#		 -------- retest_all.sh 
+#		 -------- ekstazi.sh 
+#		 -------- helper.sh
 #########################################################
 
 
 ## Clean up
 rm -rf LOG/
 
-for num in {1..3};
-do
-	./helper.sh "project"$num
-done
+./helper.sh "projects"
 
