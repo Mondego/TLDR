@@ -7,13 +7,13 @@
 
 
 root_directory=$PWD
-parser_directory=$root_directory'/surefirereportparser'
+parser_directory=$root_directory'/Surefire-report-parser'
 baselines=("TLDR" "EKSTAZI" "STARTS")
 log_root_dir=$PWD'/NUMBER-DATA'
 mkdir -p $log_root_dir
 
 if [[ ! -e $parser_directory ]]; then
-	git https://github.com/marufzaber/Surefire-report-parser.git
+	git clone https://github.com/marufzaber/Surefire-report-parser.git
 fi
 
 for index in {0..0};
